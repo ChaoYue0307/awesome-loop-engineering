@@ -1,0 +1,41 @@
+name: Translation proposal
+description: Propose a new translation or volunteer to maintain one.
+title: "[Translation]: "
+labels:
+  - translation
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: Which language do you want to add or maintain?
+      placeholder: Japanese
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: Proposed file name
+      description: See TRANSLATIONS.md for suggested names.
+      placeholder: README.ja.md
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Translation scope
+      description: What will you translate first?
+      placeholder: Introduction, Loop Contract, maturity model, contribution instructions...
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I will preserve the narrow AI/coding-agent scope.
+          required: true
+        - label: I will link back to the canonical English README.
+          required: true
+        - label: I will keep resource URLs unchanged.
+          required: true

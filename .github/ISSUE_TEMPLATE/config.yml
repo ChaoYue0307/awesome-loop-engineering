@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Open a pull request
+    url: https://github.com/ChaoYue0307/awesome-loop-engineering/compare
+    about: If you already know where the resource belongs, a pull request is preferred.

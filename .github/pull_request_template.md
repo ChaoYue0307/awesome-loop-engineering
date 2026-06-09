@@ -1,0 +1,91 @@
+# Pull Request
+
+## What Changed
+
+Select all that apply.
+
+- [ ] Added or updated resource entries
+- [ ] Added or updated a loop pattern
+- [ ] Added or updated a translation
+- [ ] Improved docs, templates, or repository presentation
+- [ ] Fixed links, typos, or formatting
+
+## Resource Summary
+
+List the resources, patterns, or translation files changed.
+
+- Title and URL:
+
+## Relevance To Loop Engineering
+
+Explain how this PR relates to the new AI/coding-agent meaning of Loop Engineering: systems that prompt, schedule, verify, persist state for, and re-trigger agents.
+
+## Category
+
+Which README section did you update?
+
+- [ ] Start Here
+- [ ] Core Loop Primitives
+- [ ] Official Runtime Guides
+- [ ] Research Foundations
+- [ ] Agent Workflow Patterns
+- [ ] Coding-Agent Loop Systems
+- [ ] Verification And Feedback Gates
+- [ ] State, Memory, And Context Persistence
+- [ ] Orchestration And Multi-Agent Delegation
+- [ ] Benchmarks And Evaluation
+- [ ] Operations Playbooks
+- [ ] Templates And Patterns
+- [ ] Critiques, Risks, And Limitations
+- [ ] Adjacent Awesome Lists
+- [ ] Translation or repository docs
+
+## Source Type
+
+- [ ] 📄 Paper
+- [ ] 📝 Blog
+- [ ] 📚 Docs
+- [ ] 🧰 Tool
+- [ ] 🧪 Benchmark
+- [ ] 🔁 Pattern
+- [ ] 🧾 Template
+- [ ] 🧭 List
+- [ ] ⚠️ Critique
+
+## Quality Labels
+
+- [ ] Direct Loop Engineering source
+- [ ] Paper or technical report
+- [ ] Official documentation
+- [ ] Engineering blog or field note
+- [ ] Tool, framework, or repository
+- [ ] Benchmark or evaluation resource
+- [ ] Critique or limitation analysis
+- [ ] Adjacent awesome list
+- [ ] Primary source
+- [ ] Implementation-heavy
+- [ ] Foundational
+- [ ] Cautionary
+- [ ] Translation
+- [ ] Repository maintenance
+
+## Evidence Quality
+
+- [ ] Tier A: primary source or official docs
+- [ ] Tier B: practitioner write-up with implementation detail
+- [ ] Tier C: curated survey or high-quality explainer
+- [ ] Tier D: commentary or news coverage
+
+## Checklist
+
+- [ ] I searched the README for duplicates.
+- [ ] The resource is public and has a stable URL.
+- [ ] The entry is in the most specific category.
+- [ ] The entry includes the correct resource type label, such as `📄 **Paper**` or `📚 **Docs**`.
+- [ ] The annotation explains why the resource matters for loop design.
+- [ ] The entry follows the format: `- 📄 **Paper** [Title](https://example.com) - One sentence annotation.`
+- [ ] The resource is not about unrelated event loops, growth loops, control theory, or generic automation.
+- [ ] New loop patterns include trigger, intake, state, verification gates, retry budget, escalation path, and starter prompt.
+- [ ] I agree that my contribution to this repository is released under `CC0-1.0`.
+- [ ] I did not copy third-party content into this repository without the right to do so.
+- [ ] Any translation links back to the canonical English README.

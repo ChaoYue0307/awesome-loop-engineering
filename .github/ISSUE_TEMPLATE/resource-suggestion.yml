@@ -1,0 +1,108 @@
+name: Resource suggestion
+description: Suggest a paper, blog, note, tool, benchmark, or critique for the list.
+title: "[Resource]: "
+labels:
+  - resource-suggestion
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Resource title
+      description: The title of the resource.
+      placeholder: Loop Engineering
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      description: Public, stable URL for the resource.
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Suggested category
+      options:
+        - Start Here
+        - Core Loop Primitives
+        - Official Runtime Guides
+        - Research Foundations
+        - Agent Workflow Patterns
+        - Coding-Agent Loop Systems
+        - Verification And Feedback Gates
+        - State, Memory, And Context Persistence
+        - Orchestration And Multi-Agent Delegation
+        - Benchmarks And Evaluation
+        - Operations Playbooks
+        - Templates And Patterns
+        - Critiques, Risks, And Limitations
+        - Adjacent Awesome Lists
+        - Not sure
+    validations:
+      required: true
+  - type: dropdown
+    id: source_type
+    attributes:
+      label: Resource type
+      options:
+        - 📄 Paper
+        - 📝 Blog
+        - 📚 Docs
+        - 🧰 Tool
+        - 🧪 Benchmark
+        - 🔁 Pattern
+        - 🧾 Template
+        - 🧭 List
+        - ⚠️ Critique
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: quality_label
+    attributes:
+      label: Quality label
+      description: Choose the strongest reason this source is useful.
+      options:
+        - Primary source
+        - Official docs
+        - Implementation-heavy
+        - Foundational
+        - Cautionary
+        - Adjacent
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: relevance
+    attributes:
+      label: Why it belongs
+      description: Explain how this resource helps people design, run, verify, evaluate, or critique AI agent loops.
+      placeholder: This belongs because...
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence_quality
+    attributes:
+      label: Evidence quality
+      description: Prefer primary, practical, and implementation-oriented sources.
+      options:
+        - Tier A - primary source or official docs
+        - Tier B - practitioner write-up with implementation detail
+        - Tier C - curated survey or high-quality explainer
+        - Tier D - commentary or news coverage
+        - Not sure
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: This is about AI/coding-agent Loop Engineering or a direct foundation for it.
+          required: true
+        - label: This is not about unrelated event loops, growth loops, or generic automation.
+          required: true
+        - label: I checked that the resource is not already listed.
+          required: true
