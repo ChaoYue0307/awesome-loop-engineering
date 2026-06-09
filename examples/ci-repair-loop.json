@@ -1,0 +1,59 @@
+{
+  "name": "CI repair loop",
+  "objective": "Turn a failing CI signal into a small verified fix or a precise escalation note.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "A required CI check fails on an active pull request."
+  },
+  "intake": {
+    "sources": ["failed check name", "CI logs", "artifacts", "changed files", "recent successful run"],
+    "selection_rule": "Work only on failures with a reproducible command or a clear log-backed cause."
+  },
+  "workspace": {
+    "isolation": "Clean worktree based on the failing commit.",
+    "allowed_actions": ["inspect logs", "run test commands", "apply narrow fixes", "add focused tests"],
+    "disallowed_actions": ["weaken assertions", "delete tests", "broad formatting", "unrequested dependency upgrade"]
+  },
+  "context": {
+    "required_files": ["AGENTS.md", "README.md", "CONTRIBUTING.md"],
+    "runtime_sources": ["CI log URL", "failing command", "test artifacts"]
+  },
+  "agents": [
+    {
+      "role": "Investigator",
+      "responsibility": "Extract the failing command, error, and likely affected files."
+    },
+    {
+      "role": "Implementer",
+      "responsibility": "Make the smallest patch consistent with the failure evidence."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Rerun the failing command and adjacent cheap checks."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "Summarize evidence and residual risk."
+    }
+  ],
+  "verification": {
+    "gates": ["original failing command passes", "patch is limited to the failure cause", "new behavior has a focused test when needed"],
+    "receipts": ["failing log excerpt", "commands run", "passing output", "diff summary"]
+  },
+  "state": {
+    "artifacts": ["CI repair progress note", "PR comment"],
+    "update_rule": "Record failed command, root-cause hypothesis, patch attempts, verification output, and unresolved blockers."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 90
+  },
+  "escalation": {
+    "conditions": ["missing credentials", "third-party outage", "nondeterministic failure", "fix exceeds scope"],
+    "destination": "PR comment or issue assigned to the owning team"
+  },
+  "exit": {
+    "success": "The target check passes locally or in rerun CI.",
+    "stop_without_success": "Failure is flaky, not reproducible, blocked by environment, or requires owner approval."
+  }
+}

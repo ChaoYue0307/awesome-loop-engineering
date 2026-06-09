@@ -1,0 +1,91 @@
+name: Loop pattern suggestion
+description: Suggest a recurring AI-agent loop pattern for the pattern library.
+title: "[Pattern]: "
+labels:
+  - pattern-suggestion
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Pattern name
+      description: Short name for the loop pattern.
+      placeholder: PR babysitter
+    validations:
+      required: true
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What outcome should this loop optimize for?
+      placeholder: Keep an open PR moving toward merge readiness without repeated human polling.
+    validations:
+      required: true
+  - type: textarea
+    id: trigger
+    attributes:
+      label: Trigger
+      description: What starts the loop?
+      placeholder: Schedule, webhook, failed check, new review comment, release event, or manual bootstrap command.
+    validations:
+      required: true
+  - type: textarea
+    id: intake
+    attributes:
+      label: Discover / intake
+      description: Where does the loop find work?
+      placeholder: GitHub PR comments, CI failures, Linear tickets, logs, alerts, feedback streams.
+    validations:
+      required: true
+  - type: textarea
+    id: delegation
+    attributes:
+      label: Agents and delegation
+      description: Which agent roles are involved and how is work handed off?
+      placeholder: Explorer identifies blockers, Implementer patches, Reviewer checks scope, Judge decides next action.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification gates
+      description: What says yes or no?
+      placeholder: Required checks pass, examples run, dashboard thresholds hold, reviewer approves, trace grader passes.
+    validations:
+      required: true
+  - type: textarea
+    id: state
+    attributes:
+      label: Durable state
+      description: What survives the next run?
+      placeholder: Progress file, issue comment, database checkpoint, trace, status report, processed IDs.
+    validations:
+      required: true
+  - type: textarea
+    id: budget
+    attributes:
+      label: Budget and exit
+      description: When should the loop stop?
+      placeholder: Max retries, max runtime, success condition, stop-without-success condition.
+    validations:
+      required: true
+  - type: textarea
+    id: escalation
+    attributes:
+      label: Escalation
+      description: When should a human take over and where should the loop report?
+      placeholder: Missing credentials, architecture judgment, production approval, repeated failure, unclear ownership.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: This is a recurring AI-agent loop, not a one-off prompt or generic automation.
+          required: true
+        - label: The pattern includes trigger, intake, delegation, verification, durable state, budget, escalation, and exit.
+          required: true
+        - label: The pattern has at least one concrete verification gate stronger than model self-assessment.
+          required: true
+        - label: Sensitive actions are human-approved or explicitly out of scope.
+          required: true

@@ -128,7 +128,7 @@ Avoid:
 
 ## Adding A Loop Pattern
 
-For a practical loop pattern, use [`templates/loop-pattern.md`](templates/loop-pattern.md) and place the finished pattern in [`patterns/`](patterns/). A good pattern names:
+For a practical loop pattern, use [`templates/loop-pattern.md`](templates/loop-pattern.md), optionally structure it with [`schemas/loop-contract.schema.json`](schemas/loop-contract.schema.json), and place the finished pattern in [`patterns/`](patterns/). A good pattern names:
 
 - objective;
 - trigger;
@@ -142,7 +142,7 @@ For a practical loop pattern, use [`templates/loop-pattern.md`](templates/loop-p
 - loop instruction, automation spec, hook config, or scheduled command;
 - failure modes.
 
-Pattern PRs should be concrete enough that a reader can adapt them to an agent runtime without guessing the loop contract.
+Pattern PRs should be concrete enough that a reader can adapt them to an agent runtime without guessing the loop contract. If you want feedback before writing the full pattern, open a loop pattern suggestion issue.
 
 ## Translation Contributions
 

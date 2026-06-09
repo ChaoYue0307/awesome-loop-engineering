@@ -1,0 +1,59 @@
+{
+  "name": "Docs drift collector",
+  "objective": "Find documentation that no longer matches code, tests, CLI behavior, API schemas, screenshots, or examples, then propose small verified patches.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Weekly, and after release branches, CLI flag changes, public API changes, or docs-related issues."
+  },
+  "intake": {
+    "sources": ["changed files", "public docs", "examples", "generated API references", "CLI help", "user reports"],
+    "selection_rule": "Patch only drift confirmed against code, schema, tests, or runtime output."
+  },
+  "workspace": {
+    "isolation": "Docs-focused branch or worktree.",
+    "allowed_actions": ["edit docs", "edit examples", "add docs tests", "run link and example checks"],
+    "disallowed_actions": ["change product behavior", "edit generated files manually", "change public APIs without approval"]
+  },
+  "context": {
+    "required_files": ["README.md", "CONTRIBUTING.md", "docs build instructions"],
+    "runtime_sources": ["CLI help output", "OpenAPI schema", "docs test output", "link checker output"]
+  },
+  "agents": [
+    {
+      "role": "Explorer",
+      "responsibility": "Map changed behavior to docs that mention it."
+    },
+    {
+      "role": "Implementer",
+      "responsibility": "Patch only confirmed docs drift."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Run docs tests, examples, link checks, or CLI comparisons."
+    },
+    {
+      "role": "Reviewer",
+      "responsibility": "Check tone, accuracy, and scope."
+    }
+  ],
+  "verification": {
+    "gates": ["updated examples run or match current output", "link checker passes", "diff is scoped to confirmed drift"],
+    "receipts": ["changed docs", "runtime output used as evidence", "commands run", "false positives recorded"]
+  },
+  "state": {
+    "artifacts": ["docs drift report", "processed item list"],
+    "update_rule": "Record candidate drift items, checked files, accepted patches, rejected false positives, and verification commands."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 60
+  },
+  "escalation": {
+    "conditions": ["docs conflict with product decisions", "examples require credentials", "screenshots need design approval"],
+    "destination": "docs owner issue or PR comment"
+  },
+  "exit": {
+    "success": "All high-confidence drift items are patched and verified.",
+    "stop_without_success": "Remaining items require owner judgment or verification cannot run."
+  }
+}

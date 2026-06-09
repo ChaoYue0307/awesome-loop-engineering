@@ -63,6 +63,7 @@ Objective
 ## Contents
 
 - [How To Use This List](#how-to-use-this-list)
+- [Concept Guides](#concept-guides)
 - [Best First Reads](#best-first-reads)
 - [Resource Type Legend](#resource-type-legend)
 - [Start Here](#start-here)
@@ -81,6 +82,7 @@ Objective
 - [Benchmarks And Evaluation](#benchmarks-and-evaluation)
 - [Operations Playbooks](#operations-playbooks)
 - [Templates And Patterns](#templates-and-patterns)
+- [Examples And Schema](#examples-and-schema)
 - [Pattern Library](#pattern-library)
 - [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
 - [Adjacent Awesome Lists](#adjacent-awesome-lists)
@@ -94,6 +96,16 @@ Objective
 - Comparing systems? Use [Coding-Agent Loop Systems](#coding-agent-loop-systems), [Orchestration And Multi-Agent Delegation](#orchestration-and-multi-agent-delegation), and [Benchmarks And Evaluation](#benchmarks-and-evaluation).
 - Adding a resource? See [Contributing](#contributing) and prefer primary sources, official docs, papers, and implementation-heavy write-ups.
 - Reviewing a PR? Use the [curation standard](CURATION.md) and [maintenance guide](MAINTENANCE.md).
+
+## Concept Guides
+
+These repository-native guides define the concept, boundaries, and practical artifacts without relying on vendor-specific terminology.
+
+- 🧾 **Template** [Loop Engineering Manifesto](MANIFESTO.md) - Concise statement of the concept, commitments, non-goals, and success standard.
+- 🧾 **Template** [Loop Engineering Taxonomy](TAXONOMY.md) - Classification by trigger, intake, verification, state model, topology, and operating domain.
+- ⚠️ **Critique** [Loop Engineering Anti-Patterns](ANTI-PATTERNS.md) - Common failure modes such as prompt loops with no contract, infinite retries, model self-approval, hidden state, and unsafe autonomy.
+- 🧾 **Template** [Comparison Guide](COMPARISON.md) - Distinguishes Loop Engineering from prompt engineering, context engineering, harness engineering, workflow automation, agent workflows, and evaluation loops.
+- 🧾 **Template** [Sourced Signals And Quotes](QUOTES.md) - Short sourced signals from linked public materials that anchor the emerging concept.
 
 ## Best First Reads
 
@@ -116,7 +128,7 @@ Start here if you want the shortest path from concept to practice.
 - 🧰 **Tool**: repository, framework, SDK, runtime, or implementation.
 - 🧪 **Benchmark**: benchmark, eval suite, leaderboard, or evaluation dataset.
 - 🔁 **Pattern**: real-world loop pattern, operational playbook, or reusable workflow.
-- 🧾 **Template**: template, checklist, or contribution artifact.
+- 🧾 **Template**: template, checklist, schema, repository guide, or contribution artifact.
 - 🧭 **List**: adjacent awesome list, ecosystem map, or curated collection.
 - ⚠️ **Critique**: risk analysis, limitation, caveat, or skeptical take.
 
@@ -353,6 +365,7 @@ Reusable patterns that contributors can turn into future examples, templates, or
 
 - 🧾 **Template** [Resource entry template](templates/resource-entry.md) - Format for adding a single resource with evidence quality and category fit.
 - 🧾 **Template** [Loop pattern template](templates/loop-pattern.md) - Template for documenting an operational loop such as PR babysitting, CI repair, or feedback clustering.
+- 🧾 **Template** [Loop contract schema](schemas/loop-contract.schema.json) - Machine-readable schema for portable loop specs.
 - 🧾 **Template** [Translation guide](TRANSLATIONS.md) - How to add or maintain a language translation without drifting from the canonical English list.
 - 🧾 **Template** [Pattern library index](patterns/README.md) - Practical loop patterns with triggers, state, verification gates, budgets, and escalation paths.
 
@@ -363,6 +376,15 @@ Additional loop patterns worth documenting:
 - **Feedback clusterer**: periodically group Slack, GitHub, Linear, or social feedback into actionable themes.
 - **Deploy verifier**: watch rollout signals and logs, compare against release expectations, and stop on anomalies.
 - **Docs drift collector**: find mismatches between code and docs, propose patches, and verify examples.
+
+## Examples And Schema
+
+Concrete examples make the loop contract easier to adapt to real repositories.
+
+- 🔁 **Pattern** [Example loop specs](examples/README.md) - Human-readable walkthroughs for PR babysitting, CI repair, and docs drift collection.
+- 🧾 **Template** [PR babysitter contract](examples/pr-babysitter-loop.json) - Schema-shaped loop contract for keeping a pull request moving.
+- 🧾 **Template** [CI repair contract](examples/ci-repair-loop.json) - Schema-shaped loop contract for turning failing CI into a verified patch or escalation.
+- 🧾 **Template** [Docs drift contract](examples/docs-drift-loop.json) - Schema-shaped loop contract for recurring docs/code consistency checks.
 
 ## Pattern Library
 
@@ -410,6 +432,12 @@ Fast path for adding a resource:
 ```
 
 - Open a pull request and explain the category fit, source type, and why builders should care.
+
+Fast path for contributing a loop pattern:
+
+- Start from the [loop pattern template](templates/loop-pattern.md) or [loop contract schema](schemas/loop-contract.schema.json).
+- Include trigger, discover/intake, delegation, workspace, context, verification, durable state, budget, escalation, and exit.
+- Open a pattern suggestion issue if you want feedback before writing the full pattern.
 
 Good submissions should answer three questions:
 

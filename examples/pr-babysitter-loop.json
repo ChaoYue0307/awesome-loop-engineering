@@ -1,0 +1,55 @@
+{
+  "name": "PR babysitter",
+  "objective": "Keep one pull request moving toward merge readiness without repeatedly requiring a human to poll comments, CI, conflicts, and stale review threads.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Every 2 hours during working hours, and after requested changes or failed required checks."
+  },
+  "intake": {
+    "sources": ["GitHub pull request", "review comments", "required checks", "mergeability state"],
+    "selection_rule": "Act only on explicit blockers: unresolved review comments, failed checks, merge conflicts, or stale reviewer state."
+  },
+  "workspace": {
+    "isolation": "Dedicated branch or worktree based on the PR branch.",
+    "allowed_actions": ["Read PR metadata", "apply narrow fixes", "run relevant checks", "write a progress comment"],
+    "disallowed_actions": ["force push", "large refactor", "dependency upgrade", "secrets access", "production change"]
+  },
+  "context": {
+    "required_files": ["AGENTS.md", "CONTRIBUTING.md"],
+    "runtime_sources": ["latest PR head SHA", "review threads", "CI logs"]
+  },
+  "agents": [
+    {
+      "role": "Explorer",
+      "responsibility": "Summarize blockers and identify the smallest actionable work item."
+    },
+    {
+      "role": "Implementer",
+      "responsibility": "Patch only the explicit blocker in the isolated workspace."
+    },
+    {
+      "role": "Reviewer",
+      "responsibility": "Check that the diff is narrow and review comments were addressed."
+    }
+  ],
+  "verification": {
+    "gates": ["required GitHub checks pass", "unresolved comments are answered or resolved", "diff is scoped to the blocker"],
+    "receipts": ["commands run", "check URLs", "changed files", "remaining blockers"]
+  },
+  "state": {
+    "artifacts": ["PR progress comment", "local PROGRESS.md"],
+    "update_rule": "Record last checked SHA, blockers, attempted fixes, verification evidence, and next action after every run."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 60
+  },
+  "escalation": {
+    "conditions": ["architectural decision needed", "same failure repeats twice", "reviewer disagreement", "force push required"],
+    "destination": "PR comment tagging the human owner"
+  },
+  "exit": {
+    "success": "PR is merge-ready or waiting only on human review.",
+    "stop_without_success": "Loop is blocked, budget is exhausted, or the next action requires human judgment."
+  }
+}
