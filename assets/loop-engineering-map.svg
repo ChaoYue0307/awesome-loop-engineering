@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
   <title id="title">Loop Engineering ecosystem map</title>
-  <desc id="desc">A layered map showing Prompt Engineering, Context Engineering, Harness Engineering, and Loop Engineering around agent loops.</desc>
+  <desc id="desc">A layered map showing Prompt Engineering, Context Engineering, Harness Engineering, and Loop Engineering as a clean loop contract pipeline.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0f172a"/>
@@ -13,9 +13,12 @@
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
     </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#0f172a"/>
+    </marker>
   </defs>
 
-  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
+  <rect width="1200" height="700" rx="34" fill="url(#bg)"/>
   <text x="600" y="64" text-anchor="middle" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="34" font-weight="800">Loop Engineering Stack</text>
   <text x="600" y="98" text-anchor="middle" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="17">From single prompts to recurring, stateful, verified agent systems</text>
 
@@ -32,46 +35,74 @@
     <text x="130" y="388" fill="#ddd6fe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="700">Harness Engineering</text>
     <text x="130" y="416" fill="#ede9fe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16">What tools, permissions, sandboxes, traces, and checks surround one agent run?</text>
 
-    <rect x="80" y="458" width="1040" height="176" rx="26" fill="url(#loop)" opacity="0.95"/>
+    <rect x="80" y="458" width="1040" height="160" rx="26" fill="url(#loop)" opacity="0.95"/>
     <text x="130" y="493" fill="#082f49" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="900">Loop Engineering</text>
-    <text x="130" y="522" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="600">A recurring system that prompts, verifies, persists state, retries, reports, and escalates agent work.</text>
+    <text x="130" y="522" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="600">A loop contract for recurring, stateful, verified agent work.</text>
   </g>
 
-  <g fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
-    <path d="M242 570 H292"/>
-    <path d="M292 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
-    <path d="M380 570 H430"/>
-    <path d="M430 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
-    <path d="M542 570 H592"/>
-    <path d="M592 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
-    <path d="M668 570 H718"/>
-    <path d="M718 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
-    <path d="M810 570 H860"/>
-    <path d="M860 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
-    <path d="M992 570 H1050 V622 H190 C150 622 130 604 130 592"/>
-    <path d="M130 592 l-8 12 h16 Z" fill="#0f172a" stroke="none"/>
-    <path d="M764 592 V608"/>
-    <path d="M764 608 l-8 -12 h16 Z" fill="#0f172a" stroke="none"/>
+  <g fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" opacity="0.78" marker-end="url(#arrow)">
+    <path d="M236 557 H260"/>
+    <path d="M386 557 H410"/>
+    <path d="M536 557 H560"/>
+    <path d="M686 557 H710"/>
+    <path d="M836 557 H860"/>
+    <path d="M986 557 H1010"/>
   </g>
 
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="800">
-    <rect x="130" y="548" width="112" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
-    <text x="186" y="575" text-anchor="middle" fill="#e0f2fe">Trigger</text>
-    <rect x="292" y="548" width="88" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
-    <text x="336" y="575" text-anchor="middle" fill="#e0f2fe">Intake</text>
-    <rect x="430" y="548" width="112" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
-    <text x="486" y="575" text-anchor="middle" fill="#e0f2fe">Delegate</text>
-    <rect x="592" y="548" width="76" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
-    <text x="630" y="575" text-anchor="middle" fill="#e0f2fe">Act</text>
-    <rect x="718" y="548" width="92" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
-    <text x="764" y="575" text-anchor="middle" fill="#e0f2fe">Verify</text>
-    <rect x="860" y="548" width="132" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
-    <text x="926" y="575" text-anchor="middle" fill="#e0f2fe">Persist state</text>
-    <text x="764" y="628" text-anchor="middle" fill="#7f1d1d" font-size="14" font-weight="900">if failed: retry or escalate</text>
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+    <g>
+      <rect x="110" y="528" width="126" height="58" rx="18" fill="#0f172a" opacity="0.92"/>
+      <circle cx="136" cy="557" r="14" fill="#38bdf8"/>
+      <text x="136" y="562" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="900">1</text>
+      <text x="177" y="552" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="800">Goal</text>
+      <text x="177" y="570" text-anchor="middle" fill="#bae6fd" font-size="11">success criteria</text>
+    </g>
+    <g>
+      <rect x="260" y="528" width="126" height="58" rx="18" fill="#0f172a" opacity="0.92"/>
+      <circle cx="286" cy="557" r="14" fill="#38bdf8"/>
+      <text x="286" y="562" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="900">2</text>
+      <text x="327" y="552" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="800">Trigger</text>
+      <text x="327" y="570" text-anchor="middle" fill="#bae6fd" font-size="11">schedule / event</text>
+    </g>
+    <g>
+      <rect x="410" y="528" width="126" height="58" rx="18" fill="#0f172a" opacity="0.92"/>
+      <circle cx="436" cy="557" r="14" fill="#38bdf8"/>
+      <text x="436" y="562" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="900">3</text>
+      <text x="477" y="552" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="800">Intake</text>
+      <text x="477" y="570" text-anchor="middle" fill="#bae6fd" font-size="11">find work</text>
+    </g>
+    <g>
+      <rect x="560" y="528" width="126" height="58" rx="18" fill="#0f172a" opacity="0.92"/>
+      <circle cx="586" cy="557" r="14" fill="#38bdf8"/>
+      <text x="586" y="562" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="900">4</text>
+      <text x="627" y="552" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="800">Agent work</text>
+      <text x="627" y="570" text-anchor="middle" fill="#bae6fd" font-size="11">isolated tools</text>
+    </g>
+    <g>
+      <rect x="710" y="528" width="126" height="58" rx="18" fill="#0f172a" opacity="0.92"/>
+      <circle cx="736" cy="557" r="14" fill="#38bdf8"/>
+      <text x="736" y="562" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="900">5</text>
+      <text x="777" y="552" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="800">Verify</text>
+      <text x="777" y="570" text-anchor="middle" fill="#bae6fd" font-size="11">tests / evals</text>
+    </g>
+    <g>
+      <rect x="860" y="528" width="126" height="58" rx="18" fill="#0f172a" opacity="0.92"/>
+      <circle cx="886" cy="557" r="14" fill="#38bdf8"/>
+      <text x="886" y="562" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="900">6</text>
+      <text x="927" y="552" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="800">Persist</text>
+      <text x="927" y="570" text-anchor="middle" fill="#bae6fd" font-size="11">state / receipts</text>
+    </g>
+    <g>
+      <rect x="1010" y="528" width="126" height="58" rx="18" fill="#0f172a" opacity="0.92"/>
+      <circle cx="1036" cy="557" r="14" fill="#38bdf8"/>
+      <text x="1036" y="562" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="900">7</text>
+      <text x="1077" y="552" text-anchor="middle" fill="#e0f2fe" font-size="13" font-weight="800">Repeat</text>
+      <text x="1077" y="570" text-anchor="middle" fill="#bae6fd" font-size="11">or escalate</text>
+    </g>
   </g>
 
   <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="15">
-    <circle cx="95" cy="695" r="5" fill="#38bdf8"/>
-    <text x="112" y="700" fill="#cbd5e1">Core contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, exit.</text>
+    <circle cx="95" cy="675" r="5" fill="#38bdf8"/>
+    <text x="112" y="680" fill="#cbd5e1">Core contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, exit.</text>
   </g>
 </svg>
