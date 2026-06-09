@@ -68,6 +68,9 @@ npx --yes markdownlint-cli2 "**/*.md"
 python3 -m py_compile scripts/*.py
 python3 scripts/check_license.py
 python3 scripts/check_resource_labels.py README.md
+python3 scripts/check_loop_contract_examples.py
+python3 scripts/check_pages_metadata.py
+python3 scripts/check_internal_links.py
 python3 scripts/check_commit_identity.py
 python3 scripts/verify_urls.py . --timeout 12 --workers 20
 git diff --check

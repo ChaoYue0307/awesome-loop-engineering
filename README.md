@@ -458,6 +458,8 @@ Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 
 This repository uses a strict [curation standard](CURATION.md) to keep the list focused, verifiable, and useful for builders. Maintainers can use [MAINTENANCE.md](MAINTENANCE.md) for link checks, identity checks, and periodic refreshes.
 
+For community expectations and support channels, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [SUPPORT.md](SUPPORT.md), and [SECURITY.md](SECURITY.md).
+
 Fast path for adding a resource:
 
 - Check that it is about AI/coding-agent Loop Engineering or a direct foundation for it.

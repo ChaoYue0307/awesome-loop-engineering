@@ -41,6 +41,9 @@ jobs:
       - name: Check Pages metadata
         run: python scripts/check_pages_metadata.py
 
+      - name: Check internal links
+        run: python scripts/check_internal_links.py
+
       - name: Check links
         run: python scripts/verify_urls.py . --timeout 12 --workers 20
 
