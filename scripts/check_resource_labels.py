@@ -12,6 +12,7 @@ from pathlib import Path
 RESOURCE_SECTIONS = {
     "Canonical Definition",
     "Concept Guides",
+    "Maintainer Picks",
     "Best First Reads",
     "Start Here",
     "Core Loop Primitives",
@@ -29,6 +30,7 @@ RESOURCE_SECTIONS = {
     "Community Gallery",
     "Pattern Library",
     "Discovery And Distribution",
+    "Roadmap And Discussion",
     "Critiques, Risks, And Limitations",
     "Adjacent Awesome Lists",
 }

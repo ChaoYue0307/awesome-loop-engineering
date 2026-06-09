@@ -66,6 +66,7 @@ Objective
 - [How To Use This List](#how-to-use-this-list)
 - [Canonical Definition](#canonical-definition)
 - [Concept Guides](#concept-guides)
+- [Maintainer Picks](#maintainer-picks)
 - [Best First Reads](#best-first-reads)
 - [Resource Type Legend](#resource-type-legend)
 - [Start Here](#start-here)
@@ -88,6 +89,7 @@ Objective
 - [Community Gallery](#community-gallery)
 - [Pattern Library](#pattern-library)
 - [Discovery And Distribution](#discovery-and-distribution)
+- [Roadmap And Discussion](#roadmap-and-discussion)
 - [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
 - [Adjacent Awesome Lists](#adjacent-awesome-lists)
 - [Contributing](#contributing)
@@ -95,6 +97,7 @@ Objective
 ## How To Use This List
 
 - New to the term? Read [Best First Reads](#best-first-reads), then the [Loop Contract](#the-loop-contract).
+- Want the shortest curated path? Read [Maintainer Picks](#maintainer-picks).
 - Designing a real loop? Start with [Core Loop Primitives](#core-loop-primitives), [Official Runtime Guides](#official-runtime-guides), and [Templates And Patterns](#templates-and-patterns).
 - Improving reliability? Focus on [Verification And Feedback Gates](#verification-and-feedback-gates), [State, Memory, And Context Persistence](#state-memory-and-context-persistence), and [Critiques, Risks, And Limitations](#critiques-risks-and-limitations).
 - Comparing systems? Use [Coding-Agent Loop Systems](#coding-agent-loop-systems), [Orchestration And Multi-Agent Delegation](#orchestration-and-multi-agent-delegation), and [Benchmarks And Evaluation](#benchmarks-and-evaluation).
@@ -119,6 +122,12 @@ These repository-native guides define the concept, boundaries, and practical art
 - 🧾 **Template** [Sourced Signals And Quotes](QUOTES.md) - Short sourced signals from linked public materials that anchor the emerging concept.
 - 🧾 **Template** [Outreach Kit](OUTREACH.md) - Conservative messages for inviting corrections, sources, and real-world loop patterns.
 - 🧾 **Template** [Distribution Checklist](DISTRIBUTION.md) - Launch copy, indexing steps, outreach targets, and accuracy rules for public sharing.
+
+## Maintainer Picks
+
+For a compact path through the repository, start with [Maintainer Picks](MAINTAINER_PICKS.md).
+
+- 🧾 **Template** [Maintainer Picks](MAINTAINER_PICKS.md) - Shortlist of concept, practice, reliability, and reusable artifact resources.
 
 ## Best First Reads
 
@@ -412,6 +421,9 @@ The gallery is for real-world or realistic loop examples contributed by the comm
 
 - 🧾 **Template** [Loop gallery guide](gallery/README.md) - Quality bar for contributed loop examples with receipts and lessons learned.
 - 🧾 **Template** [Loop gallery template](gallery/template.md) - Markdown template for sharing a loop's trigger, intake, state, verification, escalation, and safety notes.
+- 🔁 **Pattern** [PR babysitter reference loop](gallery/pr-babysitter-reference.md) - Reference gallery entry for keeping a pull request moving.
+- 🔁 **Pattern** [CI repair reference loop](gallery/ci-repair-reference.md) - Reference gallery entry for turning failing CI into a verified patch or escalation.
+- 🔁 **Pattern** [Docs drift reference loop](gallery/docs-drift-reference.md) - Reference gallery entry for recurring docs/code consistency checks.
 
 ## Discovery And Distribution
 
@@ -423,6 +435,12 @@ This repository includes a lightweight GitHub Pages landing page for search and 
 - 🧾 **Template** [Robots file](docs/robots.txt) - Allows indexing and points crawlers to the sitemap.
 
 For launch copy and backlink strategy, use the [distribution checklist](DISTRIBUTION.md).
+
+## Roadmap And Discussion
+
+- 🧾 **Template** [Roadmap](ROADMAP.md) - Near-term work, pattern priorities, gallery goals, and open questions.
+- 🧾 **Template** [Launch article](posts/launch.md) - Shareable explanation of the concept and repository.
+- 🧾 **Template** [Discussion guide](DISCUSSIONS.md) - Suggested discussion categories, starter prompts, and moderation standard.
 
 ## Pattern Library
 

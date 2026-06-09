@@ -14,6 +14,8 @@ Search engines may still take days or longer to index a new repository. Backlink
 
 ## Launch Copy
 
+Use [`posts/launch.md`](posts/launch.md) when you want a longer article-style launch post.
+
 ### Short Post
 
 ```text
@@ -51,6 +53,7 @@ https://github.com/ChaoYue0307/awesome-loop-engineering
 - Hacker News or Reddit only if framed as a useful field guide, not a launch announcement.
 - Relevant GitHub issues or discussions where Loop Engineering, coding agents, or agent workflows are already being discussed.
 - Authors and maintainers cited in the repo, asking for corrections or stronger canonical links.
+- The repository's own Discussions, using [`DISCUSSIONS.md`](DISCUSSIONS.md) for starter prompts and scope guidance.
 
 ## Outreach Targets
 

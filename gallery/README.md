@@ -14,6 +14,14 @@ gallery/<short-loop-name>.md
 
 Use [`gallery/template.md`](template.md) as the starting point.
 
+## Reference Entries
+
+These entries are reference examples, not claimed production deployments. They show the level of specificity expected from future real or anonymized gallery contributions.
+
+- [PR babysitter reference loop](pr-babysitter-reference.md)
+- [CI repair reference loop](ci-repair-reference.md)
+- [Docs drift reference loop](docs-drift-reference.md)
+
 ## Quality Bar
 
 Gallery entries should include:
