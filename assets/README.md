@@ -2,7 +2,7 @@
 
 This directory contains visual assets used by the repository README, GitHub Pages landing page, and social previews.
 
-- `awesome-loop-engineering-cover.png` - Cover image for the project landing page. It visualizes the core loop: Discover, Delegate, Verify, Persist, Repeat.
+- `awesome-loop-engineering-cover.png` - Wide social and README cover image. It visualizes the Prompt, Context, Harness, and Loop stack.
 - `loop-engineering-stack.svg` - Lightweight stack diagram showing how Loop Engineering sits above prompt, context, and harness engineering.
 - `loop-contract-cards.svg` - Visual card grid for the Loop Contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.
 
