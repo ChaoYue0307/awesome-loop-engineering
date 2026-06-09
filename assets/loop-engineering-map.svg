@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
   <title id="title">Loop Engineering ecosystem map</title>
   <desc id="desc">A layered map showing Prompt Engineering, Context Engineering, Harness Engineering, and Loop Engineering around agent loops.</desc>
   <defs>
@@ -15,7 +15,7 @@
     </filter>
   </defs>
 
-  <rect width="1200" height="620" rx="34" fill="url(#bg)"/>
+  <rect width="1200" height="720" rx="34" fill="url(#bg)"/>
   <text x="600" y="64" text-anchor="middle" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="34" font-weight="800">Loop Engineering Stack</text>
   <text x="600" y="98" text-anchor="middle" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="17">From single prompts to recurring, stateful, verified agent systems</text>
 
@@ -32,31 +32,46 @@
     <text x="130" y="388" fill="#ddd6fe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="700">Harness Engineering</text>
     <text x="130" y="416" fill="#ede9fe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16">What tools, permissions, sandboxes, traces, and checks surround one agent run?</text>
 
-    <rect x="80" y="458" width="1040" height="104" rx="26" fill="url(#loop)" opacity="0.95"/>
-    <text x="130" y="498" fill="#082f49" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="900">Loop Engineering</text>
-    <text x="130" y="528" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="600">What recurring system prompts, verifies, persists, retries, reports, and escalates agent work?</text>
+    <rect x="80" y="458" width="1040" height="176" rx="26" fill="url(#loop)" opacity="0.95"/>
+    <text x="130" y="493" fill="#082f49" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="900">Loop Engineering</text>
+    <text x="130" y="522" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="600">A recurring system that prompts, verifies, persists state, retries, reports, and escalates agent work.</text>
   </g>
 
-  <g fill="none" stroke="#e0f2fe" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
-    <path d="M760 485 C850 440 905 440 982 487"/>
-    <path d="M982 487 l-25 -3 l13 -22"/>
-    <path d="M982 532 C890 578 833 576 756 529"/>
-    <path d="M756 529 l25 3 l-13 22"/>
+  <g fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.82">
+    <path d="M242 570 H292"/>
+    <path d="M292 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
+    <path d="M380 570 H430"/>
+    <path d="M430 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
+    <path d="M542 570 H592"/>
+    <path d="M592 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
+    <path d="M668 570 H718"/>
+    <path d="M718 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
+    <path d="M810 570 H860"/>
+    <path d="M860 570 l-12 -8 v16 Z" fill="#0f172a" stroke="none"/>
+    <path d="M992 570 H1050 V622 H190 C150 622 130 604 130 592"/>
+    <path d="M130 592 l-8 12 h16 Z" fill="#0f172a" stroke="none"/>
+    <path d="M764 592 V608"/>
+    <path d="M764 608 l-8 -12 h16 Z" fill="#0f172a" stroke="none"/>
   </g>
 
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700">
-    <rect x="760" y="470" width="108" height="34" rx="17" fill="#0f172a" opacity="0.88"/>
-    <text x="814" y="492" text-anchor="middle" fill="#bae6fd">Trigger</text>
-    <rect x="896" y="454" width="108" height="34" rx="17" fill="#0f172a" opacity="0.88"/>
-    <text x="950" y="476" text-anchor="middle" fill="#bae6fd">Act</text>
-    <rect x="960" y="514" width="116" height="34" rx="17" fill="#0f172a" opacity="0.88"/>
-    <text x="1018" y="536" text-anchor="middle" fill="#bae6fd">Verify</text>
-    <rect x="796" y="538" width="132" height="34" rx="17" fill="#0f172a" opacity="0.88"/>
-    <text x="862" y="560" text-anchor="middle" fill="#bae6fd">Persist state</text>
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="800">
+    <rect x="130" y="548" width="112" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
+    <text x="186" y="575" text-anchor="middle" fill="#e0f2fe">Trigger</text>
+    <rect x="292" y="548" width="88" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
+    <text x="336" y="575" text-anchor="middle" fill="#e0f2fe">Intake</text>
+    <rect x="430" y="548" width="112" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
+    <text x="486" y="575" text-anchor="middle" fill="#e0f2fe">Delegate</text>
+    <rect x="592" y="548" width="76" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
+    <text x="630" y="575" text-anchor="middle" fill="#e0f2fe">Act</text>
+    <rect x="718" y="548" width="92" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
+    <text x="764" y="575" text-anchor="middle" fill="#e0f2fe">Verify</text>
+    <rect x="860" y="548" width="132" height="44" rx="22" fill="#0f172a" opacity="0.9"/>
+    <text x="926" y="575" text-anchor="middle" fill="#e0f2fe">Persist state</text>
+    <text x="764" y="628" text-anchor="middle" fill="#7f1d1d" font-size="14" font-weight="900">if failed: retry or escalate</text>
   </g>
 
   <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="15">
-    <circle cx="95" cy="595" r="5" fill="#38bdf8"/>
-    <text x="112" y="600" fill="#cbd5e1">Core contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, exit.</text>
+    <circle cx="95" cy="695" r="5" fill="#38bdf8"/>
+    <text x="112" y="700" fill="#cbd5e1">Core contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, exit.</text>
   </g>
 </svg>

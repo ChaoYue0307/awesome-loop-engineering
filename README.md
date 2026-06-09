@@ -370,7 +370,7 @@ Practical loop patterns translate the abstract contract into runnable operating 
 ## Critiques, Risks, And Limitations
 
 - ⚠️ **Critique** [Most Developers Do Not Need Agent Loops Yet](https://alphasignalai.substack.com/p/most-developers-do-not-need-agent) - Useful caution against adopting loops before the task, signal, and economics justify them.
-- ⚠️ **Critique** [The Loop Is Not the Product](https://dev.to/dannwaneri/the-loop-is-not-the-product-466d) - Reminder that loops still need customer value, clear exit conditions, and human judgment.
+- ⚠️ **Critique** [Engineering Agentic Systems for Reliability](https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/) - Cautions that agentic systems fail at boundaries when permissions, verification, traceability, and escalation are weak.
 - ⚠️ **Critique** [Self-Correcting Agents: Reflexion, CRITIC, and ReAct Loops Compared](https://callsphere.ai/blog/self-correcting-agents-reflexion-critic-react-loops-compared-2026) - Compares self-correction patterns and their cost/failure tradeoffs.
 - ⚠️ **Critique** [How to Build an AI Agent Harness: A 2026 Complete Guide](https://atlan.com/know/how-to-build-ai-agent-harness/) - Broad guide with useful warnings on data readiness, permissions, context management, and evaluation.
 - ⚠️ **Critique** [Harness Engineering vs Prompt Engineering vs Context Engineering Explained](https://medium.com/@visrow/harness-engineering-vs-prompt-engineering-vs-context-engineering-explained-0423b692c87d) - Adjacent framing that helps avoid confusing loop engineering with the surrounding harness discipline.
