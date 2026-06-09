@@ -64,6 +64,7 @@ When making a major improvement:
 Run these before pushing:
 
 ```sh
+npx --yes awesome-lint
 npx --yes markdownlint-cli2 "**/*.md"
 python3 -m py_compile scripts/*.py
 python3 scripts/check_license.py
@@ -74,4 +75,10 @@ python3 scripts/check_internal_links.py
 python3 scripts/check_commit_identity.py
 python3 scripts/verify_urls.py . --timeout 12 --workers 20
 git diff --check
+```
+
+If local `awesome-lint` reports `Awesome list must reside in a valid git repository` because the local `origin` uses SSH without an available key, run the public check after pushing:
+
+```sh
+npx --yes awesome-lint https://github.com/ChaoYue0307/awesome-loop-engineering
 ```

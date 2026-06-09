@@ -27,6 +27,7 @@ Run:
 
 ```sh
 npx --yes awesome-lint
+npx --yes awesome-lint https://github.com/ChaoYue0307/awesome-loop-engineering
 npx --yes markdownlint-cli2 "**/*.md"
 python3 scripts/check_license.py
 python3 scripts/check_resource_labels.py README.md
@@ -38,7 +39,7 @@ python3 scripts/check_commit_identity.py
 git diff --check
 ```
 
-Fix all actionable findings before submitting. If `awesome-lint` reports a false positive, document it in the submission PR instead of hiding it.
+Fix all actionable findings before submitting. The public URL check should pass before opening the upstream PR. If `awesome-lint` reports a false positive, document it in the submission PR instead of hiding it.
 
 If `awesome-lint` reports `Awesome list must reside in a valid git repository` from a local clone, check whether the local `origin` uses SSH without an available key. Run the linter from an HTTPS clone or against the public GitHub URL after pushing before treating that as a README failure.
 

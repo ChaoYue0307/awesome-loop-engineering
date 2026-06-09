@@ -36,6 +36,9 @@ jobs:
         with:
           globs: "**/*.md"
 
+      - name: Check Awesome list standards
+        run: npx --yes awesome-lint
+
       - name: Check license text
         run: python scripts/check_license.py
 
