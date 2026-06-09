@@ -1,15 +1,7 @@
-# Awesome Loop Engineering
+# Awesome Loop Engineering [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
-</p>
-
-<p align="center">
-  <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-blue.svg" alt="License: CC0-1.0"></a>
-  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://img.shields.io/github/actions/workflow/status/ChaoYue0307/awesome-loop-engineering/quality.yml?branch=main&label=quality" alt="Quality"></a>
-  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/stargazers"><img src="https://img.shields.io/github/stars/ChaoYue0307/awesome-loop-engineering?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/pulls"><img src="https://img.shields.io/github/issues-pr/ChaoYue0307/awesome-loop-engineering" alt="Pull requests"></a>
 </p>
 
 <p align="center">
@@ -26,6 +18,40 @@ Prompt engineering improves what you ask the model. Context engineering improves
 A loop discovers work, hands it to one or more agents, checks the result, records state, decides what should happen next, and runs again on a cadence or until a verifiable goal is reached.
 
 This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
+
+## Contents
+
+- [Why This Repo Exists](#why-this-repo-exists)
+- [Mental Model](#mental-model)
+- [How To Use This List](#how-to-use-this-list)
+- [Canonical Definition](#canonical-definition)
+- [Concept Guides](#concept-guides)
+- [Maintainer Picks](#maintainer-picks)
+- [Resource Type Legend](#resource-type-legend)
+- [Start Here](#start-here)
+- [Scope Boundary](#scope-boundary)
+- [The Loop Contract](#the-loop-contract)
+- [Loop Design Checklist](#loop-design-checklist)
+- [Loop Maturity Model](#loop-maturity-model)
+- [Core Loop Primitives](#core-loop-primitives)
+- [Official Runtime Guides](#official-runtime-guides)
+- [Research Foundations](#research-foundations)
+- [Agent Workflow Patterns](#agent-workflow-patterns)
+- [Coding-Agent Loop Systems](#coding-agent-loop-systems)
+- [Verification And Feedback Gates](#verification-and-feedback-gates)
+- [State, Memory, And Context Persistence](#state-memory-and-context-persistence)
+- [Orchestration And Multi-Agent Delegation](#orchestration-and-multi-agent-delegation)
+- [Benchmarks And Evaluation](#benchmarks-and-evaluation)
+- [Operations Playbooks](#operations-playbooks)
+- [Templates And Patterns](#templates-and-patterns)
+- [Examples And Schema](#examples-and-schema)
+- [Community Gallery](#community-gallery)
+- [Discovery And Distribution](#discovery-and-distribution)
+- [Roadmap And Discussion](#roadmap-and-discussion)
+- [Pattern Library](#pattern-library)
+- [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
+- [Adjacent Awesome Lists](#adjacent-awesome-lists)
+- [Citation](#citation)
 
 ## Why This Repo Exists
 
@@ -61,54 +87,13 @@ Objective
   -> Repeat, report, open a PR, or escalate to a human
 ```
 
-## Contents
-
-- [How To Use This List](#how-to-use-this-list)
-- [Canonical Definition](#canonical-definition)
-- [Concept Guides](#concept-guides)
-- [Maintainer Picks](#maintainer-picks)
-- [Best First Reads](#best-first-reads)
-- [Resource Type Legend](#resource-type-legend)
-- [Start Here](#start-here)
-- [Scope Boundary](#scope-boundary)
-- [The Loop Contract](#the-loop-contract)
-- [Loop Design Checklist](#loop-design-checklist)
-- [Loop Maturity Model](#loop-maturity-model)
-- [Core Loop Primitives](#core-loop-primitives)
-- [Official Runtime Guides](#official-runtime-guides)
-- [Research Foundations](#research-foundations)
-- [Agent Workflow Patterns](#agent-workflow-patterns)
-- [Coding-Agent Loop Systems](#coding-agent-loop-systems)
-- [Verification And Feedback Gates](#verification-and-feedback-gates)
-- [State, Memory, And Context Persistence](#state-memory-and-context-persistence)
-- [Orchestration And Multi-Agent Delegation](#orchestration-and-multi-agent-delegation)
-- [Benchmarks And Evaluation](#benchmarks-and-evaluation)
-- [Operations Playbooks](#operations-playbooks)
-- [Templates And Patterns](#templates-and-patterns)
-- [Examples And Schema](#examples-and-schema)
-- [Community Gallery](#community-gallery)
-- [Pattern Library](#pattern-library)
-- [Discovery And Distribution](#discovery-and-distribution)
-- [Roadmap And Discussion](#roadmap-and-discussion)
-- [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
-- [Adjacent Awesome Lists](#adjacent-awesome-lists)
-- [Contributing](#contributing)
-
 ## How To Use This List
 
-- New to the term? Read [Best First Reads](#best-first-reads), then the [Loop Contract](#the-loop-contract).
-- Want the shortest curated path? Read [Maintainer Picks](#maintainer-picks).
-- Designing a real loop? Start with [Core Loop Primitives](#core-loop-primitives), [Official Runtime Guides](#official-runtime-guides), and [Templates And Patterns](#templates-and-patterns).
-- Improving reliability? Focus on [Verification And Feedback Gates](#verification-and-feedback-gates), [State, Memory, And Context Persistence](#state-memory-and-context-persistence), and [Critiques, Risks, And Limitations](#critiques-risks-and-limitations).
-- Comparing systems? Use [Coding-Agent Loop Systems](#coding-agent-loop-systems), [Orchestration And Multi-Agent Delegation](#orchestration-and-multi-agent-delegation), and [Benchmarks And Evaluation](#benchmarks-and-evaluation).
-- Adding a resource? See [Contributing](#contributing) and prefer primary sources, official docs, papers, and implementation-heavy write-ups.
-- Reviewing a PR? Use the [curation standard](CURATION.md) and [maintenance guide](MAINTENANCE.md).
+Start with the first-read resources and the Loop Contract if the term is new. For implementation work, move through core primitives, runtime guides, templates, and patterns. For reliability work, focus on verification gates, state persistence, critiques, and limitations. Contributions should prefer primary sources, official docs, papers, and implementation-heavy write-ups.
 
 ## Canonical Definition
 
 **Loop Engineering** is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.
-
-For a quotable definition and scope test, see [`DEFINITION.md`](DEFINITION.md).
 
 ## Concept Guides
 
@@ -121,26 +106,10 @@ These repository-native guides define the concept, boundaries, and practical art
 - 🧾 **Template** [Comparison Guide](COMPARISON.md) - Distinguishes Loop Engineering from prompt engineering, context engineering, harness engineering, workflow automation, agent workflows, and evaluation loops.
 - 🧾 **Template** [Sourced Signals And Quotes](QUOTES.md) - Short sourced signals from linked public materials that anchor the emerging concept.
 - 🧾 **Template** [Outreach Kit](OUTREACH.md) - Conservative messages for inviting corrections, sources, and real-world loop patterns.
-- 🧾 **Template** [Distribution Checklist](DISTRIBUTION.md) - Launch copy, indexing steps, outreach targets, and accuracy rules for public sharing.
 
 ## Maintainer Picks
 
-For a compact path through the repository, start with [Maintainer Picks](MAINTAINER_PICKS.md).
-
 - 🧾 **Template** [Maintainer Picks](MAINTAINER_PICKS.md) - Shortlist of concept, practice, reliability, and reusable artifact resources.
-
-## Best First Reads
-
-Start here if you want the shortest path from concept to practice.
-
-- 📝 **Blog** [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - Direct framing of Loop Engineering as the layer above manual prompting, with concrete primitives across Codex and Claude Code.
-- 📚 **Docs** [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - Practical runbook for plan-edit-test-observe-repair-document-repeat work.
-- 📚 **Docs** [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - Official scheduled loop mechanics for `/loop`, reminders, monitor tools, and recurring prompts.
-- 🔁 **Pattern** [Autonomous Loops](https://claudecodeguide.dev/docs/patterns/autonomous-loops) - Concrete Claude Code pattern with task files, stop hooks, hard limits, and a kill switch.
-- 📄 **Paper** [ReAct](https://arxiv.org/abs/2210.03629) - Foundational reason-act-observe loop behind many tool-using agents.
-- 📄 **Paper** [Reflexion](https://arxiv.org/abs/2303.11366) - Shows how feedback can become memory for future attempts.
-- 📚 **Docs** [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - Canonical workflow patterns, including evaluator-optimizer and orchestrator-workers.
-- 🔁 **Pattern** [Stop Babysitting Your Coding Agent. Give It Backpressure.](https://generativeprogrammer.com/p/stop-babysitting-your-coding-agent) - Turns tests, linters, builds, traces, and other signals into practical feedback loops.
 
 ## Resource Type Legend
 
@@ -158,7 +127,6 @@ Start here if you want the shortest path from concept to practice.
 
 Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 
-- 🔁 **Pattern** [Loop Engineering essentials](#the-loop-contract) - The compact contract this list uses to decide whether a resource belongs here.
 - 📝 **Blog** [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - Addy Osmani's framing of loop engineering as the layer above manually prompting coding agents, with concrete primitives across Codex and Claude Code.
 - 📝 **Blog** [Loop Engineering](https://addyo.substack.com/p/loop-engineering) - Substack version of the same essay; useful for the original discussion trail and quotations from Peter Steinberger and Boris Cherny.
 - 📝 **Blog** [Loop Engineering](https://cobusgreyling.substack.com/p/loop-engineering) - Concise explanation of the shift from prompting agents to designing loops that discover work, delegate, verify, persist, and continue.
@@ -169,57 +137,59 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 
 ## Scope Boundary
 
-| In scope | Out of scope |
-| --- | --- |
-| AI/coding-agent loops that coordinate prompts, context, harnesses, verification, and state over repeated agent runs | Software event loops, UI/game loops, or control theory loops |
-| Scheduled, goal-driven, or event-triggered agent work | Generic cron jobs with no agentic reasoning or verification |
-| Agent loops with durable state, worktrees, checkpoints, traces, or progress files | One-off prompt examples with no loop, state, or feedback signal |
-| Verification loops using tests, CI, evals, reviewers, or deterministic gates | Pure AI news, generic product pages, or marketing copy |
-| Multi-agent maker/checker/delegation patterns | Broad agent lists without specific loop-design relevance |
+| In scope                                                                                                            | Out of scope                                                    |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| AI/coding-agent loops that coordinate prompts, context, harnesses, verification, and state over repeated agent runs | Software event loops, UI/game loops, or control theory loops    |
+| Scheduled, goal-driven, or event-triggered agent work                                                               | Generic cron jobs with no agentic reasoning or verification     |
+| Agent loops with durable state, worktrees, checkpoints, traces, or progress files                                   | One-off prompt examples with no loop, state, or feedback signal |
+| Verification loops using tests, CI, evals, reviewers, or deterministic gates                                        | Pure AI news, generic product pages, or marketing copy          |
+| Multi-agent maker/checker/delegation patterns                                                                       | Broad agent lists without specific loop-design relevance        |
 
 ## The Loop Contract
 
 A useful loop has a contract. If one of these is missing, the loop usually becomes either a manual prompt habit or an unsafe background automation. Prompt, context, and harness choices are ingredients; the loop contract is the operating layer that connects them over time.
 
-| Part | Design question | Common artifact |
-| --- | --- | --- |
-| Objective | What should the loop optimize for? | Goal, issue, PRD, runbook |
-| Trigger | When does the loop run? | Schedule, webhook, `/loop`, `/goal`, automation |
-| Discover / Intake | How does the loop find work? | GitHub queries, Linear filters, CI failures, feedback stream |
-| Workspace | Where can the agent act safely? | Worktree, sandbox, branch, container |
-| Context | What durable knowledge should it load? | `AGENTS.md`, `CLAUDE.md`, `SKILL.md`, docs |
-| Delegation | Which agent does which job? | Explorer, implementer, reviewer, judge |
-| Verification | What says "yes" or "no"? | Tests, typecheck, lint, evals, trace graders |
-| State | What survives the next run? | Progress file, database checkpoint, trace, issue comment |
-| Budget | When should it stop spending? | Max turns, max retries, token budget, time box |
-| Escalation | When does a human take over? | PR, issue, Slack alert, triage inbox |
-| Exit | How does the loop know it is done? | Acceptance criteria, passing checks, no work found |
+| Part              | Design question                        | Common artifact                                              |
+| ----------------- | -------------------------------------- | ------------------------------------------------------------ |
+| Objective         | What should the loop optimize for?     | Goal, issue, PRD, runbook                                    |
+| Trigger           | When does the loop run?                | Schedule, webhook, `/loop`, `/goal`, automation              |
+| Discover / Intake | How does the loop find work?           | GitHub queries, Linear filters, CI failures, feedback stream |
+| Workspace         | Where can the agent act safely?        | Worktree, sandbox, branch, container                         |
+| Context           | What durable knowledge should it load? | `AGENTS.md`, `CLAUDE.md`, `SKILL.md`, docs                   |
+| Delegation        | Which agent does which job?            | Explorer, implementer, reviewer, judge                       |
+| Verification      | What says "yes" or "no"?               | Tests, typecheck, lint, evals, trace graders                 |
+| State             | What survives the next run?            | Progress file, database checkpoint, trace, issue comment     |
+| Budget            | When should it stop spending?          | Max turns, max retries, token budget, time box               |
+| Escalation        | When does a human take over?           | PR, issue, Slack alert, triage inbox                         |
+| Exit              | How does the loop know it is done?     | Acceptance criteria, passing checks, no work found           |
 
 Good loop documentation should make the contract visible. A reader should be able to tell what triggers the loop, what state it reads, what it is allowed to change, how it verifies progress, and when it stops.
 
 ## Loop Design Checklist
 
-- **Name one objective.** A loop should optimize for a specific outcome, not "improve the repo".
-- **Define the intake.** Decide where work enters: PR comments, CI failures, issues, logs, eval failures, support feedback, or a schedule.
-- **Isolate execution.** Use a worktree, sandbox, branch, container, or read-only mode before letting agents edit.
-- **Write the feedback signal first.** Tests, typechecks, lint, evals, policy checks, and trace graders should exist before retries begin.
-- **Persist state outside the model.** Keep progress in files, issue comments, checkpoints, traces, or a database.
-- **Separate maker and checker.** Let one agent act and another verifier, deterministic check, or human reviewer decide whether it is done.
-- **Put a budget on autonomy.** Cap runtime, turns, retries, token spend, and concurrent workers.
-- **Design escalation.** Decide when the loop should open a PR, file an issue, ask a human, or stop.
-- **Keep receipts.** Store commands run, evidence observed, files changed, and why the loop stopped.
+| Check                           | Question                                                                                             |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Name one objective              | Does the loop optimize for a specific outcome instead of a vague goal such as "improve the repo"?    |
+| Define the intake               | Where does work enter: PR comments, CI failures, issues, logs, eval failures, feedback, or schedule? |
+| Isolate execution               | Does the agent act in a worktree, sandbox, branch, container, or read-only mode?                     |
+| Write the feedback signal first | Do tests, typechecks, lint, evals, policy checks, or trace graders exist before retries begin?       |
+| Persist state outside the model | Does progress survive in files, issue comments, checkpoints, traces, or a database?                  |
+| Separate maker and checker      | Does something other than the acting agent decide whether the work is done?                          |
+| Put a budget on autonomy        | Are runtime, turns, retries, token spend, and concurrent workers capped?                             |
+| Design escalation               | Is it clear when the loop should open a PR, file an issue, ask a human, or stop?                     |
+| Keep receipts                   | Are commands, evidence, changed files, and stop reasons recorded?                                    |
 
 ## Loop Maturity Model
 
-| Level | Name | Description |
-| --- | --- | --- |
-| 0 | Manual prompting | A human reads state and writes the next prompt. |
-| 1 | Scripted retry | A shell/script loop feeds errors back to an agent. |
-| 2 | Scheduled loop | The agent runs on a cadence and reports findings. |
-| 3 | Stateful loop | Progress survives across sessions through files, issues, checkpoints, or traces. |
-| 4 | Self-verifying loop | Deterministic checks or evaluator agents gate completion. |
-| 5 | Multi-agent loop | Specialized agents split discovery, implementation, review, and judgment. |
-| 6 | Production-supervised loop | Observability, budgets, approvals, rollback, and human escalation are first-class. |
+| Level | Name                       | Description                                                                        |
+| ----- | -------------------------- | ---------------------------------------------------------------------------------- |
+| 0     | Manual prompting           | A human reads state and writes the next prompt.                                    |
+| 1     | Scripted retry             | A shell/script loop feeds errors back to an agent.                                 |
+| 2     | Scheduled loop             | The agent runs on a cadence and reports findings.                                  |
+| 3     | Stateful loop              | Progress survives across sessions through files, issues, checkpoints, or traces.   |
+| 4     | Self-verifying loop        | Deterministic checks or evaluator agents gate completion.                          |
+| 5     | Multi-agent loop           | Specialized agents split discovery, implementation, review, and judgment.          |
+| 6     | Production-supervised loop | Observability, budgets, approvals, rollback, and human escalation are first-class. |
 
 Most teams should climb this model slowly. A reliable Level 3 loop with clear state and deterministic checks is usually more valuable than a flashy Level 5 loop with vague goals.
 
@@ -349,8 +319,6 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [CrewAI](https://github.com/crewAIInc/crewAI) - Framework for multi-agent workflows organized around roles, tasks, and crews.
 - 📚 **Docs** [LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/) - Event-driven workflow abstraction for agentic applications.
 - 📚 **Docs** [OpenAI Agents SDK handoffs](https://openai.github.io/openai-agents-python/handoffs/) - First-class delegation between specialized agents.
-- 📚 **Docs** [Claude Code subagents](https://code.claude.com/docs/en/sub-agents) - Specialized assistants with isolated context windows and tool permissions.
-- 📚 **Docs** [Claude Code skills](https://code.claude.com/docs/en/skills) - Reusable instruction and asset bundles that loops can invoke instead of repeating large prompts.
 - 📚 **Docs** [Agent Protocol](https://agentprotocol.ai/) - API protocol for agent interaction, useful for separating loop managers from agent runtimes.
 - 🧰 **Tool** [AgentKit](https://github.com/inngest/agent-kit) - TypeScript toolkit for durable, event-driven agents on workflow infrastructure.
 - 🧰 **Tool** [deepagents](https://github.com/langchain-ai/deepagents) - LangChain project for deeper, longer-running agents with middleware and harness patterns.
@@ -360,7 +328,6 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧪 **Benchmark** [SWE-bench](https://www.swebench.com/) - Benchmark for resolving real GitHub issues through code editing and tests.
 - 📄 **Paper** [SWE-bench: Can Language Models Resolve Real-World GitHub Issues?](https://arxiv.org/abs/2310.06770) - Original SWE-bench paper.
 - 📄 **Paper** [SWE-bench Goes Live](https://arxiv.org/abs/2505.23419) - Dynamic benchmark designed to reduce overfitting to static issue sets.
-- 🧪 **Benchmark** [SWE-bench Verified](https://www.swebench.com/) - Human-validated subset widely used for coding-agent comparisons.
 - 🧪 **Benchmark** [Terminal-Bench](https://www.tbench.ai/) - Benchmark for agents operating in terminal environments.
 - 🧰 **Tool** [Terminal-Bench repository](https://github.com/harbor-framework/terminal-bench) - Open-source benchmark and harness for hard terminal tasks.
 - 📄 **Paper** [AgentBench](https://arxiv.org/abs/2308.03688) - Multi-environment benchmark for evaluating LLMs as agents.
@@ -374,10 +341,6 @@ This section focuses on durable loop state and cross-run context. For context-wi
 
 ## Operations Playbooks
 
-- 🔁 **Pattern** [PR babysitting loops](https://www.developersdigest.tech/blog/codex-loops-boris-cherny-agent-routines) - Pattern for repeatedly checking PR comments, CI, conflicts, and review state.
-- 📚 **Docs** [Claude Code hooks for notifications and blockers](https://code.claude.com/docs/en/hooks-guide) - Useful for escalation, approvals, and failure reporting in long-running loops.
-- 🔁 **Pattern** [GitHub Agentic Workflows](https://github.github.com/gh-aw/) - Repository automation that runs coding agents in GitHub Actions on events or schedules with guardrails.
-- 📚 **Docs** [OpenAI Agents SDK human review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals) - Approval boundaries for sensitive operations in agent workflows.
 - 📝 **Blog** [Agentic Engineering: The Agent Loop](https://junpingyi.com/books/agentic-engineering/agent-loop/) - Minimal mental model for the loop underlying agent operation.
 - 📝 **Blog** [The agent loop: ReAct, plan-and-execute, reflection](https://www.kunwar.page/chapter/067-the-agent-loop-react-plan-and-execute-reflection) - Practical walkthrough of the base loop and common variants.
 
@@ -392,13 +355,7 @@ Reusable patterns that contributors can turn into future examples, templates, or
 - 🧾 **Template** [Translation guide](TRANSLATIONS.md) - How to add or maintain a language translation without drifting from the canonical English list.
 - 🧾 **Template** [Pattern library index](patterns/README.md) - Practical loop patterns with triggers, state, verification gates, budgets, and escalation paths.
 
-Additional loop patterns worth documenting:
-
-- **PR babysitter**: watch review comments, CI status, merge conflicts, and stale discussions; open a small patch or escalate.
-- **CI repair**: inspect failing checks, reproduce locally, patch, rerun, and summarize evidence.
-- **Feedback clusterer**: periodically group Slack, GitHub, Linear, or social feedback into actionable themes.
-- **Deploy verifier**: watch rollout signals and logs, compare against release expectations, and stop on anomalies.
-- **Docs drift collector**: find mismatches between code and docs, propose patches, and verify examples.
+Additional loop patterns worth documenting include PR babysitting, CI repair, feedback clustering, deploy verification, and docs drift collection.
 
 ## Examples And Schema
 
@@ -492,11 +449,7 @@ Fast path for adding a resource:
 
 - Open a pull request and explain the category fit, source type, and why builders should care.
 
-Fast path for contributing a loop pattern:
-
-- Start from the [loop pattern template](templates/loop-pattern.md) or [loop contract schema](schemas/loop-contract.schema.json).
-- Include trigger, discover/intake, delegation, workspace, context, verification, durable state, budget, escalation, and exit.
-- Open a pattern suggestion issue if you want feedback before writing the full pattern.
+Fast path for contributing a loop pattern: start from the loop pattern template or loop contract schema, include trigger, discover/intake, delegation, workspace, context, verification, durable state, budget, escalation, and exit, then open a pattern suggestion issue if you want feedback before writing the full pattern.
 
 Good submissions should answer three questions:
 
@@ -517,9 +470,3 @@ If this repository is useful in your work, please cite it with:
   note         = {Curated resources for Loop Engineering}
 }
 ```
-
-## License
-
-The original curation text, annotations, templates, pattern documents, and repository metadata in this repository are released under [CC0-1.0](LICENSE).
-
-Linked third-party papers, blogs, documentation, tools, benchmarks, images, and other external resources remain under their own authors' and publishers' respective licenses and terms. This repository links to them; it does not relicense their content.

@@ -13,7 +13,6 @@ RESOURCE_SECTIONS = {
     "Canonical Definition",
     "Concept Guides",
     "Maintainer Picks",
-    "Best First Reads",
     "Start Here",
     "Core Loop Primitives",
     "Official Runtime Guides",

@@ -66,6 +66,8 @@ Use [`OUTREACH.md`](OUTREACH.md) for wording.
 
 ## Awesome List Submission
 
+Use [`AWESOME_SUBMISSION.md`](AWESOME_SUBMISSION.md) for the upstream checklist, timing rule, suggested entry, and PR body.
+
 Before submitting to any awesome list:
 
 1. Verify all links pass.
