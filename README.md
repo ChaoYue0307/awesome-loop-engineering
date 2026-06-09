@@ -40,6 +40,10 @@ Harness engineering asks: **what tools, permissions, tests, sandboxes, and feedb
 
 Loop engineering asks: **what recurring system should prompt, supervise, verify, persist, and re-run agents when the human is no longer in the inner loop?**
 
+<p align="center">
+  <img src="assets/loop-engineering-map.svg" alt="Loop Engineering ecosystem map" width="100%">
+</p>
+
 Loop shape:
 
 ```text
@@ -87,6 +91,7 @@ Objective
 - Improving reliability? Focus on [Verification And Feedback Gates](#verification-and-feedback-gates), [State, Memory, And Context Persistence](#state-memory-and-context-persistence), and [Critiques, Risks, And Limitations](#critiques-risks-and-limitations).
 - Comparing systems? Use [Coding-Agent Loop Systems](#coding-agent-loop-systems), [Orchestration And Multi-Agent Delegation](#orchestration-and-multi-agent-delegation), and [Benchmarks And Evaluation](#benchmarks-and-evaluation).
 - Adding a resource? See [Contributing](#contributing) and prefer primary sources, official docs, papers, and implementation-heavy write-ups.
+- Reviewing a PR? Use the [curation standard](CURATION.md) and [maintenance guide](MAINTENANCE.md).
 
 ## Best First Reads
 
@@ -252,7 +257,7 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 📝 **Blog** [AI Agent Architectures](https://hld.handbook.academy/curriculum/ai-ml-system-design/ai-agent-architectures/) - System-design overview of ReAct, reflection, planning, tool use, memory, and control strategies.
 - 📝 **Blog** [What Are Agentic Workflows?](https://weaviate.io/blog/what-are-agentic-workflows) - Accessible taxonomy of planning, tool use, reflection, and memory patterns.
 - 📝 **Blog** [Agent Planning & Reflection Patterns](https://learnaivisually.com/tracks/ai-agents/planning-reflection) - Visual explanation of plan-execute, observe, reflect, retry, and stop patterns.
-- 📝 **Blog** [Agent Design Patterns](https://inductivee.com/blog/autonomous-agent-design-patterns) - Practical overview of ReAct, Reflexion, plan-and-execute, supervisor-worker, and memory-augmented agents.
+- 📝 **Blog** [Agentic Design Patterns](https://addyosmani.com/agents/04-agentic-design-patterns/) - Practical overview of ReAct, reflection, tool use, planning, and how to combine them in real-world agents.
 - 🔁 **Pattern** [12 Factor Agents](https://github.com/humanlayer/12-factor-agents) - Operating principles for production agents, including explicit prompts, state ownership, and pause-resume behavior.
 - 🔁 **Pattern** [Durable Execution for Agentic Workflows](https://arizenai.com/durable-execution/) - Explains checkpointing, event-sourced journals, replay, and recovery for long-running agent workflows.
 
@@ -385,6 +390,8 @@ Practical loop patterns translate the abstract contract into runnable operating 
 ## Contributing
 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+
+This repository uses a strict [curation standard](CURATION.md) to keep the list focused, verifiable, and useful for builders. Maintainers can use [MAINTENANCE.md](MAINTENANCE.md) for link checks, identity checks, and periodic refreshes.
 
 Fast path for adding a resource:
 

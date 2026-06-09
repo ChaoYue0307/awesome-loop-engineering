@@ -42,7 +42,7 @@ git update-ref refs/heads/main "$NEW" "$PARENT"
 Before pushing, verify:
 
 ```sh
-git log --all --format='%H%n%an <%ae>%n%cn <%ce>%n%B' | rg -i 'co-authored-by' && exit 1 || true
+python scripts/check_commit_identity.py
 ```
 
 ## Entry Format

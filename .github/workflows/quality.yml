@@ -27,8 +27,15 @@ jobs:
         with:
           globs: "**/*.md"
 
+      - name: Check license text
+        run: python scripts/check_license.py
+
       - name: Check resource type labels
         run: python scripts/check_resource_labels.py README.md
 
       - name: Check links
         run: python scripts/verify_urls.py . --timeout 12 --workers 20
+
+      - name: Check main commit identity
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: python scripts/check_commit_identity.py

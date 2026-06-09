@@ -4,6 +4,8 @@ Thanks for helping improve Awesome Loop Engineering.
 
 This repository is intentionally narrow. It tracks the new AI and coding-agent meaning of **Loop Engineering**: designing systems that prompt agents, verify outcomes, persist state, and run again on a cadence or until a goal is met.
 
+Before submitting, read the [curation standard](CURATION.md). Maintainers use it to decide whether a resource is specific, stable, and useful enough for the list.
+
 ## Quick PR Flow
 
 1. Search `README.md` for the resource title, author, project, and URL.
