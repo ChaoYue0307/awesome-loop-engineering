@@ -8,7 +8,7 @@ Watch a rollout after deployment, compare live signals against release expectati
 
 - Event: deployment starts, canary advances, feature flag flips, migration completes, or release tag is created.
 - Schedule: every 5-15 minutes during the rollout window.
-- Manual command: "verify deploy <version> until stable or blocked."
+- Manual bootstrap/debug command: "verify deploy <version> until stable or blocked."
 
 ## Intake
 
@@ -36,6 +36,7 @@ Watch a rollout after deployment, compare live signals against release expectati
 
 1. Load release expectations and rollback criteria.
 1. Snapshot key metrics before or at rollout start.
+1. Delegate observation, comparison, reporting, and escalation to separate roles when the rollout is complex.
 1. Poll signals on the defined cadence.
 1. Compare against baseline and explicit thresholds.
 1. Report stable, degraded, blocked, or unknown.
@@ -59,7 +60,7 @@ Watch a rollout after deployment, compare live signals against release expectati
 
 Escalate on threshold breach, missing telemetry, unclear ownership, migration errors, customer-impacting regressions, or rollback criteria.
 
-## Starter Prompt
+## Loop Instruction
 
 ```text
 Verify deploy <version>. Use the release notes and rollout checklist as the contract.
@@ -67,9 +68,16 @@ Poll the required dashboards, logs, traces, synthetic checks, and feature flag s
 Report stable/degraded/blocked with evidence. Do not roll back or change production without human approval.
 ```
 
+Example automation: trigger when a deployment starts or a feature flag changes, then poll every 5-15 minutes until stable, paused, rolled back, or handed to a human.
+
 ## Failure Modes
 
 - The loop trusts a single green dashboard while logs show a new error class.
 - Baseline windows are mismatched to traffic patterns.
 - Missing telemetry is treated as healthy.
 - The agent takes production action without approval.
+
+## References
+
+- [OpenAI Agents SDK human review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals) - Describes approval boundaries for sensitive agent actions.
+- [OpenTelemetry Semantic Conventions for Generative AI Systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/) - Provides tracing vocabulary for model, tool, and agent workflow receipts.

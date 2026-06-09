@@ -8,7 +8,7 @@ Turn a failing CI signal into a small, verified fix or a precise escalation note
 
 - Schedule: poll failing checks on active branches.
 - Event: CI check fails on a PR or protected branch.
-- Manual command: "repair the failing CI check for this PR."
+- Manual bootstrap/debug command: "repair the failing CI check for this PR."
 
 ## Intake
 
@@ -38,6 +38,7 @@ Turn a failing CI signal into a small, verified fix or a precise escalation note
 
 1. Fetch the failed check and logs.
 1. Identify the deterministic failing command or closest local equivalent.
+1. Delegate log extraction, patching, verification, and reporting to separate roles when useful.
 1. Reproduce locally when possible.
 1. Patch the smallest cause.
 1. Rerun the failing command first, then any adjacent cheap checks.
@@ -61,7 +62,7 @@ Turn a failing CI signal into a small, verified fix or a precise escalation note
 
 Escalate for flaky infrastructure, missing credentials, third-party outages, nondeterministic failures without reproduction, or changes requiring owner approval.
 
-## Starter Prompt
+## Loop Instruction
 
 ```text
 Repair the failing CI check for <PR or branch>.
@@ -70,9 +71,16 @@ Make the smallest scoped patch, rerun the failing command, and report evidence.
 Do not change unrelated files or CI configuration unless the logs prove it is necessary.
 ```
 
+Example automation: trigger on failed required checks, or poll active PRs for red CI every 30-60 minutes.
+
 ## Failure Modes
 
 - Treating a CI artifact as stale without checking commit SHA.
 - Running only broad checks and missing the failing command.
 - Fixing by weakening tests or deleting assertions.
 - Chasing flaky failures without a retry budget.
+
+## References
+
+- [Stop Babysitting Your Coding Agent. Give It Backpressure.](https://generativeprogrammer.com/p/stop-babysitting-your-coding-agent) - Turns tests, linters, builds, and traces into feedback loops for coding agents.
+- [GitHub Agentic Workflows](https://github.github.com/gh-aw/) - Runs coding agents from GitHub events or schedules with repository-level guardrails.

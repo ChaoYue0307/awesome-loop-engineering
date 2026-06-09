@@ -18,15 +18,17 @@
   <a href="TRANSLATIONS.md">Help translate</a>
 </p>
 
-> A curated, implementation-oriented list of resources for **Loop Engineering**: designing systems that prompt, schedule, verify, persist state for, and re-trigger AI agents.
+> A curated, implementation-oriented list of resources for **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
 
-Loop Engineering is the emerging AI and coding-agent practice of moving from manually prompting agents turn by turn to designing loops that do the prompting for you. A loop discovers work, hands it to one or more agents, checks the result, records state, decides what should happen next, and runs again on a cadence or until a verifiable goal is reached.
+Prompt engineering improves what you ask the model. Context engineering improves what the model can see. Harness engineering improves the tools, permissions, sandboxes, and checks around one agent run. **Loop Engineering sits above all three**: it is the emerging AI and coding-agent practice of moving from manually prompting agents turn by turn to designing loops that do the prompting, supervision, verification, state updates, and re-triggering for you.
+
+A loop discovers work, hands it to one or more agents, checks the result, records state, decides what should happen next, and runs again on a cadence or until a verifiable goal is reached.
 
 This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
 
 ## Why This Repo Exists
 
-Loop Engineering is becoming a distinct craft because the leverage point is moving from better single prompts to better recurring systems. The best agent workflows now combine goals, state, work isolation, tool permissions, feedback gates, retries, escalation, and receipts. This list exists to make that craft easier to learn, compare, and practice without mixing it with unrelated loop concepts or generic AI-agent hype.
+Loop Engineering is becoming a distinct craft because the leverage point is moving from better single prompts, richer context, and stronger harnesses to recurring systems that decide when and how agents should run. The best agent workflows now combine goals, state, work isolation, tool permissions, feedback gates, retries, escalation, and receipts. This list exists to make that craft easier to learn, compare, and practice without mixing it with unrelated loop concepts or generic AI-agent hype.
 
 ## Mental Model
 
@@ -36,7 +38,9 @@ Context engineering asks: **what state and knowledge should the model see?**
 
 Harness engineering asks: **what tools, permissions, tests, sandboxes, and feedback should surround the agent?**
 
-Loop engineering asks: **what recurring system should prompt, supervise, verify, persist, and re-run agents when the human is no longer in the inner loop?**
+Loop engineering asks: **what recurring system should discover work, delegate to agents, verify results, persist state, decide next actions, and re-run when the human is no longer in the inner loop?**
+
+Prompt, context, and harness engineering make one agent run better. Loop Engineering makes agent work repeatable, observable, and governable over time.
 
 <p align="center">
   <img src="assets/loop-engineering-stack.svg" alt="Loop Engineering stack" width="100%">
@@ -47,7 +51,7 @@ Loop shape:
 ```text
 Objective
   -> Trigger / cadence
-  -> Discover work
+  -> Discover / intake work
   -> Delegate to agents
   -> Act in an isolated workspace
   -> Verify with tests, evals, traces, or reviewers
@@ -133,7 +137,7 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 
 | In scope | Out of scope |
 | --- | --- |
-| AI/coding-agent loops that prompt agents repeatedly or autonomously | Software event loops, UI/game loops, or control theory loops |
+| AI/coding-agent loops that coordinate prompts, context, harnesses, verification, and state over repeated agent runs | Software event loops, UI/game loops, or control theory loops |
 | Scheduled, goal-driven, or event-triggered agent work | Generic cron jobs with no agentic reasoning or verification |
 | Agent loops with durable state, worktrees, checkpoints, traces, or progress files | One-off prompt examples with no loop, state, or feedback signal |
 | Verification loops using tests, CI, evals, reviewers, or deterministic gates | Pure AI news, generic product pages, or marketing copy |
@@ -141,13 +145,13 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 
 ## The Loop Contract
 
-A useful loop has a contract. If one of these is missing, the loop usually becomes either a manual prompt habit or an unsafe background automation.
+A useful loop has a contract. If one of these is missing, the loop usually becomes either a manual prompt habit or an unsafe background automation. Prompt, context, and harness choices are ingredients; the loop contract is the operating layer that connects them over time.
 
 | Part | Design question | Common artifact |
 | --- | --- | --- |
 | Objective | What should the loop optimize for? | Goal, issue, PRD, runbook |
 | Trigger | When does the loop run? | Schedule, webhook, `/loop`, `/goal`, automation |
-| Intake | How does the loop find work? | GitHub queries, Linear filters, CI failures, feedback stream |
+| Discover / Intake | How does the loop find work? | GitHub queries, Linear filters, CI failures, feedback stream |
 | Workspace | Where can the agent act safely? | Worktree, sandbox, branch, container |
 | Context | What durable knowledge should it load? | `AGENTS.md`, `CLAUDE.md`, `SKILL.md`, docs |
 | Delegation | Which agent does which job? | Explorer, implementer, reviewer, judge |
@@ -248,8 +252,9 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 
 ## Agent Workflow Patterns
 
+These resources are included when they help design the higher-level loop around agents, not merely because they describe agents in general.
+
 - 📚 **Docs** [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - Anthropic's canonical guide to workflows and agents, including evaluator-optimizer and orchestrator-workers patterns.
-- 📚 **Docs** [Building Effective Agents - research page](https://www.anthropic.com/research/building-effective-agents) - Alternate Anthropic page for the same architecture guidance.
 - 📝 **Blog** [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) - Detailed orchestrator-worker system with planning, memory, subagents, citation passes, and iterative research loops.
 - 📄 **Paper** [Building Effective AI Agents: Architecture Patterns and Implementation Frameworks](https://resources.anthropic.com/hubfs/Building%20Effective%20AI%20Agents-%20Architecture%20Patterns%20and%20Implementation%20Frameworks.pdf) - PDF overview of agent architecture patterns, including generator-evaluator loops.
 - 📝 **Blog** [AI Agent Architectures](https://hld.handbook.academy/curriculum/ai-ml-system-design/ai-agent-architectures/) - System-design overview of ReAct, reflection, planning, tool use, memory, and control strategies.
@@ -277,6 +282,8 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 
 ## Verification And Feedback Gates
 
+These resources include harness and observability mechanisms that loops compose into exit gates, receipts, and retry signals.
+
 - 📝 **Blog** [Why Agentic Systems Must Produce Deterministic Outputs to Scale](https://streamzero.com/blog/posts/deep-dives-tools-technologies-architectures/agentic-patterns/why-agentic-systems-must-produce-deterministic-outputs-to-scale) - Argues for deterministic boundaries, contracts, and execution gates around probabilistic agent reasoning.
 - 🔁 **Pattern** [Stop Babysitting Your Coding Agent. Give It Backpressure.](https://generativeprogrammer.com/p/stop-babysitting-your-coding-agent) - Explains how to turn tests, linters, builds, traces, and other signals into feedback loops for coding agents.
 - 🔁 **Pattern** [How to Build a Self-Verification Loop in Claude Code](https://dev.to/shipwithaiio/how-to-build-a-self-verification-loop-in-claude-code-3-layers-20-minutes-m1p) - Uses hooks to enforce syntax, intent, and regression checks before an agent can finish.
@@ -290,6 +297,8 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 🧰 **Tool** [AgentOps](https://github.com/AgentOps-AI/agentops) - Monitoring, replay, cost tracking, benchmarking, and tracing for agent sessions.
 
 ## State, Memory, And Context Persistence
+
+This section focuses on durable loop state and cross-run context. For context-window design as its own lower layer, see the adjacent Context Engineering lists.
 
 - 📚 **Docs** [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) - Anthropic guide to context as managed runtime state rather than a prompt dump.
 - 📝 **Blog** [Agent Harnesses: the Infrastructure Layer Your LLM Agent Actually Needs](https://ninadpathak.com/blog/agent-harnesses/) - Covers execution loops, state, checkpointing, observers, and replayability.
@@ -335,7 +344,6 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 📚 **Docs** [Claude Code hooks for notifications and blockers](https://code.claude.com/docs/en/hooks-guide) - Useful for escalation, approvals, and failure reporting in long-running loops.
 - 🔁 **Pattern** [GitHub Agentic Workflows](https://github.github.com/gh-aw/) - Repository automation that runs coding agents in GitHub Actions on events or schedules with guardrails.
 - 📚 **Docs** [OpenAI Agents SDK human review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals) - Approval boundaries for sensitive operations in agent workflows.
-- 📝 **Blog** [Deploying Claude Agents: Loops, Routines, and Modal](https://www.linkedin.com/posts/nateherkelman_i-tested-3-ways-to-deploy-claude-agents-activity-7461073300421734400--m_s) - Field note comparing local loops, scheduled tasks/routines, and deployed scripts.
 - 📝 **Blog** [Agentic Engineering: The Agent Loop](https://junpingyi.com/books/agentic-engineering/agent-loop/) - Minimal mental model for the loop underlying agent operation.
 - 📝 **Blog** [The agent loop: ReAct, plan-and-execute, reflection](https://www.kunwar.page/chapter/067-the-agent-loop-react-plan-and-execute-reflection) - Practical walkthrough of the base loop and common variants.
 
@@ -348,18 +356,17 @@ Reusable patterns that contributors can turn into future examples, templates, or
 - 🧾 **Template** [Translation guide](TRANSLATIONS.md) - How to add or maintain a language translation without drifting from the canonical English list.
 - 🧾 **Template** [Pattern library index](patterns/README.md) - Practical loop patterns with triggers, state, verification gates, budgets, and escalation paths.
 
-Common loop patterns to document:
+Additional loop patterns worth documenting:
 
 - **PR babysitter**: watch review comments, CI status, merge conflicts, and stale discussions; open a small patch or escalate.
 - **CI repair**: inspect failing checks, reproduce locally, patch, rerun, and summarize evidence.
-- **Bug hunter**: scan recent changes, logs, issues, and tests; file or fix narrow failures.
 - **Feedback clusterer**: periodically group Slack, GitHub, Linear, or social feedback into actionable themes.
 - **Deploy verifier**: watch rollout signals and logs, compare against release expectations, and stop on anomalies.
 - **Docs drift collector**: find mismatches between code and docs, propose patches, and verify examples.
 
 ## Pattern Library
 
-Practical loop patterns translate the abstract contract into runnable operating models. Each pattern documents the trigger, intake, agents, workspace, state, verification gates, retry budget, escalation path, and a starter prompt.
+Practical loop patterns translate the abstract contract into runnable operating models. Each pattern documents the trigger, discover/intake step, agents, workspace, state, verification gates, retry budget, escalation path, and loop instruction.
 
 - 🔁 **Pattern** [PR babysitter](patterns/pr-babysitter.md) - Repeatedly checks review comments, CI, merge conflicts, stale threads, and readiness to merge.
 - 🔁 **Pattern** [CI repair loop](patterns/ci-repair-loop.md) - Reproduces failing checks, patches narrowly, reruns evidence, and escalates when failures are outside scope.
@@ -407,7 +414,7 @@ Fast path for adding a resource:
 Good submissions should answer three questions:
 
 1. Is this about the new AI/coding-agent meaning of Loop Engineering or a direct foundation for it?
-2. Does it help someone design, run, verify, evaluate, or critique agent-prompting loops?
+2. Does it help someone design, run, verify, evaluate, or critique recurring agent systems that coordinate prompting, context, harnesses, verification, and state?
 3. Is the source stable, public, and specific enough to be useful?
 
 ## Citation

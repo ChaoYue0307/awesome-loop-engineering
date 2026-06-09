@@ -15,7 +15,7 @@ This guide keeps Awesome Loop Engineering useful, stable, and trustworthy over t
 - Re-read the `Start Here` and `Best First Reads` sections for freshness.
 - Check whether direct Loop Engineering sources have changed, moved, or duplicated each other.
 - Review pattern documents for outdated runtime assumptions.
-- Confirm the `Last verified` date in `README.md` after a full successful link-check pass.
+- Record link-check or curation evidence in the PR summary when making maintenance changes.
 - Check GitHub repository topics, description, license detection, and contributors.
 
 ## Link Rot Policy
@@ -55,7 +55,6 @@ For a root-history rebuild, omit `-p "$PARENT"` intentionally and verify the rem
 When making a major improvement:
 
 - keep the README opening concise;
-- update `Last verified` only after checks pass;
 - mention concrete changes, not vague polish;
 - avoid unsupported claims such as "definitive" or "complete";
 - include the cover image or ecosystem map when sharing publicly.

@@ -4,7 +4,7 @@ This repository curates resources for the new AI/coding-agent meaning of **Loop 
 
 ## Scope
 
-Include resources that help readers design, run, verify, evaluate, or critique systems that prompt, schedule, persist state for, and re-trigger AI agents.
+Include resources that help readers design, run, verify, evaluate, or critique recurring AI-agent systems that sit above prompt, context, and harness engineering. A good entry should explain how a loop discovers work, delegates to agents, supplies context, bounds tools and permissions, verifies results, persists state, decides next actions, retries, or escalates.
 
 Do not include unrelated uses of "loop":
 
@@ -18,9 +18,10 @@ Do not include unrelated uses of "loop":
 ## Editing Rules
 
 - Keep `README.md` as the canonical English source.
+- Preserve the four-layer framing when editing the intro, scope, or mental model: prompt, context, and harness engineering improve one run; Loop Engineering governs repeated agent work over time.
 - Keep annotations short, specific, and builder-oriented.
 - Prefer primary sources, official docs, papers, and implementation-heavy write-ups.
-- If a resource is generic agent content, include it only when the annotation clearly explains its loop-design relevance.
+- If a resource is generic agent, prompt, context, or harness content, include it only when the annotation clearly explains its loop-design relevance.
 - Update `README.zh-CN.md` only for translated overview content; do not let it drift into a separate resource list unless maintained.
 - When adding a new category, update `README.md`, `CONTRIBUTING.md`, PR templates, and issue templates together.
 - Do not add generated marketing copy or unsupported hype.

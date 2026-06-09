@@ -18,7 +18,7 @@ List the resources, patterns, or translation files changed.
 
 ## Relevance To Loop Engineering
 
-Explain how this PR relates to the new AI/coding-agent meaning of Loop Engineering: systems that prompt, schedule, verify, persist state for, and re-trigger agents.
+Explain how this PR relates to the new AI/coding-agent meaning of Loop Engineering: the layer above prompt, context, and harness engineering where recurring systems trigger agents, provide context, bound actions, verify results, persist state, retry, and escalate.
 
 ## Category
 
@@ -83,9 +83,10 @@ Which README section did you update?
 - [ ] The entry is in the most specific category.
 - [ ] The entry includes the correct resource type label, such as `📄 **Paper**` or `📚 **Docs**`.
 - [ ] The annotation explains why the resource matters for loop design.
+- [ ] Adjacent prompt, context, or harness resources explicitly connect to repeated agent runs, state, verification, or escalation.
 - [ ] The entry follows the format: `- 📄 **Paper** [Title](https://example.com) - One sentence annotation.`
 - [ ] The resource is not about unrelated event loops, growth loops, control theory, or generic automation.
-- [ ] New loop patterns include trigger, intake, state, verification gates, retry budget, escalation path, and starter prompt.
+- [ ] New loop patterns include trigger, discover/intake, delegation, state, verification gates, retry budget, escalation path, and loop instruction or automation artifact.
 - [ ] I agree that my contribution to this repository is released under `CC0-1.0`.
 - [ ] I did not copy third-party content into this repository without the right to do so.
 - [ ] Any translation links back to the canonical English README.

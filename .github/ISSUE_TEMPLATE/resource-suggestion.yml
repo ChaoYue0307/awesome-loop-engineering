@@ -78,7 +78,7 @@ body:
     id: relevance
     attributes:
       label: Why it belongs
-      description: Explain how this resource helps people design, run, verify, evaluate, or critique AI agent loops.
+      description: Explain how this resource helps people design recurring agent systems above prompt, context, and harness engineering.
       placeholder: This belongs because...
     validations:
       required: true
@@ -100,7 +100,9 @@ body:
     attributes:
       label: Checklist
       options:
-        - label: This is about AI/coding-agent Loop Engineering or a direct foundation for it.
+        - label: This is about AI/coding-agent Loop Engineering or a direct foundation for recurring agent systems.
+          required: true
+        - label: If this is adjacent prompt, context, or harness content, it clearly connects to repeated runs, state, verification, or escalation.
           required: true
         - label: This is not about unrelated event loops, growth loops, or generic automation.
           required: true

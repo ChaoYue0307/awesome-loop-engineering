@@ -1,6 +1,6 @@
 # Loop Pattern Library
 
-This directory turns Loop Engineering principles into practical operating patterns. Each pattern is intentionally small enough to adapt to Codex, Claude Code, GitHub Agentic Workflows, shell scripts, or custom agent runtimes.
+This directory turns Loop Engineering principles into practical operating patterns. Each pattern sits above prompt, context, and harness choices: it decides when to trigger agents, what context and tools they get, how work is verified, what state survives, and when the loop repeats or escalates. Each pattern is intentionally small enough to adapt to Codex, Claude Code, GitHub Agentic Workflows, shell scripts, or custom agent runtimes.
 
 Use a pattern when you can name:
 
@@ -12,7 +12,9 @@ Use a pattern when you can name:
 - the deterministic verification gate;
 - the durable state;
 - the retry budget;
+- the exit condition;
 - the escalation path.
+- the loop instruction or automation artifact.
 
 ## Patterns
 
@@ -24,6 +26,6 @@ Use a pattern when you can name:
 
 ## Pattern Quality Bar
 
-A good loop pattern should be boring in the right places. The goal, allowed actions, verification gate, retry budget, and stop condition should be explicit before the agent starts doing work.
+A good loop pattern should be boring in the right places. The goal, allowed actions, deterministic verification gate, retry budget, and stop condition should be explicit before the agent starts doing work.
 
 Avoid patterns that depend only on the model saying "looks good". Prefer checks with exit codes, changed files, issue links, trace IDs, dashboards, screenshots, or reviewer decisions.

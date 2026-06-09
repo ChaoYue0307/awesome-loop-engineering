@@ -8,7 +8,7 @@ Find places where documentation has drifted from code, tests, CLI behavior, API 
 
 - Schedule: weekly for active repositories.
 - Event: release branch cut, public API change, CLI flag change, docs-related issue, or failed docs example.
-- Manual command: "scan for docs drift around this feature."
+- Manual bootstrap/debug command: "scan for docs drift around this feature."
 
 ## Intake
 
@@ -36,6 +36,7 @@ Find places where documentation has drifted from code, tests, CLI behavior, API 
 ## Loop Steps
 
 1. Identify recent behavior changes or stale-doc signals.
+1. Delegate mapping, patching, verification, and review to separate roles when the drift set is large.
 1. Search docs for old names, flags, endpoints, screenshots, or examples.
 1. Compare docs against code, schema, tests, or runtime output.
 1. Patch only confirmed drift.
@@ -59,7 +60,7 @@ Find places where documentation has drifted from code, tests, CLI behavior, API 
 
 Escalate when docs conflict with product decisions, generated docs are out of date, examples require credentials, or screenshots need design approval.
 
-## Starter Prompt
+## Loop Instruction
 
 ```text
 Scan for documentation drift related to <feature, release, or changed files>.
@@ -67,9 +68,16 @@ Confirm each drift item against code, tests, schema, or runtime output before ed
 Patch only verified mismatches, run docs/link/example checks, and record false positives.
 ```
 
+Example automation: run weekly, or trigger after a release branch, API schema change, CLI flag change, or docs-related issue.
+
 ## Failure Modes
 
 - Updating docs based on guesswork instead of runtime evidence.
 - Editing generated files directly.
 - Changing examples without running them.
 - Treating missing docs as drift when it is really a product documentation decision.
+
+## References
+
+- [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - Documents recurring prompts, monitors, reminders, and scheduled checks.
+- [Automate actions with hooks](https://code.claude.com/docs/en/hooks-guide) - Shows how lifecycle hooks can enforce deterministic checks around agent work.

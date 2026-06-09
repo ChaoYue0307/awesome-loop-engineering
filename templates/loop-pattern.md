@@ -10,11 +10,14 @@ Short name for the loop.
 
 What outcome should this loop optimize for?
 
+What manual prompting or repeated human polling does this loop replace?
+
 ## Trigger
 
 - Schedule:
 - Event:
-- Manual command:
+- Automation or hook config:
+- Manual bootstrap/debug command:
 
 ## Intake
 
@@ -28,6 +31,12 @@ Examples: GitHub PRs, failed CI checks, Linear issues, Slack threads, logs, eval
 - Implementer:
 - Reviewer:
 - Judge:
+
+## Delegation
+
+- Which agent handles each work item:
+- Handoff rules:
+- When to switch from maker to checker:
 
 ## Workspace And Permissions
 
@@ -50,7 +59,9 @@ Examples: progress file, issue comment, database checkpoint, trace, status repor
 
 ## Loop Steps
 
-1. Intake work.
+1. Discover / intake work.
+1. Load durable state and relevant context.
+1. Delegate to the right agent role.
 1. Decide whether the loop can act safely.
 1. Act in an isolated workspace.
 1. Verify with the defined gates.
@@ -68,11 +79,17 @@ Examples: progress file, issue comment, database checkpoint, trace, status repor
 
 When should a human take over?
 
-## Starter Prompt
+## Loop Instruction
 
 ```text
-Describe the starter prompt or automation instruction here.
+Describe the prompt, automation spec, hook config, or scheduled command that starts the loop.
 ```
+
+## State Artifacts
+
+- Progress file:
+- Issue or PR comment:
+- Trace or dashboard:
 
 ## Failure Modes
 

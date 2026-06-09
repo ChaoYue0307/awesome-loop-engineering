@@ -8,7 +8,7 @@ Turn noisy feedback streams into a small set of actionable themes with evidence,
 
 - Schedule: daily or weekly.
 - Event: launch, incident, release, community spike, support backlog growth, or high-volume issue labels.
-- Manual command: "cluster feedback from the last week."
+- Manual bootstrap/debug command: "cluster feedback from the last week."
 
 ## Intake
 
@@ -36,6 +36,7 @@ Turn noisy feedback streams into a small set of actionable themes with evidence,
 
 1. Define the time window and source filters.
 1. Collect raw items with stable links.
+1. Delegate collection, clustering, skepticism, and reporting to separate roles when source volume is high.
 1. Deduplicate exact repeats and known duplicates.
 1. Cluster by underlying user need, failure mode, or request.
 1. Attach representative examples and counterexamples.
@@ -59,7 +60,7 @@ Turn noisy feedback streams into a small set of actionable themes with evidence,
 
 Escalate when feedback includes security issues, legal concerns, customer-specific commitments, sensitive data, or prioritization conflicts.
 
-## Starter Prompt
+## Loop Instruction
 
 ```text
 Cluster feedback from <sources> for <time window>.
@@ -68,9 +69,16 @@ Produce the top themes with representative examples, confidence, suggested owner
 Do not close issues or send external replies without approval.
 ```
 
+Example automation: run daily or weekly, or trigger after a launch, incident, release, support backlog spike, or high-volume issue label.
+
 ## Failure Modes
 
 - The loop clusters by keywords instead of user problems.
 - High-volume low-severity noise hides rare severe issues.
 - The report loses links back to evidence.
 - The same item is counted repeatedly across mirrored systems.
+
+## References
+
+- [Codex Loops: What Boris Cherny Gets Right About Managing Agent Work](https://www.developersdigest.tech/blog/codex-loops-boris-cherny-agent-routines) - Includes feedback clustering as a recurring agent loop pattern.
+- [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) - Shows orchestrator-worker patterns for collecting, checking, and reporting evidence.

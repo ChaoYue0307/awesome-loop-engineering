@@ -2,7 +2,7 @@
 
 Thanks for helping improve Awesome Loop Engineering.
 
-This repository is intentionally narrow. It tracks the new AI and coding-agent meaning of **Loop Engineering**: designing systems that prompt agents, verify outcomes, persist state, and run again on a cadence or until a goal is met.
+This repository is intentionally narrow. It tracks the new AI and coding-agent meaning of **Loop Engineering**: the layer above prompt, context, and harness engineering where teams design systems that discover work, delegate to agents, verify outcomes, persist state, decide next actions, and run again on a cadence or until a goal is met.
 
 Before submitting, read the [curation standard](CURATION.md). Maintainers use it to decide whether a resource is specific, stable, and useful enough for the list.
 
@@ -49,6 +49,8 @@ Please avoid submitting:
 
 - Software event loops, UI event loops, game loops, control theory loops, growth loops, or generic feedback-loop content unless it is explicitly applied to AI agent loops.
 - Generic prompt engineering resources with no loop, tool, verification, state, or scheduling angle.
+- Generic context or harness engineering resources unless they directly explain how repeated agent runs are triggered, verified, persisted, or governed.
+- Resources that only improve single-turn prompts belong in prompt-engineering lists unless they show scheduling, state, verification, retries, or escalation.
 - Generic agent news, product launches, or listicles without technical substance.
 - Private, unstable, or paywalled sources that most readers cannot inspect.
 - Duplicate resources already covered by an existing entry.
@@ -137,7 +139,7 @@ For a practical loop pattern, use [`templates/loop-pattern.md`](templates/loop-p
 - durable state;
 - budget and exit conditions;
 - escalation path;
-- starter prompt;
+- loop instruction, automation spec, hook config, or scheduled command;
 - failure modes.
 
 Pattern PRs should be concrete enough that a reader can adapt them to an agent runtime without guessing the loop contract.

@@ -21,7 +21,7 @@ Maintainers and contributors are welcome for:
 
 ## Translation Rules
 
-- Preserve the narrow definition: AI/coding-agent Loop Engineering only.
+- Preserve the narrow definition: AI/coding-agent Loop Engineering as the layer above prompt, context, and harness engineering.
 - Do not translate unrelated meanings into scope: event loops, control theory, growth loops, generic automation, or non-AI feedback loops.
 - Keep the English README as the source of truth for the full resource list.
 - Prefer translating the introduction, mental model, Loop Contract, maturity model, and contribution instructions first.

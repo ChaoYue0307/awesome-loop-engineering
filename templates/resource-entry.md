@@ -19,4 +19,4 @@ Use this when adding one resource to `README.md`.
 
 ## Quality Bar
 
-The entry should help readers design, run, verify, evaluate, or critique loops that prompt agents. If the resource is just about agents in general, prompt writing, or generic automation, it probably does not belong.
+The entry should help readers design, run, verify, evaluate, or critique recurring agent systems that discover work, delegate to agents, coordinate context and harnesses, verify results, persist state, decide next actions, retry, and escalate. If the resource is just about agents in general, prompt writing, context stuffing, harness infrastructure, or generic automation, it probably does not belong.

@@ -8,7 +8,7 @@ Keep an open pull request moving toward merge readiness without requiring a huma
 
 - Schedule: every 30-120 minutes during working hours.
 - Event: new review comment, failed check, requested changes, merge conflict, or stale PR label.
-- Manual command: "babysit PR #123 until it is merge-ready or blocked."
+- Manual bootstrap/debug command: "babysit PR #123 until it is merge-ready or blocked."
 
 ## Intake
 
@@ -39,6 +39,7 @@ Keep an open pull request moving toward merge readiness without requiring a huma
 
 1. Fetch the latest PR state.
 1. Classify blockers: comments, CI, conflicts, missing review, product decision, or no work.
+1. Delegate investigation, patching, review, and judgment to separate roles when the blocker is actionable.
 1. If the blocker is mechanical and scoped, patch it in the isolated workspace.
 1. Run the smallest relevant checks.
 1. Push the patch or prepare a clear summary.
@@ -63,7 +64,7 @@ Keep an open pull request moving toward merge readiness without requiring a huma
 
 Escalate when the fix requires architectural judgment, large refactors, test infrastructure repair, credentials, unavailable services, or reviewer disagreement.
 
-## Starter Prompt
+## Loop Instruction
 
 ```text
 Babysit PR <number>. Inspect review comments, CI checks, conflicts, and merge readiness.
@@ -72,9 +73,16 @@ Use an isolated workspace, run the smallest relevant verification commands, and 
 Stop and escalate if the blocker requires human judgment, broad rewrites, secrets, or force-push decisions.
 ```
 
+Example automation: run every 2 hours during working hours, or trigger when a PR receives requested changes, a failed check, or a stale label.
+
 ## Failure Modes
 
 - The loop keeps patching symptoms instead of identifying the root failing check.
 - The agent expands scope beyond review feedback.
 - CI is flaky and the loop burns retries without new evidence.
 - The PR needs human product judgment, not more code.
+
+## References
+
+- [Codex Loops: What Boris Cherny Gets Right About Managing Agent Work](https://www.developersdigest.tech/blog/codex-loops-boris-cherny-agent-routines) - Describes PR babysitting, CI repair, deploy verification, and feedback clustering loops.
+- [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - Shows plan-edit-test-observe-repair-document-repeat work with status logs and validation gates.

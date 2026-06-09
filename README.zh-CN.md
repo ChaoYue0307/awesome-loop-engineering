@@ -10,9 +10,11 @@
   <a href="TRANSLATIONS.md">帮助翻译</a>
 </p>
 
-> 面向 **Loop Engineering** 的精选资源列表：如何设计能自动提示、调度、验证、持久化状态并再次触发 AI agents 的系统。
+> 面向 **Loop Engineering** 的精选资源列表：它位于 prompt、context 和 harness engineering 之上，关注如何设计可重复运行的 AI-agent 系统。
 
-这里的 Loop Engineering 指最近在 AI coding agents 语境中出现的新概念：人不再逐轮手动提示 agent，而是设计一个循环系统，让它发现工作、分派给一个或多个 agents、检查结果、记录状态、决定下一步，并按照节奏或直到满足可验证目标为止持续运行。
+Prompt engineering 改进你对模型说什么。Context engineering 改进模型能看到什么。Harness engineering 改进单次 agent 运行周围的工具、权限、沙箱和检查。**Loop Engineering 位于三者之上**：人不再逐轮手动提示 agent，而是设计一个循环系统，让它负责提示、监督、验证、更新状态并再次触发 agents。
+
+一个 loop 会发现工作、分派给一个或多个 agents、检查结果、记录状态、决定下一步，并按照节奏或直到满足可验证目标为止持续运行。
 
 本仓库不收录软件事件循环、控制论、增长循环、通用 workflow automation 或非 AI feedback loop。
 
@@ -21,7 +23,9 @@
 - Prompt engineering 关注：我应该对模型说什么？
 - Context engineering 关注：模型应该看到什么状态和知识？
 - Harness engineering 关注：agent 周围应该有什么工具、权限、测试、沙箱和反馈？
-- Loop engineering 关注：当人不在内循环里时，什么系统负责提示、监督、验证、持久化并重新运行 agents？
+- Loop engineering 关注：当人不在内循环里时，什么系统负责发现工作、分派给 agents、验证结果、持久化状态、决定下一步并重新运行？
+
+Prompt、context 和 harness engineering 让单次 agent 运行更好。Loop Engineering 让 agent 工作能跨时间重复、观察和治理。
 
 ## Loop Contract
 
@@ -31,7 +35,7 @@
 | --- | --- | --- |
 | Objective | loop 要优化什么？ | goal、issue、PRD、runbook |
 | Trigger | 什么时候运行？ | schedule、webhook、`/loop`、`/goal`、automation |
-| Intake | 如何发现工作？ | GitHub query、Linear filter、CI failure、feedback stream |
+| Discover / Intake | 如何发现工作？ | GitHub query、Linear filter、CI failure、feedback stream |
 | Workspace | agent 在哪里安全行动？ | worktree、sandbox、branch、container |
 | Context | 哪些知识应该长期存在？ | `AGENTS.md`、`CLAUDE.md`、`SKILL.md`、docs |
 | Delegation | 哪个 agent 负责什么？ | explorer、implementer、reviewer、judge |
