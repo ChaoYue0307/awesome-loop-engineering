@@ -1,0 +1,117 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Loop Engineering contract cards</title>
+  <desc id="desc">A visual grid of the core Loop Engineering contract: objective, trigger, discover and intake, workspace, context, delegation, verification, state, budget, escalation, and exit.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="0.52" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="80" y1="80" x2="1120" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38bdf8"/>
+      <stop offset="0.52" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1e293b" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0f172a" stop-opacity="0.92"/>
+    </linearGradient>
+    <filter id="shadow" x="-12" y="-12" width="260" height="160" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .label { fill: #e0f2fe; font: 800 20px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
+      .small { fill: #cbd5e1; font: 500 13px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
+      .number { fill: #020617; font: 900 15px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
+      .title { fill: #f8fafc; font: 900 38px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; letter-spacing: -0.03em; }
+      .subtitle { fill: #bae6fd; font: 600 17px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" rx="34" fill="url(#bg)"/>
+  <circle cx="110" cy="80" r="240" fill="#0ea5e9" opacity="0.16"/>
+  <circle cx="1060" cy="120" r="260" fill="#8b5cf6" opacity="0.18"/>
+  <circle cx="1000" cy="720" r="280" fill="#22c55e" opacity="0.08"/>
+  <path d="M72 101 C295 21 445 21 600 92 C750 160 904 160 1128 86" stroke="url(#accent)" stroke-width="2" opacity="0.36"/>
+
+  <text x="72" y="76" class="title">Loop Contract</text>
+  <text x="72" y="108" class="subtitle">The reviewable operating spec for recurring AI-agent systems.</text>
+
+  <g transform="translate(72 148)">
+    <g filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#38bdf8"/><text x="26" y="36" class="number">1</text>
+      <text x="22" y="70" class="label">Objective</text>
+      <text x="22" y="94" class="small">Define success.</text>
+    </g>
+    <g transform="translate(212 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#38bdf8"/><text x="26" y="36" class="number">2</text>
+      <text x="22" y="70" class="label">Trigger</text>
+      <text x="22" y="94" class="small">Schedule or event.</text>
+    </g>
+    <g transform="translate(424 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#38bdf8"/><text x="26" y="36" class="number">3</text>
+      <text x="22" y="70" class="label">Intake</text>
+      <text x="22" y="94" class="small">Discover work.</text>
+    </g>
+    <g transform="translate(636 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#38bdf8"/><text x="26" y="36" class="number">4</text>
+      <text x="22" y="70" class="label">Workspace</text>
+      <text x="22" y="94" class="small">Isolate actions.</text>
+    </g>
+    <g transform="translate(848 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#38bdf8"/><text x="26" y="36" class="number">5</text>
+      <text x="22" y="70" class="label">Context</text>
+      <text x="22" y="94" class="small">Load durable state.</text>
+    </g>
+  </g>
+
+  <g transform="translate(72 292)">
+    <g filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#a78bfa"/><text x="26" y="36" class="number">6</text>
+      <text x="22" y="70" class="label">Delegation</text>
+      <text x="22" y="94" class="small">Route to roles.</text>
+    </g>
+    <g transform="translate(212 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#a78bfa"/><text x="26" y="36" class="number">7</text>
+      <text x="22" y="70" class="label">Verification</text>
+      <text x="22" y="94" class="small">Tests, evals, traces.</text>
+    </g>
+    <g transform="translate(424 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#a78bfa"/><text x="26" y="36" class="number">8</text>
+      <text x="22" y="70" class="label">State</text>
+      <text x="22" y="94" class="small">Persist receipts.</text>
+    </g>
+    <g transform="translate(636 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#a78bfa"/><text x="26" y="36" class="number">9</text>
+      <text x="22" y="70" class="label">Budget</text>
+      <text x="22" y="94" class="small">Cap retries and cost.</text>
+    </g>
+    <g transform="translate(848 0)" filter="url(#shadow)">
+      <rect width="190" height="112" rx="22" fill="url(#card)" stroke="#334155"/>
+      <circle cx="30" cy="30" r="16" fill="#a78bfa"/><text x="22" y="36" class="number">10</text>
+      <text x="22" y="70" class="label">Escalation</text>
+      <text x="22" y="94" class="small">Hand off to humans.</text>
+    </g>
+  </g>
+
+  <g transform="translate(72 464)">
+    <rect width="1038" height="144" rx="28" fill="#020617" opacity="0.62" stroke="#334155"/>
+    <circle cx="54" cy="72" r="30" fill="#22c55e"/><text x="45" y="79" class="number">11</text>
+    <text x="104" y="58" class="label">Exit</text>
+    <text x="104" y="84" class="small">A loop is done when acceptance criteria pass, no work is found, the budget is exhausted, or a human must decide.</text>
+    <path d="M864 45 C924 45 974 69 1012 105" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M1009 82 L1019 111 L989 104" fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="770" y="121" class="small">Repeat, report, open a PR, or escalate.</text>
+  </g>
+
+  <text x="72" y="690" class="subtitle">Prompt, context, and harness improve one run. Loop Engineering governs repeated agent work over time.</text>
+</svg>

@@ -155,6 +155,10 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 
 A useful loop has a contract. If one of these is missing, the loop usually becomes either a manual prompt habit or an unsafe background automation. Prompt, context, and harness choices are ingredients; the loop contract is the operating layer that connects them over time.
 
+<p align="center">
+  <img src="assets/loop-contract-cards.svg" alt="Loop Contract cards" width="100%">
+</p>
+
 | Part              | Design question                        | Common artifact                                              |
 | ----------------- | -------------------------------------- | ------------------------------------------------------------ |
 | Objective         | What should the loop optimize for?     | Goal, issue, PRD, runbook                                    |
