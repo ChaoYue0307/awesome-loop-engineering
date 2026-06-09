@@ -28,6 +28,7 @@ RESOURCE_SECTIONS = {
     "Examples And Schema",
     "Community Gallery",
     "Pattern Library",
+    "Discovery And Distribution",
     "Critiques, Risks, And Limitations",
     "Adjacent Awesome Lists",
 }

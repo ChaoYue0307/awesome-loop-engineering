@@ -86,6 +86,7 @@ Objective
 - [Examples And Schema](#examples-and-schema)
 - [Community Gallery](#community-gallery)
 - [Pattern Library](#pattern-library)
+- [Discovery And Distribution](#discovery-and-distribution)
 - [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
 - [Adjacent Awesome Lists](#adjacent-awesome-lists)
 - [Contributing](#contributing)
@@ -116,6 +117,7 @@ These repository-native guides define the concept, boundaries, and practical art
 - 🧾 **Template** [Comparison Guide](COMPARISON.md) - Distinguishes Loop Engineering from prompt engineering, context engineering, harness engineering, workflow automation, agent workflows, and evaluation loops.
 - 🧾 **Template** [Sourced Signals And Quotes](QUOTES.md) - Short sourced signals from linked public materials that anchor the emerging concept.
 - 🧾 **Template** [Outreach Kit](OUTREACH.md) - Conservative messages for inviting corrections, sources, and real-world loop patterns.
+- 🧾 **Template** [Distribution Checklist](DISTRIBUTION.md) - Launch copy, indexing steps, outreach targets, and accuracy rules for public sharing.
 
 ## Best First Reads
 
@@ -409,6 +411,14 @@ The gallery is for real-world or realistic loop examples contributed by the comm
 
 - 🧾 **Template** [Loop gallery guide](gallery/README.md) - Quality bar for contributed loop examples with receipts and lessons learned.
 - 🧾 **Template** [Loop gallery template](gallery/template.md) - Markdown template for sharing a loop's trigger, intake, state, verification, escalation, and safety notes.
+
+## Discovery And Distribution
+
+This repository includes a lightweight GitHub Pages landing page source for search and social previews:
+
+- 🧾 **Template** [Landing page source](docs/index.html) - SEO-friendly entry point for the repository.
+
+For launch copy and backlink strategy, use the [distribution checklist](DISTRIBUTION.md).
 
 ## Pattern Library
 

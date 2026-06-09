@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Awesome Loop Engineering</title>
+    <meta name="description" content="A curated field guide to Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://github.com/ChaoYue0307/awesome-loop-engineering">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Awesome Loop Engineering">
+    <meta property="og:description" content="Curated resources, patterns, examples, schema, and field guides for recurring AI-agent systems.">
+    <meta property="og:url" content="https://github.com/ChaoYue0307/awesome-loop-engineering">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/awesome-loop-engineering-cover.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Awesome Loop Engineering">
+    <meta name="twitter:description" content="A field guide for designing recurring AI-agent systems above prompt, context, and harness engineering.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/awesome-loop-engineering-cover.png">
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f172a;
+        --panel: #111827;
+        --muted: #cbd5e1;
+        --text: #f8fafc;
+        --accent: #38bdf8;
+        --accent-2: #a78bfa;
+        --border: rgba(148, 163, 184, 0.24);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.22), transparent 26rem),
+          radial-gradient(circle at 90% 10%, rgba(167, 139, 250, 0.2), transparent 28rem),
+          var(--bg);
+        color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      a {
+        color: #7dd3fc;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      main {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 48px 0 72px;
+      }
+      .hero {
+        display: grid;
+        gap: 28px;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        align-items: center;
+      }
+      .eyebrow {
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 10px 0 18px;
+        font-size: clamp(2.4rem, 6vw, 5.4rem);
+        line-height: 0.95;
+        letter-spacing: -0.055em;
+      }
+      .lead {
+        max-width: 760px;
+        color: var(--muted);
+        font-size: clamp(1.08rem, 2vw, 1.3rem);
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+      .button {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 11px 18px;
+        background: rgba(15, 23, 42, 0.72);
+        color: var(--text);
+        font-weight: 700;
+      }
+      .button.primary {
+        border-color: transparent;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #08111f;
+      }
+      .visual {
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        overflow: hidden;
+        background: rgba(17, 24, 39, 0.74);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      }
+      .visual img {
+        display: block;
+        width: 100%;
+      }
+      .section {
+        margin-top: 56px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .card {
+        min-height: 100%;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 22px;
+        background: rgba(17, 24, 39, 0.72);
+      }
+      .card h2,
+      .card h3 {
+        margin: 0 0 10px;
+        line-height: 1.2;
+      }
+      .card p,
+      .card li {
+        color: var(--muted);
+      }
+      .stack {
+        display: grid;
+        gap: 12px;
+      }
+      .layer {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 16px 18px;
+        background: rgba(15, 23, 42, 0.76);
+      }
+      .layer strong {
+        color: var(--text);
+      }
+      .definition {
+        border-left: 4px solid var(--accent);
+        padding: 18px 22px;
+        border-radius: 16px;
+        background: rgba(15, 23, 42, 0.76);
+        color: var(--muted);
+      }
+      footer {
+        margin-top: 64px;
+        color: #94a3b8;
+        font-size: 0.95rem;
+      }
+      @media (max-width: 850px) {
+        .hero,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        main {
+          padding-top: 28px;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Awesome Loop Engineering",
+        "url": "https://github.com/ChaoYue0307/awesome-loop-engineering",
+        "description": "A curated field guide to Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Awesome Loop Engineering",
+          "url": "https://github.com/ChaoYue0307/awesome-loop-engineering"
+        },
+        "about": [
+          "Loop Engineering",
+          "AI agents",
+          "Coding agents",
+          "Agent workflows"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Chaoyue He"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Awesome Loop Engineering</div>
+          <h1>Design loops, not just prompts.</h1>
+          <p class="lead">
+            Loop Engineering is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering">Open GitHub Repo</a>
+            <a class="button" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/DEFINITION.md">Read Definition</a>
+            <a class="button" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">See Examples</a>
+          </div>
+        </div>
+        <div class="visual">
+          <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-engineering-stack.svg" alt="Loop Engineering stack diagram">
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="definition">
+          <strong>Canonical definition:</strong>
+          Loop Engineering is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.
+        </div>
+      </section>
+
+      <section class="section grid" aria-label="Engineering stack">
+        <div class="card">
+          <h2>The Stack</h2>
+          <div class="stack">
+            <div class="layer"><strong>Prompt Engineering</strong><br>What should I say to the model?</div>
+            <div class="layer"><strong>Context Engineering</strong><br>What state and knowledge should the model see?</div>
+            <div class="layer"><strong>Harness Engineering</strong><br>What tools, permissions, tests, and sandboxes surround one run?</div>
+            <div class="layer"><strong>Loop Engineering</strong><br>What recurring system governs agent work over time?</div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>What The Repo Contains</h2>
+          <ul>
+            <li>Curated papers, blogs, docs, tools, benchmarks, and patterns.</li>
+            <li>Manifesto, taxonomy, comparison guide, and anti-patterns.</li>
+            <li>Validated loop contract schema and example loop specs.</li>
+            <li>Pattern library for PR, CI, docs, deploy, and feedback loops.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Contribute</h2>
+          <p>
+            Share resources, corrections, or real loop patterns with trigger, intake, delegation, verification, state, budget, escalation, and receipts.
+          </p>
+          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/1">Join the community pattern thread</a></p>
+        </div>
+      </section>
+
+      <section class="section grid" aria-label="Key links">
+        <div class="card">
+          <h3>Start Here</h3>
+          <p>Use the README for the complete curated map and contribution path.</p>
+          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.md">Read the README</a></p>
+        </div>
+        <div class="card">
+          <h3>Field Guides</h3>
+          <p>Understand the concept, boundaries, taxonomy, anti-patterns, and comparisons.</p>
+          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/MANIFESTO.md">Read the Manifesto</a></p>
+        </div>
+        <div class="card">
+          <h3>Build A Loop</h3>
+          <p>Start from validated JSON specs or the pattern template.</p>
+          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples">View examples</a></p>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          This is an early curated map of an emerging practice, not a final standard.
+          Original repository materials are released under CC0-1.0.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
