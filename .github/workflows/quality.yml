@@ -38,6 +38,9 @@ jobs:
           python scripts/check_loop_contract_examples.py
           python scripts/preview_loop_contract.py examples/pr-babysitter-loop.json >/tmp/pr-babysitter-preview.md
 
+      - name: Check Pages metadata
+        run: python scripts/check_pages_metadata.py
+
       - name: Check links
         run: python scripts/verify_urls.py . --timeout 12 --workers 20
 

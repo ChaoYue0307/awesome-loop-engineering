@@ -15,7 +15,8 @@
 <p align="center">
   <a href="README.md">English</a> |
   <a href="README.zh-CN.md">中文</a> |
-  <a href="TRANSLATIONS.md">Help translate</a>
+  <a href="TRANSLATIONS.md">Help translate</a> |
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Landing page</a>
 </p>
 
 > A curated, implementation-oriented list of resources for **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
@@ -414,9 +415,12 @@ The gallery is for real-world or realistic loop examples contributed by the comm
 
 ## Discovery And Distribution
 
-This repository includes a lightweight GitHub Pages landing page source for search and social previews:
+This repository includes a lightweight GitHub Pages landing page for search and social previews:
 
-- 🧾 **Template** [Landing page source](docs/index.html) - SEO-friendly entry point for the repository.
+- 🧾 **Template** [Landing page](https://chaoyue0307.github.io/awesome-loop-engineering/) - SEO-friendly entry point for the repository.
+- 🧾 **Template** [Landing page source](docs/index.html) - Source for the static landing page.
+- 🧾 **Template** [Sitemap](docs/sitemap.xml) - Crawl hints for the landing page and core repository pages.
+- 🧾 **Template** [Robots file](docs/robots.txt) - Allows indexing and points crawlers to the sitemap.
 
 For launch copy and backlink strategy, use the [distribution checklist](DISTRIBUTION.md).
 
