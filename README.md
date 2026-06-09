@@ -441,6 +441,7 @@ For launch copy and backlink strategy, use the [distribution checklist](DISTRIBU
 - 🧾 **Template** [Roadmap](ROADMAP.md) - Near-term work, pattern priorities, gallery goals, and open questions.
 - 🧾 **Template** [Launch article](posts/launch.md) - Shareable explanation of the concept and repository.
 - 🧾 **Template** [Discussion guide](DISCUSSIONS.md) - Suggested discussion categories, starter prompts, and moderation standard.
+- 🔁 **Pattern** [Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2) - Community discussion for real or anonymized loop examples.
 
 ## Pattern Library
 

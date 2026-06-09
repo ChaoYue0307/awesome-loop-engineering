@@ -2,6 +2,8 @@
 
 GitHub Discussions are enabled for this repository. Use them to gather examples, improve definitions, and keep resource curation transparent.
 
+Seed thread: [Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2).
+
 ## Suggested Categories
 
 - **Pattern Examples**: real or anonymized loop patterns with trigger, intake, state, verification, budget, and escalation.
