@@ -39,7 +39,7 @@ Harness engineering asks: **what tools, permissions, tests, sandboxes, and feedb
 Loop engineering asks: **what recurring system should prompt, supervise, verify, persist, and re-run agents when the human is no longer in the inner loop?**
 
 <p align="center">
-  <img src="assets/loop-engineering-map.svg" alt="Loop Engineering ecosystem map" width="100%">
+  <img src="assets/loop-engineering-stack.svg" alt="Loop Engineering stack" width="100%">
 </p>
 
 Loop shape:
