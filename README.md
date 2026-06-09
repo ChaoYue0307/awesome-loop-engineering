@@ -24,8 +24,6 @@ Loop Engineering is the emerging AI and coding-agent practice of moving from man
 
 This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
 
-**Last verified:** 2026-06-10 with [`scripts/verify_urls.py`](scripts/verify_urls.py). Resource entries use visible type labels and are checked in CI.
-
 ## Why This Repo Exists
 
 Loop Engineering is becoming a distinct craft because the leverage point is moving from better single prompts to better recurring systems. The best agent workflows now combine goals, state, work isolation, tool permissions, feedback gates, retries, escalation, and receipts. This list exists to make that craft easier to learn, compare, and practice without mixing it with unrelated loop concepts or generic AI-agent hype.
