@@ -63,6 +63,7 @@ Objective
 ## Contents
 
 - [How To Use This List](#how-to-use-this-list)
+- [Canonical Definition](#canonical-definition)
 - [Concept Guides](#concept-guides)
 - [Best First Reads](#best-first-reads)
 - [Resource Type Legend](#resource-type-legend)
@@ -83,6 +84,7 @@ Objective
 - [Operations Playbooks](#operations-playbooks)
 - [Templates And Patterns](#templates-and-patterns)
 - [Examples And Schema](#examples-and-schema)
+- [Community Gallery](#community-gallery)
 - [Pattern Library](#pattern-library)
 - [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
 - [Adjacent Awesome Lists](#adjacent-awesome-lists)
@@ -97,15 +99,23 @@ Objective
 - Adding a resource? See [Contributing](#contributing) and prefer primary sources, official docs, papers, and implementation-heavy write-ups.
 - Reviewing a PR? Use the [curation standard](CURATION.md) and [maintenance guide](MAINTENANCE.md).
 
+## Canonical Definition
+
+**Loop Engineering** is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.
+
+For a quotable definition and scope test, see [`DEFINITION.md`](DEFINITION.md).
+
 ## Concept Guides
 
 These repository-native guides define the concept, boundaries, and practical artifacts without relying on vendor-specific terminology.
 
+- 🧾 **Template** [Canonical Definition](DEFINITION.md) - Short definition, positioning, minimal loop test, and citation note.
 - 🧾 **Template** [Loop Engineering Manifesto](MANIFESTO.md) - Concise statement of the concept, commitments, non-goals, and success standard.
 - 🧾 **Template** [Loop Engineering Taxonomy](TAXONOMY.md) - Classification by trigger, intake, verification, state model, topology, and operating domain.
 - ⚠️ **Critique** [Loop Engineering Anti-Patterns](ANTI-PATTERNS.md) - Common failure modes such as prompt loops with no contract, infinite retries, model self-approval, hidden state, and unsafe autonomy.
 - 🧾 **Template** [Comparison Guide](COMPARISON.md) - Distinguishes Loop Engineering from prompt engineering, context engineering, harness engineering, workflow automation, agent workflows, and evaluation loops.
 - 🧾 **Template** [Sourced Signals And Quotes](QUOTES.md) - Short sourced signals from linked public materials that anchor the emerging concept.
+- 🧾 **Template** [Outreach Kit](OUTREACH.md) - Conservative messages for inviting corrections, sources, and real-world loop patterns.
 
 ## Best First Reads
 
@@ -366,6 +376,7 @@ Reusable patterns that contributors can turn into future examples, templates, or
 - 🧾 **Template** [Resource entry template](templates/resource-entry.md) - Format for adding a single resource with evidence quality and category fit.
 - 🧾 **Template** [Loop pattern template](templates/loop-pattern.md) - Template for documenting an operational loop such as PR babysitting, CI repair, or feedback clustering.
 - 🧾 **Template** [Loop contract schema](schemas/loop-contract.schema.json) - Machine-readable schema for portable loop specs.
+- 🧾 **Template** [Loop contract preview script](scripts/preview_loop_contract.py) - Dependency-free demo that validates and renders a loop contract JSON file.
 - 🧾 **Template** [Translation guide](TRANSLATIONS.md) - How to add or maintain a language translation without drifting from the canonical English list.
 - 🧾 **Template** [Pattern library index](patterns/README.md) - Practical loop patterns with triggers, state, verification gates, budgets, and escalation paths.
 
@@ -385,6 +396,19 @@ Concrete examples make the loop contract easier to adapt to real repositories.
 - 🧾 **Template** [PR babysitter contract](examples/pr-babysitter-loop.json) - Schema-shaped loop contract for keeping a pull request moving.
 - 🧾 **Template** [CI repair contract](examples/ci-repair-loop.json) - Schema-shaped loop contract for turning failing CI into a verified patch or escalation.
 - 🧾 **Template** [Docs drift contract](examples/docs-drift-loop.json) - Schema-shaped loop contract for recurring docs/code consistency checks.
+
+Preview an example locally:
+
+```sh
+python3 scripts/preview_loop_contract.py examples/pr-babysitter-loop.json
+```
+
+## Community Gallery
+
+The gallery is for real-world or realistic loop examples contributed by the community.
+
+- 🧾 **Template** [Loop gallery guide](gallery/README.md) - Quality bar for contributed loop examples with receipts and lessons learned.
+- 🧾 **Template** [Loop gallery template](gallery/template.md) - Markdown template for sharing a loop's trigger, intake, state, verification, escalation, and safety notes.
 
 ## Pattern Library
 

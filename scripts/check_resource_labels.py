@@ -10,6 +10,7 @@ from pathlib import Path
 
 
 RESOURCE_SECTIONS = {
+    "Canonical Definition",
     "Concept Guides",
     "Best First Reads",
     "Start Here",
@@ -25,6 +26,7 @@ RESOURCE_SECTIONS = {
     "Operations Playbooks",
     "Templates And Patterns",
     "Examples And Schema",
+    "Community Gallery",
     "Pattern Library",
     "Critiques, Risks, And Limitations",
     "Adjacent Awesome Lists",
