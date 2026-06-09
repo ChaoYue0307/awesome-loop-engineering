@@ -6,18 +6,21 @@ The canonical list is [README.md](README.md). Translations should help more read
 
 - [English](README.md)
 - [中文](README.zh-CN.md)
+- [Español](README.es.md)
+- [Français](README.fr.md)
+- [Deutsch](README.de.md)
+- [日本語](README.ja.md)
+- [한국어](README.ko.md)
+- [Português](README.pt-BR.md)
 
 ## Wanted
 
 Maintainers and contributors are welcome for:
 
-- Deutsch
-- Español
-- Français
-- 日本語
-- 한국어
-- Português
 - Русский
+- Italiano
+- العربية
+- हिन्दी
 
 ## Translation Rules
 

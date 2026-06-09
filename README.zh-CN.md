@@ -7,6 +7,12 @@
 <p align="center">
   <a href="README.md">English</a> |
   <a href="README.zh-CN.md">中文</a> |
+  <a href="README.es.md">Español</a> |
+  <a href="README.fr.md">Français</a> |
+  <a href="README.de.md">Deutsch</a> |
+  <a href="README.ja.md">日本語</a> |
+  <a href="README.ko.md">한국어</a> |
+  <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">帮助翻译</a>
 </p>
 
@@ -31,31 +37,31 @@ Prompt、context 和 harness engineering 让单次 agent 运行更好。Loop Eng
 
 一个有效的 loop 通常需要这些部分：
 
-| 部分 | 设计问题 | 常见产物 |
-| --- | --- | --- |
-| Objective | loop 要优化什么？ | goal、issue、PRD、runbook |
-| Trigger | 什么时候运行？ | schedule、webhook、`/loop`、`/goal`、automation |
-| Discover / Intake | 如何发现工作？ | GitHub query、Linear filter、CI failure、feedback stream |
-| Workspace | agent 在哪里安全行动？ | worktree、sandbox、branch、container |
-| Context | 哪些知识应该长期存在？ | `AGENTS.md`、`CLAUDE.md`、`SKILL.md`、docs |
-| Delegation | 哪个 agent 负责什么？ | explorer、implementer、reviewer、judge |
-| Verification | 什么机制判断通过或失败？ | tests、typecheck、lint、evals、trace graders |
-| State | 下一轮需要保留什么？ | progress file、checkpoint、trace、issue comment |
-| Budget | 何时停止消耗？ | max turns、max retries、token budget、time box |
-| Escalation | 何时交给人？ | PR、issue、Slack alert、triage inbox |
-| Exit | loop 如何知道完成？ | acceptance criteria、passing checks、no work found |
+| 部分                | 设计问题           | 常见产物                                                  |
+| ----------------- | -------------- | ----------------------------------------------------- |
+| Objective         | loop 要优化什么？    | goal、issue、PRD、runbook                                |
+| Trigger           | 什么时候运行？        | schedule、webhook、`/loop`、`/goal`、automation           |
+| Discover / Intake | 如何发现工作？        | GitHub query、Linear filter、CI failure、feedback stream |
+| Workspace         | agent 在哪里安全行动？ | worktree、sandbox、branch、container                     |
+| Context           | 哪些知识应该长期存在？    | `AGENTS.md`、`CLAUDE.md`、`SKILL.md`、docs               |
+| Delegation        | 哪个 agent 负责什么？ | explorer、implementer、reviewer、judge                   |
+| Verification      | 什么机制判断通过或失败？   | tests、typecheck、lint、evals、trace graders              |
+| State             | 下一轮需要保留什么？     | progress file、checkpoint、trace、issue comment          |
+| Budget            | 何时停止消耗？        | max turns、max retries、token budget、time box           |
+| Escalation        | 何时交给人？         | PR、issue、Slack alert、triage inbox                     |
+| Exit              | loop 如何知道完成？   | acceptance criteria、passing checks、no work found      |
 
 ## 成熟度模型
 
-| 等级 | 名称 | 描述 |
-| --- | --- | --- |
-| 0 | Manual prompting | 人读取状态并写下一条 prompt。 |
-| 1 | Scripted retry | 脚本把错误反馈给 agent。 |
-| 2 | Scheduled loop | agent 按固定节奏运行并报告结果。 |
-| 3 | Stateful loop | 通过文件、issue、checkpoint 或 trace 保留进度。 |
-| 4 | Self-verifying loop | 用确定性检查或 evaluator agent 阻止错误完成。 |
-| 5 | Multi-agent loop | discovery、implementation、review、judgment 由不同 agents 分工。 |
-| 6 | Production-supervised loop | observability、budget、approval、rollback、human escalation 都是一等公民。 |
+| 等级  | 名称                         | 描述                                                              |
+| --- | -------------------------- | --------------------------------------------------------------- |
+| 0   | Manual prompting           | 人读取状态并写下一条 prompt。                                              |
+| 1   | Scripted retry             | 脚本把错误反馈给 agent。                                                 |
+| 2   | Scheduled loop             | agent 按固定节奏运行并报告结果。                                             |
+| 3   | Stateful loop              | 通过文件、issue、checkpoint 或 trace 保留进度。                             |
+| 4   | Self-verifying loop        | 用确定性检查或 evaluator agent 阻止错误完成。                                 |
+| 5   | Multi-agent loop           | discovery、implementation、review、judgment 由不同 agents 分工。         |
+| 6   | Production-supervised loop | observability、budget、approval、rollback、human escalation 都是一等公民。 |
 
 ## 必读入口
 
