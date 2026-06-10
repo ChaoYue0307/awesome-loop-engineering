@@ -25,12 +25,12 @@ A loop discovers work, hands it to one or more agents, checks the result, record
 
 This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
 
-**Quick orientation — for first-time visitors:**
+**Quick orientation for first-time visitors:**
 
 - **What it is:** Loop Engineering is the practice of designing recurring AI-agent and coding-agent systems—how work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.
 - **Why it matters now:** As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list exists because no existing collection focused on that layer.
 - **Who this is for:** builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.
-- **Where to start:** [Canonical Definition](#canonical-definition) → [Loop Contract](#the-loop-contract) → [Start Here](#start-here) → [Pattern Library](#pattern-library)
+- **Where to start:** Canonical Definition, Loop Contract, Start Here, then Pattern Library.
 
 ## Contents
 
@@ -108,12 +108,7 @@ Start with the first-read resources and the Loop Contract if the term is new. Fo
 
 ## Reading Paths
 
-Choose a path based on your intent:
-
-- **New to the term?** → [Canonical Definition](#canonical-definition) · [Mental Model](#mental-model) · [Comparison Guide](COMPARISON.md) · [Loop Contract](#the-loop-contract)
-- **Implementing a loop?** → [Core Loop Primitives](#core-loop-primitives) · [Official Runtime Guides](#official-runtime-guides) · [Pattern Library](#pattern-library) · [Examples And Schema](#examples-and-schema)
-- **Improving reliability or evals?** → [Verification And Feedback Gates](#verification-and-feedback-gates) · [Benchmarks And Evaluation](#benchmarks-and-evaluation) · [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
-- **Contributing a pattern or resource?** → [Community Gallery](#community-gallery) · [Templates And Patterns](#templates-and-patterns) · [CONTRIBUTING.md](CONTRIBUTING.md)
+Choose a path based on your intent. If the term is new, read the canonical definition, mental model, comparison guide, and Loop Contract. If you are implementing a loop, move through core primitives, official runtime guides, the pattern library, and examples. If you are improving reliability or evals, focus on verification gates, benchmarks, critiques, and limitations. If you are contributing, review the community gallery, templates, and contribution guide.
 
 ## Canonical Definition
 
@@ -137,14 +132,7 @@ These repository-native guides define the concept, boundaries, and practical art
 
 ## Repository Highlights
 
-What this repository includes as of mid-2026:
-
-- **10 operational loop patterns**: PR babysitting, CI repair, deploy verification, feedback clustering, security review, cost control, and more — each with trigger, state, verification gates, and escalation path.
-- **3 example loop contracts**: machine-readable JSON schemas for PR babysitter, CI repair, and docs drift loops.
-- **Community gallery**: reference loop examples with receipts and lessons learned, open for contributions.
-- **8 language entry points**: English plus Chinese, Spanish, French, German, Japanese, Korean, and Portuguese (see [TRANSLATIONS.md](TRANSLATIONS.md)).
-- **Standalone landing page**: search-accessible entry point at [chaoyue0307.github.io/awesome-loop-engineering](https://chaoyue0307.github.io/awesome-loop-engineering/).
-- **Active GitHub Discussions**: see [Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2).
+As of mid-2026, this repository includes 10 operational loop patterns, 3 example loop contracts, a community gallery for reference loops, 8 language entry points, a standalone landing page, and an active discussion thread for real or anonymized Loop Engineering patterns.
 
 ## Resource Type Legend
 
