@@ -12,13 +12,15 @@ This roadmap keeps Awesome Loop Engineering focused on useful, verifiable work f
 
 ## Pattern Library
 
-Priority pattern additions:
+Completed reference patterns now cover PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, dependency triage, evaluation regression, security review, cost-control, and bug hunting.
 
-- Bug hunting loop with repository scan, issue filing, verification, and escalation.
-- Dependency triage loop with update classification, test gates, and rollback rules.
-- Evaluation regression loop with trace sampling, benchmark reruns, and prompt or harness change proposals.
-- Security review loop with strict read-only exploration, finding validation, and human approval boundaries.
-- Cost-control loop for long-running agent workflows.
+Next pattern-library work should focus on variants backed by operational evidence:
+
+- enterprise approval loops for permissioned agents;
+- incident response loops with pager handoff and postmortem evidence;
+- data-quality loops for repeated dataset or knowledge-base refresh;
+- release-note loops that connect commits, issues, docs, and changelogs;
+- model-routing loops that balance quality, latency, privacy, and cost.
 
 ## Gallery
 

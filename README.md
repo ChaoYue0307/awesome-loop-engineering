@@ -419,6 +419,11 @@ Practical loop patterns translate the abstract contract into runnable operating 
 - 🔁 **Pattern** [Docs drift collector](patterns/docs-drift-collector.md) - Finds mismatches between docs and code, proposes small patches, and verifies examples.
 - 🔁 **Pattern** [Deploy verifier](patterns/deploy-verifier.md) - Watches rollout signals, compares them with release expectations, and stops on anomalies.
 - 🔁 **Pattern** [Feedback clusterer](patterns/feedback-clusterer.md) - Periodically groups GitHub, Linear, Slack, support, or social feedback into actionable themes.
+- 🔁 **Pattern** [Dependency triage loop](patterns/dependency-triage-loop.md) - Classifies dependency updates, applies safe groups, verifies them, and escalates risky upgrades.
+- 🔁 **Pattern** [Evaluation regression loop](patterns/evaluation-regression-loop.md) - Investigates degraded agent evals with baseline traces, targeted reruns, and repair proposals.
+- 🔁 **Pattern** [Security review loop](patterns/security-review-loop.md) - Reviews sensitive diffs with evidence-backed findings, safe permissions, and human approval boundaries.
+- 🔁 **Pattern** [Cost-control loop](patterns/cost-control-loop.md) - Monitors agent workflow spend, identifies waste, proposes scoped savings, and preserves quality gates.
+- 🔁 **Pattern** [Bug hunting loop](patterns/bug-hunting-loop.md) - Discovers, reproduces, minimizes, and reports bugs with concrete evidence.
 
 ## Critiques, Risks, And Limitations
 

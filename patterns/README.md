@@ -23,6 +23,11 @@ Use a pattern when you can name:
 - [Docs drift collector](docs-drift-collector.md) - Detect and patch code/docs mismatch.
 - [Deploy verifier](deploy-verifier.md) - Watch rollout signals and stop on anomalies.
 - [Feedback clusterer](feedback-clusterer.md) - Turn raw feedback streams into actionable themes.
+- [Dependency triage loop](dependency-triage-loop.md) - Classify updates, apply safe changes, verify, and escalate risky upgrades.
+- [Evaluation regression loop](evaluation-regression-loop.md) - Investigate degraded agent evals with trace evidence and targeted reruns.
+- [Security review loop](security-review-loop.md) - Review sensitive diffs with validation gates and human approval boundaries.
+- [Cost-control loop](cost-control-loop.md) - Monitor agent workflow spend, find waste, and preserve quality gates.
+- [Bug hunting loop](bug-hunting-loop.md) - Find, reproduce, minimize, and report bugs with evidence.
 
 ## Pattern Quality Bar
 
