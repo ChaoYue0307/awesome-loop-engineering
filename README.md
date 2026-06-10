@@ -25,14 +25,23 @@ A loop discovers work, hands it to one or more agents, checks the result, record
 
 This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
 
+**Quick orientation — for first-time visitors:**
+
+- **What it is:** Loop Engineering is the practice of designing recurring AI-agent and coding-agent systems—how work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.
+- **Why it matters now:** As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list exists because no existing collection focused on that layer.
+- **Who this is for:** builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.
+- **Where to start:** [Canonical Definition](#canonical-definition) → [Loop Contract](#the-loop-contract) → [Start Here](#start-here) → [Pattern Library](#pattern-library)
+
 ## Contents
 
 - [Why This Repo Exists](#why-this-repo-exists)
 - [Mental Model](#mental-model)
 - [How To Use This List](#how-to-use-this-list)
+- [Reading Paths](#reading-paths)
 - [Canonical Definition](#canonical-definition)
 - [Concept Guides](#concept-guides)
 - [Maintainer Picks](#maintainer-picks)
+- [Repository Highlights](#repository-highlights)
 - [Resource Type Legend](#resource-type-legend)
 - [Start Here](#start-here)
 - [Scope Boundary](#scope-boundary)
@@ -97,6 +106,15 @@ Objective
 
 Start with the first-read resources and the Loop Contract if the term is new. For implementation work, move through core primitives, runtime guides, templates, and patterns. For reliability work, focus on verification gates, state persistence, critiques, and limitations. Contributions should prefer primary sources, official docs, papers, and implementation-heavy write-ups.
 
+## Reading Paths
+
+Choose a path based on your intent:
+
+- **New to the term?** → [Canonical Definition](#canonical-definition) · [Mental Model](#mental-model) · [Comparison Guide](COMPARISON.md) · [Loop Contract](#the-loop-contract)
+- **Implementing a loop?** → [Core Loop Primitives](#core-loop-primitives) · [Official Runtime Guides](#official-runtime-guides) · [Pattern Library](#pattern-library) · [Examples And Schema](#examples-and-schema)
+- **Improving reliability or evals?** → [Verification And Feedback Gates](#verification-and-feedback-gates) · [Benchmarks And Evaluation](#benchmarks-and-evaluation) · [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
+- **Contributing a pattern or resource?** → [Community Gallery](#community-gallery) · [Templates And Patterns](#templates-and-patterns) · [CONTRIBUTING.md](CONTRIBUTING.md)
+
 ## Canonical Definition
 
 **Loop Engineering** is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.
@@ -116,6 +134,17 @@ These repository-native guides define the concept, boundaries, and practical art
 ## Maintainer Picks
 
 - 🧾 **Template** [Maintainer Picks](MAINTAINER_PICKS.md) - Shortlist of concept, practice, reliability, and reusable artifact resources.
+
+## Repository Highlights
+
+What this repository includes as of mid-2026:
+
+- **10 operational loop patterns**: PR babysitting, CI repair, deploy verification, feedback clustering, security review, cost control, and more — each with trigger, state, verification gates, and escalation path.
+- **3 example loop contracts**: machine-readable JSON schemas for PR babysitter, CI repair, and docs drift loops.
+- **Community gallery**: reference loop examples with receipts and lessons learned, open for contributions.
+- **8 language entry points**: English plus Chinese, Spanish, French, German, Japanese, Korean, and Portuguese (see [TRANSLATIONS.md](TRANSLATIONS.md)).
+- **Standalone landing page**: search-accessible entry point at [chaoyue0307.github.io/awesome-loop-engineering](https://chaoyue0307.github.io/awesome-loop-engineering/).
+- **Active GitHub Discussions**: see [Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2).
 
 ## Resource Type Legend
 
@@ -485,3 +514,7 @@ If this repository is useful in your work, please cite it with:
   note         = {Curated resources for Loop Engineering}
 }
 ```
+
+**Reusable blurb** (for blog posts, talks, internal docs, or community posts):
+
+> Loop Engineering is the practice of designing recurring AI-agent and coding-agent systems that discover work, delegate to agents, verify results, persist state, and retry or escalate on a cadence or until a goal is reached. *Awesome Loop Engineering* is a curated, implementation-focused resource collection for this practice: [github.com/ChaoYue0307/awesome-loop-engineering](https://github.com/ChaoYue0307/awesome-loop-engineering)
