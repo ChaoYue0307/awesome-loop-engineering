@@ -307,6 +307,7 @@ These resources are included when they help design the higher-level loop around 
 
 ## Coding-Agent Loop Systems
 
+- 🧰 **Tool** [Ariadne Loop](https://github.com/zhangzeyu99-web/ariadne-loop) - Generates verifiable loop contracts, agent packets, and JSON supervision decisions for Codex, Claude Code, GitHub issues, releases, and refactors.
 - 🧰 **Tool** [SWE-agent](https://github.com/SWE-agent/SWE-agent) - Agent-computer interface and autonomous software engineering agent for repository tasks.
 - 📄 **Paper** [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering](https://arxiv.org/abs/2405.15793) - Paper behind SWE-agent and its interface design.
 - 🧰 **Tool** [mini-SWE-agent](https://mini-swe-agent.com/latest/) - Minimal coding agent that is useful for understanding the core loop without a large framework.
