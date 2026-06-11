@@ -30,6 +30,7 @@ Maintainers and contributors are welcome for:
 - Prefer translating the introduction, mental model, Loop Contract, maturity model, and contribution instructions first.
 - If you translate the full resource list, keep URLs unchanged and translate only annotations.
 - Add yourself as a translation maintainer in your PR if you can help keep the file current.
+- Every translation carries a `<!-- last-synced: YYYY-MM-DD -->` marker near the top. When you review a translation against the current English README, bump the date. CI fails when a marker is missing or older than 180 days.
 
 ## Suggested File Names
 
@@ -45,6 +46,7 @@ Maintainers and contributors are welcome for:
 
 - [ ] The translation links back to the canonical English README.
 - [ ] The language switcher has been updated in `README.md`.
+- [ ] The `<!-- last-synced: YYYY-MM-DD -->` marker is present and current.
 - [ ] The translation preserves the scope boundary.
 - [ ] Resource URLs are unchanged.
 - [ ] Technical terms are translated consistently or left in English where that is clearer.

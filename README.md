@@ -54,6 +54,7 @@ This repository is about the new AI-agent meaning of Loop Engineering. It is **n
 - [Agent Workflow Patterns](#agent-workflow-patterns)
 - [Coding-Agent Loop Systems](#coding-agent-loop-systems)
 - [Verification And Feedback Gates](#verification-and-feedback-gates)
+- [Securing Unattended Loops](#securing-unattended-loops)
 - [State, Memory, And Context Persistence](#state-memory-and-context-persistence)
 - [Orchestration And Multi-Agent Delegation](#orchestration-and-multi-agent-delegation)
 - [Benchmarks And Evaluation](#benchmarks-and-evaluation)
@@ -132,7 +133,7 @@ These repository-native guides define the concept, boundaries, and practical art
 
 ## Repository Highlights
 
-As of mid-2026, this repository includes 10 operational loop patterns, 3 example loop contracts, a community gallery for reference loops, 8 language entry points, a standalone landing page, and an active discussion thread for real or anonymized Loop Engineering patterns.
+Beyond the curated list, this repository ships its own artifacts: an operational pattern library, a schema-validated loop contract for every pattern, a runnable reference loop, a community gallery, eight language entry points, a standalone landing page, and an active discussion thread for real or anonymized Loop Engineering patterns.
 
 ## Resource Type Legend
 
@@ -263,8 +264,15 @@ Primary-source docs from agent runtime vendors and framework builders.
 - 📚 **Docs** [Create custom subagents](https://code.claude.com/docs/en/sub-agents) - Claude Code custom subagents with isolated context, model choice, and tool permissions.
 - 📚 **Docs** [GitHub Agentic Workflows](https://github.github.com/gh-aw/) - Repository automation that runs coding agents in GitHub Actions on events or schedules with guardrails.
 - 📝 **Blog** [GitHub Agentic Workflows technical preview](https://github.blog/changelog/2026-02-13-github-agentic-workflows-are-now-in-technical-preview/) - Changelog announcement for Markdown-defined agentic workflows in GitHub Actions.
+- 📚 **Docs** [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) - GitHub's autonomous coding agent: assign an issue, the agent works in an isolated Actions-powered workspace, and a reviewable pull request comes back.
+- 📝 **Blog** [GitHub Copilot: Meet the new coding agent](https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/) - Launch overview of the issue-to-PR delegation loop, including iteration on review feedback.
+- 📚 **Docs** [Jules](https://jules.google/docs) - Google's asynchronous coding agent that plans, executes tasks in isolated cloud VMs, and returns reviewable diffs.
+- 📚 **Docs** [Cursor background agents](https://docs.cursor.com/background-agent) - Remote background agents that work asynchronously in isolated environments and hand results back for review.
+- 📚 **Docs** [Devin Docs](https://docs.devin.ai/) - Documentation for a long-running autonomous software engineer with sessions, playbooks, knowledge, and review boundaries.
 - 📚 **Docs** [Writing effective tools for AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) - Anthropic's guidance on evaluating and improving tool specs using agentic loops and realistic tasks.
 - 📚 **Docs** [Introducing advanced tool use on the Claude Developer Platform](https://www.anthropic.com/engineering/advanced-tool-use?e45d281a_page=3) - Tool search, programmatic tool calling, and tool-use examples for scaling large tool libraries without flooding context.
+- 📚 **Docs** [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) - Anthropic's guidance for agents that work across many context windows: durable progress artifacts, environment setup, and self-verification.
+- 📚 **Docs** [Claude Code: Best practices for agentic coding](https://www.anthropic.com/engineering/claude-code-best-practices) - Widely cited workflow guidance that underlies many recurring Claude Code loops.
 
 ## Research Foundations
 
@@ -279,6 +287,8 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 📄 **Paper** [Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models](https://arxiv.org/abs/2310.04406) - Combines search, action, and environment feedback for language agents.
 - 📄 **Paper** [Voyager: An Open-Ended Embodied Agent with Large Language Models](https://arxiv.org/abs/2305.16291) - Demonstrates lifelong skill acquisition through iterative exploration, feedback, and a skill library.
 - 📄 **Paper** [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) - Introduces reflection and memory mechanisms for long-running agent behavior.
+- 📄 **Paper** [Measuring AI Ability to Complete Long Software Tasks](https://arxiv.org/abs/2503.14499) - METR's task-length time horizon metric; grounds why loop budgets, checkpoints, and escalation matter as autonomous work gets longer.
+- 📝 **Blog** [Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) - Accessible summary of the 50% task-completion time horizon and its doubling trend.
 - 🧰 **Tool** [Reflexion code](https://github.com/noahshinn/reflexion) - Reference implementation and experiments for verbal reinforcement loops.
 
 ## Agent Workflow Patterns
@@ -306,7 +316,9 @@ These resources are included when they help design the higher-level loop around 
 - 📄 **Paper** [Agentless: Demystifying LLM-based Software Engineering Agents](https://arxiv.org/abs/2407.01489) - Useful contrast case: strong results through structured workflow rather than a fully open-ended agent.
 - 🧰 **Tool** [AutoCodeRover](https://github.com/AutoCodeRoverSG/auto-code-rover) - Autonomous program improvement system for issue localization, patch generation, and validation.
 - 📄 **Paper** [AutoCodeRover: Autonomous Program Improvement](https://arxiv.org/abs/2404.05427) - Paper on autonomous code repair loops over real repositories.
+- 🔁 **Pattern** [Ralph](https://ghuntley.com/ralph/) - Geoffrey Huntley's original Ralph technique: run one agent in a bare loop with fresh context per iteration and the filesystem plus specs as memory.
 - 🔁 **Pattern** [Ralph Copilot](https://github.com/giocaizzi/ralph-copilot/tree/e5b2813cc876c73a8c9d3398c0115da0d15f63cf) - Language-agnostic Ralph loop implementation using fresh context, filesystem memory, `PRD.md`, and `PROGRESS.md`.
+- 🧰 **Tool** [Amp](https://ampcode.com/) - Agentic coding tool built around threads, subagents, and an opinionated harness, with an owner's manual that documents loop-style operating practices.
 - 🧰 **Tool** [karl](https://github.com/kayoslab/karl) - Autonomous multi-agent development loop with planner, reviewer, architect, tester, developer, deployment, and retry phases.
 - 🔁 **Pattern** [joelclaw agent-loop skill](https://github.com/joelhooks/joelclaw/blob/main/skills/agent-loop/SKILL.md) - Durable Planner-Implementor-Reviewer-Judge coding loops via Inngest events and progress files.
 - 🧭 **List** [SWE-bench reading list](https://github.com/SWE-bench/reading-list) - Maintained map of software engineering agent systems and related papers.
@@ -326,6 +338,23 @@ These resources include harness and observability mechanisms that loops compose 
 - 🧰 **Tool** [Inspect AI](https://github.com/UKGovernmentBEIS/inspect_ai) - UK AISI evaluation framework with solvers, scorers, sandboxing, tool use, MCP, and log viewing.
 - 📚 **Docs** [OpenTelemetry Semantic Conventions for Generative AI Systems](https://opentelemetry.io/docs/specs/semconv/gen-ai/) - Portable tracing conventions for model calls, tool calls, and agent workflows.
 - 🧰 **Tool** [AgentOps](https://github.com/AgentOps-AI/agentops) - Monitoring, replay, cost tracking, benchmarking, and tracing for agent sessions.
+- 🧰 **Tool** [Langfuse](https://github.com/langfuse/langfuse) - Open-source LLM engineering platform with tracing, evaluations, and metrics that loops can read back as feedback signals.
+- 🧰 **Tool** [LangSmith](https://www.langchain.com/langsmith) - Tracing, evaluation, and monitoring platform for inspecting and grading agent runs across iterations.
+- 🧰 **Tool** [Arize Phoenix](https://github.com/Arize-ai/phoenix) - Open-source AI observability for tracing, evaluating, and debugging agent behavior from real runs.
+- 🧰 **Tool** [Braintrust](https://www.braintrust.dev/) - Evaluation and observability platform with experiments, datasets, and CI integration for gating agent changes.
+- 🧰 **Tool** [Weave](https://weave-docs.wandb.ai/) - Weights & Biases toolkit for tracing, evaluating, and monitoring agent applications over time.
+
+## Securing Unattended Loops
+
+A loop that runs while nobody watches needs stronger boundaries than an interactive session. These resources cover the main risks: untrusted intake content, over-broad permissions, and unsandboxed execution.
+
+- ⚠️ **Critique** [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) - Simon Willison's rule of thumb: private data, untrusted content, and an exfiltration channel must never meet inside one unattended agent.
+- ⚠️ **Critique** [Prompt injection series](https://simonwillison.net/series/prompt-injection/) - Ongoing series on the core unsolved vulnerability for loops whose intake includes content written by strangers.
+- 📚 **Docs** [Agentic AI - Threats and Mitigations](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/) - OWASP threat model for agentic systems, useful when reviewing intake, memory, tool, and delegation boundaries.
+- 🧰 **Tool** [sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) - Anthropic's OS-level filesystem and network sandboxing for arbitrary processes without requiring a container.
+- 🧰 **Tool** [E2B](https://github.com/e2b-dev/E2B) - Open-source isolated cloud sandboxes for running untrusted, AI-generated code inside agent loops.
+- 📚 **Docs** [Modal Sandboxes](https://modal.com/docs/guide/sandbox) - Secure sandboxed execution for agent-driven code with resource limits and network controls.
+- 🧰 **Tool** [Daytona](https://www.daytona.io/) - Infrastructure for running AI-generated code in fast, isolated sandboxes.
 
 ## State, Memory, And Context Persistence
 
@@ -338,10 +367,14 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📝 **Blog** [Context Engineering](https://simonwillison.net/2025/Jun/27/context-engineering/) - Simon Willison's framing of context engineering, useful for distinguishing context state from loop orchestration.
 - 📝 **Blog** [Agentic AI State Management with ScyllaDB and LangGraph](https://www.scylladb.com/2026/04/08/agentic-ai-state-management-with-scylladb-and-langgraph/) - Durable agent state with checkpointers, write-ahead logs, and time-travel branching.
 - 🧰 **Tool** [Mem0](https://github.com/mem0ai/mem0) - Open-source memory layer for retaining user, session, and agent state across repeated agent sessions.
+- 🧰 **Tool** [Letta](https://github.com/letta-ai/letta) - Stateful agent framework from the MemGPT line with persistent, self-editing memory across runs.
+- 🧰 **Tool** [Zep](https://github.com/getzep/zep) - Temporal knowledge graph memory that tracks how facts about users and systems change across sessions.
+- 🧰 **Tool** [LangMem](https://github.com/langchain-ai/langmem) - SDK for extracting, consolidating, and retrieving long-term agent memory between loop runs.
 
 ## Orchestration And Multi-Agent Delegation
 
-- 🧰 **Tool** [AutoGen](https://github.com/microsoft/autogen) - Multi-agent programming framework for conversations, tool use, and orchestration.
+- 🧰 **Tool** [AutoGen](https://github.com/microsoft/autogen) - Multi-agent programming framework for conversations, tool use, and orchestration; active development has moved to the Microsoft Agent Framework.
+- 🧰 **Tool** [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) - Microsoft's successor to AutoGen and Semantic Kernel for building and orchestrating multi-agent workflows in Python and .NET.
 - 🧰 **Tool** [LangGraph](https://github.com/langchain-ai/langgraph) - Graph-based framework for controllable agent workflows, persistence, and human-in-the-loop steps.
 - 🧰 **Tool** [CrewAI](https://github.com/crewAIInc/crewAI) - Framework for multi-agent workflows organized around roles, tasks, and crews.
 - 📚 **Docs** [LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/) - Event-driven workflow abstraction for agentic applications.
@@ -349,6 +382,9 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📚 **Docs** [Agent Protocol](https://agentprotocol.ai/) - API protocol for agent interaction, useful for separating loop managers from agent runtimes.
 - 🧰 **Tool** [AgentKit](https://github.com/inngest/agent-kit) - TypeScript toolkit for durable, event-driven agents on workflow infrastructure.
 - 🧰 **Tool** [deepagents](https://github.com/langchain-ai/deepagents) - LangChain project for deeper, longer-running agents with middleware and harness patterns.
+- 📚 **Docs** [Temporal for AI](https://temporal.io/solutions/ai) - Durable execution for long-running agent workflows: crash-proof state, automatic retries, and human-in-the-loop signals.
+- 🧰 **Tool** [Restate](https://restate.dev/) - Durable execution runtime for building resilient, stateful agents and workflows that survive failures mid-loop.
+- 🧰 **Tool** [DBOS](https://www.dbos.dev/) - Lightweight Postgres-backed durable execution library for crash-proof agent workflows, queues, and scheduled triggers.
 
 ## Benchmarks And Evaluation
 
@@ -365,11 +401,17 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📄 **Paper** [Tau-bench](https://arxiv.org/abs/2406.12045) - Benchmark for tool-agent-user interactions in realistic domains.
 - 📄 **Paper** [VisualWebArena](https://arxiv.org/abs/2401.13649) - Visually grounded web-agent benchmark extending WebArena.
 - 📄 **Paper** [AppWorld](https://arxiv.org/abs/2407.18901) - Benchmark of interactive app tasks with state-based and execution-based evaluation.
+- 📄 **Paper** [Vending-Bench](https://arxiv.org/abs/2502.15840) - Benchmark for long-term coherence of autonomous agents; documents how small errors compound over very long loop horizons.
+- 🧪 **Benchmark** [Vending-Bench leaderboard](https://andonlabs.com/evals/vending-bench) - Live long-horizon coherence results from Andon Labs.
 
 ## Operations Playbooks
 
 - 📝 **Blog** [Agentic Engineering: The Agent Loop](https://junpingyi.com/books/agentic-engineering/agent-loop/) - Minimal mental model for the loop underlying agent operation.
 - 📝 **Blog** [The agent loop: ReAct, plan-and-execute, reflection](https://www.kunwar.page/chapter/067-the-agent-loop-react-plan-and-execute-reflection) - Practical walkthrough of the base loop and common variants.
+- 📝 **Blog** [How to Build an Agent](https://ampcode.com/how-to-build-an-agent) - Thorsten Ball's demystification of the inner agent loop: a model, a loop, and enough tokens.
+- 📝 **Blog** [Agentic Coding Recommendations](https://lucumr.pocoo.org/2025/6/12/agentic-coding/) - Armin Ronacher's field notes on which practices hold up when agents do most of the work.
+- 📝 **Blog** [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) - Practical delegation guidance from the Devin team on scoping tasks agents can actually finish.
+- 📝 **Blog** [How Anthropic teams use Claude Code](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code) - Cross-team field report of real recurring agent workflows in engineering, security, and data science.
 
 ## Templates And Patterns
 
@@ -389,9 +431,9 @@ Additional loop patterns worth documenting include PR babysitting, CI repair, fe
 Concrete examples make the loop contract easier to adapt to real repositories.
 
 - 🔁 **Pattern** [Example loop specs](examples/README.md) - Human-readable walkthroughs for PR babysitting, CI repair, and docs drift collection.
-- 🧾 **Template** [PR babysitter contract](examples/pr-babysitter-loop.json) - Schema-shaped loop contract for keeping a pull request moving.
-- 🧾 **Template** [CI repair contract](examples/ci-repair-loop.json) - Schema-shaped loop contract for turning failing CI into a verified patch or escalation.
-- 🧾 **Template** [Docs drift contract](examples/docs-drift-loop.json) - Schema-shaped loop contract for recurring docs/code consistency checks.
+- 🧾 **Template** [Loop contract library](examples/README.md#contract-library) - Schema-validated loop contracts for all ten pattern-library loops, from PR babysitting to bug hunting.
+- 🧾 **Template** [Runnable test-repair loop](examples/runnable/test-repair-loop.sh) - Dependency-light reference loop script with a verification gate, retry budget, durable progress log, repeat-failure detection, and escalation exit.
+- 🧾 **Template** [Runnable loop guide](examples/runnable/README.md) - Maps the script line by line to the Loop Contract and shows how to drive it with Claude Code, Codex CLI, or any agent CLI.
 
 Preview an example locally:
 

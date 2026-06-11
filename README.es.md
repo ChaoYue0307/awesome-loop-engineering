@@ -1,5 +1,7 @@
 # Awesome Loop Engineering
 
+<!-- last-synced: 2026-06-11 -->
+
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
 </p>

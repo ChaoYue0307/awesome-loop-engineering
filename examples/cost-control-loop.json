@@ -1,0 +1,59 @@
+{
+  "name": "Cost control",
+  "objective": "Keep long-running agent workflows within budget by measuring usage, identifying waste, and proposing scoped efficiency improvements.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Daily or weekly usage review, and when spend, tokens, retries, or runtime exceed thresholds for a workflow."
+  },
+  "intake": {
+    "sources": ["token and model usage", "tool-call counts", "retry volume", "trace IDs", "billing exports", "recent workflow changes"],
+    "selection_rule": "Cluster usage by workflow, task type, model, and retry cause; investigate only clusters that exceed budget policy or baseline."
+  },
+  "workspace": {
+    "isolation": "Read-only access to traces, billing exports, dashboards, and workflow configs.",
+    "allowed_actions": ["analyze usage", "inspect traces", "propose config or prompt changes", "verify against representative tasks"],
+    "disallowed_actions": ["silent quality-reducing changes", "disabling verification gates", "production routing changes"]
+  },
+  "context": {
+    "required_files": ["budget policy", "accepted cost exceptions"],
+    "runtime_sources": ["baseline spend window", "trace samples", "recent prompt and harness changes"]
+  },
+  "agents": [
+    {
+      "role": "Analyst",
+      "responsibility": "Cluster usage by workflow, task type, model, tool, and retry cause."
+    },
+    {
+      "role": "Investigator",
+      "responsibility": "Inspect traces for context bloat, repeated failures, and missing stop conditions."
+    },
+    {
+      "role": "Optimizer",
+      "responsibility": "Propose the smallest change: smaller context, cheaper routing, caching, batching, or early exit."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Rerun sample tasks or evals to confirm quality is preserved."
+    }
+  ],
+  "verification": {
+    "gates": ["before/after usage measured on a comparable task mix", "quality gates and evals still pass", "savings estimates include uncertainty and sample size", "verification and escalation remain intact"],
+    "receipts": ["baseline spend", "usage clusters", "trace samples", "before/after metrics", "verification results"]
+  },
+  "state": {
+    "artifacts": ["cost review report", "accepted-exception ledger"],
+    "update_rule": "Record baseline, suspected causes, proposed changes, and verification evidence after each review."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 60
+  },
+  "escalation": {
+    "conditions": ["quality tradeoff required", "model-routing policy change", "customer impact", "unknown spend source"],
+    "destination": "Workflow owner with before/after evidence and rollout plan"
+  },
+  "exit": {
+    "success": "Spend returns below threshold, or a verified scoped optimization is proposed with evidence.",
+    "stop_without_success": "The cause is explained but the fix requires owner approval, or retries are exhausted."
+  }
+}

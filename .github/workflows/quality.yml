@@ -20,6 +20,9 @@ jobs:
   docs:
     name: Docs quality gates
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
@@ -56,9 +59,22 @@ jobs:
       - name: Check internal links
         run: python scripts/check_internal_links.py
 
+      - name: Check translation sync markers
+        run: python scripts/check_translation_sync.py
+
       - name: Check links
         run: python scripts/verify_urls.py . --timeout 12 --workers 20
 
       - name: Check main commit identity
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: python scripts/check_commit_identity.py
+
+      - name: Open an issue when a scheduled run fails
+        if: failure() && github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Scheduled quality run failed on $(date -u +%Y-%m-%d)" \
+            --body "The weekly quality workflow failed, most likely a dead link or a stale translation sync marker. See the run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

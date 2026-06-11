@@ -1,0 +1,59 @@
+{
+  "name": "Dependency triage",
+  "objective": "Classify dependency updates into safe patches, deferred upgrades, or human-review items with reproducible evidence.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Weekly, and on Dependabot, Renovate, or advisory-driven update PRs."
+  },
+  "intake": {
+    "sources": ["dependency update PRs", "release notes and changelogs", "security advisories", "lockfile diffs", "package audit output"],
+    "selection_rule": "Group updates by risk: safe patch, minor feature, major migration, security, or blocked; act automatically only on the safe group."
+  },
+  "workspace": {
+    "isolation": "Clean branch or worktree per update group.",
+    "allowed_actions": ["run package manager commands", "run tests, typechecks, and builds", "apply low-risk updates", "comment on PRs"],
+    "disallowed_actions": ["major version migrations", "runtime version changes", "security-policy changes", "broad multi-group upgrades"]
+  },
+  "context": {
+    "required_files": ["compatibility policy", "supported runtime versions"],
+    "runtime_sources": ["recent CI status", "known flaky tests", "prior triage state"]
+  },
+  "agents": [
+    {
+      "role": "Classifier",
+      "responsibility": "Group updates by risk, security relevance, version change, and blast radius."
+    },
+    {
+      "role": "Implementer",
+      "responsibility": "Apply low-risk updates and resolve lockfile conflicts."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Run targeted tests, typechecks, builds, and package audits."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "Record accepted, deferred, and human-review updates with reasons."
+    }
+  ],
+  "verification": {
+    "gates": ["lockfile and manifest are consistent", "relevant tests, typecheck, build, and audit pass", "no skipped migration steps named in changelogs", "diff is limited to the intended group"],
+    "receipts": ["package versions and changelog links", "commands run with output", "deferred reasons", "reviewer questions"]
+  },
+  "state": {
+    "artifacts": ["triage report comment", "processed-update ledger"],
+    "update_rule": "Record processed update IDs, verification evidence, and deferral reasons after each group."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 60
+  },
+  "escalation": {
+    "conditions": ["major version upgrade", "runtime requirement change", "security advisory with product impact", "licensing concern", "repeated verification failure"],
+    "destination": "Issue assigned to the repository owner with the blocked group and evidence"
+  },
+  "exit": {
+    "success": "Safe updates are verified and merged or review-ready, and risky updates are deferred with reasons.",
+    "stop_without_success": "Verification fails repeatedly or remaining updates all require human review."
+  }
+}

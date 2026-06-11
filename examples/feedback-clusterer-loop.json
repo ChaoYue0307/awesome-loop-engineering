@@ -1,0 +1,59 @@
+{
+  "name": "Feedback clusterer",
+  "objective": "Turn noisy feedback streams into a small set of actionable themes with evidence, owners, and suggested next steps.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Daily or weekly, and after a launch, incident, release, or support backlog spike."
+  },
+  "intake": {
+    "sources": ["GitHub issues", "PR comments", "support tickets", "Slack threads", "app reviews", "survey responses"],
+    "selection_rule": "Collect items inside the defined time window, skip already-processed IDs, and cluster by underlying user problem rather than surface wording."
+  },
+  "workspace": {
+    "isolation": "Read-only access to feedback systems.",
+    "allowed_actions": ["read feedback sources", "create summary docs", "create or update issues and labels"],
+    "disallowed_actions": ["close user reports", "change priorities", "send customer-facing replies"]
+  },
+  "context": {
+    "required_files": ["product area map", "label and owner directory"],
+    "runtime_sources": ["feedback items in the window", "known duplicates", "prior cluster state"]
+  },
+  "agents": [
+    {
+      "role": "Collector",
+      "responsibility": "Gather feedback items and preserve stable source links."
+    },
+    {
+      "role": "Clusterer",
+      "responsibility": "Group items by user problem and attach representative examples."
+    },
+    {
+      "role": "Skeptic",
+      "responsibility": "Check clusters for overgeneralization and missing counterexamples."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "Produce ranked themes with confidence, owners, and next actions."
+    }
+  ],
+  "verification": {
+    "gates": ["every cluster has source links", "high-impact claims include representative examples", "frequency is reported separately from severity", "processed IDs are recorded"],
+    "receipts": ["query windows and filters", "processed item IDs", "cluster names with example links", "confidence and owner per theme"]
+  },
+  "state": {
+    "artifacts": ["theme report", "processed-ID ledger"],
+    "update_rule": "Append processed IDs, cluster definitions, and follow-up owners after every run so items are never double counted."
+  },
+  "budget": {
+    "max_retries": 1,
+    "max_runtime_minutes": 90
+  },
+  "escalation": {
+    "conditions": ["security or legal concerns in feedback", "sensitive data exposure", "customer-specific commitments", "prioritization conflicts"],
+    "destination": "Product owner triage channel"
+  },
+  "exit": {
+    "success": "Clusters are stable and the ranked theme report with next actions is published.",
+    "stop_without_success": "Source rate limits block collection or themes require product judgment."
+  }
+}

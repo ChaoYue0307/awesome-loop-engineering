@@ -1,0 +1,55 @@
+{
+  "name": "Deploy verifier",
+  "objective": "Watch a rollout after deployment, compare live signals against release expectations, and escalate quickly when anomalies appear.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "Deployment starts, canary advances, feature flag flips, or release tag is created; then poll every 5-15 minutes during the rollout window."
+  },
+  "intake": {
+    "sources": ["release notes", "dashboards", "logs", "traces", "synthetic checks", "feature flag state"],
+    "selection_rule": "Compare only signals named in the release expectations and rollback criteria against the pre-rollout baseline."
+  },
+  "workspace": {
+    "isolation": "Read-only access to observability systems; no production mutation surface.",
+    "allowed_actions": ["read metrics, logs, and traces", "write rollout status updates", "create issues"],
+    "disallowed_actions": ["rollback", "config change", "traffic shifting", "database action", "incident declaration"]
+  },
+  "context": {
+    "required_files": ["release notes", "rollout checklist"],
+    "runtime_sources": ["baseline metric window", "current dashboards", "synthetic check results", "feature flag state"]
+  },
+  "agents": [
+    {
+      "role": "Observer",
+      "responsibility": "Gather metrics, logs, traces, and check status on the polling cadence."
+    },
+    {
+      "role": "Comparator",
+      "responsibility": "Compare observed signals against release expectations, thresholds, and baseline."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "Write concise rollout status: stable, degraded, blocked, or unknown."
+    }
+  ],
+  "verification": {
+    "gates": ["synthetic checks pass", "error rate, latency, and saturation stay within thresholds", "no new dominant failure mode in logs or traces", "deployment phase matches expectations"],
+    "receipts": ["dashboards checked", "baseline window", "anomalies with evidence links", "status decisions with timestamps"]
+  },
+  "state": {
+    "artifacts": ["rollout status report", "checked-signal log"],
+    "update_rule": "Record release version, rollout phase, signals checked, anomalies, and decisions after every polling interval."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 120
+  },
+  "escalation": {
+    "conditions": ["threshold breach", "missing telemetry", "migration errors", "customer-impacting regression", "rollback criteria met"],
+    "destination": "On-call channel with evidence links and the rollback checklist"
+  },
+  "exit": {
+    "success": "The rollout window completes with all signals stable.",
+    "stop_without_success": "The deploy is rolled back, paused, or handed to an incident owner."
+  }
+}

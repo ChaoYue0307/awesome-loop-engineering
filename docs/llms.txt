@@ -1,0 +1,20 @@
+# Awesome Loop Engineering
+
+> Curated resources and practical patterns for Loop Engineering: the practice of designing recurring AI-agent and coding-agent systems that discover work, delegate to agents, verify results, persist state, and run again on a cadence or until a verifiable goal is reached.
+
+## Core
+
+- [README](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.md): the curated list with the Loop Contract, design checklist, and maturity model
+- [Canonical definition](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/DEFINITION.md): short definition, positioning, and minimal loop test
+- [Taxonomy](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TAXONOMY.md): classification by trigger, intake, verification, state model, and topology
+- [Anti-patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ANTI-PATTERNS.md): common loop failure modes
+
+## Patterns
+
+- [Pattern library](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/README.md): operational loop patterns with triggers, gates, budgets, and escalation
+- [Loop contracts](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md): schema-validated contract JSON for every pattern, plus runnable reference loops
+
+## Optional
+
+- [Landing page](https://chaoyue0307.github.io/awesome-loop-engineering/)
+- [Contributing](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md)

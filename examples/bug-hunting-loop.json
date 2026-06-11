@@ -1,0 +1,59 @@
+{
+  "name": "Bug hunting",
+  "objective": "Find, validate, and report likely bugs with reproducible evidence instead of filing speculative agent-generated issues.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Weekly on modules with recent churn, and when error logs spike or flaky tests cluster."
+  },
+  "intake": {
+    "sources": ["error logs", "flaky tests", "issue labels", "support snippets", "recent diffs", "traces"],
+    "selection_rule": "Start only from concrete signals, search for duplicate issues first, and pursue candidates that reproduce in a safe environment."
+  },
+  "workspace": {
+    "isolation": "Branch, worktree, sandbox, or read-only mode depending on the target.",
+    "allowed_actions": ["run tests and local fixtures", "static search", "non-production reproduction", "file evidence-backed issues or small PRs"],
+    "disallowed_actions": ["production data access", "destructive fuzzing", "speculative mass issue creation", "broad refactors"]
+  },
+  "context": {
+    "required_files": ["module ownership docs", "safe reproduction commands"],
+    "runtime_sources": ["existing bug reports", "prior bug-hunt state and false positives"]
+  },
+  "agents": [
+    {
+      "role": "Scout",
+      "responsibility": "Discover suspicious signals and likely affected code paths."
+    },
+    {
+      "role": "Reproducer",
+      "responsibility": "Attempt minimal reproduction in a safe environment."
+    },
+    {
+      "role": "Minimizer",
+      "responsibility": "Reduce the reproduction to the smallest failing case."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "File evidence-backed issues, or a small PR with tests when the cause is clear."
+    }
+  ],
+  "verification": {
+    "gates": ["reports include reproducible steps or a clear trace link", "patches include a failing test or deterministic reproduction", "duplicate search is recorded", "expected vs actual behavior is grounded in docs or tests"],
+    "receipts": ["modules checked", "signals inspected", "reproduction commands", "expected and actual behavior", "final disposition"]
+  },
+  "state": {
+    "artifacts": ["bug-hunt log", "false-positive ledger"],
+    "update_rule": "Persist checked areas, reproductions, false positives, and dispositions so future runs do not repeat work."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 90
+  },
+  "escalation": {
+    "conditions": ["production-only bug", "privacy-sensitive logs", "security-sensitive finding", "possible data loss", "fix needs architectural judgment"],
+    "destination": "Module owner via issue; private channel for security-sensitive findings"
+  },
+  "exit": {
+    "success": "A bug is reproduced and reported with evidence, or a small verified patch is opened.",
+    "stop_without_success": "The signal is classified as non-bug, retries are exhausted, or owner judgment is needed."
+  }
+}

@@ -20,6 +20,7 @@ RESOURCE_SECTIONS = {
     "Agent Workflow Patterns",
     "Coding-Agent Loop Systems",
     "Verification And Feedback Gates",
+    "Securing Unattended Loops",
     "State, Memory, And Context Persistence",
     "Orchestration And Multi-Agent Delegation",
     "Benchmarks And Evaluation",

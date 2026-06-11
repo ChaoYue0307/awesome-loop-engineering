@@ -2,13 +2,26 @@
 
 These examples show how to turn the abstract loop contract into concrete operating specs.
 
-Each JSON file follows [`schemas/loop-contract.schema.json`](../schemas/loop-contract.schema.json):
+## Contract Library
+
+Every loop in the [pattern library](../patterns/README.md) has a matching contract. Each JSON file follows [`schemas/loop-contract.schema.json`](../schemas/loop-contract.schema.json) and is validated in CI:
 
 - [`pr-babysitter-loop.json`](pr-babysitter-loop.json)
 - [`ci-repair-loop.json`](ci-repair-loop.json)
 - [`docs-drift-loop.json`](docs-drift-loop.json)
+- [`deploy-verifier-loop.json`](deploy-verifier-loop.json)
+- [`feedback-clusterer-loop.json`](feedback-clusterer-loop.json)
+- [`dependency-triage-loop.json`](dependency-triage-loop.json)
+- [`evaluation-regression-loop.json`](evaluation-regression-loop.json)
+- [`security-review-loop.json`](security-review-loop.json)
+- [`cost-control-loop.json`](cost-control-loop.json)
+- [`bug-hunting-loop.json`](bug-hunting-loop.json)
 
 Use them as starting points. Adapt triggers, tools, checks, state artifacts, and escalation rules to your repository and runtime.
+
+## Runnable Loops
+
+The [runnable directory](runnable/README.md) contains working loop scripts, starting with a dependency-light test-repair loop you can drive with Claude Code, Codex CLI, or any agent CLI.
 
 ## PR Babysitter
 

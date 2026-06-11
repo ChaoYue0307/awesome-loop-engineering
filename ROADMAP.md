@@ -6,13 +6,13 @@ This roadmap keeps Awesome Loop Engineering focused on useful, verifiable work f
 
 - Collect more direct Loop Engineering sources as the term stabilizes.
 - Add real or anonymized gallery entries from practitioners running recurring agent loops.
-- Improve examples for PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, and evaluation loops.
+- Grow the runnable loop directory beyond the test-repair reference loop, including scheduled-trigger variants per runtime.
 - Add more translations for the introduction, mental model, Loop Contract, and contribution guide.
 - Continue replacing weak or unstable links with primary sources, official docs, papers, and implementation-heavy write-ups.
 
 ## Pattern Library
 
-Completed reference patterns now cover PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, dependency triage, evaluation regression, security review, cost-control, and bug hunting.
+Completed reference patterns now cover PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, dependency triage, evaluation regression, security review, cost-control, and bug hunting. Every pattern now ships a schema-validated loop contract in `examples/`.
 
 Next pattern-library work should focus on variants backed by operational evidence:
 

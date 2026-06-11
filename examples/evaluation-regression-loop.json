@@ -1,0 +1,63 @@
+{
+  "name": "Evaluation regression",
+  "objective": "Detect regressions in agent behavior, connect them to recent prompt, context, or harness changes, and produce a verified repair proposal.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Nightly after eval completion, and when benchmark scores drop or trace graders fail."
+  },
+  "intake": {
+    "sources": ["eval run results", "failing task IDs", "trace samples", "baseline scores", "recent prompt and harness commits"],
+    "selection_rule": "Investigate regression clusters with reproducible evidence; skip runs inside accepted variance or known-flaky sets."
+  },
+  "workspace": {
+    "isolation": "Branch or sandbox with read access to traces and eval artifacts.",
+    "allowed_actions": ["targeted eval reruns", "scorer inspection", "small prompt, context, or fixture patches", "report generation"],
+    "disallowed_actions": ["scorer changes that hide failures", "benchmark cherry-picking", "broad prompt rewrites", "leaderboard claims"]
+  },
+  "context": {
+    "required_files": ["evaluation rubric", "known-flaky eval list"],
+    "runtime_sources": ["baseline traces", "current traces", "model and runtime configuration"]
+  },
+  "agents": [
+    {
+      "role": "Investigator",
+      "responsibility": "Compare failing traces against passing baseline traces."
+    },
+    {
+      "role": "Hypothesis writer",
+      "responsibility": "Classify the likely cause: model behavior, context, tool, scorer, fixture, or harness."
+    },
+    {
+      "role": "Implementer",
+      "responsibility": "Patch the smallest plausible cause supported by trace evidence."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Rerun targeted evals, then a smoke suite, and check for new regressions."
+    },
+    {
+      "role": "Judge",
+      "responsibility": "Decide whether evidence supports merging, deferring, or escalating."
+    }
+  ],
+  "verification": {
+    "gates": ["targeted failing tasks return to baseline", "no sentinel tasks regress", "trace evidence supports the claimed cause", "score deltas include run IDs and variance caveats"],
+    "receipts": ["eval run IDs", "trace excerpts", "hypotheses considered", "rerun scores"]
+  },
+  "state": {
+    "artifacts": ["regression investigation notes", "patch-attempt log"],
+    "update_rule": "Record run IDs, failing tasks, hypotheses, patch attempts, rerun scores, and the final decision per regression cluster."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 120
+  },
+  "escalation": {
+    "conditions": ["scorer bug", "benchmark methodology change", "missing private traces", "model-provider incident", "fix risks overfitting"],
+    "destination": "Issue or PR tagged for the eval owner with reproducible evidence"
+  },
+  "exit": {
+    "success": "The regression is repaired with verified reruns, or classified as flaky or scorer drift with evidence.",
+    "stop_without_success": "Artifacts are missing, retries are exhausted, or the tradeoff requires product judgment."
+  }
+}

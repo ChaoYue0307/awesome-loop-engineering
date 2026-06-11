@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If this repository is useful in your work, please cite it as below."
+title: "Awesome Loop Engineering"
+type: software
+authors:
+  - family-names: "He"
+    given-names: "Chaoyue"
+repository-code: "https://github.com/ChaoYue0307/awesome-loop-engineering"
+url: "https://chaoyue0307.github.io/awesome-loop-engineering/"
+abstract: "Curated resources and practical patterns for Loop Engineering with AI and coding agents."
+keywords:
+  - loop-engineering
+  - ai-agents
+  - coding-agents
+  - agentic-workflows
+license: CC0-1.0

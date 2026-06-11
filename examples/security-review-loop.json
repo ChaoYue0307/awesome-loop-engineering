@@ -1,0 +1,59 @@
+{
+  "name": "Security review",
+  "objective": "Continuously review scoped code changes for security risks, validate findings with evidence, and escalate sensitive decisions to humans.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "PRs touching auth, permissions, infrastructure, dependencies, cryptography, or data handling; plus a weekly pass on active branches."
+  },
+  "intake": {
+    "sources": ["changed files and diffs", "threat model", "dependency advisories", "secrets scan output", "static analysis results"],
+    "selection_rule": "Review security-relevant diffs only; validate every finding against concrete code paths before reporting it."
+  },
+  "workspace": {
+    "isolation": "Read-only exploration by default; safe fixtures only for proof-of-concept checks.",
+    "allowed_actions": ["static analysis", "tests against safe fixtures", "dependency audit", "evidence-backed reporting"],
+    "disallowed_actions": ["secret exfiltration", "production access", "destructive testing", "public disclosure", "broad rewrites"]
+  },
+  "context": {
+    "required_files": ["security policy", "threat model", "sensitive path list"],
+    "runtime_sources": ["prior findings and false positives", "CI security check results"]
+  },
+  "agents": [
+    {
+      "role": "Explorer",
+      "responsibility": "Map attack surfaces and sensitive changes in the diff."
+    },
+    {
+      "role": "Reviewer",
+      "responsibility": "Check for vulnerability classes and missing controls."
+    },
+    {
+      "role": "Validator",
+      "responsibility": "Distinguish exploitable findings from speculative concerns."
+    },
+    {
+      "role": "Judge",
+      "responsibility": "Decide whether to open a narrow PR, file an issue, or escalate."
+    }
+  ],
+  "verification": {
+    "gates": ["findings cite concrete files, paths, inputs, or traces", "static analysis or tests support claims where possible", "suggested fixes do not weaken controls or broaden permissions", "sensitive actions are human-approved"],
+    "receipts": ["reviewed commit SHA", "sensitive paths checked", "commands run", "findings with severity and evidence", "recorded false positives"]
+  },
+  "state": {
+    "artifacts": ["security review report", "false-positive ledger"],
+    "update_rule": "Record the reviewed SHA, findings, false positives, and human decisions after each review target."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 90
+  },
+  "escalation": {
+    "conditions": ["production credentials involved", "exploitability uncertain", "authentication or cryptography design questions", "compliance impact", "severity disagreement"],
+    "destination": "Private security triage channel, never a public issue"
+  },
+  "exit": {
+    "success": "High-confidence findings are reported with evidence, or no evidence-backed issues remain.",
+    "stop_without_success": "Validation retries are exhausted or the next step requires human approval."
+  }
+}
