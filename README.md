@@ -125,7 +125,7 @@ These repository-native guides define the concept, boundaries, and practical art
 - ⚠️ **Critique** [Loop Engineering Anti-Patterns](ANTI-PATTERNS.md) - Common failure modes such as prompt loops with no contract, infinite retries, model self-approval, hidden state, and unsafe autonomy.
 - 🧾 **Template** [Comparison Guide](COMPARISON.md) - Distinguishes Loop Engineering from prompt engineering, context engineering, harness engineering, workflow automation, agent workflows, and evaluation loops.
 - 🧾 **Template** [Sourced Signals And Quotes](QUOTES.md) - Short sourced signals from linked public materials that anchor the emerging concept.
-- 🧾 **Template** [Outreach Kit](OUTREACH.md) - Conservative messages for inviting corrections, sources, and real-world loop patterns.
+- 🧾 **Template** [Outreach Kit](meta/OUTREACH.md) - Conservative messages for inviting corrections, sources, and real-world loop patterns.
 
 ## Maintainer Picks
 
@@ -460,13 +460,13 @@ This repository includes a lightweight GitHub Pages landing page for search and 
 - 🧾 **Template** [Sitemap](docs/sitemap.xml) - Crawl hints for the landing page and core repository pages.
 - 🧾 **Template** [Robots file](docs/robots.txt) - Allows indexing and points crawlers to the sitemap.
 
-For launch copy and backlink strategy, use the [distribution checklist](DISTRIBUTION.md).
+For launch copy and backlink strategy, use the [distribution checklist](meta/DISTRIBUTION.md).
 
 ## Roadmap And Discussion
 
 - 🧾 **Template** [Roadmap](ROADMAP.md) - Near-term work, pattern priorities, gallery goals, and open questions.
 - 🧾 **Template** [Launch article](posts/launch.md) - Shareable explanation of the concept and repository.
-- 🧾 **Template** [Discussion guide](DISCUSSIONS.md) - Suggested discussion categories, starter prompts, and moderation standard.
+- 🧾 **Template** [Discussion guide](meta/DISCUSSIONS.md) - Suggested discussion categories, starter prompts, and moderation standard.
 - 🔁 **Pattern** [Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2) - Community discussion for real or anonymized loop examples.
 
 ## Pattern Library
@@ -506,7 +506,7 @@ Practical loop patterns translate the abstract contract into runnable operating 
 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
-This repository uses a strict [curation standard](CURATION.md) to keep the list focused, verifiable, and useful for builders. Maintainers can use [MAINTENANCE.md](MAINTENANCE.md) for link checks, identity checks, and periodic refreshes.
+This repository uses a strict [curation standard](meta/CURATION.md) to keep the list focused, verifiable, and useful for builders. Maintainers can use the [maintenance guide](meta/MAINTENANCE.md) for link checks, identity checks, and periodic refreshes.
 
 For community expectations and support channels, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [SUPPORT.md](SUPPORT.md), and [SECURITY.md](SECURITY.md).
 

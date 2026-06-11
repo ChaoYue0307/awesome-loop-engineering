@@ -4,7 +4,7 @@ Thanks for helping improve Awesome Loop Engineering.
 
 This repository is intentionally narrow. It tracks the new AI and coding-agent meaning of **Loop Engineering**: the layer above prompt, context, and harness engineering where teams design systems that discover work, delegate to agents, verify outcomes, persist state, decide next actions, and run again on a cadence or until a goal is met.
 
-Before submitting, read the [curation standard](CURATION.md). Maintainers use it to decide whether a resource is specific, stable, and useful enough for the list.
+Before submitting, read the [curation standard](meta/CURATION.md). Maintainers use it to decide whether a resource is specific, stable, and useful enough for the list.
 
 ## Quick PR Flow
 

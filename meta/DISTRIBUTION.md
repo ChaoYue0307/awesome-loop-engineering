@@ -14,7 +14,7 @@ Search engines may still take days or longer to index a new repository. Backlink
 
 ## Launch Copy
 
-Use [`posts/launch.md`](posts/launch.md) when you want a longer article-style launch post.
+Use [`posts/launch.md`](../posts/launch.md) when you want a longer article-style launch post.
 
 ### Short Post
 
