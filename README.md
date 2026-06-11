@@ -158,6 +158,9 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 - 🔁 **Pattern** [Codex Loops: What Boris Cherny Gets Right About Managing Agent Work](https://www.developersdigest.tech/blog/codex-loops-boris-cherny-agent-routines) - Engineering note on recurring agent loops for PR babysitting, CI repair, deploy verification, and feedback clustering.
 - 📝 **Blog** [I Now Just Write Loops To Prompt Claude Code: Claude Code Creator Boris Cherny](https://officechai.com/ai/i-now-just-write-loops-to-prompt-claude-code-claude-code-creator-boris-cherny/) - Coverage of Boris Cherny's "my job is to write loops" workflow.
 - 📝 **Blog** [My Lord! AI Programming Undergoes Another Major Shift](https://eu.36kr.com/en/p/3844224911346184) - Broad coverage of the Boris Cherny and Peter Steinberger discussion, including the distinction between cold-start scripts and persistent agent loops.
+- 📝 **Blog** [Peter Steinberger on designing loops](https://x.com/steipete/status/2063697162748260627) - The June 2026 post - "you shouldn't be prompting coding agents anymore, you should be designing loops that prompt your agents" - that catalyzed the current discussion.
+- 📝 **Blog** [The Anthropic leader who built Claude Code ditched prompting - now he writes loops](https://thenewstack.io/loop-engineering/) - The New Stack's report on Boris Cherny's shift from prompting to loop writing and what it changes about developer workflow.
+- 📝 **Blog** [Stop Prompting. Design the Loop.](https://www.pulumi.com/blog/stop-prompting-design-the-loop/) - Practical breakdown of loop building blocks - automations, worktrees, skills, connectors, subagents - plus external memory and verification through oracles such as tests and builds.
 
 ## Scope Boundary
 
@@ -237,6 +240,7 @@ These are the building blocks that make a loop more than a repeated prompt.
 - 📚 **Docs** [Claude Code Glossary](https://code.claude.com/docs/en/glossary.md) - Defines the agentic loop, hooks, subagents, skills, MCP, and related primitives in Claude Code terminology.
 - 📚 **Docs** [Keep Claude working toward a goal](https://code.claude.com/docs/en/goal) - `/goal` runs turn after turn until a completion condition is met by a verifier.
 - 📚 **Docs** [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - `/loop`, scheduled tasks, reminders, monitor tools, and session-scoped recurring prompts.
+- 📚 **Docs** [Automate work with routines](https://code.claude.com/docs/en/routines) - Claude Code routines: persistent cloud automations triggered by schedules, API calls, or GitHub events, with connectors, scoped environments, and branch-push limits.
 - 📚 **Docs** [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees) - Worktree isolation for parallel sessions and subagents so concurrent edits do not collide.
 - 📚 **Docs** [Automate actions with hooks](https://code.claude.com/docs/en/hooks-guide) - Claude Code hooks guide for deterministic lifecycle control around model actions.
 - 📚 **Docs** [Hooks reference](https://code.claude.com/docs/en/hooks.md) - Event-level reference for session, turn, tool-call, and subagent hooks.
@@ -260,6 +264,7 @@ Primary-source docs from agent runtime vendors and framework builders.
 - 📚 **Docs** [Sandbox Agents](https://developers.openai.com/api/docs/guides/agents/sandboxes) - Splits the harness control plane from the sandbox execution plane for long-running file and command work.
 - 📚 **Docs** [Guardrails and human review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals) - Approval and validation boundaries for sensitive agent actions.
 - 📚 **Docs** [Building agents with the Claude Agent SDK](https://code.claude.com/docs/en/agent-sdk/overview.md) - Claude SDK overview for tool-using agents, subagents, state, permissions, and streaming.
+- 📚 **Docs** [How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) - Official walkthrough of the inner agent loop that outer recurring loops build on.
 - 📚 **Docs** [Extend Claude with skills](https://code.claude.com/docs/en/skills) - Claude Code skill system for reusable loop instructions and assets.
 - 📚 **Docs** [Create custom subagents](https://code.claude.com/docs/en/sub-agents) - Claude Code custom subagents with isolated context, model choice, and tool permissions.
 - 📚 **Docs** [GitHub Agentic Workflows](https://github.github.com/gh-aw/) - Repository automation that runs coding agents in GitHub Actions on events or schedules with guardrails.
@@ -289,6 +294,8 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 📄 **Paper** [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) - Introduces reflection and memory mechanisms for long-running agent behavior.
 - 📄 **Paper** [Measuring AI Ability to Complete Long Software Tasks](https://arxiv.org/abs/2503.14499) - METR's task-length time horizon metric; grounds why loop budgets, checkpoints, and escalation matter as autonomous work gets longer.
 - 📝 **Blog** [Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) - Accessible summary of the 50% task-completion time horizon and its doubling trend.
+- 📄 **Paper** [PARC: An Autonomous Self-Reflective Coding Agent for Robust Execution of Long-Horizon Tasks](https://arxiv.org/abs/2512.03549) - Hierarchical plan-execute-assess loops that detect and correct strategic errors during multi-hour autonomous runs.
+- 📄 **Paper** [When the Specification Emerges: Benchmarking Faithfulness Loss in Long-Horizon Coding Agents](https://arxiv.org/abs/2603.17104) - Measures how agents drift from intent when specifications arrive incrementally across a long loop, and proposes a mitigation that recovers most of the loss.
 - 🧰 **Tool** [Reflexion code](https://github.com/noahshinn/reflexion) - Reference implementation and experiments for verbal reinforcement loops.
 
 ## Agent Workflow Patterns
@@ -317,6 +324,9 @@ These resources are included when they help design the higher-level loop around 
 - 🧰 **Tool** [AutoCodeRover](https://github.com/AutoCodeRoverSG/auto-code-rover) - Autonomous program improvement system for issue localization, patch generation, and validation.
 - 📄 **Paper** [AutoCodeRover: Autonomous Program Improvement](https://arxiv.org/abs/2404.05427) - Paper on autonomous code repair loops over real repositories.
 - 🔁 **Pattern** [Ralph](https://ghuntley.com/ralph/) - Geoffrey Huntley's original Ralph technique: run one agent in a bare loop with fresh context per iteration and the filesystem plus specs as memory.
+- 🔁 **Pattern** [everything is a ralph loop](https://ghuntley.com/loop/) - Follow-up essay arguing the loop, not the agent, is the durable engineering unit: one task per iteration, deterministic context, and verification inside the loop.
+- 🧰 **Tool** [how-to-ralph-wiggum](https://github.com/ghuntley/how-to-ralph-wiggum) - Reference repository documenting the Ralph Wiggum technique end to end, from the bare loop script to guardrails and conventions.
+- 📝 **Blog** [A Brief History of Ralph](https://www.humanlayer.dev/blog/brief-history-of-ralph) - Traces how the bare-loop technique spread from a provocation to a production practice among early adopters.
 - 🔁 **Pattern** [Ralph Copilot](https://github.com/giocaizzi/ralph-copilot/tree/e5b2813cc876c73a8c9d3398c0115da0d15f63cf) - Language-agnostic Ralph loop implementation using fresh context, filesystem memory, `PRD.md`, and `PROGRESS.md`.
 - 🧰 **Tool** [Amp](https://ampcode.com/) - Agentic coding tool built around threads, subagents, and an opinionated harness, with an owner's manual that documents loop-style operating practices.
 - 🧰 **Tool** [karl](https://github.com/kayoslab/karl) - Autonomous multi-agent development loop with planner, reviewer, architect, tester, developer, deployment, and retry phases.
@@ -385,6 +395,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📚 **Docs** [Temporal for AI](https://temporal.io/solutions/ai) - Durable execution for long-running agent workflows: crash-proof state, automatic retries, and human-in-the-loop signals.
 - 🧰 **Tool** [Restate](https://restate.dev/) - Durable execution runtime for building resilient, stateful agents and workflows that survive failures mid-loop.
 - 🧰 **Tool** [DBOS](https://www.dbos.dev/) - Lightweight Postgres-backed durable execution library for crash-proof agent workflows, queues, and scheduled triggers.
+- 🧰 **Tool** [Composio Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) - Orchestrates parallel coding agents in isolated worktrees that plan tasks, fix CI failures, respond to reviews, and manage their own PR lifecycle.
 
 ## Benchmarks And Evaluation
 
@@ -403,6 +414,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📄 **Paper** [AppWorld](https://arxiv.org/abs/2407.18901) - Benchmark of interactive app tasks with state-based and execution-based evaluation.
 - 📄 **Paper** [Vending-Bench](https://arxiv.org/abs/2502.15840) - Benchmark for long-term coherence of autonomous agents; documents how small errors compound over very long loop horizons.
 - 🧪 **Benchmark** [Vending-Bench leaderboard](https://andonlabs.com/evals/vending-bench) - Live long-horizon coherence results from Andon Labs.
+- 📄 **Paper** [SWE-EVO: Benchmarking Coding Agents in Long-Horizon Software Evolution Scenarios](https://arxiv.org/abs/2512.18470) - Release-note-derived evolution tasks where agents score far below isolated-issue benchmarks, quantifying the long-horizon gap loops must manage.
 
 ## Operations Playbooks
 
@@ -501,6 +513,7 @@ Practical loop patterns translate the abstract contract into runnable operating 
 - 🧭 **List** [Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering) - Classic adjacent list for prompt techniques and prompting resources.
 - 🧭 **List** [Awesome LLM Agents](https://github.com/kaushikb11/awesome-llm-agents) - General list of LLM agent papers, frameworks, and applications.
 - 🧭 **List** [Awesome AI Agents](https://github.com/e2b-dev/awesome-ai-agents) - Broad AI agent ecosystem map.
+- 🧭 **List** [Awesome CLI Coding Agents](https://github.com/bradAGI/awesome-cli-coding-agents) - Directory of terminal-native coding agents, parallel runners, autonomous loops, and the harnesses that orchestrate them.
 
 ## Contributing
 
