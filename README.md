@@ -249,7 +249,7 @@ These are the building blocks that make a loop more than a repeated prompt.
 - 📚 **Docs** [Run agents in parallel](https://code.claude.com/docs/en/agents.md) - Compares agent view, subagents, agent teams, worktrees, tasks, and workflows for parallel work.
 - 📚 **Docs** [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) - Moves loop state and branching into workflow scripts so large tasks do not overload the conversation context.
 - 📚 **Docs** [Create plugins](https://code.claude.com/docs/en/plugins) - Packaging model-invoked skills, agents, hooks, MCP servers, monitors, and settings as shareable loop components.
-- 📚 **Docs** [Model Context Protocol](https://modelcontextprotocol.io/) - Standard protocol for exposing tools and data sources to agent loops.
+- 📚 **Docs** [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) - Standard protocol for exposing tools and data sources to agent loops.
 
 ## Official Runtime Guides
 
@@ -269,15 +269,18 @@ Primary-source docs from agent runtime vendors and framework builders.
 - 📚 **Docs** [Create custom subagents](https://code.claude.com/docs/en/sub-agents) - Claude Code custom subagents with isolated context, model choice, and tool permissions.
 - 📚 **Docs** [GitHub Agentic Workflows](https://github.github.com/gh-aw/) - Repository automation that runs coding agents in GitHub Actions on events or schedules with guardrails.
 - 📝 **Blog** [GitHub Agentic Workflows technical preview](https://github.blog/changelog/2026-02-13-github-agentic-workflows-are-now-in-technical-preview/) - Changelog announcement for Markdown-defined agentic workflows in GitHub Actions.
+- 📚 **Docs** [Continuous AI](https://githubnext.com/projects/continuous-ai/) - GitHub Next's umbrella framing for CI/CD-style AI automation across the software lifecycle, the category that agentic workflows demonstrate.
+- 📝 **Blog** [Automate repository tasks with GitHub Agentic Workflows](https://github.blog/ai-and-ml/automate-repository-tasks-with-github-agentic-workflows/) - Official walkthrough of writing Markdown-defined agentic workflows with guardrails for triage, QA, and docs chores.
+- 📝 **Blog** [Continuous AI in practice: What developers can automate today with agentic CI](https://github.blog/ai-and-ml/generative-ai/continuous-ai-in-practice-what-developers-can-automate-today-with-agentic-ci/) - Concrete agentic-CI automations available today, with recurring patterns for triage, review, and documentation upkeep.
 - 📚 **Docs** [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent) - GitHub's autonomous coding agent: assign an issue, the agent works in an isolated Actions-powered workspace, and a reviewable pull request comes back.
 - 📝 **Blog** [GitHub Copilot: Meet the new coding agent](https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/) - Launch overview of the issue-to-PR delegation loop, including iteration on review feedback.
 - 📚 **Docs** [Jules](https://jules.google/docs) - Google's asynchronous coding agent that plans, executes tasks in isolated cloud VMs, and returns reviewable diffs.
-- 📚 **Docs** [Cursor background agents](https://docs.cursor.com/background-agent) - Remote background agents that work asynchronously in isolated environments and hand results back for review.
-- 📚 **Docs** [Devin Docs](https://docs.devin.ai/) - Documentation for a long-running autonomous software engineer with sessions, playbooks, knowledge, and review boundaries.
+- 📚 **Docs** [Cursor cloud agents](https://cursor.com/docs/cloud-agent) - Remote agents that work asynchronously in isolated environments and hand results back for review.
+- 📚 **Docs** [Devin Docs](https://docs.devin.ai/get-started/devin-intro) - Documentation for a long-running autonomous software engineer with sessions, playbooks, knowledge, and review boundaries.
 - 📚 **Docs** [Writing effective tools for AI agents](https://www.anthropic.com/engineering/writing-tools-for-agents) - Anthropic's guidance on evaluating and improving tool specs using agentic loops and realistic tasks.
 - 📚 **Docs** [Introducing advanced tool use on the Claude Developer Platform](https://www.anthropic.com/engineering/advanced-tool-use?e45d281a_page=3) - Tool search, programmatic tool calling, and tool-use examples for scaling large tool libraries without flooding context.
 - 📚 **Docs** [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) - Anthropic's guidance for agents that work across many context windows: durable progress artifacts, environment setup, and self-verification.
-- 📚 **Docs** [Claude Code: Best practices for agentic coding](https://www.anthropic.com/engineering/claude-code-best-practices) - Widely cited workflow guidance that underlies many recurring Claude Code loops.
+- 📚 **Docs** [Claude Code best practices](https://code.claude.com/docs/en/best-practices) - Widely cited workflow guidance that underlies many recurring Claude Code loops.
 
 ## Research Foundations
 
@@ -352,7 +355,7 @@ These resources include harness and observability mechanisms that loops compose 
 - 🧰 **Tool** [LangSmith](https://www.langchain.com/langsmith) - Tracing, evaluation, and monitoring platform for inspecting and grading agent runs across iterations.
 - 🧰 **Tool** [Arize Phoenix](https://github.com/Arize-ai/phoenix) - Open-source AI observability for tracing, evaluating, and debugging agent behavior from real runs.
 - 🧰 **Tool** [Braintrust](https://www.braintrust.dev/) - Evaluation and observability platform with experiments, datasets, and CI integration for gating agent changes.
-- 🧰 **Tool** [Weave](https://weave-docs.wandb.ai/) - Weights & Biases toolkit for tracing, evaluating, and monitoring agent applications over time.
+- 🧰 **Tool** [Weave](https://docs.wandb.ai/weave) - Weights & Biases toolkit for tracing, evaluating, and monitoring agent applications over time.
 
 ## Securing Unattended Loops
 
@@ -363,7 +366,7 @@ A loop that runs while nobody watches needs stronger boundaries than an interact
 - 📚 **Docs** [Agentic AI - Threats and Mitigations](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/) - OWASP threat model for agentic systems, useful when reviewing intake, memory, tool, and delegation boundaries.
 - 🧰 **Tool** [sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) - Anthropic's OS-level filesystem and network sandboxing for arbitrary processes without requiring a container.
 - 🧰 **Tool** [E2B](https://github.com/e2b-dev/E2B) - Open-source isolated cloud sandboxes for running untrusted, AI-generated code inside agent loops.
-- 📚 **Docs** [Modal Sandboxes](https://modal.com/docs/guide/sandbox) - Secure sandboxed execution for agent-driven code with resource limits and network controls.
+- 📚 **Docs** [Modal Sandboxes](https://modal.com/docs/guide/sandboxes) - Secure sandboxed execution for agent-driven code with resource limits and network controls.
 - 🧰 **Tool** [Daytona](https://www.daytona.io/) - Infrastructure for running AI-generated code in fast, isolated sandboxes.
 
 ## State, Memory, And Context Persistence
@@ -387,7 +390,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) - Microsoft's successor to AutoGen and Semantic Kernel for building and orchestrating multi-agent workflows in Python and .NET.
 - 🧰 **Tool** [LangGraph](https://github.com/langchain-ai/langgraph) - Graph-based framework for controllable agent workflows, persistence, and human-in-the-loop steps.
 - 🧰 **Tool** [CrewAI](https://github.com/crewAIInc/crewAI) - Framework for multi-agent workflows organized around roles, tasks, and crews.
-- 📚 **Docs** [LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/) - Event-driven workflow abstraction for agentic applications.
+- 📚 **Docs** [LlamaIndex Workflows](https://developers.llamaindex.ai/python/llamaagents/workflows/) - Event-driven workflow abstraction for agentic applications.
 - 📚 **Docs** [OpenAI Agents SDK handoffs](https://openai.github.io/openai-agents-python/handoffs/) - First-class delegation between specialized agents.
 - 📚 **Docs** [Agent Protocol](https://agentprotocol.ai/) - API protocol for agent interaction, useful for separating loop managers from agent runtimes.
 - 🧰 **Tool** [AgentKit](https://github.com/inngest/agent-kit) - TypeScript toolkit for durable, event-driven agents on workflow infrastructure.
@@ -423,7 +426,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📝 **Blog** [How to Build an Agent](https://ampcode.com/how-to-build-an-agent) - Thorsten Ball's demystification of the inner agent loop: a model, a loop, and enough tokens.
 - 📝 **Blog** [Agentic Coding Recommendations](https://lucumr.pocoo.org/2025/6/12/agentic-coding/) - Armin Ronacher's field notes on which practices hold up when agents do most of the work.
 - 📝 **Blog** [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) - Practical delegation guidance from the Devin team on scoping tasks agents can actually finish.
-- 📝 **Blog** [How Anthropic teams use Claude Code](https://www.anthropic.com/news/how-anthropic-teams-use-claude-code) - Cross-team field report of real recurring agent workflows in engineering, security, and data science.
+- 📝 **Blog** [How Anthropic teams use Claude Code](https://claude.com/blog/how-anthropic-teams-use-claude-code) - Cross-team field report of real recurring agent workflows in engineering, security, and data science.
 
 ## Templates And Patterns
 
