@@ -356,6 +356,7 @@ These resources include harness and observability mechanisms that loops compose 
 - 🧰 **Tool** [Arize Phoenix](https://github.com/Arize-ai/phoenix) - Open-source AI observability for tracing, evaluating, and debugging agent behavior from real runs.
 - 🧰 **Tool** [Braintrust](https://www.braintrust.dev/) - Evaluation and observability platform with experiments, datasets, and CI integration for gating agent changes.
 - 🧰 **Tool** [Weave](https://docs.wandb.ai/weave) - Weights & Biases toolkit for tracing, evaluating, and monitoring agent applications over time.
+- 📄 **Paper** [Agentic Verification of Software Systems](https://arxiv.org/abs/2511.17330) - Pairs a coding agent with a theorem prover (AutoRocq) in a generate-and-validate loop, turning formal proof into the exit gate for trusted automatic programming.
 
 ## Securing Unattended Loops
 
@@ -418,6 +419,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📄 **Paper** [Vending-Bench](https://arxiv.org/abs/2502.15840) - Benchmark for long-term coherence of autonomous agents; documents how small errors compound over very long loop horizons.
 - 🧪 **Benchmark** [Vending-Bench leaderboard](https://andonlabs.com/evals/vending-bench) - Live long-horizon coherence results from Andon Labs.
 - 📄 **Paper** [SWE-EVO: Benchmarking Coding Agents in Long-Horizon Software Evolution Scenarios](https://arxiv.org/abs/2512.18470) - Release-note-derived evolution tasks where agents score far below isolated-issue benchmarks, quantifying the long-horizon gap loops must manage.
+- 📄 **Paper** [EvoSkills: Self-Evolving Agent Skills via Co-Evolutionary Verification](https://arxiv.org/abs/2604.01687) - A skill generator and a co-evolving surrogate verifier improve multi-file skill packages over iterations, evaluated on the SkillsBench benchmark of structured skill bundles.
 
 ## Operations Playbooks
 
@@ -517,6 +519,7 @@ Practical loop patterns translate the abstract contract into runnable operating 
 - 🧭 **List** [Awesome LLM Agents](https://github.com/kaushikb11/awesome-llm-agents) - General list of LLM agent papers, frameworks, and applications.
 - 🧭 **List** [Awesome AI Agents](https://github.com/e2b-dev/awesome-ai-agents) - Broad AI agent ecosystem map.
 - 🧭 **List** [Awesome CLI Coding Agents](https://github.com/bradAGI/awesome-cli-coding-agents) - Directory of terminal-native coding agents, parallel runners, autonomous loops, and the harnesses that orchestrate them.
+- 🧭 **List** [Awesome Self-Evolving Agents](https://github.com/XMUDeepLIT/Awesome-Self-Evolving-Agents) - Survey-style list of agents that improve themselves over repeated runs, an adjacent angle on long-running loops with memory and verification.
 
 ## Contributing
 
