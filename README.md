@@ -161,6 +161,7 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 - 📝 **Blog** [Peter Steinberger on designing loops](https://x.com/steipete/status/2063697162748260627) - The June 2026 post - "you shouldn't be prompting coding agents anymore, you should be designing loops that prompt your agents" - that catalyzed the current discussion.
 - 📝 **Blog** [The Anthropic leader who built Claude Code ditched prompting - now he writes loops](https://thenewstack.io/loop-engineering/) - The New Stack's report on Boris Cherny's shift from prompting to loop writing and what it changes about developer workflow.
 - 📝 **Blog** [Stop Prompting. Design the Loop.](https://www.pulumi.com/blog/stop-prompting-design-the-loop/) - Practical breakdown of loop building blocks - automations, worktrees, skills, connectors, subagents - plus external memory and verification through oracles such as tests and builds.
+- 📝 **Blog** [Boris Cherny: five tips for running Opus autonomously for hours or days](https://x.com/bcherny/status/2063792263067754658) - The Claude Code creator's compact loop recipe: auto-mode permissions, dynamic workflows, `/goal` or `/loop`, the cloud runner, and end-to-end self-verification.
 
 ## Scope Boundary
 
@@ -429,6 +430,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📝 **Blog** [Agentic Coding Recommendations](https://lucumr.pocoo.org/2025/6/12/agentic-coding/) - Armin Ronacher's field notes on which practices hold up when agents do most of the work.
 - 📝 **Blog** [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) - Practical delegation guidance from the Devin team on scoping tasks agents can actually finish.
 - 📝 **Blog** [How Anthropic teams use Claude Code](https://claude.com/blog/how-anthropic-teams-use-claude-code) - Cross-team field report of real recurring agent workflows in engineering, security, and data science.
+- 📝 **Blog** [How Boris Uses Claude Code](https://howborisusesclaudecode.com/) - Unofficial but concrete compilation of Boris Cherny's autonomous setups: parallel worktrees, auto mode, `/loop`, `/schedule`, dynamic workflows, and `/goal` completion conditions.
 
 ## Templates And Patterns
 
