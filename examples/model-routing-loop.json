@@ -1,0 +1,59 @@
+{
+  "name": "Model routing",
+  "objective": "Keep agent work on the right model for each task by routing on measured quality, latency, privacy, and cost rather than pinning everything to one model.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Daily or weekly review; also when a new model ships or a cost or latency threshold is crossed."
+  },
+  "intake": {
+    "sources": ["per-task telemetry", "routing policy", "eval results", "model pricing and availability"],
+    "selection_rule": "Review task classes whose quality, latency, or cost crosses a threshold; propose the smallest change that preserves quality and privacy."
+  },
+  "workspace": {
+    "isolation": "Read access to telemetry, eval results, pricing, and the current routing policy; offline replay only.",
+    "allowed_actions": ["cluster tasks by class", "measure per-model quality, latency, and cost", "run offline replays", "open a routing-policy proposal"],
+    "disallowed_actions": ["change production routing", "move a task to a non-approved model", "cross a privacy tier without review"]
+  },
+  "context": {
+    "required_files": ["routing policy", "privacy and data-residency rules", "eval baselines"],
+    "runtime_sources": ["recent traces", "cost and latency dashboards", "model availability and pricing"]
+  },
+  "agents": [
+    {
+      "role": "Analyst",
+      "responsibility": "Cluster tasks by class and measure quality, latency, and cost per model."
+    },
+    {
+      "role": "Proposer",
+      "responsibility": "Suggest routing changes such as cheaper models for easy classes or fallbacks for hard ones."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Replay a representative sample on the proposed routing to confirm quality holds."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "Record the proposed policy, evidence, and privacy constraints checked."
+    }
+  ],
+  "verification": {
+    "gates": ["proposed routes are replayed on a representative sample", "quality stays within tolerance of baseline", "privacy and residency constraints are checked per rerouted class", "cost and latency deltas include sample size and variance"],
+    "receipts": ["task-class metrics", "proposed routes", "replay results", "privacy checks"]
+  },
+  "state": {
+    "artifacts": ["routing-policy proposal", "routing decision log"],
+    "update_rule": "Persist task-class metrics, proposals, replay evidence, and privacy checks so changes are auditable and reversible."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 120
+  },
+  "escalation": {
+    "conditions": ["quality-versus-cost tradeoff", "privacy-tier change", "data-residency question", "model deprecation forcing migration", "customer-impacting latency change"],
+    "destination": "Workflow owner via the routing-policy proposal"
+  },
+  "exit": {
+    "success": "A replay-verified routing proposal preserves quality and privacy, or current routing is already optimal.",
+    "stop_without_success": "A quality, cost, or privacy tradeoff needs owner approval."
+  }
+}

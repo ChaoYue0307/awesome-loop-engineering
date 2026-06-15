@@ -16,6 +16,8 @@ Use a pattern when you can name:
 - the escalation path.
 - the loop instruction or automation artifact.
 
+Compare every pattern side by side in the [pattern matrix](MATRIX.md), or start from a symptom with [Choose Your Loop](../README.md#choose-your-loop).
+
 ## Patterns
 
 - [PR babysitter](pr-babysitter.md) - Watch PR comments, CI, conflicts, and readiness.
@@ -28,6 +30,11 @@ Use a pattern when you can name:
 - [Security review loop](security-review-loop.md) - Review sensitive diffs with validation gates and human approval boundaries.
 - [Cost-control loop](cost-control-loop.md) - Monitor agent workflow spend, find waste, and preserve quality gates.
 - [Bug hunting loop](bug-hunting-loop.md) - Find, reproduce, minimize, and report bugs with evidence.
+- [Enterprise approval loop](enterprise-approval-loop.md) - Drive a permissioned change through required gates and approvers with an audit trail.
+- [Incident response loop](incident-response-loop.md) - Triage an alert into an owned, evidence-backed incident with a postmortem seed.
+- [Data-quality loop](data-quality-loop.md) - Validate each dataset refresh against quality rules and quarantine bad versions.
+- [Release-note loop](release-note-loop.md) - Draft release notes from merged commits, issues, and PRs with linked evidence.
+- [Model-routing loop](model-routing-loop.md) - Route tasks across models on measured quality, latency, privacy, and cost.
 
 ## Pattern Quality Bar
 

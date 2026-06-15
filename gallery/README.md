@@ -40,6 +40,33 @@ Gallery entries should include:
 
 Do not include secrets, private customer data, proprietary code, or internal links that readers cannot inspect. If a real example cannot be public, write an anonymized version and say which details were generalized.
 
+## Minimum Useful Case Study
+
+An entry is worth publishing once it answers all of these. If you cannot fill one in, say so explicitly rather than inventing it.
+
+- [ ] **Objective**: the single outcome the loop optimizes for.
+- [ ] **Trigger**: schedule, event, or manual bootstrap.
+- [ ] **Intake**: where the loop finds work each run.
+- [ ] **Runtime / tool**: which runtime and agent system ran it.
+- [ ] **Agent roles**: who explores, acts, checks, and decides.
+- [ ] **Verification**: the deterministic gate that decided done.
+- [ ] **State**: what survived between runs, and where.
+- [ ] **Budget**: the retry or runtime cap.
+- [ ] **Escalation**: when and how a human took over.
+- [ ] **Receipts**: public or anonymized evidence (PR, issue, trace, dashboard, commands).
+- [ ] **Lesson learned**: what changed after the loop met reality.
+
+## Safe Anonymization Checklist
+
+Run this before publishing a real-world entry:
+
+- [ ] Remove secrets, tokens, keys, and credentials.
+- [ ] Remove private customer data and any PII.
+- [ ] Remove internal URLs, hostnames, and dashboards readers cannot reach.
+- [ ] Replace personal names with roles (for example "the on-call engineer", "the reviewer").
+- [ ] Include only public or anonymized receipts; redact anything in a screenshot you would not paste in plain text.
+- [ ] State which details were generalized so readers know what was changed.
+
 ## Suggested First Gallery Entries
 
 - PR babysitter loop for a small open-source repository.

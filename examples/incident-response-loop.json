@@ -1,0 +1,59 @@
+{
+  "name": "Incident response",
+  "objective": "Turn a fresh alert into a triaged, evidence-backed incident with a clear owner and a postmortem trail, without an engineer doing the mechanical correlation by hand.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "A pager alert fires or an error budget burn crosses a threshold; then refresh every 2-5 minutes while the incident is open."
+  },
+  "intake": {
+    "sources": ["alert payload", "dashboards and logs", "traces", "recent deploys and config changes", "pager and ownership state"],
+    "selection_rule": "Triage the alerting service only; correlate signals and assign severity from impact evidence, not the alert text alone."
+  },
+  "workspace": {
+    "isolation": "Read-only access to observability systems, change logs, and pager state; no remediation surface.",
+    "allowed_actions": ["read metrics, logs, and traces", "open or update an incident record", "post status", "page the on-call owner"],
+    "disallowed_actions": ["roll back", "restart services", "change config", "run remediation"]
+  },
+  "context": {
+    "required_files": ["incident runbook", "service ownership map", "severity policy"],
+    "runtime_sources": ["live metrics", "log queries", "trace samples", "recent change log", "pager state"]
+  },
+  "agents": [
+    {
+      "role": "Observer",
+      "responsibility": "Gather metrics, logs, traces, and the recent change timeline."
+    },
+    {
+      "role": "Correlator",
+      "responsibility": "Link the alert to likely causes such as a deploy, dependency, or saturation."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "Write a concise incident summary with severity, impact, and hypothesis."
+    },
+    {
+      "role": "Escalator",
+      "responsibility": "Page the right owner and hand off when mitigation is required."
+    }
+  ],
+  "verification": {
+    "gates": ["severity is backed by concrete impact evidence", "the correlated cause cites specific deploys, logs, traces, or metrics", "missing telemetry is reported as unknown, never healthy"],
+    "receipts": ["incident ID and severity", "signal timeline", "correlated cause with evidence links", "owner handoff record"]
+  },
+  "state": {
+    "artifacts": ["incident record", "postmortem seed timeline"],
+    "update_rule": "Append signals, hypotheses, and handoffs each interval so the timeline can seed the postmortem."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 120
+  },
+  "escalation": {
+    "conditions": ["customer-facing outage", "data loss risk", "security signal", "missing telemetry", "mitigation requires production action"],
+    "destination": "On-call owner via pager with the evidence timeline"
+  },
+  "exit": {
+    "success": "A human owner accepts the incident, or it auto-resolves with a recorded evidence trail.",
+    "stop_without_success": "Mitigation is required, telemetry is missing, or correlation cannot be grounded in evidence."
+  }
+}

@@ -53,3 +53,30 @@ Include public or anonymized evidence:
 - Sensitive actions:
 - Human approvals:
 - Data or privacy constraints:
+
+## Minimum Useful Case Study Checklist
+
+Confirm the entry answers all of these before submitting:
+
+- [ ] Objective
+- [ ] Trigger
+- [ ] Intake
+- [ ] Runtime / tool
+- [ ] Agent roles
+- [ ] Verification
+- [ ] State
+- [ ] Budget
+- [ ] Escalation
+- [ ] Receipts
+- [ ] Lesson learned
+
+## Safe Anonymization Checklist
+
+For real-world entries, confirm before publishing:
+
+- [ ] Removed secrets, tokens, and credentials
+- [ ] Removed private customer data and PII
+- [ ] Removed internal URLs and hostnames
+- [ ] Replaced personal names with roles
+- [ ] Included only public or anonymized receipts
+- [ ] Noted which details were generalized

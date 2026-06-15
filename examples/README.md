@@ -16,6 +16,11 @@ Every loop in the [pattern library](../patterns/README.md) has a matching contra
 - [`security-review-loop.json`](security-review-loop.json)
 - [`cost-control-loop.json`](cost-control-loop.json)
 - [`bug-hunting-loop.json`](bug-hunting-loop.json)
+- [`enterprise-approval-loop.json`](enterprise-approval-loop.json)
+- [`incident-response-loop.json`](incident-response-loop.json)
+- [`data-quality-loop.json`](data-quality-loop.json)
+- [`release-note-loop.json`](release-note-loop.json)
+- [`model-routing-loop.json`](model-routing-loop.json)
 
 Use them as starting points. Adapt triggers, tools, checks, state artifacts, and escalation rules to your repository and runtime.
 

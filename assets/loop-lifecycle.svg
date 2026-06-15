@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="520" viewBox="0 0 1240 520" role="img" aria-labelledby="title desc">
+  <title id="title">Loop Engineering lifecycle</title>
+  <desc id="desc">A recurring agent loop: Intake, Delegate, Act, Verify, Persist, and Decide, where Decide either retries by feeding evidence back, escalates to a human, or exits when the goal is met.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7dd3fc"/>
+    </marker>
+    <marker id="arrowMuted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a78bfa"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="520" rx="32" fill="url(#bg)"/>
+  <text x="620" y="60" text-anchor="middle" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="32" font-weight="800">Loop Engineering Lifecycle</text>
+  <text x="620" y="92" text-anchor="middle" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16">One pass of a recurring, stateful, verified agent loop</text>
+
+  <!-- retry arc: from Decide back to Delegate -->
+  <path d="M 1100 196 C 1100 150, 332 150, 332 196" fill="none" stroke="#a78bfa" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#arrowMuted)"/>
+  <text x="716" y="142" text-anchor="middle" fill="#c4b5fd" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700">retry: feed back the evidence</text>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" filter="url(#shadow)">
+    <!-- stage nodes, centers at x = 140, 332, 524, 716, 908, 1100 -->
+    <g>
+      <rect x="60" y="208" width="160" height="92" rx="20" fill="#0f172a" stroke="#334155"/>
+      <text x="140" y="252" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">1</text>
+      <text x="140" y="278" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700">Intake</text>
+    </g>
+    <g>
+      <rect x="252" y="208" width="160" height="92" rx="20" fill="#0f172a" stroke="#334155"/>
+      <text x="332" y="252" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">2</text>
+      <text x="332" y="278" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700">Delegate</text>
+    </g>
+    <g>
+      <rect x="444" y="208" width="160" height="92" rx="20" fill="#0f172a" stroke="#334155"/>
+      <text x="524" y="252" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">3</text>
+      <text x="524" y="278" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700">Act</text>
+    </g>
+    <g>
+      <rect x="636" y="208" width="160" height="92" rx="20" fill="#0f172a" stroke="#334155"/>
+      <text x="716" y="252" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">4</text>
+      <text x="716" y="278" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700">Verify</text>
+    </g>
+    <g>
+      <rect x="828" y="208" width="160" height="92" rx="20" fill="#0f172a" stroke="#334155"/>
+      <text x="908" y="252" text-anchor="middle" fill="#7dd3fc" font-size="13" font-weight="800">5</text>
+      <text x="908" y="278" text-anchor="middle" fill="#e2e8f0" font-size="18" font-weight="700">Persist</text>
+    </g>
+    <g>
+      <rect x="1020" y="208" width="160" height="92" rx="20" fill="#0f172a" stroke="url(#accent)" stroke-width="2.5"/>
+      <text x="1100" y="252" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="800">6</text>
+      <text x="1100" y="278" text-anchor="middle" fill="#f8fafc" font-size="18" font-weight="700">Decide</text>
+    </g>
+  </g>
+
+  <!-- forward arrows between stages, at y = 254 -->
+  <g stroke="#7dd3fc" stroke-width="2.5" fill="none">
+    <line x1="220" y1="254" x2="248" y2="254" marker-end="url(#arrow)"/>
+    <line x1="412" y1="254" x2="440" y2="254" marker-end="url(#arrow)"/>
+    <line x1="604" y1="254" x2="632" y2="254" marker-end="url(#arrow)"/>
+    <line x1="796" y1="254" x2="824" y2="254" marker-end="url(#arrow)"/>
+    <line x1="988" y1="254" x2="1016" y2="254" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- outcome chips from Decide -->
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+    <line x1="1100" y1="300" x2="1100" y2="356" stroke="#38bdf8" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+    <rect x="892" y="360" width="180" height="60" rx="16" fill="#0f172a" stroke="#334155"/>
+    <text x="982" y="385" text-anchor="middle" fill="#bae6fd" font-size="15" font-weight="800">Escalate</text>
+    <text x="982" y="406" text-anchor="middle" fill="#94a3b8" font-size="13">hand off to a human</text>
+
+    <rect x="1090" y="360" width="120" height="60" rx="16" fill="#0f172a" stroke="url(#accent)" stroke-width="2"/>
+    <text x="1150" y="385" text-anchor="middle" fill="#ddd6fe" font-size="15" font-weight="800">Exit</text>
+    <text x="1150" y="406" text-anchor="middle" fill="#94a3b8" font-size="13">goal met</text>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="14">
+    <circle cx="66" cy="470" r="5" fill="#38bdf8"/>
+    <text x="84" y="475" fill="#cbd5e1">Verification is a deterministic gate, not the agent's opinion. State persists outside the model. Every loop has a budget and a human exit.</text>
+  </g>
+</svg>

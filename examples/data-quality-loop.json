@@ -1,0 +1,59 @@
+{
+  "name": "Data quality",
+  "objective": "Keep a recurring dataset or knowledge base trustworthy by validating each refresh against explicit quality rules before it is published.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "After each dataset or knowledge-base refresh, or nightly; also when the source schema changes or a freshness SLA is breached."
+  },
+  "intake": {
+    "sources": ["new dataset version", "schema and row counts", "prior accepted version", "quality rule definitions"],
+    "selection_rule": "Validate the latest version against the data contract and quality rules; quarantine on any hard-rule failure."
+  },
+  "workspace": {
+    "isolation": "Read access to the dataset, schema, profiling tools, and prior versions; quarantine area separate from production.",
+    "allowed_actions": ["run validation queries", "profile the data", "write a quality report", "quarantine a failing version"],
+    "disallowed_actions": ["edit source data", "publish to production", "relax rules without review"]
+  },
+  "context": {
+    "required_files": ["data contract or schema", "quality-rule definitions", "ownership map"],
+    "runtime_sources": ["load metrics", "profiling output", "diff against the last accepted version"]
+  },
+  "agents": [
+    {
+      "role": "Profiler",
+      "responsibility": "Compute counts, distributions, null rates, and freshness for the new version."
+    },
+    {
+      "role": "Validator",
+      "responsibility": "Check the profile against quality rules and the prior accepted baseline."
+    },
+    {
+      "role": "Investigator",
+      "responsibility": "Classify each failure as a defect, an accepted shift, or a rule bug."
+    },
+    {
+      "role": "Reporter",
+      "responsibility": "Record results, quarantine bad versions, and propose rule fixes."
+    }
+  ],
+  "verification": {
+    "gates": ["hard rules pass before a version is promotable", "distribution shifts beyond threshold are flagged with the delta", "every quarantine cites the failing rule and a sample", "accepted exceptions are recorded"],
+    "receipts": ["dataset version", "profile metrics", "rule results", "quarantine status with samples"]
+  },
+  "state": {
+    "artifacts": ["quality report", "accepted-exception ledger"],
+    "update_rule": "Persist the profile, rule results, and any new accepted exception so recurring shifts are not re-investigated."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 90
+  },
+  "escalation": {
+    "conditions": ["ambiguous distribution shift", "schema change needing a data-contract update", "repeated upstream failure", "regulated or PII-bearing fields", "a rule that may itself be wrong"],
+    "destination": "Dataset owner via the data-quality channel"
+  },
+  "exit": {
+    "success": "The version is validated against all hard rules and ready for promotion.",
+    "stop_without_success": "The version is quarantined with evidence, or a shift needs owner judgment."
+  }
+}

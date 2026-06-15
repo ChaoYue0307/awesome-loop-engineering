@@ -1,0 +1,59 @@
+{
+  "name": "Enterprise approval",
+  "objective": "Move a permissioned change through its required approvals without a human chasing reviewers, while keeping every gate, approver, and decision on the record.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Every 1-4 hours during business hours while an approval is open, and when a gate completes or an approver is assigned."
+  },
+  "intake": {
+    "sources": ["change request", "linked diff or runbook", "required gate results", "approver decisions"],
+    "selection_rule": "Act only on the next unmet required gate or pending approver; never advance while a required gate is unmet."
+  },
+  "workspace": {
+    "isolation": "Read access to approval metadata, gate results, diffs, and policy documents; no merge or access-grant surface.",
+    "allowed_actions": ["read approval state", "attach sourced evidence", "request reviews", "update status fields"],
+    "disallowed_actions": ["self-approve", "bypass a gate", "edit policy", "merge or ship the change"]
+  },
+  "context": {
+    "required_files": ["approval policy", "AGENTS.md", "change-management runbook"],
+    "runtime_sources": ["current gate status", "approver availability", "SLA timers"]
+  },
+  "agents": [
+    {
+      "role": "Explorer",
+      "responsibility": "Summarize the change and which gates and approvers still block it."
+    },
+    {
+      "role": "Coordinator",
+      "responsibility": "Route the request to the next required gate or approver and track SLAs."
+    },
+    {
+      "role": "Reviewer",
+      "responsibility": "Check that attached evidence satisfies each named policy gate."
+    },
+    {
+      "role": "Judge",
+      "responsibility": "Decide whether to advance, request changes, or escalate to a human owner."
+    }
+  ],
+  "verification": {
+    "gates": ["every required gate has a recorded pass, fail, or waiver with evidence", "each approval is attributable to a named human", "the change does not advance while any gate is unmet"],
+    "receipts": ["change request ID", "gate status with evidence links", "approver decisions and conditions", "timestamps"]
+  },
+  "state": {
+    "artifacts": ["approval ledger entry", "gate and approver status record"],
+    "update_rule": "Record what advanced, what blocked, and why after every run, preserving an immutable audit trail."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 240
+  },
+  "escalation": {
+    "conditions": ["approver unresponsive past SLA", "a gate fails", "policy is ambiguous", "a waiver is requested", "regulated data or production access is involved"],
+    "destination": "Named human owner via the change-management channel"
+  },
+  "exit": {
+    "success": "The change is fully approved with a complete audit trail, or cleanly rejected.",
+    "stop_without_success": "The loop is blocked on a human decision, a failed gate, or an unresponsive approver."
+  }
+}

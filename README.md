@@ -38,6 +38,7 @@ This repository is about the new AI-agent meaning of Loop Engineering. It is **n
 - [Mental Model](#mental-model)
 - [How To Use This List](#how-to-use-this-list)
 - [Reading Paths](#reading-paths)
+- [Choose Your Loop](#choose-your-loop)
 - [Canonical Definition](#canonical-definition)
 - [Concept Guides](#concept-guides)
 - [Maintainer Picks](#maintainer-picks)
@@ -103,13 +104,46 @@ Objective
   -> Repeat, report, open a PR, or escalate to a human
 ```
 
+<p align="center">
+  <img src="assets/loop-lifecycle.svg" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met" width="100%">
+</p>
+
 ## How To Use This List
 
 Start with the first-read resources and the Loop Contract if the term is new. For implementation work, move through core primitives, runtime guides, templates, and patterns. For reliability work, focus on verification gates, state persistence, critiques, and limitations. Contributions should prefer primary sources, official docs, papers, and implementation-heavy write-ups.
 
 ## Reading Paths
 
-Choose a path based on your intent. If the term is new, read the canonical definition, mental model, comparison guide, and Loop Contract. If you are implementing a loop, move through core primitives, official runtime guides, the pattern library, and examples. If you are improving reliability or evals, focus on verification gates, benchmarks, critiques, and limitations. If you are contributing, review the community gallery, templates, and contribution guide.
+Choose a path based on your intent.
+
+- Learn the concept: canonical definition, mental model, comparison guide, and the Loop Contract.
+- Implement a loop: core primitives, official runtime guides, the pattern library, and examples.
+- Improve reliability or evals: verification gates, benchmarks, critiques, and limitations.
+- Contribute: the community gallery, templates, and contribution guide.
+
+## Choose Your Loop
+
+Start from the problem you have, not the pattern you want. Find the pattern name below, then open its full write-up in the Pattern Library section, or compare every pattern in the [pattern matrix](patterns/MATRIX.md), which also links each one by symptom.
+
+| When you say...                  | Reach for the loop         |
+| -------------------------------- | -------------------------- |
+| "My PR is stuck"                 | PR babysitter              |
+| "CI keeps failing"               | CI repair loop             |
+| "The docs may be stale"          | Docs drift collector       |
+| "A deploy needs monitoring"      | Deploy verifier            |
+| "Feedback is noisy"              | Feedback clusterer         |
+| "Dependency updates pile up"     | Dependency triage loop     |
+| "Agent evals regressed"          | Evaluation regression loop |
+| "Sensitive changes need review"  | Security review loop       |
+| "Agent spend is rising"          | Cost-control loop          |
+| "I need recurring bug discovery" | Bug hunting loop           |
+| "A change needs sign-off"        | Enterprise approval loop   |
+| "An incident just paged"         | Incident response loop     |
+| "A dataset keeps drifting"       | Data-quality loop          |
+| "Release notes are a chore"      | Release-note loop          |
+| "Model choice is ad hoc"         | Model-routing loop         |
+
+Not sure which runtime should run it? See the [runtime selection guide](meta/RUNTIME_SELECTION.md).
 
 ## Canonical Definition
 
@@ -242,6 +276,7 @@ These are the building blocks that make a loop more than a repeated prompt.
 - 📚 **Docs** [Keep Claude working toward a goal](https://code.claude.com/docs/en/goal) - `/goal` runs turn after turn until a completion condition is met by a verifier.
 - 📚 **Docs** [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - `/loop`, scheduled tasks, reminders, monitor tools, and session-scoped recurring prompts.
 - 📚 **Docs** [Automate work with routines](https://code.claude.com/docs/en/routines) - Claude Code routines: persistent cloud automations triggered by schedules, API calls, or GitHub events, with connectors, scoped environments, and branch-push limits.
+- 📚 **Docs** [Desktop scheduled tasks](https://code.claude.com/docs/en/desktop-scheduled-tasks) - Local recurring runs on your own machine, with the persistence, file-access, permission, worktree, and missed-run trade-offs that distinguish them from `/loop` and cloud routines.
 - 📚 **Docs** [Run parallel sessions with worktrees](https://code.claude.com/docs/en/worktrees) - Worktree isolation for parallel sessions and subagents so concurrent edits do not collide.
 - 📚 **Docs** [Automate actions with hooks](https://code.claude.com/docs/en/hooks-guide) - Claude Code hooks guide for deterministic lifecycle control around model actions.
 - 📚 **Docs** [Hooks reference](https://code.claude.com/docs/en/hooks.md) - Event-level reference for session, turn, tool-call, and subagent hooks.
@@ -382,6 +417,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📝 **Blog** [The Agent Loop Is the New OS](https://www.harness.io/blog/agent-loop-new-os) - Frames the agent loop as an OS-like boundary with context as RAM and tools as I/O.
 - 📝 **Blog** [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html) - Martin Fowler article on feedforward, feedback, and outer harnesses for coding agents.
 - 📝 **Blog** [Context Engineering](https://simonwillison.net/2025/Jun/27/context-engineering/) - Simon Willison's framing of context engineering, useful for distinguishing context state from loop orchestration.
+- 📝 **Blog** [Agentic Coding in 2026](https://sourcegraph.com/blog/agentic-coding) - Sourcegraph on supplying deterministic, large-codebase context and code intelligence so recurring agent runs reuse durable repository state instead of rediscovering it each time.
 - 📝 **Blog** [Agentic AI State Management with ScyllaDB and LangGraph](https://www.scylladb.com/2026/04/08/agentic-ai-state-management-with-scylladb-and-langgraph/) - Durable agent state with checkpointers, write-ahead logs, and time-travel branching.
 - 🧰 **Tool** [Mem0](https://github.com/mem0ai/mem0) - Open-source memory layer for retaining user, session, and agent state across repeated agent sessions.
 - 🧰 **Tool** [Letta](https://github.com/letta-ai/letta) - Stateful agent framework from the MemGPT line with persistent, self-editing memory across runs.
@@ -436,6 +472,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📝 **Blog** [Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101) - Practical delegation guidance from the Devin team on scoping tasks agents can actually finish.
 - 📝 **Blog** [How Anthropic teams use Claude Code](https://claude.com/blog/how-anthropic-teams-use-claude-code) - Cross-team field report of real recurring agent workflows in engineering, security, and data science.
 - 📝 **Blog** [How Boris Uses Claude Code](https://howborisusesclaudecode.com/) - Unofficial but concrete compilation of Boris Cherny's autonomous setups: parallel worktrees, auto mode, `/loop`, `/schedule`, dynamic workflows, and `/goal` completion conditions.
+- 📝 **Blog** [Agent of the Day: Copilot Agent PR Analysis](https://github.github.com/gh-aw/blog/2026-05-26-agent-of-the-day/) - Official walkthrough of a daily scheduled agentic workflow that ingests PR data, analyzes it, and publishes findings to a Discussion, a concrete recurring loop with trigger, intake, analysis, and output.
 
 ## Templates And Patterns
 
@@ -455,7 +492,7 @@ Additional loop patterns worth documenting include PR babysitting, CI repair, fe
 Concrete examples make the loop contract easier to adapt to real repositories.
 
 - 🔁 **Pattern** [Example loop specs](examples/README.md) - Human-readable walkthroughs for PR babysitting, CI repair, and docs drift collection.
-- 🧾 **Template** [Loop contract library](examples/README.md#contract-library) - Schema-validated loop contracts for all ten pattern-library loops, from PR babysitting to bug hunting.
+- 🧾 **Template** [Loop contract library](examples/README.md#contract-library) - Schema-validated loop contracts for every pattern-library loop, from PR babysitting to model routing.
 - 🧾 **Template** [Runnable test-repair loop](examples/runnable/test-repair-loop.sh) - Dependency-light reference loop script with a verification gate, retry budget, durable progress log, repeat-failure detection, and escalation exit.
 - 🧾 **Template** [Runnable loop guide](examples/runnable/README.md) - Maps the script line by line to the Loop Contract and shows how to drive it with Claude Code, Codex CLI, or any agent CLI.
 
@@ -468,6 +505,8 @@ python3 scripts/preview_loop_contract.py examples/pr-babysitter-loop.json
 ## Community Gallery
 
 The gallery is for real-world or realistic loop examples contributed by the community.
+
+**Running a real loop?** Share it, real or anonymized, in the patterns discussion linked under Roadmap And Discussion below. Use the [minimum useful case study](gallery/README.md#minimum-useful-case-study) and [anonymization](gallery/README.md#safe-anonymization-checklist) checklists so others can learn from it safely.
 
 - 🧾 **Template** [Loop gallery guide](gallery/README.md) - Quality bar for contributed loop examples with receipts and lessons learned.
 - 🧾 **Template** [Loop gallery template](gallery/template.md) - Markdown template for sharing a loop's trigger, intake, state, verification, escalation, and safety notes.
@@ -507,6 +546,11 @@ Practical loop patterns translate the abstract contract into runnable operating 
 - 🔁 **Pattern** [Security review loop](patterns/security-review-loop.md) - Reviews sensitive diffs with evidence-backed findings, safe permissions, and human approval boundaries.
 - 🔁 **Pattern** [Cost-control loop](patterns/cost-control-loop.md) - Monitors agent workflow spend, identifies waste, proposes scoped savings, and preserves quality gates.
 - 🔁 **Pattern** [Bug hunting loop](patterns/bug-hunting-loop.md) - Discovers, reproduces, minimizes, and reports bugs with concrete evidence.
+- 🔁 **Pattern** [Enterprise approval loop](patterns/enterprise-approval-loop.md) - Drives a permissioned change through required gates and approvers with a full audit trail.
+- 🔁 **Pattern** [Incident response loop](patterns/incident-response-loop.md) - Triages an alert into an owned, evidence-backed incident with a postmortem seed.
+- 🔁 **Pattern** [Data-quality loop](patterns/data-quality-loop.md) - Validates each dataset refresh against quality rules and quarantines bad versions.
+- 🔁 **Pattern** [Release-note loop](patterns/release-note-loop.md) - Drafts release notes from merged commits, issues, and PRs with linked evidence.
+- 🔁 **Pattern** [Model-routing loop](patterns/model-routing-loop.md) - Routes tasks across models on measured quality, latency, privacy, and cost.
 
 ## Critiques, Risks, And Limitations
 

@@ -1,0 +1,59 @@
+{
+  "name": "Release note",
+  "objective": "Assemble accurate, human-readable release notes from the merged commits, issues, and PRs in a release, drafted from evidence rather than memory.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "A release branch is cut or a tag is created; also a weekly draft for the next release during active development."
+  },
+  "intake": {
+    "sources": ["merged pull requests", "closed issues", "commits since the last tag", "labels and breaking-change markers"],
+    "selection_rule": "Include user-affecting changes in the release range; drop chores, merge commits, and reverts that cancel out."
+  },
+  "workspace": {
+    "isolation": "Read access to git history, PR and issue metadata, and the existing changelog; draft PR only.",
+    "allowed_actions": ["read commit and PR metadata", "draft changelog entries", "open a draft changelog PR", "link entries to sources"],
+    "disallowed_actions": ["publish the release", "edit tags", "reword security advisories unreviewed"]
+  },
+  "context": {
+    "required_files": ["changelog", "release-note style guide", "label-to-section mapping"],
+    "runtime_sources": ["commit range", "PR metadata", "issue links", "migration notes"]
+  },
+  "agents": [
+    {
+      "role": "Collector",
+      "responsibility": "Gather merged PRs, issues, and commits in the release range with stable links."
+    },
+    {
+      "role": "Classifier",
+      "responsibility": "Group changes into features, fixes, breaking changes, and docs."
+    },
+    {
+      "role": "Writer",
+      "responsibility": "Draft user-facing notes that explain impact and migrations."
+    },
+    {
+      "role": "Reviewer",
+      "responsibility": "Check each note against its source and flag user-affecting items for a human."
+    }
+  ],
+  "verification": {
+    "gates": ["every entry links to a merged PR, issue, or commit", "breaking changes and migrations are called out explicitly", "noise is excluded", "processed IDs are recorded"],
+    "receipts": ["release range", "processed PR and issue IDs", "section mapping", "draft changelog link"]
+  },
+  "state": {
+    "artifacts": ["draft changelog PR", "processed-ID ledger"],
+    "update_rule": "Record processed IDs and which entries were human-reviewed so re-runs do not duplicate work."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 60
+  },
+  "escalation": {
+    "conditions": ["security advisory", "ambiguous breaking change", "customer-commitment wording", "license-relevant change", "release scope needing product judgment"],
+    "destination": "Release owner via the draft changelog PR"
+  },
+  "exit": {
+    "success": "A review-ready draft changelog links every entry to its source and calls out breaking changes.",
+    "stop_without_success": "The draft is blocked on product wording or a security advisory."
+  }
+}

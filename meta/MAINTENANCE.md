@@ -1,6 +1,6 @@
 # Maintenance Guide
 
-This guide keeps Awesome Loop Engineering useful, stable, and trustworthy over time.
+This guide keeps Awesome Loop Engineering useful, stable, and trustworthy over time. For the cadence of when to run each task, see the [maintenance calendar](MAINTENANCE_CALENDAR.md).
 
 ## Weekly Checks
 

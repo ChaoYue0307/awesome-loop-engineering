@@ -4,6 +4,18 @@ Most of this repository describes loops. This directory contains loops you can r
 
 The scripts are intentionally minimal: bash, coreutils, and whatever agent CLI you already use. They exist to make the [Loop Contract](../../README.md#the-loop-contract) concrete, not to be a framework.
 
+## Runtime variants
+
+The same loop shape runs on different runtimes. These templates show the wiring for each; the [runtime selection guide](../../meta/RUNTIME_SELECTION.md) compares persistence, file access, isolation, and permissions so you can choose deliberately.
+
+- [Claude Code `/loop`](claude-loop.md) - session-scoped recurring task while you are nearby.
+- [Claude Code desktop scheduled task](claude-desktop-scheduled-task.md) - local scheduled runs with file access and missed-run guardrails.
+- [Codex automation](codex-automation.md) - unattended background task in an isolated worktree.
+- [GitHub agentic workflow](github-agentic-workflow.md) - scheduled or event-triggered loop in GitHub Actions.
+- [Shell / cron loop](shell-cron-loop.md) - minimal cron wrapper that delegates to an agent CLI and records receipts.
+
+Each variant is a portable template, not a guarantee of vendor behavior; confirm product specifics in the linked official docs.
+
 ## test-repair-loop.sh
 
 A manual-bootstrap loop that keeps handing failing check output to an agent until the check passes, the budget runs out, or the failure stops changing.
