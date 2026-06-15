@@ -369,6 +369,8 @@ These resources are included when they help design the higher-level loop around 
 - 🧰 **Tool** [how-to-ralph-wiggum](https://github.com/ghuntley/how-to-ralph-wiggum) - Reference repository documenting the Ralph Wiggum technique end to end, from the bare loop script to guardrails and conventions.
 - 📝 **Blog** [A Brief History of Ralph](https://www.humanlayer.dev/blog/brief-history-of-ralph) - Traces how the bare-loop technique spread from a provocation to a production practice among early adopters.
 - 🔁 **Pattern** [Ralph Copilot](https://github.com/giocaizzi/ralph-copilot/tree/e5b2813cc876c73a8c9d3398c0115da0d15f63cf) - Language-agnostic Ralph loop implementation using fresh context, filesystem memory, `PRD.md`, and `PROGRESS.md`.
+- 🔁 **Pattern** [Compound Engineering](https://every.to/guides/compound-engineering) - Every's named plan-work-review-compound loop, where each run feeds lessons back into `AGENTS.md`-style memory so the next loop is easier; the self-improving counterpart to Ralph.
+- 🧰 **Tool** [Gas Town](https://github.com/steveyegge/gastown) - Steve Yegge's multi-agent orchestrator that runs 20-30 parallel coding agents with coordinator, worker, and merge-queue roles; the structured-orchestration end of the spectrum that Ralph anchors with bare iteration.
 - 🧰 **Tool** [Amp](https://ampcode.com/) - Agentic coding tool built around threads, subagents, and an opinionated harness, with an owner's manual that documents loop-style operating practices.
 - 🧰 **Tool** [karl](https://github.com/kayoslab/karl) - Autonomous multi-agent development loop with planner, reviewer, architect, tester, developer, deployment, and retry phases.
 - 🔁 **Pattern** [joelclaw agent-loop skill](https://github.com/joelhooks/joelclaw/blob/main/skills/agent-loop/SKILL.md) - Durable Planner-Implementor-Reviewer-Judge coding loops via Inngest events and progress files.
@@ -423,6 +425,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [Letta](https://github.com/letta-ai/letta) - Stateful agent framework from the MemGPT line with persistent, self-editing memory across runs.
 - 🧰 **Tool** [Zep](https://github.com/getzep/zep) - Temporal knowledge graph memory that tracks how facts about users and systems change across sessions.
 - 🧰 **Tool** [LangMem](https://github.com/langchain-ai/langmem) - SDK for extracting, consolidating, and retrieving long-term agent memory between loop runs.
+- 🧰 **Tool** [Beads](https://github.com/steveyegge/beads) - Git-plus-SQLite issue and memory store that agents read and write with a `bd` CLI, giving recurring loops durable task state and progress that survives context resets.
 - 📄 **Paper** [ARC: Active and Reflection-driven Context Management for Long-Horizon Agents](https://arxiv.org/abs/2601.12030) - Treats context as a managed runtime artifact, reorganizing the working context when degradation or context rot is detected across a long run.
 
 ## Orchestration And Multi-Agent Delegation
