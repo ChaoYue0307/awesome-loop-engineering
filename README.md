@@ -251,6 +251,7 @@ These are the building blocks that make a loop more than a repeated prompt.
 - 📚 **Docs** [Orchestrate subagents at scale with dynamic workflows](https://code.claude.com/docs/en/workflows) - Moves loop state and branching into workflow scripts so large tasks do not overload the conversation context.
 - 📚 **Docs** [Create plugins](https://code.claude.com/docs/en/plugins) - Packaging model-invoked skills, agents, hooks, MCP servers, monitors, and settings as shareable loop components.
 - 📚 **Docs** [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) - Standard protocol for exposing tools and data sources to agent loops.
+- 📚 **Docs** [Allowing GitHub Copilot CLI to work autonomously](https://docs.github.com/en/copilot/concepts/agents/copilot-cli/autopilot) - Copilot CLI autopilot mode plus `/every` and `/after` scheduling, turning the CLI into an unattended loop that runs steps until a task is complete.
 
 ## Official Runtime Guides
 
@@ -298,6 +299,7 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 📄 **Paper** [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442) - Introduces reflection and memory mechanisms for long-running agent behavior.
 - 📄 **Paper** [Measuring AI Ability to Complete Long Software Tasks](https://arxiv.org/abs/2503.14499) - METR's task-length time horizon metric; grounds why loop budgets, checkpoints, and escalation matter as autonomous work gets longer.
 - 📝 **Blog** [Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) - Accessible summary of the 50% task-completion time horizon and its doubling trend.
+- 📄 **Paper** [Reflection-Driven Control for Trustworthy Code Agents](https://arxiv.org/abs/2512.21354) - Elevates reflection from an external pass to an internal control loop that monitors the agent's decision path during generation and constrains risky steps with low overhead.
 - 📄 **Paper** [PARC: An Autonomous Self-Reflective Coding Agent for Robust Execution of Long-Horizon Tasks](https://arxiv.org/abs/2512.03549) - Hierarchical plan-execute-assess loops that detect and correct strategic errors during multi-hour autonomous runs.
 - 📄 **Paper** [When the Specification Emerges: Benchmarking Faithfulness Loss in Long-Horizon Coding Agents](https://arxiv.org/abs/2603.17104) - Measures how agents drift from intent when specifications arrive incrementally across a long loop, and proposes a mitigation that recovers most of the loss.
 - 🧰 **Tool** [Reflexion code](https://github.com/noahshinn/reflexion) - Reference implementation and experiments for verbal reinforcement loops.
@@ -385,6 +387,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [Letta](https://github.com/letta-ai/letta) - Stateful agent framework from the MemGPT line with persistent, self-editing memory across runs.
 - 🧰 **Tool** [Zep](https://github.com/getzep/zep) - Temporal knowledge graph memory that tracks how facts about users and systems change across sessions.
 - 🧰 **Tool** [LangMem](https://github.com/langchain-ai/langmem) - SDK for extracting, consolidating, and retrieving long-term agent memory between loop runs.
+- 📄 **Paper** [ARC: Active and Reflection-driven Context Management for Long-Horizon Agents](https://arxiv.org/abs/2601.12030) - Treats context as a managed runtime artifact, reorganizing the working context when degradation or context rot is detected across a long run.
 
 ## Orchestration And Multi-Agent Delegation
 
@@ -421,6 +424,8 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧪 **Benchmark** [Vending-Bench leaderboard](https://andonlabs.com/evals/vending-bench) - Live long-horizon coherence results from Andon Labs.
 - 📄 **Paper** [SWE-EVO: Benchmarking Coding Agents in Long-Horizon Software Evolution Scenarios](https://arxiv.org/abs/2512.18470) - Release-note-derived evolution tasks where agents score far below isolated-issue benchmarks, quantifying the long-horizon gap loops must manage.
 - 📄 **Paper** [EvoSkills: Self-Evolving Agent Skills via Co-Evolutionary Verification](https://arxiv.org/abs/2604.01687) - A skill generator and a co-evolving surrogate verifier improve multi-file skill packages over iterations, evaluated on the SkillsBench benchmark of structured skill bundles.
+- 📄 **Paper** [SlopCodeBench: Benchmarking How Coding Agents Degrade Over Long-Horizon Iterative Tasks](https://arxiv.org/abs/2603.24755) - Quantifies structural erosion and verbosity creep across iteration checkpoints in native harnesses like Claude Code and Codex, evidence for why loops need verification and budgets.
+- 📄 **Paper** [LongCLI-Bench: A Preliminary Benchmark for Long-horizon Agentic Programming in Command-Line Interfaces](https://arxiv.org/abs/2602.14337) - Long-horizon CLI tasks where most runs stall below 30% completion, mapping where unattended loops break down.
 
 ## Operations Playbooks
 
