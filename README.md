@@ -14,7 +14,8 @@
   <a href="README.ko.md">한국어</a> |
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">Help translate</a> |
-  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Landing page</a>
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Landing page</a> |
+  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face mirror</a>
 </p>
 
 > A curated, implementation-oriented list of resources for **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
@@ -375,6 +376,7 @@ These resources are included when they help design the higher-level loop around 
 - 🧰 **Tool** [karl](https://github.com/kayoslab/karl) - Autonomous multi-agent development loop with planner, reviewer, architect, tester, developer, deployment, and retry phases.
 - 🔁 **Pattern** [joelclaw agent-loop skill](https://github.com/joelhooks/joelclaw/blob/main/skills/agent-loop/SKILL.md) - Durable Planner-Implementor-Reviewer-Judge coding loops via Inngest events and progress files.
 - 🧭 **List** [SWE-bench reading list](https://github.com/SWE-bench/reading-list) - Maintained map of software engineering agent systems and related papers.
+- 📄 **Paper** [TraceCoder: A Trace-Driven Multi-Agent Framework for Automated Debugging of LLM-Generated Code](https://arxiv.org/abs/2602.06875) - ICSE'26 observe-analyze-repair loop with instrumentation, analysis, and repair agents, a history-learning mechanism, and a rollback to the last good state; iteration alone drives most of the gain.
 
 ## Verification And Feedback Gates
 
@@ -522,6 +524,7 @@ The gallery is for real-world or realistic loop examples contributed by the comm
 This repository includes a lightweight GitHub Pages landing page for search and social previews:
 
 - 🧾 **Template** [Landing page](https://chaoyue0307.github.io/awesome-loop-engineering/) - SEO-friendly entry point for the repository.
+- 🧭 **List** [Hugging Face mirror](https://huggingface.co/cy0307/awesome-loop-engineering) - Synced copy of this repository on the Hugging Face Hub for discovery within the AI/ML community.
 - 🧾 **Template** [Landing page source](docs/index.html) - Source for the static landing page.
 - 🧾 **Template** [Sitemap](docs/sitemap.xml) - Crawl hints for the landing page and core repository pages.
 - 🧾 **Template** [Robots file](docs/robots.txt) - Allows indexing and points crawlers to the sitemap.
@@ -574,6 +577,7 @@ Practical loop patterns translate the abstract contract into runnable operating 
 - 🧭 **List** [Awesome AI Agents](https://github.com/e2b-dev/awesome-ai-agents) - Broad AI agent ecosystem map.
 - 🧭 **List** [Awesome CLI Coding Agents](https://github.com/bradAGI/awesome-cli-coding-agents) - Directory of terminal-native coding agents, parallel runners, autonomous loops, and the harnesses that orchestrate them.
 - 🧭 **List** [Awesome Self-Evolving Agents](https://github.com/XMUDeepLIT/Awesome-Self-Evolving-Agents) - Survey-style list of agents that improve themselves over repeated runs, an adjacent angle on long-running loops with memory and verification.
+- 🧭 **List** [Awesome AI Agent Papers](https://github.com/VoltAgent/awesome-ai-agent-papers) - Curated 2026 research collection across agent engineering, memory, evaluation, workflows, and autonomous systems, a paper-level feeder for loop-design foundations.
 
 ## Contributing
 
