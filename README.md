@@ -11,14 +11,29 @@ tags:
   - software-engineering
 ---
 
-# Awesome Loop Engineering [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
+<p align="center">
+  <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
+</p>
+
+# Awesome Loop Engineering
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-logo.svg" alt="Awesome Loop Engineering logo" width="112">
 </p>
 
 <p align="center">
-  <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
+  Curated resources and practical patterns for designing recurring, stateful, verified AI-agent loops.
+</p>
+
+<p align="center">
+  <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
+  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://img.shields.io/github/actions/workflow/status/ChaoYue0307/awesome-loop-engineering/quality.yml?branch=main&label=validate" alt="validate"></a>
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
+  <a href="https://huggingface.co/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/Hugging%20Face-mirror-ffcc4d" alt="Hugging Face mirror"></a>
+  <img src="https://img.shields.io/badge/resources-250%2B-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/patterns-15-38bdf8" alt="patterns">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-64748b" alt="license"></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-22c55e" alt="PRs welcome"></a>
 </p>
 
 <p align="center">
@@ -35,7 +50,7 @@ tags:
   <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face mirror</a>
 </p>
 
-> A curated, implementation-oriented list of resources for **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
+Awesome Loop Engineering is a curated, implementation-oriented field guide to **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
 
 Prompt engineering improves what you ask the model. Context engineering improves what the model can see. Harness engineering improves the tools, permissions, sandboxes, and checks around one agent run. **Loop Engineering sits above all three**: it is the emerging AI and coding-agent practice of moving from manually prompting agents turn by turn to designing loops that do the prompting, supervision, verification, state updates, and re-triggering for you.
 
