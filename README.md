@@ -353,6 +353,7 @@ These resources are included when they help design the higher-level loop around 
 - 📝 **Blog** [Agentic Design Patterns](https://addyosmani.com/agents/04-agentic-design-patterns/) - Practical overview of ReAct, reflection, tool use, planning, and how to combine them in real-world agents.
 - 🔁 **Pattern** [12 Factor Agents](https://github.com/humanlayer/12-factor-agents) - Operating principles for production agents, including explicit prompts, state ownership, and pause-resume behavior.
 - 🔁 **Pattern** [Durable Execution for Agentic Workflows](https://arizenai.com/durable-execution/) - Explains checkpointing, event-sourced journals, replay, and recovery for long-running agent workflows.
+- 📄 **Paper** [Code as Agent Harness](https://arxiv.org/abs/2605.18747) - Organizes agent infrastructure into harness interface, feedback-driven control, and multi-agent scaling for executable, verifiable, stateful systems; maps the harness layer that loops build on.
 
 ## Coding-Agent Loop Systems
 
@@ -399,6 +400,7 @@ These resources include harness and observability mechanisms that loops compose 
 - 🧰 **Tool** [Braintrust](https://www.braintrust.dev/) - Evaluation and observability platform with experiments, datasets, and CI integration for gating agent changes.
 - 🧰 **Tool** [Weave](https://docs.wandb.ai/weave) - Weights & Biases toolkit for tracing, evaluating, and monitoring agent applications over time.
 - 📄 **Paper** [Agentic Verification of Software Systems](https://arxiv.org/abs/2511.17330) - Pairs a coding agent with a theorem prover (AutoRocq) in a generate-and-validate loop, turning formal proof into the exit gate for trusted automatic programming.
+- 📄 **Paper** [Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses](https://arxiv.org/abs/2604.25850) - A closed loop that turns each harness edit into a falsifiable contract verified against trajectory outcomes, so the harness evolves from observability instead of trial and error.
 
 ## Securing Unattended Loops
 
@@ -465,6 +467,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧪 **Benchmark** [Vending-Bench leaderboard](https://andonlabs.com/evals/vending-bench) - Live long-horizon coherence results from Andon Labs.
 - 📄 **Paper** [SWE-EVO: Benchmarking Coding Agents in Long-Horizon Software Evolution Scenarios](https://arxiv.org/abs/2512.18470) - Release-note-derived evolution tasks where agents score far below isolated-issue benchmarks, quantifying the long-horizon gap loops must manage.
 - 📄 **Paper** [EvoSkills: Self-Evolving Agent Skills via Co-Evolutionary Verification](https://arxiv.org/abs/2604.01687) - A skill generator and a co-evolving surrogate verifier improve multi-file skill packages over iterations, evaluated on the SkillsBench benchmark of structured skill bundles.
+- 📄 **Paper** [SaaSBench: Coding Agents in Long-Horizon Enterprise SaaS Engineering](https://arxiv.org/abs/2605.17526) - Benchmark for agents on multi-dependency, interactive enterprise tasks, with automated evaluation that probes where long-horizon loops break down.
 - 📄 **Paper** [SlopCodeBench: Benchmarking How Coding Agents Degrade Over Long-Horizon Iterative Tasks](https://arxiv.org/abs/2603.24755) - Quantifies structural erosion and verbosity creep across iteration checkpoints in native harnesses like Claude Code and Codex, evidence for why loops need verification and budgets.
 - 📄 **Paper** [LongCLI-Bench: A Preliminary Benchmark for Long-horizon Agentic Programming in Command-Line Interfaces](https://arxiv.org/abs/2602.14337) - Long-horizon CLI tasks where most runs stall below 30% completion, mapping where unattended loops break down.
 

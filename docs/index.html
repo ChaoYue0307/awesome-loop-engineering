@@ -7,6 +7,7 @@
     <meta name="description" content="A curated field guide to Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://chaoyue0307.github.io/awesome-loop-engineering/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1020'/%3E%3Cpath d='M11 16a5 5 0 1 1 5 5' fill='none' stroke='%2338bdf8' stroke-width='2.6' stroke-linecap='round'/%3E%3Cpath d='M16 11l5 0 0 5' fill='none' stroke='%23a78bfa' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Awesome Loop Engineering">
     <meta property="og:description" content="Curated resources, patterns, examples, schema, and field guides for recurring AI-agent systems.">
@@ -19,161 +20,147 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #0f172a;
-        --panel: #111827;
-        --muted: #cbd5e1;
+        --bg: #0b1020;
+        --bg-2: #0f172a;
+        --panel: rgba(17, 24, 39, 0.72);
+        --panel-solid: #111827;
+        --muted: #c2cad8;
+        --faint: #8b95a7;
         --text: #f8fafc;
         --accent: #38bdf8;
         --accent-2: #a78bfa;
-        --border: rgba(148, 163, 184, 0.24);
+        --border: rgba(148, 163, 184, 0.18);
+        --border-strong: rgba(148, 163, 184, 0.34);
+        --radius: 18px;
+        --maxw: 1140px;
       }
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 84px; }
       body {
         margin: 0;
         background:
-          radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.22), transparent 26rem),
-          radial-gradient(circle at 90% 10%, rgba(167, 139, 250, 0.2), transparent 28rem),
+          radial-gradient(1100px 540px at 8% -6%, rgba(56, 189, 248, 0.16), transparent 70%),
+          radial-gradient(1000px 520px at 100% 4%, rgba(167, 139, 250, 0.16), transparent 70%),
           var(--bg);
         color: var(--text);
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        line-height: 1.6;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+        line-height: 1.62;
+        -webkit-font-smoothing: antialiased;
       }
-      a {
-        color: #7dd3fc;
-        text-decoration: none;
+      a { color: #8fd6fb; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      .wrap { width: min(var(--maxw), calc(100% - 40px)); margin: 0 auto; }
+
+      /* Header */
+      header.site {
+        position: sticky; top: 0; z-index: 50;
+        backdrop-filter: blur(12px);
+        background: rgba(11, 16, 32, 0.72);
+        border-bottom: 1px solid var(--border);
       }
-      a:hover {
-        text-decoration: underline;
+      .nav { display: flex; align-items: center; gap: 18px; height: 64px; }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.01em; }
+      .brand .dot { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: inline-block; }
+      .nav .links { display: flex; gap: 18px; margin-left: 14px; }
+      .nav .links a { color: var(--muted); font-size: 0.93rem; font-weight: 600; }
+      .nav .links a:hover { color: var(--text); text-decoration: none; }
+      .nav .spacer { flex: 1; }
+      .nav .ghs { display: flex; gap: 10px; }
+      .pill { border: 1px solid var(--border-strong); border-radius: 999px; padding: 7px 14px; font-size: 0.88rem; font-weight: 700; color: var(--text); background: rgba(15, 23, 42, 0.6); }
+      .pill.solid { border-color: transparent; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #07101f; }
+      .menu-btn { display: none; }
+
+      main { padding-bottom: 80px; }
+      section { padding: 64px 0 8px; }
+      .eyebrow { color: var(--accent); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+      h1 { margin: 12px 0 16px; font-size: clamp(2.5rem, 6.2vw, 4.6rem); line-height: 0.98; letter-spacing: -0.045em; }
+      h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); letter-spacing: -0.03em; margin: 0 0 8px; }
+      .section-intro { color: var(--muted); max-width: 760px; margin: 0 0 26px; }
+      .lead { color: var(--muted); font-size: clamp(1.06rem, 2vw, 1.28rem); max-width: 720px; }
+
+      /* Hero */
+      .hero { padding-top: 56px; }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr); gap: 34px; align-items: center; }
+      .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+      .btn { border: 1px solid var(--border-strong); border-radius: 999px; padding: 11px 19px; font-weight: 700; color: var(--text); background: rgba(15, 23, 42, 0.66); }
+      .btn:hover { text-decoration: none; border-color: var(--accent); }
+      .btn.primary { border-color: transparent; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #07101f; }
+      .visual { border: 1px solid var(--border); border-radius: 26px; overflow: hidden; background: var(--panel); box-shadow: 0 30px 80px rgba(0,0,0,0.34); }
+      .visual img { display: block; width: 100%; }
+
+      .definition { margin-top: 30px; border-left: 4px solid var(--accent); padding: 18px 22px; border-radius: 14px; background: rgba(15, 23, 42, 0.7); color: var(--muted); }
+      .definition strong { color: var(--text); }
+
+      /* Stats */
+      .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 34px; }
+      .stat { border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; background: var(--panel); text-align: center; }
+      .stat b { display: block; font-size: 1.9rem; letter-spacing: -0.03em; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .stat span { color: var(--faint); font-size: 0.84rem; font-weight: 600; }
+
+      /* Generic grids and cards */
+      .grid { display: grid; gap: 16px; }
+      .g-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .g-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .card { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; background: var(--panel); transition: transform 0.16s ease, border-color 0.16s ease; }
+      .card:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+      .card h3 { margin: 0 0 8px; font-size: 1.06rem; }
+      .card p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+
+      .stack { display: grid; gap: 12px; }
+      .layer { border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; background: rgba(15, 23, 42, 0.7); }
+      .layer.top { border-color: transparent; background: linear-gradient(90deg, rgba(56,189,248,0.16), rgba(167,139,250,0.16)); }
+      .layer strong { color: var(--text); }
+      .layer span { color: var(--faint); }
+
+      .wide { border: 1px solid var(--border); border-radius: 24px; overflow: hidden; background: var(--panel); box-shadow: 0 26px 70px rgba(0,0,0,0.28); }
+      .wide img { display: block; width: 100%; }
+
+      /* Pattern cards */
+      .pat { display: block; border: 1px solid var(--border); border-radius: 16px; padding: 16px 16px; background: var(--panel); transition: transform 0.16s ease, border-color 0.16s ease; }
+      .pat:hover { transform: translateY(-3px); border-color: var(--accent); text-decoration: none; }
+      .pat .sym { color: var(--faint); font-size: 0.82rem; }
+      .pat .name { display: block; color: var(--text); font-weight: 700; margin-top: 4px; }
+
+      /* Maturity */
+      .levels { display: grid; gap: 10px; }
+      .lvl { display: grid; grid-template-columns: 54px 1fr; gap: 14px; align-items: center; border: 1px solid var(--border); border-radius: 14px; padding: 12px 16px; background: var(--panel); }
+      .lvl b { font-size: 1.4rem; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; text-align: center; }
+      .lvl .t { color: var(--text); font-weight: 700; }
+      .lvl .d { color: var(--faint); font-size: 0.9rem; }
+
+      /* Chips */
+      .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+      .chip { border: 1px solid var(--border-strong); border-radius: 999px; padding: 8px 15px; font-size: 0.9rem; font-weight: 600; color: var(--muted); background: rgba(15,23,42,0.6); }
+      .chip:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
+
+      footer { margin-top: 70px; border-top: 1px solid var(--border); padding-top: 30px; color: var(--faint); }
+      footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 22px; }
+      footer h4 { color: var(--text); margin: 0 0 10px; font-size: 0.95rem; }
+      footer a { color: var(--muted); display: block; padding: 3px 0; }
+      .cite { position: relative; border: 1px solid var(--border); border-radius: 12px; background: #0a0f1d; padding: 14px 14px; margin-top: 12px; overflow: auto; }
+      .cite pre { margin: 0; color: #cbd5e1; font-size: 0.8rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre; }
+      .copy { position: absolute; top: 10px; right: 10px; border: 1px solid var(--border-strong); background: rgba(15,23,42,0.8); color: var(--text); border-radius: 8px; padding: 4px 10px; font-size: 0.78rem; cursor: pointer; }
+      .legal { margin-top: 26px; font-size: 0.88rem; }
+
+      @media (max-width: 900px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .g-3, .g-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .stats { grid-template-columns: repeat(2, 1fr); }
+        footer .cols { grid-template-columns: 1fr; }
+        .nav .links { display: none; }
+        .menu-btn { display: inline-flex; }
       }
-      main {
-        width: min(1120px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 48px 0 72px;
+      @media (max-width: 560px) {
+        .g-3, .g-4 { grid-template-columns: 1fr; }
+        .lvl { grid-template-columns: 44px 1fr; }
+        .nav { gap: 8px; }
+        .brand .bt { display: none; }
+        .pill { padding: 6px 12px; font-size: 0.82rem; white-space: nowrap; }
+        h1 { font-size: clamp(2.2rem, 11vw, 3rem); }
       }
-      .hero {
-        display: grid;
-        gap: 28px;
-        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-        align-items: center;
-      }
-      .eyebrow {
-        color: var(--accent);
-        font-size: 0.82rem;
-        font-weight: 800;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-      }
-      h1 {
-        margin: 10px 0 18px;
-        font-size: clamp(2.4rem, 6vw, 5.4rem);
-        line-height: 0.95;
-        letter-spacing: -0.055em;
-      }
-      .lead {
-        max-width: 760px;
-        color: var(--muted);
-        font-size: clamp(1.08rem, 2vw, 1.3rem);
-      }
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-top: 28px;
-      }
-      .button {
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        padding: 11px 18px;
-        background: rgba(15, 23, 42, 0.72);
-        color: var(--text);
-        font-weight: 700;
-      }
-      .button.primary {
-        border-color: transparent;
-        background: linear-gradient(90deg, var(--accent), var(--accent-2));
-        color: #08111f;
-      }
-      .visual {
-        border: 1px solid var(--border);
-        border-radius: 28px;
-        overflow: hidden;
-        background: rgba(17, 24, 39, 0.74);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-      }
-      .visual img {
-        display: block;
-        width: 100%;
-      }
-      .wide-visual {
-        border: 1px solid var(--border);
-        border-radius: 28px;
-        overflow: hidden;
-        background: rgba(17, 24, 39, 0.72);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
-      }
-      .wide-visual img {
-        display: block;
-        width: 100%;
-      }
-      .section {
-        margin-top: 56px;
-      }
-      .grid {
-        display: grid;
-        gap: 16px;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-      .card {
-        min-height: 100%;
-        border: 1px solid var(--border);
-        border-radius: 22px;
-        padding: 22px;
-        background: rgba(17, 24, 39, 0.72);
-      }
-      .card h2,
-      .card h3 {
-        margin: 0 0 10px;
-        line-height: 1.2;
-      }
-      .card p,
-      .card li {
-        color: var(--muted);
-      }
-      .stack {
-        display: grid;
-        gap: 12px;
-      }
-      .layer {
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 16px 18px;
-        background: rgba(15, 23, 42, 0.76);
-      }
-      .layer strong {
-        color: var(--text);
-      }
-      .definition {
-        border-left: 4px solid var(--accent);
-        padding: 18px 22px;
-        border-radius: 16px;
-        background: rgba(15, 23, 42, 0.76);
-        color: var(--muted);
-      }
-      footer {
-        margin-top: 64px;
-        color: #94a3b8;
-        font-size: 0.95rem;
-      }
-      @media (max-width: 850px) {
-        .hero,
-        .grid {
-          grid-template-columns: 1fr;
-        }
-        main {
-          padding-top: 28px;
-        }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .card, .pat { transition: none; }
       }
     </style>
     <script type="application/ld+json">
@@ -183,112 +170,261 @@
         "name": "Awesome Loop Engineering",
         "url": "https://chaoyue0307.github.io/awesome-loop-engineering/",
         "description": "A curated field guide to Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.",
+        "keywords": ["Loop Engineering", "AI agents", "Coding agents", "Agent workflows", "Agentic loops"],
         "isPartOf": {
           "@type": "WebSite",
           "name": "Awesome Loop Engineering",
           "url": "https://github.com/ChaoYue0307/awesome-loop-engineering"
         },
-        "about": [
-          "Loop Engineering",
-          "AI agents",
-          "Coding agents",
-          "Agent workflows"
-        ],
-        "author": {
-          "@type": "Person",
-          "name": "Chaoyue He"
-        }
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "author": { "@type": "Person", "name": "Chaoyue He" }
       }
     </script>
   </head>
   <body>
+    <header class="site">
+      <div class="wrap nav">
+        <span class="brand"><span class="dot" aria-hidden="true"></span> <span class="bt">Loop Engineering</span></span>
+        <nav class="links" aria-label="Primary">
+          <a href="#concept">Concept</a>
+          <a href="#lifecycle">Lifecycle</a>
+          <a href="#choose">Choose a loop</a>
+          <a href="#patterns">Patterns</a>
+          <a href="#runtimes">Runtimes</a>
+          <a href="#resources">Resources</a>
+        </nav>
+        <span class="spacer"></span>
+        <span class="ghs">
+          <a class="pill" href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face</a>
+          <a class="pill solid" href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub</a>
+        </span>
+      </div>
+    </header>
+
     <main>
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Awesome Loop Engineering</div>
-          <h1>Design loops, not just prompts.</h1>
-          <p class="lead">
-            Loop Engineering is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering">Open GitHub Repo</a>
-            <a class="button" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/DEFINITION.md">Read Definition</a>
-            <a class="button" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">See Examples</a>
-            <a class="button" href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face Mirror</a>
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div>
+              <div class="eyebrow">Awesome Loop Engineering</div>
+              <h1>Design loops,<br>not just prompts.</h1>
+              <p class="lead">
+                Loop Engineering is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again.
+              </p>
+              <div class="cta">
+                <a class="btn primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme">Explore the list</a>
+                <a class="btn" href="#choose">Choose your loop</a>
+                <a class="btn" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">Pattern matrix</a>
+              </div>
+            </div>
+            <div class="visual">
+              <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-engineering-stack.svg" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time.">
+            </div>
+          </div>
+
+          <div class="stats" role="list" aria-label="Repository at a glance">
+            <div class="stat" role="listitem"><b>15</b><span>operational patterns</span></div>
+            <div class="stat" role="listitem"><b>15</b><span>loop contracts</span></div>
+            <div class="stat" role="listitem"><b>6</b><span>runnable templates</span></div>
+            <div class="stat" role="listitem"><b>250+</b><span>curated entries</span></div>
+            <div class="stat" role="listitem"><b>8</b><span>languages</span></div>
+          </div>
+
+          <div class="definition">
+            <strong>Canonical definition.</strong>
+            Loop Engineering is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.
           </div>
         </div>
-        <div class="visual">
-          <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-engineering-stack.svg" alt="Loop Engineering stack diagram">
-        </div>
       </section>
 
-      <section class="section">
-        <div class="definition">
-          <strong>Canonical definition:</strong>
-          Loop Engineering is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.
-        </div>
-      </section>
-
-      <section class="section wide-visual" aria-label="Loop Contract visual">
-        <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-contract-cards.svg" alt="Loop Contract cards">
-      </section>
-
-      <section class="section wide-visual" aria-label="Loop Engineering lifecycle visual">
-        <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-lifecycle.svg" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met">
-      </section>
-
-      <section class="section grid" aria-label="Engineering stack">
-        <div class="card">
-          <h2>The Stack</h2>
+      <!-- CONCEPT / STACK -->
+      <section id="concept">
+        <div class="wrap">
+          <div class="eyebrow">The stack</div>
+          <h2>Four layers, one recurring system</h2>
+          <p class="section-intro">Prompt, context, and harness engineering make a single agent run better. Loop Engineering sits on top and governs agent work over time.</p>
           <div class="stack">
-            <div class="layer"><strong>Prompt Engineering</strong><br>What should I say to the model?</div>
-            <div class="layer"><strong>Context Engineering</strong><br>What state and knowledge should the model see?</div>
-            <div class="layer"><strong>Harness Engineering</strong><br>What tools, permissions, tests, and sandboxes surround one run?</div>
-            <div class="layer"><strong>Loop Engineering</strong><br>What recurring system governs agent work over time?</div>
+            <div class="layer"><strong>Prompt Engineering</strong> &mdash; <span>what should I say to the model?</span></div>
+            <div class="layer"><strong>Context Engineering</strong> &mdash; <span>what state, memory, and knowledge should the model see?</span></div>
+            <div class="layer"><strong>Harness Engineering</strong> &mdash; <span>what tools, permissions, sandboxes, and checks surround one run?</span></div>
+            <div class="layer top"><strong>Loop Engineering</strong> &mdash; <span>what recurring system governs agent work over time?</span></div>
           </div>
-        </div>
-        <div class="card">
-          <h2>What The Repo Contains</h2>
-          <ul>
-            <li>Curated papers, blogs, docs, tools, benchmarks, and patterns.</li>
-            <li>Manifesto, taxonomy, comparison guide, and anti-patterns.</li>
-            <li>Validated loop contract schema and example loop specs.</li>
-            <li>Pattern library for PR, CI, docs, deploy, feedback, dependency, eval, security, cost, and bug-hunting loops.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Contribute</h2>
-          <p>
-            Share resources, corrections, or real loop patterns with trigger, intake, delegation, verification, state, budget, escalation, and receipts.
-          </p>
-          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/1">Join the community pattern thread</a></p>
         </div>
       </section>
 
-      <section class="section grid" aria-label="Key links">
-        <div class="card">
-          <h3>Start Here</h3>
-          <p>Use the README for the complete curated map and contribution path.</p>
-          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.md">Read the README</a></p>
+      <!-- LIFECYCLE -->
+      <section id="lifecycle">
+        <div class="wrap">
+          <div class="eyebrow">The lifecycle</div>
+          <h2>One pass of a recurring loop</h2>
+          <p class="section-intro">Verification is a deterministic gate, not the agent's opinion. State persists outside the model. Every loop has a budget and a human exit.</p>
+          <div class="wide">
+            <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-lifecycle.svg" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met.">
+          </div>
         </div>
-        <div class="card">
-          <h3>Field Guides</h3>
-          <p>Understand the concept, boundaries, taxonomy, anti-patterns, and comparisons.</p>
-          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/MANIFESTO.md">Read the Manifesto</a></p>
+      </section>
+
+      <!-- CHOOSE YOUR LOOP -->
+      <section id="choose">
+        <div class="wrap">
+          <div class="eyebrow">Choose your loop</div>
+          <h2>Start from the problem you have</h2>
+          <p class="section-intro">Each card opens a ready-to-adapt pattern with a trigger, verification gate, durable state, budget, and escalation path. Compare them all in the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">pattern matrix</a>.</p>
+          <div class="grid g-3">
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/pr-babysitter.md"><span class="sym">&ldquo;My PR is stuck&rdquo;</span><span class="name">PR babysitter</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/ci-repair-loop.md"><span class="sym">&ldquo;CI keeps failing&rdquo;</span><span class="name">CI repair loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/docs-drift-collector.md"><span class="sym">&ldquo;The docs may be stale&rdquo;</span><span class="name">Docs drift collector</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/deploy-verifier.md"><span class="sym">&ldquo;A deploy needs monitoring&rdquo;</span><span class="name">Deploy verifier</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/feedback-clusterer.md"><span class="sym">&ldquo;Feedback is noisy&rdquo;</span><span class="name">Feedback clusterer</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/dependency-triage-loop.md"><span class="sym">&ldquo;Updates pile up&rdquo;</span><span class="name">Dependency triage loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/evaluation-regression-loop.md"><span class="sym">&ldquo;Agent evals regressed&rdquo;</span><span class="name">Evaluation regression loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/security-review-loop.md"><span class="sym">&ldquo;Sensitive changes need review&rdquo;</span><span class="name">Security review loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/cost-control-loop.md"><span class="sym">&ldquo;Agent spend is rising&rdquo;</span><span class="name">Cost-control loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/bug-hunting-loop.md"><span class="sym">&ldquo;Recurring bug discovery&rdquo;</span><span class="name">Bug hunting loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/enterprise-approval-loop.md"><span class="sym">&ldquo;A change needs sign-off&rdquo;</span><span class="name">Enterprise approval loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/incident-response-loop.md"><span class="sym">&ldquo;An incident just paged&rdquo;</span><span class="name">Incident response loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/data-quality-loop.md"><span class="sym">&ldquo;A dataset keeps drifting&rdquo;</span><span class="name">Data-quality loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/release-note-loop.md"><span class="sym">&ldquo;Release notes are a chore&rdquo;</span><span class="name">Release-note loop</span></a>
+            <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/model-routing-loop.md"><span class="sym">&ldquo;Model choice is ad hoc&rdquo;</span><span class="name">Model-routing loop</span></a>
+          </div>
         </div>
-        <div class="card">
-          <h3>Build A Loop</h3>
-          <p>Start from validated JSON specs or the pattern template.</p>
-          <p><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples">View examples</a></p>
+      </section>
+
+      <!-- PATTERNS / CONTRACT -->
+      <section id="patterns">
+        <div class="wrap">
+          <div class="eyebrow">The loop contract</div>
+          <h2>Every loop names the same parts</h2>
+          <p class="section-intro">A useful loop has a contract. If a part is missing, it becomes either a manual prompt habit or an unsafe background automation.</p>
+          <div class="wide">
+            <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-contract-cards.svg" alt="Loop Contract cards: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.">
+          </div>
+          <div class="grid g-3" style="margin-top:18px">
+            <div class="card"><h3>Verifiable by design</h3><p>Tests, typechecks, evals, traces, or reviewers decide done &mdash; never the acting agent alone.</p></div>
+            <div class="card"><h3>State outside the model</h3><p>Progress files, issues, checkpoints, and traces survive the next run and every context reset.</p></div>
+            <div class="card"><h3>Budgeted and bounded</h3><p>Retries, runtime, and concurrency are capped, with a clear human exit before anything risky ships.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RUNTIMES -->
+      <section id="runtimes">
+        <div class="wrap">
+          <div class="eyebrow">Where loops run</div>
+          <h2>Pick a runtime deliberately</h2>
+          <p class="section-intro">The same contract can run as a session command, a scheduled cloud job, a CI workflow, or a cron wrapper. The <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/RUNTIME_SELECTION.md">runtime selection guide</a> compares persistence, file access, isolation, and permissions.</p>
+          <div class="grid g-3">
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><h3>Claude Code <code>/loop</code></h3><p>Session-scoped recurring task while you are nearby.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><h3>Desktop scheduled task</h3><p>Local recurring runs with file access and missed-run guardrails.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/codex-automation.md"><h3>Codex automation</h3><p>Unattended background task in an isolated worktree.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><h3>GitHub agentic workflow</h3><p>Scheduled or event-triggered loop in GitHub Actions.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><h3>Shell / cron</h3><p>Minimal wrapper that delegates to an agent CLI and records receipts.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><h3>Runnable reference</h3><p>A dependency-light test-repair loop you can run today.</p></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- MATURITY -->
+      <section id="maturity">
+        <div class="wrap">
+          <div class="eyebrow">Loop maturity model</div>
+          <h2>Climb the model slowly</h2>
+          <p class="section-intro">A reliable Level 3 loop with clear state and deterministic checks is usually more valuable than a flashy Level 5 loop with vague goals.</p>
+          <div class="levels">
+            <div class="lvl"><b>0</b><div><div class="t">Manual prompting</div><div class="d">A human reads state and writes the next prompt.</div></div></div>
+            <div class="lvl"><b>1</b><div><div class="t">Scripted retry</div><div class="d">A shell or script loop feeds errors back to an agent.</div></div></div>
+            <div class="lvl"><b>2</b><div><div class="t">Scheduled loop</div><div class="d">The agent runs on a cadence and reports findings.</div></div></div>
+            <div class="lvl"><b>3</b><div><div class="t">Stateful loop</div><div class="d">Progress survives across sessions through files, issues, or checkpoints.</div></div></div>
+            <div class="lvl"><b>4</b><div><div class="t">Self-verifying loop</div><div class="d">Deterministic checks or evaluator agents gate completion.</div></div></div>
+            <div class="lvl"><b>5</b><div><div class="t">Multi-agent loop</div><div class="d">Specialized agents split discovery, implementation, review, and judgment.</div></div></div>
+            <div class="lvl"><b>6</b><div><div class="t">Production-supervised loop</div><div class="d">Observability, budgets, approvals, rollback, and escalation are first-class.</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESOURCES -->
+      <section id="resources">
+        <div class="wrap">
+          <div class="eyebrow">The curated list</div>
+          <h2>Browse by category</h2>
+          <p class="section-intro">Primary sources, official docs, papers, benchmarks, and implementation-heavy write-ups &mdash; selective, not a dump. Jump into any section of the README.</p>
+          <div class="chips">
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#start-here">Start Here</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#core-loop-primitives">Core Loop Primitives</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#official-runtime-guides">Runtime Guides</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#research-foundations">Research Foundations</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#verification-and-feedback-gates">Verification &amp; Feedback</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#securing-unattended-loops">Securing Unattended Loops</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#state-memory-and-context-persistence">State &amp; Memory</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#orchestration-and-multi-agent-delegation">Orchestration</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#benchmarks-and-evaluation">Benchmarks</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#critiques-risks-and-limitations">Critiques &amp; Risks</a>
+            <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#adjacent-awesome-lists">Adjacent Lists</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTRIBUTE -->
+      <section id="contribute">
+        <div class="wrap">
+          <div class="eyebrow">Contribute</div>
+          <h2>Bring a source or a real loop</h2>
+          <div class="grid g-3">
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md"><h3>Add a resource</h3><p>Primary sources and implementation-heavy write-ups, with one specific annotation.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/gallery/README.md"><h3>Share a loop</h3><p>Use the case-study and anonymization checklists to publish a real or anonymized loop.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2"><h3>Join the discussion</h3><p>Show your Loop Engineering patterns and compare notes with other builders.</p></a>
+          </div>
         </div>
       </section>
 
       <footer>
-        <p>
-          This is an early curated map of an emerging practice, not a final standard.
-          Original repository materials are released under CC0-1.0.
-        </p>
+        <div class="wrap">
+          <div class="cols">
+            <div>
+              <h4>Cite this repository</h4>
+              <div class="cite">
+                <button class="copy" type="button" data-copy="cite-bib">Copy</button>
+                <pre id="cite-bib">@misc{chaoyue2026awesome_loop_engineering,
+  author       = {He, Chaoyue},
+  title        = {Awesome Loop Engineering},
+  year         = {2026},
+  howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}}
+}</pre>
+              </div>
+            </div>
+            <div>
+              <h4>Explore</h4>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/DEFINITION.md">Canonical definition</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/MANIFESTO.md">Manifesto</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TAXONOMY.md">Taxonomy</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ANTI-PATTERNS.md">Anti-patterns</a>
+            </div>
+            <div>
+              <h4>Project</h4>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub repository</a>
+              <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face mirror</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ROADMAP.md">Roadmap</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TRANSLATIONS.md">Translations</a>
+            </div>
+          </div>
+          <p class="legal">
+            This is an early curated map of an emerging practice, not a final standard. Original repository materials are released under CC0-1.0. Linked resources keep their own licenses.
+          </p>
+        </div>
       </footer>
     </main>
+
+    <script>
+      document.querySelectorAll('.copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var el = document.getElementById(btn.getAttribute('data-copy'));
+          if (!el) return;
+          navigator.clipboard.writeText(el.innerText).then(function () {
+            var prev = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = prev; }, 1400);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
