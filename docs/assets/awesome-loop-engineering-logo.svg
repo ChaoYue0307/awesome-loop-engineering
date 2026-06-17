@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Awesome Loop Engineering logo</title>
+  <desc id="desc">A circular loop arrow around a verification check and stacked state lines.</desc>
+  <defs>
+    <linearGradient id="panel" x1="88" y1="48" x2="432" y2="464" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111a33"/>
+      <stop offset="0.58" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#12192d"/>
+    </linearGradient>
+    <linearGradient id="loop" x1="126" y1="140" x2="386" y2="378" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="0.52" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="314" y1="138" x2="397" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="check" x1="203" y1="234" x2="310" y2="312" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#bae6fd"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#020617" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="#070b16"/>
+  <rect x="22" y="22" width="468" height="468" rx="98" fill="url(#panel)" stroke="#253044" stroke-width="2"/>
+  <path d="M88 166C120 96 185 62 257 63c84 1 155 53 184 128" fill="none" stroke="#38bdf8" stroke-opacity="0.18" stroke-width="2"/>
+  <path d="M423 347c-34 68-99 102-171 100-82-2-151-52-180-125" fill="none" stroke="#a78bfa" stroke-opacity="0.16" stroke-width="2"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M143 270c-6-66 39-124 103-134 58-9 113 23 136 76" fill="none" stroke="url(#loop)" stroke-width="36" stroke-linecap="round"/>
+    <path d="M371 174l47 75-87-4z" fill="url(#arrow)"/>
+    <path d="M369 249c5 66-40 124-104 134-58 9-113-24-135-77" fill="none" stroke="url(#loop)" stroke-width="36" stroke-linecap="round" opacity="0.96"/>
+    <path d="M142 338l-47-75 87 4z" fill="#38bdf8"/>
+  </g>
+
+  <circle cx="256" cy="258" r="82" fill="#0b1020" stroke="#334155" stroke-width="2"/>
+  <circle cx="256" cy="258" r="69" fill="#101827" stroke="#38bdf8" stroke-opacity="0.34" stroke-width="2"/>
+  <path d="M215 258l28 28 59-67" fill="none" stroke="url(#check)" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g opacity="0.96">
+    <rect x="174" y="344" width="164" height="18" rx="9" fill="#1f2a44" stroke="#38bdf8" stroke-opacity="0.38"/>
+    <rect x="195" y="375" width="122" height="18" rx="9" fill="#1a2338" stroke="#7dd3fc" stroke-opacity="0.34"/>
+    <rect x="217" y="406" width="78" height="18" rx="9" fill="#171f33" stroke="#a78bfa" stroke-opacity="0.34"/>
+  </g>
+</svg>
