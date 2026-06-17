@@ -1,21 +1,8 @@
----
-license: cc0-1.0
-language:
-  - en
-tags:
-  - loop-engineering
-  - ai-agents
-  - coding-agents
-  - agentic-workflows
-  - awesome-list
-  - software-engineering
----
-
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
 </p>
 
-# Awesome Loop Engineering
+<h1 align="center">Awesome Loop Engineering</h1>
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-logo.svg" alt="Awesome Loop Engineering logo" width="112">
