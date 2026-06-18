@@ -183,32 +183,12 @@ These repository-native guides define the concept, boundaries, and practical art
 
 ## Maintainer Picks
 
-Start here if you want a compact path through the repository.
+A compact path through the repository. Each resource is linked in full in the section named in parentheses.
 
-**Concept**
-
-- 📝 **Blog** [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - Direct framing of Loop Engineering as the layer above manual prompting and one floor above harness engineering.
-- 🧾 **Template** [Canonical Definition](DEFINITION.md) - Stable definition and scope test for quoting or explaining the concept.
-- 🧾 **Template** [Loop Engineering Manifesto](MANIFESTO.md) - Short statement of principles, non-goals, and success criteria.
-
-**Practice**
-
-- 📚 **Docs** [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - Practical plan-edit-test-observe-repair-document-repeat runbook.
-- 📚 **Docs** [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - Scheduled loop mechanics for recurring prompts, monitors, reminders, and `/loop`.
-- 🔁 **Pattern** [PR babysitter pattern](patterns/pr-babysitter.md) - Concrete operational pattern for PR comments, CI, conflicts, and merge readiness.
-- 🔁 **Pattern** [CI repair loop pattern](patterns/ci-repair-loop.md) - Concrete operational pattern for turning failing checks into narrow verified patches.
-
-**Reliability**
-
-- 📝 **Blog** [Stop Babysitting Your Coding Agent. Give It Backpressure.](https://generativeprogrammer.com/p/stop-babysitting-your-coding-agent) - Turns tests, linters, builds, traces, and other signals into feedback loops.
-- 📝 **Blog** [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) - Canonical workflow patterns and caution against unnecessary complexity.
-- ⚠️ **Critique** [Loop Engineering Anti-Patterns](ANTI-PATTERNS.md) - Failure modes to avoid before running agents repeatedly.
-
-**Reusable Artifacts**
-
-- 🧾 **Template** [Loop contract schema](schemas/loop-contract.schema.json) - Machine-readable contract for recurring agent loops.
-- 🧾 **Template** [Example loop specs](examples/README.md) - Validated PR babysitter, CI repair, and docs drift loop examples.
-- 🧾 **Template** [Loop Gallery](gallery/README.md) - Community format for sharing real or anonymized loop examples.
+- Concept: Addy Osmani's Loop Engineering essay frames the practice (Start Here), and the Canonical Definition and Manifesto fix the scope and principles (Concept Guides).
+- Practice: the Codex long-horizon runbook and Claude's scheduled-task docs cover the core mechanics (Core Loop Primitives), then the PR babysitter and CI repair patterns turn the contract into operating models (Pattern Library).
+- Reliability: "Give It Backpressure" and "Building Effective Agents" make verification the learning signal (Verification And Feedback Gates), with the Anti-Patterns guide listing failure modes to avoid (Concept Guides).
+- Reusable artifacts: the loop contract schema and validated example specs make the contract concrete (Examples And Schema), and the Loop Gallery is the format for sharing real or anonymized loops (Community Gallery).
 
 ## Repository Highlights
 
