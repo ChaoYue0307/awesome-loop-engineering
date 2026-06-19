@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-06-11 -->
+<!-- last-synced: 2026-06-19 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -15,7 +15,9 @@
   <a href="README.ja.md">日本語</a> |
   <a href="README.ko.md">한국어</a> |
   <a href="README.pt-BR.md">Português</a> |
-  <a href="TRANSLATIONS.md">帮助翻译</a>
+  <a href="TRANSLATIONS.md">帮助翻译</a> |
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">落地页</a> |
+  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face 镜像</a>
 </p>
 
 > 面向 **Loop Engineering** 的精选资源列表：它位于 prompt、context 和 harness engineering 之上，关注如何设计可重复运行的 AI-agent 系统。
@@ -25,6 +27,8 @@ Prompt engineering 改进你对模型说什么。Context engineering 改进模�
 一个 loop 会发现工作、分派给一个或多个 agents、检查结果、记录状态、决定下一步，并按照节奏或直到满足可验证目标为止持续运行。
 
 本仓库不收录软件事件循环、控制论、增长循环、通用 workflow automation 或非 AI feedback loop。
+
+除资源列表外，本仓库还提供 15 个 loop 模式、为每个模式配套经 schema 校验的 loop contract、6 个可运行的 loop 模板、社区 gallery，以及 8 个语言入口。
 
 ## 一句话定位
 

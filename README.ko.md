@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-06-11 -->
+<!-- last-synced: 2026-06-19 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -15,7 +15,9 @@
   <a href="README.ja.md">日本語</a> |
   <a href="README.ko.md">한국어</a> |
   <a href="README.pt-BR.md">Português</a> |
-  <a href="TRANSLATIONS.md">번역 돕기</a>
+  <a href="TRANSLATIONS.md">번역 돕기</a> |
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">랜딩 페이지</a> |
+  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face 미러</a>
 </p>
 
 > **Loop Engineering** 을 위한 구현 중심 큐레이션 목록입니다. Loop Engineering 은 prompt, context, harness engineering 위의 레이어로, 반복 실행되는 AI-agent 시스템을 설계합니다.
@@ -25,6 +27,8 @@ Prompt engineering 은 모델에게 무엇을 요청할지 개선합니다. Cont
 Loop 는 작업을 발견하고, 하나 이상의 agents 에게 위임하고, 결과를 확인하고, 상태를 기록하고, 다음 행동을 결정한 뒤, 일정 cadence 또는 검증 가능한 목표에 도달할 때까지 다시 실행됩니다.
 
 이 저장소는 AI agents / coding agents 맥락의 새로운 Loop Engineering 의미에만 집중합니다. software event loop, control theory, growth loop, 일반적인 workflow automation, 비 AI feedback loop 는 범위에 포함하지 않습니다.
+
+목록 외에도 이 저장소는 15개의 loop 패턴, 각 패턴에 대한 스키마 검증 loop contract, 6개의 실행 가능한 loop 템플릿, 커뮤니티 gallery, 8개 언어를 제공합니다.
 
 ## 멘탈 모델
 

@@ -192,7 +192,7 @@ A compact path through the repository. Each resource is linked in full in the se
 
 ## Repository Highlights
 
-Beyond the curated list, this repository ships its own artifacts: an operational pattern library, a schema-validated loop contract for every pattern, a runnable reference loop, a community gallery, eight language entry points, a standalone landing page, and an active discussion thread for real or anonymized Loop Engineering patterns.
+Beyond the curated list, this repository ships its own artifacts: 15 operational loop patterns, a schema-validated loop contract for every pattern, 6 runnable loop templates, a community gallery, eight language entry points, a standalone landing page, a Hugging Face mirror, and an active discussion thread for real or anonymized Loop Engineering patterns.
 
 ## Resource Type Legend
 

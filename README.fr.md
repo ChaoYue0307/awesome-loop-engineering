@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-06-11 -->
+<!-- last-synced: 2026-06-19 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -15,7 +15,9 @@
   <a href="README.ja.md">日本語</a> |
   <a href="README.ko.md">한국어</a> |
   <a href="README.pt-BR.md">Português</a> |
-  <a href="TRANSLATIONS.md">Aider à traduire</a>
+  <a href="TRANSLATIONS.md">Aider à traduire</a> |
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Page d'accueil</a> |
+  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Miroir Hugging Face</a>
 </p>
 
 > Une liste organisée et orientée implémentation pour **Loop Engineering** : la couche au-dessus du prompt engineering, du context engineering et du harness engineering pour concevoir des systèmes récurrents d'agents IA.
@@ -25,6 +27,8 @@ Le prompt engineering améliore ce que l'on demande au modèle. Le context engin
 Un loop découvre du travail, le délègue à un ou plusieurs agents, vérifie le résultat, enregistre l'état, décide de l'action suivante et se relance selon une cadence ou jusqu'à atteindre un objectif vérifiable.
 
 Ce dépôt concerne le nouveau sens de Loop Engineering dans le contexte des agents IA et coding agents. Il ne concerne pas les event loops logiciels, la théorie du contrôle, les growth loops, l'automatisation générique ou les feedback loops non liés à l'IA.
+
+Au-delà de la liste, ce dépôt fournit 15 patterns de loop, un loop contract validé par schéma pour chaque pattern, 6 modèles de loop exécutables, une galerie communautaire et 8 langues.
 
 ## Modèle Mental
 
