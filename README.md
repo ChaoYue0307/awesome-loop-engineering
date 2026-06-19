@@ -474,6 +474,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [DBOS](https://www.dbos.dev/) - Lightweight Postgres-backed durable execution library for crash-proof agent workflows, queues, and scheduled triggers.
 - 🧰 **Tool** [Composio Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) - Orchestrates parallel coding agents in isolated worktrees that plan tasks, fix CI failures, respond to reviews, and manage their own PR lifecycle.
 - 🧰 **Tool** [Omnigent](https://github.com/omnigent-ai/omnigent) - Databricks' open-source meta-harness and control plane that runs Claude Code, Codex, Cursor, and Pi under shared policies, with budget caps and human-approval gates enforced at the harness layer rather than in prompts.
+- 📄 **Paper** [From Agent Loops to Structured Graphs: A Scheduler-Theoretic Framework for LLM Agent Execution](https://arxiv.org/abs/2604.11378) - Replaces opaque agent loops with immutable plan-version DAGs and a planning-execution-recovery split, giving inspectable scheduling, deterministic recovery, escalation, and termination guarantees.
 
 ## Benchmarks And Evaluation
 
