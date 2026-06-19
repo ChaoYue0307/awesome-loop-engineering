@@ -402,6 +402,7 @@ These resources are included when they help design the higher-level loop around 
 - 🔁 **Pattern** [joelclaw agent-loop skill](https://github.com/joelhooks/joelclaw/blob/main/skills/agent-loop/SKILL.md) - Durable Planner-Implementor-Reviewer-Judge coding loops via Inngest events and progress files.
 - 🧭 **List** [SWE-bench reading list](https://github.com/SWE-bench/reading-list) - Maintained map of software engineering agent systems and related papers.
 - 📄 **Paper** [TraceCoder: A Trace-Driven Multi-Agent Framework for Automated Debugging of LLM-Generated Code](https://arxiv.org/abs/2602.06875) - ICSE'26 observe-analyze-repair loop with instrumentation, analysis, and repair agents, a history-learning mechanism, and a rollback to the last good state; iteration alone drives most of the gain.
+- 📄 **Paper** [The Kitchen Loop: User-Spec-Driven Development for a Self-Evolving Codebase](https://arxiv.org/abs/2603.25697) - A production loop where an agent exercises a spec surface as a synthetic power user behind ground-truth tests and quality gates, sustaining 285+ self-correcting iterations and 1,000+ merged PRs with zero detected regressions.
 
 ## Verification And Feedback Gates
 
@@ -455,6 +456,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [LangMem](https://github.com/langchain-ai/langmem) - SDK for extracting, consolidating, and retrieving long-term agent memory between loop runs.
 - 🧰 **Tool** [Beads](https://github.com/steveyegge/beads) - Git-plus-SQLite issue and memory store that agents read and write with a `bd` CLI, giving recurring loops durable task state and progress that survives context resets.
 - 📄 **Paper** [ARC: Active and Reflection-driven Context Management for Long-Horizon Agents](https://arxiv.org/abs/2601.12030) - Treats context as a managed runtime artifact, reorganizing the working context when degradation or context rot is detected across a long run.
+- 📄 **Paper** [Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Emerging Frontiers](https://arxiv.org/abs/2603.07670) - Formalizes agent memory as a write-manage-read loop and surveys compression, retrieval, reflective self-improvement, and policy-learned management across recurring runs.
 
 ## Orchestration And Multi-Agent Delegation
 
@@ -471,6 +473,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [Restate](https://restate.dev/) - Durable execution runtime for building resilient, stateful agents and workflows that survive failures mid-loop.
 - 🧰 **Tool** [DBOS](https://www.dbos.dev/) - Lightweight Postgres-backed durable execution library for crash-proof agent workflows, queues, and scheduled triggers.
 - 🧰 **Tool** [Composio Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) - Orchestrates parallel coding agents in isolated worktrees that plan tasks, fix CI failures, respond to reviews, and manage their own PR lifecycle.
+- 🧰 **Tool** [Omnigent](https://github.com/omnigent-ai/omnigent) - Databricks' open-source meta-harness and control plane that runs Claude Code, Codex, Cursor, and Pi under shared policies, with budget caps and human-approval gates enforced at the harness layer rather than in prompts.
 
 ## Benchmarks And Evaluation
 
