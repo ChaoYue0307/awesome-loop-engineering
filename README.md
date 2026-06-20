@@ -436,6 +436,7 @@ A loop that runs while nobody watches needs stronger boundaries than an interact
 - ⚠️ **Critique** [The lethal trifecta for AI agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) - Simon Willison's rule of thumb: private data, untrusted content, and an exfiltration channel must never meet inside one unattended agent.
 - ⚠️ **Critique** [Prompt injection series](https://simonwillison.net/series/prompt-injection/) - Ongoing series on the core unsolved vulnerability for loops whose intake includes content written by strangers.
 - 📚 **Docs** [Agentic AI - Threats and Mitigations](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/) - OWASP threat model for agentic systems, useful when reviewing intake, memory, tool, and delegation boundaries.
+- 📚 **Docs** [Designing AI agents to resist prompt injection](https://openai.com/index/designing-agents-to-resist-prompt-injection/) - OpenAI's official defense-in-depth guidance: least privilege, sandboxed tools, output verification, and human confirmation for the high-impact actions an unattended loop might take.
 - 🧰 **Tool** [sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) - Anthropic's OS-level filesystem and network sandboxing for arbitrary processes without requiring a container.
 - 🧰 **Tool** [E2B](https://github.com/e2b-dev/E2B) - Open-source isolated cloud sandboxes for running untrusted, AI-generated code inside agent loops.
 - 📚 **Docs** [Modal Sandboxes](https://modal.com/docs/guide/sandboxes) - Secure sandboxed execution for agent-driven code with resource limits and network controls.
@@ -477,6 +478,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [Composio Agent Orchestrator](https://github.com/ComposioHQ/agent-orchestrator) - Orchestrates parallel coding agents in isolated worktrees that plan tasks, fix CI failures, respond to reviews, and manage their own PR lifecycle.
 - 🧰 **Tool** [Omnigent](https://github.com/omnigent-ai/omnigent) - Databricks' open-source meta-harness and control plane that runs Claude Code, Codex, Cursor, and Pi under shared policies, with budget caps and human-approval gates enforced at the harness layer rather than in prompts.
 - 📄 **Paper** [From Agent Loops to Structured Graphs: A Scheduler-Theoretic Framework for LLM Agent Execution](https://arxiv.org/abs/2604.11378) - Replaces opaque agent loops with immutable plan-version DAGs and a planning-execution-recovery split, giving inspectable scheduling, deterministic recovery, escalation, and termination guarantees.
+- 🧰 **Tool** [Eve](https://github.com/vercel/eve) - Vercel's TypeScript-native agent framework with durable execution, sandboxed compute, and OpenTelemetry tracing built in, so recurring agent work persists, replays, and is observable across runs by default.
 
 ## Benchmarks And Evaluation
 
@@ -498,6 +500,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📄 **Paper** [SWE-EVO: Benchmarking Coding Agents in Long-Horizon Software Evolution Scenarios](https://arxiv.org/abs/2512.18470) - Release-note-derived evolution tasks where agents score far below isolated-issue benchmarks, quantifying the long-horizon gap loops must manage.
 - 📄 **Paper** [EvoSkills: Self-Evolving Agent Skills via Co-Evolutionary Verification](https://arxiv.org/abs/2604.01687) - A skill generator and a co-evolving surrogate verifier improve multi-file skill packages over iterations, evaluated on the SkillsBench benchmark of structured skill bundles.
 - 📄 **Paper** [SaaSBench: Coding Agents in Long-Horizon Enterprise SaaS Engineering](https://arxiv.org/abs/2605.17526) - Benchmark for agents on multi-dependency, interactive enterprise tasks, with automated evaluation that probes where long-horizon loops break down.
+- 📄 **Paper** [RoadmapBench: Evaluating Long-Horizon Agentic Software Development Across Version Upgrades](https://arxiv.org/abs/2605.15846) - 115 real version-upgrade tasks across 17 repositories requiring multi-file changes (median ~3,700 lines), stressing how far agent loops sustain coherent, large-scale work.
 - 📄 **Paper** [SlopCodeBench: Benchmarking How Coding Agents Degrade Over Long-Horizon Iterative Tasks](https://arxiv.org/abs/2603.24755) - Quantifies structural erosion and verbosity creep across iteration checkpoints in native harnesses like Claude Code and Codex, evidence for why loops need verification and budgets.
 - 📄 **Paper** [LongCLI-Bench: A Preliminary Benchmark for Long-horizon Agentic Programming in Command-Line Interfaces](https://arxiv.org/abs/2602.14337) - Long-horizon CLI tasks where most runs stall below 30% completion, mapping where unattended loops break down.
 
