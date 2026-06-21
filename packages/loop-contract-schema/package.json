@@ -1,0 +1,39 @@
+{
+  "name": "@chaoyue0307/loop-contract-schema",
+  "version": "0.1.0",
+  "description": "JSON Schema and a dependency-free validator for Loop Engineering loop contracts.",
+  "license": "CC0-1.0",
+  "type": "commonjs",
+  "main": "index.js",
+  "bin": {
+    "loop-contract-validate": "bin/cli.js"
+  },
+  "files": [
+    "index.js",
+    "validate.js",
+    "bin/cli.js",
+    "loop-contract.schema.json",
+    "README.md"
+  ],
+  "scripts": {
+    "prepack": "node -e \"require('fs').copyFileSync('../../schemas/loop-contract.schema.json','loop-contract.schema.json')\"",
+    "test": "node bin/cli.js ../../examples/pr-babysitter-loop.json"
+  },
+  "keywords": [
+    "loop-engineering",
+    "json-schema",
+    "ai-agents",
+    "coding-agents",
+    "agent-loop",
+    "validation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChaoYue0307/awesome-loop-engineering.git",
+    "directory": "packages/loop-contract-schema"
+  },
+  "homepage": "https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/packages/loop-contract-schema",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
