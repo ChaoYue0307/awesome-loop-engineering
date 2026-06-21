@@ -92,7 +92,7 @@ This repository is about the new AI-agent meaning of Loop Engineering. It is **n
 
 ## Why This Repo Exists
 
-Loop Engineering is becoming a distinct craft because the leverage point is moving from better single prompts, richer context, and stronger harnesses to recurring systems that decide when and how agents should run. The best agent workflows now combine goals, state, work isolation, tool permissions, feedback gates, retries, escalation, and receipts. This list exists to make that craft easier to learn, compare, and practice without mixing it with unrelated loop concepts or generic AI-agent hype.
+Loop Engineering is becoming a distinct craft because the leverage point is moving from better single prompts, richer context, and stronger harnesses to recurring systems that decide when and how agents should run. Mature agent workflows now combine goals, state, work isolation, tool permissions, feedback gates, retries, escalation, and receipts. This list exists to make that craft easier to learn, compare, and practice without mixing it with unrelated loop concepts or generic AI-agent hype.
 
 ## Mental Model
 
@@ -460,6 +460,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [Beads](https://github.com/steveyegge/beads) - Git-plus-SQLite issue and memory store that agents read and write with a `bd` CLI, giving recurring loops durable task state and progress that survives context resets.
 - 📄 **Paper** [ARC: Active and Reflection-driven Context Management for Long-Horizon Agents](https://arxiv.org/abs/2601.12030) - Treats context as a managed runtime artifact, reorganizing the working context when degradation or context rot is detected across a long run.
 - 📄 **Paper** [Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Emerging Frontiers](https://arxiv.org/abs/2603.07670) - Formalizes agent memory as a write-manage-read loop and surveys compression, retrieval, reflective self-improvement, and policy-learned management across recurring runs.
+- 📄 **Paper** [Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/abs/2604.08224) - Reviews how durable state, reusable skills, protocols, and the harness move out of model weights into external infrastructure, the substrate that lets loops persist progress and reuse capability across runs.
 
 ## Orchestration And Multi-Agent Delegation
 
@@ -479,6 +480,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [Omnigent](https://github.com/omnigent-ai/omnigent) - Databricks' open-source meta-harness and control plane that runs Claude Code, Codex, Cursor, and Pi under shared policies, with budget caps and human-approval gates enforced at the harness layer rather than in prompts.
 - 📄 **Paper** [From Agent Loops to Structured Graphs: A Scheduler-Theoretic Framework for LLM Agent Execution](https://arxiv.org/abs/2604.11378) - Replaces opaque agent loops with immutable plan-version DAGs and a planning-execution-recovery split, giving inspectable scheduling, deterministic recovery, escalation, and termination guarantees.
 - 🧰 **Tool** [Eve](https://github.com/vercel/eve) - Vercel's TypeScript-native agent framework with durable execution, sandboxed compute, and OpenTelemetry tracing built in, so recurring agent work persists, replays, and is observable across runs by default.
+- 📄 **Paper** [Verified Multi-Agent Orchestration: A Plan-Execute-Verify-Replan Framework](https://arxiv.org/abs/2603.11445) - Decomposes work into a dependency-aware DAG, runs domain agents in parallel, and uses an LLM verifier to drive adaptive replanning with configurable stop conditions, the verify-and-replan core of a reliable loop.
 
 ## Benchmarks And Evaluation
 
