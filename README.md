@@ -380,6 +380,7 @@ These resources are included when they help design the higher-level loop around 
 - 🔁 **Pattern** [Durable Execution for Agentic Workflows](https://arizenai.com/durable-execution/) - Explains checkpointing, event-sourced journals, replay, and recovery for long-running agent workflows.
 - 📄 **Paper** [Code as Agent Harness](https://arxiv.org/abs/2605.18747) - Organizes agent infrastructure into harness interface, feedback-driven control, and multi-agent scaling for executable, verifiable, stateful systems; maps the harness layer that loops build on.
 - 📄 **Paper** [Agentic Agile-V: From Vibe Coding to Verified Engineering](https://arxiv.org/abs/2605.20456) - Proposes a task-level SCOPE-V loop (Specify, Constrain, Orchestrate, Prove, Evolve, Verify) with human approval gates, arguing agentic coding needs process control and independent verification, not better prompts.
+- 📄 **Paper** [Harness Engineering for Language Agents: The Harness Layer as Control, Agency, and Runtime](https://www.preprints.org/manuscript/202603.1756) - Decomposes the harness layer that loops build on into control, agency, and runtime, audits 63 harness works, and proposes a HarnessCard so reported agent gains can be separated from harness effects.
 
 ## Coding-Agent Loop Systems
 
