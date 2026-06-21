@@ -20,6 +20,22 @@ The repository is mirrored to the Hugging Face Hub model repo [`cy0307/awesome-l
 - The HF copy of `README.md` carries a model-card YAML header (`license`, `language`, `tags`). This header is **HF-only**: it must never be added to the GitHub `README.md`, because the YAML list items break `awesome-lint`.
 - Sync uses the `hf upload` CLI against a staging copy with the header prepended, so the GitHub working tree stays header-free. The token lives in the local Hugging Face cache; no token is committed.
 
+## GitHub-Native Promotion
+
+Discoverability levers that live on GitHub itself, in priority order.
+
+- **Topic page (`github/explore`).** There is no curated page for the [`loop-engineering` topic](https://github.com/topics/loop-engineering) yet. A page is prepared on the fork branch `ChaoYue0307:add-loop-engineering-topic` (file `topics/loop-engineering/index.md`); open a PR from that branch to `github/explore`. This describes the topic, not this repo specifically, so it promotes the concept and helps the whole ecosystem.
+- **sindresorhus/awesome submission.** The canonical awesome-list promotion; opens after the 30-day age rule (~2026-07-09). Use [`AWESOME_SUBMISSION.md`](AWESOME_SUBMISSION.md).
+- **Reciprocal entries on adjacent lists** this repo already cites (harness, context, agent-papers lists). Ready-to-paste entry:
+
+  ```md
+  - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Recurring AI/coding-agent systems above prompt, context, and harness engineering: patterns, contracts, runnable loops, and curated resources.
+  ```
+
+- **Pin the repository** on your profile, and add it to your profile README (profile-level promotion).
+- **Custom social preview** (repo Settings, Social preview) so shared links render with the cover image. This is UI-only; it cannot be set through the API.
+- **Releases** notify watchers and appear on the repo; the latest is the cleanest moment to share.
+
 ## Launch Copy
 
 Use [`posts/launch.md`](../posts/launch.md) when you want a longer article-style launch post.
