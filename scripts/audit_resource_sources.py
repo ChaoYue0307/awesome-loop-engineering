@@ -16,6 +16,7 @@ import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urldefrag, urlparse
 
@@ -23,12 +24,8 @@ from urllib.parse import urldefrag, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES_CSV = ROOT / "data" / "resources.csv"
 AUDIT_CSV = ROOT / "data" / "resource_source_audit.csv"
+REPO_BLOB_URL = "https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main"
 
-TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.IGNORECASE | re.DOTALL)
-META_DESC_RE = re.compile(
-    r"<meta[^>]+(?:name|property)=[\"'](?:description|og:description)[\"'][^>]+content=[\"'](.*?)[\"'][^>]*>",
-    re.IGNORECASE | re.DOTALL,
-)
 ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/(?P<id>\d{4}\.\d{4,5})(?:v\d+)?")
 
 FIELDS = [
@@ -64,6 +61,38 @@ def clean(value: str | None) -> str:
     return " ".join(html.unescape(value).strip().split())
 
 
+class MetadataParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.in_title = False
+        self.title_parts: list[str] = []
+        self.description = ""
+
+    @property
+    def title(self) -> str:
+        return clean(" ".join(self.title_parts))
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.lower() == "title":
+            self.in_title = True
+            return
+        if tag.lower() != "meta" or self.description:
+            return
+
+        attr_map = {key.lower(): value or "" for key, value in attrs}
+        name = (attr_map.get("name") or attr_map.get("property") or "").lower()
+        if name in {"description", "og:description", "twitter:description"}:
+            self.description = clean(attr_map.get("content"))
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() == "title":
+            self.in_title = False
+
+    def handle_data(self, data: str) -> None:
+        if self.in_title:
+            self.title_parts.append(data)
+
+
 def read_rows() -> list[dict[str, str]]:
     with RESOURCES_CSV.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
@@ -88,9 +117,12 @@ def html_metadata(body: bytes, content_type: str) -> tuple[str, str]:
     if "html" not in content_type.lower():
         return "", ""
     text = body[:750_000].decode("utf-8", errors="ignore")
-    title_match = TITLE_RE.search(text)
-    desc_match = META_DESC_RE.search(text)
-    return clean(title_match.group(1) if title_match else ""), clean(desc_match.group(1) if desc_match else "")
+    parser = MetadataParser()
+    try:
+        parser.feed(text)
+    except Exception:  # noqa: BLE001 - source metadata should not fail the URL audit.
+        return "", ""
+    return parser.title, parser.description
 
 
 def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
@@ -98,7 +130,7 @@ def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
     last_error = ""
 
     for attempt in range(1, attempts + 1):
-        for method in ("HEAD", "GET"):
+        for method in ("GET", "HEAD"):
             request = urllib.request.Request(
                 url,
                 method=method,
@@ -106,12 +138,8 @@ def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
             )
             try:
                 with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
-                    body = b""
                     content_type = response.headers.get("content-type", "")
-                    if method == "GET":
-                        body = response.read(750_000)
-                    else:
-                        body = b""
+                    body = response.read(750_000) if method == "GET" else b""
                     title, description = html_metadata(body, content_type)
                     return {
                         "audit_status": "ok",
@@ -195,8 +223,8 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
             base.update(
                 {
                     "audit_status": "local_ok",
-                    "final_url": str(path) + (f"#{fragment}" if fragment else ""),
-                    "source_title": local_title(path),
+                    "final_url": f"{REPO_BLOB_URL}/{local_target}" + (f"#{fragment}" if fragment else ""),
+                    "source_title": row["title"],
                 }
             )
         else:
@@ -209,18 +237,6 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
 
     base.update(fetch_url(row["url"], timeout=timeout, attempts=attempts))
     return base
-
-
-def local_title(path: Path) -> str:
-    if not path.is_file() or path.suffix.lower() not in {".md", ".json", ".html", ".xml", ".txt"}:
-        return ""
-    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
-        stripped = line.strip()
-        if stripped.startswith("# "):
-            return clean(stripped.removeprefix("# "))
-        if stripped:
-            return clean(stripped)[:160]
-    return ""
 
 
 def github_stats_via_gh(repo: str, timeout: float) -> dict[str, str]:
