@@ -2,11 +2,11 @@
 
 This directory contains visual assets used by the repository README, GitHub Pages landing page, and social previews.
 
-- `awesome-loop-engineering-cover.png` - Original wide cover image. It visualizes the Prompt, Context, Harness, and Loop stack.
+- `awesome-loop-engineering-cover.png` - Wide README and repo-card cover image. It visualizes the Prompt, Context, Harness, and Loop stack.
 - `awesome-loop-engineering-logo.svg` - Logo mark for the README, Hugging Face repo card, and GitHub Pages header.
 - `loop-engineering-stack.svg` - Lightweight stack diagram showing how Loop Engineering sits above prompt, context, and harness engineering.
 - `loop-contract-cards.svg` - Visual card grid for the Loop Contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.
 - `loop-lifecycle.svg` - One pass of a recurring loop: Intake, Delegate, Act, Verify, Persist, and Decide, where Decide retries, escalates, or exits.
-- `social-preview.png` - 1280x640 ChatGPT Image-based card for the README, Hugging Face repo card, GitHub social preview (Settings, Social preview), and link sharing.
+- `social-preview.png` - 1280x640 ChatGPT Image-based card for GitHub social preview (Settings, Social preview) and link sharing.
 
 Please keep assets lightweight and directly useful for repository presentation. Avoid adding screenshots or large generated files unless they improve the README or documentation experience.

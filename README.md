@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/social-preview.png" alt="Awesome Loop Engineering social preview cover" width="100%">
+  <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
 </p>
 
 <h1 align="center">Awesome Loop Engineering</h1>
