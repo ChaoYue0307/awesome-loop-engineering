@@ -17,7 +17,7 @@
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">Aider à traduire</a> |
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Page d'accueil</a> |
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Miroir Hugging Face</a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Miroir Hugging Face</a>
 </p>
 
 > Une liste organisée et orientée implémentation pour **Loop Engineering** : la couche au-dessus du prompt engineering, du context engineering et du harness engineering pour concevoir des systèmes récurrents d'agents IA.

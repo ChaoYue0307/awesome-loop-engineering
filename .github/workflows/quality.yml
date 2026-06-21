@@ -48,6 +48,9 @@ jobs:
       - name: Check resource type labels
         run: python scripts/check_resource_labels.py README.md
 
+      - name: Check resource dataset export
+        run: python scripts/export_resource_dataset.py --check
+
       - name: Check loop contract examples
         run: |
           python scripts/check_loop_contract_examples.py

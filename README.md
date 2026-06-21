@@ -16,7 +16,7 @@
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://img.shields.io/github/actions/workflow/status/ChaoYue0307/awesome-loop-engineering/quality.yml?branch=main&label=validate" alt="validate"></a>
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/Hugging%20Face-mirror-ffcc4d" alt="Hugging Face mirror"></a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <img src="https://img.shields.io/badge/resources-250%2B-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-15-38bdf8" alt="patterns">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-64748b" alt="license"></a>
@@ -34,7 +34,7 @@
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">Help translate</a> |
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Landing page</a> |
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face mirror</a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face dataset</a>
 </p>
 
 Awesome Loop Engineering is a curated, implementation-oriented field guide to **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
@@ -192,7 +192,7 @@ A compact path through the repository. Each resource is linked in full in the se
 
 ## Repository Highlights
 
-Beyond the curated list, this repository ships its own artifacts: 15 operational loop patterns, a schema-validated loop contract for every pattern, 6 runnable loop templates, a community gallery, eight language entry points, a standalone landing page, a Hugging Face mirror, and an active discussion thread for real or anonymized Loop Engineering patterns.
+Beyond the curated list, this repository ships its own artifacts: 15 operational loop patterns, a schema-validated loop contract for every pattern, 6 runnable loop templates, a community gallery, eight language entry points, a standalone landing page, a Hugging Face dataset mirror with tabular exports, and an active discussion thread for real or anonymized Loop Engineering patterns.
 
 ## Resource Type Legend
 
@@ -563,7 +563,7 @@ The gallery is for real-world or realistic loop examples contributed by the comm
 This repository includes a lightweight GitHub Pages landing page for search and social previews:
 
 - 🧾 **Template** [Landing page](https://chaoyue0307.github.io/awesome-loop-engineering/) - SEO-friendly entry point for the repository.
-- 🧭 **List** [Hugging Face mirror](https://huggingface.co/cy0307/awesome-loop-engineering) - Synced copy of this repository on the Hugging Face Hub for discovery within the AI/ML community.
+- 🧭 **List** [Hugging Face dataset mirror](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) - Synced dataset repo with the full project plus generated `data/resources.csv` and `data/resources.jsonl` resource sheets.
 - 🧾 **Template** [Landing page source](docs/index.html) - Source for the static landing page.
 - 🧾 **Template** [Sitemap](docs/sitemap.xml) - Crawl hints for the landing page and core repository pages.
 - 🧾 **Template** [Robots file](docs/robots.txt) - Allows indexing and points crawlers to the sitemap.

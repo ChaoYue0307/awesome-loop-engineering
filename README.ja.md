@@ -17,7 +17,7 @@
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">翻訳に協力する</a> |
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">ランディングページ</a> |
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face ミラー</a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face ミラー</a>
 </p>
 
 > **Loop Engineering** のための、実装志向のキュレーションリストです。Loop Engineering は prompt、context、harness engineering の上位レイヤーとして、繰り返し実行される AI-agent システムを設計します。

@@ -10,7 +10,7 @@ Run the local checks in [MAINTENANCE.md](MAINTENANCE.md#local-verification) befo
 - Triage new issues, pull requests, and discussion posts.
 - Review candidate resources gathered during the week; add only those that pass [CURATION.md](CURATION.md) and reject the rest with a reason.
 - Confirm no entry drifted off-scope into generic AI-agent, prompt, context, or harness content.
-- Confirm the [Hugging Face mirror](https://huggingface.co/cy0307/awesome-loop-engineering) is in parity with `main` (the daily routine syncs it; spot-check after manual pushes).
+- Confirm the [Hugging Face dataset mirror](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) is in parity with `main` (the daily routine syncs it; spot-check after manual pushes).
 
 ## Biweekly
 

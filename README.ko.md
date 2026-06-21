@@ -17,7 +17,7 @@
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">번역 돕기</a> |
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">랜딩 페이지</a> |
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face 미러</a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face 미러</a>
 </p>
 
 > **Loop Engineering** 을 위한 구현 중심 큐레이션 목록입니다. Loop Engineering 은 prompt, context, harness engineering 위의 레이어로, 반복 실행되는 AI-agent 시스템을 설계합니다.

@@ -17,7 +17,7 @@
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">Beim Übersetzen helfen</a> |
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Landingpage</a> |
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging-Face-Spiegel</a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging-Face-Spiegel</a>
 </p>
 
 > Eine kuratierte, umsetzungsorientierte Liste für **Loop Engineering**: die Ebene oberhalb von Prompt Engineering, Context Engineering und Harness Engineering zum Entwerfen wiederkehrender KI-Agenten-Systeme.

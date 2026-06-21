@@ -17,7 +17,7 @@
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">帮助翻译</a> |
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">落地页</a> |
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Hugging Face 镜像</a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face 镜像</a>
 </p>
 
 > 面向 **Loop Engineering** 的精选资源列表：它位于 prompt、context 和 harness engineering 之上，关注如何设计可重复运行的 AI-agent 系统。

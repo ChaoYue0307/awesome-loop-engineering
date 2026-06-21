@@ -17,7 +17,7 @@
   <a href="README.pt-BR.md">Português</a> |
   <a href="TRANSLATIONS.md">Ayudar a traducir</a> |
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Página de inicio</a> |
-  <a href="https://huggingface.co/cy0307/awesome-loop-engineering">Espejo en Hugging Face</a>
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Espejo en Hugging Face</a>
 </p>
 
 > Una lista curada y orientada a la implementación para **Loop Engineering**: la capa por encima de prompt, context y harness engineering para diseñar sistemas recurrentes de agentes de IA.

@@ -12,13 +12,14 @@ Use this checklist after major updates or releases. The goal is accurate discove
 
 Search engines may still take days or longer to index a new repository. Backlinks and real activity help discovery.
 
-## Hugging Face Mirror
+## Hugging Face Dataset Mirror
 
-The repository is mirrored to the Hugging Face Hub model repo [`cy0307/awesome-loop-engineering`](https://huggingface.co/cy0307/awesome-loop-engineering) for discovery within the AI/ML community. The daily maintenance routine syncs it after each GitHub push.
+The repository is mirrored to the Hugging Face Hub dataset repo [`datasets/cy0307/awesome-loop-engineering`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) for discovery within the AI/ML community. The daily maintenance routine syncs it after each GitHub push.
 
 - The mirror tracks the full GitHub tree (docs, patterns, examples, schema, scripts).
-- The HF copy of `README.md` carries a model-card YAML header (`license`, `language`, `tags`). This header is **HF-only**: it must never be added to the GitHub `README.md`, because the YAML list items break `awesome-lint`.
-- Sync uses the `hf upload` CLI against a staging copy with the header prepended, so the GitHub working tree stays header-free. The token lives in the local Hugging Face cache; no token is committed.
+- The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the canonical English `README.md` by `scripts/export_resource_dataset.py`.
+- The HF copy of `README.md` carries a dataset-card YAML header (`license`, `language`, `tags`, `pretty_name`, and `configs`). This header is **HF-only**: it must never be added to the GitHub `README.md`, because the YAML list items break `awesome-lint`.
+- Sync uses the `hf upload --type dataset` CLI against a staging copy with the header prepended, so the GitHub working tree stays header-free. The token lives in the local Hugging Face cache; no token is committed.
 
 ## GitHub-Native Promotion
 
