@@ -429,6 +429,7 @@ These resources include harness and observability mechanisms that loops compose 
 - 🧰 **Tool** [Weave](https://docs.wandb.ai/weave) - Weights & Biases toolkit for tracing, evaluating, and monitoring agent applications over time.
 - 📄 **Paper** [Agentic Verification of Software Systems](https://arxiv.org/abs/2511.17330) - Pairs a coding agent with a theorem prover (AutoRocq) in a generate-and-validate loop, turning formal proof into the exit gate for trusted automatic programming.
 - 📄 **Paper** [Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses](https://arxiv.org/abs/2604.25850) - A closed loop that turns each harness edit into a falsifiable contract verified against trajectory outcomes, so the harness evolves from observability instead of trial and error.
+- 📄 **Paper** [A Trace-Based Assurance Framework for Agentic AI Orchestration: Contracts, Testing, and Governance](https://arxiv.org/abs/2603.18096) - Treats execution traces as the assurance substrate, pairing machine-checkable contracts, testing, and governance so recurring agent orchestration stays verifiable and auditable.
 
 ## Securing Unattended Loops
 
@@ -482,6 +483,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📄 **Paper** [From Agent Loops to Structured Graphs: A Scheduler-Theoretic Framework for LLM Agent Execution](https://arxiv.org/abs/2604.11378) - Replaces opaque agent loops with immutable plan-version DAGs and a planning-execution-recovery split, giving inspectable scheduling, deterministic recovery, escalation, and termination guarantees.
 - 🧰 **Tool** [Eve](https://github.com/vercel/eve) - Vercel's TypeScript-native agent framework with durable execution, sandboxed compute, and OpenTelemetry tracing built in, so recurring agent work persists, replays, and is observable across runs by default.
 - 📄 **Paper** [Verified Multi-Agent Orchestration: A Plan-Execute-Verify-Replan Framework](https://arxiv.org/abs/2603.11445) - Decomposes work into a dependency-aware DAG, runs domain agents in parallel, and uses an LLM verifier to drive adaptive replanning with configurable stop conditions, the verify-and-replan core of a reliable loop.
+- 📄 **Paper** [From Static Templates to Dynamic Runtime Graphs: A Survey of Workflow Optimization for LLM Agents](https://arxiv.org/abs/2603.22386) - Organizes how agent workflows are fixed ahead of time or generated and revised per run, and which evaluation signals drive that choice, a map of the design space for recurring loops.
 
 ## Benchmarks And Evaluation
 
