@@ -361,6 +361,7 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 📄 **Paper** [Measuring AI Ability to Complete Long Software Tasks](https://arxiv.org/abs/2503.14499) - METR's task-length time horizon metric; grounds why loop budgets, checkpoints, and escalation matter as autonomous work gets longer.
 - 📝 **Blog** [Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) - Accessible summary of the 50% task-completion time horizon and its doubling trend.
 - 📄 **Paper** [Reflection-Driven Control for Trustworthy Code Agents](https://arxiv.org/abs/2512.21354) - Elevates reflection from an external pass to an internal control loop that monitors the agent's decision path during generation and constrains risky steps with low overhead.
+- 📄 **Paper** [Hyperagents](https://arxiv.org/abs/2603.19461) - Self-referential agents that fold task-solving and self-modification into editable programs, extending the Darwin Godel Machine toward open-ended self-improvement, the loop where an agent rewrites its own improvement mechanism across runs.
 - 📄 **Paper** [PARC: An Autonomous Self-Reflective Coding Agent for Robust Execution of Long-Horizon Tasks](https://arxiv.org/abs/2512.03549) - Hierarchical plan-execute-assess loops that detect and correct strategic errors during multi-hour autonomous runs.
 - 📄 **Paper** [When the Specification Emerges: Benchmarking Faithfulness Loss in Long-Horizon Coding Agents](https://arxiv.org/abs/2603.17104) - Measures how agents drift from intent when specifications arrive incrementally across a long loop, and proposes a mitigation that recovers most of the loss.
 - 🧰 **Tool** [Reflexion code](https://github.com/noahshinn/reflexion) - Reference implementation and experiments for verbal reinforcement loops.
@@ -381,6 +382,7 @@ These resources are included when they help design the higher-level loop around 
 - 📄 **Paper** [Code as Agent Harness](https://arxiv.org/abs/2605.18747) - Organizes agent infrastructure into harness interface, feedback-driven control, and multi-agent scaling for executable, verifiable, stateful systems; maps the harness layer that loops build on.
 - 📄 **Paper** [Agentic Agile-V: From Vibe Coding to Verified Engineering](https://arxiv.org/abs/2605.20456) - Proposes a task-level SCOPE-V loop (Specify, Constrain, Orchestrate, Prove, Evolve, Verify) with human approval gates, arguing agentic coding needs process control and independent verification, not better prompts.
 - 📄 **Paper** [Harness Engineering for Language Agents: The Harness Layer as Control, Agency, and Runtime](https://www.preprints.org/manuscript/202603.1756) - Decomposes the harness layer that loops build on into control, agency, and runtime, audits 63 harness works, and proposes a HarnessCard so reported agent gains can be separated from harness effects.
+- 📄 **Paper** [Agentic Software Engineering: Foundational Pillars and a Research Roadmap](https://arxiv.org/abs/2509.06216) - Splits agentic SE into an Agent Command Environment for human orchestration and an Agent Execution Environment for agent task execution, a research roadmap for the layers recurring loops run inside.
 
 ## Coding-Agent Loop Systems
 
@@ -406,6 +408,7 @@ These resources are included when they help design the higher-level loop around 
 - 🧭 **List** [SWE-bench reading list](https://github.com/SWE-bench/reading-list) - Maintained map of software engineering agent systems and related papers.
 - 📄 **Paper** [TraceCoder: A Trace-Driven Multi-Agent Framework for Automated Debugging of LLM-Generated Code](https://arxiv.org/abs/2602.06875) - ICSE'26 observe-analyze-repair loop with instrumentation, analysis, and repair agents, a history-learning mechanism, and a rollback to the last good state; iteration alone drives most of the gain.
 - 📄 **Paper** [The Kitchen Loop: User-Spec-Driven Development for a Self-Evolving Codebase](https://arxiv.org/abs/2603.25697) - A production loop where an agent exercises a spec surface as a synthetic power user behind ground-truth tests and quality gates, sustaining 285+ self-correcting iterations and 1,000+ merged PRs with zero detected regressions.
+- 📄 **Paper** [Inside the Scaffold: A Source-Code Taxonomy of Coding Agent Architectures](https://arxiv.org/abs/2604.03515) - Dissects 13 open-source coding-agent scaffolds and identifies five composable loop primitives (ReAct, generate-test-repair, plan-execute, retry, tree search) that real agents layer, mapping how control loop, tools, and state combine.
 
 ## Verification And Feedback Gates
 
