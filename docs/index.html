@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Awesome Loop Engineering</title>
-    <meta name="description" content="A curated field guide to Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.">
+    <meta name="description" content="A curated field guide to Loop Engineering: patterns, loop contracts, and runnable examples for designing recurring AI agent and coding-agent systems above prompt, context, and harness engineering.">
     <meta name="robots" content="index,follow">
+    <meta name="author" content="Chaoyue He">
     <link rel="canonical" href="https://chaoyue0307.github.io/awesome-loop-engineering/">
     <link rel="icon" href="assets/awesome-loop-engineering-logo.svg" type="image/svg+xml">
     <meta property="og:type" content="website">
@@ -181,6 +182,39 @@
         "author": { "@type": "Person", "name": "Chaoyue He" }
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is loop engineering?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Loop Engineering is the practice of designing recurring AI agent and coding-agent systems. Instead of prompting an agent turn by turn, you build a loop that discovers work, delegates it to agents, verifies the result against tests or other gates, persists state outside the model, decides what happens next, and runs again on a cadence or until a verifiable goal is reached." }
+          },
+          {
+            "@type": "Question",
+            "name": "How is loop engineering different from prompt, context, and harness engineering?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Prompt engineering improves what you ask, context engineering improves what the model can see, and harness engineering improves the tools, permissions, and checks around a single run. Loop engineering sits above all three: it governs how agent work repeats, verifies, persists state, and escalates over time." }
+          },
+          {
+            "@type": "Question",
+            "name": "When should you use an agent loop?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Use a loop when work recurs and a deterministic check can decide success, such as keeping a pull request moving, repairing failing CI, monitoring a deploy, or triaging dependency updates. If a task is one-off, or done depends only on a human's judgment, a single agent run is usually enough." }
+          },
+          {
+            "@type": "Question",
+            "name": "What is in a loop contract?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A loop contract names the parts every reliable loop shares: objective, trigger, intake, workspace, context, delegation, a verification gate, durable state, budget, escalation, and an exit condition. The repository ships a JSON schema and validated example contracts for each pattern." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which runtimes can run agent loops?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The same loop can run as a Claude Code /loop or scheduled task, a Codex automation, a GitHub agentic workflow, a shell or cron wrapper, or a durable-execution runtime. The runtime selection guide compares persistence, file access, isolation, and permissions so you can choose deliberately." }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site">
@@ -193,6 +227,7 @@
           <a href="#patterns">Patterns</a>
           <a href="#runtimes">Runtimes</a>
           <a href="#resources">Resources</a>
+          <a href="#faq">FAQ</a>
         </nav>
         <span class="spacer"></span>
         <span class="ghs">
@@ -375,6 +410,36 @@
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md"><h3>Add a resource</h3><p>Primary sources and implementation-heavy write-ups, with one specific annotation.</p></a>
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/gallery/README.md"><h3>Share a loop</h3><p>Use the case-study and anonymization checklists to publish a real or anonymized loop.</p></a>
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2"><h3>Join the discussion</h3><p>Show your Loop Engineering patterns and compare notes with other builders.</p></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="wrap">
+          <div class="eyebrow">FAQ</div>
+          <h2>Loop Engineering, answered</h2>
+          <p class="section-intro">Short answers to the questions people ask first.</p>
+          <div class="grid">
+            <div class="card">
+              <h3>What is loop engineering?</h3>
+              <p>Loop Engineering is the practice of designing recurring AI agent and coding-agent systems. Instead of prompting an agent turn by turn, you build a loop that discovers work, delegates it to agents, verifies the result against tests or other gates, persists state outside the model, decides what happens next, and runs again on a cadence or until a verifiable goal is reached.</p>
+            </div>
+            <div class="card">
+              <h3>How is loop engineering different from prompt, context, and harness engineering?</h3>
+              <p>Prompt engineering improves what you ask, context engineering improves what the model can see, and harness engineering improves the tools, permissions, and checks around a single run. Loop engineering sits above all three: it governs how agent work repeats, verifies, persists state, and escalates over time.</p>
+            </div>
+            <div class="card">
+              <h3>When should you use an agent loop?</h3>
+              <p>Use a loop when work recurs and a deterministic check can decide success, such as keeping a pull request moving, repairing failing CI, monitoring a deploy, or triaging dependency updates. If a task is one-off, or "done" depends only on a human's judgment, a single agent run is usually enough.</p>
+            </div>
+            <div class="card">
+              <h3>What is in a loop contract?</h3>
+              <p>A loop contract names the parts every reliable loop shares: objective, trigger, intake, workspace, context, delegation, a verification gate, durable state, budget, escalation, and an exit condition. The repository ships a JSON schema and validated example contracts for each pattern.</p>
+            </div>
+            <div class="card">
+              <h3>Which runtimes can run agent loops?</h3>
+              <p>The same loop can run as a Claude Code /loop or scheduled task, a Codex automation, a GitHub agentic workflow, a shell or cron wrapper, or a durable-execution runtime. The runtime selection guide compares persistence, file access, isolation, and permissions so you can choose deliberately.</p>
+            </div>
           </div>
         </div>
       </section>
