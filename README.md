@@ -192,7 +192,7 @@ A compact path through the repository. Each resource is linked in full in the se
 
 ## Repository Highlights
 
-Beyond the curated list, this repository ships its own artifacts: 259 curated resource rows, 15 operational loop patterns, 15 schema-validated loop contracts, 6 runnable loop templates, a community gallery, 8 language entry points, a standalone landing page, a Hugging Face dataset mirror with tabular exports, and an active discussion thread for real or anonymized Loop Engineering patterns.
+Beyond the curated list, this repository ships its own artifacts: 268 curated resource rows, 15 operational loop patterns, 15 schema-validated loop contracts, 6 runnable loop templates, a community gallery, 8 language entry points, a standalone landing page, a Hugging Face dataset mirror with tabular exports, and an active discussion thread for real or anonymized Loop Engineering patterns.
 
 ## Resource Type Legend
 
@@ -409,6 +409,7 @@ These resources are included when they help design the higher-level loop around 
 - 📄 **Paper** [TraceCoder: A Trace-Driven Multi-Agent Framework for Automated Debugging of LLM-Generated Code](https://arxiv.org/abs/2602.06875) - ICSE'26 observe-analyze-repair loop with instrumentation, analysis, and repair agents, a history-learning mechanism, and a rollback to the last good state; iteration alone drives most of the gain.
 - 📄 **Paper** [The Kitchen Loop: User-Spec-Driven Development for a Self-Evolving Codebase](https://arxiv.org/abs/2603.25697) - A production loop where an agent exercises a spec surface as a synthetic power user behind ground-truth tests and quality gates, sustaining 285+ self-correcting iterations and 1,000+ merged PRs with zero detected regressions.
 - 📄 **Paper** [Inside the Scaffold: A Source-Code Taxonomy of Coding Agent Architectures](https://arxiv.org/abs/2604.03515) - Dissects 13 open-source coding-agent scaffolds and identifies five composable loop primitives (ReAct, generate-test-repair, plan-execute, retry, tree search) that real agents layer, mapping how control loop, tools, and state combine.
+- 📄 **Paper** [A Self-Improving Coding Agent](https://arxiv.org/abs/2504.15228) - An agent that edits its own code and tools and re-runs against a benchmark, lifting itself from 17% to 53% on a SWE-bench Verified subset, a concrete self-modifying improvement loop.
 
 ## Verification And Feedback Gates
 
@@ -433,6 +434,7 @@ These resources include harness and observability mechanisms that loops compose 
 - 📄 **Paper** [Agentic Verification of Software Systems](https://arxiv.org/abs/2511.17330) - Pairs a coding agent with a theorem prover (AutoRocq) in a generate-and-validate loop, turning formal proof into the exit gate for trusted automatic programming.
 - 📄 **Paper** [Agentic Harness Engineering: Observability-Driven Automatic Evolution of Coding-Agent Harnesses](https://arxiv.org/abs/2604.25850) - A closed loop that turns each harness edit into a falsifiable contract verified against trajectory outcomes, so the harness evolves from observability instead of trial and error.
 - 📄 **Paper** [A Trace-Based Assurance Framework for Agentic AI Orchestration: Contracts, Testing, and Governance](https://arxiv.org/abs/2603.18096) - Treats execution traces as the assurance substrate, pairing machine-checkable contracts, testing, and governance so recurring agent orchestration stays verifiable and auditable.
+- 📄 **Paper** [Meta-Harness: End-to-End Optimization of Model Harnesses](https://arxiv.org/abs/2603.28052) - Optimizes the surrounding harness (tools, prompts, control flow) end to end against task outcomes, turning harness tuning into a measurable improvement loop instead of manual trial and error.
 
 ## Securing Unattended Loops
 
@@ -466,6 +468,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📄 **Paper** [ARC: Active and Reflection-driven Context Management for Long-Horizon Agents](https://arxiv.org/abs/2601.12030) - Treats context as a managed runtime artifact, reorganizing the working context when degradation or context rot is detected across a long run.
 - 📄 **Paper** [Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Emerging Frontiers](https://arxiv.org/abs/2603.07670) - Formalizes agent memory as a write-manage-read loop and surveys compression, retrieval, reflective self-improvement, and policy-learned management across recurring runs.
 - 📄 **Paper** [Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering](https://arxiv.org/abs/2604.08224) - Reviews how durable state, reusable skills, protocols, and the harness move out of model weights into external infrastructure, the substrate that lets loops persist progress and reuse capability across runs.
+- 📄 **Paper** [Meta Context Engineering via Agentic Skill Evolution](https://arxiv.org/abs/2601.21557) - A bi-level loop where a meta-agent evolves reusable skills while a base-agent optimizes context, co-evolving the harness and context artifacts across runs (ICML 2026).
 
 ## Orchestration And Multi-Agent Delegation
 
