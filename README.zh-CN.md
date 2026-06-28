@@ -79,7 +79,7 @@ Prompt、context 和 harness engineering 让单次 agent 运行更好。Loop Eng
 - [Loop Engineering](https://addyo.substack.com/p/loop-engineering) - 同文 Substack 版本，包含 Peter Steinberger 和 Boris Cherny 的相关引用。
 - [Loop Engineering](https://cobusgreyling.substack.com/p/loop-engineering) - 简明解释从 prompt agents 到 design loops 的转变。
 - [Loop Engineering: The Guide for AI Agents](https://lushbinary.com/blog/loop-engineering-ai-coding-agents-guide/) - 面向实践的 guide，拆解 automations、worktrees、skills、connectors、subagents 和 state。
-- [Codex Loops: What Boris Cherny Gets Right About Managing Agent Work](https://www.developersdigest.tech/blog/codex-loops-boris-cherny-agent-routines) - 关于 PR babysitting、CI repair、deploy verification 和 feedback clustering 的 loop 思路。
+- [The Anthropic leader who built Claude Code ditched prompting](https://thenewstack.io/loop-engineering/) - 报道 Boris Cherny 从手动 prompting 转向编写 loops 来处理 PR、CI、deploy 等重复性 agent 工作。
 
 ## 如何贡献内容
 

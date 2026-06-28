@@ -17,7 +17,7 @@
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://img.shields.io/github/actions/workflow/status/ChaoYue0307/awesome-loop-engineering/quality.yml?branch=main&label=validate" alt="validate"></a>
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
-  <img src="https://img.shields.io/badge/resources-270-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-271-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-15-38bdf8" alt="patterns">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-64748b" alt="license"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-22c55e" alt="PRs welcome"></a>
@@ -192,7 +192,7 @@ A compact path through the repository. Each resource is linked in full in the se
 
 ## Repository Highlights
 
-Beyond the curated list, this repository ships its own artifacts: 270 curated resource rows, 15 operational loop patterns, 15 schema-validated loop contracts, 6 runnable loop templates, a community gallery, 8 language entry points, a standalone landing page, a Hugging Face dataset mirror with tabular exports, and an active discussion thread for real or anonymized Loop Engineering patterns.
+Beyond the curated list, this repository ships its own artifacts: 271 curated resource rows, 15 operational loop patterns, 15 schema-validated loop contracts, 6 runnable loop templates, a community gallery, 8 language entry points, a standalone landing page, a Hugging Face dataset mirror with tabular exports, and an active discussion thread for real or anonymized Loop Engineering patterns.
 
 ## Resource Type Legend
 
@@ -615,6 +615,7 @@ Practical loop patterns translate the abstract contract into runnable operating 
 - ⚠️ **Critique** [How to Build an AI Agent Harness: A 2026 Complete Guide](https://atlan.com/know/how-to-build-ai-agent-harness/) - Broad guide with useful warnings on data readiness, permissions, context management, and evaluation.
 - ⚠️ **Critique** [Harness Engineering vs Prompt Engineering vs Context Engineering Explained](https://medium.com/@visrow/harness-engineering-vs-prompt-engineering-vs-context-engineering-explained-0423b692c87d) - Adjacent framing that helps avoid confusing loop engineering with the surrounding harness discipline.
 - 📄 **Paper** [Position: Coding Benchmarks Are Misaligned with Agentic Software Engineering](https://arxiv.org/abs/2606.17799) - Argues benchmark scores conflate the model with the harness and penalize valid alternatives, so headline numbers hide which loop and harness choices actually move performance.
+- 📄 **Paper** [Understanding the Challenges in Iterative Generative Optimization with LLMs](https://arxiv.org/abs/2603.23994) - Empirically isolates three hidden design choices that make self-improving agent loops succeed or fail - starting artifacts, credit horizons over execution traces, and batching strategy - explaining why iterative refinement loops stay brittle in production.
 
 ## Adjacent Awesome Lists
 

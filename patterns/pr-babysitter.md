@@ -84,5 +84,5 @@ Example automation: run every 2 hours during working hours, or trigger when a PR
 
 ## References
 
-- [Codex Loops: What Boris Cherny Gets Right About Managing Agent Work](https://www.developersdigest.tech/blog/codex-loops-boris-cherny-agent-routines) - Describes PR babysitting, CI repair, deploy verification, and feedback clustering loops.
+- [The Anthropic leader who built Claude Code ditched prompting - now he writes loops](https://thenewstack.io/loop-engineering/) - Reports Boris Cherny's shift to writing loops for recurring agent work such as PR and CI handling.
 - [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - Shows plan-edit-test-observe-repair-document-repeat work with status logs and validation gates.

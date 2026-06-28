@@ -80,5 +80,5 @@ Example automation: run daily or weekly, or trigger after a launch, incident, re
 
 ## References
 
-- [Codex Loops: What Boris Cherny Gets Right About Managing Agent Work](https://www.developersdigest.tech/blog/codex-loops-boris-cherny-agent-routines) - Includes feedback clustering as a recurring agent loop pattern.
+- [The Anthropic leader who built Claude Code ditched prompting - now he writes loops](https://thenewstack.io/loop-engineering/) - Reports Boris Cherny's loop-writing workflow for recurring agent work, including handling streams of feedback.
 - [How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system) - Shows orchestrator-worker patterns for collecting, checking, and reporting evidence.
