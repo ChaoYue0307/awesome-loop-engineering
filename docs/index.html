@@ -69,7 +69,10 @@
       .nav .ghs { display: flex; gap: 10px; }
       .pill { border: 1px solid var(--border-strong); border-radius: 999px; padding: 7px 14px; font-size: 0.88rem; font-weight: 700; color: var(--text); background: rgba(15, 23, 42, 0.6); }
       .pill.solid { border-color: transparent; background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #07101f; }
-      .menu-btn { display: none; }
+      .menu-btn { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid var(--border-strong); border-radius: 10px; background: rgba(15, 23, 42, 0.6); color: var(--text); font-size: 1.05rem; cursor: pointer; flex: 0 0 auto; }
+      .skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--panel-solid); color: var(--text); padding: 10px 16px; border-radius: 0 0 10px 0; }
+      .skip:focus { left: 0; }
+      a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
       main { padding-bottom: 80px; }
       section { padding: 64px 0 8px; }
@@ -103,7 +106,7 @@
       .g-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .g-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .card { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; background: var(--panel); transition: transform 0.16s ease, border-color 0.16s ease; }
-      .card:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+      a.card:hover { transform: translateY(-3px); border-color: var(--border-strong); text-decoration: none; }
       .card h3 { margin: 0 0 8px; font-size: 1.06rem; }
       .card p { color: var(--muted); margin: 0; font-size: 0.95rem; }
 
@@ -150,6 +153,10 @@
         footer .cols { grid-template-columns: 1fr; }
         .nav .links { display: none; }
         .menu-btn { display: inline-flex; }
+        .nav { position: relative; }
+        .nav .links.open { display: flex; position: absolute; top: 64px; left: -20px; right: -20px; flex-direction: column; gap: 0; margin-left: 0; background: rgba(11, 16, 32, 0.97); border-bottom: 1px solid var(--border); padding: 8px 20px 14px; }
+        .nav .links.open a { padding: 10px 0; font-size: 1rem; }
+        .stats .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
       }
       @media (max-width: 560px) {
         .g-3, .g-4 { grid-template-columns: 1fr; }
@@ -217,19 +224,22 @@
     </script>
   </head>
   <body>
+    <a class="skip" href="#top">Skip to content</a>
     <header class="site">
       <div class="wrap nav">
         <span class="brand"><img class="logo" src="assets/awesome-loop-engineering-logo.svg" alt="" width="28" height="28"> <span class="bt">Loop Engineering</span></span>
-        <nav class="links" aria-label="Primary">
+        <nav class="links" id="primary-nav" aria-label="Primary">
           <a href="#concept">Concept</a>
           <a href="#lifecycle">Lifecycle</a>
-          <a href="#choose">Choose a loop</a>
-          <a href="#patterns">Patterns</a>
+          <a href="#choose">Patterns</a>
+          <a href="#patterns">Contract</a>
+          <a href="#maturity">Maturity</a>
           <a href="#runtimes">Runtimes</a>
           <a href="#resources">Resources</a>
           <a href="#faq">FAQ</a>
         </nav>
         <span class="spacer"></span>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">&#9776;</button>
         <span class="ghs">
           <a class="pill" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">HF Dataset</a>
           <a class="pill solid" href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub</a>
@@ -246,7 +256,7 @@
               <div class="eyebrow">Awesome Loop Engineering</div>
               <h1>Design loops,<br>not just prompts.</h1>
               <p class="lead">
-                Loop Engineering is the AI and coding-agent practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again.
+                Stop prompting agents turn by turn. Build the recurring system around them &mdash; one that discovers work, hands it to agents, verifies the result, and decides what happens next.
               </p>
               <div class="cta">
                 <a class="btn primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme">Explore the list</a>
@@ -255,15 +265,16 @@
               </div>
             </div>
             <div class="visual">
-              <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-engineering-stack.svg" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time.">
+              <img src="assets/loop-engineering-stack.svg" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time.">
             </div>
           </div>
 
+          <!-- Keep these counts in sync with the README badge and data/resources.csv on every sweep. -->
           <div class="stats" role="list" aria-label="Repository at a glance">
             <div class="stat" role="listitem"><b>15</b><span>operational patterns</span></div>
             <div class="stat" role="listitem"><b>15</b><span>loop contracts</span></div>
             <div class="stat" role="listitem"><b>6</b><span>runnable templates</span></div>
-            <div class="stat" role="listitem"><b>271</b><span>curated entries</span></div>
+            <div class="stat" role="listitem"><b>338</b><span>curated entries</span></div>
             <div class="stat" role="listitem"><b>8</b><span>languages</span></div>
           </div>
 
@@ -296,7 +307,7 @@
           <h2>One pass of a recurring loop</h2>
           <p class="section-intro">Verification is a deterministic gate, not the agent's opinion. State persists outside the model. Every loop has a budget and a human exit.</p>
           <div class="wide">
-            <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-lifecycle.svg" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met.">
+            <img src="assets/loop-lifecycle.svg" loading="lazy" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met.">
           </div>
         </div>
       </section>
@@ -332,9 +343,9 @@
         <div class="wrap">
           <div class="eyebrow">The loop contract</div>
           <h2>Every loop names the same parts</h2>
-          <p class="section-intro">A useful loop has a contract. If a part is missing, it becomes either a manual prompt habit or an unsafe background automation.</p>
+          <p class="section-intro">A useful loop has a contract. If a part is missing, it becomes either a manual prompt habit or an unsafe background automation. The contract ships as a <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json">JSON schema</a> with <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">15 validated example contracts</a>.</p>
           <div class="wide">
-            <img src="https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/assets/loop-contract-cards.svg" alt="Loop Contract cards: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.">
+            <img src="assets/loop-contract-cards.svg" loading="lazy" alt="Loop Contract cards: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.">
           </div>
           <div class="grid g-3" style="margin-top:18px">
             <div class="card"><h3>Verifiable by design</h3><p>Tests, typechecks, evals, traces, or reviewers decide done &mdash; never the acting agent alone.</p></div>
@@ -365,7 +376,7 @@
       <section id="maturity">
         <div class="wrap">
           <div class="eyebrow">Loop maturity model</div>
-          <h2>Climb the model slowly</h2>
+          <h2>Climb one level at a time</h2>
           <p class="section-intro">A reliable Level 3 loop with clear state and deterministic checks is usually more valuable than a flashy Level 5 loop with vague goals.</p>
           <div class="levels">
             <div class="lvl"><b>0</b><div><div class="t">Manual prompting</div><div class="d">A human reads state and writes the next prompt.</div></div></div>
@@ -397,6 +408,7 @@
             <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#benchmarks-and-evaluation">Benchmarks</a>
             <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#critiques-risks-and-limitations">Critiques &amp; Risks</a>
             <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#adjacent-awesome-lists">Adjacent Lists</a>
+            <a class="chip" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Full dataset on Hugging Face</a>
           </div>
         </div>
       </section>
@@ -444,7 +456,9 @@
         </div>
       </section>
 
-      <footer>
+    </main>
+
+    <footer>
         <div class="wrap">
           <div class="cols">
             <div>
@@ -470,18 +484,33 @@
               <h4>Project</h4>
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub repository</a>
               <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face dataset</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md">Contributing</a>
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ROADMAP.md">Roadmap</a>
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TRANSLATIONS.md">Translations</a>
             </div>
           </div>
           <p class="legal">
-            This is an early curated map of an emerging practice, not a final standard. Original repository materials are released under CC0-1.0. Linked resources keep their own licenses.
+            This is an early curated map of an emerging practice, not a final standard. Original repository materials are released under <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/LICENSE">CC0-1.0</a>. Linked resources keep their own licenses.
           </p>
         </div>
       </footer>
-    </main>
 
     <script>
+      (function () {
+        var mb = document.querySelector('.menu-btn');
+        var links = document.getElementById('primary-nav');
+        if (!mb || !links) return;
+        mb.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        links.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            links.classList.remove('open');
+            mb.setAttribute('aria-expanded', 'false');
+          });
+        });
+      })();
       document.querySelectorAll('.copy').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var el = document.getElementById(btn.getAttribute('data-copy'));
