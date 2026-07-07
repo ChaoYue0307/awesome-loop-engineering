@@ -14,8 +14,6 @@
 
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
-  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://img.shields.io/github/actions/workflow/status/ChaoYue0307/awesome-loop-engineering/quality.yml?branch=main&label=validate" alt="validate"></a>
-  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/commits/main"><img src="https://img.shields.io/github/last-commit/ChaoYue0307/awesome-loop-engineering?label=updated&color=22c55e" alt="last updated"></a>
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <img src="https://img.shields.io/badge/resources-380-a78bfa" alt="resources">
