@@ -16,7 +16,7 @@
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
-  <img src="https://img.shields.io/badge/resources-380-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-393-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-15-38bdf8" alt="patterns">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-64748b" alt="license"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-22c55e" alt="PRs welcome"></a>
@@ -193,7 +193,7 @@ A compact path through the repository. Each resource is linked in full in the se
 
 Beyond the curated list, this repository also maintains:
 
-- 380 curated resource rows with tabular exports
+- 393 curated resource rows with tabular exports
 - 15 operational loop patterns with a comparison matrix
 - 15 schema-validated loop contracts
 - 6 runnable loop templates
@@ -412,6 +412,8 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 - 📝 **Blog** [METR Time Horizon 1.1](https://metr.org/blog/2026-1-29-time-horizon-1-1/) - Update to METR's time-horizon methodology, expanding the task suite to 228 tasks (31 at 8+ hours), migrating to the open-source Inspect framework, and revising the post-2023 capability doubling time to roughly 131 days.
 - 📄 **Paper** [MetaSkill-Evolve: Recursive Self-Improvement via Two-Timescale Meta-Skill Evolution](https://arxiv.org/abs/2607.05297) - Two-timescale recursive self-improvement where a fast loop rewrites task skills from execution traces while a slow loop evolves the meta-skill governing improvement itself, gaining up to 23.5 points on OfficeQA, SealQA, and ALFWorld.
 - 📄 **Paper** [SkillOpt-Lite: Better and Faster Agent Self-Evolution via One Line of Vibe](https://arxiv.org/abs/2607.03451) - Formalizes agent skill self-evolution as zeroth-order optimization and distills it into a minimal pipeline of file-system trajectory exploration, consensus attribute mining, and independent validation gating, letting a smaller model surpass larger ones on LiveMath and SpreadsheetBench.
+- 📄 **Paper** [Recursive Self-Improvement in AI: From Bounded Self-Refinement to Autonomous Research Loops](https://arxiv.org/abs/2607.07663) - Survey of 1,250 arXiv papers from 2024-2026 organized along two axes, what a self-improvement loop improves and its degree of loop closure, separating bounded evaluable self-refinement from open-ended recursive self-improvement.
+- 📄 **Paper** [From Atomic Actions to Standard Operating Procedures: Iterative Tool Optimization for Self-Evolving LLM Agents](https://arxiv.org/abs/2607.07321) - EvoSOP has agents distill recurring execution trajectories into reusable standard operating procedures and iteratively optimize the toolset through a construction, merging, evaluation, and pruning lifecycle.
 
 ## Agent Workflow Patterns
 
@@ -522,6 +524,11 @@ These resources include harness and observability mechanisms that loops compose 
 - 📝 **Blog** [Loop Engineering Without Verification Is Just Automation](https://www.sonarsource.com/blog/loop-engineering-without-verification-is-just-automation/) - Sonar formalizes a two-tier verification gate for agent loops, pairing a probabilistic LLM verifier sub-agent for intent with a deterministic analysis gate as the hard halt, arguing that LLM-only verification amounts to two optimists agreeing.
 - 🧰 **Tool** [SkillSpec](https://github.com/modiqo/skillspec) - CLI that makes agent skills followable, testable, and provable by converting prose skills into structured contracts, scoring follow-through risk, and generating execution traces of which steps ran, were skipped, and what evidence exists.
 - 🧰 **Tool** [Shepherd](https://github.com/shepherd-agents/shepherd) - Python runtime that records agent execution as reversible, Git-like traces so meta-agents or humans can observe, fork, replay, and revert any run before results touch files, with copy-on-write forking, roughly 95% cache reuse on replay, and syscall-level permission enforcement.
+- 📄 **Paper** [AgentTether: Graph-Guided Diagnosis and Runtime Intervention for Reliable LLM Agent Operation](https://arxiv.org/abs/2607.06273) - Runtime repair layer that abstracts agent runs into a dependency-aware critical-transition graph, localizes failure-critical subtrajectories after a run, and guides recovery on re-execution without modifying the underlying agent.
+- 📄 **Paper** [SWE-Review: Closing the Loop on Issue Resolution with Agentic Code Review](https://arxiv.org/abs/2607.06065) - Replaces one-shot PR generation with a generate-review-revise loop in which a reviewer agent explores the repository, accepts or rejects the PR, and feeds structured feedback into revision, with an accompanying benchmark and trajectory dataset.
+- 📄 **Paper** [Reason Less, Verify More: Deterministic Gates Recover a Silent Policy-Violation Failure Mode](https://arxiv.org/abs/2607.07405) - Finds that 78% of observed agent failures in a tau^2-bench domain are silent wrong-state failures invisible to both the tool and the agent's self-report, and that deterministic read-only pre-execution gates in the loop recover them.
+- 📄 **Paper** [Harnessing Code Agents for Automatic Software Verification](https://arxiv.org/abs/2607.06341) - Wraps a general code agent in a verification harness and lets it run until every targeted Coq lemma is proved, beating fixed human-designed proof strategies and reaching full lemma coverage with no expert intervention.
+- 📄 **Paper** [LLM-as-a-Verifier: A General-Purpose Verification Framework](https://arxiv.org/abs/2607.05391) - Treats verification as a scaling axis and builds a training-free framework that computes continuous scores from token logits for fine-grained agentic feedback, scaled via score granularity, repeated evaluation, and criteria decomposition.
 
 ## Securing Unattended Loops
 
@@ -541,6 +548,9 @@ A loop that runs while nobody watches needs stronger boundaries than an interact
 - 📄 **Paper** [Distributed Attacks in Persistent-State AI Control](https://arxiv.org/abs/2607.02514) - Extends AI-control evaluation to coding agents shipping code that persists across sessions, showing a misaligned agent can spread an attack across successive PRs to evade per-transcript monitors, and adds a stateful link-tracker monitor that cuts evasion from 93% to 47%.
 - 📄 **Paper** [ElephantAgent: Contextual State Continuity in Agentic Systems](https://arxiv.org/abs/2607.01919) - Verification protocol that recomputes state digests before each query and logs authorized changes to a trusted-hardware ledger, so an agent's persistent memory and tool descriptions cannot be covertly poisoned between runs and can be rolled back to the last verified state.
 - 🧰 **Tool** [Cloudflare security-audit-skill](https://github.com/cloudflare/security-audit-skill) - Cloudflare's open-sourced six-phase audit pipeline in which separate validation agents try to disprove each finding and fresh agents independently verify every claim against source code, emitting schema-validated findings that accumulate across repeated runs.
+- 📄 **Paper** [The Balkanization of Execution-Security Research for AI Coding Agents](https://arxiv.org/abs/2607.05743) - Systematizes 39 papers on the execution layer around coding agents, spanning sandbox isolation, capability control, TOCTOU races, MCP threats, and egress control, surfacing five cross-cutting gaps and four verified CVEs in production agent harnesses.
+- 📄 **Paper** [Context-to-Execution Integrity for LLM Agents](https://arxiv.org/abs/2607.06000) - Execution-boundary system where a deterministic gate admits a tool call only after field authority, exact-effect authorization, and invocation authority all bind to the same action manifest, protecting loops that read attacker-writable context.
+- 📄 **Paper** [When Agents Remember Too Much: Memory Poisoning Attacks on Large Language Model Agents](https://arxiv.org/abs/2607.06595) - GhostWriter is a two-phase attack that poisons the long-term memory store of tool-using personal agents so injected content persists across runs and activates in later tasks.
 
 ## State, Memory, And Context Persistence
 
@@ -573,6 +583,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📄 **Paper** [The Log Is the Agent: Event-Sourced Reactive Graphs for Auditable, Forkable Agentic Systems](https://arxiv.org/abs/2605.21997) - BabyAGI creator Yohei Nakajima makes an append-only event log the source of truth and the working graph a deterministic projection, giving long-running loops deterministic replay, cheap forking at any event, and end-to-end causal lineage from goal to model call.
 - 📝 **Blog** [Agentics: Memorizing Session Transcripts Isn't Useful](https://12gramsofcarbon.com/p/agentics-memorizing-session-transcripts) - From thousands of agent sessions at Nori, reports zero coding-task benefit from giving agents search over prior session transcripts and argues loop state belongs in distilled artifacts like commits and docs because agents never prune stale context.
 - 📝 **Blog** [Long-Running Agents](https://addyo.substack.com/p/long-running-agents) - Addy Osmani's essay on the infrastructure behind agents that run for hours or days, naming three walls (finite context, missing persistent state, unreliable self-verification) and the patterns that address them: durable event logs, checkpoint-and-resume, external state, and a planner/worker/judge split.
+- 📄 **Paper** [StateFuse: Deterministic Conflict-Preserving Memory for Multi-Agent Systems](https://arxiv.org/abs/2607.05844) - Conflict-aware replicated memory contract with immutable history, explicit conflict objects, and projection-time resolution, so agent systems that accumulate contradictory observations across branches, retries, and replicas record state auditably instead of silently overwriting it.
 
 ## Orchestration And Multi-Agent Delegation
 
@@ -659,6 +670,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 📝 **Blog** [How Anthropic teams use Claude Code](https://claude.com/blog/how-anthropic-teams-use-claude-code) - Cross-team field report of real recurring agent workflows in engineering, security, and data science.
 - 📝 **Blog** [How Boris Uses Claude Code](https://howborisusesclaudecode.com/) - Unofficial but concrete compilation of Boris Cherny's autonomous setups: parallel worktrees, auto mode, `/loop`, `/schedule`, dynamic workflows, and `/goal` completion conditions.
 - 📝 **Blog** [Agent of the Day: Copilot Agent PR Analysis](https://github.github.com/gh-aw/blog/2026-05-26-agent-of-the-day/) - Official walkthrough of a daily scheduled agentic workflow that ingests PR data, analyzes it, and publishes findings to a Discussion, a concrete recurring loop with trigger, intake, analysis, and output.
+- 📄 **Paper** [Progressive Crystallization: Turning Agent Exploration into Deterministic, Lower-Cost Workflows](https://arxiv.org/abs/2607.07052) - Production lifecycle in which repeatedly validated agent-loop behaviors are promoted into deterministic workflows and demoted on regression, cutting per-incident agent cost by over 70% across eight months of a cloud AIOps system.
 
 ## Templates And Patterns
 
@@ -713,6 +725,7 @@ The gallery is for real-world or realistic loop examples contributed by the comm
 - ⚠️ **Critique** [The Coming Loop](https://lucumr.pocoo.org/2026/6/23/the-coming-loop/) - Flask creator Armin Ronacher's skeptical essay on harness loops, examining what continuously re-driving agents past their natural stopping points does to code quality, review capacity, and human understanding of the resulting systems.
 - ⚠️ **Critique** [Loop Engineering, the Latest AI Buzzword, Still Needs Humans in the Loop](https://www.theregister.com/ai-and-ml/2026/06/24/loop-engineering-latest-ai-buzzword-still-needs-humans-in-the-loop/5261735) - The Register's report on the June 2026 loop-engineering discussion, collecting the Steinberger, Osmani, and Cherny quotes while arguing that vendor token-consumption incentives and model non-determinism keep humans in the loop.
 - 📄 **Paper** [When Agents Do Not Stop: Uncovering Infinite Agentic Loops in LLM Agents](https://arxiv.org/abs/2607.01641) - Characterizes infinite agentic loops, a failure class where unbounded feedback paths make agents repeat calls, tools, or handoffs forever, and ships IAL-Scan, a static analyzer that confirmed 68 real cases across 47 of 6,549 scanned agent projects at 91.9% precision.
+- 📄 **Paper** [The Blind Curator: How a Biased Judge Silently Disables Skill Retirement in Self-Evolving Agents](https://arxiv.org/abs/2607.07436) - Shows via corrupted-reward analysis that false-pass bias in an LLM judge silently disables the skill-retirement mechanism that keeps a self-evolving agent's growing skill library from drifting below the no-skill baseline.
 
 ## Adjacent Awesome Lists
 
