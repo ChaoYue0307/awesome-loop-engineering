@@ -12,7 +12,16 @@
 ## Patterns
 
 - [Pattern library](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/README.md): operational loop patterns with triggers, gates, budgets, and escalation
+- [Pattern matrix](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md): every pattern compared by trigger, gate, state, and budget, indexed by symptom
 - [Loop contracts](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md): schema-validated contract JSON for every pattern, plus runnable reference loops
+- [Runtime selection guide](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/RUNTIME_SELECTION.md): choosing where a loop runs by persistence, file access, isolation, and permissions
+
+## Data
+
+- [Resource sheet (CSV)](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resources.csv): all curated entries with section, type, and annotation columns
+- [Resource sheet (JSONL)](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resources.jsonl): the same rows as line-delimited JSON
+- [Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering): mirrored dataset with a data viewer over all curated entries
+- [Source audit](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv): per-entry reachability, HTTP status, and repository metadata
 
 ## Optional
 
