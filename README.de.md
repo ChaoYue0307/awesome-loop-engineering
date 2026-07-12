@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-06-19 -->
+<!-- last-synced: 2026-07-12 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -28,7 +28,7 @@ Ein Loop entdeckt Arbeit, übergibt sie an einen oder mehrere Agenten, prüft da
 
 Dieses Repository behandelt die neue Bedeutung von Loop Engineering im Kontext von KI-Agenten und Coding Agents. Es geht nicht um Software-Event-Loops, Regelungstechnik, Growth Loops, generische Automatisierung oder nicht-KI-bezogene Feedback-Loops.
 
-Neben der Liste bietet dieses Repository 15 Loop-Patterns, einen schemavalidierten Loop-Contract pro Pattern, 6 ausführbare Loop-Vorlagen, eine Community-Galerie und 8 Sprachen.
+Neben der Liste mit über 430 kuratierten Ressourcen bietet dieses Repository 15 Loop-Patterns, einen schemavalidierten Loop-Contract pro Pattern, 6 ausführbare Loop-Vorlagen, eine Community-Galerie und 8 Sprachen.
 
 ## Mentales Modell
 
@@ -75,10 +75,10 @@ Die vollständige Ressourcenliste bleibt im kanonischen englischen README: [READ
 
 Empfohlene Einstiege:
 
-- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - Direkte Definition des Wechsels von manuellem Prompting zu Systemen, die prompten, prüfen und fortsetzen.
-- [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - Praktischer Leitfaden für plan-edit-test-observe-repair-document-repeat.
-- [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - Offizielle Mechanik für `/loop`, geplante Aufgaben und wiederkehrende Prompts.
-- [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - Komponierbare Patterns für Workflows und Agenten.
+- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - Addy Osmanis Definition des Wechsels vom manuellen Prompting zu Systemen, die selbst prompten, verifizieren und weiterlaufen.
+- [Peter Steinberger über das Entwerfen von Loops](https://x.com/steipete/status/2063697162748260627) - Der Post vom Juni 2026, der die Diskussion auslöste: Agents nicht mehr prompten, sondern Loops entwerfen, die sie prompten.
+- [Boris Cherny: fünf Tipps für autonome Agent-Läufe](https://x.com/bcherny/status/2063792263067754658) - Das kompakte Loop-Rezept des Claude-Code-Schöpfers für stunden- bis tagelange autonome Läufe.
+- [The New Stack: vom Prompting zu Loops](https://thenewstack.io/loop-engineering/) - Bericht über Boris Chernys Wechsel zum Schreiben von Loops für wiederkehrende Agent-Arbeit.
 
 ## Beitragen
 

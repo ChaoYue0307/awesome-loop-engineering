@@ -2,8 +2,8 @@
 
 This directory contains generated tabular exports of the canonical English `README.md` resource list.
 
-- `resources.csv` - Primary sheet for the Hugging Face Dataset Viewer.
-- `resources.jsonl` - Equivalent JSON Lines export for scripts and data tooling.
+- `resources.csv` - Tabular export for spreadsheets and ad hoc analysis.
+- `resources.jsonl` - JSON Lines export; this file backs the Hugging Face Dataset Viewer (the dataset card's configs point at it).
 - `resource_source_audit.csv` - Retrieval-time audit of every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
 
 Regenerate both files after changing resource entries:

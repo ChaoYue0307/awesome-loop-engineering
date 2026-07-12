@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-06-19 -->
+<!-- last-synced: 2026-07-12 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -28,7 +28,7 @@ Loop 는 작업을 발견하고, 하나 이상의 agents 에게 위임하고, �
 
 이 저장소는 AI agents / coding agents 맥락의 새로운 Loop Engineering 의미에만 집중합니다. software event loop, control theory, growth loop, 일반적인 workflow automation, 비 AI feedback loop 는 범위에 포함하지 않습니다.
 
-목록 외에도 이 저장소는 15개의 loop 패턴, 각 패턴에 대한 스키마 검증 loop contract, 6개의 실행 가능한 loop 템플릿, 커뮤니티 gallery, 8개 언어를 제공합니다.
+430개 이상의 엄선된 리소스 목록 외에도 이 저장소는 15개의 loop 패턴, 각 패턴에 대한 스키마 검증 loop contract, 6개의 실행 가능한 loop 템플릿, 커뮤니티 gallery, 8개 언어를 제공합니다.
 
 ## 멘탈 모델
 
@@ -75,10 +75,10 @@ Prompt, context, harness engineering 은 한 번의 실행을 더 좋게 만듭�
 
 추천 시작 자료:
 
-- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - 수동 prompting 에서 prompt, 검증, 지속을 수행하는 시스템 설계로 이동하는 흐름을 정의합니다.
-- [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - plan-edit-test-observe-repair-document-repeat 작업을 위한 실용 runbook.
-- [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - `/loop`, scheduled tasks, recurring prompts 의 공식 메커니즘.
-- [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - workflows 와 agents 를 위한 composable patterns.
+- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - 수동 프롬프팅에서 스스로 프롬프트하고 검증하며 계속 실행하는 시스템으로의 전환을 정의한 Addy Osmani의 글.
+- [Peter Steinberger의 loop 설계론](https://x.com/steipete/status/2063697162748260627) - "이제 agent를 프롬프트하지 말고, agent를 프롬프트하는 loop를 설계하라"는 2026년 6월 논의를 촉발한 게시물.
+- [Boris Cherny: agent 자율 실행을 위한 다섯 가지 팁](https://x.com/bcherny/status/2063792263067754658) - 몇 시간에서 며칠 동안 자율 실행되는 loop를 위한 Claude Code 창시자의 간결한 레시피.
+- [The New Stack: 프롬프팅에서 loop로](https://thenewstack.io/loop-engineering/) - 반복적인 agent 작업을 위해 loop를 작성하게 된 Boris Cherny의 전환에 대한 보도.
 
 ## 기여하기
 

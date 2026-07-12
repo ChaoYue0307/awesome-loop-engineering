@@ -13,14 +13,14 @@
     <meta property="og:title" content="Awesome Loop Engineering">
     <meta property="og:description" content="Curated resources, patterns, examples, schema, and field guides for recurring AI-agent systems.">
     <meta property="og:url" content="https://chaoyue0307.github.io/awesome-loop-engineering/">
-    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png">
+    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=2">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="640">
     <meta property="og:image:alt" content="Awesome Loop Engineering: a curated field guide to recurring AI-agent systems.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Awesome Loop Engineering">
     <meta name="twitter:description" content="A field guide for designing recurring AI-agent systems above prompt, context, and harness engineering.">
-    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png">
+    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=2">
     <style>
       :root {
         color-scheme: dark;
@@ -29,12 +29,12 @@
         --panel: rgba(17, 24, 39, 0.72);
         --panel-solid: #111827;
         --muted: #c2cad8;
-        --faint: #8b95a7;
+        --faint: #9da8bb;
         --text: #f8fafc;
         --accent: #38bdf8;
         --accent-2: #a78bfa;
         --border: rgba(148, 163, 184, 0.18);
-        --border-strong: rgba(148, 163, 184, 0.34);
+        --border-strong: rgba(148, 163, 184, 0.6);
         --radius: 18px;
         --maxw: 1140px;
       }
@@ -148,7 +148,7 @@
       .chip:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
 
       footer { margin-top: 70px; border-top: 1px solid var(--border); padding: 30px 0 56px; color: var(--faint); }
-      footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 22px; }
+      footer .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 22px; }
       footer h4 { color: var(--text); margin: 0 0 10px; font-size: 0.95rem; }
       footer a { color: var(--muted); display: block; padding: 3px 0; }
       .cite { position: relative; border: 1px solid var(--border); border-radius: 12px; background: #0a0f1d; padding: 14px 14px; margin-top: 12px; overflow: auto; }
@@ -204,7 +204,7 @@
           "https://huggingface.co/datasets/cy0307/awesome-loop-engineering"
         ],
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png",
+        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=2",
         "author": { "@type": "Person", "name": "Chaoyue He" },
         "mainEntity": {
           "@type": "ItemList",
@@ -265,7 +265,7 @@
     </script>
   </head>
   <body>
-    <a class="skip" href="#top">Skip to content</a>
+    <a class="skip" href="#main">Skip to content</a>
     <header class="site">
       <div class="wrap nav">
         <a class="brand" href="#top" aria-label="Loop Engineering, back to top"><img class="logo" src="assets/awesome-loop-engineering-logo.svg" alt="" width="28" height="28"> <span class="bt">Loop Engineering</span></a>
@@ -281,14 +281,14 @@
         </nav>
         <span class="spacer"></span>
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">&#9776;</button>
-        <span class="ghs">
+        <nav class="ghs" aria-label="Project links">
           <a class="pill" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">HF Dataset</a>
           <a class="pill solid" href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub</a>
-        </span>
+        </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <!-- HERO -->
       <section class="hero" id="top">
         <div class="wrap">
@@ -305,7 +305,7 @@
               </div>
             </div>
             <div class="visual">
-              <img src="assets/loop-engineering-stack.svg" width="1200" height="760" style="height:auto" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time.">
+              <img src="assets/loop-engineering-stack.svg" width="1200" height="760" style="height:auto" fetchpriority="high" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time.">
             </div>
           </div>
 
@@ -314,7 +314,7 @@
             <div class="stat" role="listitem"><b>15</b><span>operational patterns</span></div>
             <div class="stat" role="listitem"><b>15</b><span>loop contracts</span></div>
             <div class="stat" role="listitem"><b>6</b><span>runnable templates</span></div>
-            <div class="stat" role="listitem"><b>430</b><span>curated entries</span></div>
+            <div class="stat" role="listitem"><b>462</b><span>curated entries</span></div>
             <div class="stat" role="listitem"><b>8</b><span>languages</span></div>
           </div>
 
@@ -508,7 +508,7 @@
             <div>
               <h4>Cite this repository</h4>
               <div class="cite">
-                <button class="copy" type="button" data-copy="cite-bib">Copy</button>
+                <button class="copy" type="button" data-copy="cite-bib" aria-label="Copy BibTeX citation"><span aria-live="polite">Copy</span></button>
                 <pre id="cite-bib">@misc{chaoyue2026awesome_loop_engineering,
   author       = {He, Chaoyue},
   title        = {Awesome Loop Engineering},
@@ -532,6 +532,16 @@
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ROADMAP.md">Roadmap</a>
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TRANSLATIONS.md">Translations</a>
             </div>
+            <div>
+              <h4>Languages</h4>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.zh-CN.md" lang="zh">中文</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.es.md" lang="es">Español</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.fr.md" lang="fr">Français</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.de.md" lang="de">Deutsch</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.ja.md" lang="ja">日本語</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.ko.md" lang="ko">한국어</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.pt-BR.md" lang="pt-BR">Português</a>
+            </div>
           </div>
           <p class="legal">
             This is an early curated map of an emerging practice, not a final standard. Original repository materials are released under <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/LICENSE">CC0-1.0</a>. Linked resources keep their own licenses.
@@ -554,13 +564,27 @@
             mb.setAttribute('aria-expanded', 'false');
           });
         });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && links.classList.contains('open')) {
+            links.classList.remove('open');
+            mb.setAttribute('aria-expanded', 'false');
+            mb.focus();
+          }
+        });
       })();
       document.querySelectorAll('.copy').forEach(function (btn) {
+        var label = btn.querySelector('span') || btn;
         btn.addEventListener('click', function () {
           var el = document.getElementById(btn.getAttribute('data-copy'));
           if (!el) return;
           navigator.clipboard.writeText(el.innerText).then(function () {
-            var prev = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = prev; }, 1400);
+            label.textContent = 'Copied';
+            setTimeout(function () { label.textContent = 'Copy'; }, 1400);
+          }).catch(function () {
+            label.textContent = 'Press ⌘C';
+            var sel = window.getSelection(); var range = document.createRange();
+            range.selectNodeContents(el); sel.removeAllRanges(); sel.addRange(range);
+            setTimeout(function () { label.textContent = 'Copy'; }, 2500);
           });
         });
       });

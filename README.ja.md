@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-06-19 -->
+<!-- last-synced: 2026-07-12 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -28,7 +28,7 @@ Loop は作業を発見し、1 つ以上の agents に委任し、結果を確�
 
 このリポジトリは AI agents / coding agents における新しい意味の Loop Engineering に限定しています。software event loop、制御理論、growth loop、一般的な workflow automation、非 AI の feedback loop は対象外です。
 
-リストに加えて、本リポジトリは 15 個の loop パターン、各パターンに対応する schema 検証済み loop contract、6 個の実行可能な loop テンプレート、コミュニティ gallery、8 言語を提供します。
+430 件超の精選リソースのリストに加えて、本リポジトリは 15 個の loop パターン、各パターンに対応する schema 検証済み loop contract、6 個の実行可能な loop テンプレート、コミュニティ gallery、8 言語を提供します。
 
 ## メンタルモデル
 
@@ -75,10 +75,10 @@ Prompt、context、harness engineering は 1 回の実行を良くします。Lo
 
 おすすめの入口:
 
-- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - 手動 prompt から、prompt・検証・継続を行うシステム設計への移行を定義します。
-- [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - plan-edit-test-observe-repair-document-repeat の実践的な runbook。
-- [Run prompts on a schedule](https://code.claude.com/docs/en/scheduled-tasks) - `/loop`、scheduled tasks、recurring prompts の公式メカニクス。
-- [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - workflow と agents の composable patterns。
+- [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - 手動プロンプティングから、自らプロンプトし検証し続行するシステムへの転換を示す Addy Osmani の定義。
+- [Peter Steinberger による loop 設計論](https://x.com/steipete/status/2063697162748260627) - 「agent にプロンプトするのではなく、agent にプロンプトする loop を設計せよ」という 2026 年 6 月の議論の発端となった投稿。
+- [Boris Cherny: agent を自律実行するための 5 つのコツ](https://x.com/bcherny/status/2063792263067754658) - Claude Code 作者による、数時間から数日の自律 loop のためのコンパクトなレシピ。
+- [The New Stack: プロンプティングから loop へ](https://thenewstack.io/loop-engineering/) - 反復的な agent 作業のために loop を書くようになった Boris Cherny の転換についての報道。
 
 ## 貢献
 

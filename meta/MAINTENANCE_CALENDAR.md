@@ -36,7 +36,7 @@ The upstream Awesome 30-day rule opens the submission window on 2026-07-10. Befo
 
 - [ ] Run the full preflight in [AWESOME_SUBMISSION.md](AWESOME_SUBMISSION.md#required-preflight) and fix every actionable finding.
 - [ ] Confirm `awesome-lint` passes locally and against the public GitHub URL.
-- [ ] Confirm the README scope, contribution guide, license, and CI badge are present and current.
+- [ ] Confirm the README scope, contribution guide, and license are present and current (note: CI and last-updated badges were deliberately removed per awesome-list guidelines; keep only the Awesome badge).
 - [ ] Review at least four open PRs in `sindresorhus/awesome` with substantive comments.
 - [ ] Draft the `Add Loop Engineering` PR title, entry (URL ending in `#readme`), and PR body.
 - [ ] Confirm a tagged release and a green Quality run on `main`.

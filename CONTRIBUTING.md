@@ -90,6 +90,7 @@ Use these labels in PR descriptions and issue suggestions when they help reviewe
 - Use **Agent Workflow Patterns** for general workflow architecture, durable execution, and official guidance.
 - Use **Coding-Agent Loop Systems** for systems that run agents over repositories, terminals, code, or software issues.
 - Use **Verification And Feedback Gates** for tests, evals, CI, tracing, guardrails, deterministic checks, and LLM-as-judge caveats.
+- Use **Securing Unattended Loops** for prompt-injection defenses, memory-poisoning attacks and mitigations, sandboxing, permission boundaries, and monitoring of agents that run without a human watching.
 - Use **State, Memory, And Context Persistence** for durable state, checkpoints, context, progress files, and memory.
 - Use **Orchestration And Multi-Agent Delegation** for subagents, handoffs, manager-worker loops, and workflow runtimes.
 - Use **Benchmarks And Evaluation** for benchmarks that measure agent behavior over multi-step tasks.
