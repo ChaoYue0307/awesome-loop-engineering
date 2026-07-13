@@ -21,6 +21,8 @@
     <meta name="twitter:title" content="Awesome Loop Engineering">
     <meta name="twitter:description" content="A field guide for designing recurring AI-agent systems above prompt, context, and harness engineering.">
     <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=2">
+    <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering releases" href="https://github.com/ChaoYue0307/awesome-loop-engineering/releases.atom">
+    <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering commits" href="https://github.com/ChaoYue0307/awesome-loop-engineering/commits/main.atom">
     <style>
       :root {
         color-scheme: dark;
@@ -55,11 +57,13 @@
       }
       a { color: #8fd6fb; text-decoration: none; }
       a:hover { text-decoration: underline; }
-      .wrap { width: min(var(--maxw), calc(100% - 40px)); margin: 0 auto; }
+      .wrap { width: calc(100% - 40px); max-width: var(--maxw); margin: 0 auto; }
+      @supports (width: min(1px, 2px)) { .wrap { width: min(var(--maxw), calc(100% - 40px)); max-width: none; } }
 
       /* Header */
       header.site {
         position: sticky; top: 0; z-index: 50;
+        -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
         background: rgba(11, 16, 32, 0.72);
         border-bottom: 1px solid var(--border);
@@ -106,7 +110,10 @@
       /* Stats */
       .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 34px; }
       .stat { border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; background: var(--panel); text-align: center; }
-      .stat b { display: block; font-size: 1.9rem; letter-spacing: -0.03em; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .stat b { display: block; font-size: 1.9rem; letter-spacing: -0.03em; color: var(--accent); }
+      @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+        .stat b { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      }
       .stat span { color: var(--faint); font-size: 0.84rem; font-weight: 600; }
 
       /* Generic grids and cards */
@@ -138,7 +145,10 @@
       /* Maturity */
       .levels { display: grid; gap: 10px; }
       .lvl { display: grid; grid-template-columns: 54px 1fr; gap: 14px; align-items: center; border: 1px solid var(--border); border-radius: 14px; padding: 12px 16px; background: var(--panel); }
-      .lvl b { font-size: 1.4rem; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; text-align: center; }
+      .lvl b { font-size: 1.4rem; color: var(--accent); text-align: center; }
+      @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+        .lvl b { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      }
       .lvl .t { color: var(--text); font-weight: 700; }
       .lvl .d { color: var(--faint); font-size: 0.9rem; }
 
@@ -183,6 +193,17 @@
         html { scroll-behavior: auto; }
         .card, .pat { transition: none; }
       }
+      @media print {
+        body { background: #fff; color: #111; }
+        header.site, .menu-btn, .cta, .copy, .skip, .chips, footer .cols { display: none; }
+        section { padding: 12pt 0; }
+        .card, .pat, .layer, .lvl, .stat, .definition, .visual, .wide, .cite { background: none; border-color: #bbb; box-shadow: none; color: #111; }
+        .lead, .section-intro, .card p, .lvl .d, .stat span, .definition { color: #333; }
+        .stat b, .lvl b { background: none; -webkit-background-clip: initial; background-clip: initial; color: #111; }
+        a { color: #111; text-decoration: underline; }
+        h1, h2, h3, .layer strong, .definition strong, .lvl .t, .pat .name { color: #000; }
+        .eyebrow { color: #555; }
+      }
     </style>
     <script type="application/ld+json">
       {
@@ -193,7 +214,7 @@
         "description": "A curated field guide to Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.",
         "keywords": ["Loop Engineering", "AI agents", "Coding agents", "Agent workflows", "Agentic loops"],
         "datePublished": "2026-06-10",
-        "dateModified": "2026-07-11",
+        "dateModified": "2026-07-13",
         "isPartOf": {
           "@type": "WebSite",
           "name": "Awesome Loop Engineering",
@@ -263,8 +284,48 @@
         ]
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Awesome Loop Engineering resources",
+        "description": "Curated, annotated resources on Loop Engineering: recurring AI-agent and coding-agent loops. Each row carries section, resource type, title, URL, domain, annotation, key contribution, novelty, impact, and signal-strength fields exported from the README.",
+        "url": "https://chaoyue0307.github.io/awesome-loop-engineering/",
+        "sameAs": [
+          "https://huggingface.co/datasets/cy0307/awesome-loop-engineering",
+          "https://github.com/ChaoYue0307/awesome-loop-engineering"
+        ],
+        "identifier": "https://huggingface.co/datasets/cy0307/awesome-loop-engineering",
+        "keywords": ["Loop Engineering", "AI agents", "Coding agents", "Agent workflows", "Agentic loops", "Awesome list"],
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "isAccessibleForFree": true,
+        "creator": { "@type": "Person", "name": "Chaoyue He" },
+        "datePublished": "2026-06-10",
+        "dateModified": "2026-07-13",
+        "includedInDataCatalog": { "@type": "DataCatalog", "name": "Hugging Face Datasets", "url": "https://huggingface.co/datasets" },
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "text/csv",
+            "contentUrl": "https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/data/resources.csv"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/jsonlines",
+            "contentUrl": "https://raw.githubusercontent.com/ChaoYue0307/awesome-loop-engineering/main/data/resources.jsonl"
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
+    <noscript>
+      <style>
+        .nav .links { display: flex !important; position: static; flex-direction: row; flex-wrap: wrap; gap: 12px 18px; margin-left: 14px; background: none; border: 0; padding: 0; }
+        .menu-btn, .copy { display: none !important; }
+        @media (max-width: 1080px) { .nav { height: auto; flex-wrap: wrap; padding: 10px 0; } }
+      </style>
+    </noscript>
     <a class="skip" href="#main">Skip to content</a>
     <header class="site">
       <div class="wrap nav">
@@ -314,7 +375,7 @@
             <div class="stat" role="listitem"><b>15</b><span>operational patterns</span></div>
             <div class="stat" role="listitem"><b>15</b><span>loop contracts</span></div>
             <div class="stat" role="listitem"><b>6</b><span>runnable templates</span></div>
-            <div class="stat" role="listitem"><b>462</b><span>curated entries</span></div>
+            <div class="stat" role="listitem"><b>483</b><span>curated entries</span></div>
             <div class="stat" role="listitem"><b>8</b><span>languages</span></div>
           </div>
 
@@ -558,7 +619,7 @@
           var open = links.classList.toggle('open');
           mb.setAttribute('aria-expanded', open ? 'true' : 'false');
         });
-        links.querySelectorAll('a').forEach(function (a) {
+        Array.prototype.forEach.call(links.querySelectorAll('a'), function (a) {
           a.addEventListener('click', function () {
             links.classList.remove('open');
             mb.setAttribute('aria-expanded', 'false');
@@ -572,11 +633,18 @@
           }
         });
       })();
-      document.querySelectorAll('.copy').forEach(function (btn) {
+      Array.prototype.forEach.call(document.querySelectorAll('.copy'), function (btn) {
         var label = btn.querySelector('span') || btn;
         btn.addEventListener('click', function () {
           var el = document.getElementById(btn.getAttribute('data-copy'));
           if (!el) return;
+          if (!navigator.clipboard || !navigator.clipboard.writeText) {
+            label.textContent = 'Select and copy';
+            var sel0 = window.getSelection(); var range0 = document.createRange();
+            range0.selectNodeContents(el); sel0.removeAllRanges(); sel0.addRange(range0);
+            setTimeout(function () { label.textContent = 'Copy'; }, 2500);
+            return;
+          }
           navigator.clipboard.writeText(el.innerText).then(function () {
             label.textContent = 'Copied';
             setTimeout(function () { label.textContent = 'Copy'; }, 1400);

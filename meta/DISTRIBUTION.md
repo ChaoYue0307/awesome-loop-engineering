@@ -18,7 +18,7 @@ The repository is mirrored to the Hugging Face Hub dataset repo [`datasets/cy030
 
 - The mirror tracks the full GitHub tree (docs, patterns, examples, schema, scripts).
 - The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the canonical English `README.md` by `scripts/export_resource_dataset.py`.
-- The HF copy of `README.md` carries a dataset-card YAML header (`license`, `language`, `tags`, `pretty_name`, and `configs`). This header is **HF-only**: it must never be added to the GitHub `README.md`, because the YAML list items break `awesome-lint`.
+- The HF copy of `README.md` carries a dataset-card YAML header (`license`, `language`, `size_categories`, `task_categories`, `tags`, `pretty_name`, and `configs`); the canonical header lives in meta/hf_card_header.yaml. This header is **HF-only**: it must never be added to the GitHub `README.md`, because the YAML list items break `awesome-lint`.
 - Sync uses the `hf upload --type dataset` CLI against a staging copy with the header prepended, so the GitHub working tree stays header-free. The token lives in the local Hugging Face cache; no token is committed.
 
 ## GitHub-Native Promotion

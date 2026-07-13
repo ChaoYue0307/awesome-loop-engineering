@@ -1,0 +1,22 @@
+---
+license: cc0-1.0
+language:
+  - en
+pretty_name: Awesome Loop Engineering
+size_categories:
+  - n<1K
+task_categories:
+  - text-classification
+  - text-retrieval
+tags:
+  - loop-engineering
+  - ai-agents
+  - coding-agents
+  - agentic-workflows
+  - awesome-list
+configs:
+  - config_name: resources
+    data_files:
+      - split: train
+        path: data/resources.jsonl
+---
