@@ -34,7 +34,14 @@ jobs:
       - name: Validate the example contracts before publishing
         run: node bin/cli.js ../../examples/pr-babysitter-loop.json
 
-      - name: Publish
-        run: npm publish
+      - name: Publish (skip if version already exists)
+        run: |
+          PKG=$(node -p "require('./package.json').name")
+          VER=$(node -p "require('./package.json').version")
+          if npm view "$PKG@$VER" version >/dev/null 2>&1; then
+            echo "$PKG@$VER already published; skipping."
+          else
+            npm publish
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
