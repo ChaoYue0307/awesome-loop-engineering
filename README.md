@@ -345,6 +345,7 @@ Feature-level building blocks you assemble a loop from: schedulers, goals, workt
 - 🧰 **Tool** [opencode-scheduler](https://github.com/different-ai/opencode-scheduler) - OpenCode plugin that runs recurring agent jobs through OS-native schedulers (launchd on macOS, systemd on Linux), with workdir-scoped jobs, timeouts, and skipped ticks when the previous run is still active.
 - 🧰 **Tool** [Agent-Loop-Skills](https://github.com/gaasher/Agent-Loop-Skills) - Reusable verification-gated loops (autoresearch, scientific writing, data analysis, code and prompt optimization, red-teaming) packaged as open-standard Agent Skills, each with a feedback signal, run ledger, and termination conditions.
 - 🧰 **Tool** [launch-your-agent](https://github.com/anthropics/launch-your-agent) - Anthropic's official Claude Code skill set that operationalizes an interview, launch, grade-against-definition-of-done, iterate, and schedule loop for Claude Managed Agents, leaving a live recurring scheduled agent plus an eval scaffold and roadmap.
+- 🧰 **Tool** [OpenAgentRelay](https://github.com/ShakespeareLabs/open-agent-relay) - Gives a loop controller a bounded trusted-LAN delegation primitive for one existing local agent or automation, with target verification, JSON results, and exit codes that can drive retry, stop, or escalation decisions while publisher credentials stay local.
 
 ## Official Runtime Guides
 
