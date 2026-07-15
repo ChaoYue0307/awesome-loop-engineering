@@ -43,10 +43,10 @@ This repository is about the new AI-agent meaning of Loop Engineering. It is **n
 
 **Quick orientation for first-time visitors:**
 
-- **What it is:** the layer that governs how agent work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.
-- **Why it matters now:** As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list exists because no existing collection focused on that layer.
-- **Who this is for:** builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.
-- **Where to start:** Canonical Definition, Loop Contract, Start Here, then Pattern Library.
+- 🧭 **What it is:** the layer that governs how agent work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.
+- ⚡ **Why it matters now:** As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list exists because no existing collection focused on that layer.
+- 👤 **Who this is for:** builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.
+- 🚦 **Where to start:** Canonical Definition, Loop Contract, Start Here, then Pattern Library.
 
 ## Contents
 
@@ -132,10 +132,10 @@ Start with the first-read resources and the Loop Contract if the term is new. Fo
 
 Choose a path based on your intent.
 
-- Learn the concept: canonical definition, mental model, comparison guide, and the Loop Contract.
-- Implement a loop: core primitives, official runtime guides, the pattern library, and examples.
-- Improve reliability or evals: verification gates, securing unattended loops, benchmarks, critiques, and limitations.
-- Contribute: the community gallery, templates, and contribution guide.
+- 📖 Learn the concept: canonical definition, mental model, comparison guide, and the Loop Contract.
+- 🛠️ Implement a loop: core primitives, official runtime guides, the pattern library, and examples.
+- ✅ Improve reliability or evals: verification gates, securing unattended loops, benchmarks, critiques, and limitations.
+- 🤝 Contribute: the community gallery, templates, and contribution guide.
 
 ## Choose Your Loop
 
@@ -181,11 +181,11 @@ These repository-native guides define the concept, boundaries, and practical art
 
 A compact path through the repository. Each resource is linked in full in the section named in parentheses.
 
-- Concept: Addy Osmani's Loop Engineering essay frames the practice (Start Here), and the Canonical Definition and Manifesto fix the scope and principles (Concept Guides).
-- Foundations: the harness-layer taxonomy decomposes control, agency, and runtime beneath the loop and proposes a HarnessCard so reported agent gains can be separated from harness effects (Agent Workflow Patterns).
-- Practice: the Codex long-horizon runbook (Official Runtime Guides) and Claude's scheduled-task docs (Core Loop Primitives) cover the core mechanics, then the PR babysitter and CI repair patterns turn the contract into operating models (Pattern Library).
-- Reliability: "Give It Backpressure" (Verification And Feedback Gates) and "Building Effective Agents" (Agent Workflow Patterns) make verification the learning signal, with the Anti-Patterns guide listing failure modes to avoid (Concept Guides).
-- Reusable artifacts: the loop contract schema and validated example specs make the contract concrete (Examples And Schema), and the Loop Gallery is the format for sharing real or anonymized loops (Community Gallery).
+- 🧭 Concept: Addy Osmani's Loop Engineering essay frames the practice (Start Here), and the Canonical Definition and Manifesto fix the scope and principles (Concept Guides).
+- 🧱 Foundations: the harness-layer taxonomy decomposes control, agency, and runtime beneath the loop and proposes a HarnessCard so reported agent gains can be separated from harness effects (Agent Workflow Patterns).
+- 🛠️ Practice: the Codex long-horizon runbook (Official Runtime Guides) and Claude's scheduled-task docs (Core Loop Primitives) cover the core mechanics, then the PR babysitter and CI repair patterns turn the contract into operating models (Pattern Library).
+- ✅ Reliability: "Give It Backpressure" (Verification And Feedback Gates) and "Building Effective Agents" (Agent Workflow Patterns) make verification the learning signal, with the Anti-Patterns guide listing failure modes to avoid (Concept Guides).
+- 📦 Reusable artifacts: the loop contract schema and validated example specs make the contract concrete (Examples And Schema), and the Loop Gallery is the format for sharing real or anonymized loops (Community Gallery).
 
 ## Repository Highlights
 
