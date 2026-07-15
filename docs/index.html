@@ -153,6 +153,9 @@
       .lvl .d { color: var(--faint); font-size: 0.9rem; }
 
       /* Chips */
+      .pfilter { width: 100%; max-width: 420px; margin: 0 0 20px; padding: 11px 16px; border: 1px solid var(--border-strong); border-radius: 12px; background: rgba(15, 23, 42, 0.6); color: var(--text); font-size: 0.95rem; }
+      .pfilter::placeholder { color: var(--faint); }
+      .pfilter-empty { color: var(--muted); margin: 0 0 20px; }
       .chips { display: flex; flex-wrap: wrap; gap: 10px; }
       .chip { border: 1px solid var(--border-strong); border-radius: 999px; padding: 8px 15px; font-size: 0.9rem; font-weight: 600; color: var(--muted); background: rgba(15,23,42,0.6); }
       .chip:hover { color: var(--text); border-color: var(--accent); text-decoration: none; }
@@ -214,7 +217,7 @@
         "description": "A curated field guide to Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.",
         "keywords": ["Loop Engineering", "AI agents", "Coding agents", "Agent workflows", "Agentic loops"],
         "datePublished": "2026-06-10",
-        "dateModified": "2026-07-13",
+        "dateModified": "2026-07-15",
         "isPartOf": {
           "@type": "WebSite",
           "name": "Awesome Loop Engineering",
@@ -301,7 +304,7 @@
         "isAccessibleForFree": true,
         "creator": { "@type": "Person", "name": "Chaoyue He" },
         "datePublished": "2026-06-10",
-        "dateModified": "2026-07-13",
+        "dateModified": "2026-07-15",
         "includedInDataCatalog": { "@type": "DataCatalog", "name": "Hugging Face Datasets", "url": "https://huggingface.co/datasets" },
         "distribution": [
           {
@@ -322,7 +325,7 @@
     <noscript>
       <style>
         .nav .links { display: flex !important; position: static; flex-direction: row; flex-wrap: wrap; gap: 12px 18px; margin-left: 14px; background: none; border: 0; padding: 0; }
-        .menu-btn, .copy { display: none !important; }
+        .menu-btn, .copy, .pfilter { display: none !important; }
         @media (max-width: 1080px) { .nav { height: auto; flex-wrap: wrap; padding: 10px 0; } }
       </style>
     </noscript>
@@ -375,7 +378,7 @@
             <div class="stat" role="listitem"><b>15</b><span>operational patterns</span></div>
             <div class="stat" role="listitem"><b>15</b><span>loop contracts</span></div>
             <div class="stat" role="listitem"><b>6</b><span>runnable templates</span></div>
-            <div class="stat" role="listitem"><b>483</b><span>curated entries</span></div>
+            <div class="stat" role="listitem"><b>509</b><span>curated entries</span></div>
             <div class="stat" role="listitem"><b>8</b><span>languages</span></div>
           </div>
 
@@ -419,7 +422,9 @@
           <div class="eyebrow">Choose your loop</div>
           <h2>Start from the problem you have</h2>
           <p class="section-intro">Each card opens a ready-to-adapt pattern with a trigger, verification gate, durable state, budget, and escalation path. Compare them all in the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">pattern matrix</a>.</p>
-          <div class="grid g-3">
+          <input type="search" id="pattern-filter" class="pfilter" placeholder="Filter patterns by keyword…" aria-label="Filter patterns by keyword" autocomplete="off">
+          <p id="pattern-filter-empty" class="pfilter-empty" hidden>No pattern matches that keyword. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">Browse the full matrix</a>.</p>
+          <div class="grid g-3" id="pattern-grid">
             <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/pr-babysitter.md"><span class="sym">&ldquo;My PR is stuck&rdquo;</span><span class="name">PR babysitter</span></a>
             <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/ci-repair-loop.md"><span class="sym">&ldquo;CI keeps failing&rdquo;</span><span class="name">CI repair loop</span></a>
             <a class="pat" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/docs-drift-collector.md"><span class="sym">&ldquo;The docs may be stale&rdquo;</span><span class="name">Docs drift collector</span></a>
@@ -512,7 +517,7 @@
             <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#benchmarks-and-evaluation">Benchmarks</a>
             <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#critiques-risks-and-limitations">Critiques &amp; Risks</a>
             <a class="chip" href="https://github.com/ChaoYue0307/awesome-loop-engineering#adjacent-awesome-lists">Adjacent Lists</a>
-            <a class="chip" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Full dataset on Hugging Face</a>
+            <a class="chip" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Search the full dataset on Hugging Face</a>
           </div>
         </div>
       </section>
@@ -590,6 +595,7 @@
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub repository</a>
               <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face dataset</a>
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md">Contributing</a>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/releases">Release notes</a>
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ROADMAP.md">Roadmap</a>
               <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TRANSLATIONS.md">Translations</a>
             </div>
@@ -631,6 +637,23 @@
             mb.setAttribute('aria-expanded', 'false');
             mb.focus();
           }
+        });
+      })();
+      (function () {
+        var input = document.getElementById('pattern-filter');
+        var grid = document.getElementById('pattern-grid');
+        var empty = document.getElementById('pattern-filter-empty');
+        if (!input || !grid) return;
+        var cards = Array.prototype.slice.call(grid.querySelectorAll('.pat'));
+        input.addEventListener('input', function () {
+          var q = input.value.trim().toLowerCase();
+          var shown = 0;
+          cards.forEach(function (c) {
+            var match = q === '' || c.textContent.toLowerCase().indexOf(q) !== -1;
+            c.style.display = match ? '' : 'none';
+            if (match) shown++;
+          });
+          if (empty) empty.hidden = shown !== 0;
         });
       })();
       Array.prototype.forEach.call(document.querySelectorAll('.copy'), function (btn) {

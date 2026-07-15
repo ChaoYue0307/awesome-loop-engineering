@@ -4,6 +4,7 @@ This directory contains generated tabular exports of the canonical English `READ
 
 - `resources.csv` - Tabular export for spreadsheets and ad hoc analysis.
 - `resources.jsonl` - JSON Lines export; this file backs the Hugging Face Dataset Viewer (the dataset card's configs point at it).
+- `first_seen.json` - Forward-only sidecar mapping resource URL to the date it was first added; the export left-joins it into the `date_added` column. Empty `date_added` means the entry predates per-entry tracking (started 2026-07-15).
 - `resource_source_audit.csv` - Retrieval-time audit of every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
 
 Regenerate both files after changing resource entries:

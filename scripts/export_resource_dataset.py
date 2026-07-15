@@ -17,7 +17,19 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 CSV_PATH = ROOT / "data" / "resources.csv"
 JSONL_PATH = ROOT / "data" / "resources.jsonl"
+FIRST_SEEN_PATH = ROOT / "data" / "first_seen.json"
 SOURCE_URL = "https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.md"
+
+
+def load_first_seen() -> dict[str, str]:
+    """url -> ISO date the entry was first added. Forward-only; empty for entries
+    that predate per-entry date tracking (which began 2026-07-15)."""
+    if FIRST_SEEN_PATH.exists():
+        return json.loads(FIRST_SEEN_PATH.read_text(encoding="utf-8"))
+    return {}
+
+
+FIRST_SEEN = load_first_seen()
 
 ENTRY_RE = re.compile(
     r"^- (?P<marker>\S+) \*\*(?P<resource_type>[^*]+)\*\* "
@@ -46,6 +58,7 @@ FIELDS = [
     "source_readme",
     "source_line",
     "source_url",
+    "date_added",
 ]
 
 SECTION_IMPACT = {
@@ -246,6 +259,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "source_readme": "README.md",
                 "source_line": str(line_number),
                 "source_url": f"{SOURCE_URL}#L{line_number}",
+                "date_added": FIRST_SEEN.get(url, ""),
             }
         )
 
