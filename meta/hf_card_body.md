@@ -34,7 +34,7 @@ Each row in `data/resources.jsonl` (and the equivalent `data/resources.csv`) is 
 
 ## Changelog
 
-Versioned changes are published as GitHub Releases: https://github.com/ChaoYue0307/awesome-loop-engineering/releases
+Versioned changes are published as [GitHub Releases](https://github.com/ChaoYue0307/awesome-loop-engineering/releases).
 
 ## Citation
 
