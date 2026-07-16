@@ -6,6 +6,18 @@ This repository is intentionally narrow. It tracks the new AI and coding-agent m
 
 Before submitting, read the [curation standard](meta/CURATION.md). Maintainers use it to decide whether a resource is specific, stable, and useful enough for the list.
 
+## Fastest Contribution (Under Five Minutes)
+
+If you are suggesting one resource and do not want to prepare a fork, use the [resource suggestion form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml). Include:
+
+- the canonical public URL;
+- the most specific README category;
+- one sentence on the contribution, novelty, or practical value for recurring agent systems;
+- the source type and evidence tier;
+- any caveat, such as vendor bias, a paywall, early-stage status, or weak evidence.
+
+Maintainers will still apply the same scope, duplication, source-quality, and annotation checks used for pull requests. Corrections to an existing annotation are equally useful; link the current entry and state exactly what should change.
+
 ## Quick PR Flow
 
 1. Search `README.md` for the resource title, author, project, and URL.

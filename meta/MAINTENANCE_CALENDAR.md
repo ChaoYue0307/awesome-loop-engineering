@@ -8,6 +8,7 @@ Run the local checks in [MAINTENANCE.md](MAINTENANCE.md#local-verification) befo
 
 - Review the latest Quality workflow run; if the scheduled link check failed, fix or replace the dead link.
 - Triage new issues, pull requests, and discussion posts.
+- Record the 14-day traffic snapshot and referral mix beside the [measurement baseline](DISTRIBUTION.md#measurement-baseline) before GitHub expires the older daily rows.
 - Review candidate resources gathered during the week; add only those that pass [CURATION.md](CURATION.md) and reject the rest with a reason.
 - Confirm no entry drifted off-scope into generic AI-agent, prompt, context, or harness content.
 - Confirm the [Hugging Face dataset mirror](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) is in parity with `main` (the daily routine syncs it; spot-check after manual pushes).
@@ -19,6 +20,7 @@ Run the local checks in [MAINTENANCE.md](MAINTENANCE.md#local-verification) befo
 
 ## Monthly
 
+- Publish one concise Discussions digest covering new resources, corrected annotations, patterns, contracts, and open contributor tasks.
 - Refresh runtime docs: re-verify the Core Loop Primitives and Official Runtime Guides links and annotations against current product docs.
 - Refresh benchmarks and evals: check that cited benchmarks, leaderboards, and eval papers are current and that links resolve.
 - Stale-resource review: replace weak or superseded links with stronger primary sources; remove anything that rotted with no equivalent.
@@ -30,24 +32,15 @@ Run the local checks in [MAINTENANCE.md](MAINTENANCE.md#local-verification) befo
 - Roadmap review: update [ROADMAP.md](../ROADMAP.md) with shipped work and the next pattern, gallery, and runtime priorities.
 - Translation drift review: confirm each translated README still matches the canonical English overview and bump the `last-synced` markers; see [TRANSLATIONS.md](../TRANSLATIONS.md).
 
-## Pre-Submission Checklist (before 2026-07-10)
+## Canonical Awesome Submission Status
 
-The upstream Awesome 30-day rule opens the submission window on 2026-07-10. Before then:
+The 30-day age requirement has passed. [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open and its lint check is passing as of 2026-07-17.
 
-- [ ] Run the full preflight in [AWESOME_SUBMISSION.md](AWESOME_SUBMISSION.md#required-preflight) and fix every actionable finding.
-- [ ] Confirm `awesome-lint` passes locally and against the public GitHub URL.
-- [ ] Confirm the README scope, contribution guide, and license are present and current (note: CI and last-updated badges were deliberately removed per awesome-list guidelines; keep only the Awesome badge).
-- [ ] Review at least four open PRs in `sindresorhus/awesome` with substantive comments.
-- [ ] Draft the `Add Loop Engineering` PR title, entry (URL ending in `#readme`), and PR body.
-- [ ] Confirm a tagged release and a green Quality run on `main`.
-
-## Post-Submission Checklist (after 2026-07-10)
-
-- [ ] Open the `sindresorhus/awesome` PR and comment `unicorn` to confirm the guidelines were read.
-- [ ] Respond to maintainer feedback quickly; keep changes scoped and owner-authored.
-- [ ] Once listed, add reciprocal entries on adjacent lists where appropriate, under your own identity.
-- [ ] Run the distribution steps in [DISTRIBUTION.md](DISTRIBUTION.md): landing page, launch post, and author outreach.
-- [ ] Keep public claims conservative: an early curated field guide, not a finished standard.
+- Do not open a duplicate submission.
+- Respond to maintainer feedback quickly and keep changes scoped and owner-authored.
+- Re-run the full preflight in [AWESOME_SUBMISSION.md](AWESOME_SUBMISSION.md#required-preflight) after any structural README change.
+- If accepted, submit to adjacent directories only where the normal editorial policy permits related lists.
+- Keep public claims conservative: this is an early curated field guide, not a finished standard.
 
 ## See Also
 

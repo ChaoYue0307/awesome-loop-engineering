@@ -20,7 +20,7 @@
 </p>
 
 <p align="center">
-  <a href="#start-here">Start here</a> |
+  <a href="#build-from-this">Build from this</a> |
   <a href="#pattern-library">Pattern library</a> |
   <a href="examples/README.md">Examples</a> |
   <a href="schemas/loop-contract.schema.json">Schema</a> |
@@ -41,7 +41,7 @@
 </p>
 
 <p align="center">
-  <sub>Useful? Star the repository to find it again, <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork">fork the contracts and dataset schema</a>, or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription">watch releases</a> for curated updates.</sub>
+  <sub>Useful? Star the repository to find it again, <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork">fork the contracts and dataset schema</a>, or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription">watch Releases and Discussions</a> for curated updates.</sub>
 </p>
 
 Awesome Loop Engineering is a curated, implementation-oriented field guide to **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
@@ -1008,6 +1008,35 @@ Where this project is going and where to talk about it.
 - 🧾 **Template** [Launch article](posts/launch.md) - Shareable explanation of the concept and repository.
 - 🧾 **Template** [Discussion guide](meta/DISCUSSIONS.md) - Suggested discussion categories, starter prompts, and moderation standard.
 - 🔁 **Pattern** [Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2) - Community discussion for real or anonymized loop examples.
+
+<h2 id="build-from-this">Build From This</h2>
+
+Use the repository as an implementation kit, not only as a reading list.
+
+<table>
+  <tr>
+    <td><strong>Run locally</strong></td>
+    <td>Follow the <a href="examples/runnable/README.md#test-repair-loopsh">test-repair walkthrough</a>, then switch to the runtime that owns your trigger and isolation.</td>
+  </tr>
+  <tr>
+    <td><strong>Adapt a contract</strong></td>
+    <td>Start from the <a href="examples/ci-repair-loop.json">CI repair contract</a> and replace its objective, intake, checks, budget, and escalation rules.</td>
+  </tr>
+  <tr>
+    <td><strong>Validate a contract</strong></td>
+    <td>Use the <a href="packages/loop-contract-schema/README.md"><code>loop-contract-schema</code> package</a> in CI or call the JSON Schema from your own validator.</td>
+  </tr>
+  <tr>
+    <td><strong>Analyze the field</strong></td>
+    <td>Use the <a href="data/README.md">dataset export guide</a> to work with the CSV, JSONL, source audit, and Resource Atlas payload.</td>
+  </tr>
+  <tr>
+    <td><strong>Contribute one source</strong></td>
+    <td>Use the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml">resource suggestion form</a> or the <a href="CONTRIBUTING.md#fastest-contribution-under-five-minutes">under-five-minute contribution path</a>.</td>
+  </tr>
+</table>
+
+[Fork the repository](https://github.com/ChaoYue0307/awesome-loop-engineering/fork) to adapt the contracts, runnable templates, and dataset schema for your own loop system.
 
 ## Contributing
 

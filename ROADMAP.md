@@ -8,19 +8,21 @@ This roadmap keeps Awesome Loop Engineering focused on useful, verifiable work f
 - Add real or anonymized gallery entries from practitioners running recurring agent loops.
 - Grow the runnable loop directory beyond the test-repair reference loop, including scheduled-trigger variants per runtime.
 - Add more translations for the introduction, mental model, Loop Contract, and contribution guide.
+- Audit contextual sources in small batches and replace weak summaries or secondary links with stronger canonical evidence.
 - Continue replacing weak or unstable links with primary sources, official docs, papers, and implementation-heavy write-ups.
 
 ## Pattern Library
 
-Completed reference patterns now cover PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, dependency triage, evaluation regression, security review, cost-control, and bug hunting. Every pattern now ships a schema-validated loop contract in `examples/`.
+The library now contains 15 reference patterns: PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, dependency triage, evaluation regression, security review, cost control, bug hunting, enterprise approval, incident response, data quality, release notes, and model routing. Every pattern ships a schema-validated loop contract in `examples/`.
 
-Next pattern-library work should focus on variants backed by operational evidence:
+Next pattern-library work should prioritize variants backed by operational evidence rather than adding names for coverage. Useful additions include runtime-specific implementations, before/after receipts, measured retry and cost budgets, failure cases, and human-escalation outcomes.
 
-- enterprise approval loops for permissioned agents;
-- incident response loops with pager handoff and postmortem evidence;
-- data-quality loops for repeated dataset or knowledge-base refresh;
-- release-note loops that connect commits, issues, docs, and changelogs;
-- model-routing loops that balance quality, latency, privacy, and cost.
+## Community And Adoption
+
+- Publish a concise monthly Discussions digest with corrected annotations, new primary sources, and open contributor tasks.
+- Keep several narrowly scoped `good first issue` and `help wanted` tasks available for source audits, translations, runnable examples, and gallery case studies.
+- Ask cited authors to review the repository's characterization of their work; request corrections, not promotion or stars.
+- Track qualified traffic, forks, watchers, and external contributions after each launch channel while GitHub traffic data is still available.
 
 ## Gallery
 

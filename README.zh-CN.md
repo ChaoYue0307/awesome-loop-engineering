@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <sub>如果这个项目对你有帮助，可以 Star 以便再次找到它，<a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork">Fork loop contracts 与数据 schema</a>，或<a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription">订阅 Releases</a> 获取精选更新。</sub>
+  <sub>如果这个项目对你有帮助，可以 Star 以便再次找到它，<a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork">Fork loop contracts 与数据 schema</a>，或<a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription">订阅 Releases 与 Discussions</a> 获取精选更新。</sub>
 </p>
 
 <p align="center">

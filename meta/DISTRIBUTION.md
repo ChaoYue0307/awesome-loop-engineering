@@ -2,6 +2,19 @@
 
 Use this checklist after major updates or releases. The goal is accurate discovery, not hype.
 
+## Current Launch Status
+
+Status as of 2026-07-17:
+
+| Surface | Status | Evidence / next action |
+| --- | --- | --- |
+| GitHub release | Complete | [`v0.5.0`](https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.5.0) describes 509 resources and links the atlas, dataset, templates, and contribution guide. |
+| GitHub Explore topic | Complete | [`github/explore#5209`](https://github.com/github/explore/pull/5209) merged the `loop-engineering` topic page. |
+| Canonical Awesome directory | In review | [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open with a passing lint check. Respond to maintainer feedback; do not open a duplicate. |
+| Hugging Face dataset | Complete | [`datasets/cy0307/awesome-loop-engineering`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) carries the structured resource sheet and full project mirror. |
+| English and Chinese launch articles | Ready | Publish [`posts/launch.md`](../posts/launch.md) and [`posts/launch.zh-CN.md`](../posts/launch.zh-CN.md) natively on suitable channels. |
+| Profile pin and social posting | Owner action | Pin the repository, then publish from identity-bound LinkedIn, X, Hacker News, and Chinese-language accounts. |
+
 ## Indexing Basics
 
 - Confirm the repository is public.
@@ -25,9 +38,9 @@ The repository is mirrored to the Hugging Face Hub dataset repo [`datasets/cy030
 
 Discoverability levers that live on GitHub itself, in priority order.
 
-- **Topic page (`github/explore`).** There is no curated page for the [`loop-engineering` topic](https://github.com/topics/loop-engineering) yet. A page is prepared on the fork branch `ChaoYue0307:add-loop-engineering-topic` (file `topics/loop-engineering/index.md`); open a PR from that branch to `github/explore`. This describes the topic, not this repo specifically, so it promotes the concept and helps the whole ecosystem.
-- **sindresorhus/awesome submission.** The canonical awesome-list promotion; opens after the 30-day age rule (~2026-07-09). Use [`AWESOME_SUBMISSION.md`](AWESOME_SUBMISSION.md).
-- **Reciprocal entries on adjacent lists** this repo already cites (harness, context, agent-papers lists). Ready-to-paste entry:
+- **Topic page (`github/explore`).** The [`loop-engineering` topic](https://github.com/topics/loop-engineering) now has a curated page through merged PR [`github/explore#5209`](https://github.com/github/explore/pull/5209). Keep the topic description ecosystem-wide rather than repository-specific.
+- **sindresorhus/awesome submission.** Track the open canonical directory PR at [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) and respond to maintainer feedback quickly. Use [`AWESOME_SUBMISSION.md`](AWESOME_SUBMISSION.md) for the acceptance criteria.
+- **Editorial submissions to adjacent lists** this repo already cites (harness, context, and agent-paper lists). Submit only where the maintainers explicitly accept related resources. Ready-to-paste entry:
 
   ```md
   - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Recurring AI/coding-agent systems above prompt, context, and harness engineering: patterns, contracts, runnable loops, and curated resources.
@@ -35,7 +48,37 @@ Discoverability levers that live on GitHub itself, in priority order.
 
 - **Pin the repository** on your profile, and add it to your profile README (profile-level promotion).
 - **Custom social preview** (repo Settings, Social preview) so shared links render with the cover image. This is UI-only; it cannot be set through the API.
-- **Releases** notify watchers and appear on the repo; the latest is the cleanest moment to share.
+- **Releases and Discussions** provide a lower-noise subscription path. Recommend `Watch -> Custom -> Releases and Discussions`; do not ask readers to watch every repository event.
+
+Do not use reciprocal-star requests, broad promotional pull requests, or unrelated issue comments. Every directory or newsletter submission should satisfy its normal editorial policy on its own merits.
+
+## Measurement Baseline
+
+GitHub retains repository traffic details for only 14 days. Record a snapshot weekly, using the same definitions each time.
+
+Baseline captured on 2026-07-17 for the API window ending 2026-07-15:
+
+| Metric | Baseline |
+| --- | ---: |
+| Repository views | 333 |
+| Unique visitors | 142 |
+| Clones | 204 |
+| Unique cloners | 81 |
+| Stars | 24 |
+| Forks | 3 |
+| Watchers | 1 |
+
+The repository overview reached 119 unique visitors. The Chinese README was the second-most visited content path with 19 unique visitors. The largest identifiable referrers were Google (17 unique visitors), GitHub (14), Bing (14), and the project site (6); launch and community channels had not yet become material sources.
+
+Working 30-day campaign targets:
+
+- 1,000-1,500 unique visitors;
+- 75-100 total stars;
+- 8-12 forks;
+- 5-8 watchers;
+- at least 5 external contributors.
+
+Treat these as measurement targets, not promises. Log the publication date and canonical URL for each channel, then compare referral traffic and qualified contributions rather than optimizing for raw impressions.
 
 ## Launch Copy
 
