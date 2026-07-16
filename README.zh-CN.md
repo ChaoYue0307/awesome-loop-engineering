@@ -32,7 +32,7 @@ Prompt engineering 改进你对模型说什么。Context engineering 改进模�
 
 本仓库不收录软件事件循环、控制论、增长循环、通用 workflow automation 或非 AI feedback loop。
 
-除资源列表外，本仓库还维护 509 条经过审阅的资源记录，并提供 15 个 loop 模式、15 个经 schema 校验的 loop contracts、6 个可运行的 loop 模板、社区 gallery，以及 8 个语言入口。
+除资源列表外，本仓库还维护 509 条经过审阅的资源记录（canonical sources），并提供 15 个 loop 模式、15 个经 schema 校验的 loop contracts、6 个可运行的 loop 模板、社区 gallery，以及 8 个语言入口。
 
 ## 一句话定位
 

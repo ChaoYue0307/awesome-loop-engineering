@@ -27,7 +27,7 @@ Awesome Loop Engineering v0.5.0 聚焦于 prompt、context 与 harness engineeri
 
 Prompt engineering 改善你对模型说什么。Context engineering 改善模型能看到什么。Harness engineering 改善单次运行周围的工具、权限、沙箱和检查。
 
-Loop Engineering 继续追问：什么系统应该定期或按事件启动，发现工作，加载持久上下文，在安全环境中执行，通过明确的 gate 验证，记录 receipts，并决定重复、报告、升级给人或停止？
+Loop Engineering 继续追问：什么系统应该定期或按事件启动，发现工作，加载持久上下文，在安全环境中执行，通过明确的 gate 验证，记录凭证（receipts），并决定重复、报告、升级给人或停止？
 
 目标不是无限自治，而是有边界、可审阅、由证据驱动的重复运行。
 
