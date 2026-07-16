@@ -20,16 +20,35 @@ Each row in `data/resources.jsonl` (and the equivalent `data/resources.csv`) is 
 | `novelty` | Why the entry is distinct within its section. |
 | `impact` | Who benefits and how. |
 | `signal` | Why the entry is trustworthy (adoption, venue, authorship). |
-| `signal_strength` | Coarse confidence label (`strong`, `medium`, `contextual`). |
+| `signal_strength` | Calibrated confidence label (`high`, `medium`, `contextual`, or `unverified`). |
 | `source_readme` | README file the row came from. |
 | `source_line` | 1-based line number in that README. |
 | `source_url` | Permalink to the source line on GitHub. |
+| `date_added` | First-seen date when tracked; blank for resources added before tracking began. |
+| `collection` | Task-oriented atlas group: Learn, Design, Build, Persist, Verify, Govern, or Apply. |
+| `collection_slug` | Stable lowercase slug for the task-oriented collection. |
+| `user_goal` | Reader outcome served by the collection. |
+| `lifecycle_stages` | Semicolon-delimited Loop Contract stages addressed by the resource. |
+| `audience` | Semicolon-delimited intended audiences, such as newcomer, builder, operator, evaluator, or security. |
+| `evidence_class` | Source-provenance category, independent of popularity or editorial judgment. |
+| `source_status` | Latest audit result: `ok`, `restricted`, `local_ok`, or an explicit failure state. |
+| `canonical_url` | Redirect-resolved or repository-canonical URL used for source verification. |
+| `source_title` | Title metadata retrieved during the latest source audit. |
+| `source_description` | Description or abstract metadata retrieved from the primary source. |
+| `github_repo` | Normalized GitHub `owner/repository` identifier where applicable. |
+| `github_stars` | GitHub star count captured at audit time; context, not a reliability score. |
+| `github_forks` | GitHub fork count captured at audit time. |
+| `github_license` | Repository license identifier reported by GitHub where available. |
+| `github_updated_at` | Latest repository update timestamp reported by GitHub. |
+| `arxiv_id` | arXiv identifier extracted from a primary paper URL where applicable. |
+| `audited_at` | UTC timestamp for the source metadata and availability snapshot. |
 
 ## Considerations and Limitations
 
 - Annotations are written and curated by a single maintainer; they summarize each resource and are not the authors' own abstracts.
 - URLs are third-party and can rot; `data/resource_source_audit.csv` carries a retrieval-time reachability snapshot, but it is a point-in-time check, not a live guarantee.
 - `row_id` and `source_line` are positional and change when the README is reordered; join on `url` for anything durable.
+- `signal_strength` is calibrated as `high`, `medium`, `contextual`, or `unverified`; GitHub stars and forks are reported only as adoption context.
 - Coverage skews toward English-language, publicly available resources.
 
 ## Changelog
