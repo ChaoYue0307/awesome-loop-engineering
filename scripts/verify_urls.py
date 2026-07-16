@@ -16,9 +16,11 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 URL_RE = re.compile(r'https?://[^\s)\]}>"]+')
+CLAUDE_DOC_HOSTS = {"code.claude.com", "docs.anthropic.com"}
 
 
 class RedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -56,6 +58,7 @@ def check_url(url: str, timeout: float, attempts: int) -> tuple[bool, str]:
         RedirectHandler(),
     )
     last_error = "unknown"
+    source_host = urlparse(url).netloc.lower()
 
     for attempt in range(1, attempts + 1):
         for method in ("HEAD", "GET"):
@@ -66,8 +69,14 @@ def check_url(url: str, timeout: float, attempts: int) -> tuple[bool, str]:
             )
             try:
                 with opener.open(request, timeout=timeout) as response:
+                    final_host = urlparse(response.geturl()).netloc.lower()
+                    if source_host == "code.claude.com" and final_host not in CLAUDE_DOC_HOSTS:
+                        return True, f"{response.status} restricted redirect"
                     return response.status < 400, f"{response.status} {method}"
             except urllib.error.HTTPError as error:
+                final_host = urlparse(error.geturl()).netloc.lower()
+                if source_host == "code.claude.com" and final_host not in CLAUDE_DOC_HOSTS:
+                    return True, f"{error.code} restricted redirect"
                 if error.code in {401, 403, 405, 406, 418, 429, 999}:
                     return True, f"{error.code} restricted"
                 if method == "HEAD":
