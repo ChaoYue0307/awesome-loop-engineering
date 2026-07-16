@@ -417,9 +417,9 @@ if (container && hero) {
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       camera.fov = mobile ? 34 : 31;
-      camera.position.z = mobile ? 9.9 : 12.2;
+      camera.position.z = mobile ? 9.2 : 12.2;
       camera.updateProjectionMatrix();
-      layoutScaleX = mobile ? 1.02 : 1.58;
+      layoutScaleX = mobile ? 1.02 : 1.46;
       layoutScaleY = mobile ? 1.12 : 1.04;
       root.position.y = mobile ? -0.02 : -0.28;
       flowMaterial.opacity = mobile ? 0.42 : 0.28;

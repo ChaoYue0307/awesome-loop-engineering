@@ -141,10 +141,31 @@
 
       main { overflow: hidden; }
       section { padding: 86px 0; border-top: 1px solid var(--line); }
-      .hero { position: relative; isolation: isolate; min-height: 610px; overflow: hidden; padding: 64px 0 40px; border-top: 0; text-align: center; }
+      .hero { position: relative; isolation: isolate; min-height: 0; overflow: hidden; padding: 64px 0 20px; border-top: 0; text-align: center; }
       .hero .wrap { position: relative; z-index: 1; }
       .hero-copy { position: relative; z-index: 2; }
-      .hero-scene { position: absolute; inset: 385px -4vw 0; z-index: 0; overflow: hidden; pointer-events: none; }
+      .hero-system {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.72fr) minmax(500px, 1.28fr);
+        gap: 28px;
+        align-items: center;
+        width: min(100%, 1080px);
+        margin: 34px auto 0;
+        padding: 16px 0;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .hero-inspector { min-width: 0; }
+      .hero-scene {
+        position: relative;
+        z-index: 0;
+        min-width: 0;
+        width: 100%;
+        height: 220px;
+        border-left: 1px solid var(--line);
+        overflow: hidden;
+        pointer-events: none;
+      }
       .hero-scene canvas { display: block; width: 100%; height: 100%; opacity: 0.96; }
       .hero-scene[data-scene-state="fallback"] { display: none; }
       .mental-model { padding: 18px 0 52px; }
@@ -201,6 +222,22 @@
         font-size: 0.82rem;
       }
       .loop-stage-detail strong { color: var(--ink); }
+      .hero-system .loop-stage-rail {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        max-width: none;
+        margin: 0;
+      }
+      .hero-system .loop-stage:nth-child(odd) { border-left: 0; }
+      .hero-system .loop-stage:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .hero-inspector .loop-stage-detail {
+        min-height: 64px;
+        max-width: none;
+        margin: 14px 0 0;
+        border-left: 3px solid var(--blue);
+        padding: 9px 0 0 14px;
+        text-align: left;
+      }
       .hero-visual { max-width: 780px; margin: 0 auto; }
       .hero-visual picture, .hero-visual img, .diagram img { display: block; width: 100%; height: auto; }
       .diagram-scroll { width: 100%; overflow: hidden; }
@@ -465,12 +502,28 @@
         .links.open .mobile-nav-only { display: block; }
         .links.open a[aria-current="location"]::after { display: none; }
       }
+      @media (max-width: 920px) {
+        .hero-system {
+          grid-template-columns: 1fr;
+          gap: 0;
+          width: min(100%, 760px);
+          margin-top: 28px;
+          padding-top: 16px;
+        }
+        .hero-inspector { padding-bottom: 16px; }
+        .hero-scene { height: 210px; border-top: 1px solid var(--line); border-left: 0; }
+        .hero-system .loop-stage-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .hero-system .loop-stage:nth-child(n) { border-top: 0; border-left: 1px solid var(--line); }
+        .hero-system .loop-stage:nth-child(3n+1) { border-left: 0; }
+        .hero-system .loop-stage:nth-child(n+4) { border-top: 1px solid var(--line); }
+        .hero-inspector .loop-stage-detail { min-height: 42px; }
+      }
       @media (max-width: 820px) {
         .wrap { width: min(var(--maxw), calc(100% - 32px)); }
         .links.open { left: -16px; right: -16px; padding-inline: 16px; }
         section { padding: 68px 0; }
-        .hero { min-height: 0; padding: 52px 0 0; }
-        .hero-scene { position: relative; inset: auto; width: 100%; height: 220px; margin-top: 0; }
+        .hero { min-height: 0; padding: 52px 0 32px; }
+        .hero-scene { width: 100%; height: 200px; }
         .hero-scene canvas { opacity: 1; }
         h1 { font-size: 3rem; }
         h2 { font-size: 2rem; }
@@ -505,18 +558,21 @@
         .section-label { margin-bottom: 9px; font-size: 0.68rem; }
         .section-head { gap: 12px; margin-bottom: 24px; }
         .section-intro { font-size: 0.95rem; }
-        .hero { min-height: 0; padding: 34px 0 0; }
+        .hero { min-height: 0; padding: 34px 0 20px; }
         .hero-kicker { max-width: 330px; margin: 0 auto 10px; line-height: 1.45; }
         .tagline { margin-top: 14px; font-size: 1.18rem; }
         .lead { margin-top: 10px; font-size: 0.95rem; line-height: 1.55; }
         .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 19px; }
         .actions .button { min-width: 0; min-height: 44px; padding-inline: 8px; font-size: 0.82rem; }
-        .hero-scene { position: relative; inset: auto; width: 100%; height: 196px; margin-top: 0; }
+        .hero-system { margin-top: 22px; padding-top: 12px; padding-bottom: 0; }
+        .hero-inspector { padding-bottom: 12px; }
+        .hero-scene { width: 100%; height: 170px; }
         .hero-scene canvas { opacity: 1; }
         .loop-stage-rail { margin-top: 20px; }
         .loop-stage { min-height: 42px; padding-inline: 5px; font-size: 0.68rem; }
         .loop-stage-number { font-size: 0.59rem; }
         .loop-stage-detail { min-height: 40px; margin-top: 8px; font-size: 0.75rem; line-height: 1.45; }
+        .hero-inspector .loop-stage-detail { min-height: 44px; margin-top: 10px; padding-top: 8px; }
         .mental-model { padding: 38px 0 44px; }
         .definition { margin-bottom: 22px; font-size: 0.88rem; line-height: 1.55; }
         .definition-full { display: none; }
@@ -714,17 +770,21 @@
               <a class="button" href="#choose">Choose a loop</a>
             </div>
           </div>
-          <div class="loop-stage-rail" role="group" aria-label="Inspect the loop lifecycle">
-            <button class="loop-stage" type="button" data-loop-stage="0" aria-pressed="false"><span class="loop-stage-number">01</span><span>Intake</span></button>
-            <button class="loop-stage" type="button" data-loop-stage="1" aria-pressed="false"><span class="loop-stage-number">02</span><span>Delegate</span></button>
-            <button class="loop-stage" type="button" data-loop-stage="2" aria-pressed="false"><span class="loop-stage-number">03</span><span>Act</span></button>
-            <button class="loop-stage" type="button" data-loop-stage="3" aria-pressed="true"><span class="loop-stage-number">04</span><span>Verify</span></button>
-            <button class="loop-stage" type="button" data-loop-stage="4" aria-pressed="false"><span class="loop-stage-number">05</span><span>Persist</span></button>
-            <button class="loop-stage" type="button" data-loop-stage="5" aria-pressed="false"><span class="loop-stage-number">06</span><span>Decide</span></button>
+          <div class="hero-system">
+            <div class="hero-inspector">
+              <div class="loop-stage-rail" role="group" aria-label="Inspect the loop lifecycle">
+                <button class="loop-stage" type="button" data-loop-stage="0" aria-pressed="false"><span class="loop-stage-number">01</span><span>Intake</span></button>
+                <button class="loop-stage" type="button" data-loop-stage="1" aria-pressed="false"><span class="loop-stage-number">02</span><span>Delegate</span></button>
+                <button class="loop-stage" type="button" data-loop-stage="2" aria-pressed="false"><span class="loop-stage-number">03</span><span>Act</span></button>
+                <button class="loop-stage" type="button" data-loop-stage="3" aria-pressed="true"><span class="loop-stage-number">04</span><span>Verify</span></button>
+                <button class="loop-stage" type="button" data-loop-stage="4" aria-pressed="false"><span class="loop-stage-number">05</span><span>Persist</span></button>
+                <button class="loop-stage" type="button" data-loop-stage="5" aria-pressed="false"><span class="loop-stage-number">06</span><span>Decide</span></button>
+              </div>
+              <p class="loop-stage-detail" id="loop-stage-detail" aria-live="polite"><strong>Verify:</strong> gate completion with tests, evals, traces, or review.</p>
+            </div>
+            <div class="hero-scene" data-loop-scene aria-hidden="true"></div>
           </div>
-          <p class="loop-stage-detail" id="loop-stage-detail" aria-live="polite"><strong>Verify:</strong> gate completion with tests, evals, traces, or review.</p>
         </div>
-        <div class="hero-scene" data-loop-scene aria-hidden="true"></div>
       </section>
 
       <section class="mental-model" aria-label="Loop Engineering mental model">
@@ -1395,6 +1455,6 @@
         });
       });
     </script>
-    <script type="module" src="assets/loop-hero-scene.js?v=11"></script>
+    <script type="module" src="assets/loop-hero-scene.js?v=12"></script>
   </body>
 </html>
