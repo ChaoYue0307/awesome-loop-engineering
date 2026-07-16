@@ -1,62 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
   <title id="title">Loop Engineering stack</title>
-  <desc id="desc">A clean layered diagram showing Prompt Engineering, Context Engineering, Harness Engineering, and Loop Engineering as a recurring system contract.</desc>
+  <desc id="desc">A layered diagram: Prompt, Context, and Harness Engineering improve a single agent run, while Loop Engineering is the recurring system contract that governs agent work over time.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0b1120"/>
     </linearGradient>
     <linearGradient id="loop" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#38bdf8"/>
       <stop offset="100%" stop-color="#a78bfa"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#020617" flood-opacity="0.32"/>
     </filter>
   </defs>
 
   <rect width="1200" height="760" rx="34" fill="url(#bg)"/>
-  <text x="600" y="64" text-anchor="middle" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="34" font-weight="800">Loop Engineering Stack</text>
-  <text x="600" y="98" text-anchor="middle" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="17">From single prompts to recurring, stateful, verified agent systems</text>
+  <text x="600" y="60" text-anchor="middle" fill="#f8fafc" font-size="34" font-weight="800" letter-spacing="-0.02em">Loop Engineering Stack</text>
+  <text x="600" y="94" text-anchor="middle" fill="#c2cad8" font-size="17">From single prompts to recurring, stateful, verified agent systems</text>
 
+  <!-- scope rails -->
+  <g stroke-linecap="round">
+    <path d="M124 132 H115 V366 H124" fill="none" stroke="#3a475c" stroke-width="2"/>
+    <path d="M124 388 H115 V680 H124" fill="none" stroke="url(#loop)" stroke-width="2.6"/>
+  </g>
+  <text transform="translate(74 249) rotate(-90)" text-anchor="middle" fill="#7b8aa3" font-size="12.5" font-weight="800" letter-spacing="0.2em">IMPROVES ONE RUN</text>
+  <text transform="translate(74 534) rotate(-90)" text-anchor="middle" fill="#8fd6fb" font-size="12.5" font-weight="800" letter-spacing="0.2em">GOVERNS WORK OVER TIME</text>
+
+  <!-- three input tiers -->
   <g filter="url(#shadow)">
-    <rect x="90" y="132" width="1020" height="78" rx="22" fill="#1e293b" stroke="#334155"/>
-    <text x="140" y="166" fill="#93c5fd" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="700">Prompt Engineering</text>
-    <text x="140" y="193" fill="#e2e8f0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16">What should I say to the model?</text>
+    <rect x="158" y="132" width="958" height="72" rx="20" fill="#1e293b" stroke="#3b4a63"/>
+    <rect x="158" y="216" width="958" height="72" rx="20" fill="#172554" stroke="#2856c9"/>
+    <rect x="158" y="300" width="958" height="72" rx="20" fill="#2e2a72" stroke="#6366f1"/>
+  </g>
+  <g>
+    <circle cx="192" cy="168" r="5" fill="#60a5fa"/>
+    <text x="216" y="163" fill="#bfdbfe" font-size="19" font-weight="700">Prompt Engineering</text>
+    <text x="216" y="187" fill="#cdd7e6" font-size="15">What should I say to the model?</text>
 
-    <rect x="90" y="228" width="1020" height="78" rx="22" fill="#172554" stroke="#1d4ed8"/>
-    <text x="140" y="262" fill="#bfdbfe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="700">Context Engineering</text>
-    <text x="140" y="289" fill="#dbeafe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16">What state, memory, docs, and examples should the agent see?</text>
+    <circle cx="192" cy="252" r="5" fill="#818cf8"/>
+    <text x="216" y="247" fill="#c7d2fe" font-size="19" font-weight="700">Context Engineering</text>
+    <text x="216" y="271" fill="#dbe3f4" font-size="15">What state, memory, docs, and examples should the agent see?</text>
 
-    <rect x="90" y="324" width="1020" height="78" rx="22" fill="#312e81" stroke="#6366f1"/>
-    <text x="140" y="358" fill="#ddd6fe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="20" font-weight="700">Harness Engineering</text>
-    <text x="140" y="385" fill="#ede9fe" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16">What tools, permissions, sandboxes, traces, and checks surround one agent run?</text>
-
-    <rect x="90" y="420" width="1020" height="250" rx="28" fill="url(#loop)" opacity="0.96"/>
-    <text x="140" y="458" fill="#082f49" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="22" font-weight="900">Loop Engineering</text>
-    <text x="140" y="486" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="600">A recurring system contract for agent work.</text>
+    <circle cx="192" cy="336" r="5" fill="#a78bfa"/>
+    <text x="216" y="331" fill="#ddd6fe" font-size="19" font-weight="700">Harness Engineering</text>
+    <text x="216" y="355" fill="#e7e2fb" font-size="15">What tools, permissions, sandboxes, traces, and checks surround one agent run?</text>
   </g>
 
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
-    <rect x="140" y="515" width="440" height="66" rx="18" fill="#0f172a" opacity="0.92"/>
-    <text x="168" y="543" fill="#e0f2fe" font-size="16" font-weight="800">1. Goal + Trigger</text>
-    <text x="168" y="566" fill="#bae6fd" font-size="13">Define success, cadence, and work intake.</text>
+  <!-- loop layer -->
+  <g filter="url(#shadow)">
+    <rect x="158" y="388" width="958" height="292" rx="26" fill="url(#loop)"/>
+  </g>
+  <text x="216" y="430" fill="#082033" font-size="23" font-weight="900" letter-spacing="-0.01em">Loop Engineering</text>
+  <text x="216" y="456" fill="#0b2136" font-size="15.5" font-weight="600">The recurring system contract for agent work.</text>
 
-    <rect x="620" y="515" width="440" height="66" rx="18" fill="#0f172a" opacity="0.92"/>
-    <text x="648" y="543" fill="#e0f2fe" font-size="16" font-weight="800">2. Context + Harness</text>
-    <text x="648" y="566" fill="#bae6fd" font-size="13">Load state, tools, permissions, and isolation.</text>
-
-    <rect x="140" y="601" width="440" height="66" rx="18" fill="#0f172a" opacity="0.92"/>
-    <text x="168" y="629" fill="#e0f2fe" font-size="16" font-weight="800">3. Delegate + Verify</text>
-    <text x="168" y="652" fill="#bae6fd" font-size="13">Route work, test, evaluate, and collect receipts.</text>
-
-    <rect x="620" y="601" width="440" height="66" rx="18" fill="#0f172a" opacity="0.92"/>
-    <text x="648" y="629" fill="#e0f2fe" font-size="16" font-weight="800">4. State + Next Action</text>
-    <text x="648" y="652" fill="#bae6fd" font-size="13">Persist, repeat, report, or escalate.</text>
+  <g>
+    <g transform="translate(206 482)">
+      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#93c5fd" stroke-opacity="0.35"/>
+      <text x="26" y="34" fill="#e0f2fe" font-size="16" font-weight="800">1 &#183; Goal + Trigger</text>
+      <text x="26" y="59" fill="#a9c6e0" font-size="13.5">Define success, cadence, and work intake.</text>
+    </g>
+    <g transform="translate(652 482)">
+      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#93c5fd" stroke-opacity="0.35"/>
+      <text x="26" y="34" fill="#e0f2fe" font-size="16" font-weight="800">2 &#183; Context + Harness</text>
+      <text x="26" y="59" fill="#a9c6e0" font-size="13.5">Load state, tools, permissions, and isolation.</text>
+    </g>
+    <g transform="translate(206 578)">
+      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#c4b5fd" stroke-opacity="0.35"/>
+      <text x="26" y="34" fill="#f1e9ff" font-size="16" font-weight="800">3 &#183; Delegate + Verify</text>
+      <text x="26" y="59" fill="#cdbdf0" font-size="13.5">Route work, test, evaluate, and collect receipts.</text>
+    </g>
+    <g transform="translate(652 578)">
+      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#c4b5fd" stroke-opacity="0.35"/>
+      <text x="26" y="34" fill="#f1e9ff" font-size="16" font-weight="800">4 &#183; State + Next Action</text>
+      <text x="26" y="59" fill="#cdbdf0" font-size="13.5">Persist, repeat, report, or escalate.</text>
+    </g>
   </g>
 
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="15">
-    <circle cx="95" cy="724" r="5" fill="#38bdf8"/>
-    <text x="112" y="729" fill="#cbd5e1">Core contract: objective, trigger, discover/intake, workspace, context, delegation, verification, state, budget, escalation, exit.</text>
-  </g>
+  <circle cx="163" cy="722" r="5" fill="#38bdf8"/>
+  <text x="180" y="727" fill="#c2cad8" font-size="14.5">Core contract: objective, trigger, discover/intake, workspace, context, delegation, verification, state, budget, escalation, exit.</text>
 </svg>

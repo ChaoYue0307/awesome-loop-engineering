@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="560" viewBox="0 0 1240 560" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="560" viewBox="0 0 1240 560" role="img" aria-labelledby="title desc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
   <title id="title">Loop Engineering lifecycle</title>
-  <desc id="desc">A polished lifecycle diagram for a recurring agent loop: Intake, Delegate, Act, Verify, Persist, Decide, then retry, escalate, or exit.</desc>
+  <desc id="desc">One recurring agent pass: Intake, Delegate, Act, Verify, Persist, then Decide. Decide branches three ways: retry with evidence back to Intake, escalate to a human, or exit when the goal is met.</desc>
   <defs>
     <linearGradient id="panel" x1="86" y1="28" x2="1154" y2="532" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#111a33"/>
@@ -16,101 +16,77 @@
       <stop offset="1" stop-color="#0b1324"/>
     </linearGradient>
     <filter id="cardShadow" x="-18%" y="-28%" width="136%" height="156%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#020617" flood-opacity="0.24"/>
+      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#020617" flood-opacity="0.30"/>
     </filter>
-    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8.7" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0L10 5L0 10Z" fill="#7dd3fc"/>
-    </marker>
-    <marker id="arrowViolet" viewBox="0 0 10 10" refX="8.7" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0L10 5L0 10Z" fill="#a78bfa"/>
-    </marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7dd3fc"/></marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#34d399"/></marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#fbbf24"/></marker>
+    <marker id="arrowViolet" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#a78bfa"/></marker>
   </defs>
 
   <rect width="1240" height="560" rx="40" fill="#070b16"/>
   <rect x="24" y="24" width="1192" height="512" rx="34" fill="url(#panel)" stroke="#243044" stroke-width="1.5"/>
 
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
-    <text x="620" y="76" text-anchor="middle" fill="#f8fafc" font-size="34" font-weight="850">Loop Engineering Lifecycle</text>
-    <text x="620" y="108" text-anchor="middle" fill="#cbd5e1" font-size="16" font-weight="500">One recurring agent pass, governed by evidence, state, and bounded decisions</text>
+  <text x="620" y="72" text-anchor="middle" fill="#f8fafc" font-size="33" font-weight="800" letter-spacing="-0.02em">Loop Engineering Lifecycle</text>
+  <text x="620" y="102" text-anchor="middle" fill="#c2cad8" font-size="15.5">One recurring agent pass, governed by evidence, state, and bounded decisions</text>
 
-    <g transform="translate(132 146)">
-      <rect x="0" y="0" width="976" height="58" rx="18" fill="#0b1324" stroke="#263249"/>
-      <text x="28" y="36" fill="#e0f2fe" font-size="15" font-weight="760">Contract</text>
-      <text x="138" y="36" fill="#9fb0c7" font-size="14">goal + trigger</text>
-      <circle cx="278" cy="29" r="3" fill="#38bdf8"/>
-      <text x="306" y="36" fill="#9fb0c7" font-size="14">workspace + context</text>
-      <circle cx="510" cy="29" r="3" fill="#38bdf8"/>
-      <text x="538" y="36" fill="#9fb0c7" font-size="14">verification + state</text>
-      <circle cx="748" cy="29" r="3" fill="#a78bfa"/>
-      <text x="776" y="36" fill="#9fb0c7" font-size="14">budget + exit</text>
-    </g>
+  <!-- contract strip -->
+  <g transform="translate(132 128)">
+    <rect x="0" y="0" width="976" height="52" rx="16" fill="#0b1324" stroke="#263249"/>
+    <text x="26" y="32" fill="#e0f2fe" font-size="14.5" font-weight="800">Contract</text>
+    <text x="132" y="32" fill="#9fb0c7" font-size="13.5">goal + trigger</text>
+    <circle cx="266" cy="26" r="3" fill="#38bdf8"/><text x="290" y="32" fill="#9fb0c7" font-size="13.5">workspace + context</text>
+    <circle cx="486" cy="26" r="3" fill="#38bdf8"/><text x="510" y="32" fill="#9fb0c7" font-size="13.5">verification + state</text>
+    <circle cx="712" cy="26" r="3" fill="#a78bfa"/><text x="736" y="32" fill="#9fb0c7" font-size="13.5">budget + exit</text>
+  </g>
 
-    <path d="M1066 258C1048 218 824 214 620 214C416 214 196 218 178 258" fill="none" stroke="#a78bfa" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrowViolet)"/>
-    <rect x="533" y="199" width="174" height="28" rx="14" fill="#0b1324" stroke="#2a244b"/>
-    <text x="620" y="218" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="780">retry with evidence</text>
+  <!-- retry arc: Decide -> back to Intake -->
+  <path d="M1021 246 C1006 220 858 214 620 214 C382 214 236 220 151 246" fill="none" stroke="#a78bfa" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 8" marker-end="url(#arrowViolet)"/>
+  <rect x="533" y="200" width="174" height="27" rx="13.5" fill="#0b1324" stroke="#2a244b"/>
+  <text x="620" y="218" text-anchor="middle" fill="#c4b5fd" font-size="12.5" font-weight="800">retry with evidence</text>
 
-    <g filter="url(#cardShadow)">
-      <g transform="translate(80 250)">
-        <rect width="142" height="86" rx="19" fill="url(#node)" stroke="#2c3a55"/>
-        <circle cx="71" cy="27" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.52"/>
-        <text x="71" y="32" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">1</text>
-        <text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Intake</text>
-      </g>
-      <g transform="translate(254 250)">
-        <rect width="142" height="86" rx="19" fill="url(#node)" stroke="#2c3a55"/>
-        <circle cx="71" cy="27" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.52"/>
-        <text x="71" y="32" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">2</text>
-        <text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Delegate</text>
-      </g>
-      <g transform="translate(428 250)">
-        <rect width="142" height="86" rx="19" fill="url(#node)" stroke="#2c3a55"/>
-        <circle cx="71" cy="27" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.52"/>
-        <text x="71" y="32" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">3</text>
-        <text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Act</text>
-      </g>
-      <g transform="translate(602 250)">
-        <rect width="142" height="86" rx="19" fill="url(#node)" stroke="#2c3a55"/>
-        <circle cx="71" cy="27" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.52"/>
-        <text x="71" y="32" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">4</text>
-        <text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Verify</text>
-      </g>
-      <g transform="translate(776 250)">
-        <rect width="142" height="86" rx="19" fill="url(#node)" stroke="#2c3a55"/>
-        <circle cx="71" cy="27" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.52"/>
-        <text x="71" y="32" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">5</text>
-        <text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Persist</text>
-      </g>
-      <g transform="translate(950 250)">
-        <rect width="142" height="86" rx="19" fill="#111827" stroke="url(#accent)" stroke-width="2.4"/>
-        <circle cx="71" cy="27" r="13" fill="#1f1d3f" stroke="#a78bfa" stroke-opacity="0.64"/>
-        <text x="71" y="32" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="850">6</text>
-        <text x="71" y="61" text-anchor="middle" fill="#f8fafc" font-size="17" font-weight="800">Decide</text>
-      </g>
-    </g>
+  <!-- pass nodes -->
+  <g filter="url(#cardShadow)">
+    <g transform="translate(80 250)"><rect width="142" height="86" rx="18" fill="url(#node)" stroke="#2c3a55"/><circle cx="71" cy="26" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.55"/><text x="71" y="31" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">1</text><text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Intake</text></g>
+    <g transform="translate(254 250)"><rect width="142" height="86" rx="18" fill="url(#node)" stroke="#2c3a55"/><circle cx="71" cy="26" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.55"/><text x="71" y="31" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">2</text><text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Delegate</text></g>
+    <g transform="translate(428 250)"><rect width="142" height="86" rx="18" fill="url(#node)" stroke="#2c3a55"/><circle cx="71" cy="26" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.55"/><text x="71" y="31" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">3</text><text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Act</text></g>
+    <g transform="translate(602 250)"><rect width="142" height="86" rx="18" fill="url(#node)" stroke="#2c3a55"/><circle cx="71" cy="26" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.55"/><text x="71" y="31" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">4</text><text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Verify</text></g>
+    <g transform="translate(776 250)"><rect width="142" height="86" rx="18" fill="url(#node)" stroke="#2c3a55"/><circle cx="71" cy="26" r="13" fill="#0f2742" stroke="#38bdf8" stroke-opacity="0.55"/><text x="71" y="31" text-anchor="middle" fill="#7dd3fc" font-size="12" font-weight="850">5</text><text x="71" y="61" text-anchor="middle" fill="#f1f5f9" font-size="17" font-weight="780">Persist</text></g>
+    <g transform="translate(950 250)"><rect width="142" height="86" rx="18" fill="#131a2e" stroke="url(#accent)" stroke-width="2.4"/><circle cx="71" cy="26" r="13" fill="#1f1d3f" stroke="#a78bfa" stroke-opacity="0.7"/><text x="71" y="31" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="850">6</text><text x="71" y="61" text-anchor="middle" fill="#f8fafc" font-size="17" font-weight="820">Decide</text></g>
+  </g>
 
-    <g stroke="#7dd3fc" stroke-width="2.8" stroke-linecap="round">
-      <line x1="222" y1="293" x2="248" y2="293" marker-end="url(#arrowCyan)"/>
-      <line x1="396" y1="293" x2="422" y2="293" marker-end="url(#arrowCyan)"/>
-      <line x1="570" y1="293" x2="596" y2="293" marker-end="url(#arrowCyan)"/>
-      <line x1="744" y1="293" x2="770" y2="293" marker-end="url(#arrowCyan)"/>
-      <line x1="918" y1="293" x2="944" y2="293" marker-end="url(#arrowCyan)"/>
-    </g>
+  <!-- forward arrows between nodes -->
+  <g stroke="#7dd3fc" stroke-width="2.6" stroke-linecap="round">
+    <line x1="224" y1="293" x2="250" y2="293" marker-end="url(#arrowCyan)"/>
+    <line x1="398" y1="293" x2="424" y2="293" marker-end="url(#arrowCyan)"/>
+    <line x1="572" y1="293" x2="598" y2="293" marker-end="url(#arrowCyan)"/>
+    <line x1="746" y1="293" x2="772" y2="293" marker-end="url(#arrowCyan)"/>
+    <line x1="920" y1="293" x2="946" y2="293" marker-end="url(#arrowCyan)"/>
+  </g>
 
-    <path d="M1021 336V378" fill="none" stroke="#38bdf8" stroke-width="2.8" stroke-linecap="round" marker-end="url(#arrowCyan)"/>
-    <g transform="translate(778 394)">
-      <rect width="188" height="62" rx="17" fill="#0b1324" stroke="#31405c"/>
-      <text x="94" y="26" text-anchor="middle" fill="#bae6fd" font-size="15" font-weight="820">Escalate</text>
-      <text x="94" y="47" text-anchor="middle" fill="#9fb0c7" font-size="13">human handoff</text>
-    </g>
-    <g transform="translate(992 394)">
-      <rect width="128" height="62" rx="17" fill="#0b1324" stroke="url(#accent)" stroke-width="2"/>
-      <text x="64" y="26" text-anchor="middle" fill="#ddd6fe" font-size="15" font-weight="820">Exit</text>
-      <text x="64" y="47" text-anchor="middle" fill="#9fb0c7" font-size="13">goal met</text>
-    </g>
+  <!-- Decide branches: escalate (amber, down-left) and exit (green, down-right) -->
+  <path d="M1003 338 C980 372 928 382 880 393" fill="none" stroke="#fbbf24" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrowAmber)"/>
+  <path d="M1039 338 C1052 364 1058 374 1060 393" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" marker-end="url(#arrowGreen)"/>
 
-    <g transform="translate(96 472)">
-      <circle cx="0" cy="0" r="5" fill="#38bdf8"/>
-      <text x="18" y="5" fill="#cbd5e1" font-size="14">Verification is a deterministic gate, state persists outside the model, and every loop has a budget plus a human exit.</text>
-    </g>
+  <g transform="translate(788 398)">
+    <rect width="184" height="62" rx="16" fill="#0b1324" stroke="#4d3d1a"/>
+    <text x="92" y="27" text-anchor="middle" fill="#fcd34d" font-size="15" font-weight="820">Escalate</text>
+    <text x="92" y="47" text-anchor="middle" fill="#9fb0c7" font-size="13">needs human judgment</text>
+  </g>
+  <g transform="translate(1000 398)">
+    <rect width="120" height="62" rx="16" fill="#0b1324" stroke="#1f5a44"/>
+    <text x="60" y="27" text-anchor="middle" fill="#6ee7b7" font-size="15" font-weight="820">Exit</text>
+    <text x="60" y="47" text-anchor="middle" fill="#9fb0c7" font-size="13">goal met</text>
+  </g>
+
+  <!-- legend of the three Decide outcomes -->
+  <g transform="translate(96 494)" font-size="13.5">
+    <circle cx="0" cy="-4" r="5" fill="#a78bfa"/><text x="16" y="0" fill="#c2cad8">Decide branches three ways:</text>
+    <text x="214" y="0" fill="#c4b5fd" font-weight="700">retry with evidence</text>
+    <text x="360" y="0" fill="#c2cad8">&#183;</text>
+    <text x="378" y="0" fill="#fcd34d" font-weight="700">escalate to a human</text>
+    <text x="524" y="0" fill="#c2cad8">&#183;</text>
+    <text x="542" y="0" fill="#6ee7b7" font-weight="700">exit when done</text>
+    <text x="668" y="0" fill="#8b95a7">— verification is a deterministic gate and every loop has a budget.</text>
   </g>
 </svg>
