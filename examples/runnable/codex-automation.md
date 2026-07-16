@@ -1,13 +1,13 @@
 # Codex Automation Variant
 
-> Template, not a guarantee of product behavior. Confirm triggers, worktree behavior, and scopes in the [Codex automations docs](https://developers.openai.com/codex/app/automations) before relying on this unattended.
+> Template, not a guarantee of product behavior. Confirm triggers, worktree behavior, and scopes in the [scheduled tasks docs](https://learn.chatgpt.com/docs/automations?surface=app) before relying on this unattended.
 
 A Codex automation runs a saved task on a cadence or in response to events, in an isolated workspace. Use it for recurring background work such as triage, repair, or digest loops that should run without you starting each one.
 
 ## When to use
 
 - The work recurs and should run unattended in the background.
-- It fits an isolated, per-run [worktree](https://developers.openai.com/codex/app/worktrees).
+- It fits an isolated, per-run [worktree](https://learn.chatgpt.com/docs/environments/git-worktrees).
 - You want it on the Codex runtime rather than your own infrastructure.
 
 ## Shape

@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 CSV_PATH = ROOT / "data" / "resources.csv"
 JSONL_PATH = ROOT / "data" / "resources.jsonl"
+SITE_JSON_PATH = ROOT / "docs" / "assets" / "resources.json"
+AUDIT_PATH = ROOT / "data" / "resource_source_audit.csv"
 FIRST_SEEN_PATH = ROOT / "data" / "first_seen.json"
 SOURCE_URL = "https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.md"
 
@@ -59,7 +61,123 @@ FIELDS = [
     "source_line",
     "source_url",
     "date_added",
+    "collection",
+    "collection_slug",
+    "user_goal",
+    "lifecycle_stages",
+    "audience",
+    "evidence_class",
+    "source_status",
+    "canonical_url",
+    "source_title",
+    "source_description",
+    "github_repo",
+    "github_stars",
+    "github_forks",
+    "github_license",
+    "github_updated_at",
+    "arxiv_id",
+    "audited_at",
 ]
+
+SITE_FIELDS = [
+    "row_id",
+    "title",
+    "url",
+    "canonical_url",
+    "annotation",
+    "resource_type",
+    "collection",
+    "user_goal",
+    "section",
+    "section_slug",
+    "lifecycle_stages",
+    "audience",
+    "evidence_class",
+    "signal_strength",
+    "source_status",
+    "github_stars",
+    "date_added",
+]
+
+COLLECTIONS = {
+    "Concept Guides": ("Learn", "Understand the field and its boundaries."),
+    "Start Here": ("Learn", "Understand the field and its boundaries."),
+    "Research Foundations": ("Learn", "Understand the field and its boundaries."),
+    "Pattern Library": ("Design", "Specify a loop contract and operating pattern."),
+    "Core Loop Primitives": ("Design", "Specify a loop contract and operating pattern."),
+    "Agent Workflow Patterns": ("Design", "Specify a loop contract and operating pattern."),
+    "Official Runtime Guides": ("Build", "Choose runtimes, tools, and delegation surfaces."),
+    "Coding-Agent Loop Systems": ("Build", "Choose runtimes, tools, and delegation surfaces."),
+    "Orchestration And Multi-Agent Delegation": ("Build", "Choose runtimes, tools, and delegation surfaces."),
+    "State, Memory, And Context Persistence": ("Persist", "Carry context, state, and receipts across runs."),
+    "Verification And Feedback Gates": ("Verify", "Gate progress with tests, evals, and evidence."),
+    "Benchmarks And Evaluation": ("Verify", "Gate progress with tests, evals, and evidence."),
+    "Securing Unattended Loops": ("Govern", "Bound permissions, cost, failure, and escalation."),
+    "Operations Playbooks": ("Govern", "Bound permissions, cost, failure, and escalation."),
+    "Critiques, Risks, And Limitations": ("Govern", "Bound permissions, cost, failure, and escalation."),
+    "Templates And Patterns": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+    "Examples And Schema": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+    "Community Gallery": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+    "Adjacent Awesome Lists": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+    "Discovery And Distribution": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+    "Roadmap And Discussion": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+}
+
+COLLECTION_IMPACT = {
+    "Learn": "understand the evidence, vocabulary, and lineage behind recurring agent systems",
+    "Design": "turn a recurring-agent idea into an explicit loop contract",
+    "Build": "choose an implementation surface for repeatable agent work",
+    "Persist": "carry context, state, and receipts across runs and failures",
+    "Verify": "measure progress and gate completion with repeatable evidence",
+    "Govern": "bound risk before recurring or unattended execution",
+    "Apply": "reuse a concrete artifact or connect it to the wider ecosystem",
+}
+
+SECTION_STAGE_DEFAULTS = {
+    "Concept Guides": ["whole-loop"],
+    "Start Here": ["whole-loop"],
+    "Pattern Library": ["whole-loop"],
+    "Research Foundations": ["whole-loop"],
+    "Official Runtime Guides": ["workspace", "context", "delegation", "state"],
+    "Agent Workflow Patterns": ["delegation", "verification"],
+    "Coding-Agent Loop Systems": ["workspace", "delegation", "verification", "state"],
+    "Verification And Feedback Gates": ["verification"],
+    "Securing Unattended Loops": ["workspace", "budget", "escalation"],
+    "State, Memory, And Context Persistence": ["context", "state"],
+    "Orchestration And Multi-Agent Delegation": ["delegation", "state"],
+    "Benchmarks And Evaluation": ["verification"],
+    "Operations Playbooks": ["trigger", "intake", "budget", "escalation", "exit"],
+    "Critiques, Risks, And Limitations": ["budget", "escalation", "exit"],
+    "Templates And Patterns": ["whole-loop"],
+    "Examples And Schema": ["whole-loop"],
+    "Community Gallery": ["whole-loop"],
+}
+
+STAGE_RULES = [
+    ("objective", r"\bobjective(?:s)?\b|\bgoal(?:s)?\b|success criteria"),
+    ("trigger", r"\btrigger(?:s|ed)?\b|\bschedul(?:e|ed|ing)\b|\bcadence\b|\bcron\b|\bevent-driven\b"),
+    ("intake", r"\bintake\b|\bqueue(?:s)?\b|\bdiscover(?:y|s|ed)?\b|\btriage\b|\bissue(?:s)?\b"),
+    ("workspace", r"\bworkspace(?:s)?\b|\bworktree(?:s)?\b|\bsandbox(?:es|ed|ing)?\b|\bpermission(?:s)?\b|\btool(?:s)?\b"),
+    ("context", r"\bcontext\b|\bmemory\b|\bmemories\b|\bretrieval\b|\bdocument(?:s)?\b"),
+    ("delegation", r"\bdelegat(?:e|es|ed|ion)\b|\bmulti-agent\b|\bsubagent(?:s)?\b|\bhandoff(?:s)?\b|\borchestrat(?:e|es|ed|ion|or|ors)\b"),
+    ("verification", r"\bverif(?:y|ies|ied|ication)\b|\beval(?:s|uation)?\b|\btest(?:s|ed|ing)?\b|\bbenchmark(?:s)?\b|\bgrader(?:s)?\b|\bcritic(?:s)?\b"),
+    ("state", r"\bstate(?:ful)?\b|\bpersist(?:s|ed|ence|ent)?\b|\bcheckpoint(?:s|ed|ing)?\b|\breplay\b|\breceipt(?:s)?\b"),
+    ("budget", r"\bbudget(?:s)?\b|\bcost(?:s)?\b|\btoken(?:s)?\b|\bretr(?:y|ies)\b|\btimeout(?:s)?\b"),
+    ("escalation", r"\bescalat(?:e|es|ed|ion)\b|\bhuman(?:-in-the-loop)?\b|\bapproval(?:s)?\b|\bhandoff\b"),
+    ("exit", r"\bexit\b|\bstop(?:s|ped|ping)?\b|\bcompletion\b|\bdone\b|\btermination\b"),
+]
+
+OFFICIAL_DOC_DOMAINS = {
+    "learn.chatgpt.com",
+    "code.claude.com",
+    "docs.anthropic.com",
+    "docs.github.com",
+    "developers.openai.com",
+    "modelcontextprotocol.io",
+    "opentelemetry.io",
+    "openai.github.io",
+}
 
 SECTION_IMPACT = {
     "Concept Guides": "Clarifies the scope, vocabulary, and boundaries of Loop Engineering so the list does not drift into generic agent material.",
@@ -162,55 +280,142 @@ def classify_url(url: str) -> tuple[str, str]:
     return "local_path", ""
 
 
-def key_contribution(resource_type: str, annotation: str) -> str:
-    lead = clean(annotation).rstrip(".")
-    if resource_type in {"Paper", "Blog", "Docs"}:
-        return lead + "."
-    if resource_type == "Tool":
-        return f"Provides an implementation surface for loop builders: {lead}."
-    if resource_type == "Benchmark":
-        return f"Provides an evaluation signal for loop builders: {lead}."
-    if resource_type == "Pattern":
-        return f"Provides a reusable loop pattern: {lead}."
-    if resource_type == "Template":
-        return f"Provides a reusable project artifact: {lead}."
-    if resource_type == "Critique":
-        return f"Names a risk or boundary condition: {lead}."
-    if resource_type == "List":
-        return f"Maps adjacent resources and ecosystems: {lead}."
-    return lead + "."
+def load_audit() -> dict[str, dict[str, str]]:
+    if not AUDIT_PATH.exists():
+        return {}
+    with AUDIT_PATH.open(encoding="utf-8", newline="") as handle:
+        return {row["url"]: row for row in csv.DictReader(handle)}
+
+
+AUDIT_BY_URL = load_audit()
+
+
+def key_contribution(annotation: str) -> str:
+    return clean(annotation).rstrip(".") + "."
 
 
 def novelty(section: str, title: str, annotation: str) -> str:
     if section == "Concept Guides":
-        return "Repository-native artifact that makes an otherwise informal practice concrete and reusable."
+        lens = "Repository-native artifact that makes an otherwise informal practice concrete and reusable."
+        return f"{lens} Resource-specific angle: {key_contribution(annotation)}"
 
     text = f"{title} {annotation}".lower()
     for pattern, phrase in NOVELTY_RULES:
         if re.search(pattern, text):
-            return phrase
+            return f"{phrase} Resource-specific angle: {key_contribution(annotation)}"
 
     if section in {"Concept Guides", "Templates And Patterns", "Examples And Schema"}:
-        return "Repository-native artifact that makes an otherwise informal practice concrete and reusable."
-    if section == "Research Foundations":
-        return "Connects Loop Engineering to prior agent-loop and feedback-loop research."
-    return SECTION_NOVELTY.get(section, "Contributes a distinct loop-engineering angle beyond a generic agent resource.")
+        lens = "Repository-native artifact that makes an otherwise informal practice concrete and reusable."
+    elif section == "Research Foundations":
+        lens = "Connects Loop Engineering to prior agent-loop and feedback-loop research."
+    else:
+        lens = SECTION_NOVELTY.get(section, "Contributes a distinct loop-engineering angle beyond a generic agent resource.")
+    return f"{lens} Resource-specific angle: {key_contribution(annotation)}"
 
 
-def impact(section: str) -> str:
-    return SECTION_IMPACT.get(section, "Supports the project goal of making recurring AI-agent systems easier to design and evaluate.")
+def collection_for(section: str) -> tuple[str, str]:
+    return COLLECTIONS.get(section, ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."))
 
 
-def signal(resource_type: str, domain: str, url_kind: str) -> tuple[str, str]:
+def lifecycle_stages(section: str, title: str, annotation: str) -> str:
+    text = f"{title} {annotation}".lower()
+    stages = [stage for stage, pattern in STAGE_RULES if re.search(pattern, text)]
+    if not stages:
+        stages = SECTION_STAGE_DEFAULTS.get(section, ["whole-loop"])
+    return ";".join(dict.fromkeys(stages))
+
+
+def audience_for(section: str, resource_type: str) -> str:
+    audiences: list[str] = []
+    if section in {"Concept Guides", "Start Here"}:
+        audiences.append("newcomer")
+    if resource_type in {"Docs", "Tool", "Pattern", "Template"}:
+        audiences.append("builder")
+    if resource_type in {"Paper", "Benchmark"}:
+        audiences.extend(["researcher", "evaluator"])
+    if section in {"Securing Unattended Loops", "Operations Playbooks", "Critiques, Risks, And Limitations"}:
+        audiences.extend(["operator", "security"])
+    if section in {"Verification And Feedback Gates", "Benchmarks And Evaluation"}:
+        audiences.append("evaluator")
+    if section in {"Templates And Patterns", "Examples And Schema", "Community Gallery"}:
+        audiences.extend(["builder", "operator"])
+    return ";".join(dict.fromkeys(audiences or ["builder"]))
+
+
+def evidence_class(section: str, resource_type: str, domain: str, url_kind: str) -> str:
     if url_kind != "external":
-        return "Repository-native artifact maintained in this project; signal comes from local validation and reuse.", "medium"
-    if domain in {"developers.openai.com", "code.claude.com", "docs.github.com", "modelcontextprotocol.io", "opentelemetry.io"}:
-        return "Primary official documentation for a platform, SDK, or standard.", "high"
+        return "repository-native"
+    if resource_type == "Benchmark":
+        return "benchmark"
+    if resource_type == "Docs" and (section == "Official Runtime Guides" or domain in OFFICIAL_DOC_DOMAINS):
+        return "official-documentation"
     if domain == "arxiv.org":
-        return "Research preprint with stable arXiv identifier.", "high"
+        return "research-preprint"
+    if domain == "github.com" and resource_type == "Tool":
+        return "source-implementation"
+    return {
+        "Paper": "research-paper",
+        "Docs": "technical-documentation",
+        "Tool": "implementation",
+        "Pattern": "operational-pattern",
+        "Template": "reusable-artifact",
+        "Blog": "practitioner-analysis",
+        "Critique": "risk-analysis",
+        "List": "curated-index",
+    }.get(resource_type, "curated-source")
+
+
+def impact(collection: str, title: str) -> str:
+    goal = COLLECTION_IMPACT.get(collection, "apply the source to a recurring agent system")
+    return f"Gives readers a concrete source in {title} when they need to {goal}."
+
+
+def format_count(value: str) -> str:
+    try:
+        return f"{int(value):,}"
+    except (TypeError, ValueError):
+        return ""
+
+
+def signal(
+    resource_type: str,
+    domain: str,
+    url_kind: str,
+    evidence: str,
+    audit: dict[str, str],
+) -> tuple[str, str]:
+    status = audit.get("audit_status", "")
+    if status in {"broken", "unreachable", "local_missing"}:
+        return "The latest source audit could not verify this resource; treat its claims and availability as unverified.", "unverified"
+    if url_kind != "external":
+        return "Repository-native artifact maintained and validated by this project's checks.", "medium"
+    if evidence == "official-documentation":
+        return f"Primary official documentation from {domain}; use it for current product or standard behavior.", "high"
+    if evidence in {"research-preprint", "research-paper"}:
+        arxiv_id = audit.get("arxiv_id", "")
+        identifier = f" arXiv:{arxiv_id}" if arxiv_id else ""
+        return f"Research source{identifier}; inspect its method and evaluation before treating results as production evidence.", "medium"
+    if evidence == "benchmark":
+        return "Benchmark or leaderboard source with repeatable tasks or scores; compare systems only after checking setup and scope.", "high"
     if domain == "github.com":
-        return "Source repository or implementation artifact that can be inspected directly.", "high"
-    return TYPE_SIGNAL.get(resource_type, ("Curated source signal based on type, section fit, and annotation specificity.", "contextual"))
+        stars = format_count(audit.get("github_stars", ""))
+        forks = format_count(audit.get("github_forks", ""))
+        license_id = audit.get("github_license", "")
+        updated = audit.get("github_updated_at", "")[:10]
+        facts = []
+        if stars:
+            facts.append(f"{stars} stars")
+        if forks:
+            facts.append(f"{forks} forks")
+        if license_id:
+            facts.append(f"{license_id} license")
+        if updated:
+            facts.append(f"updated {updated}")
+        detail = f" ({'; '.join(facts)})" if facts else ""
+        return f"Inspectable GitHub source{detail}; popularity is context, not proof of reliability.", "medium"
+    if evidence in {"practitioner-analysis", "risk-analysis", "curated-index"}:
+        return f"Contextual source from {domain}; useful for practice signals or boundary conditions, not independent validation.", "contextual"
+    return TYPE_SIGNAL.get(resource_type, (f"Curated source from {domain}; verify fit against the linked artifact.", "contextual"))
 
 
 def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
@@ -236,11 +441,15 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
         url_kind, domain = classify_url(url)
         annotation = clean(match.group("annotation"))
         resource_type = clean(match.group("resource_type"))
-        signal_text, signal_strength = signal(resource_type, domain, url_kind)
         row_number = len(rows) + 1
+        row_id = f"ale-{row_number:04d}"
+        collection, user_goal = collection_for(section)
+        audit = AUDIT_BY_URL.get(url, {})
+        evidence = evidence_class(section, resource_type, domain, url_kind)
+        signal_text, signal_strength = signal(resource_type, domain, url_kind, evidence, audit)
         rows.append(
             {
-                "row_id": f"ale-{row_number:04d}",
+                "row_id": row_id,
                 "section": section,
                 "section_slug": section_slug,
                 "resource_type": resource_type,
@@ -251,15 +460,32 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "domain": domain,
                 "annotation": annotation,
                 "description": annotation,
-                "key_contribution": key_contribution(resource_type, annotation),
+                "key_contribution": key_contribution(annotation),
                 "novelty": novelty(section, clean(match.group("title")), annotation),
-                "impact": impact(section),
+                "impact": impact(collection, clean(match.group("title"))),
                 "signal": signal_text,
                 "signal_strength": signal_strength,
                 "source_readme": "README.md",
                 "source_line": str(line_number),
                 "source_url": f"{SOURCE_URL}#L{line_number}",
                 "date_added": FIRST_SEEN.get(url, ""),
+                "collection": collection,
+                "collection_slug": slugify(collection),
+                "user_goal": user_goal,
+                "lifecycle_stages": lifecycle_stages(section, clean(match.group("title")), annotation),
+                "audience": audience_for(section, resource_type),
+                "evidence_class": evidence,
+                "source_status": audit.get("audit_status", "not-audited"),
+                "canonical_url": audit.get("final_url", "") or url,
+                "source_title": audit.get("source_title", ""),
+                "source_description": audit.get("source_description", ""),
+                "github_repo": audit.get("github_repo", ""),
+                "github_stars": audit.get("github_stars", ""),
+                "github_forks": audit.get("github_forks", ""),
+                "github_license": audit.get("github_license", ""),
+                "github_updated_at": audit.get("github_updated_at", ""),
+                "arxiv_id": audit.get("arxiv_id", ""),
+                "audited_at": audit.get("retrieved_at", ""),
             }
         )
 
@@ -269,7 +495,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
     return rows
 
 
-def write_outputs(rows: list[dict[str, str]], csv_path: Path, jsonl_path: Path) -> None:
+def write_outputs(rows: list[dict[str, str]], csv_path: Path, jsonl_path: Path, site_json_path: Path) -> None:
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     with csv_path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=FIELDS, lineterminator="\n")
@@ -281,16 +507,31 @@ def write_outputs(rows: list[dict[str, str]], csv_path: Path, jsonl_path: Path) 
             handle.write(json.dumps(row, ensure_ascii=False, sort_keys=False))
             handle.write("\n")
 
+    site_json_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "count": len(rows),
+        "resources": [{field: row[field] for field in SITE_FIELDS} for row in rows],
+    }
+    site_json_path.write_text(
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+
 
 def check_outputs(rows: list[dict[str, str]]) -> int:
     with TemporaryDirectory() as temp_dir:
         temp = Path(temp_dir)
         expected_csv = temp / "resources.csv"
         expected_jsonl = temp / "resources.jsonl"
-        write_outputs(rows, expected_csv, expected_jsonl)
+        expected_site_json = temp / "resources.json"
+        write_outputs(rows, expected_csv, expected_jsonl, expected_site_json)
 
         failures = []
-        for expected, actual in [(expected_csv, CSV_PATH), (expected_jsonl, JSONL_PATH)]:
+        for expected, actual in [
+            (expected_csv, CSV_PATH),
+            (expected_jsonl, JSONL_PATH),
+            (expected_site_json, SITE_JSON_PATH),
+        ]:
             if not actual.exists():
                 failures.append(f"{actual.relative_to(ROOT)} is missing")
                 continue
@@ -314,8 +555,11 @@ def main() -> int:
     if args.check:
         return check_outputs(rows)
 
-    write_outputs(rows, CSV_PATH, JSONL_PATH)
-    print(f"Wrote {len(rows)} rows to {CSV_PATH.relative_to(ROOT)} and {JSONL_PATH.relative_to(ROOT)}")
+    write_outputs(rows, CSV_PATH, JSONL_PATH, SITE_JSON_PATH)
+    print(
+        f"Wrote {len(rows)} rows to {CSV_PATH.relative_to(ROOT)}, "
+        f"{JSONL_PATH.relative_to(ROOT)}, and {SITE_JSON_PATH.relative_to(ROOT)}"
+    )
     return 0
 
 

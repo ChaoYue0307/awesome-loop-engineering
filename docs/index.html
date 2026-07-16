@@ -54,7 +54,7 @@
       }
       a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
       a:hover { color: #0f49bd; }
-      button, input { font: inherit; }
+      button, input, select { font: inherit; }
       .wrap { width: min(var(--maxw), calc(100% - 48px)); margin: 0 auto; }
       .skip {
         position: absolute;
@@ -66,10 +66,11 @@
         padding: 10px 16px;
       }
       .skip:focus { left: 0; }
-      a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible {
         outline: 3px solid rgba(21, 94, 239, 0.32);
         outline-offset: 3px;
       }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
       header.site {
         position: sticky;
@@ -224,10 +225,72 @@
       .level .title { font-weight: 750; }
       .level .detail { color: var(--muted); font-size: 0.9rem; }
 
-      .resource-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line-strong); }
-      .resource-links a { min-height: 58px; padding: 16px 18px 16px 0; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 0.9rem; font-weight: 650; text-decoration: none; }
-      .resource-links a:hover { color: var(--blue); }
-      .resource-links a:nth-child(3n+2), .resource-links a:nth-child(3n+3) { padding-left: 18px; }
+      .resource-explorer { border-top: 1px solid var(--line-strong); }
+      .resource-toolbar {
+        display: grid;
+        grid-template-columns: minmax(260px, 1.45fr) repeat(3, minmax(150px, 0.7fr)) auto;
+        gap: 10px;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .resource-input, .resource-select {
+        width: 100%;
+        min-height: 44px;
+        border: 1px solid var(--line-strong);
+        border-radius: 6px;
+        padding: 9px 12px;
+        color: var(--ink);
+        background: var(--surface);
+      }
+      .resource-input::placeholder { color: var(--quiet); }
+      .resource-reset, .resource-more {
+        min-height: 44px;
+        border: 1px solid var(--line-strong);
+        border-radius: 6px;
+        padding: 9px 13px;
+        color: var(--ink);
+        background: var(--surface);
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .resource-reset:hover, .resource-more:hover { border-color: var(--blue); color: var(--blue); }
+      .resource-collections { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); }
+      .resource-collection {
+        min-height: 42px;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        padding: 9px 14px;
+        color: var(--muted);
+        background: transparent;
+        font-size: 0.82rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .resource-collection:hover { color: var(--ink); }
+      .resource-collection[aria-pressed="true"] { border-bottom-color: var(--blue); color: var(--blue); }
+      .resource-summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 58px; border-bottom: 1px solid var(--line-strong); }
+      .resource-count { margin: 0; color: var(--muted); font-size: 0.86rem; }
+      .resource-sort { width: auto; min-width: 176px; }
+      .resource-list { min-height: 180px; }
+      .resource-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 180px;
+        gap: 28px;
+        padding: 17px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .resource-item a { color: var(--ink); font-weight: 750; text-decoration: none; }
+      .resource-item a:hover { color: var(--blue); }
+      .resource-item p { max-width: 850px; margin: 6px 0 0; color: var(--muted); font-size: 0.88rem; }
+      .resource-meta { margin-top: 7px; color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.7rem; overflow-wrap: anywhere; }
+      .resource-side { color: var(--quiet); font-size: 0.74rem; text-align: right; }
+      .resource-signal { display: block; color: var(--green); font-weight: 700; text-transform: uppercase; }
+      .resource-signal.contextual { color: var(--violet); }
+      .resource-signal.medium { color: var(--blue); }
+      .resource-signal.unverified { color: var(--quiet); }
+      .resource-source-status { display: block; margin-top: 4px; }
+      .resource-actions { display: flex; justify-content: center; padding-top: 18px; }
+      .resource-empty, .resource-loading { margin: 0; padding: 28px 0; color: var(--muted); }
       details { border-top: 1px solid var(--line-strong); padding: 18px 0; }
       details:last-child { border-bottom: 1px solid var(--line-strong); }
       summary { cursor: pointer; font-weight: 750; }
@@ -276,11 +339,12 @@
         .stat:nth-child(even) { border-left: 1px solid var(--line); }
         .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
         .stat:last-child { grid-column: 1 / -1; border-left: 0; }
-        .principles, .link-grid, .pattern-grid, .resource-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .principles, .link-grid, .pattern-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .level { grid-template-columns: 54px 1fr; }
         .level .detail { grid-column: 2; }
-        .resource-links a:nth-child(3n+2), .resource-links a:nth-child(3n+3) { padding-left: 0; }
-        .resource-links a:nth-child(even) { padding-left: 18px; }
+        .resource-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .resource-toolbar label:first-child { grid-column: 1 / -1; }
+        .resource-reset { width: 100%; }
         .footer-grid { grid-template-columns: 1fr 1fr; }
       }
       @media (max-width: 560px) {
@@ -291,10 +355,17 @@
         .lead { font-size: 1rem; }
         .mental-model { padding-top: 30px; }
         .hero-scene canvas { opacity: 0.68; }
-        .principles, .link-grid, .pattern-grid, .resource-links, .footer-grid { grid-template-columns: 1fr; }
+        .principles, .link-grid, .pattern-grid, .footer-grid { grid-template-columns: 1fr; }
         .principle + .principle, .card + .card, .pattern + .pattern { padding-left: 0; }
         .pattern { min-height: 88px; }
-        .resource-links a:nth-child(even) { padding-left: 0; }
+        .resource-toolbar { grid-template-columns: 1fr; }
+        .resource-toolbar label:first-child { grid-column: auto; }
+        .resource-collections { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; }
+        .resource-collection { min-width: 0; padding-inline: 4px; }
+        .resource-summary { align-items: stretch; flex-direction: column; gap: 10px; padding: 14px 0; }
+        .resource-sort { width: 100%; }
+        .resource-item { grid-template-columns: 1fr; gap: 8px; }
+        .resource-side { text-align: left; }
         .caption { text-align: left; }
         .level { grid-template-columns: 46px 1fr; }
         .diagram-scroll { overflow-x: auto; overscroll-behavior-inline: contain; }
@@ -308,7 +379,7 @@
         .hero-scene { display: none; }
       }
       @media print {
-        header.site, .menu-btn, .actions, .copy, .pattern-filter, .hero-scene { display: none; }
+        header.site, .menu-btn, .actions, .copy, .pattern-filter, .resource-toolbar, .resource-collections, .resource-summary, .resource-actions, .hero-scene { display: none; }
         body, footer { background: #fff; }
         section { padding: 24pt 0; break-inside: avoid; }
         .wrap { width: 100%; }
@@ -588,27 +659,95 @@
           <div class="section-head">
             <div>
               <p class="section-label">06 / Curated resources</p>
-              <h2>Browse the field by category.</h2>
+              <h2>Find the evidence for your next decision.</h2>
             </div>
-            <p class="section-intro">Primary sources, official docs, papers, benchmarks, and implementation-heavy work on AI-agent loops and coding-agent automation. Every dataset row includes a specific annotation plus contribution, novelty, impact, and signal fields.</p>
+            <p class="section-intro">Search 509 audited sources by goal, lifecycle stage, artifact type, and evidence class. Every result preserves its curated annotation and links directly to the canonical source.</p>
           </div>
-          <nav class="resource-links" aria-label="Resource categories">
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#start-here">Start Here</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#core-loop-primitives">Core Loop Primitives</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#official-runtime-guides">Runtime Guides</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#research-foundations">Research Foundations</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#agent-workflow-patterns">Agent Workflow Patterns</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#coding-agent-loop-systems">Coding-Agent Loop Systems</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#verification-and-feedback-gates">Verification and Feedback</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#securing-unattended-loops">Securing Unattended Loops</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#state-memory-and-context-persistence">State and Memory</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#orchestration-and-multi-agent-delegation">Orchestration</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#benchmarks-and-evaluation">Benchmarks and Evaluation</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#operations-playbooks">Operations Playbooks</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#critiques-risks-and-limitations">Critiques and Risks</a>
-            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering#adjacent-awesome-lists">Adjacent Awesome Lists</a>
-            <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Search all 509 rows on Hugging Face</a>
-          </nav>
+          <div class="resource-explorer" id="resource-explorer">
+            <div class="resource-toolbar" role="search" aria-label="Search curated resources">
+              <label>
+                <span class="sr-only">Search resources</span>
+                <input class="resource-input" id="resource-search" type="search" placeholder="Search title, annotation, section, or lifecycle stage" autocomplete="off">
+              </label>
+              <label>
+                <span class="sr-only">Resource type</span>
+                <select class="resource-select" id="resource-type">
+                  <option value="">All resource types</option>
+                  <option value="Docs">Documentation</option>
+                  <option value="Tool">Tools</option>
+                  <option value="Paper">Papers</option>
+                  <option value="Benchmark">Benchmarks</option>
+                  <option value="Pattern">Patterns</option>
+                  <option value="Template">Templates</option>
+                  <option value="Blog">Practitioner writing</option>
+                  <option value="Critique">Critiques</option>
+                  <option value="List">Curated lists</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Lifecycle stage</span>
+                <select class="resource-select" id="resource-stage">
+                  <option value="">All lifecycle stages</option>
+                  <option value="objective">Objective</option>
+                  <option value="trigger">Trigger</option>
+                  <option value="intake">Intake</option>
+                  <option value="workspace">Workspace</option>
+                  <option value="context">Context</option>
+                  <option value="delegation">Delegation</option>
+                  <option value="verification">Verification</option>
+                  <option value="state">State</option>
+                  <option value="budget">Budget</option>
+                  <option value="escalation">Escalation</option>
+                  <option value="exit">Exit</option>
+                  <option value="whole-loop">Whole loop</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Evidence class</span>
+                <select class="resource-select" id="resource-evidence">
+                  <option value="">All evidence classes</option>
+                  <option value="official">Official documentation</option>
+                  <option value="research">Research</option>
+                  <option value="implementation">Implementations</option>
+                  <option value="benchmark">Benchmarks</option>
+                  <option value="practice">Practice and patterns</option>
+                  <option value="risk">Risk and ecosystem maps</option>
+                </select>
+              </label>
+              <button class="resource-reset" id="resource-reset" type="button">Reset</button>
+            </div>
+            <div class="resource-collections" role="group" aria-label="Filter by user goal">
+              <button class="resource-collection" type="button" data-collection="" aria-pressed="true">All</button>
+              <button class="resource-collection" type="button" data-collection="Learn" aria-pressed="false">Learn</button>
+              <button class="resource-collection" type="button" data-collection="Design" aria-pressed="false">Design</button>
+              <button class="resource-collection" type="button" data-collection="Build" aria-pressed="false">Build</button>
+              <button class="resource-collection" type="button" data-collection="Persist" aria-pressed="false">Persist</button>
+              <button class="resource-collection" type="button" data-collection="Verify" aria-pressed="false">Verify</button>
+              <button class="resource-collection" type="button" data-collection="Govern" aria-pressed="false">Govern</button>
+              <button class="resource-collection" type="button" data-collection="Apply" aria-pressed="false">Apply</button>
+            </div>
+            <div class="resource-summary">
+              <p class="resource-count" id="resource-count" aria-live="polite">Loading resource index...</p>
+              <label>
+                <span class="sr-only">Sort resources</span>
+                <select class="resource-select resource-sort" id="resource-sort">
+                  <option value="curated">Curated order</option>
+                  <option value="stars">GitHub stars</option>
+                  <option value="recent">Recently added</option>
+                </select>
+              </label>
+            </div>
+            <div class="resource-list" id="resource-list" aria-busy="true">
+              <p class="resource-loading">Loading audited resources...</p>
+            </div>
+            <p class="resource-empty" id="resource-empty" hidden>No resources match the current filters.</p>
+            <div class="resource-actions">
+              <button class="resource-more" id="resource-more" type="button" hidden>Show more</button>
+            </div>
+            <noscript>
+              <p class="resource-loading"><a href="https://github.com/ChaoYue0307/awesome-loop-engineering#start-here">Browse the full resource library on GitHub</a> or <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">filter the dataset on Hugging Face</a>.</p>
+            </noscript>
+          </div>
         </div>
       </section>
 
@@ -748,6 +887,184 @@
           });
           if (empty) empty.hidden = shown !== 0;
         });
+      })();
+      (function () {
+        var explorer = document.getElementById('resource-explorer');
+        if (!explorer || !window.fetch) return;
+
+        var search = document.getElementById('resource-search');
+        var type = document.getElementById('resource-type');
+        var stage = document.getElementById('resource-stage');
+        var evidence = document.getElementById('resource-evidence');
+        var sort = document.getElementById('resource-sort');
+        var reset = document.getElementById('resource-reset');
+        var more = document.getElementById('resource-more');
+        var list = document.getElementById('resource-list');
+        var count = document.getElementById('resource-count');
+        var empty = document.getElementById('resource-empty');
+        var collectionButtons = Array.prototype.slice.call(explorer.querySelectorAll('.resource-collection'));
+        var evidenceGroups = {
+          official: ['official-documentation'],
+          research: ['research-preprint', 'research-paper'],
+          implementation: ['source-implementation', 'implementation'],
+          benchmark: ['benchmark'],
+          practice: ['operational-pattern', 'practitioner-analysis', 'reusable-artifact', 'repository-native', 'technical-documentation'],
+          risk: ['risk-analysis', 'curated-index']
+        };
+        var state = { collection: '', limit: 24 };
+        var resources = [];
+
+        function words(value) {
+          return String(value || '').replace(/-/g, ' ');
+        }
+
+        function stages(value) {
+          return String(value || '').split(';').filter(Boolean);
+        }
+
+        function formatNumber(value) {
+          var number = Number(value || 0);
+          if (!number) return '';
+          return number.toLocaleString ? number.toLocaleString() : String(number);
+        }
+
+        function createText(tag, className, value) {
+          var element = document.createElement(tag);
+          if (className) element.className = className;
+          element.textContent = value;
+          return element;
+        }
+
+        function resourceMatches(resource) {
+          var query = search.value.trim().toLowerCase();
+          var haystack = [
+            resource.title,
+            resource.annotation,
+            resource.section,
+            resource.collection,
+            resource.user_goal,
+            resource.lifecycle_stages,
+            resource.audience,
+            resource.evidence_class
+          ].join(' ').toLowerCase();
+          var evidenceSet = evidenceGroups[evidence.value] || [];
+
+          return (!query || haystack.indexOf(query) !== -1) &&
+            (!type.value || resource.resource_type === type.value) &&
+            (!stage.value || stages(resource.lifecycle_stages).indexOf(stage.value) !== -1) &&
+            (!evidence.value || evidenceSet.indexOf(resource.evidence_class) !== -1) &&
+            (!state.collection || resource.collection === state.collection);
+        }
+
+        function sortedResources(filtered) {
+          return filtered.slice().sort(function (a, b) {
+            if (sort.value === 'stars') {
+              return Number(b.github_stars || 0) - Number(a.github_stars || 0) || a._index - b._index;
+            }
+            if (sort.value === 'recent') {
+              return (Date.parse(b.date_added || '') || 0) - (Date.parse(a.date_added || '') || 0) || a._index - b._index;
+            }
+            return a._index - b._index;
+          });
+        }
+
+        function renderItem(resource) {
+          var item = document.createElement('article');
+          var main = document.createElement('div');
+          var link = createText('a', '', resource.title);
+          var meta = [
+            resource.resource_type,
+            resource.collection,
+            stages(resource.lifecycle_stages).map(words).join(' / '),
+            words(resource.evidence_class)
+          ].filter(Boolean).join(' | ');
+          var side = document.createElement('div');
+          var signalClass = 'resource-signal ' + String(resource.signal_strength || 'unverified').toLowerCase();
+          var signal = createText('span', signalClass, words(resource.signal_strength || 'unverified') + ' signal');
+          var sourceStatus = resource.source_status === 'restricted' ? 'Access restricted' : 'Source checked';
+          var starCount = formatNumber(resource.github_stars);
+
+          item.className = 'resource-item';
+          link.href = resource.canonical_url || resource.url;
+          main.appendChild(link);
+          main.appendChild(createText('p', '', resource.annotation));
+          main.appendChild(createText('div', 'resource-meta', meta));
+          side.className = 'resource-side';
+          side.appendChild(signal);
+          if (starCount) side.appendChild(createText('span', 'resource-source-status', starCount + ' GitHub stars'));
+          side.appendChild(createText('span', 'resource-source-status', sourceStatus));
+          item.appendChild(main);
+          item.appendChild(side);
+          return item;
+        }
+
+        function render() {
+          var filtered = sortedResources(resources.filter(resourceMatches));
+          var visible = filtered.slice(0, state.limit);
+          var fragment = document.createDocumentFragment();
+
+          visible.forEach(function (resource) { fragment.appendChild(renderItem(resource)); });
+          list.replaceChildren(fragment);
+          list.setAttribute('aria-busy', 'false');
+          count.textContent = filtered.length + ' of ' + resources.length + ' resources' + (visible.length < filtered.length ? ' | showing ' + visible.length : '');
+          empty.hidden = filtered.length !== 0;
+          more.hidden = visible.length >= filtered.length;
+          if (!more.hidden) more.textContent = 'Show ' + Math.min(24, filtered.length - visible.length) + ' more';
+        }
+
+        function resetLimitAndRender() {
+          state.limit = 24;
+          render();
+        }
+
+        search.addEventListener('input', resetLimitAndRender);
+        [type, stage, evidence, sort].forEach(function (control) {
+          control.addEventListener('change', resetLimitAndRender);
+        });
+        collectionButtons.forEach(function (button) {
+          button.addEventListener('click', function () {
+            state.collection = button.getAttribute('data-collection') || '';
+            collectionButtons.forEach(function (candidate) {
+              candidate.setAttribute('aria-pressed', candidate === button ? 'true' : 'false');
+            });
+            resetLimitAndRender();
+          });
+        });
+        more.addEventListener('click', function () {
+          state.limit += 24;
+          render();
+        });
+        reset.addEventListener('click', function () {
+          search.value = '';
+          type.value = '';
+          stage.value = '';
+          evidence.value = '';
+          sort.value = 'curated';
+          state.collection = '';
+          collectionButtons.forEach(function (button) {
+            button.setAttribute('aria-pressed', button.getAttribute('data-collection') === '' ? 'true' : 'false');
+          });
+          resetLimitAndRender();
+          search.focus();
+        });
+
+        fetch('assets/resources.json')
+          .then(function (response) {
+            if (!response.ok) throw new Error('Resource index request failed');
+            return response.json();
+          })
+          .then(function (payload) {
+            resources = (payload.resources || []).map(function (resource, index) {
+              resource._index = index;
+              return resource;
+            });
+            render();
+          })
+          .catch(function () {
+            list.replaceChildren(createText('p', 'resource-loading', 'The resource index could not be loaded. Browse the complete library on GitHub or Hugging Face.'));
+            list.setAttribute('aria-busy', 'false');
+            count.textContent = 'Resource index unavailable';
+          });
       })();
       Array.prototype.forEach.call(document.querySelectorAll('.copy'), function (button) {
         var label = button.querySelector('span') || button;

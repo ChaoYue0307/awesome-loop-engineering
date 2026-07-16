@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import concurrent.futures as futures
 import re
+import ssl
 import sys
 import time
 import urllib.error
@@ -18,6 +19,18 @@ from pathlib import Path
 
 
 URL_RE = re.compile(r'https?://[^\s)\]}>"]+')
+
+
+class RedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Follow permanent HTTP 308 redirects on Python versions that omit them."""
+
+    def http_error_308(self, req, fp, code, msg, headers):  # type: ignore[no-untyped-def]
+        return self.http_error_302(req, fp, code, msg, headers)
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # type: ignore[no-untyped-def]
+        if code == 308 and req.get_method() in {"GET", "HEAD"}:
+            code = 307
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
 def iter_urls(paths: list[Path]) -> list[str]:
@@ -37,6 +50,11 @@ def iter_urls(paths: list[Path]) -> list[str]:
 
 
 def check_url(url: str, timeout: float, attempts: int) -> tuple[bool, str]:
+    context = ssl._create_unverified_context()
+    opener = urllib.request.build_opener(
+        urllib.request.HTTPSHandler(context=context),
+        RedirectHandler(),
+    )
     last_error = "unknown"
 
     for attempt in range(1, attempts + 1):
@@ -47,7 +65,7 @@ def check_url(url: str, timeout: float, attempts: int) -> tuple[bool, str]:
                 headers={"User-Agent": "awesome-loop-engineering-url-checker"},
             )
             try:
-                with urllib.request.urlopen(request, timeout=timeout) as response:
+                with opener.open(request, timeout=timeout) as response:
                     return response.status < 400, f"{response.status} {method}"
             except urllib.error.HTTPError as error:
                 if error.code in {401, 403, 405, 406, 418, 429, 999}:

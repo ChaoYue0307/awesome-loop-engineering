@@ -67,6 +67,7 @@ class MetadataParser(HTMLParser):
         self.in_title = False
         self.title_parts: list[str] = []
         self.description = ""
+        self.description_priority = 0
 
     @property
     def title(self) -> str:
@@ -76,13 +77,22 @@ class MetadataParser(HTMLParser):
         if tag.lower() == "title":
             self.in_title = True
             return
-        if tag.lower() != "meta" or self.description:
+        if tag.lower() != "meta":
             return
 
         attr_map = {key.lower(): value or "" for key, value in attrs}
         name = (attr_map.get("name") or attr_map.get("property") or "").lower()
-        if name in {"description", "og:description", "twitter:description"}:
-            self.description = clean(attr_map.get("content"))
+        priority = {
+            "description": 1,
+            "og:description": 1,
+            "twitter:description": 1,
+            "dc.description": 2,
+            "citation_abstract": 3,
+        }.get(name, 0)
+        candidate = clean(attr_map.get("content"))
+        if candidate and priority > self.description_priority:
+            self.description = candidate
+            self.description_priority = priority
 
     def handle_endtag(self, tag: str) -> None:
         if tag.lower() == "title":
@@ -91,6 +101,18 @@ class MetadataParser(HTMLParser):
     def handle_data(self, data: str) -> None:
         if self.in_title:
             self.title_parts.append(data)
+
+
+class RedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Teach Python 3.9's urllib opener to follow permanent HTTP 308 moves."""
+
+    def http_error_308(self, req, fp, code, msg, headers):  # type: ignore[no-untyped-def]
+        return self.http_error_302(req, fp, code, msg, headers)
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # type: ignore[no-untyped-def]
+        if code == 308 and req.get_method() in {"GET", "HEAD"}:
+            code = 307
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
 def read_rows() -> list[dict[str, str]]:
@@ -127,6 +149,10 @@ def html_metadata(body: bytes, content_type: str) -> tuple[str, str]:
 
 def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
     context = ssl._create_unverified_context()
+    opener = urllib.request.build_opener(
+        urllib.request.HTTPSHandler(context=context),
+        RedirectHandler(),
+    )
     last_error = ""
 
     for attempt in range(1, attempts + 1):
@@ -137,7 +163,7 @@ def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
                 headers={"User-Agent": "awesome-loop-engineering-source-audit"},
             )
             try:
-                with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
+                with opener.open(request, timeout=timeout) as response:
                     content_type = response.headers.get("content-type", "")
                     body = response.read(750_000) if method == "GET" else b""
                     title, description = html_metadata(body, content_type)

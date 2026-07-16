@@ -155,14 +155,64 @@ Start with the first-read resources and the Loop Contract if the term is new. Fo
 
 ## Reading Paths
 
-Choose a path based on your intent.
+Use this atlas before browsing the exhaustive topical sections. It adds a task-oriented layer without changing the stable section anchors used by existing links.
 
-| Goal                             | Reading path                                                                                              |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **Learn the concept**            | Canonical definition, mental model, comparison guide, and the Loop Contract                               |
-| **Implement a loop**             | Core primitives, official runtime guides, the pattern library, and examples                               |
-| **Improve reliability or evals** | Verification gates, securing unattended loops, benchmarks, critiques, and limitations                     |
-| **Contribute**                   | Community gallery, templates, and contribution guide                                                      |
+<table>
+  <thead>
+    <tr>
+      <th>Goal</th>
+      <th>Start here</th>
+      <th>Continue with</th>
+      <th>Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Learn</strong></td>
+      <td><a href="#canonical-definition">Canonical definition</a></td>
+      <td><a href="#start-here">Start Here</a> → <a href="#research-foundations">Research Foundations</a></td>
+      <td>Newcomers and researchers</td>
+    </tr>
+    <tr>
+      <td><strong>Design</strong></td>
+      <td><a href="#the-loop-contract">Loop Contract</a></td>
+      <td><a href="#pattern-library">Pattern Library</a> → <a href="#core-loop-primitives">Core Loop Primitives</a> → <a href="#agent-workflow-patterns">Agent Workflow Patterns</a></td>
+      <td>Architects and loop designers</td>
+    </tr>
+    <tr>
+      <td><strong>Build</strong></td>
+      <td><a href="meta/RUNTIME_SELECTION.md">Runtime selection</a></td>
+      <td><a href="#official-runtime-guides">Official Runtime Guides</a> → <a href="#coding-agent-loop-systems">Coding-Agent Loop Systems</a> → <a href="#orchestration-and-multi-agent-delegation">Orchestration</a></td>
+      <td>Agent and platform builders</td>
+    </tr>
+    <tr>
+      <td><strong>Persist</strong></td>
+      <td><a href="#state-memory-and-context-persistence">State and context</a></td>
+      <td><a href="#core-loop-primitives">Core Loop Primitives</a> → <a href="#operations-playbooks">Operations Playbooks</a></td>
+      <td>Long-running and resumable loops</td>
+    </tr>
+    <tr>
+      <td><strong>Verify</strong></td>
+      <td><a href="#verification-and-feedback-gates">Verification Gates</a></td>
+      <td><a href="#benchmarks-and-evaluation">Benchmarks And Evaluation</a> → <a href="#critiques-risks-and-limitations">Critiques And Limitations</a></td>
+      <td>Eval and reliability engineers</td>
+    </tr>
+    <tr>
+      <td><strong>Govern</strong></td>
+      <td><a href="#securing-unattended-loops">Securing Unattended Loops</a></td>
+      <td><a href="#operations-playbooks">Operations Playbooks</a> → <a href="#critiques-risks-and-limitations">Critiques And Limitations</a></td>
+      <td>Operators, approvers, and security</td>
+    </tr>
+    <tr>
+      <td><strong>Apply</strong></td>
+      <td><a href="#templates-and-patterns">Templates And Patterns</a></td>
+      <td><a href="#examples-and-schema">Examples And Schema</a> → <a href="#community-gallery">Community Gallery</a> → <a href="#contributing">Contributing</a></td>
+      <td>Teams adopting or sharing loops</td>
+    </tr>
+  </tbody>
+</table>
+
+The Hugging Face dataset exposes the same collection, lifecycle-stage, audience, evidence, source-status, and repository-stat facets for filtering all resources.
 
 ## Choose Your Loop
 
@@ -243,10 +293,10 @@ Beyond the curated list, this repository also maintains:
 
 Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 
-- 📝 **Blog** [Loop Engineering](https://addyosmani.com/blog/loop-engineering/) - Addy Osmani's framing of loop engineering as the layer above manually prompting coding agents, with concrete primitives across Codex and Claude Code; also on [Substack](https://addyo.substack.com/p/loop-engineering) with the original discussion trail and Steinberger and Cherny quotations.
+- 📝 **Blog** [Loop Engineering by Addy Osmani](https://addyosmani.com/blog/loop-engineering/) - Addy Osmani's framing of loop engineering as the layer above manually prompting coding agents, with concrete primitives across Codex and Claude Code; also on [Substack](https://addyo.substack.com/p/loop-engineering) with the original discussion trail and Steinberger and Cherny quotations.
 - 📝 **Blog** [Peter Steinberger on designing loops](https://x.com/steipete/status/2063697162748260627) - The June 2026 post - "you shouldn't be prompting coding agents anymore, you should be designing loops that prompt your agents" - that catalyzed the current discussion.
 - 📝 **Blog** [Boris Cherny: five tips for running Opus autonomously for hours or days](https://x.com/bcherny/status/2063792263067754658) - The Claude Code creator's compact loop recipe: auto-mode permissions, dynamic workflows, `/goal` or `/loop`, the cloud runner, and end-to-end self-verification.
-- 📝 **Blog** [Loop Engineering](https://cobusgreyling.substack.com/p/loop-engineering) - Concise explanation of the shift from prompting agents to designing loops that discover work, delegate, verify, persist, and continue.
+- 📝 **Blog** [Loop Engineering by Cobus Greyling](https://cobusgreyling.substack.com/p/loop-engineering) - Concise explanation of the shift from prompting agents to designing loops that discover work, delegate, verify, persist, and continue.
 - 📝 **Blog** [Stop Prompting. Design the Loop.](https://www.pulumi.com/blog/stop-prompting-design-the-loop/) - Practical breakdown of loop building blocks - automations, worktrees, skills, connectors, subagents - plus external memory and verification through oracles such as tests and builds.
 - 📝 **Blog** [Writing Loops, Not Prompts, Explained](https://rico.codes/loops-not-prompts) - Rico Kahler's break-even model for when a recurring task justifies building a loop instead of prompting, with stop conditions, evidence collection, and an execution-horizon framing for moving from execution-bound to judgment-bound work.
 - 📝 **Blog** [Loop Engineering: A Guide for Engineers and Practitioners](https://medium.com/@adnanmasood/loop-engineering-a-guide-for-engineers-and-practitioners-893bb65ea943) - Adnan Masood's practitioner guide that organizes loop design into triggers, topologies, verifiers, and termination rules, with coverage of failure modes, cost control, and observability for production agent loops.
@@ -351,15 +401,15 @@ Practical loop patterns translate the abstract contract into runnable operating 
 
 Feature-level building blocks you assemble a loop from: schedulers, goals, worktrees, hooks, skills, plugins, and protocols.
 
-- 📚 **Docs** [Automations - Codex app](https://developers.openai.com/codex/app/automations) - Codex background automations for recurring tasks, triage inboxes, skills, and worktree isolation.
-- 📚 **Docs** [Follow a goal - Codex use cases](https://developers.openai.com/codex/use-cases/follow-goals) - Official guidance for durable objectives with stopping conditions, validation commands, checkpoints, and progress logs.
-- 📚 **Docs** [Worktrees - Codex app](https://developers.openai.com/codex/app/worktrees) - Codex worktree model for isolated parallel tasks and handoffs between local and background workspaces.
-- 📚 **Docs** [Prompting - Codex](https://developers.openai.com/codex/prompting) - Explains the Codex loop, threads, context, and `/goal` mode.
-- 📚 **Docs** [Customization - Codex](https://developers.openai.com/codex/concepts/customization) - Maps `AGENTS.md`, memories, skills, MCP, and subagents into a coherent customization stack.
-- 📚 **Docs** [Agent Skills - Codex](https://developers.openai.com/codex/skills) - Official skill format for reusable workflows, scripts, MCP dependencies, invocation policy, and plugin packaging.
-- 📚 **Docs** [Plugins - Codex](https://developers.openai.com/codex/plugins) - Bundles skills, app integrations, and MCP servers into reusable loop capabilities.
+- 📚 **Docs** [Scheduled tasks - ChatGPT Learn](https://learn.chatgpt.com/docs/automations?surface=app) - Official guidance for recurring background tasks, triage inboxes, skills, and isolated workspaces.
+- 📚 **Docs** [Follow a goal - ChatGPT Learn](https://learn.chatgpt.com/use-cases/follow-goals) - Official guidance for durable objectives with stopping conditions, validation commands, checkpoints, and progress logs.
+- 📚 **Docs** [Git worktrees - ChatGPT Learn](https://learn.chatgpt.com/docs/environments/git-worktrees) - Official worktree model for isolated parallel tasks and handoffs between local and background workspaces.
+- 📚 **Docs** [Prompting - ChatGPT Learn](https://learn.chatgpt.com/docs/prompting) - Explains the Codex loop, threads, context, and goal-oriented prompting.
+- 📚 **Docs** [Customization overview - ChatGPT Learn](https://learn.chatgpt.com/docs/customization/overview) - Maps `AGENTS.md`, memories, skills, MCP, and subagents into a coherent customization stack.
+- 📚 **Docs** [Build skills - ChatGPT Learn](https://learn.chatgpt.com/docs/build-skills) - Official skill format for reusable workflows, scripts, MCP dependencies, invocation policy, and plugin packaging.
+- 📚 **Docs** [Plugins - ChatGPT Learn](https://learn.chatgpt.com/docs/plugins) - Bundles skills, app integrations, and MCP servers into reusable loop capabilities.
 - 🧰 **Tool** [dotskills](https://github.com/vincentkoc/dotskills) - A `.skills` registry of curated Codex and OpenClaw skills, framed as an "ADE Loop" (Agent Development Environment to registry to Skills Gym) where reusable skills are developed, shared, and evaluated across runs.
-- 📚 **Docs** [Slash commands in Codex CLI](https://developers.openai.com/codex/cli/slash-commands) - CLI commands for switching agent threads, browsing skills, inspecting MCP tools, and using subagent workflows.
+- 📚 **Docs** [Developer commands - ChatGPT Learn](https://learn.chatgpt.com/docs/developer-commands?surface=cli) - CLI commands for switching agent threads, browsing skills, inspecting MCP tools, and using subagent workflows.
 - 🔁 **Pattern** [Autonomous Loops](https://claudecodeguide.dev/docs/patterns/autonomous-loops) - Claude Code pattern using task files, stop hooks, restart behavior, hard limits, and a kill switch.
 - 📚 **Docs** [Claude Code Glossary](https://code.claude.com/docs/en/glossary.md) - Defines the agentic loop, hooks, subagents, skills, MCP, and related primitives in Claude Code terminology.
 - 📚 **Docs** [Keep Claude working toward a goal](https://code.claude.com/docs/en/goal) - `/goal` runs turn after turn until a completion condition is met by a verifier.
@@ -390,7 +440,7 @@ End-to-end operating guides and release notes from the runtime vendors themselve
 
 <!-- OpenAI and Codex -->
 - 📚 **Docs** [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - OpenAI's runbook for plan-edit-test-observe-repair-document-repeat work, including specs, plans, status logs, and validation gates.
-- 📚 **Docs** [Best practices - Codex](https://developers.openai.com/codex/learn/best-practices) - Official best practices for context, `AGENTS.md`, MCP, skills, subagents, and automations.
+- 📚 **Docs** [Best practices - ChatGPT Learn](https://learn.chatgpt.com/guides/best-practices) - Official best practices for context, `AGENTS.md`, MCP, skills, subagents, and automations.
 - 📚 **Docs** [Agents SDK](https://developers.openai.com/api/docs/guides/agents) - OpenAI guide for agent orchestration, tool execution, approvals, state, guardrails, and observability.
 - 📚 **Docs** [Agents - OpenAI Agents SDK](https://openai.github.io/openai-agents-python/agents/) - SDK primitives for agents, tools, handoffs, guardrails, and runner-managed loops.
 - 📚 **Docs** [Running agents](https://developers.openai.com/api/docs/guides/agents/running-agents) - OpenAI guide to turns, state, approvals, sessions, and continuation in the SDK runtime loop.
@@ -621,7 +671,7 @@ These resources include harness and observability mechanisms that loops compose 
 - 📄 **Paper** [A Trace-Based Assurance Framework for Agentic AI Orchestration: Contracts, Testing, and Governance](https://arxiv.org/abs/2603.18096) - Treats execution traces as the assurance substrate, pairing machine-checkable contracts, testing, and governance so recurring agent orchestration stays verifiable and auditable.
 - 📄 **Paper** [Self-Evolving Agents with Anytime-Valid Certificates](https://arxiv.org/abs/2607.00871) - Confines self-modification to a small steering adapter around a frozen base model and gates each change with anytime-valid statistical tests that emit auditable certificates, reporting solve-count gains and logged regression prevention on a SWE-bench Verified subset.
 - 📄 **Paper** [Delayed Verification Destabilizes Multi-Agent LLM Belief](https://arxiv.org/abs/2606.27409) - Models verifier-corrector loops in multi-agent LLM systems as delayed consensus, deriving a stability threshold where verification that is too strong or too late turns factual consensus into oscillation, plus a greedy corrector-placement algorithm validated on five open models.
-- 📄 **Paper** [Lean4Agent: Formal Modeling and Verification for Agent Workflow and Trajectory](https://arxiv.org/abs/2606.06523) - Models agent workflows and trajectories in Lean 4 dependent types so semantic consistency is machine-checked rather than judged by an LLM, with verification-passing workflows outperforming failing ones by about 12% on software-engineering benchmarks.
+- 📄 **Paper** [Lean4Agent: Formal Modeling and Verification for Agent Workflow and Trajectory](https://arxiv.org/abs/2606.06523) - Models agent workflows and trajectories in Lean 4 dependent types so semantic consistency is machine-checked rather than judged by an LLM, with verification-passing workflows outperforming failing ones by an average of 11.94% on software-engineering benchmarks.
 - 📄 **Paper** [Regimes: An Auditable, Held-Out-Gated Improvement Loop](https://arxiv.org/abs/2606.10241) - Event-sourced agent runtime whose self-improvement loop gates every proposed repair behind static checks, sandbox execution, and held-out evaluation before adoption, keeping the full decision trail replayable.
 - 📄 **Paper** [Agentic CLEAR: Automating Multi-Level Evaluation of LLM Agents](https://arxiv.org/abs/2605.22608) - Automated evaluation framework from IBM Research that grades agent behavior at system, trace, and node granularity without predefined error taxonomies, producing feedback aligned with human-annotated errors and predictive of task success.
 - 📄 **Paper** [Diagnosis-Driven Automatic Repair for Agentic Workflow via Symbolic Inference](https://arxiv.org/abs/2607.02882) - FlowFixer converts runs of platform-built agentic workflows (Dify, Coze, n8n) into symbolic traces, infers correctness specs and node dependencies to localize root-cause failures, and generates targeted repairs at a 71.3% success rate.
@@ -711,7 +761,7 @@ This section focuses on durable loop state and cross-run context. For context-wi
 - 🧰 **Tool** [GenericAgent](https://github.com/lsdefine/GenericAgent) - Self-evolving agent that grows a skill tree from a small seed, crystallizing completed runs into layered memory and reusable skills, with a master-worker mode for long-horizon goals.
 - 📄 **Paper** [Self-GC: Self-Governing Context for Long-Horizon LLM Agents](https://arxiv.org/abs/2607.00692) - Governs long-horizon agent context as indexed lifecycle objects in an explicit nod to garbage collection, with a side-channel planner proposing fold, mask, and prune actions under harness-enforced recoverable sidecars, cutting production input tokens by 10-15%.
 - 📄 **Paper** [CompactionRL: Reinforcement Learning with Context Compaction for Long-Horizon Agents](https://arxiv.org/abs/2607.05378) - Reinforcement-learning method that jointly optimizes task execution and compaction-summary generation so long-horizon agents can continue past finite context windows, lifting GLM-4.5-Air to 66.8% on SWE-bench Verified and shipping in the GLM-5.2 pipeline.
-- 📄 **Paper** [SelfMem: Self-Optimizing Memory for AI Agents](https://arxiv.org/abs/2607.03726) - Memory framework in which the agent autonomously optimizes its own storage, retrieval, and summarization strategies per task instead of a fixed pipeline, reporting 40-49% gains over baselines on the BEAM benchmark at 100K-1M token contexts.
+- 📄 **Paper** [SelfMem: Self-Optimizing Memory for AI Agents](https://arxiv.org/abs/2607.03726) - Memory framework in which the agent autonomously optimizes its own storage, retrieval, and summarization strategies per task instead of a fixed pipeline, improving BEAM's official score over the strongest baseline by 48.7%, 40.8%, and 41.9% at 100K, 500K, and 1M tokens, respectively.
 - 📄 **Paper** [Memory-Orchestrated Semantic System (MOSS): An Auditable Agentic Memory Architecture](https://arxiv.org/abs/2607.04391) - Model-, storage-, and API-agnostic agent memory architecture where the agent drives symbolic retrieval over a structured relational database, making long-term memory auditable and reproducible instead of opaque embedding search, validated in a year-long deployment.
 - 📄 **Paper** [The Log Is the Agent: Event-Sourced Reactive Graphs for Auditable, Forkable Agentic Systems](https://arxiv.org/abs/2605.21997) - BabyAGI creator Yohei Nakajima makes an append-only event log the source of truth and the working graph a deterministic projection, giving long-running loops deterministic replay, cheap forking at any event, and end-to-end causal lineage from goal to model call.
 - 📝 **Blog** [Agentics: Memorizing Session Transcripts Isn't Useful](https://12gramsofcarbon.com/p/agentics-memorizing-session-transcripts) - From thousands of agent sessions at Nori, reports zero coding-task benefit from giving agents search over prior session transcripts and argues loop state belongs in distilled artifacts like commits and docs because agents never prune stale context.
@@ -806,11 +856,11 @@ How to measure loops rather than single runs: long-horizon, multi-session, relia
 - 🧪 **Benchmark** [SentinelBench: A Benchmark for Long-Running Monitoring Agents](https://arxiv.org/abs/2606.05342) - Microsoft Research benchmark of 100 tasks across 10 synthetic web environments that evaluates long-running monitoring agents on whether they wait or act appropriately, scoring task completion, response speed, and resource efficiency.
 - 🧪 **Benchmark** [SWE-Together: Evaluating Coding Agents in Interactive User Sessions](https://arxiv.org/abs/2606.29957) - Multi-session coding benchmark of 109 repository-level tasks reconstructed from 11,260 recorded user-agent sessions, replayed with an LLM user simulator and scored on final correctness and the number of corrective feedback turns.
 - 🧪 **Benchmark** [The Long-Horizon Task Mirage? Diagnosing Where and Why Agentic Systems Break](https://arxiv.org/abs/2604.11978) - Cross-domain diagnostic benchmark that scales task horizon through depth and breadth extension, then attributes failures across 3,100+ agent trajectories to a seven-category taxonomy via a trajectory-grounded LLM judge validated against human annotation.
-- 📄 **Paper** [Beyond pass@1: A Reliability Science Framework for Long-Horizon LLM Agents](https://arxiv.org/abs/2603.29231) - Reliability metrics for long-horizon agents (reliability decay, variance amplification, graceful degradation, meltdown onset) measured over roughly 24,000 episodes across 10 models, showing capability and reliability rankings diverge as tasks lengthen.
+- 📄 **Paper** [Beyond pass@1: A Reliability Science Framework for Long-Horizon LLM Agents](https://arxiv.org/abs/2603.29231) - Reliability metrics for long-horizon agents (reliability decay, variance amplification, graceful degradation, meltdown onset) measured over 23,392 episodes across 10 models, showing capability and reliability rankings diverge as tasks lengthen.
 - 🧪 **Benchmark** [SEAGym: An Evaluation Environment for Self-Evolving LLM Agents](https://arxiv.org/abs/2606.17546) - Evaluation environment that measures whether a self-evolving agent's modifications to prompts, memory, and tools generalize to held-out tasks, using train, validation, and test splits and cost metrics on Terminal-Bench 2.0 and HLE.
 - 🧪 **Benchmark** [EvoCode-Bench: Evaluating Coding Agents in Multi-Turn Iterative Interactions](https://arxiv.org/abs/2605.24110) - Benchmark of 26 evolving coding tasks across 227 evaluation rounds using cumulative executable tests to check that agents keep prior requirements working as specifications change, with top agents reaching only about 50% on multi-turn success metrics.
 - 📄 **Paper** [On the Reliability of Computer Use Agents](https://arxiv.org/abs/2604.17849) - Repeated-execution study on OSWorld decomposing why computer-use agents fail tasks they previously completed, separating execution stochasticity, task-specification ambiguity, and behavioral variability as distinct causes of unreliability.
-- 📄 **Paper** [AgentLens: Revealing the Lucky Pass Problem in SWE-Agent Evaluation](https://arxiv.org/abs/2605.12925) - Grades over 2,600 SWE-agent trajectories across eight models to show that a meaningful share of passes are lucky trial-and-error successes, replacing binary pass/fail with process-quality tiers that shift model rankings.
+- 📄 **Paper** [AgentLens: Revealing the Lucky Pass Problem in SWE-Agent Evaluation](https://arxiv.org/abs/2605.12925) - Grades 2,614 SWE-agent trajectories across eight models to show that 10.7% of passing trajectories in its 1,815-trajectory evaluation subset are lucky trial-and-error successes, replacing binary pass/fail with process-quality tiers that shift model rankings.
 - 🧪 **Benchmark** [ORLoopBench: Solver-in-the-Loop Benchmarks for Self-Correction](https://arxiv.org/abs/2601.21008) - Formalizes infeasible-model debugging as a solver-in-the-loop process where each action triggers solver re-execution and infeasibility recomputation, giving deterministic verification for iterative repair in operations research.
 - 🧪 **Benchmark** [LongDS-Bench: On the Failure of Long-Horizon Agentic Data Analysis](https://arxiv.org/abs/2605.30434) - Benchmark of 68 real-world data-analysis tasks built from Kaggle notebooks spanning 2,225 interactive turns, finding that long-horizon errors account for 52-69% of agent failures and that maintaining a correct analytical state is the core bottleneck.
 - 🧪 **Benchmark** [MemoryArena: Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks](https://arxiv.org/abs/2602.16313) - Multi-session benchmark of interdependent agentic tasks where agents must distill earlier sessions into memory and use it to guide later actions, showing that near-saturated scores on long-context memory benchmarks fail to transfer.
@@ -913,8 +963,8 @@ Skeptical takes and measured failure modes, because a loop that cannot fail safe
 
 Neighboring curated lists for the layers around loop engineering.
 
-- 🧭 **List** [Awesome Harness Engineering](https://github.com/ai-boost/awesome-harness-engineering) - Comprehensive list for the agent harness layer that Loop Engineering builds on.
-- 🧭 **List** [Awesome Harness Engineering](https://github.com/walkinglabs/awesome-harness-engineering) - High-signal harness list with strong categories for context, guardrails, specs, evals, runtimes, and benchmarks.
+- 🧭 **List** [Awesome Harness Engineering by ai-boost](https://github.com/ai-boost/awesome-harness-engineering) - Comprehensive list for the agent harness layer that Loop Engineering builds on.
+- 🧭 **List** [Awesome Harness Engineering by walkinglabs](https://github.com/walkinglabs/awesome-harness-engineering) - High-signal harness list with strong categories for context, guardrails, specs, evals, runtimes, and benchmarks.
 - 🧭 **List** [Awesome Agent Harness](https://github.com/AutoJunjie/awesome-agent-harness) - Curated tools and resources for environments, constraints, and feedback around coding agents.
 - 🧭 **List** [Awesome Context Engineering](https://github.com/Meirtz/Awesome-Context-Engineering) - Survey-style list for context engineering across LLMs and agents.
 - 🧭 **List** [Awesome Prompt Engineering](https://github.com/promptslab/Awesome-Prompt-Engineering) - Classic adjacent list for prompt techniques and prompting resources.
