@@ -466,7 +466,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "signal": signal_text,
                 "signal_strength": signal_strength,
                 "source_readme": "README.md",
-                "source_line": str(line_number),
+                "source_line": line_number,
                 "source_url": f"{SOURCE_URL}#L{line_number}",
                 "date_added": FIRST_SEEN.get(url, ""),
                 "collection": collection,
