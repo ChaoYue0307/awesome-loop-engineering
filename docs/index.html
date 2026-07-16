@@ -1410,6 +1410,7 @@
         function identifier(resource) {
           if (resource.doi) return 'DOI ' + resource.doi;
           if (resource.arxiv_id) return 'arXiv ' + resource.arxiv_id;
+          if (String(resource.github_repo || '').toLowerCase() === 'chaoyue0307/awesome-loop-engineering') return '';
           if (resource.github_repo) return resource.github_repo;
           return '';
         }
@@ -1499,11 +1500,13 @@
           var signal = createText('span', signalClass, words(resource.signal_strength || 'unverified') + ' signal');
           var starCount = formatNumber(resource.github_stars);
           var venue = resource.publication_venue || resource.publisher || 'Source not stated';
+          var secondaryPublisher = resource.publisher && resource.publisher !== venue &&
+            venue.toLowerCase().indexOf(resource.publisher.toLowerCase() + ' ') !== 0 ? resource.publisher : '';
           var publicationId = identifier(resource);
           var sourceRecord = [
             fullAuthors ? 'Authors: ' + fullAuthors : '',
             resource.publication_date ? 'Published: ' + resource.publication_date : 'Publication date: not stated by the source',
-            'Source: ' + venue + (resource.publisher && resource.publisher !== venue ? ' | ' + resource.publisher : ''),
+            'Source: ' + venue + (secondaryPublisher ? ' | ' + secondaryPublisher : ''),
             publicationId ? 'Identifier: ' + publicationId : '',
             resource.primary_category ? 'Primary category: ' + resource.primary_category : '',
             resource.publication_note ? 'Source note: ' + resource.publication_note : '',
@@ -1529,7 +1532,7 @@
           publication.className = 'resource-publication';
           appendCellLabel(publication, 'Published at');
           publication.appendChild(createText('span', 'resource-venue', venue));
-          if (resource.publisher && resource.publisher !== venue) publication.appendChild(createText('span', 'resource-publisher', resource.publisher));
+          if (secondaryPublisher) publication.appendChild(createText('span', 'resource-publisher', secondaryPublisher));
           if (resource.publication_date && resource.publication_date !== resource.publication_year) publication.appendChild(createText('span', 'resource-date', resource.publication_date));
           if (publicationId) publication.appendChild(createText('span', 'resource-identifier', publicationId));
 

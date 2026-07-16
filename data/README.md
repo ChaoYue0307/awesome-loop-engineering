@@ -23,7 +23,7 @@ python3 scripts/render_readme_tables.py
 python3 scripts/export_resource_dataset.py
 ```
 
-The export is deterministic and includes one row for every README resource-table row that follows the repository's curated entry format: marker, resource type, title, link, publication/source context, annotation, section, and source line.
+The export is deterministic and includes one row for every README resource-table row that follows the repository's curated entry format: marker, resource type, title, link, original publishing platform or venue, annotation, section, and source line.
 
 Run a network-backed source audit when refreshing the Hugging Face dataset:
 

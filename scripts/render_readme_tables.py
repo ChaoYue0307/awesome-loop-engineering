@@ -11,9 +11,11 @@ from pathlib import Path
 from export_resource_dataset import README, TYPE_MARKERS, iter_rows
 
 
-TABLE_HEADERS = ("Resource", "Publication / source", "Key feature")
+TABLE_HEADERS = ("Resource", "Published at", "Key feature")
+LEGACY_TABLE_HEADERS = {TABLE_HEADERS, ("Resource", "Publication / source", "Key feature")}
 SUMMARY_START = "<!-- resource-type-summary:start -->"
 SUMMARY_END = "<!-- resource-type-summary:end -->"
+PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
 
 TYPE_DESCRIPTIONS = {
     "Paper": "Academic paper, preprint, or technical report",
@@ -48,14 +50,48 @@ def author_summary(authors: str) -> str:
     return f"{names[0]} et al."
 
 
+def repository_artifact_label(url: str) -> str:
+    path = url.split("#", 1)[0]
+    if path.startswith("patterns/"):
+        return "Pattern library"
+    if path.startswith("templates/"):
+        return "Template library"
+    if path.startswith("schemas/"):
+        return "Schema"
+    if path.startswith("examples/runnable/"):
+        return "Runnable example"
+    if path.startswith("examples/"):
+        return "Example library"
+    if path.startswith("gallery/"):
+        return "Community gallery"
+    if path.startswith("docs/"):
+        return "Project website"
+    if path.startswith("scripts/"):
+        return "Repository utility"
+    if path.startswith("meta/"):
+        return "Project operations guide"
+    if path.startswith("posts/"):
+        return "Project article"
+    return "Project documentation"
+
+
 def publication_cell(row: dict[str, str]) -> str:
     year = row["publication_year"] or "Undated"
     resource_type = row["resource_type"]
     details: list[str] = []
 
-    if row["github_repo"]:
-        source = "GitHub"
-        owner, separator, repository = row["github_repo"].partition("/")
+    github_repo = row["github_repo"]
+    if row["url_kind"] != "external":
+        source = row["publication_venue"] or row["publisher"] or "GitHub"
+        details.append(repository_artifact_label(row["url"]))
+    elif github_repo.lower() == PROJECT_GITHUB_REPO:
+        source = row["publication_venue"] or row["publisher"] or "GitHub"
+        license_id = row["github_license"]
+        if license_id and license_id != "NOASSERTION":
+            details.append(f"License: {license_id}")
+    elif github_repo:
+        source = row["publisher"] or "GitHub"
+        owner, separator, repository = github_repo.partition("/")
         owner = GITHUB_OWNER_LABELS.get(owner, owner)
         details.append(f"{owner}{separator}{repository}")
         license_id = row["github_license"]
@@ -110,7 +146,7 @@ def is_resource_table_header(line: str) -> bool:
     if not line.startswith("|"):
         return False
     cells = tuple(cell.strip() for cell in line.strip().strip("|").split("|"))
-    return cells == TABLE_HEADERS
+    return cells in LEGACY_TABLE_HEADERS
 
 
 def is_table_separator(line: str) -> bool:

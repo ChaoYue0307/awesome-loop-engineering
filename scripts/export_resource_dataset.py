@@ -21,6 +21,7 @@ SITE_JSON_PATH = ROOT / "docs" / "assets" / "resources.json"
 AUDIT_PATH = ROOT / "data" / "resource_source_audit.csv"
 FIRST_SEEN_PATH = ROOT / "data" / "first_seen.json"
 SOURCE_URL = "https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.md"
+PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
 
 
 def load_first_seen() -> dict[str, str]:
@@ -338,6 +339,30 @@ def classify_url(url: str) -> tuple[str, str]:
     return "local_path", ""
 
 
+def publication_source(
+    url: str,
+    url_kind: str,
+    domain: str,
+    audit: dict[str, str],
+) -> tuple[str, str]:
+    """Return the original publishing surface without using this project as a venue."""
+    if url_kind != "external":
+        return "GitHub", "GitHub"
+
+    github_repo = audit.get("github_repo", "").lower()
+    if github_repo == PROJECT_GITHUB_REPO:
+        path = urlparse(url).path.lower()
+        if "/releases" in path:
+            return "GitHub Releases", "GitHub"
+        if "/discussions" in path:
+            return "GitHub Discussions", "GitHub"
+        return "GitHub", "GitHub"
+
+    venue = audit.get("publication_venue", "")
+    publisher = audit.get("publisher", "") or domain or "Source not stated"
+    return venue, publisher
+
+
 def load_audit() -> dict[str, dict[str, str]]:
     if not AUDIT_PATH.exists():
         return {}
@@ -505,6 +530,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
         audit = AUDIT_BY_URL.get(url, {})
         evidence = evidence_class(section, resource_type, domain, url_kind)
         signal_text, signal_strength = signal(resource_type, domain, url_kind, evidence, audit)
+        publication_venue, publisher = publication_source(url, url_kind, domain, audit)
         rows.append(
             {
                 "row_id": row_id,
@@ -540,8 +566,8 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "authors": audit.get("authors", ""),
                 "publication_date": audit.get("publication_date", ""),
                 "publication_year": audit.get("publication_year", ""),
-                "publication_venue": audit.get("publication_venue", ""),
-                "publisher": audit.get("publisher", "") or domain or "Awesome Loop Engineering",
+                "publication_venue": publication_venue,
+                "publisher": publisher,
                 "doi": audit.get("doi", ""),
                 "publication_note": audit.get("publication_note", ""),
                 "primary_category": audit.get("primary_category", ""),

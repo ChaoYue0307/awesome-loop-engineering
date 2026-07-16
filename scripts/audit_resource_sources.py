@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RESOURCES_CSV = ROOT / "data" / "resources.csv"
 AUDIT_CSV = ROOT / "data" / "resource_source_audit.csv"
 REPO_BLOB_URL = "https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main"
+PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
 
 ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/(?P<id>\d{4}\.\d{4,5})(?:v\d+)?")
 YEAR_RE = re.compile(r"(?<!\d)(?P<year>19\d{2}|20\d{2})(?!\d)")
@@ -243,6 +244,15 @@ def publisher_for_domain(domain: str) -> str:
     return normalized
 
 
+def project_github_venue(url: str) -> str:
+    path = urlparse(url).path.lower()
+    if "/releases" in path:
+        return "GitHub Releases"
+    if "/discussions" in path:
+        return "GitHub Discussions"
+    return "GitHub"
+
+
 def html_metadata(body: bytes, content_type: str) -> dict[str, str]:
     if "html" not in content_type.lower():
         return {}
@@ -438,7 +448,8 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
                     "final_url": f"{REPO_BLOB_URL}/{local_target}" + (f"#{fragment}" if fragment else ""),
                     "source_title": row["title"],
                     "publication_year": "2026",
-                    "publisher": "Awesome Loop Engineering",
+                    "publication_venue": "GitHub",
+                    "publisher": "GitHub",
                     "metadata_source": "repository",
                 }
             )
@@ -452,7 +463,8 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
                 "audit_status": "local_anchor",
                 "final_url": row["url"],
                 "publication_year": "2026",
-                "publisher": "Awesome Loop Engineering",
+                "publication_venue": "GitHub",
+                "publisher": "GitHub",
                 "metadata_source": "repository",
             }
         )
@@ -620,13 +632,16 @@ def finalize_publication_metadata(rows: list[dict[str, str]]) -> None:
 
         if row["github_repo"]:
             row["publisher"] = "GitHub"
-            row["publication_venue"] = row["publication_venue"] or row["github_repo"]
+            if row["github_repo"].lower() == PROJECT_GITHUB_REPO:
+                row["publication_venue"] = project_github_venue(row["url"])
+            else:
+                row["publication_venue"] = row["publication_venue"] or row["github_repo"]
             if not row["publication_date"] and row["github_created_at"]:
                 row["publication_date"] = normalize_date(row["github_created_at"])
                 row["metadata_source"] = "github-api"
 
         if not row["publisher"]:
-            row["publisher"] = publisher_for_domain(row["domain"]) or "Awesome Loop Engineering"
+            row["publisher"] = publisher_for_domain(row["domain"]) or "Source not stated"
         if not row["publication_year"]:
             row["publication_year"] = year_from_value(row["publication_date"])
         if not row["publication_year"]:
