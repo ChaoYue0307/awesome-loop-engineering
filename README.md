@@ -20,16 +20,16 @@
 </p>
 
 <p align="center">
-  <a href="#build-from-this">Build from this</a> |
-  <a href="#pattern-library">Pattern library</a> |
-  <a href="examples/README.md">Examples</a> |
-  <a href="schemas/loop-contract.schema.json">Schema</a> |
-  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Website</a> |
-  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Dataset</a>
+  📦 <a href="#build-from-this">Build from this</a> |
+  🧩 <a href="#pattern-library">Pattern library</a> |
+  ▶️ <a href="examples/README.md">Examples</a> |
+  🧾 <a href="schemas/loop-contract.schema.json">Schema</a> |
+  🌐 <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Website</a> |
+  🤗 <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Dataset</a>
 </p>
 
 <p align="center">
-  <a href="README.md">English</a> |
+  🌍 <strong>Languages:</strong> <a href="README.md">English</a> |
   <a href="README.zh-CN.md">中文</a> |
   <a href="README.es.md">Español</a> |
   <a href="README.fr.md">Français</a> |
@@ -41,7 +41,7 @@
 </p>
 
 <p align="center">
-  <sub>Useful? Star the repository to find it again, <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork">fork the contracts and dataset schema</a>, or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription">watch Releases and Discussions</a> for curated updates.</sub>
+  <sub>⭐ <strong>Star</strong> to find it again · 🔀 <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork"><strong>Fork</strong> the contracts and dataset schema</a> · 🔔 <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription"><strong>Watch</strong> Releases and Discussions</a></sub>
 </p>
 
 Awesome Loop Engineering is a curated, implementation-oriented field guide to **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
@@ -56,19 +56,19 @@ This repository is about the new AI-agent meaning of Loop Engineering. It is **n
 
 <table>
   <tr>
-    <td><strong>What it is</strong></td>
+    <td><strong>🔁 What it is</strong></td>
     <td>The layer that governs how agent work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.</td>
   </tr>
   <tr>
-    <td><strong>Why it matters now</strong></td>
+    <td><strong>⏱️ Why it matters now</strong></td>
     <td>As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list is focused on that operating layer.</td>
   </tr>
   <tr>
-    <td><strong>Who this is for</strong></td>
+    <td><strong>👥 Who this is for</strong></td>
     <td>Builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.</td>
   </tr>
   <tr>
-    <td><strong>Where to start</strong></td>
+    <td><strong>🧭 Where to start</strong></td>
     <td>Canonical Definition, The Loop Contract, Start Here, then the Pattern Library.</td>
   </tr>
 </table>
@@ -172,43 +172,43 @@ Use this atlas before browsing the exhaustive topical sections. It adds a task-o
   </thead>
   <tbody>
     <tr>
-      <td><strong>Learn</strong></td>
+      <td><strong>🧭 Learn</strong></td>
       <td><a href="#canonical-definition">Canonical definition</a></td>
       <td><a href="#start-here">Start Here</a> → <a href="#research-foundations">Research Foundations</a></td>
       <td>Newcomers and researchers</td>
     </tr>
     <tr>
-      <td><strong>Design</strong></td>
+      <td><strong>✏️ Design</strong></td>
       <td><a href="#the-loop-contract">Loop Contract</a></td>
       <td><a href="#pattern-library">Pattern Library</a> → <a href="#core-loop-primitives">Core Loop Primitives</a> → <a href="#agent-workflow-patterns">Agent Workflow Patterns</a></td>
       <td>Architects and loop designers</td>
     </tr>
     <tr>
-      <td><strong>Build</strong></td>
+      <td><strong>🛠️ Build</strong></td>
       <td><a href="meta/RUNTIME_SELECTION.md">Runtime selection</a></td>
       <td><a href="#official-runtime-guides">Official Runtime Guides</a> → <a href="#coding-agent-loop-systems">Coding-Agent Loop Systems</a> → <a href="#orchestration-and-multi-agent-delegation">Orchestration</a></td>
       <td>Agent and platform builders</td>
     </tr>
     <tr>
-      <td><strong>Persist</strong></td>
+      <td><strong>💾 Persist</strong></td>
       <td><a href="#state-memory-and-context-persistence">State and context</a></td>
       <td><a href="#core-loop-primitives">Core Loop Primitives</a> → <a href="#operations-playbooks">Operations Playbooks</a></td>
       <td>Long-running and resumable loops</td>
     </tr>
     <tr>
-      <td><strong>Verify</strong></td>
+      <td><strong>✅ Verify</strong></td>
       <td><a href="#verification-and-feedback-gates">Verification Gates</a></td>
       <td><a href="#benchmarks-and-evaluation">Benchmarks And Evaluation</a> → <a href="#critiques-risks-and-limitations">Critiques And Limitations</a></td>
       <td>Eval and reliability engineers</td>
     </tr>
     <tr>
-      <td><strong>Govern</strong></td>
+      <td><strong>🛡️ Govern</strong></td>
       <td><a href="#securing-unattended-loops">Securing Unattended Loops</a></td>
       <td><a href="#operations-playbooks">Operations Playbooks</a> → <a href="#critiques-risks-and-limitations">Critiques And Limitations</a></td>
       <td>Operators, approvers, and security</td>
     </tr>
     <tr>
-      <td><strong>Apply</strong></td>
+      <td><strong>📦 Apply</strong></td>
       <td><a href="#templates-and-patterns">Templates And Patterns</a></td>
       <td><a href="#examples-and-schema">Examples And Schema</a> → <a href="#community-gallery">Community Gallery</a> → <a href="#contributing">Contributing</a></td>
       <td>Teams adopting or sharing loops</td>
@@ -274,14 +274,14 @@ A compact path through the repository. Each resource is linked in full in the se
 
 Beyond the curated list, this repository also maintains:
 
-- 509 curated resource rows with tabular exports
-- 15 operational loop patterns with a comparison matrix
-- 15 schema-validated loop contracts
-- 6 runnable loop templates
-- A community gallery for real or anonymized loops
-- 8 language entry points
-- A standalone landing page and a Hugging Face dataset mirror
-- An active discussion thread for Loop Engineering patterns
+- 📚 **509 curated resources** with tabular exports and source-level metadata
+- 🧩 **15 operational patterns** with a symptom-first comparison matrix
+- 🧾 **15 validated contracts** backed by the Loop Contract JSON schema
+- ▶️ **6 runnable templates** for session, desktop, CI, automation, and shell runtimes
+- 🖼️ **Community gallery** for real or anonymized loops
+- 🌍 **8 language entry points** for the project overview
+- 🤗 **Structured dataset mirror** on Hugging Face plus the standalone Resource Atlas
+- 💬 **Open discussion channel** for corrections, patterns, and operating lessons
 
 ## Resource Type Legend
 
@@ -1083,23 +1083,23 @@ Use the repository as an implementation kit, not only as a reading list.
 
 <table>
   <tr>
-    <td><strong>Run locally</strong></td>
+    <td><strong>▶️ Run locally</strong></td>
     <td>Follow the <a href="examples/runnable/README.md#test-repair-loopsh">test-repair walkthrough</a>, then switch to the runtime that owns your trigger and isolation.</td>
   </tr>
   <tr>
-    <td><strong>Adapt a contract</strong></td>
+    <td><strong>🧾 Adapt a contract</strong></td>
     <td>Start from the <a href="examples/ci-repair-loop.json">CI repair contract</a> and replace its objective, intake, checks, budget, and escalation rules.</td>
   </tr>
   <tr>
-    <td><strong>Validate a contract</strong></td>
+    <td><strong>✅ Validate a contract</strong></td>
     <td>Use the <a href="packages/loop-contract-schema/README.md"><code>loop-contract-schema</code> package</a> in CI or call the JSON Schema from your own validator.</td>
   </tr>
   <tr>
-    <td><strong>Analyze the field</strong></td>
+    <td><strong>📊 Analyze the field</strong></td>
     <td>Use the <a href="data/README.md">dataset export guide</a> to work with the CSV, JSONL, source audit, and Resource Atlas payload.</td>
   </tr>
   <tr>
-    <td><strong>Contribute one source</strong></td>
+    <td><strong>➕ Contribute one source</strong></td>
     <td>Use the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml">resource suggestion form</a> or the <a href="CONTRIBUTING.md#fastest-contribution-under-five-minutes">under-five-minute contribution path</a>.</td>
   </tr>
 </table>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Awesome Loop Engineering</title>
-    <meta name="description" content="A curated field guide to loop engineering: patterns, loop contracts, and runnable examples for recurring AI agent loops and coding-agent automation.">
+    <meta name="description" content="509 audited resources, 15 operational patterns, loop contracts, and runnable examples for recurring, verified AI-agent systems.">
     <meta name="robots" content="index,follow">
     <meta name="author" content="Chaoyue He">
     <link rel="canonical" href="https://chaoyue0307.github.io/awesome-loop-engineering/">
@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Awesome Loop Engineering">
-    <meta property="og:description" content="Curated resources, patterns, examples, schema, and field guides for recurring AI-agent systems.">
+    <meta property="og:description" content="Explore 509 audited resources, 15 operational patterns, reusable loop contracts, and runnable examples for recurring AI-agent systems.">
     <meta property="og:url" content="https://chaoyue0307.github.io/awesome-loop-engineering/">
     <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=3">
     <meta property="og:image:width" content="1280">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="Awesome Loop Engineering: design loops, not just prompts.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Awesome Loop Engineering">
-    <meta name="twitter:description" content="A field guide for designing recurring AI-agent systems above prompt, context, and harness engineering.">
+    <meta name="twitter:description" content="509 audited resources and reusable patterns for designing recurring AI-agent systems above prompt, context, and harness engineering.">
     <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=3">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering releases" href="https://github.com/ChaoYue0307/awesome-loop-engineering/releases.atom">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering commits" href="https://github.com/ChaoYue0307/awesome-loop-engineering/commits/main.atom">
@@ -71,6 +71,18 @@
         outline-offset: 3px;
       }
       .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+      .emoji {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25em;
+        height: 1.25em;
+        flex: 0 0 auto;
+        font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+        font-size: 1em;
+        font-style: normal;
+        line-height: 1;
+      }
 
       header.site {
         position: sticky;
@@ -112,6 +124,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        gap: 7px;
         min-height: 40px;
         border: 1px solid var(--line-strong);
         border-radius: 6px;
@@ -127,6 +140,8 @@
       .nav-link.primary:hover, .button.primary:hover { background: #0f49bd; border-color: #0f49bd; color: #fff; }
       .menu-btn {
         display: none;
+        align-items: center;
+        gap: 7px;
         min-height: 40px;
         border: 1px solid var(--line-strong);
         border-radius: 6px;
@@ -206,6 +221,9 @@
       }
       .mental-model { padding: 18px 0 52px; }
       .section-label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
         margin: 0 0 12px;
         color: var(--blue);
         font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -213,11 +231,12 @@
         font-weight: 600;
         text-transform: uppercase;
       }
+      .section-label .emoji { font-size: 1.06em; }
       h1, h2, h3, p { overflow-wrap: anywhere; }
       h1 { max-width: 900px; margin: 0 auto; font-size: 3.85rem; line-height: 1.04; font-weight: 800; }
       h2 { margin: 0; font-size: 2.45rem; line-height: 1.14; font-weight: 800; }
       h3 { margin: 0; font-size: 1.02rem; line-height: 1.35; }
-      .hero-kicker { margin-bottom: 14px; }
+      .hero-kicker { justify-content: center; margin-bottom: 14px; }
       .tagline { margin: 18px auto 0; color: var(--blue); font-size: 1.5rem; font-weight: 700; }
       .lead { max-width: 780px; margin: 14px auto 0; color: var(--muted); font-size: 1.08rem; }
       .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
@@ -287,7 +306,8 @@
       }
       .stat { position: relative; padding: 17px 12px; text-align: left; }
       .stat + .stat { border-left: 1px solid var(--line); }
-      .stat b { display: block; color: var(--ink); font-size: 1.35rem; line-height: 1.2; }
+      .stat b { display: flex; align-items: center; gap: 8px; color: var(--ink); font-size: 1.35rem; line-height: 1.2; }
+      .stat b .emoji { font-size: 0.82em; }
       .stat span { color: var(--quiet); font-size: 0.76rem; font-weight: 600; text-transform: uppercase; }
       .definition { max-width: 900px; margin: 0 auto 28px; color: var(--muted); font-size: 0.92rem; text-align: center; }
       .definition strong { color: var(--ink); }
@@ -382,6 +402,7 @@
       }
       .principle + .principle, .card + .card, .pattern + .pattern { padding-left: 22px; }
       .principle p, .card p { margin: 7px 0 0; color: var(--muted); font-size: 0.9rem; }
+      .principle h3, .card h3, footer h4 { display: flex; align-items: center; gap: 8px; }
       .principles { margin-top: 34px; }
       .pattern-grid { gap: 0; }
       .pattern {
@@ -455,6 +476,10 @@
       .resource-reset:hover, .resource-more:hover { border-color: var(--blue); color: var(--blue); }
       .resource-collections { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); }
       .resource-collection {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
         min-height: 42px;
         border: 0;
         border-bottom: 2px solid transparent;
@@ -829,13 +854,13 @@
           <a href="#maturity">Maturity</a>
           <a href="#resources">Resources</a>
           <a href="#faq">FAQ</a>
-          <a class="mobile-nav-only" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Dataset</a>
+          <a class="mobile-nav-only" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><span class="emoji" aria-hidden="true">🤗</span>Dataset</a>
         </nav>
         <span class="spacer"></span>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">Menu</button>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Menu</span></button>
         <nav class="project-links" aria-label="Project links">
-          <a class="nav-link" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Dataset</a>
-          <a class="nav-link primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub</a>
+          <a class="nav-link" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><span class="emoji" aria-hidden="true">🤗</span>Dataset</a>
+          <a class="nav-link primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering"><span aria-hidden="true">&nearr;</span>GitHub</a>
         </nav>
       </div>
     </header>
@@ -844,13 +869,13 @@
       <section class="hero" id="top">
         <div class="wrap">
           <div class="hero-copy">
-            <p class="section-label hero-kicker">The field guide for recurring AI-agent systems</p>
+            <p class="section-label hero-kicker"><span class="emoji" aria-hidden="true">🔁</span><span>The field guide for recurring AI-agent systems</span></p>
             <h1>Awesome Loop Engineering</h1>
             <p class="tagline">Design loops, not just prompts.</p>
             <p class="lead">Build the recurring system around the agent: discover work, delegate it, verify the result, persist state, and decide what happens next.</p>
             <div class="actions">
-              <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme">Explore the list</a>
-              <a class="button" href="#choose">Choose a loop</a>
+              <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme"><span class="emoji" aria-hidden="true">📚</span>Explore the list</a>
+              <a class="button" href="#choose"><span class="emoji" aria-hidden="true">🧭</span>Choose a loop</a>
             </div>
           </div>
           <div class="hero-system">
@@ -891,11 +916,11 @@
             </picture>
           </figure>
           <div class="stats" role="list" aria-label="Repository at a glance">
-            <div class="stat" role="listitem"><b>509</b><span>curated entries</span></div>
-            <div class="stat" role="listitem"><b>15</b><span>operational patterns</span></div>
-            <div class="stat" role="listitem"><b>15</b><span>loop contracts</span></div>
-            <div class="stat" role="listitem"><b>6</b><span>runnable templates</span></div>
-            <div class="stat" role="listitem"><b>8</b><span>languages</span></div>
+            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">📚</span>509</b><span>curated entries</span></div>
+            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">🧩</span>15</b><span>operational patterns</span></div>
+            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">🧾</span>15</b><span>loop contracts</span></div>
+            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">▶️</span>6</b><span>runnable templates</span></div>
+            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">🌍</span>8</b><span>languages</span></div>
           </div>
         </div>
       </section>
@@ -904,7 +929,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">01 / The loop contract</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">🧾</span><span>01 / The loop contract</span></p>
               <h2>Every reliable loop names the same parts.</h2>
             </div>
             <p class="section-intro">The contract turns a recurring prompt habit into a reviewable operating system. Use the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json">JSON schema</a> and <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">15 validated examples</a> to make each decision explicit.</p>
@@ -943,9 +968,9 @@
             <p class="mobile-next-action"><strong>Next action</strong><span>Repeat, report, escalate, or stop.</span></p>
           </div>
           <div class="principles">
-            <div class="principle"><h3>Verifiable by design</h3><p>Tests, typechecks, evals, traces, or reviewers decide done. The acting agent never approves itself.</p></div>
-            <div class="principle"><h3>State outside the model</h3><p>Progress files, issues, checkpoints, and traces survive context resets and the next run.</p></div>
-            <div class="principle"><h3>Budgeted and bounded</h3><p>Retries, runtime, and concurrency are capped, with a clear path to human judgment.</p></div>
+            <div class="principle"><h3><span class="emoji" aria-hidden="true">✅</span>Verifiable by design</h3><p>Tests, typechecks, evals, traces, or reviewers decide done. The acting agent never approves itself.</p></div>
+            <div class="principle"><h3><span class="emoji" aria-hidden="true">💾</span>State outside the model</h3><p>Progress files, issues, checkpoints, and traces survive context resets and the next run.</p></div>
+            <div class="principle"><h3><span class="emoji" aria-hidden="true">⏱️</span>Budgeted and bounded</h3><p>Retries, runtime, and concurrency are capped, with a clear path to human judgment.</p></div>
           </div>
         </div>
       </section>
@@ -954,7 +979,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">02 / The lifecycle</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">🔁</span><span>02 / The lifecycle</span></p>
               <h2>Evidence moves the loop forward.</h2>
             </div>
             <p class="section-intro">A deterministic gate checks the work. The result and its receipts persist outside the model. The next action is retry, escalate, or exit.</p>
@@ -985,7 +1010,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">03 / Pattern library</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">🧩</span><span>03 / Pattern library</span></p>
               <h2>Start from the problem you have.</h2>
             </div>
             <p class="section-intro">Each pattern includes a trigger, verification gate, durable state, budget, and escalation path. Compare all 15 in the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">pattern matrix</a>.</p>
@@ -1018,7 +1043,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">04 / Where loops run</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">🛠️</span><span>04 / Where loops run</span></p>
               <h2>Pick the runtime deliberately.</h2>
             </div>
             <p class="section-intro">The same contract can run in a session, on a schedule, in CI, or through a durable worker. The <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/RUNTIME_SELECTION.md">runtime selection guide</a> compares persistence, file access, isolation, and permissions.</p>
@@ -1028,12 +1053,12 @@
             <figcaption class="caption">Keep the contract stable; change the trigger, isolation, and permission wiring.</figcaption>
           </figure>
           <div class="link-grid">
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><h3>Claude Code <code>/loop</code></h3><p>Session-scoped recurring work while you are nearby.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><h3>Desktop scheduled task</h3><p>Local recurring runs with file access and missed-run guardrails.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/codex-automation.md"><h3>Codex automation</h3><p>Unattended background work in an isolated worktree.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><h3>GitHub agentic workflow</h3><p>Scheduled or event-triggered work in GitHub Actions.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><h3>Shell / cron</h3><p>A minimal wrapper that delegates to an agent CLI and records receipts.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><h3>Runnable reference</h3><p>A dependency-light test-repair loop you can run today.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><h3><span class="emoji" aria-hidden="true">⌨️</span>Claude Code <code>/loop</code></h3><p>Session-scoped recurring work while you are nearby.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><h3><span class="emoji" aria-hidden="true">🕒</span>Desktop scheduled task</h3><p>Local recurring runs with file access and missed-run guardrails.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/codex-automation.md"><h3><span class="emoji" aria-hidden="true">⚙️</span>Codex automation</h3><p>Unattended background work in an isolated worktree.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><h3><span class="emoji" aria-hidden="true">🧪</span>GitHub agentic workflow</h3><p>Scheduled or event-triggered work in GitHub Actions.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><h3><span class="emoji" aria-hidden="true">🖥️</span>Shell / cron</h3><p>A minimal wrapper that delegates to an agent CLI and records receipts.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><h3><span class="emoji" aria-hidden="true">▶️</span>Runnable reference</h3><p>A dependency-light test-repair loop you can run today.</p></a>
           </div>
         </div>
       </section>
@@ -1042,7 +1067,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">05 / Maturity model</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">📈</span><span>05 / Maturity model</span></p>
               <h2>Climb one level at a time.</h2>
             </div>
             <p class="section-intro">A reliable Level 3 loop with durable state and deterministic checks is more useful than a Level 5 loop with vague goals.</p>
@@ -1067,7 +1092,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">06 / Curated resources</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">📚</span><span>06 / Curated resources</span></p>
               <h2>Find the evidence for your next decision.</h2>
             </div>
             <p class="section-intro">Search 509 audited works by goal, lifecycle stage, artifact type, and evidence class. Each row combines the curated assessment with verified authorship, year, venue or source platform, and identifiers when the primary source exposes them.</p>
@@ -1123,17 +1148,17 @@
                   <option value="risk">Risk and ecosystem maps</option>
                 </select>
               </label>
-              <button class="resource-reset" id="resource-reset" type="button">Reset</button>
+              <button class="resource-reset" id="resource-reset" type="button"><span aria-hidden="true">&#8634;</span> Reset</button>
             </div>
             <div class="resource-collections" role="group" aria-label="Filter by user goal">
-              <button class="resource-collection" type="button" data-collection="" aria-pressed="true">All</button>
-              <button class="resource-collection" type="button" data-collection="Learn" aria-pressed="false">Learn</button>
-              <button class="resource-collection" type="button" data-collection="Design" aria-pressed="false">Design</button>
-              <button class="resource-collection" type="button" data-collection="Build" aria-pressed="false">Build</button>
-              <button class="resource-collection" type="button" data-collection="Persist" aria-pressed="false">Persist</button>
-              <button class="resource-collection" type="button" data-collection="Verify" aria-pressed="false">Verify</button>
-              <button class="resource-collection" type="button" data-collection="Govern" aria-pressed="false">Govern</button>
-              <button class="resource-collection" type="button" data-collection="Apply" aria-pressed="false">Apply</button>
+              <button class="resource-collection" type="button" data-collection="" aria-pressed="true"><span class="emoji" aria-hidden="true">✨</span>All</button>
+              <button class="resource-collection" type="button" data-collection="Learn" aria-pressed="false"><span class="emoji" aria-hidden="true">🧭</span>Learn</button>
+              <button class="resource-collection" type="button" data-collection="Design" aria-pressed="false"><span class="emoji" aria-hidden="true">✏️</span>Design</button>
+              <button class="resource-collection" type="button" data-collection="Build" aria-pressed="false"><span class="emoji" aria-hidden="true">🛠️</span>Build</button>
+              <button class="resource-collection" type="button" data-collection="Persist" aria-pressed="false"><span class="emoji" aria-hidden="true">💾</span>Persist</button>
+              <button class="resource-collection" type="button" data-collection="Verify" aria-pressed="false"><span class="emoji" aria-hidden="true">✅</span>Verify</button>
+              <button class="resource-collection" type="button" data-collection="Govern" aria-pressed="false"><span class="emoji" aria-hidden="true">🛡️</span>Govern</button>
+              <button class="resource-collection" type="button" data-collection="Apply" aria-pressed="false"><span class="emoji" aria-hidden="true">📦</span>Apply</button>
             </div>
             <div class="resource-summary">
               <p class="resource-count" id="resource-count" aria-live="polite">Loading resource index...</p>
@@ -1171,15 +1196,15 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">07 / Contribute</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">🤝</span><span>07 / Contribute</span></p>
               <h2>Bring a source or a real loop.</h2>
             </div>
             <p class="section-intro">Add a vetted source with a specific annotation, or document a loop you actually run. Both paths have a checklist.</p>
           </div>
           <div class="link-grid">
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml"><h3>Suggest a resource</h3><p>Submit one canonical source and a precise annotation in under five minutes.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/gallery/README.md"><h3>Share a loop</h3><p>Publish a real or anonymized case study using the gallery checklist.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2"><h3>Join the discussion</h3><p>Compare operating patterns with other loop builders.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml"><h3><span class="emoji" aria-hidden="true">➕</span>Suggest a resource</h3><p>Submit one canonical source and a precise annotation in under five minutes.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/gallery/README.md"><h3><span class="emoji" aria-hidden="true">🔁</span>Share a loop</h3><p>Publish a real or anonymized case study using the gallery checklist.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2"><h3><span class="emoji" aria-hidden="true">💬</span>Join the discussion</h3><p>Compare operating patterns with other loop builders.</p></a>
           </div>
         </div>
       </section>
@@ -1188,7 +1213,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label">08 / FAQ</p>
+              <p class="section-label"><span class="emoji" aria-hidden="true">💬</span><span>08 / FAQ</span></p>
               <h2>Loop Engineering, answered.</h2>
             </div>
             <p class="section-intro">Short answers to the questions people ask first.</p>
@@ -1221,7 +1246,7 @@
       <div class="wrap">
         <div class="footer-grid">
           <div>
-            <h4>Cite this repository</h4>
+            <h4><span class="emoji" aria-hidden="true">📖</span>Cite this repository</h4>
             <div class="cite">
               <button class="copy" type="button" data-copy="cite-bib" aria-label="Copy BibTeX citation"><span aria-live="polite">Copy</span></button>
               <pre id="cite-bib">@misc{chaoyue2026awesome_loop_engineering,
@@ -1233,14 +1258,14 @@
             </div>
           </div>
           <div>
-            <h4>Explore</h4>
+            <h4><span class="emoji" aria-hidden="true">🧭</span>Explore</h4>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/DEFINITION.md">Canonical definition</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/MANIFESTO.md">Manifesto</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TAXONOMY.md">Taxonomy</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ANTI-PATTERNS.md">Anti-patterns</a>
           </div>
           <div>
-            <h4>Project</h4>
+            <h4><span class="emoji" aria-hidden="true">🛠️</span>Project</h4>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub repository</a>
             <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face dataset</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md">Contributing</a>
@@ -1250,7 +1275,7 @@
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ROADMAP.md">Roadmap</a>
           </div>
           <div>
-            <h4>Languages</h4>
+            <h4><span class="emoji" aria-hidden="true">🌍</span>Languages</h4>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.zh-CN.md" lang="zh">中文</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.es.md" lang="es">Español</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.fr.md" lang="fr">Français</a>
@@ -1268,12 +1293,15 @@
       (function () {
         var button = document.querySelector('.menu-btn');
         var links = document.getElementById('primary-nav');
+        var icon = button && button.querySelector('.menu-icon');
+        var label = button && button.querySelector('.menu-label');
         if (!button || !links) return;
         function setMenuState(open) {
           links.classList.toggle('open', open);
           button.setAttribute('aria-expanded', open ? 'true' : 'false');
           button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-          button.textContent = open ? 'Close' : 'Menu';
+          if (icon) icon.textContent = open ? '\u00d7' : '\u2630';
+          if (label) label.textContent = open ? 'Close' : 'Menu';
         }
         button.addEventListener('click', function () {
           setMenuState(!links.classList.contains('open'));
