@@ -29,7 +29,19 @@ The repo is looking for examples with a clear trigger, work intake, agent roles,
 ## Accuracy Request
 
 ```text
-Hi <name>, your work is cited in Awesome Loop Engineering. If the annotation misstates the idea or a better canonical link exists, a correction PR or issue would be very welcome.
+Hi <name>, I included <work title> in Awesome Loop Engineering and summarized its contribution as: "<current annotation>."
+
+Could you check whether that characterization is accurate? If it misses the main contribution, novelty, impact, or best canonical link, a correction is very welcome:
+https://github.com/ChaoYue0307/awesome-loop-engineering
+```
+
+## Maintainer Request
+
+```text
+Hi <name>, Awesome Loop Engineering is a curated map of recurring AI-agent systems above prompt, context, and harness engineering. It includes audited resources, operational patterns, loop contracts, runnable templates, and a structured dataset.
+
+Would it fit the related-resources policy for <project or newsletter>? I can provide a shorter description or submit through the normal contribution process:
+https://github.com/ChaoYue0307/awesome-loop-engineering
 ```
 
 ## What Not To Ask For
@@ -37,3 +49,4 @@ Hi <name>, your work is cited in Awesome Loop Engineering. If the annotation mis
 - Do not ask people to endorse claims they have not made.
 - Do not ask for private customer data, proprietary prompts, secrets, or internal dashboards.
 - Do not imply the repository is a standard. It is an early curated field guide for an emerging practice.
+- Do not ask for stars, reposts, or endorsements in an accuracy request.

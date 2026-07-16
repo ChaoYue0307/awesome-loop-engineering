@@ -40,6 +40,10 @@
   <a href="TRANSLATIONS.md">Help translate</a>
 </p>
 
+<p align="center">
+  <sub>Useful? Star the repository to find it again, <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork">fork the contracts and dataset schema</a>, or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription">watch releases</a> for curated updates.</sub>
+</p>
+
 Awesome Loop Engineering is a curated, implementation-oriented field guide to **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
 
 Prompt engineering improves what you ask the model. Context engineering improves what the model can see. Harness engineering improves the tools, permissions, sandboxes, and checks around one agent run. **Loop Engineering sits above all three**: it is the emerging AI and coding-agent practice of moving from manually prompting agents turn by turn to designing loops that do the prompting, supervision, verification, state updates, and re-triggering for you.

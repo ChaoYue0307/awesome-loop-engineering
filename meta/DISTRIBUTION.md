@@ -39,37 +39,62 @@ Discoverability levers that live on GitHub itself, in priority order.
 
 ## Launch Copy
 
-Use [`posts/launch.md`](../posts/launch.md) when you want a longer article-style launch post.
+Use the canonical [English launch article](../posts/launch.md) or [Chinese launch article](../posts/launch.zh-CN.md) for long-form distribution.
 
 ### Short Post
 
 ```text
-Awesome Loop Engineering v0.1.0 is live.
+Awesome Loop Engineering v0.5.0 is live.
 
-Loop Engineering is the layer above prompt, context, and harness engineering: designing recurring AI-agent systems that discover work, delegate to agents, verify results, persist state, decide next actions, and run again.
+509 audited resources for designing recurring AI-agent systems above prompt, context, and harness engineering, plus an interactive Resource Atlas, 15 patterns, 15 validated loop contracts, runnable templates, and a structured Hugging Face dataset.
 
-Repo:
-https://github.com/ChaoYue0307/awesome-loop-engineering
+Explore the atlas:
+https://chaoyue0307.github.io/awesome-loop-engineering/
 ```
 
 ### Longer Post
 
 ```text
-Awesome Loop Engineering v0.1.0 is live.
+Awesome Loop Engineering v0.5.0 is live.
 
-The repo curates resources and practical patterns for an emerging AI/coding-agent practice: moving from turn-by-turn prompting to recurring systems that prompt, supervise, verify, persist state, and rerun agents.
+Loop Engineering is the operating layer above prompt, context, and harness engineering: the recurring system that discovers work, delegates it, verifies results, persists state, and decides what happens next.
 
-It includes:
+The release includes:
 
-- curated papers, blogs, docs, tools, benchmarks, and patterns
-- manifesto, taxonomy, comparison guide, anti-patterns, and sourced signals
-- loop contract schema with validated examples
-- pattern library for PR babysitting, CI repair, docs drift, deploy verification, and feedback clustering
-- community gallery for real-world loop examples
+- 509 audited resources
+- an interactive Resource Atlas
+- 15 operational patterns and 15 validated loop contracts
+- 6 runnable templates
+- CSV and JSONL exports mirrored to Hugging Face
 
-Contributions and corrections are welcome:
+Explore, reuse, or correct the map:
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```
+
+### Hacker News
+
+Use a regular submission, not Show HN.
+
+```text
+Title: Awesome Loop Engineering: 509 resources for recurring AI-agent systems
+
+I have been mapping the layer above prompt, context, and harness engineering: recurring systems that discover work, delegate it, verify results, persist state, and decide whether to retry, escalate, or exit.
+
+The repository now includes 509 audited sources, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset. Corrections to the taxonomy and source annotations are especially welcome.
+
+https://github.com/ChaoYue0307/awesome-loop-engineering
+```
+
+Do not ask anyone to upvote the submission.
+
+## Coordinated Release Sequence
+
+1. Publish the GitHub release and confirm Pages, dataset, and CI are current.
+1. Publish the English article and a concise LinkedIn or X post using the stack or lifecycle visual.
+1. Publish the native Chinese article rather than translating a social post mechanically.
+1. Submit the regular Hacker News post after the release page is stable.
+1. Contact cited authors with accuracy requests, then approach adjacent list maintainers and newsletters.
+1. Record each channel and its referral result in the 14-day traffic snapshot.
 
 ## Where To Share
 
