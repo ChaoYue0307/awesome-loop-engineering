@@ -3,7 +3,7 @@
 ## Source
 
 - Selected direction: `/Users/chaoyue/.codex/generated_images/019ed02c-a15f-7881-aab3-49ff394627b4/exec-e373a4be-af07-451b-937a-7cd5acbd9b12.png`
-- Local prototype: `http://127.0.0.1:4173/docs/`
+- Local prototype: repository `docs/` build served during QA
 - Reference comparison: `/private/tmp/loop-design-comparison.png`
 
 ## Viewports And States
