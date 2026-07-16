@@ -1,82 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc" font-family="Inter, Helvetica Neue, Arial, sans-serif">
   <title id="title">Loop Engineering stack</title>
-  <desc id="desc">A layered diagram: Prompt, Context, and Harness Engineering improve a single agent run, while Loop Engineering is the recurring system contract that governs agent work over time.</desc>
+  <desc id="desc">Prompt, Context, and Harness Engineering improve one agent run. Loop Engineering is the governing layer above them for recurring work over time.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#0b1120"/>
-    </linearGradient>
-    <linearGradient id="loop" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#a78bfa"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#020617" flood-opacity="0.32"/>
-    </filter>
+    <marker id="loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#1746d1"/>
+    </marker>
   </defs>
+  <rect width="1200" height="680" fill="#f7f9fc"/>
+  <text x="64" y="52" fill="#1746d1" font-size="13" font-weight="800">MENTAL MODEL / FOUR LAYERS</text>
+  <text x="64" y="91" fill="#111318" font-size="34" font-weight="800">Loop Engineering Stack</text>
+  <text x="1136" y="88" text-anchor="end" fill="#586273" font-size="16">From one agent run to recurring, governed work</text>
+  <line x1="64" y1="116" x2="1136" y2="116" stroke="#cfd6e0"/>
 
-  <rect width="1200" height="760" rx="34" fill="url(#bg)"/>
-  <text x="600" y="60" text-anchor="middle" fill="#f8fafc" font-size="34" font-weight="800" letter-spacing="-0.02em">Loop Engineering Stack</text>
-  <text x="600" y="94" text-anchor="middle" fill="#c2cad8" font-size="17">From single prompts to recurring, stateful, verified agent systems</text>
-
-  <!-- scope rails -->
-  <g stroke-linecap="round">
-    <path d="M124 132 H115 V366 H124" fill="none" stroke="#3a475c" stroke-width="2"/>
-    <path d="M124 388 H115 V680 H124" fill="none" stroke="url(#loop)" stroke-width="2.6"/>
-  </g>
-  <text transform="translate(74 249) rotate(-90)" text-anchor="middle" fill="#7b8aa3" font-size="12.5" font-weight="800" letter-spacing="0.2em">IMPROVES ONE RUN</text>
-  <text transform="translate(74 534) rotate(-90)" text-anchor="middle" fill="#8fd6fb" font-size="12.5" font-weight="800" letter-spacing="0.2em">GOVERNS WORK OVER TIME</text>
-
-  <!-- three input tiers -->
-  <g filter="url(#shadow)">
-    <rect x="158" y="132" width="958" height="72" rx="20" fill="#1e293b" stroke="#3b4a63"/>
-    <rect x="158" y="216" width="958" height="72" rx="20" fill="#172554" stroke="#2856c9"/>
-    <rect x="158" y="300" width="958" height="72" rx="20" fill="#2e2a72" stroke="#6366f1"/>
-  </g>
-  <g>
-    <circle cx="192" cy="168" r="5" fill="#60a5fa"/>
-    <text x="216" y="163" fill="#bfdbfe" font-size="19" font-weight="700">Prompt Engineering</text>
-    <text x="216" y="187" fill="#cdd7e6" font-size="15">What should I say to the model?</text>
-
-    <circle cx="192" cy="252" r="5" fill="#818cf8"/>
-    <text x="216" y="247" fill="#c7d2fe" font-size="19" font-weight="700">Context Engineering</text>
-    <text x="216" y="271" fill="#dbe3f4" font-size="15">What state, memory, docs, and examples should the agent see?</text>
-
-    <circle cx="192" cy="336" r="5" fill="#a78bfa"/>
-    <text x="216" y="331" fill="#ddd6fe" font-size="19" font-weight="700">Harness Engineering</text>
-    <text x="216" y="355" fill="#e7e2fb" font-size="15">What tools, permissions, sandboxes, traces, and checks surround one agent run?</text>
+  <g stroke-width="3" fill="#ffffff">
+    <path d="M250 218Q250 209 261 203L452 108Q464 102 476 108L667 203Q678 209 678 218Q678 227 667 233L476 328Q464 334 452 328L261 233Q250 227 250 218Z" stroke="#1746d1"/>
+    <path d="M250 313Q250 304 261 298L452 203Q464 197 476 203L667 298Q678 304 678 313Q678 322 667 328L476 423Q464 429 452 423L261 328Q250 322 250 313Z" stroke="#138ccb"/>
+    <path d="M250 408Q250 399 261 393L452 298Q464 292 476 298L667 393Q678 399 678 408Q678 417 667 423L476 518Q464 524 452 518L261 423Q250 417 250 408Z" stroke="#14866a"/>
+    <path d="M250 503Q250 494 261 488L452 393Q464 387 476 393L667 488Q678 494 678 503Q678 512 667 518L476 613Q464 619 452 613L261 518Q250 512 250 503Z" stroke="#111318"/>
   </g>
 
-  <!-- loop layer -->
-  <g filter="url(#shadow)">
-    <rect x="158" y="388" width="958" height="292" rx="26" fill="url(#loop)"/>
-  </g>
-  <text x="216" y="430" fill="#082033" font-size="23" font-weight="900" letter-spacing="-0.01em">Loop Engineering</text>
-  <text x="216" y="456" fill="#0b2136" font-size="15.5" font-weight="600">The recurring system contract for agent work.</text>
+  <path d="M374 218c0-36 34-64 76-64 31 0 58 15 70 39" fill="none" stroke="#1746d1" stroke-width="8" stroke-linecap="round" marker-end="url(#loop-arrow)"/>
+  <path d="M546 220c0 36-34 64-76 64-31 0-58-15-70-39" fill="none" stroke="#1746d1" stroke-width="8" stroke-linecap="round"/>
 
-  <g>
-    <g transform="translate(206 482)">
-      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#93c5fd" stroke-opacity="0.35"/>
-      <text x="26" y="34" fill="#e0f2fe" font-size="16" font-weight="800">1 &#183; Goal + Trigger</text>
-      <text x="26" y="59" fill="#a9c6e0" font-size="13.5">Define success, cadence, and work intake.</text>
-    </g>
-    <g transform="translate(652 482)">
-      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#93c5fd" stroke-opacity="0.35"/>
-      <text x="26" y="34" fill="#e0f2fe" font-size="16" font-weight="800">2 &#183; Context + Harness</text>
-      <text x="26" y="59" fill="#a9c6e0" font-size="13.5">Load state, tools, permissions, and isolation.</text>
-    </g>
-    <g transform="translate(206 578)">
-      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#c4b5fd" stroke-opacity="0.35"/>
-      <text x="26" y="34" fill="#f1e9ff" font-size="16" font-weight="800">3 &#183; Delegate + Verify</text>
-      <text x="26" y="59" fill="#cdbdf0" font-size="13.5">Route work, test, evaluate, and collect receipts.</text>
-    </g>
-    <g transform="translate(652 578)">
-      <rect width="416" height="80" rx="16" fill="#0a1220" fill-opacity="0.92" stroke="#c4b5fd" stroke-opacity="0.35"/>
-      <text x="26" y="34" fill="#f1e9ff" font-size="16" font-weight="800">4 &#183; State + Next Action</text>
-      <text x="26" y="59" fill="#cdbdf0" font-size="13.5">Persist, repeat, report, or escalate.</text>
-    </g>
+  <g font-size="15">
+    <line x1="678" y1="218" x2="735" y2="218" stroke="#1746d1"/><circle cx="735" cy="218" r="4" fill="#1746d1"/>
+    <text x="756" y="211" fill="#1746d1" font-size="20" font-weight="800">Loop Engineering</text>
+    <text x="756" y="237" fill="#3f4856">Recurring contract, verification, state, and next action.</text>
+
+    <line x1="678" y1="313" x2="735" y2="313" stroke="#138ccb"/><circle cx="735" cy="313" r="4" fill="#138ccb"/>
+    <text x="756" y="306" fill="#0879ad" font-size="20" font-weight="800">Harness Engineering</text>
+    <text x="756" y="332" fill="#3f4856">Tools, permissions, sandboxes, traces, and checks.</text>
+
+    <line x1="678" y1="408" x2="735" y2="408" stroke="#14866a"/><circle cx="735" cy="408" r="4" fill="#14866a"/>
+    <text x="756" y="401" fill="#0f765d" font-size="20" font-weight="800">Context Engineering</text>
+    <text x="756" y="427" fill="#3f4856">State, memory, documents, and examples the agent sees.</text>
+
+    <line x1="678" y1="503" x2="735" y2="503" stroke="#111318"/><circle cx="735" cy="503" r="4" fill="#111318"/>
+    <text x="756" y="496" fill="#111318" font-size="20" font-weight="800">Prompt Engineering</text>
+    <text x="756" y="522" fill="#3f4856">The instruction and interaction for one model call.</text>
   </g>
 
-  <circle cx="163" cy="722" r="5" fill="#38bdf8"/>
-  <text x="180" y="727" fill="#c2cad8" font-size="14.5">Core contract: objective, trigger, discover/intake, workspace, context, delegation, verification, state, budget, escalation, exit.</text>
+  <line x1="64" y1="642" x2="1136" y2="642" stroke="#cfd6e0"/>
+  <text x="64" y="665" fill="#586273" font-size="14">Prompt, context, and harness improve one run.</text>
+  <text x="1136" y="665" text-anchor="end" fill="#1746d1" font-size="14" font-weight="700">Loop Engineering governs work over time.</text>
 </svg>

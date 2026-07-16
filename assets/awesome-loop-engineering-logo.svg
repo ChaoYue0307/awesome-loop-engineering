@@ -1,49 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">Awesome Loop Engineering logo</title>
-  <desc id="desc">A circular loop arrow around a verification check and stacked state lines.</desc>
-  <defs>
-    <linearGradient id="panel" x1="88" y1="48" x2="432" y2="464" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#111a33"/>
-      <stop offset="0.58" stop-color="#0b1020"/>
-      <stop offset="1" stop-color="#12192d"/>
-    </linearGradient>
-    <linearGradient id="loop" x1="126" y1="140" x2="386" y2="378" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#38bdf8"/>
-      <stop offset="0.52" stop-color="#7dd3fc"/>
-      <stop offset="1" stop-color="#a78bfa"/>
-    </linearGradient>
-    <linearGradient id="arrow" x1="314" y1="138" x2="397" y2="232" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#38bdf8"/>
-      <stop offset="1" stop-color="#a78bfa"/>
-    </linearGradient>
-    <linearGradient id="check" x1="203" y1="234" x2="310" y2="312" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#f8fafc"/>
-      <stop offset="1" stop-color="#bae6fd"/>
-    </linearGradient>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#020617" flood-opacity="0.35"/>
-    </filter>
-  </defs>
-
-  <rect width="512" height="512" rx="112" fill="#070b16"/>
-  <rect x="22" y="22" width="468" height="468" rx="98" fill="url(#panel)" stroke="#253044" stroke-width="2"/>
-  <path d="M88 166C120 96 185 62 257 63c84 1 155 53 184 128" fill="none" stroke="#38bdf8" stroke-opacity="0.18" stroke-width="2"/>
-  <path d="M423 347c-34 68-99 102-171 100-82-2-151-52-180-125" fill="none" stroke="#a78bfa" stroke-opacity="0.16" stroke-width="2"/>
-
-  <g filter="url(#softShadow)">
-    <path d="M143 270c-6-66 39-124 103-134 58-9 113 23 136 76" fill="none" stroke="url(#loop)" stroke-width="36" stroke-linecap="round"/>
-    <path d="M371 174l47 75-87-4z" fill="url(#arrow)"/>
-    <path d="M369 249c5 66-40 124-104 134-58 9-113-24-135-77" fill="none" stroke="url(#loop)" stroke-width="36" stroke-linecap="round" opacity="0.96"/>
-    <path d="M142 338l-47-75 87 4z" fill="#38bdf8"/>
-  </g>
-
-  <circle cx="256" cy="258" r="82" fill="#0b1020" stroke="#334155" stroke-width="2"/>
-  <circle cx="256" cy="258" r="69" fill="#101827" stroke="#38bdf8" stroke-opacity="0.34" stroke-width="2"/>
-  <path d="M215 258l28 28 59-67" fill="none" stroke="url(#check)" stroke-width="27" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <g opacity="0.96">
-    <rect x="174" y="344" width="164" height="18" rx="9" fill="#1f2a44" stroke="#38bdf8" stroke-opacity="0.38"/>
-    <rect x="195" y="375" width="122" height="18" rx="9" fill="#1a2338" stroke="#7dd3fc" stroke-opacity="0.34"/>
-    <rect x="217" y="406" width="78" height="18" rx="9" fill="#171f33" stroke="#a78bfa" stroke-opacity="0.34"/>
+  <desc id="desc">A blue recurring loop surrounding a verification check, with three state lines below.</desc>
+  <rect x="18" y="18" width="476" height="476" rx="238" fill="#ffffff" stroke="#d9e0ea" stroke-width="12"/>
+  <path d="M126 254c0-76 60-138 136-142 55-3 106 25 134 70" fill="none" stroke="#1746d1" stroke-width="34" stroke-linecap="round"/>
+  <path d="M365 125l57 83-100-5z" fill="#1746d1"/>
+  <path d="M386 258c0 76-60 138-136 142-55 3-106-25-134-70" fill="none" stroke="#138ccb" stroke-width="34" stroke-linecap="round"/>
+  <path d="M147 387l-57-83 100 5z" fill="#138ccb"/>
+  <circle cx="256" cy="256" r="72" fill="#f7f9fc" stroke="#cbd5e1" stroke-width="8"/>
+  <path d="M216 256l28 28 56-66" fill="none" stroke="#111318" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#1746d1">
+    <rect x="194" y="350" width="124" height="10" rx="5"/>
+    <rect x="213" y="372" width="86" height="10" rx="5" opacity="0.68"/>
+    <rect x="231" y="394" width="50" height="10" rx="5" opacity="0.42"/>
   </g>
 </svg>

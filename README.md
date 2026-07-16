@@ -20,6 +20,15 @@
 </p>
 
 <p align="center">
+  <a href="#start-here">Start here</a> |
+  <a href="#pattern-library">Pattern library</a> |
+  <a href="examples/README.md">Examples</a> |
+  <a href="schemas/loop-contract.schema.json">Schema</a> |
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Website</a> |
+  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Dataset</a>
+</p>
+
+<p align="center">
   <a href="README.md">English</a> |
   <a href="README.zh-CN.md">中文</a> |
   <a href="README.es.md">Español</a> |
@@ -28,9 +37,7 @@
   <a href="README.ja.md">日本語</a> |
   <a href="README.ko.md">한국어</a> |
   <a href="README.pt-BR.md">Português</a> |
-  <a href="TRANSLATIONS.md">Help translate</a> |
-  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Landing page</a> |
-  <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face dataset</a>
+  <a href="TRANSLATIONS.md">Help translate</a>
 </p>
 
 Awesome Loop Engineering is a curated, implementation-oriented field guide to **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
@@ -41,12 +48,26 @@ A loop discovers work, hands it to one or more agents, checks the result, record
 
 This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
 
-**Quick orientation for first-time visitors:**
+**Quick orientation**
 
-- 🧭 **What it is:** the layer that governs how agent work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.
-- ⚡ **Why it matters now:** As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list exists because no existing collection focused on that layer.
-- 👤 **Who this is for:** builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.
-- 🚦 **Where to start:** Canonical Definition, Loop Contract, Start Here, then Pattern Library.
+<table>
+  <tr>
+    <td><strong>What it is</strong></td>
+    <td>The layer that governs how agent work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.</td>
+  </tr>
+  <tr>
+    <td><strong>Why it matters now</strong></td>
+    <td>As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list is focused on that operating layer.</td>
+  </tr>
+  <tr>
+    <td><strong>Who this is for</strong></td>
+    <td>Builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.</td>
+  </tr>
+  <tr>
+    <td><strong>Where to start</strong></td>
+    <td>Canonical Definition, The Loop Contract, Start Here, then the Pattern Library.</td>
+  </tr>
+</table>
 
 ## Contents
 
@@ -104,6 +125,8 @@ Prompt, context, and harness engineering make one agent run better. Loop Enginee
 
 <p align="center">
   <img src="assets/loop-engineering-stack.svg" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time" width="100%">
+  <br>
+  <sub><strong>Figure 1.</strong> Prompt, context, and harness engineering improve one run; Loop Engineering governs recurring work over time.</sub>
 </p>
 
 Loop shape:
@@ -122,6 +145,8 @@ Objective
 
 <p align="center">
   <img src="assets/loop-lifecycle.svg" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met" width="100%">
+  <br>
+  <sub><strong>Figure 2.</strong> Evidence moves through a recurring, stateful, verified loop toward retry, escalation, or exit.</sub>
 </p>
 
 ## How To Use This List
@@ -132,10 +157,12 @@ Start with the first-read resources and the Loop Contract if the term is new. Fo
 
 Choose a path based on your intent.
 
-- 📖 Learn the concept: canonical definition, mental model, comparison guide, and the Loop Contract.
-- 🛠️ Implement a loop: core primitives, official runtime guides, the pattern library, and examples.
-- ✅ Improve reliability or evals: verification gates, securing unattended loops, benchmarks, critiques, and limitations.
-- 🤝 Contribute: the community gallery, templates, and contribution guide.
+| Goal                             | Reading path                                                                                              |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **Learn the concept**            | Canonical definition, mental model, comparison guide, and the Loop Contract                               |
+| **Implement a loop**             | Core primitives, official runtime guides, the pattern library, and examples                               |
+| **Improve reliability or evals** | Verification gates, securing unattended loops, benchmarks, critiques, and limitations                     |
+| **Contribute**                   | Community gallery, templates, and contribution guide                                                      |
 
 ## Choose Your Loop
 
@@ -248,6 +275,8 @@ A useful loop has a contract. If one of these is missing, the loop usually becom
 
 <p align="center">
   <img src="assets/loop-contract-cards.svg" alt="Loop Contract cards: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit" width="100%">
+  <br>
+  <sub><strong>Figure 3.</strong> The Loop Contract makes recurring agent work explicit, reviewable, and bounded.</sub>
 </p>
 
 | Part              | Design question                        | Common artifact                                              |

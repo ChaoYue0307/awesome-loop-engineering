@@ -1,135 +1,62 @@
-<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Loop Engineering contract cards</title>
-  <desc id="desc">The eleven parts of a Loop Contract grouped into three phases: set up (objective, trigger, discover/intake, workspace), run (context, delegation, verification, state), and govern and close (budget, escalation, exit), leading to the next action.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0b1120"/>
-      <stop offset="0.55" stop-color="#0f172a"/>
-      <stop offset="1" stop-color="#0b1120"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="74" y1="94" x2="1126" y2="120" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#38bdf8"/>
-      <stop offset="0.55" stop-color="#8b5cf6"/>
-      <stop offset="1" stop-color="#22c55e"/>
-    </linearGradient>
-    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#172033"/>
-      <stop offset="1" stop-color="#101827"/>
-    </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="12" stdDeviation="13" flood-color="#020617" flood-opacity="0.32"/>
-    </filter>
-    <style>
-      .title { fill: #f8fafc; font: 900 40px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; letter-spacing: -0.035em; }
-      .subtitle { fill: #c2cad8; font: 600 18px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
-      .eyebrow { fill: #7dd3fc; font: 800 13px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; letter-spacing: 0.16em; }
-      .phase { font: 800 13px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; letter-spacing: 0.14em; }
-      .phasesub { fill: #8b95a7; font: 500 13px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
-      .label { fill: #f8fafc; font: 800 20px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
-      .small { fill: #c2cad8; font: 500 14px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
-      .number { fill: #04121f; font: 900 15px Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
-    </style>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc" font-family="Inter, Helvetica Neue, Arial, sans-serif">
+  <title id="title">Loop Contract</title>
+  <desc id="desc">The eleven parts of a Loop Contract grouped into Set Up, Run, and Govern and Close, followed by the next action.</desc>
+  <rect width="1200" height="720" fill="#f7f9fc"/>
+  <text x="64" y="52" fill="#1746d1" font-size="13" font-weight="800">OPERATING SPEC / ELEVEN REQUIRED PARTS</text>
+  <text x="64" y="91" fill="#111318" font-size="34" font-weight="800">The Loop Contract</text>
+  <text x="1136" y="88" text-anchor="end" fill="#586273" font-size="16">A reviewable specification for recurring AI-agent systems</text>
+  <line x1="64" y1="116" x2="1136" y2="116" stroke="#1746d1" stroke-width="2"/>
 
-  <rect width="1200" height="760" rx="34" fill="url(#bg)"/>
-  <rect x="34" y="34" width="1132" height="692" rx="28" fill="#020617" fill-opacity="0.20" stroke="#1e293b"/>
-  <text x="74" y="70" class="eyebrow">LOOP ENGINEERING</text>
-  <text x="74" y="104" class="title">Loop Contract</text>
-  <text x="520" y="99" class="subtitle">A reviewable operating spec for recurring AI-agent systems.</text>
-  <path d="M74 122 H1126" stroke="url(#accent)" stroke-width="2" opacity="0.7"/>
-
-  <!-- phase labels -->
   <g>
-    <circle cx="80" cy="146" r="5.5" fill="#38bdf8"/>
-    <text x="96" y="151" class="phase" fill="#7dd3fc">SET UP</text>
-    <text x="176" y="151" class="phasesub">define the work and the boundary</text>
-
-    <circle cx="80" cy="286" r="5.5" fill="#a78bfa"/>
-    <text x="96" y="291" class="phase" fill="#c4b5fd">RUN</text>
-    <text x="146" y="291" class="phasesub">give the agent context, roles, gates, and memory</text>
-
-    <circle cx="80" cy="426" r="5.5" fill="#34d399"/>
-    <text x="96" y="431" class="phase" fill="#6ee7b7">GOVERN &amp; CLOSE</text>
-    <text x="256" y="431" class="phasesub">bound the run, hand off, and know when it is done</text>
+    <rect x="64" y="144" width="1072" height="146" fill="#ffffff"/>
+    <line x1="64" y1="144" x2="1136" y2="144" stroke="#cfd6e0"/><line x1="64" y1="290" x2="1136" y2="290" stroke="#cfd6e0"/>
+    <text x="82" y="178" fill="#1746d1" font-size="13" font-weight="800">01 / SET UP</text>
+    <text x="82" y="207" fill="#111318" font-size="20" font-weight="800">Define the work</text>
+    <text x="82" y="232" fill="#586273" font-size="13">Outcome, trigger, intake,</text><text x="82" y="251" fill="#586273" font-size="13">and safe workspace.</text>
+    <line x1="254" y1="160" x2="254" y2="274" stroke="#cfd6e0"/>
+    <g transform="translate(278 171)"><text fill="#1746d1" font-size="13" font-weight="800">01</text><text y="31" fill="#111318" font-size="18" font-weight="800">Objective</text><text y="57" fill="#586273" font-size="13">Define the outcome</text><text y="76" fill="#586273" font-size="13">to optimize.</text></g>
+    <line x1="474" y1="160" x2="474" y2="274" stroke="#cfd6e0"/>
+    <g transform="translate(498 171)"><text fill="#1746d1" font-size="13" font-weight="800">02</text><text y="31" fill="#111318" font-size="18" font-weight="800">Trigger</text><text y="57" fill="#586273" font-size="13">Choose schedule,</text><text y="76" fill="#586273" font-size="13">event, or goal.</text></g>
+    <line x1="694" y1="160" x2="694" y2="274" stroke="#cfd6e0"/>
+    <g transform="translate(718 171)"><text fill="#1746d1" font-size="13" font-weight="800">03</text><text y="31" fill="#111318" font-size="18" font-weight="800">Discover / Intake</text><text y="57" fill="#586273" font-size="13">Find work from</text><text y="76" fill="#586273" font-size="13">queues or signals.</text></g>
+    <line x1="914" y1="160" x2="914" y2="274" stroke="#cfd6e0"/>
+    <g transform="translate(938 171)"><text fill="#1746d1" font-size="13" font-weight="800">04</text><text y="31" fill="#111318" font-size="18" font-weight="800">Workspace</text><text y="57" fill="#586273" font-size="13">Act in an isolated</text><text y="76" fill="#586273" font-size="13">environment.</text></g>
   </g>
 
-  <!-- Row 1: SET UP (cyan) -->
-  <g class="row" filter="url(#shadow)">
-    <g transform="translate(74 162)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#2a4763"/>
-      <circle cx="34" cy="32" r="16" fill="#38bdf8"/><text x="34" y="37" text-anchor="middle" class="number">1</text>
-      <text x="26" y="72" class="label">Objective</text><text x="26" y="97" class="small">Define the outcome to optimize.</text>
-    </g>
-    <g transform="translate(350 162)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#2a4763"/>
-      <circle cx="34" cy="32" r="16" fill="#38bdf8"/><text x="34" y="37" text-anchor="middle" class="number">2</text>
-      <text x="26" y="72" class="label">Trigger</text><text x="26" y="97" class="small">Choose schedule, event, or goal.</text>
-    </g>
-    <g transform="translate(626 162)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#2a4763"/>
-      <circle cx="34" cy="32" r="16" fill="#38bdf8"/><text x="34" y="37" text-anchor="middle" class="number">3</text>
-      <text x="26" y="72" class="label">Discover / Intake</text><text x="26" y="97" class="small">Find work from queues or signals.</text>
-    </g>
-    <g transform="translate(902 162)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#2a4763"/>
-      <circle cx="34" cy="32" r="16" fill="#38bdf8"/><text x="34" y="37" text-anchor="middle" class="number">4</text>
-      <text x="26" y="72" class="label">Workspace</text><text x="26" y="97" class="small">Act in an isolated environment.</text>
-    </g>
+  <g>
+    <rect x="64" y="310" width="1072" height="146" fill="#ffffff"/>
+    <line x1="64" y1="310" x2="1136" y2="310" stroke="#cfd6e0"/><line x1="64" y1="456" x2="1136" y2="456" stroke="#cfd6e0"/>
+    <text x="82" y="344" fill="#7155d9" font-size="13" font-weight="800">02 / RUN</text>
+    <text x="82" y="371" fill="#111318" font-size="19" font-weight="800">Operate with</text>
+    <text x="82" y="393" fill="#111318" font-size="19" font-weight="800">evidence</text>
+    <text x="82" y="420" fill="#586273" font-size="13">Context, roles, gates,</text><text x="82" y="439" fill="#586273" font-size="13">and durable state.</text>
+    <line x1="254" y1="326" x2="254" y2="440" stroke="#cfd6e0"/>
+    <g transform="translate(278 337)"><text fill="#7155d9" font-size="13" font-weight="800">05</text><text y="31" fill="#111318" font-size="18" font-weight="800">Context</text><text y="57" fill="#586273" font-size="13">Load knowledge</text><text y="76" fill="#586273" font-size="13">and prior state.</text></g>
+    <line x1="474" y1="326" x2="474" y2="440" stroke="#cfd6e0"/>
+    <g transform="translate(498 337)"><text fill="#7155d9" font-size="13" font-weight="800">06</text><text y="31" fill="#111318" font-size="18" font-weight="800">Delegation</text><text y="57" fill="#586273" font-size="13">Route work to</text><text y="76" fill="#586273" font-size="13">agent roles.</text></g>
+    <line x1="694" y1="326" x2="694" y2="440" stroke="#cfd6e0"/>
+    <g transform="translate(718 337)"><text fill="#7155d9" font-size="13" font-weight="800">07</text><text y="31" fill="#111318" font-size="18" font-weight="800">Verification</text><text y="57" fill="#586273" font-size="13">Gate with tests,</text><text y="76" fill="#586273" font-size="13">evals, or reviewers.</text></g>
+    <line x1="914" y1="326" x2="914" y2="440" stroke="#cfd6e0"/>
+    <g transform="translate(938 337)"><text fill="#7155d9" font-size="13" font-weight="800">08</text><text y="31" fill="#111318" font-size="18" font-weight="800">State</text><text y="57" fill="#586273" font-size="13">Persist progress</text><text y="76" fill="#586273" font-size="13">and receipts.</text></g>
   </g>
 
-  <!-- Row 2: RUN (violet) -->
-  <g class="row" filter="url(#shadow)">
-    <g transform="translate(74 302)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#3a3268"/>
-      <circle cx="34" cy="32" r="16" fill="#a78bfa"/><text x="34" y="37" text-anchor="middle" class="number">5</text>
-      <text x="26" y="72" class="label">Context</text><text x="26" y="97" class="small">Load durable knowledge and state.</text>
-    </g>
-    <g transform="translate(350 302)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#3a3268"/>
-      <circle cx="34" cy="32" r="16" fill="#a78bfa"/><text x="34" y="37" text-anchor="middle" class="number">6</text>
-      <text x="26" y="72" class="label">Delegation</text><text x="26" y="97" class="small">Route work to agent roles.</text>
-    </g>
-    <g transform="translate(626 302)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#3a3268"/>
-      <circle cx="34" cy="32" r="16" fill="#a78bfa"/><text x="34" y="37" text-anchor="middle" class="number">7</text>
-      <text x="26" y="72" class="label">Verification</text><text x="26" y="97" class="small">Gate with tests, evals, traces.</text>
-    </g>
-    <g transform="translate(902 302)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#3a3268"/>
-      <circle cx="34" cy="32" r="16" fill="#a78bfa"/><text x="34" y="37" text-anchor="middle" class="number">8</text>
-      <text x="26" y="72" class="label">State</text><text x="26" y="97" class="small">Persist progress and receipts.</text>
-    </g>
+  <g>
+    <rect x="64" y="476" width="1072" height="146" fill="#ffffff"/>
+    <line x1="64" y1="476" x2="1136" y2="476" stroke="#cfd6e0"/><line x1="64" y1="622" x2="1136" y2="622" stroke="#cfd6e0"/>
+    <text x="82" y="510" fill="#14866a" font-size="13" font-weight="800">03 / GOVERN + CLOSE</text>
+    <text x="82" y="539" fill="#111318" font-size="20" font-weight="800">Bound the loop</text>
+    <text x="82" y="564" fill="#586273" font-size="13">Cap the run, hand off,</text><text x="82" y="583" fill="#586273" font-size="13">and know when to stop.</text>
+    <line x1="254" y1="492" x2="254" y2="606" stroke="#cfd6e0"/>
+    <g transform="translate(278 503)"><text fill="#14866a" font-size="13" font-weight="800">09</text><text y="31" fill="#111318" font-size="18" font-weight="800">Budget</text><text y="57" fill="#586273" font-size="13">Cap retries, time,</text><text y="76" fill="#586273" font-size="13">cost, and concurrency.</text></g>
+    <line x1="474" y1="492" x2="474" y2="606" stroke="#cfd6e0"/>
+    <g transform="translate(498 503)"><text fill="#b7791f" font-size="13" font-weight="800">10</text><text y="31" fill="#111318" font-size="18" font-weight="800">Escalation</text><text y="57" fill="#586273" font-size="13">Hand off when</text><text y="76" fill="#586273" font-size="13">judgment is needed.</text></g>
+    <line x1="694" y1="492" x2="694" y2="606" stroke="#cfd6e0"/>
+    <g transform="translate(718 503)"><text fill="#14866a" font-size="13" font-weight="800">11</text><text y="31" fill="#111318" font-size="18" font-weight="800">Exit</text><text y="57" fill="#586273" font-size="13">Stop when the</text><text y="76" fill="#586273" font-size="13">goal is verified.</text></g>
+    <line x1="914" y1="492" x2="914" y2="606" stroke="#cfd6e0"/>
+    <g transform="translate(938 503)"><text fill="#1746d1" font-size="13" font-weight="800">NEXT</text><text y="31" fill="#111318" font-size="18" font-weight="800">Next Action</text><text y="57" fill="#586273" font-size="13">Repeat, report, open</text><text y="76" fill="#586273" font-size="13">a PR, escalate, or stop.</text></g>
   </g>
 
-  <!-- Row 3: GOVERN & CLOSE (green) + Next Action -->
-  <g class="row" filter="url(#shadow)">
-    <g transform="translate(74 442)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#1f4a37"/>
-      <circle cx="34" cy="32" r="16" fill="#34d399"/><text x="34" y="37" text-anchor="middle" class="number">9</text>
-      <text x="26" y="72" class="label">Budget</text><text x="26" y="97" class="small">Cap retries, time, and cost.</text>
-    </g>
-    <g transform="translate(350 442)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#1f4a37"/>
-      <circle cx="34" cy="32" r="16" fill="#34d399"/><text x="34" y="37" text-anchor="middle" class="number">10</text>
-      <text x="26" y="72" class="label">Escalation</text><text x="26" y="97" class="small">Hand off when judgment is needed.</text>
-    </g>
-    <g transform="translate(626 442)">
-      <rect width="252" height="112" rx="20" fill="url(#card)" stroke="#1f4a37"/>
-      <circle cx="34" cy="32" r="16" fill="#34d399"/><text x="34" y="37" text-anchor="middle" class="number">11</text>
-      <text x="26" y="72" class="label">Exit</text><text x="26" y="97" class="small">Know when the loop is done.</text>
-    </g>
-    <g transform="translate(902 442)">
-      <rect width="252" height="112" rx="20" fill="#081726" stroke="#38bdf8" stroke-opacity="0.7"/>
-      <path d="M35 55 C55 33 92 33 112 55" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
-      <path d="M104 41 L115 56 L96 55" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M112 73 C92 95 55 95 35 73" stroke="#a78bfa" stroke-width="5" stroke-linecap="round"/>
-      <path d="M43 87 L32 72 L51 73" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="140" y="58" class="label">Next</text>
-      <text x="140" y="84" class="label">Action</text>
-    </g>
-  </g>
-
-  <rect x="74" y="590" width="1052" height="102" rx="20" fill="#081726" stroke="#334155"/>
-  <text x="106" y="632" class="subtitle" fill="#e2e8f0">Prompt, context, and harness improve <tspan font-style="italic">one run</tspan>.</text>
-  <text x="106" y="664" class="subtitle" fill="#e2e8f0">Loop Engineering governs repeated agent work <tspan font-style="italic">over time</tspan>: repeat, report, open a PR, escalate, or stop.</text>
+  <line x1="64" y1="662" x2="1136" y2="662" stroke="#cfd6e0"/>
+  <text x="64" y="690" fill="#586273" font-size="14">Prompt, context, and harness improve one run.</text>
+  <text x="1136" y="690" text-anchor="end" fill="#1746d1" font-size="14" font-weight="700">The Loop Contract governs repeated work over time.</text>
 </svg>
