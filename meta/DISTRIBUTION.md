@@ -9,8 +9,10 @@ Status as of 2026-07-17:
 | Surface | Status | Evidence / next action |
 | --- | --- | --- |
 | GitHub release | Complete | [`v0.5.0`](https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.5.0) describes 509 resources and links the atlas, dataset, templates, and contribution guide. |
+| Release announcement | Complete | [Discussion #9](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9) gives readers a low-noise way to follow releases, monthly digests, and contributor tasks. |
 | GitHub Explore topic | Complete | [`github/explore#5209`](https://github.com/github/explore/pull/5209) merged the `loop-engineering` topic page. |
 | Canonical Awesome directory | In review | [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open with a passing lint check. Respond to maintainer feedback; do not open a duplicate. |
+| Adjacent harness directory | In review | [`ai-boost/awesome-harness-engineering#131`](https://github.com/ai-boost/awesome-harness-engineering/pull/131) transparently proposes the project for the list's Related Awesome Lists section. |
 | Hugging Face dataset | Complete | [`datasets/cy0307/awesome-loop-engineering`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) carries the structured resource sheet and full project mirror. |
 | English and Chinese launch articles | Ready | Publish [`posts/launch.md`](../posts/launch.md) and [`posts/launch.zh-CN.md`](../posts/launch.zh-CN.md) natively on suitable channels. |
 | Profile pin and social posting | Owner action | Pin the repository, then publish from identity-bound LinkedIn, X, Hacker News, and Chinese-language accounts. |
