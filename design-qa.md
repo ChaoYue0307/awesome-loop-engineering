@@ -3,6 +3,7 @@
 ## Source
 
 - Selected direction: `/Users/chaoyue/.codex/generated_images/019ed02c-a15f-7881-aab3-49ff394627b4/exec-e373a4be-af07-451b-937a-7cd5acbd9b12.png`
+- Stack figure refresh: `/Users/chaoyue/.codex/generated_images/019ed02c-a15f-7881-aab3-49ff394627b4/exec-0e105db4-a098-48f5-b3f1-301d07cb21f6.png`
 - Local prototype: repository `docs/` build served during QA
 - Reference comparison: `/private/tmp/loop-design-comparison.png`
 
@@ -21,6 +22,7 @@
 2. The first mobile pass scaled the desktop stack diagram too far down. This was a P2 legibility issue.
 3. Added a dedicated mobile mental-model asset and horizontally inspectable contract and lifecycle diagrams. Rechecked at 390 x 844; headings, labels, controls, and section transitions are readable without overlap.
 4. Tightened short-query filtering so `CI` returns the CI repair loop instead of substring matches inside unrelated words.
+5. Compared the original stack figure and the ChatGPT Image revision side by side. The revision replaces empty overlapping outlines with four populated plates, aligned leader lines, a one-run bracket, and an explicit recurring-work governance badge. OCR and browser checks confirmed the required copy, 1666 x 944 dimensions, and error-free rendering.
 
 ## Findings
 

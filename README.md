@@ -124,7 +124,7 @@ Loop engineering asks: **what recurring system should discover work, delegate to
 Prompt, context, and harness engineering make one agent run better. Loop Engineering makes agent work repeatable, observable, and governable over time.
 
 <p align="center">
-  <img src="assets/loop-engineering-stack.svg" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time" width="100%">
+  <img src="assets/loop-engineering-stack.png" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time" width="100%">
   <br>
   <sub><strong>Figure 1.</strong> Prompt, context, and harness engineering improve one run; Loop Engineering governs recurring work over time.</sub>
 </p>
