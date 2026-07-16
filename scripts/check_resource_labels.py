@@ -4,9 +4,10 @@
 from __future__ import annotations
 
 import argparse
-import re
 import sys
 from pathlib import Path
+
+from export_resource_dataset import TYPE_MARKERS, parse_entry_line
 
 
 RESOURCE_SECTIONS = {
@@ -35,12 +36,6 @@ RESOURCE_SECTIONS = {
     "Adjacent Awesome Lists",
 }
 
-LABEL_RE = re.compile(
-    r"^- (📄|📝|📚|🧰|🧪|🔁|🧾|🧭|⚠️) "
-    r"\*\*(Paper|Blog|Docs|Tool|Benchmark|Pattern|Template|List|Critique)\*\* "
-)
-
-
 def check_readme(path: Path) -> list[tuple[int, str]]:
     failures: list[tuple[int, str]] = []
     current_section = ""
@@ -53,13 +48,14 @@ def check_readme(path: Path) -> list[tuple[int, str]]:
         if current_section not in RESOURCE_SECTIONS:
             continue
 
-        if not line.startswith("- "):
+        if not line.startswith(("- ", "| ")):
             continue
 
         if "](http" not in line and "](" not in line:
             continue
 
-        if not LABEL_RE.match(line):
+        entry = parse_entry_line(line)
+        if not entry or TYPE_MARKERS.get(entry["resource_type"]) != entry["marker"]:
             failures.append((line_number, line))
 
     return failures

@@ -23,11 +23,13 @@ Maintainers will still apply the same scope, duplication, source-quality, and an
 1. Search `README.md` for the resource title, author, project, and URL.
 1. Confirm the resource is about AI/coding-agent Loop Engineering or a direct foundation for it.
 1. Pick the most specific category.
-1. Add one entry with a resource type label:
+1. Add one metadata-rich row with a resource type label, verified year/source context, and one specific key feature:
 
 ```md
-- 📄 **Paper** [Title](https://example.com) - One sentence explaining the resource's contribution to Loop Engineering.
+| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. |
 ```
+
+Use `Undated` when the source does not expose a reliable publication date. Do not infer one from a search-result snippet. Maintainers regenerate the table layout and structured exports after review.
 
 1. Open a PR using the template and explain:
    - why the resource belongs;
@@ -130,13 +132,13 @@ Use the resource type legend from `README.md`:
 Prefer:
 
 ```md
-- 🔁 **Pattern** [Autonomous Loops](https://example.com) - Shows how to combine task files, stop hooks, limits, and kill switches into a self-continuing agent loop.
+| 🔁 **[Autonomous Loops](https://example.com)**<br><sub>Pattern</sub> | **2026** · Example publisher | Shows how to combine task files, stop hooks, limits, and kill switches into a self-continuing agent loop. |
 ```
 
 Avoid:
 
 ```md
-- 📝 **Blog** [Cool Agent Article](https://example.com) - Interesting article about AI.
+| 📝 **[Cool Agent Article](https://example.com)**<br><sub>Blog</sub> | **Undated** · Example publisher | Interesting article about AI. |
 ```
 
 ## Adding A Loop Pattern

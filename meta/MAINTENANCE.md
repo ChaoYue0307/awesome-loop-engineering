@@ -69,6 +69,9 @@ npx --yes markdownlint-cli2 "**/*.md"
 python3 -m py_compile scripts/*.py
 python3 scripts/check_license.py
 python3 scripts/check_resource_labels.py README.md
+python3 scripts/render_readme_tables.py --check
+python3 scripts/export_resource_dataset.py --check
+python3 scripts/check_publication_metadata.py
 python3 scripts/check_loop_contract_examples.py
 python3 scripts/check_pages_metadata.py
 python3 scripts/check_internal_links.py

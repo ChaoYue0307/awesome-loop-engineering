@@ -16,13 +16,14 @@ The main exports preserve the original section and annotation while adding three
 
 `key_contribution`, `novelty`, and `impact` are resource-specific. `signal` states the evidence basis and its limits; GitHub stars and forks are reported as current context, never as proof of reliability. Signal strength is calibrated as `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and repository-native artifacts, `contextual` for practitioner analysis and curated lists, and `unverified` only when the latest source audit cannot validate availability.
 
-Regenerate all three generated discovery files after changing resource entries or refreshing the source audit:
+Render the README rows first, then regenerate all three discovery files after changing resource entries or refreshing the source audit:
 
 ```sh
+python3 scripts/render_readme_tables.py
 python3 scripts/export_resource_dataset.py
 ```
 
-The export is deterministic and includes one row for every README bullet that follows the repository's curated entry format: marker, resource type, title, link, annotation, section, and source line.
+The export is deterministic and includes one row for every README resource-table row that follows the repository's curated entry format: marker, resource type, title, link, publication/source context, annotation, section, and source line.
 
 Run a network-backed source audit when refreshing the Hugging Face dataset:
 

@@ -50,13 +50,13 @@ Each annotation should answer: **why does this matter for Loop Engineering?**
 Good:
 
 ```md
-- 🔁 **Pattern** [Autonomous Loops](https://example.com) - Shows how task files, stop hooks, hard limits, and a kill switch form a self-continuing agent loop.
+| 🔁 **[Autonomous Loops](https://example.com)**<br><sub>Pattern</sub> | **2026** · Example publisher | Shows how task files, stop hooks, hard limits, and a kill switch form a self-continuing agent loop. |
 ```
 
 Weak:
 
 ```md
-- 📝 **Blog** [Cool Agent Article](https://example.com) - Interesting article about agents.
+| 📝 **[Cool Agent Article](https://example.com)**<br><sub>Blog</sub> | **Undated** · Example publisher | Interesting article about agents. |
 ```
 
 ## Resource Type Labels

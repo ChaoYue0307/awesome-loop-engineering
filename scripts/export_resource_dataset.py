@@ -37,8 +37,25 @@ ENTRY_RE = re.compile(
     r"^- (?P<marker>\S+) \*\*(?P<resource_type>[^*]+)\*\* "
     r"\[(?P<title>[^\]]+)\]\((?P<url>[^)]+)\) - (?P<annotation>.+)$"
 )
+TABLE_ENTRY_RE = re.compile(
+    r"^\| (?P<marker>\S+) \*\*\[(?P<title>[^\]]+)\]\((?P<url>[^)]+)\)\*\*"
+    r"<br><sub>(?P<resource_type>[^<]+)</sub>\s+\| (?P<metadata>.*?) \| "
+    r"(?P<annotation>.+) \|$"
+)
 HEADING_RE = re.compile(r"^(?P<level>#{2,3}) (?P<title>.+)$")
 NON_SLUG_RE = re.compile(r"[^a-z0-9]+")
+
+TYPE_MARKERS = {
+    "Paper": "📄",
+    "Blog": "📝",
+    "Docs": "📚",
+    "Tool": "🧰",
+    "Benchmark": "🧪",
+    "Pattern": "🔁",
+    "Template": "🧾",
+    "List": "🧭",
+    "Critique": "⚠️",
+}
 
 FIELDS = [
     "row_id",
@@ -296,6 +313,22 @@ def clean(value: str) -> str:
     return " ".join(value.strip().split())
 
 
+def parse_entry_line(raw_line: str) -> dict[str, str] | None:
+    """Parse the legacy list syntax or the current tabular resource-row syntax."""
+    match = ENTRY_RE.match(raw_line)
+    if match:
+        return match.groupdict()
+
+    match = TABLE_ENTRY_RE.match(raw_line)
+    if not match:
+        return None
+
+    entry = match.groupdict()
+    for field in ("title", "url", "annotation"):
+        entry[field] = entry[field].replace(r"\|", "|")
+    return entry
+
+
 def classify_url(url: str) -> tuple[str, str]:
     parsed = urlparse(url)
     if parsed.scheme in {"http", "https"}:
@@ -455,17 +488,17 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
             section_slug = slugify(section)
             continue
 
-        match = ENTRY_RE.match(raw_line)
-        if not match:
+        entry = parse_entry_line(raw_line)
+        if not entry:
             continue
 
-        url = clean(match.group("url"))
+        url = clean(entry["url"])
         if "example.com" in url:
             continue
 
         url_kind, domain = classify_url(url)
-        annotation = clean(match.group("annotation"))
-        resource_type = clean(match.group("resource_type"))
+        annotation = clean(entry["annotation"])
+        resource_type = clean(entry["resource_type"])
         row_number = len(rows) + 1
         row_id = f"ale-{row_number:04d}"
         collection, user_goal = collection_for(section)
@@ -478,16 +511,16 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "section": section,
                 "section_slug": section_slug,
                 "resource_type": resource_type,
-                "marker": clean(match.group("marker")),
-                "title": clean(match.group("title")),
+                "marker": clean(entry["marker"]),
+                "title": clean(entry["title"]),
                 "url": url,
                 "url_kind": url_kind,
                 "domain": domain,
                 "annotation": annotation,
                 "description": annotation,
                 "key_contribution": key_contribution(annotation),
-                "novelty": novelty(section, clean(match.group("title")), annotation),
-                "impact": impact(collection, clean(match.group("title"))),
+                "novelty": novelty(section, clean(entry["title"]), annotation),
+                "impact": impact(collection, clean(entry["title"])),
                 "signal": signal_text,
                 "signal_strength": signal_strength,
                 "source_readme": "README.md",
@@ -497,7 +530,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "collection": collection,
                 "collection_slug": slugify(collection),
                 "user_goal": user_goal,
-                "lifecycle_stages": lifecycle_stages(section, clean(match.group("title")), annotation),
+                "lifecycle_stages": lifecycle_stages(section, clean(entry["title"]), annotation),
                 "audience": audience_for(section, resource_type),
                 "evidence_class": evidence,
                 "source_status": audit.get("audit_status", "not-audited"),
