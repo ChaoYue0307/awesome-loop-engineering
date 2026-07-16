@@ -311,6 +311,10 @@ Good loop documentation should make the contract visible. A reader should be abl
 
 ## Loop Maturity Model
 
+<p align="center">
+  <img src="assets/loop-maturity-model.png" alt="Loop Maturity Model progressing from manual prompting through scripted retry, scheduled, stateful, self-verifying, multi-agent, and production-supervised loops" width="100%">
+</p>
+
 | Level | Name                       | Description                                                                        |
 | ----- | -------------------------- | ---------------------------------------------------------------------------------- |
 | 0     | Manual prompting           | A human reads state and writes the next prompt.                                    |
@@ -379,6 +383,10 @@ Feature-level building blocks you assemble a loop from: schedulers, goals, workt
 ## Official Runtime Guides
 
 End-to-end operating guides and release notes from the runtime vendors themselves: how each platform expects you to run recurring agent work.
+
+<p align="center">
+  <img src="assets/loop-runtime-map.png" alt="Runtime map progressing from a nearby session to a local desktop schedule, isolated CI and cloud execution, and a recoverable durable worker" width="100%">
+</p>
 
 <!-- OpenAI and Codex -->
 - 📚 **Docs** [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex) - OpenAI's runbook for plan-edit-test-observe-repair-document-repeat work, including specs, plans, status logs, and validation gates.

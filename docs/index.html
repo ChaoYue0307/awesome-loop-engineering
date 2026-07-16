@@ -169,6 +169,7 @@
       .section-intro { max-width: 720px; margin: 0; color: var(--muted); }
       .diagram { width: 100%; }
       .caption { margin: 13px 0 0; color: var(--quiet); font-size: 0.78rem; text-align: right; }
+      .supporting-visual { margin: 0 0 34px; }
 
       .principles, .link-grid, .pattern-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .principle, .card, .pattern {
@@ -231,6 +232,7 @@
 
       footer { padding: 58px 0 48px; border-top: 1px solid var(--line-strong); background: #eef2f8; }
       .footer-grid { display: grid; grid-template-columns: 1.45fr 0.8fr 0.8fr 0.8fr; gap: 32px; }
+      .footer-grid > * { min-width: 0; }
       footer h4 { margin: 0 0 10px; font-size: 0.9rem; }
       footer a { display: block; padding: 3px 0; color: var(--muted); font-size: 0.84rem; text-decoration: none; }
       footer a:hover { color: var(--blue); }
@@ -533,6 +535,10 @@
             </div>
             <p class="section-intro">The same contract can run in a session, on a schedule, in CI, or through a durable worker. The <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/RUNTIME_SELECTION.md">runtime selection guide</a> compares persistence, file access, isolation, and permissions.</p>
           </div>
+          <figure class="diagram supporting-visual">
+            <div class="diagram-scroll"><img src="assets/loop-runtime-map.png" width="1666" height="944" loading="lazy" alt="Runtime map progressing from a nearby session to a local desktop schedule, isolated CI and cloud execution, and a recoverable durable worker."></div>
+            <figcaption class="caption">Keep the contract stable; change the trigger, isolation, and permission wiring.</figcaption>
+          </figure>
           <div class="link-grid">
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><h3>Claude Code <code>/loop</code></h3><p>Session-scoped recurring work while you are nearby.</p></a>
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><h3>Desktop scheduled task</h3><p>Local recurring runs with file access and missed-run guardrails.</p></a>
@@ -553,6 +559,10 @@
             </div>
             <p class="section-intro">A reliable Level 3 loop with durable state and deterministic checks is more useful than a Level 5 loop with vague goals.</p>
           </div>
+          <figure class="diagram supporting-visual">
+            <div class="diagram-scroll"><img src="assets/loop-maturity-model.png" width="1667" height="944" loading="lazy" alt="Loop Maturity Model progressing from manual prompting through scripted retry, scheduled, stateful, self-verifying, multi-agent, and production-supervised loops."></div>
+            <figcaption class="caption">State and deterministic checks form the reliability foundation.</figcaption>
+          </figure>
           <div class="levels">
             <div class="level"><span class="number">00</span><span class="title">Manual prompting</span><span class="detail">A human reads state and writes the next prompt.</span></div>
             <div class="level"><span class="number">01</span><span class="title">Scripted retry</span><span class="detail">A script feeds failures back to an agent.</span></div>
