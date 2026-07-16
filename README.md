@@ -48,7 +48,7 @@ A loop discovers work, hands it to one or more agents, checks the result, record
 
 This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
 
-**Quick orientation**
+### Quick Orientation
 
 <table>
   <tr>
