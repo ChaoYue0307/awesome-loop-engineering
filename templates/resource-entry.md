@@ -15,6 +15,10 @@ Use this when adding one resource to `README.md`.
 - **Evidence quality**: Tier A / B / C / D
 - **Why it belongs**:
 - **Primary or secondary source**:
+- **Authors / organization**:
+- **Publication year**:
+- **Venue or source platform**:
+- **DOI or arXiv ID**:
 - **Any caveat**:
 
 ## Quality Bar

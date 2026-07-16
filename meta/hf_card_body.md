@@ -35,10 +35,20 @@ Each row in `data/resources.jsonl` (and the equivalent `data/resources.csv`) is 
 | `canonical_url` | Redirect-resolved or repository-canonical URL used for source verification. |
 | `source_title` | Title metadata retrieved during the latest source audit. |
 | `source_description` | Description or abstract metadata retrieved from the primary source. |
+| `authors` | Semicolon-delimited authors from primary bibliographic metadata when available. |
+| `publication_date` | Primary-source publication or repository creation date in ISO format when available. |
+| `publication_year` | Four-digit year derived from the verified publication date or identifier. |
+| `publication_venue` | Journal, conference, repository, or named venue reported by the source. |
+| `publisher` | Publishing organization or source platform; falls back to the canonical domain. |
+| `doi` | Normalized DOI without a URL prefix when available. |
+| `publication_note` | Primary-source journal reference, acceptance note, or publication comment when available. |
+| `primary_category` | Primary arXiv category when applicable. |
+| `metadata_source` | Provenance for bibliographic fields, such as `arxiv-api`, `github-api`, `html-meta`, or `domain-fallback`. |
 | `github_repo` | Normalized GitHub `owner/repository` identifier where applicable. |
 | `github_stars` | GitHub star count captured at audit time; context, not a reliability score. |
 | `github_forks` | GitHub fork count captured at audit time. |
 | `github_license` | Repository license identifier reported by GitHub where available. |
+| `github_created_at` | Repository creation timestamp reported by GitHub. |
 | `github_updated_at` | Latest repository update timestamp reported by GitHub. |
 | `arxiv_id` | arXiv identifier extracted from a primary paper URL where applicable. |
 | `audited_at` | UTC timestamp for the source metadata and availability snapshot. |

@@ -15,10 +15,11 @@ import sys
 import time
 import urllib.error
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urldefrag, urlparse
+from urllib.parse import urldefrag, urlencode, urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,6 +28,53 @@ AUDIT_CSV = ROOT / "data" / "resource_source_audit.csv"
 REPO_BLOB_URL = "https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main"
 
 ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/(?P<id>\d{4}\.\d{4,5})(?:v\d+)?")
+YEAR_RE = re.compile(r"(?<!\d)(?P<year>19\d{2}|20\d{2})(?!\d)")
+ISO_DATE_RE = re.compile(r"(?P<year>19\d{2}|20\d{2})[-/](?P<month>\d{1,2})[-/](?P<day>\d{1,2})")
+
+ATOM_NS = "{http://www.w3.org/2005/Atom}"
+ARXIV_NS = "{http://arxiv.org/schemas/atom}"
+
+PUBLISHER_BY_DOMAIN = {
+    "arxiv.org": "arXiv",
+    "github.com": "GitHub",
+    "anthropic.com": "Anthropic",
+    "claude.com": "Anthropic",
+    "openai.com": "OpenAI",
+    "huggingface.co": "Hugging Face",
+    "microsoft.com": "Microsoft",
+    "google.com": "Google",
+    "googleblog.com": "Google",
+    "aws.amazon.com": "Amazon Web Services",
+    "amazon.com": "Amazon",
+    "preprints.org": "Preprints.org",
+    "ainowinstitute.org": "AI Now Institute",
+    "medium.com": "Medium",
+    "substack.com": "Substack",
+    "x.com": "X",
+    "youtube.com": "YouTube",
+}
+
+PUBLICATION_OVERRIDES = {
+    "https://www.preprints.org/manuscript/202603.1756": {
+        "authors": "Chaoyue He; Xin Zhou; Di Wang; Hong Xu; Wei Liu; Chunyan Miao",
+        "publication_date": "2026-04-23",
+        "publication_year": "2026",
+        "publication_venue": "Preprints.org",
+        "publisher": "Preprints.org",
+        "doi": "10.20944/preprints202603.1756.v2",
+        "publication_note": "Version 2; the primary source states that this preprint is not peer-reviewed.",
+        "metadata_source": "primary-page",
+    },
+    "https://resources.anthropic.com/hubfs/Building%20Effective%20AI%20Agents-%20Architecture%20Patterns%20and%20Implementation%20Frameworks.pdf": {
+        "authors": "Anthropic",
+        "publication_date": "2025-12-03",
+        "publication_year": "2025",
+        "publication_venue": "Anthropic eBook",
+        "publisher": "Anthropic",
+        "publication_note": "Date verified from the primary PDF creation metadata.",
+        "metadata_source": "pdf-metadata",
+    },
+}
 
 FIELDS = [
     "row_id",
@@ -40,12 +88,22 @@ FIELDS = [
     "content_type",
     "source_title",
     "source_description",
+    "authors",
+    "publication_date",
+    "publication_year",
+    "publication_venue",
+    "publisher",
+    "doi",
+    "publication_note",
+    "primary_category",
+    "metadata_source",
     "github_repo",
     "github_stars",
     "github_forks",
     "github_open_issues",
     "github_description",
     "github_license",
+    "github_created_at",
     "github_updated_at",
     "arxiv_id",
     "error",
@@ -68,6 +126,7 @@ class MetadataParser(HTMLParser):
         self.title_parts: list[str] = []
         self.description = ""
         self.description_priority = 0
+        self.meta_values: dict[str, list[str]] = {}
 
     @property
     def title(self) -> str:
@@ -81,7 +140,10 @@ class MetadataParser(HTMLParser):
             return
 
         attr_map = {key.lower(): value or "" for key, value in attrs}
-        name = (attr_map.get("name") or attr_map.get("property") or "").lower()
+        name = (attr_map.get("name") or attr_map.get("property") or attr_map.get("itemprop") or "").lower()
+        candidate = clean(attr_map.get("content"))
+        if name and candidate:
+            self.meta_values.setdefault(name, []).append(candidate)
         priority = {
             "description": 1,
             "og:description": 1,
@@ -89,7 +151,6 @@ class MetadataParser(HTMLParser):
             "dc.description": 2,
             "citation_abstract": 3,
         }.get(name, 0)
-        candidate = clean(attr_map.get("content"))
         if candidate and priority > self.description_priority:
             self.description = candidate
             self.description_priority = priority
@@ -101,6 +162,20 @@ class MetadataParser(HTMLParser):
     def handle_data(self, data: str) -> None:
         if self.in_title:
             self.title_parts.append(data)
+
+    def first(self, *names: str) -> str:
+        for name in names:
+            values = self.meta_values.get(name.lower(), [])
+            if values:
+                return values[0]
+        return ""
+
+    def all(self, *names: str) -> list[str]:
+        for name in names:
+            values = self.meta_values.get(name.lower(), [])
+            if values:
+                return list(dict.fromkeys(values))
+        return []
 
 
 class RedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -135,16 +210,80 @@ def arxiv_id_from_url(url: str) -> str:
     return match.group("id") if match else ""
 
 
-def html_metadata(body: bytes, content_type: str) -> tuple[str, str]:
+def normalize_date(value: str) -> str:
+    value = clean(value)
+    if not value:
+        return ""
+    match = ISO_DATE_RE.search(value)
+    if match:
+        return f"{match.group('year')}-{int(match.group('month')):02d}-{int(match.group('day')):02d}"
+    year = YEAR_RE.search(value)
+    return year.group("year") if year else ""
+
+
+def year_from_value(value: str) -> str:
+    match = YEAR_RE.search(value or "")
+    return match.group("year") if match else ""
+
+
+def normalize_doi(value: str) -> str:
+    value = clean(value)
+    for prefix in ("https://doi.org/", "http://doi.org/", "doi:"):
+        if value.lower().startswith(prefix):
+            value = value[len(prefix) :]
+            break
+    return value.strip()
+
+
+def publisher_for_domain(domain: str) -> str:
+    normalized = domain.lower().removeprefix("www.")
+    for suffix, publisher in PUBLISHER_BY_DOMAIN.items():
+        if normalized == suffix or normalized.endswith(f".{suffix}"):
+            return publisher
+    return normalized
+
+
+def html_metadata(body: bytes, content_type: str) -> dict[str, str]:
     if "html" not in content_type.lower():
-        return "", ""
+        return {}
     text = body[:750_000].decode("utf-8", errors="ignore")
     parser = MetadataParser()
     try:
         parser.feed(text)
     except Exception:  # noqa: BLE001 - source metadata should not fail the URL audit.
-        return "", ""
-    return parser.title, parser.description
+        return {}
+
+    authors = parser.all("citation_author", "dc.creator", "author")
+    publication_date = normalize_date(
+        parser.first(
+            "citation_publication_date",
+            "citation_date",
+            "article:published_time",
+            "datepublished",
+            "dc.date.issued",
+            "dc.date",
+            "date",
+        )
+    )
+    publication_venue = parser.first(
+        "citation_conference_title",
+        "citation_journal_title",
+        "citation_technical_report_institution",
+    )
+    publisher = parser.first("citation_publisher", "dc.publisher", "og:site_name", "application-name")
+    doi = normalize_doi(parser.first("citation_doi", "dc.identifier.doi", "doi"))
+    has_publication_metadata = any((authors, publication_date, publication_venue, publisher, doi))
+    return {
+        "source_title": parser.title,
+        "source_description": parser.description,
+        "authors": "; ".join(authors),
+        "publication_date": publication_date,
+        "publication_year": year_from_value(publication_date),
+        "publication_venue": publication_venue,
+        "publisher": publisher,
+        "doi": doi,
+        "metadata_source": "html-meta" if has_publication_metadata else "",
+    }
 
 
 def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
@@ -154,36 +293,72 @@ def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
         RedirectHandler(),
     )
     last_error = ""
+    parsed_url = urlparse(url)
+    request_url = url
 
     for attempt in range(1, attempts + 1):
         for method in ("GET", "HEAD"):
             request = urllib.request.Request(
-                url,
+                request_url,
                 method=method,
                 headers={"User-Agent": "awesome-loop-engineering-source-audit"},
             )
             try:
                 with opener.open(request, timeout=timeout) as response:
+                    final_url = response.geturl()
+                    final_host = urlparse(final_url).netloc.lower()
+                    if parsed_url.netloc.lower() == "code.claude.com" and final_host not in {
+                        "",
+                        "code.claude.com",
+                        "docs.anthropic.com",
+                    }:
+                        return {
+                            "audit_status": "restricted",
+                            "http_status": str(response.status),
+                            "final_url": request_url,
+                            "content_type": response.headers.get("content-type", ""),
+                            "source_title": "",
+                            "source_description": "",
+                            "error": f"redirected_to_unrelated_host:{final_host}",
+                        }
                     content_type = response.headers.get("content-type", "")
                     body = response.read(750_000) if method == "GET" else b""
-                    title, description = html_metadata(body, content_type)
-                    return {
+                    metadata = html_metadata(body, content_type)
+                    result = {
                         "audit_status": "ok",
                         "http_status": str(response.status),
-                        "final_url": response.geturl(),
+                        "final_url": final_url,
                         "content_type": content_type,
-                        "source_title": title,
-                        "source_description": description,
                         "error": "",
                     }
+                    result.update(metadata)
+                    return result
             except urllib.error.HTTPError as error:
                 if method == "HEAD":
                     continue
+                error_host = urlparse(error.geturl()).netloc.lower()
+                if parsed_url.netloc.lower() == "code.claude.com" and error_host not in {
+                    "",
+                    "code.claude.com",
+                    "docs.anthropic.com",
+                }:
+                    return {
+                        "audit_status": "restricted",
+                        "http_status": str(error.code),
+                        "final_url": request_url,
+                        "content_type": error.headers.get("content-type", "") if error.headers else "",
+                        "source_title": "",
+                        "source_description": "",
+                        "error": f"redirected_to_unrelated_host:{error_host}",
+                    }
+                if error.code == 404 and parsed_url.netloc.lower() == "code.claude.com" and attempt < attempts:
+                    last_error = "HTTPError:404"
+                    break
                 if error.code in RESTRICTED_HTTP:
                     return {
                         "audit_status": "restricted",
                         "http_status": str(error.code),
-                        "final_url": url,
+                        "final_url": request_url,
                         "content_type": error.headers.get("content-type", "") if error.headers else "",
                         "source_title": "",
                         "source_description": "",
@@ -192,7 +367,7 @@ def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
                 return {
                     "audit_status": "broken",
                     "http_status": str(error.code),
-                    "final_url": url,
+                    "final_url": request_url,
                     "content_type": error.headers.get("content-type", "") if error.headers else "",
                     "source_title": "",
                     "source_description": "",
@@ -204,12 +379,13 @@ def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
                     continue
 
         if attempt < attempts:
-            time.sleep(min(1.5, 0.25 * attempt))
+            delay = 1.5 * attempt if parsed_url.netloc.lower() == "code.claude.com" else 0.25 * attempt
+            time.sleep(min(4.0, delay))
 
     return {
         "audit_status": "unreachable",
         "http_status": "",
-        "final_url": url,
+        "final_url": request_url,
         "content_type": "",
         "source_title": "",
         "source_description": "",
@@ -230,12 +406,22 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
         "content_type": "",
         "source_title": "",
         "source_description": "",
+        "authors": "",
+        "publication_date": "",
+        "publication_year": "",
+        "publication_venue": "",
+        "publisher": "",
+        "doi": "",
+        "publication_note": "",
+        "primary_category": "",
+        "metadata_source": "",
         "github_repo": github_repo_from_url(row["url"]),
         "github_stars": "",
         "github_forks": "",
         "github_open_issues": "",
         "github_description": "",
         "github_license": "",
+        "github_created_at": "",
         "github_updated_at": "",
         "arxiv_id": arxiv_id_from_url(row["url"]),
         "error": "",
@@ -251,6 +437,9 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
                     "audit_status": "local_ok",
                     "final_url": f"{REPO_BLOB_URL}/{local_target}" + (f"#{fragment}" if fragment else ""),
                     "source_title": row["title"],
+                    "publication_year": "2026",
+                    "publisher": "Awesome Loop Engineering",
+                    "metadata_source": "repository",
                 }
             )
         else:
@@ -258,7 +447,15 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
         return base
 
     if row["url_kind"] == "local_anchor":
-        base.update({"audit_status": "local_anchor", "final_url": row["url"]})
+        base.update(
+            {
+                "audit_status": "local_anchor",
+                "final_url": row["url"],
+                "publication_year": "2026",
+                "publisher": "Awesome Loop Engineering",
+                "metadata_source": "repository",
+            }
+        )
         return base
 
     base.update(fetch_url(row["url"], timeout=timeout, attempts=attempts))
@@ -297,6 +494,7 @@ def github_stats_from_payload(data: dict[str, object]) -> dict[str, str]:
         "github_open_issues": str(data.get("open_issues_count", "")),
         "github_description": clean(str(description)),
         "github_license": clean(str(license_data.get("spdx_id", ""))),
+        "github_created_at": clean(str(data.get("created_at", ""))),
         "github_updated_at": clean(str(data.get("updated_at", ""))),
     }
 
@@ -330,6 +528,116 @@ def enrich_github(rows: list[dict[str, str]], timeout: float, use_gh_cli: bool) 
         row.update(stats.get(row["github_repo"], {}))
 
 
+def fetch_arxiv_batch(arxiv_ids: list[str], timeout: float, attempts: int) -> dict[str, dict[str, str]]:
+    query = urlencode({"id_list": ",".join(arxiv_ids), "max_results": str(len(arxiv_ids))})
+    url = f"https://export.arxiv.org/api/query?{query}"
+    context = ssl._create_unverified_context()
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "awesome-loop-engineering-publication-audit"},
+    )
+
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
+                root = ET.fromstring(response.read())
+            break
+        except Exception:  # noqa: BLE001 - fallback metadata remains explicit below.
+            if attempt == attempts:
+                return {}
+            time.sleep(min(3.0, attempt))
+
+    records: dict[str, dict[str, str]] = {}
+    for entry in root.findall(f"{ATOM_NS}entry"):
+        entry_url = clean(entry.findtext(f"{ATOM_NS}id") or "")
+        match = ARXIV_RE.search(entry_url)
+        if not match:
+            continue
+        arxiv_id = match.group("id")
+        authors = [
+            clean(author.findtext(f"{ATOM_NS}name") or "")
+            for author in entry.findall(f"{ATOM_NS}author")
+        ]
+        primary = entry.find(f"{ARXIV_NS}primary_category")
+        published = normalize_date(entry.findtext(f"{ATOM_NS}published") or "")
+        journal_reference = clean(entry.findtext(f"{ARXIV_NS}journal_ref") or "")
+        records[arxiv_id] = {
+            "authors": "; ".join(author for author in authors if author),
+            "publication_date": published,
+            "publication_year": year_from_value(published),
+            "publication_venue": journal_reference or "arXiv",
+            "publisher": "arXiv",
+            "doi": normalize_doi(entry.findtext(f"{ARXIV_NS}doi") or ""),
+            "publication_note": clean(entry.findtext(f"{ARXIV_NS}comment") or ""),
+            "primary_category": clean(primary.get("term", "")) if primary is not None else "",
+            "metadata_source": "arxiv-api",
+        }
+    return records
+
+
+def arxiv_year(arxiv_id: str) -> str:
+    try:
+        return str(2000 + int(arxiv_id[:2]))
+    except (TypeError, ValueError):
+        return ""
+
+
+def enrich_arxiv(rows: list[dict[str, str]], timeout: float, attempts: int) -> None:
+    arxiv_ids = sorted({row["arxiv_id"] for row in rows if row["arxiv_id"]})
+    records: dict[str, dict[str, str]] = {}
+    batch_size = 75
+    for start in range(0, len(arxiv_ids), batch_size):
+        if start:
+            time.sleep(3.0)
+        records.update(fetch_arxiv_batch(arxiv_ids[start : start + batch_size], timeout, attempts))
+
+    for row in rows:
+        arxiv_id = row["arxiv_id"]
+        if not arxiv_id:
+            continue
+        metadata = records.get(arxiv_id)
+        if metadata:
+            row.update({key: value for key, value in metadata.items() if value})
+        else:
+            row["publisher"] = "arXiv"
+            row["publication_year"] = row["publication_year"] or arxiv_year(arxiv_id)
+            row["metadata_source"] = row["metadata_source"] or "arxiv-id"
+
+
+def year_from_url(url: str) -> str:
+    parsed = urlparse(url)
+    match = re.search(r"/(?:manuscript/)?(?P<year>20\d{2})(?:[/_-]|\d{2}\.)", parsed.path)
+    if not match:
+        return ""
+    year = int(match.group("year"))
+    return str(year) if year <= datetime.now(timezone.utc).year + 1 else ""
+
+
+def finalize_publication_metadata(rows: list[dict[str, str]]) -> None:
+    for row in rows:
+        override = PUBLICATION_OVERRIDES.get(row["url"], {})
+        row.update({key: value for key, value in override.items() if value})
+
+        if row["github_repo"]:
+            row["publisher"] = "GitHub"
+            row["publication_venue"] = row["publication_venue"] or row["github_repo"]
+            if not row["publication_date"] and row["github_created_at"]:
+                row["publication_date"] = normalize_date(row["github_created_at"])
+                row["metadata_source"] = "github-api"
+
+        if not row["publisher"]:
+            row["publisher"] = publisher_for_domain(row["domain"]) or "Awesome Loop Engineering"
+        if not row["publication_year"]:
+            row["publication_year"] = year_from_value(row["publication_date"])
+        if not row["publication_year"]:
+            row["publication_year"] = year_from_url(row["url"])
+            if row["publication_year"] and not row["metadata_source"]:
+                row["metadata_source"] = "url-date"
+        if not row["metadata_source"]:
+            row["metadata_source"] = "domain-fallback"
+        row["doi"] = normalize_doi(row["doi"])
+
+
 def write_audit(rows: list[dict[str, str]], out_path: Path = AUDIT_CSV) -> None:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8", newline="") as handle:
@@ -355,6 +663,8 @@ def main() -> int:
 
     audited.sort(key=lambda row: row["row_id"])
     enrich_github(audited, timeout=args.timeout, use_gh_cli=args.github_cli)
+    enrich_arxiv(audited, timeout=max(args.timeout, 20.0), attempts=args.attempts)
+    finalize_publication_metadata(audited)
     write_audit(audited)
 
     broken = [row for row in audited if row["audit_status"] in {"broken", "unreachable", "local_missing"}]

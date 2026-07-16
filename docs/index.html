@@ -435,23 +435,50 @@
       .resource-count { margin: 0; color: var(--muted); font-size: 0.86rem; }
       .resource-sort { width: auto; min-width: 176px; }
       .resource-list { min-height: 180px; }
+      .resource-row-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) 72px minmax(170px, 0.55fr) minmax(130px, 0.4fr);
+        gap: 22px;
+        padding: 11px 0;
+        border-bottom: 1px solid var(--line-strong);
+        color: var(--quiet);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.66rem;
+        font-weight: 650;
+        text-transform: uppercase;
+      }
       .resource-item {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 180px;
-        gap: 28px;
-        padding: 17px 0;
+        grid-template-columns: minmax(0, 1.5fr) 72px minmax(170px, 0.55fr) minmax(130px, 0.4fr);
+        gap: 12px 22px;
+        align-items: start;
+        padding: 18px 0 16px;
         border-bottom: 1px solid var(--line);
       }
-      .resource-item a { color: var(--ink); font-weight: 750; text-decoration: none; }
-      .resource-item a:hover { color: var(--blue); }
-      .resource-item p { max-width: 850px; margin: 6px 0 0; color: var(--muted); font-size: 0.88rem; }
-      .resource-meta { margin-top: 7px; color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.7rem; overflow-wrap: anywhere; }
-      .resource-side { color: var(--quiet); font-size: 0.74rem; text-align: right; }
-      .resource-signal { display: block; color: var(--green); font-weight: 700; text-transform: uppercase; }
+      .resource-work, .resource-publication, .resource-evidence { min-width: 0; }
+      .resource-title { color: var(--ink); font-weight: 760; line-height: 1.35; text-decoration: none; }
+      .resource-title:hover { color: var(--blue); }
+      .resource-item p { margin: 0; }
+      .resource-contribution { margin-top: 6px !important; color: var(--muted); font-size: 0.86rem; line-height: 1.5; }
+      .resource-authors { margin-top: 7px !important; color: var(--quiet); font-size: 0.76rem; line-height: 1.45; }
+      .resource-meta { margin-top: 7px; color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.68rem; overflow-wrap: anywhere; }
+      .resource-cell-label { display: none; margin-bottom: 5px; color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.62rem; font-weight: 650; text-transform: uppercase; }
+      .resource-year-value { color: var(--ink); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9rem; font-weight: 700; }
+      .resource-year-value.undated { color: var(--quiet); font-weight: 500; }
+      .resource-venue { display: block; color: var(--ink); font-size: 0.82rem; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
+      .resource-publisher, .resource-date, .resource-identifier { display: block; margin-top: 4px; color: var(--quiet); font-size: 0.72rem; line-height: 1.4; overflow-wrap: anywhere; }
+      .resource-type-label { display: block; color: var(--ink); font-size: 0.78rem; font-weight: 700; }
+      .resource-signal { display: block; margin-top: 5px; color: var(--green); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; }
       .resource-signal.contextual { color: var(--violet); }
       .resource-signal.medium { color: var(--blue); }
       .resource-signal.unverified { color: var(--quiet); }
-      .resource-source-status { display: block; margin-top: 4px; }
+      .resource-source-status { display: block; margin-top: 4px; color: var(--quiet); font-size: 0.7rem; line-height: 1.4; }
+      .resource-details, .resource-details:last-child { grid-column: 1 / -1; margin-top: 2px; border: 0; border-top: 1px dashed var(--line); border-bottom: 0; padding: 9px 0 0; }
+      .resource-details summary { width: fit-content; color: var(--blue); font-size: 0.72rem; font-weight: 700; }
+      .resource-detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; padding: 14px 0 4px; }
+      .resource-detail h4 { margin: 0 0 5px; color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.64rem; text-transform: uppercase; }
+      .resource-detail p { color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+      .resource-bibliography + .resource-bibliography { margin-top: 5px; }
       .resource-actions { display: flex; justify-content: center; padding-top: 18px; }
       .resource-empty, .resource-loading { margin: 0; padding: 28px 0; color: var(--muted); }
       details { border-top: 1px solid var(--line-strong); padding: 18px 0; }
@@ -539,6 +566,11 @@
         .resource-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .resource-toolbar label:first-child { grid-column: 1 / -1; }
         .resource-reset { width: 100%; }
+        .resource-row-head { display: none; }
+        .resource-item { grid-template-columns: 72px minmax(0, 1fr) minmax(120px, 0.72fr); gap: 14px 18px; }
+        .resource-work, .resource-details { grid-column: 1 / -1; }
+        .resource-cell-label { display: block; }
+        .resource-detail-grid { gap: 14px 22px; }
         .footer-grid { grid-template-columns: 1fr 1fr; }
         .loop-stage-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .loop-stage:nth-child(4) { border-left: 0; }
@@ -598,8 +630,11 @@
         .resource-collection { min-width: 0; min-height: 40px; padding-inline: 4px; font-size: 0.75rem; }
         .resource-summary { align-items: stretch; flex-direction: column; gap: 10px; padding: 14px 0; }
         .resource-sort { width: 100%; }
-        .resource-item { grid-template-columns: 1fr; gap: 8px; padding: 15px 0; }
-        .resource-side { text-align: left; }
+        .resource-item { grid-template-columns: 1fr; gap: 12px; padding: 17px 0; }
+        .resource-work, .resource-details { grid-column: auto; }
+        .resource-year, .resource-publication, .resource-evidence { padding-top: 10px; border-top: 1px solid var(--line); }
+        .resource-detail-grid { grid-template-columns: 1fr; gap: 14px; }
+        .resource-details summary { min-height: 34px; padding-top: 5px; }
         .caption { text-align: left; }
         .level { grid-template-columns: 46px 1fr; }
         .level { gap: 12px; padding: 14px 0; }
@@ -976,7 +1011,7 @@
               <p class="section-label">06 / Curated resources</p>
               <h2>Find the evidence for your next decision.</h2>
             </div>
-            <p class="section-intro">Search 509 audited sources by goal, lifecycle stage, artifact type, and evidence class. Every result preserves its curated annotation and links directly to the canonical source.</p>
+            <p class="section-intro">Search 509 audited works by goal, lifecycle stage, artifact type, and evidence class. Each row combines the curated assessment with verified authorship, year, venue or source platform, and identifiers when the primary source exposes them.</p>
           </div>
           <div class="resource-explorer" id="resource-explorer">
             <div class="resource-toolbar" role="search" aria-label="Search curated resources">
@@ -1047,10 +1082,17 @@
                 <span class="sr-only">Sort resources</span>
                 <select class="resource-select resource-sort" id="resource-sort">
                   <option value="curated">Curated order</option>
+                  <option value="publication">Publication year</option>
                   <option value="stars">GitHub stars</option>
                   <option value="recent">Recently added</option>
                 </select>
               </label>
+            </div>
+            <div class="resource-row-head" aria-hidden="true">
+              <span>Work and key contribution</span>
+              <span>Year</span>
+              <span>Published at</span>
+              <span>Evidence</span>
             </div>
             <div class="resource-list" id="resource-list" aria-busy="true">
               <p class="resource-loading">Loading audited resources...</p>
@@ -1292,6 +1334,44 @@
           return element;
         }
 
+        function appendCellLabel(element, value) {
+          element.appendChild(createText('span', 'resource-cell-label', value));
+        }
+
+        function authorNames(value) {
+          return String(value || '').split(';').map(function (name) { return name.trim(); }).filter(Boolean);
+        }
+
+        function formattedAuthors(value) {
+          var names = authorNames(value);
+          if (names.length <= 4) return names.join(', ');
+          return names.slice(0, 4).join(', ') + ' +' + (names.length - 4) + ' more';
+        }
+
+        function identifier(resource) {
+          if (resource.doi) return 'DOI ' + resource.doi;
+          if (resource.arxiv_id) return 'arXiv ' + resource.arxiv_id;
+          if (resource.github_repo) return resource.github_repo;
+          return '';
+        }
+
+        function sourceStatus(resource) {
+          if (resource.source_status === 'restricted') return 'Access restricted';
+          if (['broken', 'unreachable', 'local_missing'].indexOf(resource.source_status) !== -1) return 'Audit issue';
+          if (String(resource.source_status || '').indexOf('local') === 0) return 'Repository source';
+          return 'Source checked';
+        }
+
+        function detailSection(title, values) {
+          var section = document.createElement('div');
+          section.className = 'resource-detail';
+          section.appendChild(createText('h4', '', title));
+          values.filter(Boolean).forEach(function (value) {
+            section.appendChild(createText('p', 'resource-bibliography', value));
+          });
+          return section;
+        }
+
         function resourceMatches(resource) {
           var query = search.value.trim().toLowerCase();
           var haystack = [
@@ -1302,7 +1382,16 @@
             resource.user_goal,
             resource.lifecycle_stages,
             resource.audience,
-            resource.evidence_class
+            resource.evidence_class,
+            resource.authors,
+            resource.publication_year,
+            resource.publication_venue,
+            resource.publisher,
+            resource.doi,
+            resource.arxiv_id,
+            resource.key_contribution,
+            resource.novelty,
+            resource.impact
           ].join(' ').toLowerCase();
           var evidenceSet = evidenceGroups[evidence.value] || [];
 
@@ -1315,6 +1404,11 @@
 
         function sortedResources(filtered) {
           return filtered.slice().sort(function (a, b) {
+            if (sort.value === 'publication') {
+              return Number(b.publication_year || 0) - Number(a.publication_year || 0) ||
+                (Date.parse(b.publication_date || '') || 0) - (Date.parse(a.publication_date || '') || 0) ||
+                a._index - b._index;
+            }
             if (sort.value === 'stars') {
               return Number(b.github_stars || 0) - Number(a.github_stars || 0) || a._index - b._index;
             }
@@ -1327,31 +1421,80 @@
 
         function renderItem(resource) {
           var item = document.createElement('article');
-          var main = document.createElement('div');
-          var link = createText('a', '', resource.title);
+          var work = document.createElement('div');
+          var year = document.createElement('div');
+          var publication = document.createElement('div');
+          var evidenceCell = document.createElement('div');
+          var details = document.createElement('details');
+          var detailGrid = document.createElement('div');
+          var link = createText('a', 'resource-title', resource.title);
+          var authors = formattedAuthors(resource.authors);
+          var fullAuthors = authorNames(resource.authors).join(', ');
           var meta = [
-            resource.resource_type,
             resource.collection,
+            resource.section,
             stages(resource.lifecycle_stages).map(words).join(' / '),
             words(resource.evidence_class)
           ].filter(Boolean).join(' | ');
-          var side = document.createElement('div');
           var signalClass = 'resource-signal ' + String(resource.signal_strength || 'unverified').toLowerCase();
           var signal = createText('span', signalClass, words(resource.signal_strength || 'unverified') + ' signal');
-          var sourceStatus = resource.source_status === 'restricted' ? 'Access restricted' : 'Source checked';
           var starCount = formatNumber(resource.github_stars);
+          var venue = resource.publication_venue || resource.publisher || 'Source not stated';
+          var publicationId = identifier(resource);
+          var sourceRecord = [
+            fullAuthors ? 'Authors: ' + fullAuthors : '',
+            resource.publication_date ? 'Published: ' + resource.publication_date : 'Publication date: not stated by the source',
+            'Source: ' + venue + (resource.publisher && resource.publisher !== venue ? ' | ' + resource.publisher : ''),
+            publicationId ? 'Identifier: ' + publicationId : '',
+            resource.primary_category ? 'Primary category: ' + resource.primary_category : '',
+            resource.publication_note ? 'Source note: ' + resource.publication_note : '',
+            resource.metadata_source ? 'Metadata provenance: ' + words(resource.metadata_source) : ''
+          ];
 
           item.className = 'resource-item';
           link.href = resource.canonical_url || resource.url;
-          main.appendChild(link);
-          main.appendChild(createText('p', '', resource.annotation));
-          main.appendChild(createText('div', 'resource-meta', meta));
-          side.className = 'resource-side';
-          side.appendChild(signal);
-          if (starCount) side.appendChild(createText('span', 'resource-source-status', starCount + ' GitHub stars'));
-          side.appendChild(createText('span', 'resource-source-status', sourceStatus));
-          item.appendChild(main);
-          item.appendChild(side);
+          work.className = 'resource-work';
+          work.appendChild(link);
+          work.appendChild(createText('p', 'resource-contribution', resource.key_contribution || resource.annotation));
+          if (authors) {
+            var authorLine = createText('p', 'resource-authors', authors);
+            authorLine.title = fullAuthors;
+            work.appendChild(authorLine);
+          }
+          work.appendChild(createText('div', 'resource-meta', meta));
+
+          year.className = 'resource-year';
+          appendCellLabel(year, 'Year');
+          year.appendChild(createText('span', 'resource-year-value' + (resource.publication_year ? '' : ' undated'), resource.publication_year || 'n.d.'));
+
+          publication.className = 'resource-publication';
+          appendCellLabel(publication, 'Published at');
+          publication.appendChild(createText('span', 'resource-venue', venue));
+          if (resource.publisher && resource.publisher !== venue) publication.appendChild(createText('span', 'resource-publisher', resource.publisher));
+          if (resource.publication_date && resource.publication_date !== resource.publication_year) publication.appendChild(createText('span', 'resource-date', resource.publication_date));
+          if (publicationId) publication.appendChild(createText('span', 'resource-identifier', publicationId));
+
+          evidenceCell.className = 'resource-evidence';
+          appendCellLabel(evidenceCell, 'Evidence');
+          evidenceCell.appendChild(createText('span', 'resource-type-label', resource.resource_type));
+          evidenceCell.appendChild(signal);
+          if (starCount) evidenceCell.appendChild(createText('span', 'resource-source-status', starCount + ' GitHub stars'));
+          evidenceCell.appendChild(createText('span', 'resource-source-status', sourceStatus(resource)));
+
+          details.className = 'resource-details';
+          details.appendChild(createText('summary', '', 'Contribution, novelty, impact, and source record'));
+          detailGrid.className = 'resource-detail-grid';
+          detailGrid.appendChild(detailSection('Contribution', [resource.key_contribution || resource.annotation]));
+          detailGrid.appendChild(detailSection('Novelty', [resource.novelty]));
+          detailGrid.appendChild(detailSection('Impact', [resource.impact]));
+          detailGrid.appendChild(detailSection('Source record', sourceRecord.concat(resource.signal ? ['Evidence: ' + resource.signal] : [])));
+          details.appendChild(detailGrid);
+
+          item.appendChild(work);
+          item.appendChild(year);
+          item.appendChild(publication);
+          item.appendChild(evidenceCell);
+          item.appendChild(details);
           return item;
         }
 

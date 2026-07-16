@@ -51,6 +51,9 @@ jobs:
       - name: Check resource dataset export
         run: python scripts/export_resource_dataset.py --check
 
+      - name: Check publication metadata
+        run: python scripts/check_publication_metadata.py
+
       - name: Check loop contract examples
         run: |
           python scripts/check_loop_contract_examples.py
