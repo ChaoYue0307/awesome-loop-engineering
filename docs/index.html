@@ -129,7 +129,10 @@
 
       main { overflow: hidden; }
       section { padding: 86px 0; border-top: 1px solid var(--line); }
-      .hero { padding: 64px 0 52px; border-top: 0; text-align: center; }
+      .hero { position: relative; isolation: isolate; overflow: hidden; padding: 64px 0 52px; border-top: 0; text-align: center; }
+      .hero .wrap { position: relative; z-index: 1; }
+      .hero-scene { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+      .hero-scene canvas { display: block; width: 100%; height: 100%; opacity: 0.88; }
       .mental-model { padding: 40px 0 52px; }
       .section-label {
         margin: 0 0 12px;
@@ -287,6 +290,7 @@
         .tagline { font-size: 1.22rem; }
         .lead { font-size: 1rem; }
         .mental-model { padding-top: 30px; }
+        .hero-scene canvas { opacity: 0.68; }
         .principles, .link-grid, .pattern-grid, .resource-links, .footer-grid { grid-template-columns: 1fr; }
         .principle + .principle, .card + .card, .pattern + .pattern { padding-left: 0; }
         .pattern { min-height: 88px; }
@@ -300,8 +304,11 @@
         html { scroll-behavior: auto; }
         .pattern { transition: none; }
       }
+      @media (forced-colors: active) {
+        .hero-scene { display: none; }
+      }
       @media print {
-        header.site, .menu-btn, .actions, .copy, .pattern-filter { display: none; }
+        header.site, .menu-btn, .actions, .copy, .pattern-filter, .hero-scene { display: none; }
         body, footer { background: #fff; }
         section { padding: 24pt 0; break-inside: avoid; }
         .wrap { width: 100%; }
@@ -425,6 +432,7 @@
 
     <main id="main" tabindex="-1">
       <section class="hero" id="top">
+        <div class="hero-scene" data-loop-scene aria-hidden="true"></div>
         <div class="wrap">
           <p class="section-label hero-kicker">The field guide for recurring AI-agent systems</p>
           <h1>Awesome Loop Engineering</h1>
@@ -765,5 +773,6 @@
         });
       });
     </script>
+    <script type="module" src="assets/loop-hero-scene.js"></script>
   </body>
 </html>
