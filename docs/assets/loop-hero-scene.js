@@ -416,12 +416,15 @@ if (container && hero) {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile || lowPower ? 1.25 : 1.6));
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
-      camera.fov = mobile ? 35 : 31;
-      camera.position.z = mobile ? 12.9 : 12.2;
+      camera.fov = mobile ? 34 : 31;
+      camera.position.z = mobile ? 9.9 : 12.2;
       camera.updateProjectionMatrix();
-      layoutScaleX = mobile ? 1.04 : 1.58;
-      layoutScaleY = mobile ? 0.96 : 1.04;
-      root.position.y = mobile ? -0.14 : -0.28;
+      layoutScaleX = mobile ? 1.02 : 1.58;
+      layoutScaleY = mobile ? 1.12 : 1.04;
+      root.position.y = mobile ? -0.02 : -0.28;
+      flowMaterial.opacity = mobile ? 0.42 : 0.28;
+      flowAura.material.opacity = mobile ? 0.09 : 0.05;
+      focusBeam.material.opacity = mobile ? 0.4 : 0.28;
       render(performance.now());
     }
 
