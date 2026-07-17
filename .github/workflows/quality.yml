@@ -34,6 +34,9 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Install brand asset dependency
+        run: python -m pip install "Pillow>=10.4,<13"
+
       - name: Check Markdown formatting
         uses: DavidAnson/markdownlint-cli2-action@v17
         with:
@@ -59,6 +62,9 @@ jobs:
 
       - name: Check Hugging Face dataset card
         run: python scripts/build_hf_card.py --check
+
+      - name: Check generated brand assets
+        run: python scripts/build_brand_assets.py --check
 
       - name: Check publication metadata
         run: python scripts/check_publication_metadata.py

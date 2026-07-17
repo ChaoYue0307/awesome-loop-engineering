@@ -3,7 +3,11 @@
 This directory contains visual assets used by the repository README, GitHub Pages landing page, and social previews.
 
 - `awesome-loop-engineering-cover.png` - Wide README and repo-card cover image. It visualizes the Prompt, Context, Harness, and Loop stack.
-- `awesome-loop-engineering-logo.svg` - Logo mark used by the GitHub Pages site (favicon and header brand).
+- `awesome-loop-engineering-logo-master.png` - High-resolution transparent ChatGPT Image source for the primary mark.
+- `awesome-loop-engineering-logo.png` - Production 512px mark used by the README, website, and Hugging Face card.
+- `awesome-loop-engineering-logo-192.png` - Compact profile and application icon.
+- `apple-touch-icon.png` and `favicon-32.png` - Web app and browser icon variants.
+- `BRAND.md` - Mark rationale, palette, clear-space rules, and usage guidance.
 - `loop-engineering-stack.png` - ChatGPT Image-generated editorial stack showing how Loop Engineering governs prompt, context, and harness engineering over time.
 - `loop-engineering-stack.svg` - Legacy vector source retained for lightweight and editable reuse.
 - `loop-contract-cards.svg` - Visual card grid for the Loop Contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.

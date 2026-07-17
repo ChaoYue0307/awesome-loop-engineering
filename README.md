@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-logo.svg" alt="Visit the Awesome Loop Engineering website" width="144"></a>
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-logo.png" alt="Visit the Awesome Loop Engineering website" width="144"></a>
 </p>
 
 <h1 align="center">Awesome Loop Engineering</h1>
