@@ -50,7 +50,8 @@ Use GitHub-native discovery in this order.
   ```
 
 - **Pin the repository** on your profile, and add it to your profile README (profile-level promotion).
-- **Custom social preview** (repo Settings, Social preview) so shared links render with the cover image. This is UI-only; it cannot be set through the API.
+- **About description.** Keep this concise proof-point copy aligned with the README and project site: `🔁 540 source-audited resources • 15 patterns • 15 validated contracts • 6 runnable templates • interactive atlas + dataset for recurring, stateful, verified AI-agent systems.`
+- **Custom social preview** (repo Settings, Social preview) so shared links lead with the same four durable proof points. This is UI-only; it cannot be set through the API.
 - **Releases and Discussions** provide a lower-noise subscription path. Recommend `Watch -> Custom -> Releases and Discussions`; do not ask readers to watch every repository event.
 
 Do not use reciprocal-star requests, broad promotional pull requests, or unrelated issue comments. Every directory or newsletter submission should satisfy its normal editorial policy on its own merits.

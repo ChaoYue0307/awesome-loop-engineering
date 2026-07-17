@@ -5,10 +5,10 @@
 <h1 align="center">Awesome Loop Engineering</h1>
 
 <p align="center">
-  Curated resources and patterns for building recurring, stateful, verified AI-agent and coding-agent loops.
+  A source-audited field guide and implementation kit for recurring, stateful, verified AI-agent systems.
 </p>
 
-<!-- Keep the resources badge count in sync with data/resources.csv, Repository Highlights, and the landing-page stats on every sweep. -->
+<!-- Keep proof-point badges in sync with the About description, social preview, Repository Highlights, and landing-page stats. -->
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
@@ -16,6 +16,8 @@
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
   <img src="https://img.shields.io/badge/resources-540-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-15-38bdf8" alt="patterns">
+  <img src="https://img.shields.io/badge/contracts-15-7055d9" alt="validated contracts">
+  <img src="https://img.shields.io/badge/templates-6-0c9b68" alt="runnable templates">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-64748b" alt="license"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-22c55e" alt="PRs welcome"></a>
 </p>
