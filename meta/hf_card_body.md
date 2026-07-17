@@ -30,6 +30,12 @@ Current release: **v{{VERSION}}**
 
 The source audit dated **{{AUDIT_DATE}}** reports these row statuses: **{{REACHABLE_COUNT}} reachable public**, **{{RESTRICTED_COUNT}} access restricted**, **{{LOCAL_COUNT}} repository-native**, and **{{BROKEN_COUNT}} broken or unreachable**.
 
+## What A Loop Contract Is
+
+A **Loop Contract** is a reviewable operating specification for one recurring agent job. It fixes what authorizes a run, which work and actions are allowed, what context and roles the run uses, which external evidence proves progress, what state survives, how much the loop may spend, and when a human takes over or the loop exits.
+
+Recurring agents need this policy because schedules, events, queues, and goals remove live supervision. Without explicit boundaries, missing decisions become hidden defaults: the loop can select the wrong work, widen its own scope, approve itself, forget failed attempts, or retry without a stopping rule. Start with the [JSON schema](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json) and adapt one of the [{{CONTRACT_COUNT}} validated examples](https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples).
+
 ## Load The Data
 
 ```python

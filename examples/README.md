@@ -4,6 +4,18 @@ Twenty JSON examples turn the operational patterns into reviewable machine-reada
 
 A pattern explains **how a class of loop should operate**. Its contract pins down **what one implementation may read, change, verify, spend, and escalate**. A [runtime starter](runnable/README.md) then wires that contract to a session, schedule, CI job, or durable worker.
 
+## What A Contract Fixes
+
+A **Loop Contract** is a reviewable operating specification for one recurring agent job. It is not a prompt or a runtime. In a supervised session, a person can correct scope, request evidence, remember a failed attempt, and decide when to stop. A recurring agent needs those decisions written down before a trigger starts the next run.
+
+| Decision | Contract fields | What becomes explicit |
+| --- | --- | --- |
+| **Authorize** | Objective, trigger, intake, workspace | Which outcome matters, what starts a run, which work qualifies, and where action is allowed. |
+| **Operate** | Context, agents, verification, state | What must be loaded, who acts and checks, what proves progress, and which receipts survive. |
+| **Govern** | Budget, escalation, exit | How autonomy is capped, who owns exceptions, and what success or a blocked stop means. |
+
+Without these boundaries, a recurring agent can select the wrong work, expand its own permissions, approve itself, repeat failed attempts, or spend indefinitely. The JSON schema makes the same policy readable by people and enforceable by tooling.
+
 ## Contract Catalog
 
 ### Build And Maintain

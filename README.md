@@ -423,7 +423,11 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 
 ## The Loop Contract
 
-A useful loop has a contract. If one of these is missing, the loop usually becomes either a manual prompt habit or an unsafe background automation. Prompt, context, and harness choices are ingredients; the loop contract is the operating layer that connects them over time.
+A **Loop Contract** is a reviewable operating specification for one recurring agent job. It is not a legal agreement, a long prompt, or a particular runtime. It records the decisions a person normally supplies during a one-off session - what work is authorized, what the agent may touch, what evidence counts, what survives, and when control returns to a human - so those decisions remain stable across runs.
+
+The contract becomes necessary when an agent runs from a schedule, event, queue, or goal instead of waiting for live supervision. Unanswered questions become hidden defaults: the agent may select the wrong work, widen its own scope, approve its own output, forget a previous failure, or retry without a stopping rule. Making the policy explicit lets builders, reviewers, security teams, and operators inspect the same boundaries before the loop acts.
+
+Prompt, context, and harness choices improve one run. A pattern describes how a class of recurring work should operate. The contract fixes the exact policy for one implementation, and the runtime executes it.
 
 <p align="center">
   <picture>
@@ -434,21 +438,52 @@ A useful loop has a contract. If one of these is missing, the loop usually becom
   <sub><strong>Figure 3.</strong> The Loop Contract makes recurring agent work explicit, reviewable, and bounded.</sub>
 </p>
 
-| Part              | Design question                        | Common artifact                                              |
-| ----------------- | -------------------------------------- | ------------------------------------------------------------ |
-| Objective         | What should the loop optimize for?     | Goal, issue, PRD, runbook                                    |
-| Trigger           | When does the loop run?                | Schedule, webhook, `/loop`, `/goal`, automation              |
-| Discover / Intake | How does the loop find work?           | GitHub queries, Linear filters, CI failures, feedback stream |
-| Workspace         | Where can the agent act safely?        | Worktree, sandbox, branch, container                         |
-| Context           | What durable knowledge should it load? | `AGENTS.md`, `CLAUDE.md`, `SKILL.md`, docs                   |
-| Delegation        | Which agent does which job?            | Explorer, implementer, reviewer, judge                       |
-| Verification      | What says "yes" or "no"?               | Tests, typecheck, lint, evals, trace graders                 |
-| State             | What survives the next run?            | Progress file, database checkpoint, trace, issue comment     |
-| Budget            | When should it stop spending?          | Max turns, max retries, token budget, time box               |
-| Escalation        | When does a human take over?           | PR, issue, Slack alert, triage inbox                         |
-| Exit              | How does the loop know it is done?     | Acceptance criteria, passing checks, no work found           |
+### Read It As Three Decisions
 
-Good loop documentation should make the contract visible. A reader should be able to tell what triggers the loop, what state it reads, what it is allowed to change, how it verifies progress, and when it stops.
+| Phase                   | Contract parts                           | What the phase decides                                                                   |
+| ----------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **1. Set up**           | Objective, trigger, intake, workspace    | Why a run is authorized, which work qualifies, and where action is allowed.              |
+| **2. Run**              | Context, delegation, verification, state | What the agents know, who acts and checks, what proves progress, and what is remembered. |
+| **3. Govern and close** | Budget, escalation, exit, next action    | How autonomy is capped and whether the loop retries, reports, hands off, or stops.       |
+
+| Part              | Decision the contract must make                                           | Common artifact                                              |
+| ----------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Objective         | Which measurable outcome is worth repeating toward?                       | Goal, issue, PRD, runbook                                    |
+| Trigger           | Which event, schedule, or goal authorizes a run?                          | Schedule, webhook, `/loop`, `/goal`, automation              |
+| Discover / Intake | Which items qualify, and how are duplicates or stale work rejected?       | GitHub queries, Linear filters, CI failures, feedback stream |
+| Workspace         | What may the agent read or change, and where is execution isolated?       | Worktree, sandbox, branch, container                         |
+| Context           | Which instructions and current evidence must be loaded fresh?             | `AGENTS.md`, `CLAUDE.md`, `SKILL.md`, docs, logs             |
+| Delegation        | Who explores, acts, and checks, and can the acting agent approve itself?  | Explorer, implementer, reviewer, judge                       |
+| Verification      | Which external evidence must pass before progress or completion is valid? | Tests, typecheck, lint, evals, trace graders                 |
+| State             | Which checkpoints and receipts survive, and when are they updated?        | Progress file, database checkpoint, trace, issue comment     |
+| Budget            | How much time, retry, token, cost, or concurrency may one run consume?    | Max turns, max retries, token budget, time box               |
+| Escalation        | Which conditions require a named human owner or review channel?           | PR, issue, Slack alert, triage inbox                         |
+| Exit              | What proves success, and what stops the loop without success?             | Acceptance criteria, passing checks, explicit blocked state  |
+
+### Why The Boundaries Matter
+
+| If the contract omits...     | The recurring failure is predictable                                               |
+| ---------------------------- | ---------------------------------------------------------------------------------- |
+| Trigger and intake           | The loop invents work, reprocesses the same item, or runs at the wrong time.       |
+| Workspace and permissions    | A narrow repair expands into unrelated files, credentials, or production changes.  |
+| Independent verification     | The acting model can declare its own output complete without external evidence.    |
+| Durable state and receipts   | The next run repeats failed attempts and cannot explain what already happened.     |
+| Budget, escalation, and exit | The loop retries indefinitely, spends past its value, or stalls without an owner.  |
+
+### Worked Example: PR Babysitter
+
+Suppose a team wants an agent to keep one pull request moving without asking a person to poll CI and review threads all day. "Keep this PR moving" is only a goal; the contract turns it into bounded operation.
+
+| Contract decision      | PR babysitter implementation                                                                                                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Authorize the run**  | Run every two hours during working hours and after requested changes or failed required checks. Select only explicit blockers on one pull request.                               |
+| **Bound the action**   | Use a dedicated branch or worktree. Allow narrow fixes, checks, and progress comments; prohibit force pushes, dependency upgrades, secrets access, and production changes.       |
+| **Load and delegate**  | Load `AGENTS.md`, `CONTRIBUTING.md`, the latest PR SHA, review threads, and CI logs. An explorer identifies the blocker, an implementer patches it, and a reviewer checks scope. |
+| **Prove and remember** | Require GitHub checks to pass, review threads to resolve, and the diff to stay scoped. Persist commands, check URLs, changed files, blockers, and the next action.               |
+| **Cap and hand off**   | Stop after three retries or 60 minutes. Escalate architectural decisions, repeated failures, reviewer disagreement, or any force-push requirement to the human owner.            |
+| **Exit**               | Succeed when the PR is merge-ready or waiting only on human review; stop without success when blocked, out of budget, or facing a judgment call.                                 |
+
+Open the full [`pr-babysitter-loop.json`](examples/pr-babysitter-loop.json), render it with `python3 scripts/preview_loop_contract.py`, or browse the 20 validated contracts below.
 
 ## Loop Design Checklist
 

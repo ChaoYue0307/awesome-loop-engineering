@@ -354,6 +354,88 @@
       .caption { margin: 13px 0 0; color: var(--quiet); font-size: 0.78rem; text-align: right; }
       .supporting-visual { margin: 0 0 34px; }
 
+      .contract-need {
+        display: grid;
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 34px;
+        margin-bottom: 30px;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line);
+        padding: 22px 0;
+      }
+      .contract-need h3 { margin: 0; font-size: 0.96rem; }
+      .contract-need p { max-width: 870px; margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+      .contract-layers-head {
+        display: grid;
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 34px;
+        align-items: baseline;
+        margin-bottom: 12px;
+      }
+      .contract-layers-head h3 { margin: 0; font-size: 0.96rem; }
+      .contract-layers-head p { margin: 0; color: var(--muted); font-size: 0.84rem; }
+      .contract-layers {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        margin-bottom: 36px;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .contract-layer { min-width: 0; padding: 18px 20px 18px 0; }
+      .contract-layer + .contract-layer { border-left: 1px solid var(--line); padding-left: 20px; }
+      .contract-layer strong { display: block; color: var(--ink); font-size: 0.88rem; }
+      .contract-layer span { display: block; margin-top: 6px; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+      .contract-layer.contract-policy strong { color: var(--blue); }
+      .contract-phases {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 30px;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .contract-phase { min-width: 0; padding: 20px 22px 20px 0; }
+      .contract-phase + .contract-phase { border-left: 1px solid var(--line); padding-left: 22px; }
+      .contract-phase-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--blue);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.65rem;
+        font-weight: 650;
+        text-transform: uppercase;
+      }
+      .contract-phase h3 { margin: 0; font-size: 0.94rem; }
+      .contract-phase p { margin: 7px 0 0; color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+      .contract-phase small { display: block; margin-top: 10px; color: var(--quiet); font-size: 0.7rem; line-height: 1.45; }
+      .contract-example { margin-top: 38px; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
+      .contract-example-head {
+        display: grid;
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 34px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .contract-example-head h3 { margin: 0; font-size: 1rem; }
+      .contract-example-head p { max-width: 820px; margin: 0; color: var(--muted); font-size: 0.86rem; line-height: 1.55; }
+      .contract-example-row {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 34px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .contract-example-row strong { color: var(--ink); font-size: 0.8rem; }
+      .contract-example-row p { margin: 0; color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+      .contract-example-result {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding: 16px 0;
+      }
+      .contract-example-result p { margin: 0; color: var(--ink); font-size: 0.82rem; font-weight: 700; line-height: 1.5; }
+      .contract-example-result a { flex: 0 0 auto; font-size: 0.8rem; font-weight: 700; }
+
       .mobile-contract-summary, .mobile-lifecycle-summary { border-top: 1px solid var(--line-strong); }
       .mobile-contract-group { padding: 15px 0 0; }
       .mobile-contract-group + .mobile-contract-group { margin-top: 4px; }
@@ -759,6 +841,14 @@
         h1 { font-size: 2.7rem; }
         h2 { font-size: 2rem; }
         .section-head { grid-template-columns: 1fr; gap: 16px; align-items: start; }
+        .contract-need, .contract-layers-head, .contract-example-head { grid-template-columns: 180px minmax(0, 1fr); gap: 24px; }
+        .contract-layers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .contract-layer:nth-child(n) { border-left: 1px solid var(--line); padding: 18px; }
+        .contract-layer:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+        .contract-layer:nth-child(n+3) { border-top: 1px solid var(--line); }
+        .contract-phase { padding-right: 18px; }
+        .contract-phase + .contract-phase { padding-left: 18px; }
+        .contract-example-row { grid-template-columns: 150px minmax(0, 1fr); gap: 24px; }
         .stats { grid-template-columns: repeat(2, 1fr); }
         .stat + .stat { border-left: 0; }
         .stat:nth-child(even) { border-left: 1px solid var(--line); }
@@ -812,6 +902,21 @@
         .section-label .icon { width: 14px; height: 14px; margin-top: 1px; }
         .section-head { gap: 12px; margin-bottom: 24px; }
         .section-intro { font-size: 0.95rem; }
+        .contract-need, .contract-layers-head, .contract-example-head { grid-template-columns: 1fr; gap: 8px; }
+        .contract-need { margin-bottom: 24px; padding: 18px 0; }
+        .contract-need p { font-size: 0.84rem; line-height: 1.55; }
+        .contract-layers-head { margin-bottom: 10px; }
+        .contract-layers { grid-template-columns: 1fr; margin-bottom: 28px; }
+        .contract-layer:nth-child(n) { border-top: 1px solid var(--line); border-left: 0; padding: 14px 0; }
+        .contract-layer:first-child { border-top: 0; }
+        .contract-layer span { margin-top: 4px; }
+        .contract-phases { grid-template-columns: 1fr; margin-top: 24px; }
+        .contract-phase:nth-child(n) { border-top: 1px solid var(--line); border-left: 0; padding: 16px 0; }
+        .contract-phase:first-child { border-top: 0; }
+        .contract-example { margin-top: 30px; }
+        .contract-example-head { padding: 18px 0; }
+        .contract-example-row { grid-template-columns: 1fr; gap: 5px; padding: 13px 0; }
+        .contract-example-result { align-items: flex-start; flex-direction: column; gap: 9px; padding: 15px 0; }
         .hero { min-height: 0; padding: 32px 0 18px; }
         .hero-kicker { max-width: 100%; align-items: center; margin: 0 auto 10px; line-height: 1.35; text-align: left; }
         .tagline { margin-top: 11px; font-size: 1.18rem; }
@@ -1095,7 +1200,7 @@
           {
             "@type": "Question",
             "name": "What is in a loop contract?",
-            "acceptedAnswer": { "@type": "Answer", "text": "A loop contract names the objective, trigger, intake, workspace, context, delegation, verification gate, durable state, budget, escalation, and exit condition." }
+            "acceptedAnswer": { "@type": "Answer", "text": "A Loop Contract is a reviewable operating specification for one recurring agent job. It fixes the objective, trigger, intake, workspace and permissions, context, roles, external verification, durable state, budget, escalation path, and success or blocked exit so repeated runs do not rely on hidden defaults." }
           },
           {
             "@type": "Question",
@@ -1256,13 +1361,27 @@
           <div class="section-head">
             <div>
               <p class="section-label"><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i><span>01 / The loop contract</span></p>
-              <h2>Every reliable loop names the same parts.</h2>
+              <h2>Make recurring agent work reviewable before it runs.</h2>
             </div>
-            <p class="section-intro">A loop contract makes triggers, permissions, verification, state, budgets, and human handoff reviewable. Start with the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json">JSON schema</a> or one of <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">20 validated examples</a>.</p>
+            <p class="section-intro">A <strong>Loop Contract</strong> is the operating specification for one recurring agent job. It records what authorizes a run, what the agent may change, what evidence counts, what survives, and when a human takes over.</p>
+          </div>
+          <div class="contract-need">
+            <h3>Why it is necessary</h3>
+            <p>In a supervised session, a person supplies missing judgment as the work unfolds. Once a schedule, event, queue, or goal starts the agent, every unanswered question becomes a hidden default. The loop may select the wrong work, widen its scope, approve its own output, forget a failed attempt, or retry without a stopping rule. The contract turns those defaults into policy that builders, reviewers, security teams, and operators can inspect together.</p>
+          </div>
+          <div class="contract-layers-head">
+            <h3>Four layers, four jobs</h3>
+            <p>The contract connects run-level ingredients to a repeatable operating model.</p>
+          </div>
+          <div class="contract-layers" aria-label="Difference between prompts, patterns, contracts, and runtimes">
+            <div class="contract-layer"><strong>Prompt</strong><span>Instructs the model during one call or run.</span></div>
+            <div class="contract-layer"><strong>Pattern</strong><span>Describes how a class of recurring work should operate.</span></div>
+            <div class="contract-layer contract-policy"><strong>Contract</strong><span>Fixes the exact permissions, gates, memory, budget, and handoff.</span></div>
+            <div class="contract-layer"><strong>Runtime</strong><span>Executes that contract in a session, workflow, or durable worker.</span></div>
           </div>
           <figure class="diagram desktop-diagram">
             <div class="diagram-scroll"><img src="assets/loop-contract-cards.svg" width="1200" height="720" loading="lazy" alt="Loop Contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, exit, and next action."></div>
-            <figcaption class="caption">A reviewable specification for recurring agent work.</figcaption>
+            <figcaption class="caption">Eleven explicit decisions replace hidden defaults; next action closes the control loop.</figcaption>
           </figure>
           <div class="mobile-diagram mobile-contract-summary" aria-label="Loop Contract parts grouped into setup, run, and govern">
             <div class="mobile-contract-group">
@@ -1292,6 +1411,41 @@
               </div>
             </div>
             <p class="mobile-next-action"><strong>Next action</strong><span>Repeat, report, escalate, or stop.</span></p>
+          </div>
+          <div class="contract-phases" aria-label="How to read a Loop Contract">
+            <div class="contract-phase">
+              <span class="contract-phase-label">01 / Set up</span>
+              <h3>Authorize the right work</h3>
+              <p>Name the outcome, trigger, intake rule, and isolated workspace before any tool acts.</p>
+              <small>Objective · Trigger · Intake · Workspace</small>
+            </div>
+            <div class="contract-phase">
+              <span class="contract-phase-label">02 / Run</span>
+              <h3>Act, prove, and remember</h3>
+              <p>Load current evidence, separate acting from checking, verify externally, and persist receipts.</p>
+              <small>Context · Delegation · Verification · State</small>
+            </div>
+            <div class="contract-phase">
+              <span class="contract-phase-label">03 / Govern + close</span>
+              <h3>Bound autonomy</h3>
+              <p>Cap retries and spend, assign a human owner, and define success and blocked exits.</p>
+              <small>Budget · Escalation · Exit · Next action</small>
+            </div>
+          </div>
+          <div class="contract-example">
+            <div class="contract-example-head">
+              <h3>Worked example: PR babysitter</h3>
+              <p>“Keep this pull request moving” is only a goal. The contract below turns it into a bounded job that can run without someone polling CI and review threads all day.</p>
+            </div>
+            <div class="contract-example-row"><strong>Trigger + intake</strong><p>Run every two hours during working hours and after requested changes or failed checks. Select only explicit blockers on one pull request.</p></div>
+            <div class="contract-example-row"><strong>Permission boundary</strong><p>Use a dedicated branch or worktree. Allow narrow fixes, checks, and progress comments; prohibit force pushes, dependency upgrades, secrets, and production changes.</p></div>
+            <div class="contract-example-row"><strong>Team + context</strong><p>An explorer finds the smallest blocker, an implementer patches it, and a reviewer checks scope using the latest SHA, review threads, CI logs, and repository instructions.</p></div>
+            <div class="contract-example-row"><strong>Evidence + memory</strong><p>Required checks must pass, threads must be resolved, and the diff must stay narrow. Commands, check URLs, changed files, blockers, and the next action survive every run.</p></div>
+            <div class="contract-example-row"><strong>Budget + handoff</strong><p>Stop after three retries or 60 minutes. Escalate architecture, repeated failure, reviewer disagreement, or any force-push requirement to the human owner.</p></div>
+            <div class="contract-example-result">
+              <p>Done means merge-ready or waiting only on human review - not “the agent says it is done.”</p>
+              <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/pr-babysitter-loop.json">Open the full JSON contract →</a>
+            </div>
           </div>
           <div class="principles">
             <div class="principle"><h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>Verifiable by design</h3><p>Tests, typechecks, evals, traces, or reviewers decide done. The acting agent never approves itself.</p></div>
@@ -1643,7 +1797,7 @@
           </details>
           <details>
             <summary>What belongs in a loop contract?</summary>
-            <p>Objective, trigger, intake, workspace, context, delegation, a verification gate, durable state, budget, escalation, and an exit condition.</p>
+            <p>A Loop Contract is a reviewable operating specification for one recurring agent job. It fixes the objective, trigger, intake, workspace and permissions, context, roles, external verification, durable state, budget, escalation path, and success or blocked exit so repeated runs do not depend on hidden defaults.</p>
           </details>
           <details>
             <summary>Which runtimes can run agent loops?</summary>
