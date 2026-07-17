@@ -89,7 +89,7 @@ The complete [Future Directions agenda](https://github.com/ChaoYue0307/awesome-l
 
 ## Dataset Structure
 
-The primary configuration is `resources`, with one `train` split backed by `data/resources.jsonl`. `data/resources.csv` contains the same rows for spreadsheet and dataframe workflows.
+The primary configuration is `resources`, with one `train` split backed by the native `data/resources.parquet` shard. `data/resources.jsonl` and `data/resources.csv` contain the same rows for streaming, spreadsheet, and dataframe workflows.
 
 | Field group | Fields | What it describes |
 | --- | --- | --- |

@@ -28,5 +28,5 @@ configs:
   - config_name: resources
     data_files:
       - split: train
-        path: data/resources.jsonl
+        path: data/resources.parquet
 ---

@@ -3,7 +3,8 @@
 Download deterministic tabular exports of all 545 source-audited resources.
 
 - `resources.csv` - Tabular export for spreadsheets and ad hoc analysis.
-- `resources.jsonl` - JSON Lines export; this file backs the Hugging Face Dataset Viewer (the dataset card's configs point at it).
+- `resources.jsonl` - JSON Lines export and source for the Hugging Face Parquet build.
+- `resources.parquet` - Native Parquet shard generated in the Hugging Face release snapshot; it powers the Dataset Viewer without relying on server-side conversion.
 - `../docs/assets/resources.json` - Slim generated payload used by the website's searchable Resource Atlas.
 - `first_seen.json` - Forward-only sidecar mapping resource URL to the date it was first added; the export left-joins it into the `date_added` column. Empty `date_added` means the entry predates per-entry tracking (started 2026-07-15).
 - `resource_source_audit.csv` - Retrieval-time audit of every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
@@ -69,6 +70,7 @@ Build the focused Hugging Face dataset card for a staging mirror with:
 
 ```sh
 python3 scripts/build_hf_card.py --output /tmp/awesome-loop-engineering-hf/README.md
+python3 scripts/build_hf_parquet.py --output /tmp/awesome-loop-engineering-hf/data/resources.parquet
 ```
 
-The card is generated from `meta/hf_card_header.yaml`, `meta/hf_card_body.md`, the current dataset, and `CITATION.cff`. The YAML front matter is intentionally Hugging Face-only and must not be added to the GitHub README.
+The card is generated from `meta/hf_card_header.yaml`, `meta/hf_card_body.md`, the current dataset, and `CITATION.cff`. The Parquet shard is a lossless derivative of `data/resources.jsonl` and requires `pyarrow`. The YAML front matter is intentionally Hugging Face-only and must not be added to the GitHub README.
