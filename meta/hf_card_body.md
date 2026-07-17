@@ -28,7 +28,7 @@ Current release: **v{{VERSION}}**
 | Validated loop contracts | {{CONTRACT_COUNT}} |
 | Runtime starters | {{RUNNABLE_COUNT}} |
 
-The source audit dated **{{AUDIT_DATE}}** found {{REACHABLE_COUNT}} reachable public sources, {{RESTRICTED_COUNT}} access-restricted sources, {{LOCAL_COUNT}} repository-native artifacts, and {{BROKEN_COUNT}} broken or unreachable sources.
+The source audit dated **{{AUDIT_DATE}}** reports these row statuses: **{{REACHABLE_COUNT}} reachable public**, **{{RESTRICTED_COUNT}} access restricted**, **{{LOCAL_COUNT}} repository-native**, and **{{BROKEN_COUNT}} broken or unreachable**.
 
 ## Load The Data
 
