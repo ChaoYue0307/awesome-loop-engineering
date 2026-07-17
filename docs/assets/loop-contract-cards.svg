@@ -2,61 +2,61 @@
   <title id="title">Loop Contract</title>
   <desc id="desc">The eleven parts of a Loop Contract grouped into Set Up, Run, and Govern and Close, followed by the next action.</desc>
   <rect width="1200" height="720" fill="#f7f9fc"/>
-  <text x="64" y="52" fill="#1746d1" font-size="13" font-weight="800">OPERATING SPEC / ELEVEN REQUIRED PARTS</text>
-  <text x="64" y="91" fill="#111318" font-size="34" font-weight="800">The Loop Contract</text>
-  <text x="1136" y="88" text-anchor="end" fill="#586273" font-size="16">A reviewable specification for recurring AI-agent systems</text>
-  <line x1="64" y1="116" x2="1136" y2="116" stroke="#1746d1" stroke-width="2"/>
+  <text x="64" y="52" fill="#155eef" font-size="13" font-weight="800">OPERATING SPEC / ELEVEN REQUIRED PARTS</text>
+  <text x="64" y="91" fill="#121722" font-size="34" font-weight="800">The Loop Contract</text>
+  <text x="1136" y="88" text-anchor="end" fill="#5c6678" font-size="16">A reviewable specification for recurring AI-agent systems</text>
+  <line x1="64" y1="116" x2="1136" y2="116" stroke="#155eef" stroke-width="2"/>
 
   <g>
     <rect x="64" y="144" width="1072" height="146" fill="#ffffff"/>
-    <line x1="64" y1="144" x2="1136" y2="144" stroke="#cfd6e0"/><line x1="64" y1="290" x2="1136" y2="290" stroke="#cfd6e0"/>
-    <text x="82" y="178" fill="#1746d1" font-size="13" font-weight="800">01 / SET UP</text>
-    <text x="82" y="207" fill="#111318" font-size="20" font-weight="800">Define the work</text>
-    <text x="82" y="232" fill="#586273" font-size="13">Outcome, trigger, intake,</text><text x="82" y="251" fill="#586273" font-size="13">and safe workspace.</text>
-    <line x1="254" y1="160" x2="254" y2="274" stroke="#cfd6e0"/>
-    <g transform="translate(278 171)"><text fill="#1746d1" font-size="13" font-weight="800">01</text><text y="31" fill="#111318" font-size="18" font-weight="800">Objective</text><text y="57" fill="#586273" font-size="13">Define the outcome</text><text y="76" fill="#586273" font-size="13">to optimize.</text></g>
-    <line x1="474" y1="160" x2="474" y2="274" stroke="#cfd6e0"/>
-    <g transform="translate(498 171)"><text fill="#1746d1" font-size="13" font-weight="800">02</text><text y="31" fill="#111318" font-size="18" font-weight="800">Trigger</text><text y="57" fill="#586273" font-size="13">Choose schedule,</text><text y="76" fill="#586273" font-size="13">event, or goal.</text></g>
-    <line x1="694" y1="160" x2="694" y2="274" stroke="#cfd6e0"/>
-    <g transform="translate(718 171)"><text fill="#1746d1" font-size="13" font-weight="800">03</text><text y="31" fill="#111318" font-size="18" font-weight="800">Discover / Intake</text><text y="57" fill="#586273" font-size="13">Find work from</text><text y="76" fill="#586273" font-size="13">queues or signals.</text></g>
-    <line x1="914" y1="160" x2="914" y2="274" stroke="#cfd6e0"/>
-    <g transform="translate(938 171)"><text fill="#1746d1" font-size="13" font-weight="800">04</text><text y="31" fill="#111318" font-size="18" font-weight="800">Workspace</text><text y="57" fill="#586273" font-size="13">Act in an isolated</text><text y="76" fill="#586273" font-size="13">environment.</text></g>
+    <line x1="64" y1="144" x2="1136" y2="144" stroke="#cfd7e5"/><line x1="64" y1="290" x2="1136" y2="290" stroke="#cfd7e5"/>
+    <text x="82" y="178" fill="#155eef" font-size="13" font-weight="800">01 / SET UP</text>
+    <text x="82" y="207" fill="#121722" font-size="20" font-weight="800">Define the work</text>
+    <text x="82" y="232" fill="#5c6678" font-size="13">Outcome, trigger, intake,</text><text x="82" y="251" fill="#5c6678" font-size="13">and safe workspace.</text>
+    <line x1="254" y1="160" x2="254" y2="274" stroke="#cfd7e5"/>
+    <g transform="translate(278 171)"><text fill="#155eef" font-size="13" font-weight="800">01</text><text y="31" fill="#121722" font-size="18" font-weight="800">Objective</text><text y="57" fill="#5c6678" font-size="13">Define the outcome</text><text y="76" fill="#5c6678" font-size="13">to optimize.</text></g>
+    <line x1="474" y1="160" x2="474" y2="274" stroke="#cfd7e5"/>
+    <g transform="translate(498 171)"><text fill="#155eef" font-size="13" font-weight="800">02</text><text y="31" fill="#121722" font-size="18" font-weight="800">Trigger</text><text y="57" fill="#5c6678" font-size="13">Choose schedule,</text><text y="76" fill="#5c6678" font-size="13">event, or goal.</text></g>
+    <line x1="694" y1="160" x2="694" y2="274" stroke="#cfd7e5"/>
+    <g transform="translate(718 171)"><text fill="#155eef" font-size="13" font-weight="800">03</text><text y="31" fill="#121722" font-size="18" font-weight="800">Discover / Intake</text><text y="57" fill="#5c6678" font-size="13">Find work from</text><text y="76" fill="#5c6678" font-size="13">queues or signals.</text></g>
+    <line x1="914" y1="160" x2="914" y2="274" stroke="#cfd7e5"/>
+    <g transform="translate(938 171)"><text fill="#155eef" font-size="13" font-weight="800">04</text><text y="31" fill="#121722" font-size="18" font-weight="800">Workspace</text><text y="57" fill="#5c6678" font-size="13">Act in an isolated</text><text y="76" fill="#5c6678" font-size="13">environment.</text></g>
   </g>
 
   <g>
     <rect x="64" y="310" width="1072" height="146" fill="#ffffff"/>
-    <line x1="64" y1="310" x2="1136" y2="310" stroke="#cfd6e0"/><line x1="64" y1="456" x2="1136" y2="456" stroke="#cfd6e0"/>
-    <text x="82" y="344" fill="#7155d9" font-size="13" font-weight="800">02 / RUN</text>
-    <text x="82" y="371" fill="#111318" font-size="19" font-weight="800">Operate with</text>
-    <text x="82" y="393" fill="#111318" font-size="19" font-weight="800">evidence</text>
-    <text x="82" y="420" fill="#586273" font-size="13">Context, roles, gates,</text><text x="82" y="439" fill="#586273" font-size="13">and durable state.</text>
-    <line x1="254" y1="326" x2="254" y2="440" stroke="#cfd6e0"/>
-    <g transform="translate(278 337)"><text fill="#7155d9" font-size="13" font-weight="800">05</text><text y="31" fill="#111318" font-size="18" font-weight="800">Context</text><text y="57" fill="#586273" font-size="13">Load knowledge</text><text y="76" fill="#586273" font-size="13">and prior state.</text></g>
-    <line x1="474" y1="326" x2="474" y2="440" stroke="#cfd6e0"/>
-    <g transform="translate(498 337)"><text fill="#7155d9" font-size="13" font-weight="800">06</text><text y="31" fill="#111318" font-size="18" font-weight="800">Delegation</text><text y="57" fill="#586273" font-size="13">Route work to</text><text y="76" fill="#586273" font-size="13">agent roles.</text></g>
-    <line x1="694" y1="326" x2="694" y2="440" stroke="#cfd6e0"/>
-    <g transform="translate(718 337)"><text fill="#7155d9" font-size="13" font-weight="800">07</text><text y="31" fill="#111318" font-size="18" font-weight="800">Verification</text><text y="57" fill="#586273" font-size="13">Gate with tests,</text><text y="76" fill="#586273" font-size="13">evals, or reviewers.</text></g>
-    <line x1="914" y1="326" x2="914" y2="440" stroke="#cfd6e0"/>
-    <g transform="translate(938 337)"><text fill="#7155d9" font-size="13" font-weight="800">08</text><text y="31" fill="#111318" font-size="18" font-weight="800">State</text><text y="57" fill="#586273" font-size="13">Persist progress</text><text y="76" fill="#586273" font-size="13">and receipts.</text></g>
+    <line x1="64" y1="310" x2="1136" y2="310" stroke="#cfd7e5"/><line x1="64" y1="456" x2="1136" y2="456" stroke="#cfd7e5"/>
+    <text x="82" y="344" fill="#7055d9" font-size="13" font-weight="800">02 / RUN</text>
+    <text x="82" y="371" fill="#121722" font-size="19" font-weight="800">Operate with</text>
+    <text x="82" y="393" fill="#121722" font-size="19" font-weight="800">evidence</text>
+    <text x="82" y="420" fill="#5c6678" font-size="13">Context, roles, gates,</text><text x="82" y="439" fill="#5c6678" font-size="13">and durable state.</text>
+    <line x1="254" y1="326" x2="254" y2="440" stroke="#cfd7e5"/>
+    <g transform="translate(278 337)"><text fill="#7055d9" font-size="13" font-weight="800">05</text><text y="31" fill="#121722" font-size="18" font-weight="800">Context</text><text y="57" fill="#5c6678" font-size="13">Load knowledge</text><text y="76" fill="#5c6678" font-size="13">and prior state.</text></g>
+    <line x1="474" y1="326" x2="474" y2="440" stroke="#cfd7e5"/>
+    <g transform="translate(498 337)"><text fill="#7055d9" font-size="13" font-weight="800">06</text><text y="31" fill="#121722" font-size="18" font-weight="800">Delegation</text><text y="57" fill="#5c6678" font-size="13">Route work to</text><text y="76" fill="#5c6678" font-size="13">agent roles.</text></g>
+    <line x1="694" y1="326" x2="694" y2="440" stroke="#cfd7e5"/>
+    <g transform="translate(718 337)"><text fill="#7055d9" font-size="13" font-weight="800">07</text><text y="31" fill="#121722" font-size="18" font-weight="800">Verification</text><text y="57" fill="#5c6678" font-size="13">Gate with tests,</text><text y="76" fill="#5c6678" font-size="13">evals, or reviewers.</text></g>
+    <line x1="914" y1="326" x2="914" y2="440" stroke="#cfd7e5"/>
+    <g transform="translate(938 337)"><text fill="#7055d9" font-size="13" font-weight="800">08</text><text y="31" fill="#121722" font-size="18" font-weight="800">State</text><text y="57" fill="#5c6678" font-size="13">Persist progress</text><text y="76" fill="#5c6678" font-size="13">and receipts.</text></g>
   </g>
 
   <g>
     <rect x="64" y="476" width="1072" height="146" fill="#ffffff"/>
-    <line x1="64" y1="476" x2="1136" y2="476" stroke="#cfd6e0"/><line x1="64" y1="622" x2="1136" y2="622" stroke="#cfd6e0"/>
-    <text x="82" y="510" fill="#14866a" font-size="13" font-weight="800">03 / GOVERN + CLOSE</text>
-    <text x="82" y="539" fill="#111318" font-size="20" font-weight="800">Bound the loop</text>
-    <text x="82" y="564" fill="#586273" font-size="13">Cap the run, hand off,</text><text x="82" y="583" fill="#586273" font-size="13">and know when to stop.</text>
-    <line x1="254" y1="492" x2="254" y2="606" stroke="#cfd6e0"/>
-    <g transform="translate(278 503)"><text fill="#14866a" font-size="13" font-weight="800">09</text><text y="31" fill="#111318" font-size="18" font-weight="800">Budget</text><text y="57" fill="#586273" font-size="13">Cap retries, time,</text><text y="76" fill="#586273" font-size="13">cost, and concurrency.</text></g>
-    <line x1="474" y1="492" x2="474" y2="606" stroke="#cfd6e0"/>
-    <g transform="translate(498 503)"><text fill="#b7791f" font-size="13" font-weight="800">10</text><text y="31" fill="#111318" font-size="18" font-weight="800">Escalation</text><text y="57" fill="#586273" font-size="13">Hand off when</text><text y="76" fill="#586273" font-size="13">judgment is needed.</text></g>
-    <line x1="694" y1="492" x2="694" y2="606" stroke="#cfd6e0"/>
-    <g transform="translate(718 503)"><text fill="#14866a" font-size="13" font-weight="800">11</text><text y="31" fill="#111318" font-size="18" font-weight="800">Exit</text><text y="57" fill="#586273" font-size="13">Stop when the</text><text y="76" fill="#586273" font-size="13">goal is verified.</text></g>
-    <line x1="914" y1="492" x2="914" y2="606" stroke="#cfd6e0"/>
-    <g transform="translate(938 503)"><text fill="#1746d1" font-size="13" font-weight="800">NEXT</text><text y="31" fill="#111318" font-size="18" font-weight="800">Next Action</text><text y="57" fill="#586273" font-size="13">Repeat, report, open</text><text y="76" fill="#586273" font-size="13">a PR, escalate, or stop.</text></g>
+    <line x1="64" y1="476" x2="1136" y2="476" stroke="#cfd7e5"/><line x1="64" y1="622" x2="1136" y2="622" stroke="#cfd7e5"/>
+    <text x="82" y="510" fill="#0c9b68" font-size="13" font-weight="800">03 / GOVERN + CLOSE</text>
+    <text x="82" y="539" fill="#121722" font-size="20" font-weight="800">Bound the loop</text>
+    <text x="82" y="564" fill="#5c6678" font-size="13">Cap the run, hand off,</text><text x="82" y="583" fill="#5c6678" font-size="13">and know when to stop.</text>
+    <line x1="254" y1="492" x2="254" y2="606" stroke="#cfd7e5"/>
+    <g transform="translate(278 503)"><text fill="#0c9b68" font-size="13" font-weight="800">09</text><text y="31" fill="#121722" font-size="18" font-weight="800">Budget</text><text y="57" fill="#5c6678" font-size="13">Cap retries, time,</text><text y="76" fill="#5c6678" font-size="13">cost, and concurrency.</text></g>
+    <line x1="474" y1="492" x2="474" y2="606" stroke="#cfd7e5"/>
+    <g transform="translate(498 503)"><text fill="#d97706" font-size="13" font-weight="800">10</text><text y="31" fill="#121722" font-size="18" font-weight="800">Escalation</text><text y="57" fill="#5c6678" font-size="13">Hand off when</text><text y="76" fill="#5c6678" font-size="13">judgment is needed.</text></g>
+    <line x1="694" y1="492" x2="694" y2="606" stroke="#cfd7e5"/>
+    <g transform="translate(718 503)"><text fill="#0c9b68" font-size="13" font-weight="800">11</text><text y="31" fill="#121722" font-size="18" font-weight="800">Exit</text><text y="57" fill="#5c6678" font-size="13">Stop when the</text><text y="76" fill="#5c6678" font-size="13">goal is verified.</text></g>
+    <line x1="914" y1="492" x2="914" y2="606" stroke="#cfd7e5"/>
+    <g transform="translate(938 503)"><text fill="#155eef" font-size="13" font-weight="800">NEXT</text><text y="31" fill="#121722" font-size="18" font-weight="800">Next Action</text><text y="57" fill="#5c6678" font-size="13">Repeat, report, open</text><text y="76" fill="#5c6678" font-size="13">a PR, escalate, or stop.</text></g>
   </g>
 
-  <line x1="64" y1="662" x2="1136" y2="662" stroke="#cfd6e0"/>
-  <text x="64" y="690" fill="#586273" font-size="14">Prompt, context, and harness improve one run.</text>
-  <text x="1136" y="690" text-anchor="end" fill="#1746d1" font-size="14" font-weight="700">The Loop Contract governs repeated work over time.</text>
+  <line x1="64" y1="662" x2="1136" y2="662" stroke="#cfd7e5"/>
+  <text x="64" y="690" fill="#5c6678" font-size="14">Prompt, context, and harness improve one run.</text>
+  <text x="1136" y="690" text-anchor="end" fill="#155eef" font-size="14" font-weight="700">The Loop Contract governs repeated work over time.</text>
 </svg>

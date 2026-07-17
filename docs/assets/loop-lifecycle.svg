@@ -2,53 +2,53 @@
   <title id="title">Loop Engineering lifecycle</title>
   <desc id="desc">One recurring pass moves through Intake, Delegate, Act, Verify, Persist, and Decide. Decide retries with evidence, escalates to a human, or exits when the goal is met.</desc>
   <defs>
-    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#1746d1"/></marker>
-    <marker id="arrow-violet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7155d9"/></marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#155eef"/></marker>
+    <marker id="arrow-violet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#7055d9"/></marker>
   </defs>
   <rect width="1240" height="560" fill="#f7f9fc"/>
-  <text x="64" y="52" fill="#1746d1" font-size="13" font-weight="800">LIFECYCLE / ONE RECURRING PASS</text>
-  <text x="64" y="91" fill="#111318" font-size="34" font-weight="800">Evidence moves the loop forward</text>
-  <text x="1176" y="88" text-anchor="end" fill="#586273" font-size="16">Verify, persist, then choose the next action</text>
-  <line x1="64" y1="116" x2="1176" y2="116" stroke="#cfd6e0"/>
+  <text x="64" y="52" fill="#155eef" font-size="13" font-weight="800">LIFECYCLE / ONE RECURRING PASS</text>
+  <text x="64" y="91" fill="#121722" font-size="34" font-weight="800">Evidence moves the loop forward</text>
+  <text x="1176" y="88" text-anchor="end" fill="#5c6678" font-size="16">Verify, persist, then choose the next action</text>
+  <line x1="64" y1="116" x2="1176" y2="116" stroke="#cfd7e5"/>
 
-  <path d="M978 190C930 142 770 140 552 140S208 146 132 196" fill="none" stroke="#7155d9" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#arrow-violet)"/>
+  <path d="M978 190C930 142 770 140 552 140S208 146 132 196" fill="none" stroke="#7055d9" stroke-width="2.5" stroke-dasharray="6 7" marker-end="url(#arrow-violet)"/>
   <rect x="520" y="127" width="190" height="28" rx="4" fill="#f7f9fc" stroke="#d8d0f0"/>
-  <text x="615" y="146" text-anchor="middle" fill="#6544c9" font-size="13" font-weight="800">RETRY WITH EVIDENCE</text>
+  <text x="615" y="146" text-anchor="middle" fill="#5f46c7" font-size="13" font-weight="800">RETRY WITH EVIDENCE</text>
 
   <g>
-    <g transform="translate(64 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#1746d1" font-size="13" font-weight="800">01</text><text x="18" y="57" fill="#111318" font-size="20" font-weight="800">Intake</text><text x="18" y="79" fill="#586273" font-size="13">Find work</text></g>
-    <g transform="translate(230 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#1746d1" font-size="13" font-weight="800">02</text><text x="18" y="57" fill="#111318" font-size="20" font-weight="800">Delegate</text><text x="18" y="79" fill="#586273" font-size="13">Route work</text></g>
-    <g transform="translate(396 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#1746d1" font-size="13" font-weight="800">03</text><text x="18" y="57" fill="#111318" font-size="20" font-weight="800">Act</text><text x="18" y="79" fill="#586273" font-size="13">Do the work</text></g>
-    <g transform="translate(562 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#14866a"/><text x="18" y="27" fill="#14866a" font-size="13" font-weight="800">04</text><text x="18" y="57" fill="#111318" font-size="20" font-weight="800">Verify</text><text x="18" y="79" fill="#586273" font-size="13">Gate the result</text></g>
-    <g transform="translate(728 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#1746d1" font-size="13" font-weight="800">05</text><text x="18" y="57" fill="#111318" font-size="20" font-weight="800">Persist</text><text x="18" y="79" fill="#586273" font-size="13">Save state</text></g>
-    <g transform="translate(894 210)"><rect width="140" height="96" rx="4" fill="#eef3ff" stroke="#1746d1" stroke-width="2"/><text x="18" y="27" fill="#1746d1" font-size="13" font-weight="800">06</text><text x="18" y="57" fill="#111318" font-size="20" font-weight="800">Decide</text><text x="18" y="79" fill="#586273" font-size="13">Choose next</text></g>
+    <g transform="translate(64 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#155eef" font-size="13" font-weight="800">01</text><text x="18" y="57" fill="#121722" font-size="20" font-weight="800">Intake</text><text x="18" y="79" fill="#5c6678" font-size="13">Find work</text></g>
+    <g transform="translate(230 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#155eef" font-size="13" font-weight="800">02</text><text x="18" y="57" fill="#121722" font-size="20" font-weight="800">Delegate</text><text x="18" y="79" fill="#5c6678" font-size="13">Route work</text></g>
+    <g transform="translate(396 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#155eef" font-size="13" font-weight="800">03</text><text x="18" y="57" fill="#121722" font-size="20" font-weight="800">Act</text><text x="18" y="79" fill="#5c6678" font-size="13">Do the work</text></g>
+    <g transform="translate(562 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#0c9b68"/><text x="18" y="27" fill="#0c9b68" font-size="13" font-weight="800">04</text><text x="18" y="57" fill="#121722" font-size="20" font-weight="800">Verify</text><text x="18" y="79" fill="#5c6678" font-size="13">Gate the result</text></g>
+    <g transform="translate(728 210)"><rect width="140" height="96" rx="4" fill="#ffffff" stroke="#cbd5e1"/><text x="18" y="27" fill="#155eef" font-size="13" font-weight="800">05</text><text x="18" y="57" fill="#121722" font-size="20" font-weight="800">Persist</text><text x="18" y="79" fill="#5c6678" font-size="13">Save state</text></g>
+    <g transform="translate(894 210)"><rect width="140" height="96" rx="4" fill="#eef3ff" stroke="#155eef" stroke-width="2"/><text x="18" y="27" fill="#155eef" font-size="13" font-weight="800">06</text><text x="18" y="57" fill="#121722" font-size="20" font-weight="800">Decide</text><text x="18" y="79" fill="#5c6678" font-size="13">Choose next</text></g>
   </g>
 
-  <g fill="none" stroke="#1746d1" stroke-width="2" marker-end="url(#arrow-blue)">
+  <g fill="none" stroke="#155eef" stroke-width="2" marker-end="url(#arrow-blue)">
     <line x1="204" y1="258" x2="224" y2="258"/><line x1="370" y1="258" x2="390" y2="258"/><line x1="536" y1="258" x2="556" y2="258"/><line x1="702" y1="258" x2="722" y2="258"/><line x1="868" y1="258" x2="888" y2="258"/>
   </g>
 
   <path d="M1034 258H1072V193M1072 258V323" fill="none" stroke="#9aa5b4" stroke-width="1.5"/>
-  <line x1="1072" y1="193" x2="1096" y2="193" stroke="#7155d9" stroke-width="2"/>
-  <circle cx="1103" cy="193" r="5" fill="#7155d9"/><text x="1118" y="188" fill="#6544c9" font-size="15" font-weight="800">Retry</text><text x="1118" y="207" fill="#586273" font-size="11">feed evidence back</text>
-  <line x1="1072" y1="258" x2="1096" y2="258" stroke="#b7791f" stroke-width="2"/>
-  <circle cx="1103" cy="258" r="5" fill="#b7791f"/><text x="1118" y="253" fill="#9a6418" font-size="15" font-weight="800">Escalate</text><text x="1118" y="272" fill="#586273" font-size="12">human judgment</text>
-  <line x1="1072" y1="323" x2="1096" y2="323" stroke="#14866a" stroke-width="2"/>
-  <circle cx="1103" cy="323" r="5" fill="#14866a"/><text x="1118" y="318" fill="#0f765d" font-size="15" font-weight="800">Exit</text><text x="1118" y="337" fill="#586273" font-size="12">goal met</text>
+  <line x1="1072" y1="193" x2="1096" y2="193" stroke="#7055d9" stroke-width="2"/>
+  <circle cx="1103" cy="193" r="5" fill="#7055d9"/><text x="1118" y="188" fill="#5f46c7" font-size="15" font-weight="800">Retry</text><text x="1118" y="207" fill="#5c6678" font-size="11">feed evidence back</text>
+  <line x1="1072" y1="258" x2="1096" y2="258" stroke="#d97706" stroke-width="2"/>
+  <circle cx="1103" cy="258" r="5" fill="#d97706"/><text x="1118" y="253" fill="#a85d08" font-size="15" font-weight="800">Escalate</text><text x="1118" y="272" fill="#5c6678" font-size="12">human judgment</text>
+  <line x1="1072" y1="323" x2="1096" y2="323" stroke="#0c9b68" stroke-width="2"/>
+  <circle cx="1103" cy="323" r="5" fill="#0c9b68"/><text x="1118" y="318" fill="#087b53" font-size="15" font-weight="800">Exit</text><text x="1118" y="337" fill="#5c6678" font-size="12">goal met</text>
 
-  <line x1="64" y1="380" x2="1176" y2="380" stroke="#cfd6e0"/>
-  <text x="64" y="411" fill="#111318" font-size="15" font-weight="800">THE CONTRACT TRAVELS WITH EVERY PASS</text>
+  <line x1="64" y1="380" x2="1176" y2="380" stroke="#cfd7e5"/>
+  <text x="64" y="411" fill="#121722" font-size="15" font-weight="800">THE CONTRACT TRAVELS WITH EVERY PASS</text>
   <g font-size="14">
-    <text x="64" y="451" fill="#1746d1" font-weight="800">Goal + trigger</text><text x="64" y="474" fill="#586273">Why the loop runs</text>
-    <line x1="260" y1="429" x2="260" y2="489" stroke="#cfd6e0"/>
-    <text x="288" y="451" fill="#0879ad" font-weight="800">Workspace + context</text><text x="288" y="474" fill="#586273">Where and with what state</text>
-    <line x1="514" y1="429" x2="514" y2="489" stroke="#cfd6e0"/>
-    <text x="542" y="451" fill="#0f765d" font-weight="800">Verification + state</text><text x="542" y="474" fill="#586273">How evidence persists</text>
-    <line x1="770" y1="429" x2="770" y2="489" stroke="#cfd6e0"/>
-    <text x="798" y="451" fill="#6544c9" font-weight="800">Budget + retry</text><text x="798" y="474" fill="#586273">How work stays bounded</text>
-    <line x1="994" y1="429" x2="994" y2="489" stroke="#cfd6e0"/>
-    <text x="1022" y="451" fill="#9a6418" font-weight="800">Human exit</text><text x="1022" y="474" fill="#586273">When judgment is needed</text>
+    <text x="64" y="451" fill="#155eef" font-weight="800">Goal + trigger</text><text x="64" y="474" fill="#5c6678">Why the loop runs</text>
+    <line x1="260" y1="429" x2="260" y2="489" stroke="#cfd7e5"/>
+    <text x="288" y="451" fill="#087f99" font-weight="800">Workspace + context</text><text x="288" y="474" fill="#5c6678">Where and with what state</text>
+    <line x1="514" y1="429" x2="514" y2="489" stroke="#cfd7e5"/>
+    <text x="542" y="451" fill="#087b53" font-weight="800">Verification + state</text><text x="542" y="474" fill="#5c6678">How evidence persists</text>
+    <line x1="770" y1="429" x2="770" y2="489" stroke="#cfd7e5"/>
+    <text x="798" y="451" fill="#5f46c7" font-weight="800">Budget + retry</text><text x="798" y="474" fill="#5c6678">How work stays bounded</text>
+    <line x1="994" y1="429" x2="994" y2="489" stroke="#cfd7e5"/>
+    <text x="1022" y="451" fill="#a85d08" font-weight="800">Human exit</text><text x="1022" y="474" fill="#5c6678">When judgment is needed</text>
   </g>
-  <line x1="64" y1="520" x2="1176" y2="520" stroke="#cfd6e0"/>
-  <text x="64" y="545" fill="#586273" font-size="13">Verification is deterministic. State persists outside the model. Every loop is budgeted and can hand off to a human.</text>
+  <line x1="64" y1="520" x2="1176" y2="520" stroke="#cfd7e5"/>
+  <text x="64" y="545" fill="#5c6678" font-size="13">Verification is deterministic. State persists outside the model. Every loop is budgeted and can hand off to a human.</text>
 </svg>

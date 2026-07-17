@@ -3,45 +3,45 @@
   <desc id="desc">Prompt, Context, and Harness Engineering improve one agent run. Loop Engineering governs recurring work over time.</desc>
   <defs>
     <marker id="mobile-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0 0L10 5L0 10Z" fill="#1746d1"/>
+      <path d="M0 0L10 5L0 10Z" fill="#155eef"/>
     </marker>
   </defs>
   <rect width="420" height="640" fill="#f7f9fc"/>
-  <text x="24" y="35" fill="#1746d1" font-size="11" font-weight="800">MENTAL MODEL / FOUR LAYERS</text>
-  <text x="24" y="68" fill="#111318" font-size="27" font-weight="800">Loop Engineering Stack</text>
-  <line x1="24" y1="88" x2="396" y2="88" stroke="#cfd6e0"/>
+  <text x="24" y="35" fill="#155eef" font-size="11" font-weight="800">MENTAL MODEL / FOUR LAYERS</text>
+  <text x="24" y="68" fill="#121722" font-size="27" font-weight="800">Loop Engineering Stack</text>
+  <line x1="24" y1="88" x2="396" y2="88" stroke="#cfd7e5"/>
 
   <g transform="translate(24 112)">
-    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#1746d1" stroke-width="2"/>
-    <path d="M35 40c0-12 11-21 24-21 9 0 18 5 22 12" fill="none" stroke="#1746d1" stroke-width="4" stroke-linecap="round" marker-end="url(#mobile-arrow)"/>
-    <path d="M84 41c0 12-11 21-24 21-9 0-18-5-22-12" fill="none" stroke="#1746d1" stroke-width="4" stroke-linecap="round"/>
-    <text x="138" y="31" fill="#1746d1" font-size="18" font-weight="800">Loop Engineering</text>
-    <text x="138" y="53" fill="#586273" font-size="12">Contract, verification, state,</text>
-    <text x="138" y="70" fill="#586273" font-size="12">and the next action over time.</text>
+    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#155eef" stroke-width="2"/>
+    <path d="M35 40c0-12 11-21 24-21 9 0 18 5 22 12" fill="none" stroke="#155eef" stroke-width="4" stroke-linecap="round" marker-end="url(#mobile-arrow)"/>
+    <path d="M84 41c0 12-11 21-24 21-9 0-18-5-22-12" fill="none" stroke="#155eef" stroke-width="4" stroke-linecap="round"/>
+    <text x="138" y="31" fill="#155eef" font-size="18" font-weight="800">Loop Engineering</text>
+    <text x="138" y="53" fill="#5c6678" font-size="12">Contract, verification, state,</text>
+    <text x="138" y="70" fill="#5c6678" font-size="12">and the next action over time.</text>
   </g>
 
   <g transform="translate(24 222)">
-    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#138ccb" stroke-width="2"/>
-    <text x="138" y="31" fill="#0879ad" font-size="18" font-weight="800">Harness Engineering</text>
-    <text x="138" y="53" fill="#586273" font-size="12">Tools, permissions, sandboxes,</text>
-    <text x="138" y="70" fill="#586273" font-size="12">traces, and checks for one run.</text>
+    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#08a9c4" stroke-width="2"/>
+    <text x="138" y="31" fill="#087f99" font-size="18" font-weight="800">Harness Engineering</text>
+    <text x="138" y="53" fill="#5c6678" font-size="12">Tools, permissions, sandboxes,</text>
+    <text x="138" y="70" fill="#5c6678" font-size="12">traces, and checks for one run.</text>
   </g>
 
   <g transform="translate(24 332)">
-    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#14866a" stroke-width="2"/>
-    <text x="138" y="31" fill="#0f765d" font-size="18" font-weight="800">Context Engineering</text>
-    <text x="138" y="53" fill="#586273" font-size="12">State, memory, documents,</text>
-    <text x="138" y="70" fill="#586273" font-size="12">and examples the agent sees.</text>
+    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#0c9b68" stroke-width="2"/>
+    <text x="138" y="31" fill="#087b53" font-size="18" font-weight="800">Context Engineering</text>
+    <text x="138" y="53" fill="#5c6678" font-size="12">State, memory, documents,</text>
+    <text x="138" y="70" fill="#5c6678" font-size="12">and examples the agent sees.</text>
   </g>
 
   <g transform="translate(24 442)">
-    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#111318" stroke-width="2"/>
-    <text x="138" y="31" fill="#111318" font-size="18" font-weight="800">Prompt Engineering</text>
-    <text x="138" y="53" fill="#586273" font-size="12">The instruction and interaction</text>
-    <text x="138" y="70" fill="#586273" font-size="12">for one model call.</text>
+    <path d="M0 40L58 8L116 40L58 72Z" fill="#ffffff" stroke="#121722" stroke-width="2"/>
+    <text x="138" y="31" fill="#121722" font-size="18" font-weight="800">Prompt Engineering</text>
+    <text x="138" y="53" fill="#5c6678" font-size="12">The instruction and interaction</text>
+    <text x="138" y="70" fill="#5c6678" font-size="12">for one model call.</text>
   </g>
 
-  <line x1="24" y1="560" x2="396" y2="560" stroke="#cfd6e0"/>
-  <text x="24" y="590" fill="#586273" font-size="12">Prompt, context, and harness improve one run.</text>
-  <text x="24" y="614" fill="#1746d1" font-size="12" font-weight="800">Loop Engineering governs recurring work.</text>
+  <line x1="24" y1="560" x2="396" y2="560" stroke="#cfd7e5"/>
+  <text x="24" y="590" fill="#5c6678" font-size="12">Prompt, context, and harness improve one run.</text>
+  <text x="24" y="614" fill="#155eef" font-size="12" font-weight="800">Loop Engineering governs recurring work.</text>
 </svg>

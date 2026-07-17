@@ -3,44 +3,44 @@
   <desc id="desc">Prompt, Context, and Harness Engineering improve one agent run. Loop Engineering is the governing layer above them for recurring work over time.</desc>
   <defs>
     <marker id="loop-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0 0L10 5L0 10Z" fill="#1746d1"/>
+      <path d="M0 0L10 5L0 10Z" fill="#155eef"/>
     </marker>
   </defs>
   <rect width="1200" height="680" fill="#f7f9fc"/>
-  <text x="64" y="52" fill="#1746d1" font-size="13" font-weight="800">MENTAL MODEL / FOUR LAYERS</text>
-  <text x="64" y="91" fill="#111318" font-size="34" font-weight="800">Loop Engineering Stack</text>
-  <text x="1136" y="88" text-anchor="end" fill="#586273" font-size="16">From one agent run to recurring, governed work</text>
-  <line x1="64" y1="116" x2="1136" y2="116" stroke="#cfd6e0"/>
+  <text x="64" y="52" fill="#155eef" font-size="13" font-weight="800">MENTAL MODEL / FOUR LAYERS</text>
+  <text x="64" y="91" fill="#121722" font-size="34" font-weight="800">Loop Engineering Stack</text>
+  <text x="1136" y="88" text-anchor="end" fill="#5c6678" font-size="16">From one agent run to recurring, governed work</text>
+  <line x1="64" y1="116" x2="1136" y2="116" stroke="#cfd7e5"/>
 
   <g stroke-width="3" fill="#ffffff">
-    <path d="M250 218Q250 209 261 203L452 108Q464 102 476 108L667 203Q678 209 678 218Q678 227 667 233L476 328Q464 334 452 328L261 233Q250 227 250 218Z" stroke="#1746d1"/>
-    <path d="M250 313Q250 304 261 298L452 203Q464 197 476 203L667 298Q678 304 678 313Q678 322 667 328L476 423Q464 429 452 423L261 328Q250 322 250 313Z" stroke="#138ccb"/>
-    <path d="M250 408Q250 399 261 393L452 298Q464 292 476 298L667 393Q678 399 678 408Q678 417 667 423L476 518Q464 524 452 518L261 423Q250 417 250 408Z" stroke="#14866a"/>
-    <path d="M250 503Q250 494 261 488L452 393Q464 387 476 393L667 488Q678 494 678 503Q678 512 667 518L476 613Q464 619 452 613L261 518Q250 512 250 503Z" stroke="#111318"/>
+    <path d="M250 218Q250 209 261 203L452 108Q464 102 476 108L667 203Q678 209 678 218Q678 227 667 233L476 328Q464 334 452 328L261 233Q250 227 250 218Z" stroke="#155eef"/>
+    <path d="M250 313Q250 304 261 298L452 203Q464 197 476 203L667 298Q678 304 678 313Q678 322 667 328L476 423Q464 429 452 423L261 328Q250 322 250 313Z" stroke="#08a9c4"/>
+    <path d="M250 408Q250 399 261 393L452 298Q464 292 476 298L667 393Q678 399 678 408Q678 417 667 423L476 518Q464 524 452 518L261 423Q250 417 250 408Z" stroke="#0c9b68"/>
+    <path d="M250 503Q250 494 261 488L452 393Q464 387 476 393L667 488Q678 494 678 503Q678 512 667 518L476 613Q464 619 452 613L261 518Q250 512 250 503Z" stroke="#121722"/>
   </g>
 
-  <path d="M374 218c0-36 34-64 76-64 31 0 58 15 70 39" fill="none" stroke="#1746d1" stroke-width="8" stroke-linecap="round" marker-end="url(#loop-arrow)"/>
-  <path d="M546 220c0 36-34 64-76 64-31 0-58-15-70-39" fill="none" stroke="#1746d1" stroke-width="8" stroke-linecap="round"/>
+  <path d="M374 218c0-36 34-64 76-64 31 0 58 15 70 39" fill="none" stroke="#155eef" stroke-width="8" stroke-linecap="round" marker-end="url(#loop-arrow)"/>
+  <path d="M546 220c0 36-34 64-76 64-31 0-58-15-70-39" fill="none" stroke="#155eef" stroke-width="8" stroke-linecap="round"/>
 
   <g font-size="15">
-    <line x1="678" y1="218" x2="735" y2="218" stroke="#1746d1"/><circle cx="735" cy="218" r="4" fill="#1746d1"/>
-    <text x="756" y="211" fill="#1746d1" font-size="20" font-weight="800">Loop Engineering</text>
+    <line x1="678" y1="218" x2="735" y2="218" stroke="#155eef"/><circle cx="735" cy="218" r="4" fill="#155eef"/>
+    <text x="756" y="211" fill="#155eef" font-size="20" font-weight="800">Loop Engineering</text>
     <text x="756" y="237" fill="#3f4856">Recurring contract, verification, state, and next action.</text>
 
-    <line x1="678" y1="313" x2="735" y2="313" stroke="#138ccb"/><circle cx="735" cy="313" r="4" fill="#138ccb"/>
-    <text x="756" y="306" fill="#0879ad" font-size="20" font-weight="800">Harness Engineering</text>
+    <line x1="678" y1="313" x2="735" y2="313" stroke="#08a9c4"/><circle cx="735" cy="313" r="4" fill="#08a9c4"/>
+    <text x="756" y="306" fill="#087f99" font-size="20" font-weight="800">Harness Engineering</text>
     <text x="756" y="332" fill="#3f4856">Tools, permissions, sandboxes, traces, and checks.</text>
 
-    <line x1="678" y1="408" x2="735" y2="408" stroke="#14866a"/><circle cx="735" cy="408" r="4" fill="#14866a"/>
-    <text x="756" y="401" fill="#0f765d" font-size="20" font-weight="800">Context Engineering</text>
+    <line x1="678" y1="408" x2="735" y2="408" stroke="#0c9b68"/><circle cx="735" cy="408" r="4" fill="#0c9b68"/>
+    <text x="756" y="401" fill="#087b53" font-size="20" font-weight="800">Context Engineering</text>
     <text x="756" y="427" fill="#3f4856">State, memory, documents, and examples the agent sees.</text>
 
-    <line x1="678" y1="503" x2="735" y2="503" stroke="#111318"/><circle cx="735" cy="503" r="4" fill="#111318"/>
-    <text x="756" y="496" fill="#111318" font-size="20" font-weight="800">Prompt Engineering</text>
+    <line x1="678" y1="503" x2="735" y2="503" stroke="#121722"/><circle cx="735" cy="503" r="4" fill="#121722"/>
+    <text x="756" y="496" fill="#121722" font-size="20" font-weight="800">Prompt Engineering</text>
     <text x="756" y="522" fill="#3f4856">The instruction and interaction for one model call.</text>
   </g>
 
-  <line x1="64" y1="642" x2="1136" y2="642" stroke="#cfd6e0"/>
-  <text x="64" y="665" fill="#586273" font-size="14">Prompt, context, and harness improve one run.</text>
-  <text x="1136" y="665" text-anchor="end" fill="#1746d1" font-size="14" font-weight="700">Loop Engineering governs work over time.</text>
+  <line x1="64" y1="642" x2="1136" y2="642" stroke="#cfd7e5"/>
+  <text x="64" y="665" fill="#5c6678" font-size="14">Prompt, context, and harness improve one run.</text>
+  <text x="1136" y="665" text-anchor="end" fill="#155eef" font-size="14" font-weight="700">Loop Engineering governs work over time.</text>
 </svg>

@@ -15,61 +15,68 @@
       .preview {
         position: relative;
         display: grid;
-        grid-template-columns: 1.3fr 0.7fr;
+        grid-template-columns: 1.34fr 0.66fr;
         width: 100%;
         height: 100%;
-        padding: 68px 76px 58px;
-        border-top: 12px solid #155eef;
+        padding: 58px 72px 52px;
+        border-top: 10px solid #155eef;
       }
       .preview::after {
         content: "";
         position: absolute;
-        left: 76px;
-        right: 76px;
-        bottom: 142px;
-        border-top: 1px solid #9eabc0;
+        left: 72px;
+        right: 72px;
+        bottom: 136px;
+        border-top: 1px solid #b8c3d4;
       }
       .identity { min-width: 0; }
       .kicker {
-        margin: 0 0 26px;
+        margin: 0 0 21px;
         color: #155eef;
-        font: 700 18px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+        font: 700 17px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
         text-transform: uppercase;
       }
-      h1 { max-width: 720px; margin: 0; font-size: 74px; line-height: 0.98; font-weight: 800; }
-      .tagline { margin: 26px 0 0; color: #155eef; font-size: 31px; line-height: 1.2; font-weight: 700; }
-      .support { max-width: 720px; margin: 18px 0 0; color: #5c6678; font-size: 20px; line-height: 1.45; }
+      h1 { max-width: 760px; margin: 0; font-size: 70px; line-height: 0.98; font-weight: 800; letter-spacing: 0; }
+      .tagline { margin: 22px 0 0; color: #155eef; font-size: 30px; line-height: 1.2; font-weight: 750; }
+      .support { max-width: 720px; margin: 15px 0 0; color: #5c6678; font-size: 19px; line-height: 1.45; }
       .mark {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-bottom: 64px;
+        gap: 18px;
+        margin-bottom: 70px;
+        border-left: 1px solid #cfd7e5;
+        padding-left: 44px;
       }
-      .mark img { display: block; width: 306px; height: 306px; }
+      .mark img { display: block; width: 286px; height: 286px; }
+      .mark p { margin: 0; color: #7055d9; font: 700 13px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
       .stats {
         position: absolute;
-        left: 76px;
-        right: 76px;
-        bottom: 48px;
+        left: 72px;
+        right: 72px;
+        bottom: 39px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
       }
-      .stat { padding-top: 20px; }
+      .stat { padding-top: 17px; }
       .stat + .stat { border-left: 1px solid #cfd7e5; padding-left: 26px; }
-      .stat b { display: block; font-size: 27px; line-height: 1.1; }
-      .stat span { display: block; margin-top: 5px; color: #7c8799; font-size: 13px; font-weight: 700; text-transform: uppercase; }
+      .stat b { display: block; color: #121722; font-size: 31px; line-height: 1.05; }
+      .stat:first-child b { color: #155eef; }
+      .stat span { display: block; margin-top: 6px; color: #687487; font-size: 12px; font-weight: 700; text-transform: uppercase; }
     </style>
   </head>
   <body>
     <main class="preview">
       <div class="identity">
-        <p class="kicker">Source-audited field guide for recurring AI-agent systems</p>
+        <p class="kicker">Source-audited field guide + implementation kit</p>
         <h1>Awesome Loop Engineering</h1>
         <p class="tagline">Design loops, not just prompts.</p>
-        <p class="support">Interactive Resource Atlas + structured dataset</p>
+        <p class="support">Trigger, delegate, verify, persist, and choose the next bounded action.</p>
       </div>
       <div class="mark">
         <img src="../assets/awesome-loop-engineering-logo.png" alt="">
+        <p>Recur / verify / persist</p>
       </div>
       <div class="stats">
         <div class="stat"><b>540</b><span>Source-audited resources</span></div>

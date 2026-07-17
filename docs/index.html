@@ -17,14 +17,14 @@
     <meta property="og:title" content="Awesome Loop Engineering">
     <meta property="og:description" content="540 source-audited resources, 15 patterns, 15 validated contracts, and 6 runnable templates for recurring, stateful, verified AI-agent systems.">
     <meta property="og:url" content="https://chaoyue0307.github.io/awesome-loop-engineering/">
-    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=5">
+    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=6">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="640">
     <meta property="og:image:alt" content="Awesome Loop Engineering: design loops, not just prompts.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Awesome Loop Engineering">
     <meta name="twitter:description" content="540 source-audited resources, 15 patterns, 15 validated contracts, and 6 runnable templates for recurring, stateful, verified AI-agent systems.">
-    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=5">
+    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=6">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering releases" href="https://github.com/ChaoYue0307/awesome-loop-engineering/releases.atom">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering commits" href="https://github.com/ChaoYue0307/awesome-loop-engineering/commits/main.atom">
     <style>
@@ -165,6 +165,7 @@
         margin: 34px auto 0;
         border-top: 1px solid var(--line-strong);
         border-bottom: 1px solid var(--line-strong);
+        background: var(--surface);
       }
       .scene-head {
         display: flex;
@@ -190,6 +191,7 @@
         width: 100%;
         height: 324px;
         overflow: hidden;
+        background: #f4f7fc;
         pointer-events: none;
       }
       .hero-scene canvas { display: block; width: 100%; height: 100%; opacity: 0.96; }
@@ -318,7 +320,13 @@
       }
       .hero-visual { max-width: 780px; margin: 0 auto; }
       .hero-visual picture, .hero-visual img, .diagram img { display: block; width: 100%; height: auto; }
-      .diagram-scroll { width: 100%; overflow: hidden; }
+      .hero-visual picture, .diagram-scroll {
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: var(--surface);
+      }
       .stats {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
@@ -683,7 +691,7 @@
         .hero-system { display: flex; flex-direction: column; margin-top: 20px; }
         .scene-head { order: 1; justify-content: center; min-height: 34px; padding: 6px 0; }
         .scene-flow { display: none; }
-        .hero-scene { order: 2; width: 100%; height: 238px; }
+        .hero-scene { order: 2; width: 100%; height: 258px; }
         .hero-scene canvas { opacity: 1; }
         .scene-key { order: 4; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; min-height: 68px; padding: 0; font-size: 0.67rem; }
         .scene-key-item { justify-content: flex-start; min-width: 0; min-height: 34px; padding: 7px 8px; }
@@ -865,7 +873,7 @@
           "https://huggingface.co/datasets/cy0307/awesome-loop-engineering"
         ],
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=5",
+        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview.png?v=6",
         "logo": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/awesome-loop-engineering-logo.png",
         "author": { "@type": "Person", "name": "Chaoyue He" }
       }

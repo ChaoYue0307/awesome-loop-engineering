@@ -65,7 +65,7 @@ if (container && hero) {
     human: 0xd97706,
     exit: 0x0c9b68,
     ink: 0x172033,
-    line: 0xb8c4d6,
+    line: 0x91a0b8,
   };
   const palette = [
     colors.work,
@@ -75,7 +75,7 @@ if (container && hero) {
     colors.state,
     colors.decision,
   ];
-  const paper = new THREE.Color(0xf7f9fc);
+  const paper = new THREE.Color(0xf4f7fc);
   const white = new THREE.Color(0xffffff);
   const yAxis = new THREE.Vector3(0, 1, 0);
   const lineOffset = new THREE.Vector3(0, -0.08, -0.16);
@@ -96,7 +96,7 @@ if (container && hero) {
     renderer.setClearColor(paper, 1);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1;
+    renderer.toneMappingExposure = 1.04;
     renderer.domElement.setAttribute('aria-hidden', 'true');
     renderer.domElement.dataset.loopSceneCanvas = 'true';
     container.appendChild(renderer.domElement);
@@ -106,24 +106,24 @@ if (container && hero) {
     camera.position.set(0, 2.6, 10);
     camera.lookAt(0, 0, 0);
 
-    scene.add(new THREE.HemisphereLight(0xffffff, 0xc5d2e5, 2.4));
-    const keyLight = new THREE.DirectionalLight(0xffffff, 3.1);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0xb5c4da, 1.55));
+    const keyLight = new THREE.DirectionalLight(0xffffff, 2.05);
     keyLight.position.set(-4, 6, 8);
     scene.add(keyLight);
-    const cyanLight = new THREE.PointLight(colors.work, 9, 12, 2);
+    const cyanLight = new THREE.PointLight(colors.work, 5.2, 12, 2);
     cyanLight.position.set(-2.3, 1.5, 4.5);
     scene.add(cyanLight);
-    const greenLight = new THREE.PointLight(colors.evidence, 7, 10, 2);
+    const greenLight = new THREE.PointLight(colors.evidence, 4.2, 10, 2);
     greenLight.position.set(2.2, 1.1, 4.2);
     scene.add(greenLight);
 
     const root = new THREE.Group();
     scene.add(root);
 
-    function standardMaterial(hex, lighten = 0.48, options = {}) {
+    function standardMaterial(hex, lighten = 0.28, options = {}) {
       const color = new THREE.Color(hex);
       const material = new THREE.MeshStandardMaterial({
-        color: color.clone().lerp(white, Math.min(lighten, 0.64)),
+        color: color.clone().lerp(white, Math.min(lighten, 0.46)),
         emissive: color,
         emissiveIntensity: options.emissiveIntensity ?? 0.06,
         metalness: options.metalness ?? 0.08,
@@ -264,12 +264,12 @@ if (container && hero) {
       new THREE.Vector3(4.72, 0, 0),
     ];
     const compactStagePositions = [
-      new THREE.Vector3(-1.86, 0.94, 0.04),
+      new THREE.Vector3(-1.68, 0.94, 0.04),
       new THREE.Vector3(0, 0.94, 0),
-      new THREE.Vector3(1.86, 0.94, 0.04),
-      new THREE.Vector3(1.86, -1.02, 0),
+      new THREE.Vector3(1.68, 0.94, 0.04),
+      new THREE.Vector3(1.68, -1.02, 0),
       new THREE.Vector3(0, -1.02, 0.04),
-      new THREE.Vector3(-1.86, -1.02, 0),
+      new THREE.Vector3(-1.68, -1.02, 0),
     ];
     const stagePositions = desktopStagePositions.map((position) => position.clone());
 
@@ -305,14 +305,14 @@ if (container && hero) {
     let compactLayout = false;
     let mainCurve = buildMainCurve();
     let retryCurve = buildRetryCurve(false);
-    const mainTube = addTube(mainCurve, 0.026, colors.orchestrator, 0.78, 180);
-    const mainGlow = addTube(mainCurve, 0.072, colors.work, 0.08, 160);
+    const mainTube = addTube(mainCurve, 0.034, colors.orchestrator, 0.9, 180);
+    const mainGlow = addTube(mainCurve, 0.078, colors.work, 0.1, 160);
     const retryLine = new THREE.Line(
       new THREE.BufferGeometry().setFromPoints(retryCurve.getPoints(lowPower ? 90 : 160)),
       new THREE.LineDashedMaterial({
         color: colors.retry,
         transparent: true,
-        opacity: 0.58,
+        opacity: 0.72,
         dashSize: 0.12,
         gapSize: 0.09,
         depthWrite: false,
@@ -366,7 +366,7 @@ if (container && hero) {
       halo.position.y = -0.43;
       group.add(halo);
 
-      const baseMaterial = standardMaterial(hex, 0.62, { roughness: 0.58, emissiveIntensity: 0.025 });
+      const baseMaterial = standardMaterial(hex, 0.42, { roughness: 0.58, emissiveIntensity: 0.04 });
       const base = new THREE.Mesh(
         new THREE.CylinderGeometry(0.48, 0.56, 0.07, lowPower ? 20 : 32),
         baseMaterial,
@@ -418,7 +418,7 @@ if (container && hero) {
     const queueCards = [];
     for (let index = 0; index < 3; index += 1) {
       const card = new THREE.Group();
-      const bodyMaterial = track(intake, standardMaterial(colors.work, 0.8 - index * 0.08, {
+      const bodyMaterial = track(intake, standardMaterial(colors.work, 0.5 - index * 0.05, {
         emissiveIntensity: 0.04,
         roughness: 0.54,
       }));
@@ -497,7 +497,7 @@ if (container && hero) {
     act.group.add(workspace);
     const workspaceFloor = new THREE.Mesh(
       new THREE.BoxGeometry(1.02, 0.035, 0.5),
-      track(act, standardMaterial(colors.agent, 0.78, { transparent: true, opacity: 0.72, depthWrite: false })),
+      track(act, standardMaterial(colors.agent, 0.48, { transparent: true, opacity: 0.78, depthWrite: false })),
     );
     workspaceFloor.position.y = -0.29;
     act.group.add(workspaceFloor);
@@ -524,7 +524,7 @@ if (container && hero) {
     const contextChips = roleColors.map((hex, index) => {
       const chip = new THREE.Mesh(
         new THREE.BoxGeometry(0.17, 0.11, 0.035),
-        track(act, standardMaterial(hex, 0.66, { emissiveIntensity: 0.12 })),
+        track(act, standardMaterial(hex, 0.4, { emissiveIntensity: 0.12 })),
       );
       chip.position.set((index - 1) * 0.32, 0.56 + (index % 2) * 0.05, 0.02);
       act.group.add(chip);
@@ -578,7 +578,7 @@ if (container && hero) {
 
     const persist = createStation(4, 'STATE LEDGER', colors.state);
     const stateLayers = [0, 1, 2].map((index) => {
-      const material = track(persist, standardMaterial(index === 1 ? colors.orchestrator : colors.state, 0.53, {
+      const material = track(persist, standardMaterial(index === 1 ? colors.orchestrator : colors.state, 0.34, {
         emissiveIntensity: 0.12,
         roughness: 0.42,
       }));
@@ -594,7 +594,7 @@ if (container && hero) {
       const receipt = new THREE.Group();
       const body = new THREE.Mesh(
         new THREE.BoxGeometry(0.15, 0.22, 0.05),
-        track(persist, standardMaterial(colors.state, 0.78, { emissiveIntensity: 0.08 })),
+        track(persist, standardMaterial(colors.state, 0.46, { emissiveIntensity: 0.1 })),
       );
       const mark = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.03, 0.012), basicMaterial(colors.evidence, 0.82));
       mark.position.set(0, 0.06, 0.035);
@@ -778,7 +778,7 @@ if (container && hero) {
           const base = material.userData.baseEmissiveIntensity || 0;
           material.emissiveIntensity = base + (selected ? 0.18 : nearby * 0.08);
         });
-        state.title.material.opacity = selected ? 1 : 0.76;
+        state.title.material.opacity = selected ? 1 : 0.9;
       });
 
       queueCards.forEach((card, index) => {
@@ -856,8 +856,8 @@ if (container && hero) {
       });
 
       mainCurve = buildMainCurve();
-      replaceTubeGeometry(mainTube, mainCurve, 0.026, 180);
-      replaceTubeGeometry(mainGlow, mainCurve, 0.072, 160);
+      replaceTubeGeometry(mainTube, mainCurve, 0.034, 180);
+      replaceTubeGeometry(mainGlow, mainCurve, 0.078, 160);
       stageTimes = stagePositions.map(closestCurveTime);
       arrowTimes = stageTimes.slice(0, -1).map((time, index) => (time + stageTimes[index + 1]) / 2);
       mainArrows.forEach((arrow, index) => positionArrow(arrow, mainCurve, arrowTimes[index]));
@@ -900,8 +900,15 @@ if (container && hero) {
 
       stationScale = compact ? 1.01 : tablet ? 0.92 : 1.04;
       packetGroup.scale.setScalar(compact ? 1.12 : 1);
-      stationLabels.forEach((label) => { label.visible = width >= 760; });
-      numberLabels.forEach((label) => { label.visible = width < 760; });
+      stationLabels.forEach((label) => {
+        label.visible = !compact;
+        label.position.y = 0.98;
+        label.scale.set(tablet ? 1.34 : 1.52, 0.285, 1);
+      });
+      numberLabels.forEach((label) => {
+        label.visible = compact;
+        label.scale.setScalar(compact ? 0.43 : 0.39);
+      });
       microLabels.forEach((label) => { label.visible = width >= 980; });
       render(performance.now());
     }
@@ -980,7 +987,7 @@ if (container && hero) {
         const red = pixels[index];
         const green = pixels[index + 1];
         const blue = pixels[index + 2];
-        const distanceFromPaper = Math.abs(red - 247) + Math.abs(green - 249) + Math.abs(blue - 252);
+        const distanceFromPaper = Math.abs(red - 244) + Math.abs(green - 247) + Math.abs(blue - 252);
         const luminance = red * 0.2126 + green * 0.7152 + blue * 0.0722;
         sampled += 1;
         if (distanceFromPaper > 24) painted += 1;
