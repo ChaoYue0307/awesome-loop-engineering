@@ -8,6 +8,8 @@ Download deterministic tabular exports of all 545 source-audited resources.
 - `../docs/assets/resources.json` - Slim generated payload used by the website's searchable Resource Atlas.
 - `first_seen.json` - Forward-only sidecar mapping resource URL to the date it was first added; the export left-joins it into the `date_added` column. Empty `date_added` means the entry predates per-entry tracking (started 2026-07-15).
 - `resource_source_audit.csv` - Retrieval-time audit of every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
+- `arxiv_publication_overrides.csv` - Human-verified conference, journal, and workshop records backed by official proceedings, DOI registries, OpenReview, or current author-supplied acceptance notes.
+- `arxiv_publication_audit.csv` - Complete decision table for every arXiv-linked resource: published, accepted, or preprint-only.
 
 The exports preserve each section and annotation while adding three discovery layers:
 
@@ -52,6 +54,7 @@ Render the README rows first, then regenerate all three discovery files after ch
 ```sh
 python3 scripts/render_readme_tables.py
 python3 scripts/export_resource_dataset.py
+python3 scripts/resolve_arxiv_publications.py --check
 python3 scripts/check_project_consistency.py
 python3 scripts/build_hf_card.py --check
 ```
@@ -64,7 +67,18 @@ Run a network-backed source audit when refreshing the Hugging Face dataset:
 python3 scripts/audit_resource_sources.py --timeout 20 --workers 16 --attempts 2 --github-cli
 ```
 
-The audit file is a snapshot. HTTP status, redirects, page titles, publication metadata, and GitHub statistics can change over time. arXiv bibliographic fields come from the primary arXiv API; GitHub dates come from the repository API; other web metadata comes from citation or Open Graph tags when available. A blank publication date means the primary source did not expose one. Rows marked `restricted` returned an access-control or rate-limit status during retrieval; they are tracked separately from broken or unreachable links.
+The audit file is a snapshot. HTTP status, redirects, page titles, publication metadata, and GitHub statistics can change over time. arXiv bibliographic fields come from the primary arXiv API, while verified conference or journal records take precedence for venue, publisher, DOI, and canonical URL. The arXiv ID and original preprint link remain available for provenance and access. GitHub dates come from the repository API; other web metadata comes from citation or Open Graph tags when available. A blank publication date means the primary source did not expose one. Rows marked `restricted` returned an access-control or rate-limit status during retrieval; they are tracked separately from broken or unreachable links.
+
+Refresh publication decisions before applying them to a current source audit:
+
+```sh
+python3 scripts/resolve_arxiv_publications.py --refresh --cache-dir /tmp/ale-publication-cache
+python3 scripts/audit_resource_sources.py --apply-publication-overlay-only
+python3 scripts/render_readme_tables.py
+python3 scripts/export_resource_dataset.py
+```
+
+Exact-title DBLP and Crossref matches may add new published versions automatically. Ambiguous records remain preprint-only until a primary publication record or an author-supplied acceptance note can be verified and added to `arxiv_publication_overrides.csv`.
 
 Build the focused Hugging Face dataset card for a staging mirror with:
 

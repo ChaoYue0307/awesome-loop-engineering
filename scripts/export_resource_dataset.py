@@ -431,7 +431,13 @@ def audience_for(section: str, resource_type: str) -> str:
     return ";".join(dict.fromkeys(audiences or ["builder"]))
 
 
-def evidence_class(section: str, resource_type: str, domain: str, url_kind: str) -> str:
+def evidence_class(
+    section: str,
+    resource_type: str,
+    domain: str,
+    url_kind: str,
+    audit: dict[str, str],
+) -> str:
     if url_kind != "external":
         return "repository-native"
     if resource_type == "Benchmark":
@@ -439,7 +445,9 @@ def evidence_class(section: str, resource_type: str, domain: str, url_kind: str)
     if resource_type == "Docs" and (section == "Official Runtime Guides" or domain in OFFICIAL_DOC_DOMAINS):
         return "official-documentation"
     if domain == "arxiv.org":
-        return "research-preprint"
+        venue = audit.get("publication_venue", "").strip().lower()
+        publisher = audit.get("publisher", "").strip().lower()
+        return "research-preprint" if venue in {"", "arxiv"} or publisher == "arxiv" else "research-paper"
     if domain == "github.com" and resource_type == "Tool":
         return "source-implementation"
     return {
@@ -534,7 +542,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
         row_id = f"ale-{row_number:04d}"
         collection, user_goal = collection_for(section)
         audit = AUDIT_BY_URL.get(url, {})
-        evidence = evidence_class(section, resource_type, domain, url_kind)
+        evidence = evidence_class(section, resource_type, domain, url_kind, audit)
         signal_text, signal_strength = signal(resource_type, domain, url_kind, evidence, audit)
         publication_venue, publisher = publication_source(url, url_kind, domain, audit)
         rows.append(
@@ -566,7 +574,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "audience": audience_for(section, resource_type),
                 "evidence_class": evidence,
                 "source_status": audit.get("audit_status", "not-audited"),
-                "canonical_url": audit.get("final_url", "") or url,
+                "canonical_url": audit.get("canonical_url", "") or audit.get("final_url", "") or url,
                 "source_title": audit.get("source_title", ""),
                 "source_description": audit.get("source_description", ""),
                 "authors": audit.get("authors", ""),

@@ -66,6 +66,9 @@ jobs:
       - name: Check generated brand assets
         run: python scripts/build_brand_assets.py --check
 
+      - name: Check arXiv publication decisions
+        run: python scripts/resolve_arxiv_publications.py --check
+
       - name: Check publication metadata
         run: python scripts/check_publication_metadata.py
 

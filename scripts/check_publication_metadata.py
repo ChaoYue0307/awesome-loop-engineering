@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES = ROOT / "data" / "resources.csv"
+ARXIV_PUBLICATIONS = ROOT / "data" / "arxiv_publication_audit.csv"
 YEAR_RE = re.compile(r"^(19|20)\d{2}$")
 PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
 PROJECT_PUBLICATION_SURFACES = {"GitHub", "GitHub Releases", "GitHub Discussions"}
@@ -27,6 +28,8 @@ REQUIRED_COLUMNS = {
     "metadata_source",
     "github_repo",
     "url_kind",
+    "canonical_url",
+    "evidence_class",
 }
 
 
@@ -38,6 +41,13 @@ def main() -> int:
             print(f"Missing publication columns: {', '.join(sorted(missing))}", file=sys.stderr)
             return 1
         rows = list(reader)
+
+    if not ARXIV_PUBLICATIONS.exists():
+        print("Missing data/arxiv_publication_audit.csv", file=sys.stderr)
+        return 1
+    with ARXIV_PUBLICATIONS.open(encoding="utf-8", newline="") as handle:
+        publication_rows = list(csv.DictReader(handle))
+    publications = {row["arxiv_id"]: row for row in publication_rows}
 
     failures: list[str] = []
     maximum_year = datetime.now(timezone.utc).year + 1
@@ -73,14 +83,43 @@ def main() -> int:
             if not year:
                 failures.append(f"{row_id}: paper publication year is missing")
         if row["arxiv_id"]:
-            if row["publisher"] != "arXiv":
-                failures.append(f"{row_id}: arXiv row has publisher {row['publisher']!r}")
+            decision = publications.get(row["arxiv_id"])
+            if not decision:
+                failures.append(f"{row_id}: arXiv publication decision is missing")
+                continue
             if not row["authors"]:
                 failures.append(f"{row_id}: arXiv authors are missing")
             if not date:
                 failures.append(f"{row_id}: arXiv publication date is missing")
-            if row["metadata_source"] != "arxiv-api":
-                failures.append(f"{row_id}: arXiv metadata is not API-backed")
+            if decision["status"] == "preprint-only":
+                if row["publisher"] != "arXiv":
+                    failures.append(f"{row_id}: preprint-only row has publisher {row['publisher']!r}")
+                if row["metadata_source"] != "arxiv-api":
+                    failures.append(f"{row_id}: preprint metadata is not arXiv API-backed")
+                expected_evidence = "benchmark" if row["resource_type"] == "Benchmark" else "research-preprint"
+                if row["evidence_class"] != expected_evidence:
+                    failures.append(f"{row_id}: preprint-only row has evidence class {row['evidence_class']!r}")
+            else:
+                expected = {
+                    "publication_date": decision["publication_date"],
+                    "publication_year": decision["publication_year"],
+                    "publication_venue": decision["publication_venue"],
+                    "publisher": decision["publisher"],
+                    "doi": decision["doi"],
+                    "canonical_url": decision["published_url"],
+                    "metadata_source": decision["metadata_source"],
+                }
+                for field, expected_value in expected.items():
+                    if row[field] != expected_value:
+                        failures.append(
+                            f"{row_id}: {field} differs from the verified publication record "
+                            f"({row[field]!r} != {expected_value!r})"
+                        )
+                if row["publisher"] == "arXiv":
+                    failures.append(f"{row_id}: resolved publication still uses arXiv as publisher")
+                expected_evidence = "benchmark" if row["resource_type"] == "Benchmark" else "research-paper"
+                if row["evidence_class"] != expected_evidence:
+                    failures.append(f"{row_id}: resolved publication has evidence class {row['evidence_class']!r}")
         doi = row["doi"].lower()
         if doi.startswith(("http://", "https://", "doi:")):
             failures.append(f"{row_id}: DOI is not normalized")
@@ -93,7 +132,14 @@ def main() -> int:
             print(f"- ... and {len(failures) - 50} more", file=sys.stderr)
         return 1
 
-    print(f"Validated publication metadata for {len(rows)} resources.")
+    resource_arxiv_ids = {row["arxiv_id"] for row in rows if row["arxiv_id"]}
+    if resource_arxiv_ids != set(publications):
+        print("Publication metadata check failed:", file=sys.stderr)
+        print("- arXiv decision IDs do not match exported resource IDs", file=sys.stderr)
+        return 1
+
+    resolved = sum(row["status"] in {"accepted", "published"} for row in publication_rows)
+    print(f"Validated publication metadata for {len(rows)} resources ({resolved} arXiv venue upgrades).")
     return 0
 
 

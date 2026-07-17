@@ -25,6 +25,7 @@ from urllib.parse import urldefrag, urlencode, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES_CSV = ROOT / "data" / "resources.csv"
 AUDIT_CSV = ROOT / "data" / "resource_source_audit.csv"
+ARXIV_PUBLICATION_AUDIT = ROOT / "data" / "arxiv_publication_audit.csv"
 REPO_BLOB_URL = "https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main"
 PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
 
@@ -138,6 +139,7 @@ FIELDS = [
     "audit_status",
     "http_status",
     "final_url",
+    "canonical_url",
     "content_type",
     "source_title",
     "source_description",
@@ -465,6 +467,7 @@ def audit_row(row: dict[str, str], retrieved_at: str, timeout: float, attempts: 
         "audit_status": "",
         "http_status": "",
         "final_url": "",
+        "canonical_url": "",
         "content_type": "",
         "source_title": "",
         "source_description": "",
@@ -668,6 +671,43 @@ def enrich_arxiv(rows: list[dict[str, str]], timeout: float, attempts: int) -> N
             row["metadata_source"] = row["metadata_source"] or "arxiv-id"
 
 
+def load_arxiv_publication_decisions() -> dict[str, dict[str, str]]:
+    if not ARXIV_PUBLICATION_AUDIT.exists():
+        return {}
+    with ARXIV_PUBLICATION_AUDIT.open(encoding="utf-8", newline="") as handle:
+        return {row["arxiv_id"]: row for row in csv.DictReader(handle)}
+
+
+def apply_arxiv_publication_overlay(rows: list[dict[str, str]]) -> None:
+    decisions = load_arxiv_publication_decisions()
+    for row in rows:
+        row["canonical_url"] = row.get("canonical_url") or row.get("final_url") or row["url"]
+        decision = decisions.get(row.get("arxiv_id", ""))
+        if not decision or decision["status"] not in {"accepted", "published"}:
+            continue
+
+        for field in (
+            "publication_date",
+            "publication_year",
+            "publication_venue",
+            "publisher",
+            "doi",
+            "metadata_source",
+        ):
+            row[field] = decision[field]
+        row["canonical_url"] = decision["published_url"] or row["canonical_url"]
+        if decision["status"] == "accepted":
+            row["publication_note"] = (
+                f"Accepted at {decision['publication_venue']}; "
+                "the linked arXiv record is the available paper version."
+            )
+        else:
+            row["publication_note"] = (
+                f"Published in {decision['publication_venue']}; "
+                "the linked arXiv record remains available for open access."
+            )
+
+
 def year_from_url(url: str) -> str:
     parsed = urlparse(url)
     match = re.search(r"/(?:manuscript/)?(?P<year>20\d{2})(?:[/_-]|\d{2}\.)", parsed.path)
@@ -720,7 +760,24 @@ def main() -> int:
     parser.add_argument("--attempts", type=int, default=2)
     parser.add_argument("--github-cli", action="store_true", help="use authenticated gh api calls for GitHub repo stats")
     parser.add_argument("--fail-on-broken", action="store_true")
+    parser.add_argument(
+        "--apply-publication-overlay-only",
+        action="store_true",
+        help="apply the checked-in arXiv publication decisions to the existing source audit without network access",
+    )
     args = parser.parse_args()
+
+    if args.apply_publication_overlay_only:
+        with AUDIT_CSV.open(encoding="utf-8", newline="") as handle:
+            audited = list(csv.DictReader(handle))
+        apply_arxiv_publication_overlay(audited)
+        write_audit(audited)
+        resolved = sum(
+            bool(row.get("arxiv_id")) and row.get("publisher") not in {"", "arXiv"}
+            for row in audited
+        )
+        print(f"Applied {resolved} published or accepted venue records to {AUDIT_CSV.relative_to(ROOT)}")
+        return 0
 
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     rows = read_rows()
@@ -732,6 +789,7 @@ def main() -> int:
     enrich_github(audited, timeout=args.timeout, use_gh_cli=args.github_cli)
     enrich_arxiv(audited, timeout=max(args.timeout, 20.0), attempts=args.attempts)
     finalize_publication_metadata(audited)
+    apply_arxiv_publication_overlay(audited)
     write_audit(audited)
 
     broken = [row for row in audited if row["audit_status"] in {"broken", "unreachable", "local_missing"}]
