@@ -661,11 +661,36 @@
         font-family: "IBM Plex Mono", ui-monospace, monospace;
         font-size: 0.84em;
       }
+      .maturity-guide {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 30px;
+        align-items: start;
+        margin: 0 0 30px;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line);
+        padding: 20px 0;
+      }
+      .maturity-guide h3 { margin: 0; font-size: 0.96rem; line-height: 1.35; }
+      .maturity-guide p { margin: 0; color: var(--muted); font-size: 0.88rem; line-height: 1.62; }
+      .maturity-guide p + p { margin-top: 8px; }
+      .maturity-guide strong { color: var(--ink); }
       .levels { border-top: 1px solid var(--line-strong); }
-      .level { display: grid; grid-template-columns: 74px 240px 1fr; gap: 18px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
-      .level .number { color: var(--blue); font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 600; }
-      .level .title { font-weight: 750; }
-      .level .detail { color: var(--muted); font-size: 0.9rem; }
+      .level {
+        display: grid;
+        grid-template-columns: 64px minmax(190px, 0.72fr) minmax(0, 2.2fr);
+        gap: 24px;
+        align-items: start;
+        padding: 25px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .level .number { padding-top: 2px; color: var(--blue); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.76rem; font-weight: 700; }
+      .level-intro h3 { margin: 0; font-size: 1rem; line-height: 1.35; }
+      .level-intro p { margin: 6px 0 0; color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+      .level-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 0; }
+      .level-facts > div { min-width: 0; }
+      .level-facts dt { color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.62rem; font-weight: 650; letter-spacing: 0; text-transform: uppercase; }
+      .level-facts dd { margin: 6px 0 0; color: var(--muted); font-size: 0.8rem; line-height: 1.52; }
 
       .resource-explorer { border-top: 1px solid var(--line-strong); }
       .resource-toolbar {
@@ -867,8 +892,13 @@
         .future-track { padding: 20px 0; }
         .future-track + .future-track { border-top: 1px solid var(--line); border-left: 0; padding-left: 0; }
         .future-shared { grid-template-columns: 1fr; gap: 10px; align-items: start; }
-        .level { grid-template-columns: 54px 1fr; }
-        .level .detail { grid-column: 2; }
+        .maturity-guide { grid-template-columns: 150px minmax(0, 1fr); gap: 24px; }
+        .level { grid-template-columns: 52px minmax(0, 1fr); gap: 16px; }
+        .level .number { grid-row: 1 / 3; }
+        .level-intro, .level-facts { grid-column: 2; }
+        .level-facts { grid-template-columns: 1fr; gap: 12px; }
+        .level-facts > div { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 14px; }
+        .level-facts dd { margin-top: 0; }
         .resource-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .resource-toolbar label:first-child { grid-column: 1 / -1; }
         .resource-reset { width: 100%; }
@@ -1110,8 +1140,12 @@
         .resource-detail-grid { grid-template-columns: 1fr; gap: 14px; }
         .resource-details summary { min-height: 34px; padding-top: 5px; }
         .caption { text-align: left; }
-        .level { grid-template-columns: 46px 1fr; }
-        .level { gap: 12px; padding: 14px 0; }
+        .maturity-guide { grid-template-columns: 1fr; gap: 7px; margin-bottom: 24px; padding: 18px 0; }
+        .maturity-guide p { font-size: 0.84rem; line-height: 1.55; }
+        .level { grid-template-columns: 38px minmax(0, 1fr); gap: 10px; padding: 20px 0; }
+        .level-facts { gap: 13px; }
+        .level-facts > div { grid-template-columns: 1fr; gap: 3px; }
+        .level-intro p, .level-facts dd { font-size: 0.78rem; }
         footer { padding: 44px 0 40px; }
         .footer-grid { gap: 26px; }
         .cite { overflow: visible; }
@@ -1201,6 +1235,11 @@
             "@type": "Question",
             "name": "What is in a loop contract?",
             "acceptedAnswer": { "@type": "Answer", "text": "A Loop Contract is a reviewable operating specification for one recurring agent job. It fixes the objective, trigger, intake, workspace and permissions, context, roles, external verification, durable state, budget, escalation path, and success or blocked exit so repeated runs do not rely on hidden defaults." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does every agent loop need to reach the highest maturity level?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Choose the lowest level that meets the job's continuity, evidence, and blast-radius requirements. Many useful workflows should stop at Level 2 or 3. Persist state before increasing autonomy, add external verification before more agents, and reserve production supervision for workflows with production impact." }
           },
           {
             "@type": "Question",
@@ -1585,22 +1624,57 @@
           <div class="section-head">
             <div>
               <p class="section-label"><i class="icon" data-lucide="chart-no-axes-combined" aria-hidden="true"></i><span>05 / Maturity model</span></p>
-              <h2>Climb one level at a time.</h2>
+              <h2>Use the smallest loop that can do the job.</h2>
             </div>
-            <p class="section-intro">A reliable Level 3 loop with durable state and deterministic checks is more useful than a Level 5 loop with vague goals.</p>
+            <p class="section-intro">The level describes how one workflow is triggered, remembered, verified, divided, and supervised. It measures operating capability, not model intelligence or product prestige.</p>
+          </div>
+          <div class="maturity-guide">
+            <h3>Read capability, not ambition.</h3>
+            <div>
+              <p>Start with the recurring outcome, evidence, risk, and human owner. Move up only when the current level produces a repeated failure or cannot meet an operating requirement; every added level brings more code, permissions, observability, and maintenance.</p>
+              <p><strong>Build in order:</strong> durable state before longer unattended runs, external verification before more agents, and production controls before the loop can affect users or infrastructure.</p>
+            </div>
           </div>
           <figure class="diagram supporting-visual">
             <div class="diagram-scroll"><img src="assets/loop-maturity-model.png" width="1667" height="944" loading="lazy" alt="Loop Maturity Model progressing from manual prompting through scripted retry, scheduled, stateful, self-verifying, multi-agent, and production-supervised loops."></div>
-            <figcaption class="caption">State and deterministic checks form the reliability foundation.</figcaption>
+            <figcaption class="caption">Levels are cumulative capabilities. Many useful workflows should stop at Level 2 or 3.</figcaption>
           </figure>
-          <div class="levels">
-            <div class="level"><span class="number">00</span><span class="title">Manual prompting</span><span class="detail">A human reads state and writes the next prompt.</span></div>
-            <div class="level"><span class="number">01</span><span class="title">Scripted retry</span><span class="detail">A script feeds failures back to an agent.</span></div>
-            <div class="level"><span class="number">02</span><span class="title">Scheduled loop</span><span class="detail">The agent runs on a cadence and reports findings.</span></div>
-            <div class="level"><span class="number">03</span><span class="title">Stateful loop</span><span class="detail">Progress survives through files, issues, checkpoints, or traces.</span></div>
-            <div class="level"><span class="number">04</span><span class="title">Self-verifying loop</span><span class="detail">Deterministic checks or evaluator agents gate completion.</span></div>
-            <div class="level"><span class="number">05</span><span class="title">Multi-agent loop</span><span class="detail">Specialists split discovery, implementation, review, and judgment.</span></div>
-            <div class="level"><span class="number">06</span><span class="title">Production-supervised loop</span><span class="detail">Observability, budgets, approvals, rollback, and escalation are first-class.</span></div>
+          <div class="levels" aria-label="Seven loop maturity levels">
+            <article class="level">
+              <span class="number">00</span>
+              <div class="level-intro"><h3>Manual prompting</h3><p>A person holds the state, supplies each next instruction, and judges the result.</p></div>
+              <dl class="level-facts"><div><dt>Why</dt><dd>Keeps one-off, ambiguous, or high-judgment work under direct supervision.</dd></div><div><dt>Example</dt><dd>A developer asks an agent to fix one failing test, reviews the diff, and decides whether to continue.</dd></div><div><dt>Progress signal</dt><dd>The same task and feedback sequence recur often enough to encode.</dd></div></dl>
+            </article>
+            <article class="level">
+              <span class="number">01</span>
+              <div class="level-intro"><h3>Scripted retry</h3><p>A bounded wrapper reruns one agent and feeds back an external failure.</p></div>
+              <dl class="level-facts"><div><dt>Why</dt><dd>Removes repetitive reprompting while preserving one objective and one feedback signal.</dd></div><div><dt>Example</dt><dd>Run <code>pytest</code> and return its failure output for at most three repair attempts.</dd></div><div><dt>Progress signal</dt><dd>The job should start from a schedule or event without a person launching it.</dd></div></dl>
+            </article>
+            <article class="level">
+              <span class="number">02</span>
+              <div class="level-intro"><h3>Scheduled loop</h3><p>A schedule or event triggers fresh intake, one bounded run, and a report or artifact.</p></div>
+              <dl class="level-facts"><div><dt>Why</dt><dd>Removes manual launch and makes cadence, idempotence, and no-work exits explicit.</dd></div><div><dt>Example</dt><dd>A nightly docs-drift scan reports only when code and documentation disagree.</dd></div><div><dt>Progress signal</dt><dd>Work spans runs, repeats items, or loses context between invocations.</dd></div></dl>
+            </article>
+            <article class="level">
+              <span class="number">03</span>
+              <div class="level-intro"><h3>Stateful loop</h3><p>Durable checkpoints and receipts record completed work, blockers, evidence, and the next action.</p></div>
+              <dl class="level-facts"><div><dt>Why</dt><dd>Survives restarts, avoids duplicate work, and makes every run resumable and inspectable.</dd></div><div><dt>Example</dt><dd>A feedback clusterer stores processed IDs, prior themes, and the last successful checkpoint.</dd></div><div><dt>Progress signal</dt><dd>Stable external evidence can decide whether a transition or completion is valid.</dd></div></dl>
+            </article>
+            <article class="level">
+              <span class="number">04</span>
+              <div class="level-intro"><h3>Self-verifying loop</h3><p>Tests, evals, policy checks, traces, or an independent evaluator gate progress and exit.</p></div>
+              <dl class="level-facts"><div><dt>Why</dt><dd>Replaces the agent's claim of success with reviewable evidence.</dd></div><div><dt>Example</dt><dd>A CI repair exits only when the original failing command passes and the diff remains in scope.</dd></div><div><dt>Progress signal</dt><dd>One role becomes a bottleneck, duties must be separated, or independent review is required.</dd></div></dl>
+            </article>
+            <article class="level">
+              <span class="number">05</span>
+              <div class="level-intro"><h3>Multi-agent loop</h3><p>Specialists divide discovery, action, review, and judgment through explicit handoffs and shared state.</p></div>
+              <dl class="level-facts"><div><dt>Why</dt><dd>Adds separation of duties and parallel expertise without letting the acting agent approve itself.</dd></div><div><dt>Example</dt><dd>A security loop uses an explorer, a reproducer, and an independent reviewer.</dd></div><div><dt>Progress signal</dt><dd>The loop can affect production, customers, money, credentials, or other high-impact systems.</dd></div></dl>
+            </article>
+            <article class="level">
+              <span class="number">06</span>
+              <div class="level-intro"><h3>Production-supervised loop</h3><p>Telemetry, least privilege, budgets, approvals, rollback, and human escalation govern every run.</p></div>
+              <dl class="level-facts"><div><dt>Why</dt><dd>Controls blast radius and makes production work observable, interruptible, and accountable.</dd></div><div><dt>Example</dt><dd>A deploy verifier pauses on a breached threshold and hands rollback approval to the release owner.</dd></div><div><dt>Harden next</dt><dd>Service objectives, replay, permission reviews, failure drills, and cost controls.</dd></div></dl>
+            </article>
           </div>
         </div>
       </section>
@@ -1798,6 +1872,10 @@
           <details>
             <summary>What belongs in a loop contract?</summary>
             <p>A Loop Contract is a reviewable operating specification for one recurring agent job. It fixes the objective, trigger, intake, workspace and permissions, context, roles, external verification, durable state, budget, escalation path, and success or blocked exit so repeated runs do not depend on hidden defaults.</p>
+          </details>
+          <details>
+            <summary>Does every loop need to reach the highest maturity level?</summary>
+            <p>No. Choose the lowest level that meets the job's continuity, evidence, and blast-radius requirements. Many useful workflows should stop at Level 2 or 3. Persist state before increasing autonomy, add external verification before more agents, and reserve production supervision for workflows with production impact.</p>
           </details>
           <details>
             <summary>Which runtimes can run agent loops?</summary>

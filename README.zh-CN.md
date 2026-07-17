@@ -63,15 +63,21 @@ Prompt、context 和 harness engineering 让单次 agent 运行更好。Loop Eng
 
 ## 成熟度模型
 
-| 等级  | 名称                         | 描述                                                              |
-| --- | -------------------------- | --------------------------------------------------------------- |
-| 0   | Manual prompting           | 人读取状态并写下一条 prompt。                                              |
-| 1   | Scripted retry             | 脚本把错误反馈给 agent。                                                 |
-| 2   | Scheduled loop             | agent 按固定节奏运行并报告结果。                                             |
-| 3   | Stateful loop              | 通过文件、issue、checkpoint 或 trace 保留进度。                             |
-| 4   | Self-verifying loop        | 用确定性检查或 evaluator agent 阻止错误完成。                                 |
-| 5   | Multi-agent loop           | discovery、implementation、review、judgment 由不同 agents 分工。         |
-| 6   | Production-supervised loop | observability、budget、approval、rollback、human escalation 都是一等公民。 |
+Loop Maturity Model 用来判断**一个具体的 recurring agent workflow**需要哪些运行能力。它衡量 workflow 如何启动、记忆、验证、分工和接受监督，而不是给模型智能、团队水平或产品质量打分。
+
+使用时，先从任务的结果、证据、风险和 human owner 出发，再选择最低但足够可靠的等级。每一级都会增加实现、观测、权限和维护成本；只有当前等级反复出现明确限制时才向上升级。能力应按顺序建立：先保存状态，再延长无人值守运行；先建立外部验证，再增加 agents；能影响用户或基础设施之前，先补齐 production controls。
+
+| 等级 | 运行方式 | 为什么需要 | 具体示例 | 升级信号 |
+| --- | --- | --- | --- | --- |
+| **0 · Manual prompting** | 人保存上下文、写下一条指令并判断结果。 | 让一次性、模糊或高度依赖判断的工作保持人工监督。 | 开发者让 agent 修复一个失败测试，检查 diff 后再决定是否继续。 | 相同任务和反馈步骤频繁重复，已经可以编码。 |
+| **1 · Scripted retry** | 有界脚本重复调用一个 agent，并把外部失败结果反馈给它。 | 省去重复 reprompt，同时保持单一目标和单一反馈信号。 | 运行 `pytest`，最多把失败输出反馈给 agent 三次。 | 任务应该按时间或事件自动启动，不再依赖人工发起。 |
+| **2 · Scheduled loop** | schedule 或 event 触发新的 intake、一次有界运行以及 report 或 artifact。 | 去掉人工启动，并明确 cadence、idempotence 和 no-work exit。 | 每晚检查 docs drift，仅在代码与文档不一致时生成报告。 | 工作跨越多次运行、重复处理条目或在调用之间丢失上下文。 |
+| **3 · Stateful loop** | 在模型之外持久化已完成工作、blocker、证据和 next action。 | 让 workflow 能在重启后继续，避免重复工作，并支持审计。 | feedback clusterer 保存已处理 ID、历史主题和最近成功 checkpoint。 | 稳定的外部证据已经可以判断状态转换或完成是否有效。 |
+| **4 · Self-verifying loop** | tests、evals、policy checks、traces 或独立 evaluator 决定能否继续和退出。 | 用可检查的证据取代 agent 对成功的自我判断。 | CI repair loop 只有在原失败命令通过且 diff 未越界时才退出。 | 单一角色成为瓶颈，需要职责分离或独立 review。 |
+| **5 · Multi-agent loop** | 专门角色通过明确 handoff 和共享状态分担 discovery、action、review 与 judgment。 | 引入职责分离和并行专业能力，同时避免 acting agent 自我批准。 | security loop 由 explorer 找候选问题、reproducer 复现、reviewer 判断严重性和范围。 | workflow 将影响 production、用户、资金、凭证或其他高影响系统。 |
+| **6 · Production-supervised loop** | telemetry、least privilege、budgets、approvals、rollback、incident ownership 和 human escalation 共同约束每次运行。 | 控制 blast radius，让无人值守的 production work 可观察、可中断、可追责。 | deploy verifier 监控 rollout metrics，阈值被突破时暂停并把 rollback approval 交给 release owner。 | 随 workflow 演进持续强化 service objectives、replay、权限审查、failure drills 和成本控制。 |
+
+等级代表能力，不代表目标越高越好。很多有价值的 workflow 停在 Level 2 或 3 就足够；拥有 durable state 的可靠 Level 3，优于目标模糊、检查薄弱或只有形式化角色的 Level 5。
 
 ## 必读入口
 

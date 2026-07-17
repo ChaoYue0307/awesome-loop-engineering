@@ -505,17 +505,29 @@ Open the full [`pr-babysitter-loop.json`](examples/pr-babysitter-loop.json), ren
   <img src="assets/loop-maturity-model.png" alt="Loop Maturity Model progressing from manual prompting through scripted retry, scheduled, stateful, self-verifying, multi-agent, and production-supervised loops" width="100%">
 </p>
 
-| Level | Name                       | Description                                                                        |
-| ----- | -------------------------- | ---------------------------------------------------------------------------------- |
-| 0     | Manual prompting           | A human reads state and writes the next prompt.                                    |
-| 1     | Scripted retry             | A shell/script loop feeds errors back to an agent.                                 |
-| 2     | Scheduled loop             | The agent runs on a cadence and reports findings.                                  |
-| 3     | Stateful loop              | Progress survives across sessions through files, issues, checkpoints, or traces.   |
-| 4     | Self-verifying loop        | Deterministic checks or evaluator agents gate completion.                          |
-| 5     | Multi-agent loop           | Specialized agents split discovery, implementation, review, and judgment.          |
-| 6     | Production-supervised loop | Observability, budgets, approvals, rollback, and human escalation are first-class. |
+The Loop Maturity Model is a capability ladder for **one recurring agent workflow**. It helps you choose the smallest operating model that can perform a job reliably. The level describes how the workflow is triggered, remembered, verified, divided, and supervised; it does not score model intelligence, team sophistication, or product quality.
 
-Most teams should climb this model slowly. A reliable Level 3 loop with clear state and deterministic checks is usually more valuable than a flashy Level 5 loop with vague goals.
+### How To Use The Model
+
+**Start with the job, not the target level.** Identify the recurring outcome, evidence, risk, and human owner before choosing an architecture.
+
+**Treat levels as cumulative capabilities.** A Level 4 loop still needs a bounded trigger and durable state; adding a verifier does not repair missing foundations.
+
+**Move up only for a recurring failure or operating need.** Every level adds code, observability, permissions, and maintenance. Stop at the lowest level that meets the job's continuity, evidence, and blast-radius requirements.
+
+**Earn autonomy in order.** Persist state before increasing unattended runtime, establish external verification before adding more agents, and add production controls before actions can affect users or infrastructure.
+
+| Level                              | Operating model                                                                                                      | Why it exists                                                                                          | Concrete example                                                                                                                                 | Progress signal                                                                                                   |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| **0 · Manual prompting**           | A person holds the state, supplies each next instruction, and judges the result.                                     | Keeps ambiguous, one-off, or high-judgment work under direct supervision.                              | A developer asks an agent to fix one failing test, reviews the diff, and decides whether to continue.                                            | The same task and feedback sequence recur often enough to encode.                                                 |
+| **1 · Scripted retry**             | A bounded wrapper reruns one agent and feeds back an external failure.                                               | Removes repetitive reprompting while keeping one objective and one feedback signal.                    | Run `pytest`; return the failing output to the agent for at most three repair attempts.                                                          | The job should start from a schedule or event without a person launching it.                                      |
+| **2 · Scheduled loop**             | A schedule or event triggers fresh intake, one bounded run, and a report or artifact.                                | Removes manual launch and makes cadence, idempotence, and no-work exits explicit.                      | A nightly docs-drift scan opens a report only when code and documentation disagree.                                                              | Work spans runs, repeats items, or loses context between invocations.                                             |
+| **3 · Stateful loop**              | Durable checkpoints and receipts record completed work, blockers, evidence, and the next action outside the model.   | Survives restarts, avoids duplicate work, and makes each run resumable and inspectable.                | A feedback clusterer stores processed IDs, prior themes, and the last successful checkpoint.                                                     | Stable external evidence can decide whether a transition or completion is valid.                                  |
+| **4 · Self-verifying loop**        | Tests, evals, policy checks, traces, or an independent evaluator gate progress and exit.                             | Replaces the agent's claim of success with reviewable evidence.                                        | A CI repair loop exits only when the original failing command passes and the diff remains in scope.                                              | One role becomes a bottleneck, duties must be separated, or independent review is required.                       |
+| **5 · Multi-agent loop**           | Specialists divide discovery, action, review, and judgment through explicit handoffs and shared state.               | Adds separation of duties and parallel expertise without letting the acting agent approve itself.      | A security loop uses an explorer to find a candidate, a reproducer to confirm it, and a reviewer to judge severity and scope.                    | The loop can affect production, customers, money, credentials, or other high-impact systems.                      |
+| **6 · Production-supervised loop** | Telemetry, least privilege, budgets, approvals, rollback, incident ownership, and human escalation govern every run. | Controls blast radius and makes unattended production work observable, interruptible, and accountable. | A deploy verifier watches rollout metrics, pauses on a breached threshold, preserves evidence, and hands rollback approval to the release owner. | Harden service objectives, replay, permission reviews, failure drills, and cost controls as the workflow evolves. |
+
+Levels describe **capability, not ambition**. Many useful workflows should stop at Level 2 or 3. A dependable Level 3 loop with durable state is more valuable than a Level 5 design with vague goals, weak checks, or ceremonial agent roles.
 
 ## Pattern Library
 

@@ -36,6 +36,22 @@ A **Loop Contract** is a reviewable operating specification for one recurring ag
 
 Recurring agents need this policy because schedules, events, queues, and goals remove live supervision. Without explicit boundaries, missing decisions become hidden defaults: the loop can select the wrong work, widen its own scope, approve itself, forget failed attempts, or retry without a stopping rule. Start with the [JSON schema](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json) and adapt one of the [{{CONTRACT_COUNT}} validated examples](https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples).
 
+## Loop Maturity Model
+
+The maturity model helps teams choose the smallest operating model that can perform one recurring job reliably. Levels describe how a workflow is triggered, remembered, verified, divided, and supervised; they do not score model intelligence or product quality.
+
+| Level | Added capability | Example |
+| --- | --- | --- |
+| 0 · Manual prompting | A person holds state and judges each next action. | One supervised test repair. |
+| 1 · Scripted retry | A bounded wrapper returns external failure to one agent. | Three `pytest` repair attempts. |
+| 2 · Scheduled loop | A schedule or event starts bounded intake and reporting. | Nightly docs-drift scan. |
+| 3 · Stateful loop | Checkpoints and receipts survive across runs. | Feedback clustering with processed IDs. |
+| 4 · Self-verifying loop | External checks or independent evaluation gate completion. | CI repair exits only when the original check passes. |
+| 5 · Multi-agent loop | Specialists use explicit handoffs and shared state. | Explorer, reproducer, and reviewer for security findings. |
+| 6 · Production-supervised loop | Telemetry, least privilege, budgets, approvals, rollback, and escalation govern production work. | Deploy verification with threshold-based pause and human rollback approval. |
+
+Move up only when the current level cannot meet a recurring continuity, evidence, or risk requirement. Durable state should precede longer unattended runs, external verification should precede more agents, and production controls should precede production impact. The [full field guide](https://github.com/ChaoYue0307/awesome-loop-engineering#loop-maturity-model) explains why each level exists and the signal for advancing.
+
 ## Load The Data
 
 ```python
