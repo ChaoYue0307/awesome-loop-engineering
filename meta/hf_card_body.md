@@ -69,6 +69,18 @@ Use `url` as the durable join key. `row_id` and `source_line` are positional and
 
 Do not use `signal_strength`, GitHub stars, forks, or inclusion in this collection as a quality label, endorsement, or automated ranking of scientific validity.
 
+## Future Directions
+
+The project maintains a role-based agenda for moving Loop Engineering forward:
+
+| Audience | Priority categories |
+| --- | --- |
+| Researchers | Factorized evaluation, verification science, state across runs, stopping policies, and human oversight |
+| Infrastructure and reliability engineers | Durable execution, receipts and replay, least privilege, portability, and reliability economics |
+| Application and product developers | Loop-worthy use cases, domain verification, escalation UX, progressive rollout, and maintainable adoption |
+
+The complete [Future Directions agenda](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/FUTURE-DIRECTIONS.md) defines measurable outputs, concrete starter projects, shared infrastructure priorities, and a qualification checklist.
+
 ## Dataset Structure
 
 The primary configuration is `resources`, with one `train` split backed by `data/resources.jsonl`. `data/resources.csv` contains the same rows for spreadsheet and dataframe workflows.

@@ -479,6 +479,36 @@
         text-transform: uppercase;
       }
       .runtime-kind.executable { color: var(--green); }
+      .future-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .future-track {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        padding: 24px 24px 24px 0;
+      }
+      .future-track + .future-track { border-left: 1px solid var(--line); padding-left: 24px; }
+      .future-track h3 { display: flex; align-items: center; gap: 9px; margin: 0; font-size: 1rem; }
+      .future-track h3 .icon { width: 18px; height: 18px; color: var(--blue); }
+      .future-track ul { margin: 16px 0 22px; padding-left: 19px; }
+      .future-track li { margin-top: 9px; color: var(--muted); font-size: 0.86rem; line-height: 1.5; }
+      .future-track li::marker { color: var(--blue); }
+      .future-output { margin: auto 0 0; border-top: 1px solid var(--line); padding-top: 14px; color: var(--quiet); font-size: 0.76rem; line-height: 1.5; }
+      .future-output strong { display: block; margin-bottom: 3px; color: var(--ink); }
+      .future-shared {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr) auto;
+        gap: 22px;
+        align-items: center;
+        border-bottom: 1px solid var(--line-strong);
+        padding: 20px 0;
+      }
+      .future-shared strong { font-size: 0.92rem; }
+      .future-shared p { margin: 0; color: var(--muted); font-size: 0.84rem; line-height: 1.55; }
       code {
         border: 1px solid var(--line);
         border-radius: 4px;
@@ -674,6 +704,10 @@
         .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
         .stat:last-child { grid-column: 1 / -1; border-left: 0; }
         .principles, .link-grid, .pattern-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .future-grid { grid-template-columns: 1fr; }
+        .future-track { padding: 20px 0; }
+        .future-track + .future-track { border-top: 1px solid var(--line); border-left: 0; padding-left: 0; }
+        .future-shared { grid-template-columns: 1fr; gap: 10px; align-items: start; }
         .level { grid-template-columns: 54px 1fr; }
         .level .detail { grid-column: 2; }
         .resource-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1057,6 +1091,7 @@
           <a href="#runtimes">Runtimes</a>
           <a href="#maturity">Maturity</a>
           <a href="#resources">Resources</a>
+          <a href="#future">Future</a>
           <a href="#faq">FAQ</a>
           <a class="mobile-nav-only" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><i class="icon" data-lucide="database" aria-hidden="true"></i>Dataset</a>
         </nav>
@@ -1417,11 +1452,57 @@
         </div>
       </section>
 
+      <section id="future">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-label"><i class="icon" data-lucide="compass" aria-hidden="true"></i><span>07 / Future directions</span></p>
+              <h2>Decide what the field should prove next.</h2>
+            </div>
+            <p class="section-intro">A credible agenda separates claims to test, infrastructure to build, and product loops to validate. Each direction should end in external evidence, reproducible artifacts, or measured operating results.</p>
+          </div>
+          <div class="future-grid">
+            <article class="future-track">
+              <h3><i class="icon" data-lucide="book-open" aria-hidden="true"></i>For researchers</h3>
+              <ul>
+                <li>Separate model, harness, verifier, and loop effects under matched budgets.</li>
+                <li>Measure false completion, calibration, tamper resistance, and recovery.</li>
+                <li>Study state drift, stopping policies, and human oversight across runs.</li>
+              </ul>
+              <p class="future-output"><strong>Useful outputs</strong>Benchmarks, ablations, longitudinal datasets, preregistered studies, and negative results.</p>
+            </article>
+            <article class="future-track">
+              <h3><i class="icon" data-lucide="wrench" aria-hidden="true"></i>For infrastructure engineers</h3>
+              <ul>
+                <li>Build crash-safe, idempotent, replayable, and observable runtimes.</li>
+                <li>Turn contract permissions into enforceable least-privilege policy.</li>
+                <li>Standardize receipts and preserve semantics across runtime adapters.</li>
+              </ul>
+              <p class="future-output"><strong>Useful outputs</strong>Reference workers, conformance suites, receipt schemas, replay tools, SLOs, and incident reports.</p>
+            </article>
+            <article class="future-track">
+              <h3><i class="icon" data-lucide="code-2" aria-hidden="true"></i>For application developers</h3>
+              <ul>
+                <li>Choose recurring jobs with stable intake and a defensible definition of done.</li>
+                <li>Design domain checkers and evidence-rich human handoffs.</li>
+                <li>Progress from read-only shadowing to bounded autonomy with promotion gates.</li>
+              </ul>
+              <p class="future-output"><strong>Useful outputs</strong>Runnable vertical slices, domain evals, escalation UX, rollout studies, and failure write-ups.</p>
+            </article>
+          </div>
+          <div class="future-shared">
+            <strong>Shared milestones</strong>
+            <p>Portable contracts and receipts, factorized benchmarks, replayable state, failure-injection suites, and public or safely anonymized case studies.</p>
+            <a class="button" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/FUTURE-DIRECTIONS.md"><i class="icon" data-lucide="compass" aria-hidden="true"></i>Open the agenda</a>
+          </div>
+        </div>
+      </section>
+
       <section id="contribute">
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><i class="icon" data-lucide="handshake" aria-hidden="true"></i><span>07 / Contribute</span></p>
+              <p class="section-label"><i class="icon" data-lucide="handshake" aria-hidden="true"></i><span>08 / Contribute</span></p>
               <h2>Improve the evidence or share a loop.</h2>
             </div>
             <p class="section-intro">Submit one canonical source, correct an existing record with primary evidence, or document a loop you have run.</p>
@@ -1439,7 +1520,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><i class="icon" data-lucide="message-circle-question-mark" aria-hidden="true"></i><span>08 / FAQ</span></p>
+              <p class="section-label"><i class="icon" data-lucide="message-circle-question-mark" aria-hidden="true"></i><span>09 / FAQ</span></p>
               <h2>Questions that define the boundary.</h2>
             </div>
             <p class="section-intro">Use these tests to decide whether a recurring agent system needs a loop.</p>
@@ -1490,6 +1571,7 @@
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/MANIFESTO.md">Manifesto</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TAXONOMY.md">Taxonomy</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ANTI-PATTERNS.md">Anti-patterns</a>
+            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/FUTURE-DIRECTIONS.md">Future directions</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md">Curation + provenance</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Source audit</a>
           </div>
@@ -1888,6 +1970,7 @@
               });
               explorer.dataset.indexState = 'ready';
               render();
+              restorePostResourceHash();
             })
             .catch(function () {
               loading = false;
@@ -1896,6 +1979,17 @@
               list.setAttribute('aria-busy', 'false');
               count.textContent = 'Resource index unavailable';
             });
+        }
+
+        function restorePostResourceHash() {
+          var targetId = window.location.hash.slice(1);
+          if (!targetId || targetId === 'resources') return;
+          var target = document.getElementById(targetId);
+          if (!target || !resourceSection) return;
+          if (!(resourceSection.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING)) return;
+          requestAnimationFrame(function () {
+            target.scrollIntoView({ behavior: 'instant', block: 'start' });
+          });
         }
 
         var resourceSection = document.getElementById('resources');

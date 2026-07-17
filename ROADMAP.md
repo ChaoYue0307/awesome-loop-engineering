@@ -2,18 +2,20 @@
 
 The roadmap prioritizes stronger evidence, runnable implementations, and real operating results.
 
+The role-based [Future Directions agenda](FUTURE-DIRECTIONS.md) complements this project roadmap with research questions, infrastructure priorities, application opportunities, measurable outputs, and starter projects.
+
 ## Near Term
 
 - Collect more direct Loop Engineering sources as the term stabilizes.
 - Add real or anonymized gallery entries from practitioners running recurring agent loops.
-- Grow the runnable loop directory beyond the test-repair reference loop, including scheduled-trigger variants per runtime.
+- Turn more validated contracts into runtime-specific executables with crash recovery, timeouts, replayable receipts, and failure-injection tests.
 - Add more translations for the introduction, mental model, Loop Contract, and contribution guide.
 - Audit contextual sources in small batches; replace weak summaries and secondary links with canonical evidence.
 - Replace unstable links with primary sources, official docs, papers, or implementation-heavy write-ups.
 
 ## Pattern Library
 
-The library now contains 15 reference patterns: PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, dependency triage, evaluation regression, security review, cost control, bug hunting, enterprise approval, incident response, data quality, release notes, and model routing. Every pattern ships a schema-validated loop contract in `examples/`.
+The library now contains 20 reference patterns: PR babysitting, CI repair, docs drift, deploy verification, feedback clustering, dependency triage, evaluation regression, security review, cost control, bug hunting, enterprise approval, incident response, data quality, release notes, model routing, benchmark optimization, knowledge freshness, performance regression, accessibility regression, and adversarial red teaming. Every pattern ships a schema-validated loop contract in `examples/`.
 
 Next pattern-library work should prioritize variants backed by operational evidence rather than adding names for coverage. Useful additions include runtime-specific implementations, before/after receipts, measured retry and cost budgets, failure cases, and human-escalation outcomes.
 
@@ -45,7 +47,8 @@ The gallery should grow from reference examples into public or anonymized case s
 
 ## Open Questions
 
-- Which loop primitives become common across Codex, Claude Code, GitHub Agentic Workflows, and custom runtimes?
-- What is the right schema shape for portable loop contracts?
-- Which verification gates are strong enough for unattended or semi-attended loops?
-- How should maintainers evaluate submitted real-world loop examples without exposing private data?
+- Which Loop Contract fields preserve their semantics across session, CI, scheduled, and durable runtimes?
+- How should benchmarks separate model, harness, verifier, and outer-loop effects under matched budgets?
+- Which verification gates remain calibrated under distribution shift and adversarial pressure?
+- Which receipt format is sufficient for replay, incident review, and human escalation without retaining sensitive data?
+- How should maintainers evaluate real-world loop examples without exposing private inputs, state, or traces?

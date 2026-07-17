@@ -14,7 +14,7 @@
 
 - Desktop first viewport: 1440 x 1000, page top, sticky navigation and the complete six-station agent loop visible.
 - Mobile first viewport: 390 x 844, page top, compact six-station scene, stage selector, and next-section cue visible without horizontal overflow.
-- Mobile navigation: eight links visible when expanded; Escape closes the menu, updates `aria-expanded`, and restores focus.
+- Mobile navigation: nine links visible when expanded; Escape closes the menu, updates `aria-expanded`, and restores focus.
 - Pattern library: 20 symptom-first entries; mobile query `accessibility` returns exactly one matching pattern.
 - Contract and lifecycle: purpose-built mobile summaries replace desktop-wide figures at 560 px and below.
 - Runtime map: desktop figure plus eight labeled starters in a balanced 4 x 2 grid; mobile uses the explanatory copy and one-column starter sequence instead of shrinking the wide figure.
@@ -24,6 +24,7 @@
 - Interactive hero, mobile: 390 x 844, one ready WebGL canvas, no horizontal overflow, and all six stations inside the frame.
 - Interactive hero motion: the frame counter advanced by 47 frames during a 450 ms pointer-parallax check.
 - Interactive hero efficiency: the frame counter advanced by zero during a 700 ms offscreen check at the Resources section.
+- Future directions: three role-based tracks remain side by side at 1440 x 1000 and become a rule-separated single column at 390 x 844 without horizontal overflow.
 
 ## Comparison History
 
@@ -39,6 +40,7 @@
 10. Verified progressive enhancement behavior: the semantic hero remains complete without WebGL, forced-colors and print hide the scene, reduced-motion renders a static frame, and the animation stops when the hero leaves the viewport.
 11. Expanded the implementation kit to 20 patterns, 20 validated contracts, and eight runtime starters. The runtime section now labels all five adaptable templates and all three executables, with use-case copy and an even desktop grid.
 12. Rechecked the expanded pattern and runtime sections at 1440 x 1000 and 390 x 844. Anchor offsets clear the sticky header, the page width stays equal to the viewport, and headings, icons, labels, and descriptions remain aligned.
+13. Added the role-based future-directions section and rechecked it at both target viewports. Resource Atlas expansion initially displaced direct links to later sections; post-load hash restoration now leaves `#future` 84 px below the desktop viewport top and 74 px below it on mobile.
 
 ## Findings
 
@@ -57,21 +59,24 @@
 - Mobile pattern library: `/private/tmp/ale-site-v07-patterns-mobile.png`
 - Desktop runtime map and starter grid: `/private/tmp/ale-site-v07-runtime-desktop-final.png`
 - Mobile runtime starters: `/private/tmp/ale-site-v07-runtime-mobile-final.png`
+- Desktop future directions: `/private/tmp/future-viewport-desktop.png`
+- Mobile future directions: `/private/tmp/future-viewport-mobile.png`
 - Three.js pointer-motion frame: `/private/tmp/awesome-loop-hero-three-motion-final.png`
 - Social preview: `/Users/chaoyue/Library/CloudStorage/Dropbox/Loop Engineering/awesome-loop-engineering/assets/social-preview.png`
 
 ## 2026-07-18 Repository Audit
 
-- Desktop: 1440 x 1000, no horizontal overflow, no hero text/scene overlap, and all eight section headings render without requiring scroll-triggered opacity changes.
+- Desktop: 1440 x 1000, no horizontal overflow, no hero text/scene overlap, and all nine section headings render without requiring scroll-triggered opacity changes.
 - Tablet: 768 x 900. The first pass clipped the intake and decision stations. The responsive camera now fits an 11.2-unit horizontal view between 720 px and 900 px, keeping all six stations, the retry path, and the outcome node inside the canvas.
 - Phone: 390 x 844, no horizontal overflow. The compact loop keeps all six stations, the moving work packet, legend, outcome key, and stage selector visible without crossing the hero copy.
-- Mobile navigation: opens all eight project links, reports `aria-expanded="true"`, closes on Escape, and restores focus to the menu button.
+- Mobile navigation: opens all nine project links, reports `aria-expanded="true"`, closes on Escape, and restores focus to the menu button.
 - Pattern filter: `accessibility` returns exactly one of the 20 patterns.
 - Resource Atlas: remains idle above the fold, loads on approach or a direct resource anchor, and reports `545 of 545 resources | showing 8` on mobile.
 - Resource interactions: `SWE-bench` returns 9 matches, the paper filter narrows those to 6, Reset restores all 545, and Show more expands the rendered set from 8 to 16.
 - Scene motion: the canvas frame counter advanced from 640 to 662 over 900 ms. Two canvas crops taken 1.2 seconds apart changed 17.79% of sampled RGB channels.
 - Scene pixels: the sampled desktop crop has 15.71% active pixels with RGB standard deviations of 35.83, 29.77, and 23.01; mobile has 27.84% active pixels with deviations of 41.27, 30.61, and 19.52. Both renders are nonblank and well contrasted.
 - Runtime starters: desktop cards form two equal-height rows of four; mobile cards are 358 px wide within a 390 px document and preserve label, icon, heading, and copy alignment.
+- Future directions: direct-anchor restoration waits for the Resource Atlas reflow, all three audience tracks remain readable, and the agenda CTA is fully visible at desktop and mobile widths.
 - Console: no page-origin errors or warnings during mobile navigation, pattern filtering, and Resource Atlas interactions.
 - Source audit: 545 rows checked; 496 public sources reachable, 1 access-restricted, 48 repository-native, and 0 broken or unreachable as of 2026-07-17 UTC.
 - Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 545 resources, 20 patterns, 20 contracts, 8 runtime starters, and version 0.7.0.
