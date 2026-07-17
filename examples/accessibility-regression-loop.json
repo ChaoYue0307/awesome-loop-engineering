@@ -1,0 +1,60 @@
+{
+  "name": "Accessibility regression loop",
+  "objective": "Repair a newly introduced accessibility failure with reproducible automated evidence and required human review.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "An accessibility check fails on a pull request or deployment preview."
+  },
+  "intake": {
+    "sources": ["failing rule and selector", "route and viewport", "browser trace or screenshot", "changed diff", "manual accessibility checklist"],
+    "selection_rule": "Work only on a reproducible regression tied to the reported route, viewport, browser, and interaction."
+  },
+  "workspace": {
+    "isolation": "Branch or clean worktree based on the failing commit.",
+    "allowed_actions": ["run accessibility and interaction tests", "edit the affected component", "add focused regression tests", "record before and after evidence"],
+    "disallowed_actions": ["disable accessibility rules", "hide content from assistive technology", "lower thresholds", "change shared design tokens without owner approval"]
+  },
+  "context": {
+    "required_files": ["design-system accessibility guidance", "component tests", "WCAG review checklist", "project contribution rules"],
+    "runtime_sources": ["automated scan result", "keyboard path", "accessible tree snapshot", "deployment preview"]
+  },
+  "agents": [
+    {
+      "role": "Reproducer",
+      "responsibility": "Confirm the failure on the exact route, browser, viewport, and interaction."
+    },
+    {
+      "role": "Fixer",
+      "responsibility": "Apply the smallest standards-aligned component or style change."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Rerun the focused automated rule, keyboard path, and adjacent tests."
+    },
+    {
+      "role": "Accessibility reviewer",
+      "responsibility": "Judge manual criteria and ambiguous semantic or assistive-technology behavior."
+    }
+  ],
+  "verification": {
+    "gates": ["original rule passes in the same environment", "keyboard order and visible focus remain coherent", "accessible name role and state are correct", "no rule or threshold was weakened", "required manual review is approved"],
+    "receipts": ["before and after scan", "route browser and viewport", "commands run", "interaction trace or screenshot", "named manual-review decision"]
+  },
+  "state": {
+    "artifacts": ["accessibility regression note", "test artifact", "manual review record"],
+    "update_rule": "Record the affected users, rule, reproduction, patch, automated result, and outstanding manual criteria after every attempt."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 90
+  },
+  "escalation": {
+    "conditions": ["manual criterion is ambiguous", "screen-reader behavior requires specialist review", "shared design token must change", "user flow changes materially"],
+    "destination": "Accessibility reviewer and component owner"
+  },
+  "exit": {
+    "success": "The exact regression is repaired, adjacent checks pass, and required manual criteria are approved.",
+    "stop_without_success": "The issue cannot be reproduced, needs product judgment, conflicts with the design system, or exceeds the retry budget."
+  }
+}
+

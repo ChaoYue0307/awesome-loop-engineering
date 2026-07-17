@@ -1,45 +1,51 @@
-# Awesome Loop Engineering v0.6.0
+# Awesome Loop Engineering v0.7.0
 
-Awesome Loop Engineering v0.6.0 turns the project into a source-audited field guide, implementation kit, and structured dataset for recurring AI-agent systems.
+Awesome Loop Engineering v0.7.0 turns the implementation kit into a clear path from a recurring problem to a validated contract and a working runtime starter.
 
-The collection maps 540 sources across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
+The collection now maps 545 sources across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
 
 ## What Is Included
 
-- 540 source-audited resources linked to canonical works
-- 15 operational patterns and a symptom-first comparison matrix
-- 15 schema-validated loop contracts
-- 6 runnable templates for local, scheduled, CI, and hosted execution
+- 545 source-audited resources linked to canonical works
+- 20 operational patterns organized by build, operate, optimize, and govern use cases
+- 20 schema-validated loop contracts, one for every pattern
+- 8 runtime starters: 3 dependency-light executables and 5 copy/paste runtime templates
 - an interactive Resource Atlas for filtering by goal, lifecycle stage, artifact type, and evidence class
 - CSV and JSONL exports mirrored as a Hugging Face dataset
 - 8 language entry points
 
-## What Changed Since v0.5.0
+## What Changed Since v0.6.0
 
-- Expanded the source-audited library from 509 to 540 resources.
-- Rechecked every row against its canonical source: 493 public sources were reachable, 4 were access-restricted, 43 are repository-native, and none were broken or unreachable in the 2026-07-17 audit.
-- Added an explicit trust and provenance layer covering editorial responsibility, automated assistance, source metadata, corrections, licensing, and versioning.
-- Replaced the full 540-row Hugging Face README mirror with a focused dataset card containing load examples, intended uses, provenance, and limitations while retaining the full repository and data files.
-- Added consistency gates so README, website, translations, launch copy, social-preview source, release metadata, and generated datasets cannot silently drift to different counts.
-- Deferred the 1 MB Resource Atlas index until readers approach it and removed scroll-hidden content so deep links, printing, screenshots, and accessibility tooling see a stable document.
-- Corrected the pull-request template to require the original publishing venue and primary-source metadata rather than this repository's name.
-- Added a dedicated annotation-correction flow and explicit ownership routing for reviews.
+- Added five distinct operational patterns: benchmark optimization, accessibility regression, knowledge freshness, performance regression, and authorized adversarial red teaming.
+- Added a schema-valid contract and worked scenario for every new pattern.
+- Reorganized the pattern library into four operating domains with a symptom, verified outcome, and guidance for choosing between similar loops.
+- Rebuilt the contract catalog around the questions implementers actually need: when to use a loop, what triggers it, which deterministic gate decides done, and what receipt survives.
+- Added four end-to-end worked paths for CI repair, knowledge refresh, queue processing, and read-only threshold monitoring.
+- Added two executable starters: a JSONL queue worker with idempotent state and a read-only threshold monitor with bounded polling and evidence-backed escalation.
+- Clarified that the starter library contains three executables and five copy/paste runtime templates, avoiding an unsupported claim that every artifact is a standalone program.
+- Updated the website, social preview, translations, release metadata, and Hugging Face dataset to the same counts.
 
 ## Why This Matters
 
-Prompt engineering shapes the instruction. Context engineering shapes what the model can see. Harness engineering shapes one run's tools, permissions, isolation, and checks.
+A resource list explains what exists. An implementation kit should also help a reader act.
 
-Loop Engineering asks the operating question across runs: what starts the system, where work enters, who acts, what evidence gates results, what state survives, and when does the system repeat, report, escalate, or stop?
+The v0.7.0 path is explicit:
 
-The goal is bounded, reviewable, evidence-driven repetition, not unlimited autonomy.
+1. Name the recurring problem.
+1. Choose an operational pattern.
+1. Adapt its validated contract.
+1. Select a runtime starter.
+1. Let external evidence, durable state, a hard budget, and human escalation govern the loop.
+
+The goal remains bounded, reviewable, evidence-driven repetition, not unlimited autonomy.
 
 ## Explore And Reuse
 
 - [Explore the Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/#resources)
+- [Choose an operational pattern](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/README.md)
+- [Adapt a validated contract](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md)
+- [Run a starter](https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples/runnable)
 - [Use the Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)
-- [Browse patterns and contracts](https://github.com/ChaoYue0307/awesome-loop-engineering#pattern-library)
-- [Run a template](https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples/runnable)
-- [Review the curation standard](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md)
 - [Contribute a source or correction](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md)
 
 Corrections are especially valuable. If a summary is inaccurate or a stronger canonical source exists, use the annotation-correction form or open a pull request.

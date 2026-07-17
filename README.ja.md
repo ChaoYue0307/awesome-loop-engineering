@@ -28,7 +28,7 @@ Loop は作業を発見し、1 つ以上の agents に委任し、結果を確�
 
 このリポジトリは AI agents / coding agents における新しい意味の Loop Engineering に限定しています。software event loop、制御理論、growth loop、一般的な workflow automation、非 AI の feedback loop は対象外です。
 
-540 件の精選リソースに加えて、本リポジトリは 15 個の loop パターン、各パターンに対応する schema 検証済み loop contract、6 個の実行可能な loop テンプレート、コミュニティ gallery、8 言語を提供します。
+545 件の精選リソースに加えて、本リポジトリは 20 個の loop パターン、各パターンに対応する schema 検証済み loop contract、8 個の runtime starter（3 個の実行ファイルと 5 個の適応可能なテンプレート）、コミュニティ gallery、8 言語を提供します。
 
 ## メンタルモデル
 

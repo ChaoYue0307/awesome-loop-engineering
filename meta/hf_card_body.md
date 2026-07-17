@@ -26,7 +26,7 @@ Current release: **v{{VERSION}}**
 | Source-audited resources | {{RESOURCE_COUNT}} |
 | Operational patterns | {{PATTERN_COUNT}} |
 | Validated loop contracts | {{CONTRACT_COUNT}} |
-| Runnable templates | {{RUNNABLE_COUNT}} |
+| Runtime starters | {{RUNNABLE_COUNT}} |
 
 The source audit dated **{{AUDIT_DATE}}** found {{REACHABLE_COUNT}} reachable public sources, {{RESTRICTED_COUNT}} access-restricted sources, {{LOCAL_COUNT}} repository-native artifacts, and {{BROKEN_COUNT}} broken or unreachable sources.
 
@@ -65,7 +65,7 @@ Use `url` as the durable join key. `row_id` and `source_line` are positional and
 - Compare works by lifecycle, audience, evidence class, source type, and publication metadata.
 - Build literature maps, reading lists, dashboards, or retrieval indexes.
 - Audit contribution, novelty, impact, provenance, and evidence claims.
-- Find reusable patterns, contracts, schemas, and runnable examples.
+- Find reusable patterns, contracts, schemas, executable examples, and copy/paste runtime templates.
 
 Do not use `signal_strength`, GitHub stars, forks, or inclusion in this collection as a quality label, endorsement, or automated ranking of scientific validity.
 

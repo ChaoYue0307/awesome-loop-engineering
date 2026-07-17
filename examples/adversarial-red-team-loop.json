@@ -1,0 +1,60 @@
+{
+  "name": "Adversarial red-team loop",
+  "objective": "Discover and confirm agent-system failures inside an authorized threat model with reproducible evidence and safe disclosure.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "A bounded pre-release campaign runs after a model, tool, permission, or policy change."
+  },
+  "intake": {
+    "sources": ["target version", "written threat model", "allowed attack classes", "regression corpus", "known findings", "disclosure contacts"],
+    "selection_rule": "Probe one uncovered, in-scope attack class at a time using synthetic data and a sandboxed target."
+  },
+  "workspace": {
+    "isolation": "Sandboxed target with synthetic accounts, fake credentials, network boundaries, and rate limits.",
+    "allowed_actions": ["generate in-scope probes", "run against the sandbox", "reproduce and minimize traces", "write private finding reports"],
+    "disallowed_actions": ["test production", "use real user data", "exfiltrate data", "persist access", "publish unpatched findings"]
+  },
+  "context": {
+    "required_files": ["threat model", "safety policy", "tool permission map", "disclosure procedure"],
+    "runtime_sources": ["target configuration", "probe and seed", "full agent trace", "tool calls", "regression results"]
+  },
+  "agents": [
+    {
+      "role": "Attacker",
+      "responsibility": "Generate and adapt probes inside the written scope and budget."
+    },
+    {
+      "role": "Reproducer",
+      "responsibility": "Confirm candidate failures independently in a clean sandbox."
+    },
+    {
+      "role": "Minimizer",
+      "responsibility": "Reduce confirmed behavior to the smallest safe, reliable test case."
+    },
+    {
+      "role": "Judge",
+      "responsibility": "Classify confirmed, duplicate, expected, or inconclusive behavior against the written policy."
+    }
+  ],
+  "verification": {
+    "gates": ["behavior reproduces on the recorded target version", "finding cites a violated policy or boundary", "a separate judge confirms the result", "minimized test contains no real secrets or user data", "duplicate and severity review are complete"],
+    "receipts": ["target version and environment", "seed and probe", "full and minimized traces", "reproduction count", "policy citation", "severity and disclosure status"]
+  },
+  "state": {
+    "artifacts": ["private campaign ledger", "confirmed finding report", "regression corpus entry"],
+    "update_rule": "Record every candidate with target version, trace, reproduction status, classification, duplicate link, severity rationale, and disclosure owner."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 120
+  },
+  "escalation": {
+    "conditions": ["critical behavior is confirmed", "production impact is possible", "scope is ambiguous", "containment is unsafe", "real data may be exposed"],
+    "destination": "Security owner through the private disclosure channel"
+  },
+  "exit": {
+    "success": "A campaign completes with every confirmed failure reproduced, minimized, privately reported, and added to the regression corpus.",
+    "stop_without_success": "Budget is exhausted, the target is unstable, scope becomes ambiguous, a rate limit is reached, or human intervention is required."
+  }
+}
+

@@ -4,12 +4,12 @@ Use this checklist after major updates or releases. Optimize for qualified disco
 
 ## Current Launch Status
 
-Status as of 2026-07-17:
+Status as of 2026-07-18:
 
 | Surface | Status | Evidence / next action |
 | --- | --- | --- |
-| GitHub release | Complete | [`v0.6.0`](https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.6.0) describes 540 resources, the public provenance standard, the focused dataset card, and the cross-surface consistency gates. |
-| Release announcement | Ready | Publish the v0.6.0 summary from [`posts/launch.md`](../posts/launch.md); [Discussion #9](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9) remains the low-noise release and contributor feed. |
+| GitHub release | Complete | [`v0.7.0`](https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.7.0) packages 545 resources, 20 patterns and contracts, and 8 runtime starters. |
+| Release announcement | Ready | Publish the v0.7.0 summary from [`posts/launch.md`](../posts/launch.md); [Discussion #9](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9) remains the low-noise release and contributor feed. |
 | GitHub Explore topic | Complete | [`github/explore#5209`](https://github.com/github/explore/pull/5209) merged the `loop-engineering` topic page. |
 | Canonical Awesome directory | Policy objection | [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open and lint passes, but the owner stated that AI-generated lists are not accepted. Do not treat further visual polish as a path around that policy or misrepresent automated assistance. |
 | Adjacent harness directory | In review | [`ai-boost/awesome-harness-engineering#131`](https://github.com/ai-boost/awesome-harness-engineering/pull/131) transparently proposes the project for the list's Related Awesome Lists section. |
@@ -33,7 +33,7 @@ The Hugging Face dataset [`datasets/cy0307/awesome-loop-engineering`](https://hu
 
 - The mirror tracks the full GitHub tree (docs, patterns, examples, schema, scripts).
 - The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the canonical English `README.md` by `scripts/export_resource_dataset.py`.
-- The HF copy of `README.md` is a focused dataset card generated from `meta/hf_card_header.yaml` and `meta/hf_card_body.md` by `scripts/build_hf_card.py`. It documents intended uses, provenance, limitations, loading examples, and the current audit snapshot without duplicating the 540-row GitHub README.
+- The HF copy of `README.md` is a focused dataset card generated from `meta/hf_card_header.yaml` and `meta/hf_card_body.md` by `scripts/build_hf_card.py`. It documents intended uses, provenance, limitations, loading examples, and the current audit snapshot without duplicating the 545-row GitHub README.
 - The YAML header is **HF-only**: it must never be added to the GitHub `README.md`, because the metadata list items break `awesome-lint`.
 - Sync uses `python3 scripts/build_hf_card.py --output <staging>/README.md` followed by `hf upload --type dataset` against a staging copy. The token lives in the local Hugging Face cache; no token is committed.
 
@@ -46,11 +46,11 @@ Use GitHub-native discovery in this order.
 - **Editorial submissions to adjacent lists** this repo already cites (harness, context, and agent-paper lists). Submit only where the maintainers explicitly accept related resources. Ready-to-paste entry:
 
   ```md
-  - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Source-audited resources, reusable patterns, validated contracts, and runnable templates for recurring AI-agent systems.
+  - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Source-audited resources, reusable patterns, validated contracts, and runtime starters for recurring AI-agent systems.
   ```
 
 - **Pin the repository** on your profile, and add it to your profile README (profile-level promotion).
-- **About description.** Keep this concise proof-point copy aligned with the README and project site: `🔁 540 source-audited resources • 15 patterns • 15 validated contracts • 6 runnable templates • interactive atlas + dataset for recurring, stateful, verified AI-agent systems.`
+- **About description.** Keep this concise proof-point copy aligned with the README and project site: `🔁 545 source-audited resources • 20 patterns • 20 validated contracts • 8 runtime starters • interactive atlas + dataset for recurring, stateful, verified AI-agent systems.`
 - **Custom social preview** (repo Settings, Social preview) so shared links lead with the same four durable proof points. This is UI-only; it cannot be set through the API.
 - **Releases and Discussions** provide a lower-noise subscription path. Recommend `Watch -> Custom -> Releases and Discussions`; do not ask readers to watch every repository event.
 
@@ -91,7 +91,7 @@ Use the canonical [English launch article](../posts/launch.md) or [Chinese launc
 ### Short Post
 
 ```text
-🔁 Awesome Loop Engineering v0.6.0 is live: 540 source-audited resources, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset.
+🔁 Awesome Loop Engineering v0.7.0 is live: 545 source-audited resources, 20 operational patterns, 20 validated contracts, and 8 runtime starters for recurring AI-agent systems.
 
 🧭 Explore:
 https://chaoyue0307.github.io/awesome-loop-engineering/
@@ -102,16 +102,16 @@ https://chaoyue0307.github.io/awesome-loop-engineering/
 ### Longer Post
 
 ```text
-Awesome Loop Engineering v0.6.0 is live.
+Awesome Loop Engineering v0.7.0 is live.
 
 Loop Engineering governs what happens across agent runs: how work enters, agents act, evidence decides, state survives, and the system continues.
 
 The release includes:
 
-- 540 source-audited resources
+- 545 source-audited resources
 - an interactive Resource Atlas
-- 15 operational patterns and 15 validated loop contracts
-- 6 runnable templates
+- 20 operational patterns and 20 validated loop contracts
+- 8 runtime starters: 3 executables and 5 copy/paste templates
 - CSV and JSONL exports mirrored to Hugging Face
 - a public provenance standard and point-in-time source audit
 
@@ -124,11 +124,11 @@ https://github.com/ChaoYue0307/awesome-loop-engineering
 Use a regular submission, not Show HN.
 
 ```text
-Title: Awesome Loop Engineering: 540 resources for recurring AI-agent systems
+Title: Awesome Loop Engineering: 545 resources and 20 loop patterns for recurring AI-agent systems
 
 I have been mapping recurring AI-agent systems: how work enters, agents act, evidence gates results, state survives, and the system retries, escalates, or exits.
 
-The repository includes 540 source-audited works, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset. The curation and audit methods are public; corrections to the taxonomy and annotations are especially welcome.
+The repository includes 545 source-audited works, 20 operational patterns, 20 validated contracts, 8 runtime starters, an interactive Resource Atlas, and a structured Hugging Face dataset. The curation and audit methods are public; corrections to the taxonomy and annotations are especially welcome.
 
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```
@@ -160,7 +160,7 @@ Use [`OUTREACH.md`](OUTREACH.md) for wording.
 - Direct Loop Engineering article authors.
 - Agent runtime maintainers with scheduling, goals, hooks, worktrees, skills, plugins, or subagents.
 - Benchmark maintainers for long-horizon coding agents.
-- Builders who can contribute real PR babysitting, CI repair, docs drift, deploy verification, or feedback clustering loops.
+- Builders who can contribute real PR babysitting, CI repair, docs drift, deploy verification, benchmark optimization, knowledge freshness, or feedback clustering loops.
 
 ## Awesome List Submission
 

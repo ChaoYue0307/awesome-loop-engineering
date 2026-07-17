@@ -1,0 +1,60 @@
+{
+  "name": "Performance regression loop",
+  "objective": "Turn a reproducible performance regression into a profiled, narrow fix that restores the budget without weakening correctness.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "A benchmark or service-level metric regresses beyond the declared noise tolerance."
+  },
+  "intake": {
+    "sources": ["baseline and candidate commits", "pinned workload", "environment fingerprint", "profiles and telemetry", "correctness suite"],
+    "selection_rule": "Investigate only a regression reproducible under the pinned workload and controlled environment."
+  },
+  "workspace": {
+    "isolation": "Clean worktree on fixed benchmark hardware or a controlled runner.",
+    "allowed_actions": ["run profiles", "run repeated benchmarks", "edit the measured bottleneck", "add focused performance tests"],
+    "disallowed_actions": ["edit the benchmark workload", "reduce sample count", "disable correctness tests", "change production systems"]
+  },
+  "context": {
+    "required_files": ["benchmark specification", "correctness suite configuration", "performance budget", "environment lockfile"],
+    "runtime_sources": ["baseline measurement distribution", "candidate measurements", "profile", "service telemetry sample"]
+  },
+  "agents": [
+    {
+      "role": "Reproducer",
+      "responsibility": "Confirm the regression under the frozen workload and environment."
+    },
+    {
+      "role": "Profiler",
+      "responsibility": "Localize time, allocation, I/O, or contention hotspots before edits."
+    },
+    {
+      "role": "Implementer",
+      "responsibility": "Apply one evidence-backed change to the measured bottleneck."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Run correctness and compare repeated performance distributions and protected metrics."
+    }
+  ],
+  "verification": {
+    "gates": ["correctness and safety checks pass unchanged", "baseline and candidate share workload and environment fingerprint", "change exceeds noise tolerance", "tail latency memory throughput and cost remain within protected budgets"],
+    "receipts": ["environment fingerprint", "raw baseline and candidate measurements", "profile", "commands", "candidate diff", "accept or reject decision"]
+  },
+  "state": {
+    "artifacts": ["performance investigation ledger", "profile artifact", "measurement bundle"],
+    "update_rule": "Record workload, environment, samples, profile, hypothesis, diff, protected metrics, and decision for every candidate."
+  },
+  "budget": {
+    "max_retries": 3,
+    "max_runtime_minutes": 180
+  },
+  "escalation": {
+    "conditions": ["regression is production-only", "benchmark environment is unstable", "fix trades correctness for speed", "architectural or capacity decision is required"],
+    "destination": "Performance owner or service architect"
+  },
+  "exit": {
+    "success": "The target performance budget is restored reproducibly with correctness and protected metrics intact.",
+    "stop_without_success": "The regression cannot be reproduced, measurements are too noisy, budget is exhausted, or an architectural decision is required."
+  }
+}
+

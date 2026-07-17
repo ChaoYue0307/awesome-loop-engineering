@@ -1,0 +1,60 @@
+{
+  "name": "Knowledge freshness loop",
+  "objective": "Keep an agent retrieval corpus current, attributable, policy-compliant, and measurably useful before atomic promotion.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Daily refresh of changed or expired sources in the approved registry."
+  },
+  "intake": {
+    "sources": ["approved source registry", "last accepted manifest", "changed documents", "retrieval evaluation set", "access and retention policy"],
+    "selection_rule": "Fetch only approved sources whose checksum changed, freshness window expired, or deletion status changed."
+  },
+  "workspace": {
+    "isolation": "Versioned candidate corpus and index separate from production.",
+    "allowed_actions": ["fetch approved sources", "parse and deduplicate content", "build a candidate index", "run retrieval and leakage evaluations", "write a promotion receipt"],
+    "disallowed_actions": ["add unapproved domains", "change source access policy", "write directly to production", "retain revoked content"]
+  },
+  "context": {
+    "required_files": ["source registry", "freshness policy", "data classification policy", "retrieval evaluation set"],
+    "runtime_sources": ["source checksums", "fetch and parse logs", "candidate manifest", "retrieval and grounded-answer metrics"]
+  },
+  "agents": [
+    {
+      "role": "Source monitor",
+      "responsibility": "Detect additions, changes, removals, and expired freshness windows."
+    },
+    {
+      "role": "Curator",
+      "responsibility": "Resolve authority, scope, duplicates, metadata, and quarantine decisions."
+    },
+    {
+      "role": "Indexer",
+      "responsibility": "Build a versioned candidate corpus and retrieval index."
+    },
+    {
+      "role": "Evaluator",
+      "responsibility": "Gate freshness, provenance, retrieval quality, grounded answers, and sensitive-data leakage."
+    }
+  ],
+  "verification": {
+    "gates": ["every item maps to an approved canonical source", "required sources meet freshness windows and removals are tombstoned", "retrieval and grounded-answer quality meet baseline", "sensitive or revoked content is absent", "promotion is atomic and reversible"],
+    "receipts": ["source manifest diff", "checksums and fetch times", "parser and index versions", "evaluation results", "promotion or quarantine decision"]
+  },
+  "state": {
+    "artifacts": ["accepted source manifest", "versioned index", "tombstone ledger", "refresh receipt", "rollback pointer"],
+    "update_rule": "Persist provenance, access class, checksum, parser version, evaluation results, exceptions, and promotion status for every changed source."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 120
+  },
+  "escalation": {
+    "conditions": ["authoritative sources conflict", "access policy changes", "sensitive data is detected", "parser corruption affects coverage", "freshness and retrieval quality trade off"],
+    "destination": "Knowledge owner, data steward, or security reviewer"
+  },
+  "exit": {
+    "success": "The versioned candidate passes provenance, freshness, policy, and retrieval gates and is promoted atomically.",
+    "stop_without_success": "No sources changed, a hard gate fails, the budget is exhausted, or owner judgment is required."
+  }
+}
+

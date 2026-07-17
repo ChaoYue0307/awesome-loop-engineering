@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Awesome Loop Engineering</title>
-    <meta name="description" content="540 source-audited resources, 15 patterns, 15 validated contracts, and 6 runnable templates for recurring, stateful, verified AI-agent systems.">
+    <meta name="description" content="545 source-audited resources, 20 patterns, 20 validated contracts, and 8 runtime starters for recurring, stateful, verified AI-agent systems.">
     <meta name="robots" content="index,follow">
     <meta name="author" content="Chaoyue He">
     <link rel="canonical" href="https://chaoyue0307.github.io/awesome-loop-engineering/">
@@ -15,16 +15,16 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Awesome Loop Engineering">
-    <meta property="og:description" content="540 source-audited resources, 15 patterns, 15 validated contracts, and 6 runnable templates for recurring, stateful, verified AI-agent systems.">
+    <meta property="og:description" content="545 source-audited resources, 20 patterns, 20 validated contracts, and 8 runtime starters for recurring, stateful, verified AI-agent systems.">
     <meta property="og:url" content="https://chaoyue0307.github.io/awesome-loop-engineering/">
-    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-540-v06.png">
+    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-545-v07.png">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="640">
     <meta property="og:image:alt" content="Awesome Loop Engineering: design loops, not just prompts.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Awesome Loop Engineering">
-    <meta name="twitter:description" content="540 source-audited resources, 15 patterns, 15 validated contracts, and 6 runnable templates for recurring, stateful, verified AI-agent systems.">
-    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-540-v06.png">
+    <meta name="twitter:description" content="545 source-audited resources, 20 patterns, 20 validated contracts, and 8 runtime starters for recurring, stateful, verified AI-agent systems.">
+    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-545-v07.png">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering releases" href="https://github.com/ChaoYue0307/awesome-loop-engineering/releases.atom">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering commits" href="https://github.com/ChaoYue0307/awesome-loop-engineering/commits/main.atom">
     <style>
@@ -468,6 +468,17 @@
 
       .card { display: block; color: var(--ink); text-decoration: none; }
       a.card:hover { color: var(--blue); border-color: var(--blue); text-decoration: none; }
+      .runtime-kind {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--blue);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.64rem;
+        font-weight: 650;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+      .runtime-kind.executable { color: var(--green); }
       code {
         border: 1px solid var(--line);
         border-radius: 4px;
@@ -602,6 +613,11 @@
       .copy { position: absolute; top: 8px; right: 8px; border: 1px solid var(--line-strong); border-radius: 4px; padding: 4px 9px; background: var(--surface); color: var(--ink); font-size: 0.72rem; font-weight: 700; cursor: pointer; }
       .legal { margin: 30px 0 0; color: var(--quiet); font-size: 0.8rem; }
 
+      @media (min-width: 1041px) {
+        #runtimes .link-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        #runtimes .card { padding-left: 22px; }
+        #runtimes .card:nth-child(4n+1) { padding-left: 0; }
+      }
       @media (max-width: 1040px) {
         .links { display: none; }
         .menu-btn { display: inline-flex; }
@@ -943,7 +959,7 @@
           "https://huggingface.co/datasets/cy0307/awesome-loop-engineering"
         ],
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-540-v06.png",
+        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-545-v07.png",
         "logo": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/awesome-loop-engineering-logo.png",
         "author": { "@type": "Person", "name": "Chaoyue He" }
       }
@@ -993,7 +1009,7 @@
           "https://github.com/ChaoYue0307/awesome-loop-engineering"
         ],
         "identifier": "https://huggingface.co/datasets/cy0307/awesome-loop-engineering",
-        "version": "0.6.0",
+        "version": "0.7.0",
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
         "isAccessibleForFree": true,
         "creator": { "@type": "Person", "name": "Chaoyue He" },
@@ -1060,7 +1076,7 @@
             <p class="section-label hero-kicker"><i class="icon" data-lucide="repeat-2" aria-hidden="true"></i><span>Field guide for recurring agent systems</span></p>
             <h1>Awesome Loop Engineering</h1>
             <p class="tagline">Design loops, not just prompts.</p>
-            <p class="lead">540 source-audited resources, 15 operational patterns, 15 validated contracts, and 6 runnable templates for agent systems that must keep working.</p>
+            <p class="lead">545 source-audited resources, 20 operational patterns, 20 validated contracts, and 8 runtime starters for agent systems that must keep working.</p>
             <div class="actions">
               <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme"><i class="icon" data-lucide="book-open" aria-hidden="true"></i>Explore the list</a>
               <a class="button" href="#choose"><i class="icon" data-lucide="compass" aria-hidden="true"></i>Choose a loop</a>
@@ -1117,10 +1133,10 @@
             </div>
           </figure>
           <div class="stats" role="list" aria-label="Repository at a glance">
-            <div class="stat" role="listitem"><b><i class="icon" data-lucide="library" aria-hidden="true"></i>540</b><span>audited resources</span></div>
-            <div class="stat" role="listitem"><b><i class="icon" data-lucide="blocks" aria-hidden="true"></i>15</b><span>operational patterns</span></div>
-            <div class="stat" role="listitem"><b><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i>15</b><span>loop contracts</span></div>
-            <div class="stat" role="listitem"><b><i class="icon" data-lucide="play" aria-hidden="true"></i>6</b><span>runnable templates</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="library" aria-hidden="true"></i>545</b><span>audited resources</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="blocks" aria-hidden="true"></i>20</b><span>operational patterns</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i>20</b><span>loop contracts</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="play" aria-hidden="true"></i>8</b><span>runtime starters</span></div>
             <div class="stat" role="listitem"><b><i class="icon" data-lucide="languages" aria-hidden="true"></i>8</b><span>languages</span></div>
           </div>
         </div>
@@ -1133,7 +1149,7 @@
               <p class="section-label"><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i><span>01 / The loop contract</span></p>
               <h2>Every reliable loop names the same parts.</h2>
             </div>
-            <p class="section-intro">A loop contract makes triggers, permissions, verification, state, budgets, and human handoff reviewable. Start with the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json">JSON schema</a> or one of <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">15 validated examples</a>.</p>
+            <p class="section-intro">A loop contract makes triggers, permissions, verification, state, budgets, and human handoff reviewable. Start with the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json">JSON schema</a> or one of <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">20 validated examples</a>.</p>
           </div>
           <figure class="diagram desktop-diagram">
             <div class="diagram-scroll"><img src="assets/loop-contract-cards.svg" width="1200" height="720" loading="lazy" alt="Loop Contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, exit, and next action."></div>
@@ -1214,7 +1230,7 @@
               <p class="section-label"><i class="icon" data-lucide="blocks" aria-hidden="true"></i><span>03 / Pattern library</span></p>
               <h2>Start from the problem you have.</h2>
             </div>
-            <p class="section-intro">Each pattern includes a trigger, verification gate, durable state, budget, and escalation path. Compare all 15 in the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">pattern matrix</a>.</p>
+            <p class="section-intro">Choose from 20 build, operate, optimize, and govern patterns. Each includes a trigger, evidence gate, durable state, budget, escalation path, worked scenario, and validated contract.</p>
           </div>
           <div class="filter-row">
             <input type="search" id="pattern-filter" class="pattern-filter" placeholder="Filter patterns by keyword..." aria-label="Filter patterns by keyword" autocomplete="off">
@@ -1236,6 +1252,11 @@
             <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/data-quality-loop.md"><span class="sym">"A dataset keeps drifting"</span><span class="name">Data-quality loop</span></a>
             <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/release-note-loop.md"><span class="sym">"Release notes are a chore"</span><span class="name">Release-note loop</span></a>
             <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/model-routing-loop.md"><span class="sym">"Model choice is ad hoc"</span><span class="name">Model-routing loop</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/benchmark-optimization-loop.md"><span class="sym">"A stable system should improve"</span><span class="name">Benchmark optimization</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/knowledge-freshness-loop.md"><span class="sym">"The agent's knowledge is stale"</span><span class="name">Knowledge freshness</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/performance-regression-loop.md"><span class="sym">"Performance regressed"</span><span class="name">Performance regression</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/accessibility-regression-loop.md"><span class="sym">"Accessibility checks failed"</span><span class="name">Accessibility regression</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/adversarial-red-team-loop.md"><span class="sym">"The agent needs adversarial testing"</span><span class="name">Adversarial red team</span></a>
           </div>
         </div>
       </section>
@@ -1247,19 +1268,21 @@
               <p class="section-label"><i class="icon" data-lucide="wrench" aria-hidden="true"></i><span>04 / Where loops run</span></p>
               <h2>Pick the runtime deliberately.</h2>
             </div>
-            <p class="section-intro">The same contract can run in a session, on a schedule, in CI, or through a durable worker. The <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/RUNTIME_SELECTION.md">runtime selection guide</a> compares persistence, file access, isolation, and permissions.</p>
+            <p class="section-intro">Five adaptable templates cover sessions, schedules, worktrees, Actions, and cron. Three executables demonstrate test repair, threshold monitoring, and idempotent queue work. The <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/RUNTIME_SELECTION.md">runtime selection guide</a> compares persistence, file access, isolation, and permissions.</p>
           </div>
           <figure class="diagram supporting-visual">
             <div class="diagram-scroll"><img src="assets/loop-runtime-map.png" width="1666" height="944" loading="lazy" alt="Runtime map progressing from a nearby session to a local desktop schedule, isolated CI and cloud execution, and a recoverable durable worker."></div>
             <figcaption class="caption">Keep the contract stable; change the trigger, isolation, and permission wiring.</figcaption>
           </figure>
           <div class="link-grid">
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><h3><i class="icon" data-lucide="keyboard" aria-hidden="true"></i>Claude Code <code>/loop</code></h3><p>Session-scoped recurring work while you are nearby.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><h3><i class="icon" data-lucide="clock-3" aria-hidden="true"></i>Desktop scheduled task</h3><p>Local recurring runs with file access and missed-run guardrails.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/codex-automation.md"><h3><i class="icon" data-lucide="bot" aria-hidden="true"></i>Codex automation</h3><p>Unattended background work in an isolated worktree.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>GitHub agentic workflow</h3><p>Scheduled or event-triggered work in GitHub Actions.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><h3><i class="icon" data-lucide="terminal" aria-hidden="true"></i>Shell / cron</h3><p>A minimal wrapper that delegates to an agent CLI and records receipts.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><h3><i class="icon" data-lucide="play" aria-hidden="true"></i>Runnable reference</h3><p>A dependency-light test-repair loop you can run today.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><span class="runtime-kind">Adaptable template</span><h3><i class="icon" data-lucide="keyboard" aria-hidden="true"></i>Claude Code <code>/loop</code></h3><p>Use while present in a coding session; repeat a bounded command and keep progress in a file.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><span class="runtime-kind">Adaptable template</span><h3><i class="icon" data-lucide="clock-3" aria-hidden="true"></i>Desktop scheduled task</h3><p>Use when local files need a schedule, a last-run marker, and missed-run guardrails.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/codex-automation.md"><span class="runtime-kind">Adaptable template</span><h3><i class="icon" data-lucide="bot" aria-hidden="true"></i>Codex automation</h3><p>Use for isolated background repository work with declared checks and reviewable receipts.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><span class="runtime-kind">Adaptable template</span><h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>GitHub agentic workflow</h3><p>Use when GitHub events or cron should produce issues, artifacts, or pull requests.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><span class="runtime-kind">Adaptable template</span><h3><i class="icon" data-lucide="terminal" aria-hidden="true"></i>Shell / cron</h3><p>Use when an existing agent CLI only needs OS scheduling, locks, and a progress file.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="play" aria-hidden="true"></i>Test repair</h3><p>Run a failing command, delegate its evidence, and stop only when that same external check passes.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/threshold-monitor-loop.sh"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="activity" aria-hidden="true"></i>Threshold monitor</h3><p>Poll a metric, persist samples, and escalate on a breached boundary without auto-remediation.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/queue-worker-loop.py"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="list-checks" aria-hidden="true"></i>Queue worker</h3><p>Process bounded JSONL work items with external verification and durable receipts.</p></a>
           </div>
         </div>
       </section>
@@ -1296,9 +1319,9 @@
               <p class="section-label"><i class="icon" data-lucide="library" aria-hidden="true"></i><span>06 / Resource atlas</span></p>
               <h2>Find evidence, not just links.</h2>
             </div>
-            <p class="section-intro">Filter 540 source-audited works by goal, lifecycle, artifact type, and evidence class. Open any result for contribution, novelty, impact, provenance, and source metadata.</p>
+            <p class="section-intro">Filter 545 source-audited works by goal, lifecycle, artifact type, and evidence class. Open any result for contribution, novelty, impact, provenance, and source metadata.</p>
           </div>
-          <p class="audit-note"><strong>Audit snapshot, 2026-07-17:</strong> all 540 rows checked; 493 public sources reachable, 4 access-restricted, 43 repository-native, and 0 broken or unreachable. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Inspect the audit</a> or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">report a correction</a>.</p>
+          <p class="audit-note"><strong>Audit snapshot, 2026-07-17 UTC:</strong> all 545 rows checked; 496 public sources reachable, 1 access-restricted, 48 repository-native, and 0 broken or unreachable. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Inspect the audit</a> or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">report a correction</a>.</p>
           <div class="resource-explorer" id="resource-explorer">
             <div class="resource-toolbar" role="search" aria-label="Search resources">
               <label>
@@ -1457,7 +1480,7 @@
   title        = {Awesome Loop Engineering},
   year         = {2026},
   howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}},
-  note         = {Version 0.6.0}
+  note         = {Version 0.7.0}
 }</pre>
             </div>
           </div>
@@ -1850,7 +1873,7 @@
           loading = true;
           explorer.dataset.indexState = 'loading';
           list.setAttribute('aria-busy', 'true');
-          count.textContent = 'Loading 540 audited resources...';
+          count.textContent = 'Loading 545 audited resources...';
           list.replaceChildren(createText('p', 'resource-loading', 'Loading audited resources...'));
 
           fetch('assets/resources.json')

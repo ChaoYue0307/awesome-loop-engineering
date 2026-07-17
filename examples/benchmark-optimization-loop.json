@@ -1,0 +1,60 @@
+{
+  "name": "Benchmark optimization loop",
+  "objective": "Improve a measurable system outcome through reproducible experiments without weakening correctness or protected secondary metrics.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "A bounded overnight experiment window starts against a frozen benchmark baseline."
+  },
+  "intake": {
+    "sources": ["baseline artifact and score", "frozen benchmark", "correctness suite", "experiment ledger", "compute budget"],
+    "selection_rule": "Run one falsifiable, non-duplicate candidate change at a time against the last accepted baseline."
+  },
+  "workspace": {
+    "isolation": "Disposable worktree or sandbox per candidate, rooted at the last accepted artifact.",
+    "allowed_actions": ["read prior experiment receipts", "edit the declared optimization surface", "run correctness checks", "run the frozen benchmark"],
+    "disallowed_actions": ["edit scorers", "inspect holdout answers", "weaken correctness gates", "change multiple variables in one candidate"]
+  },
+  "context": {
+    "required_files": ["benchmark specification", "correctness test configuration", "protected metric policy", "experiment ledger"],
+    "runtime_sources": ["environment fingerprint", "baseline score distribution", "candidate measurements", "compute usage"]
+  },
+  "agents": [
+    {
+      "role": "Experiment designer",
+      "responsibility": "Propose one falsifiable change and its expected effect without repeating a rejected hypothesis."
+    },
+    {
+      "role": "Implementer",
+      "responsibility": "Apply only the declared candidate change in an isolated workspace."
+    },
+    {
+      "role": "Verifier",
+      "responsibility": "Run unchanged correctness gates and repeated benchmark measurements."
+    },
+    {
+      "role": "Recorder",
+      "responsibility": "Accept or reject the candidate and persist a reproducible experiment receipt."
+    }
+  ],
+  "verification": {
+    "gates": ["correctness and safety checks pass unchanged", "benchmark version and environment match the baseline", "primary metric improves by the minimum delta across required repeats", "protected secondary metrics remain within tolerance"],
+    "receipts": ["hypothesis", "candidate diff", "commands and environment fingerprint", "raw score distribution", "cost", "accept or reject decision"]
+  },
+  "state": {
+    "artifacts": ["versioned accepted baseline", "experiment ledger", "candidate receipt"],
+    "update_rule": "Append every candidate with its hypothesis, diff, measurements, cost, and decision; only accepted candidates become the next baseline."
+  },
+  "budget": {
+    "max_retries": 5,
+    "max_runtime_minutes": 240
+  },
+  "escalation": {
+    "conditions": ["metric conflicts with observed quality", "benchmark instability exceeds tolerance", "candidate changes the evaluator", "additional permissions or compute are required"],
+    "destination": "Experiment owner or evaluation lead"
+  },
+  "exit": {
+    "success": "The target metric is reached reproducibly while correctness and protected metrics remain within policy.",
+    "stop_without_success": "Budget is exhausted, evidence is unstable, hypotheses repeat, or the next change requires owner judgment."
+  }
+}
+

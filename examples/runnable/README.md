@@ -1,26 +1,29 @@
-# Runnable Loops
+# Runnable Loop Starters
 
-Most of this repository describes loops. This directory contains loops you can run.
+Eight implementation starters connect a loop contract to a runtime. Three are dependency-light executables; five are copy/paste runtime templates with concrete prompts, schedules, permissions, state, and stop conditions.
 
-The scripts are intentionally minimal: bash, coreutils, and whatever agent CLI you already use. They exist to make the [Loop Contract](../../README.md#the-loop-contract) concrete, not to be a framework.
+These are deliberately small. They demonstrate the control loop without hiding permissions, verification, state, or budgets inside a framework.
 
-## Runtime variants
+## Choose A Starter
 
-The same loop shape runs on different runtimes. These templates show the wiring for each; the [runtime selection guide](../../meta/RUNTIME_SELECTION.md) compares persistence, file access, isolation, and permissions so you can choose deliberately.
+| Starter | Form | Best when | Trigger | State | External gate |
+| --- | --- | --- | --- | --- | --- |
+| [`test-repair-loop.sh`](test-repair-loop.sh) | **Executable** Bash | A deterministic command is failing | Manual bootstrap | Markdown progress ledger | Check-command exit code |
+| [`threshold-monitor-loop.sh`](threshold-monitor-loop.sh) | **Executable** Bash | A metric must stay above or below a boundary | Bounded polling cadence | Markdown sample receipts | Numeric threshold comparison |
+| [`queue-worker-loop.py`](queue-worker-loop.py) | **Executable** Python | Independent JSONL work items need bounded processing | Manual or scheduler | JSONL item receipts | Per-item verifier exit code |
+| [Claude Code `/loop`](claude-loop.md) | Copy/paste template | You are present in an open coding session | Session interval | Session + progress file | Project check command |
+| [Claude desktop scheduled task](claude-desktop-scheduled-task.md) | Copy/paste template | Local files need a recurring desktop task | Local schedule | Last-run marker + output | Live source checks |
+| [Codex automation](codex-automation.md) | Copy/paste template | Background work belongs in an isolated worktree | Schedule | Worktree receipts + report | Declared repository checks |
+| [GitHub agentic workflow](github-agentic-workflow.md) | Copy/paste template | Work starts from GitHub events or Actions schedules | Event or cron | Issue, PR, artifact, or cache | Required workflow checks |
+| [Shell / cron](shell-cron-loop.md) | Copy/paste template | An existing agent CLI needs minimal OS scheduling | Cron | Lock + progress file | Script exit code |
 
-- [Claude Code `/loop`](claude-loop.md) - session-scoped recurring task while you are nearby.
-- [Claude Code desktop scheduled task](claude-desktop-scheduled-task.md) - local scheduled runs with file access and missed-run guardrails.
-- [Codex automation](codex-automation.md) - unattended background task in an isolated worktree.
-- [GitHub agentic workflow](github-agentic-workflow.md) - scheduled or event-triggered loop in GitHub Actions.
-- [Shell / cron loop](shell-cron-loop.md) - minimal cron wrapper that delegates to an agent CLI and records receipts.
+Use the [runtime selection guide](../../meta/RUNTIME_SELECTION.md) when persistence, file access, isolation, or permissions determine the choice. Vendor templates describe a portable operating shape, not a guarantee of current product behavior; confirm commands and scheduling semantics in the linked official docs.
 
-Each variant is a portable template, not a guarantee of vendor behavior; confirm product specifics in the linked official docs.
+## Executable 1: Test Repair
 
-## test-repair-loop.sh
+This starter runs a deterministic check, sends only the failing evidence to an agent, and reruns the check until it passes, the evidence stops changing, or the budget expires.
 
-A manual-bootstrap loop that keeps handing failing check output to an agent until the check passes, the budget runs out, or the failure stops changing.
-
-```sh
+```bash
 # Claude Code
 CHECK_CMD="pytest -x" AGENT_CMD="claude -p" ./test-repair-loop.sh
 
@@ -28,32 +31,108 @@ CHECK_CMD="pytest -x" AGENT_CMD="claude -p" ./test-repair-loop.sh
 CHECK_CMD="npm test" AGENT_CMD="codex exec" ./test-repair-loop.sh
 ```
 
-Run it from inside a branch, worktree, or sandbox - the script edits nothing itself, but the agent it delegates to will.
+Run it inside a branch, worktree, or sandbox. The script edits nothing itself, but the delegated agent can.
 
-### How the script maps to the Loop Contract
+| Contract part | Implementation |
+| --- | --- |
+| Objective | Make `CHECK_CMD` pass |
+| Intake | Last `EVIDENCE_LINES` lines of failing output |
+| Verification | `CHECK_CMD` exit code, judged by the script |
+| State | `LOOP_PROGRESS.md` |
+| Budget | `MAX_ITERATIONS`, default 5 |
+| Escalation | Repeated evidence or exhausted budget returns non-zero |
 
-| Contract part | Where it lives in the script                                              |
-| ------------- | ------------------------------------------------------------------------- |
-| Objective     | Make `CHECK_CMD` pass                                                      |
-| Trigger       | Manual bootstrap: you run the script                                       |
-| Intake        | Captured check output, trimmed to the last `EVIDENCE_LINES` lines          |
-| Workspace     | The directory you run it in; isolation is your responsibility              |
-| Delegation    | `AGENT_CMD` receives the evidence and rules as a single prompt             |
-| Verification  | The check command's exit code, judged by the script, never by the agent    |
-| State         | `LOOP_PROGRESS.md` receipts survive iterations and reruns                  |
-| Budget        | `MAX_ITERATIONS` (default 5)                                               |
-| Escalation    | Non-zero exit with a recorded reason                                       |
-| Exit          | Check passes, budget exhausted, or identical failure repeats               |
+## Executable 2: Threshold Monitor
 
-### Design choices worth copying
+This read-only starter samples a command that prints one number. It records each sample and exits on the first boundary breach. An optional agent can diagnose the evidence, but the script never remediates.
 
-- **The maker does not check its own work.** The agent never decides the loop is done; the deterministic check command does. This is the separation of maker and checker from the [Loop Design Checklist](../../README.md#loop-design-checklist).
-- **Stop when evidence stops changing.** Hashing the failure output and exiting when two consecutive iterations look identical prevents the most common waste mode: burning budget re-attempting the same dead end.
-- **State lives outside the model.** Each iteration appends receipts to a progress file, and the prompt tells the agent to read it, so iteration 4 knows what iterations 1-3 tried even though each agent call starts cold.
-- **Budgets are not optional.** An unattended loop without a hard iteration cap is an incident waiting to happen.
+```bash
+PROBE_CMD="./scripts/p95_latency_ms.sh" \
+THRESHOLD=250 \
+DIRECTION=max \
+MAX_SAMPLES=12 \
+INTERVAL_SECONDS=300 \
+AGENT_CMD="codex exec" \
+./threshold-monitor-loop.sh
+```
 
-### Adapting it
+Set `DIRECTION=max` when values above the threshold are bad, such as latency or spend. Set `DIRECTION=min` when values below it are bad, such as pass rate or availability.
 
-- Swap `CHECK_CMD` for any deterministic gate: a typecheck, a linter, a schema validator, an eval suite with a threshold.
-- Swap the manual trigger for a scheduler (cron, CI schedule, Claude Code scheduled tasks, Codex automations) to climb from Level 1 to Level 2 on the [Loop Maturity Model](../../README.md#loop-maturity-model).
-- Tighten the agent's permissions with your runtime's flags (allowed tools, sandbox mode, read-only paths) before running it unattended - see [Securing Unattended Loops](../../README.md#securing-unattended-loops).
+| Contract part | Implementation |
+| --- | --- |
+| Objective | Keep a measured signal inside its declared boundary |
+| Intake | Numeric final line from `PROBE_CMD` |
+| Verification | `awk` compares the value with `THRESHOLD` |
+| State | `MONITOR_PROGRESS.md` |
+| Budget | `MAX_SAMPLES` and `INTERVAL_SECONDS` |
+| Escalation | Probe error or first threshold breach |
+
+## Executable 3: Queue Worker
+
+This starter reads JSONL work items, skips IDs already marked complete, delegates one item at a time, runs an external verifier, and persists every attempt.
+
+Minimum queue row:
+
+```json
+{"id":"docs-101","objective":"Update the CLI install example","allowed_paths":["README.md"],"verification":"python3 scripts/check_docs.py"}
+```
+
+Validate before invoking an agent:
+
+```bash
+python3 queue-worker-loop.py --queue tasks.jsonl --dry-run
+```
+
+Process a bounded batch:
+
+```bash
+python3 queue-worker-loop.py \
+  --queue tasks.jsonl \
+  --agent-command "codex exec" \
+  --verify-command "python3 verify_item.py {id}" \
+  --max-items 3 \
+  --max-retries 2 \
+  --command-timeout 900
+```
+
+The verifier receives the current item ID through both `{id}` substitution and the `LOOP_ITEM_ID` environment variable.
+
+| Contract part | Implementation |
+| --- | --- |
+| Objective | Each queue row's `objective` |
+| Intake | Pending JSONL rows after completed IDs are removed |
+| Verification | `--verify-command` exit code |
+| State | `QUEUE_PROGRESS.jsonl` |
+| Budget | `--max-items`, `--max-retries`, and `--command-timeout` |
+| Escalation | A work item exhausts its retry budget |
+
+A timed-out agent or verifier consumes one attempt and leaves a receipt before the item retries or escalates.
+
+## Design Choices Worth Copying
+
+- **The maker does not check its own work.** External commands or thresholds decide completion.
+- **State lives outside the model.** Markdown or JSONL receipts survive cold agent calls and reruns.
+- **Completed work is idempotent.** Queue IDs and last-run markers prevent duplicate processing.
+- **Evidence stops waste.** Repeated failures and threshold breaches stop or escalate instead of consuming an open-ended budget.
+- **Permissions remain visible.** The starters expect a branch, worktree, sandbox, or read-only boundary rather than pretending isolation is automatic.
+
+## Smoke Checks
+
+Run these without an agent account:
+
+```bash
+bash -n test-repair-loop.sh threshold-monitor-loop.sh
+python3 -m py_compile queue-worker-loop.py
+printf '%s\n' '{"id":"demo","objective":"Validate the queue"}' > /tmp/loop-queue.jsonl
+python3 queue-worker-loop.py --queue /tmp/loop-queue.jsonl --dry-run
+PROBE_CMD="printf '42\\n'" THRESHOLD=100 MAX_SAMPLES=1 ./threshold-monitor-loop.sh
+```
+
+## Adapting A Starter
+
+- Replace the verifier first; it defines what "done" means.
+- Map allowed paths, tools, credentials, and network access from the chosen JSON contract.
+- Keep mutable work away from the benchmark, policy, or tests that judge it.
+- Choose a durable state artifact that the next cold run can read.
+- Start with one item or iteration, then raise budgets only after reviewing receipts.
+- Test failure, timeout, duplicate work, and human escalation before scheduling unattended runs.

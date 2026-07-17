@@ -28,7 +28,7 @@ Um loop descobre trabalho, delega para um ou mais agentes, verifica o resultado,
 
 Este repositório trata do novo significado de Loop Engineering no contexto de AI agents e coding agents. Ele não trata de event loops de software, teoria de controle, growth loops, automação genérica ou feedback loops não relacionados a IA.
 
-Além de 540 recursos curados, este repositório inclui 15 patterns de loop, um loop contract validado por schema para cada pattern, 6 templates de loop executáveis, uma galeria comunitária e 8 idiomas.
+Além de 545 recursos curados, este repositório inclui 20 patterns de loop, um loop contract validado por schema para cada pattern, 8 starters de runtime (3 executáveis e 5 templates prontos para adaptação), uma galeria comunitária e 8 idiomas.
 
 ## Modelo Mental
 
