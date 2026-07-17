@@ -112,6 +112,7 @@ Scope is narrow by design: recurring AI-agent systems with explicit triggers, ve
 - [Critiques, Risks, And Limitations](#critiques-risks-and-limitations)
 - [Adjacent Awesome Lists](#adjacent-awesome-lists)
 - [Discovery And Distribution](#discovery-and-distribution)
+- [Brand And Media Kit](#brand-and-media-kit)
 - [Roadmap And Discussion](#roadmap-and-discussion)
 - [Citation](#citation)
 
@@ -1139,6 +1140,18 @@ resources = load_dataset("cy0307/awesome-loop-engineering", "resources", split="
 ```
 
 For launch copy and backlink strategy, use the [distribution checklist](meta/DISTRIBUTION.md).
+
+## Brand And Media Kit
+
+The README header stays text-first, while the original editorial cover remains available for articles, talks, launch posts, and project features.
+
+<p align="center">
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering editorial cover showing the Loop, Harness, Context, and Prompt layers" width="720"></a>
+  <br>
+  <sub><strong>Editorial cover.</strong> The original four-layer concept artwork, preserved as an alternate project visual.</sub>
+</p>
+
+[Media kit](assets/MEDIA_KIT.md) · [Cover PNG](assets/awesome-loop-engineering-cover.png) · [Brand system](assets/BRAND.md) · [Social preview](assets/social-preview.png)
 
 ## Roadmap And Discussion
 
