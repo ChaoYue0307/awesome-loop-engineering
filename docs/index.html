@@ -656,55 +656,130 @@
         .loop-stage:nth-child(n+4) { border-top: 1px solid var(--line); }
       }
       @media (max-width: 560px) {
-        html { scroll-padding-top: 70px; }
-        .nav { min-height: 58px; gap: 8px; }
-        .links.open { top: 58px; max-height: calc(100vh - 58px); }
+        html { scroll-padding-top: 74px; }
+        .nav { min-height: 64px; gap: 8px; }
+        .links.open { top: 64px; max-height: calc(100vh - 64px); }
         .project-links .nav-link:first-child { display: none; }
         .project-links { gap: 6px; }
-        .nav-link { min-height: 40px; padding-inline: 12px; }
-        .brand .brand-text { display: none; }
-        section { padding: 52px 0; }
+        .nav-link { min-height: 44px; padding-inline: 12px; }
+        .brand { min-width: 0; gap: 8px; }
+        .brand .logo { width: 30px; height: 30px; }
+        .brand .brand-text { display: block; font-size: 0.78rem; line-height: 1.1; }
+        .menu-btn { width: 44px; min-height: 44px; justify-content: center; padding: 0; }
+        .menu-label { display: none; }
+        .menu-icon { font-size: 1.05rem; line-height: 1; }
+        section { padding: 56px 0; }
         h1 { font-size: 2.25rem; line-height: 1.08; }
         h2 { font-size: 1.85rem; line-height: 1.16; }
         .section-label { margin-bottom: 9px; font-size: 0.68rem; }
         .section-head { gap: 12px; margin-bottom: 24px; }
         .section-intro { font-size: 0.95rem; }
-        .hero { min-height: 0; padding: 28px 0 14px; }
-        .hero-kicker { max-width: 330px; margin: 0 auto 10px; line-height: 1.45; }
+        .hero { min-height: 0; padding: 32px 0 18px; }
+        .hero-kicker { max-width: 320px; margin: 0 auto 10px; line-height: 1.45; }
         .tagline { margin-top: 11px; font-size: 1.18rem; }
         .lead { margin-top: 8px; font-size: 0.95rem; line-height: 1.48; }
-        .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+        .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: 420px; gap: 8px; margin: 16px auto 0; }
         .actions .button { min-width: 0; min-height: 44px; padding-inline: 8px; font-size: 0.82rem; }
-        .hero-system { margin-top: 18px; }
-        .scene-head { justify-content: center; min-height: 32px; padding: 6px 0; }
+        .hero-system { display: flex; flex-direction: column; margin-top: 20px; }
+        .scene-head { order: 1; justify-content: center; min-height: 34px; padding: 6px 0; }
         .scene-flow { display: none; }
-        .hero-scene { width: 100%; height: 244px; }
+        .hero-scene { order: 2; width: 100%; height: 238px; }
         .hero-scene canvas { opacity: 1; }
-        .scene-key { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; min-height: 58px; padding: 5px 0; font-size: 0.62rem; }
-        .scene-key-item { justify-content: center; min-width: 0; padding: 3px 4px; }
+        .scene-key { order: 4; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; min-height: 68px; padding: 0; font-size: 0.67rem; }
+        .scene-key-item { justify-content: flex-start; min-width: 0; min-height: 34px; padding: 7px 8px; }
+        .scene-key-item:nth-child(even) { border-left: 1px solid var(--line); }
+        .scene-key-item:nth-child(n+3) { border-top: 1px solid var(--line); }
         .scene-key-item::before { width: 13px; flex: 0 0 auto; }
-        .scene-outcomes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; min-height: 34px; padding: 4px 0; font-size: 0.6rem; line-height: 1.3; }
-        .scene-outcome { justify-content: center; gap: 5px; }
+        .scene-outcomes { order: 5; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; min-height: 46px; padding: 0; font-size: 0.64rem; line-height: 1.3; }
+        .scene-outcome { justify-content: flex-start; gap: 5px; min-width: 0; padding: 8px 6px; }
+        .scene-outcome + .scene-outcome { border-left: 1px solid var(--line); }
         .scene-outcome::before { width: 6px; height: 6px; flex: 0 0 auto; }
-        .hero-inspector { gap: 7px; padding: 8px 0 10px; }
+        .hero-inspector { order: 3; gap: 8px; padding: 0 0 10px; }
         .loop-stage-rail { margin-top: 20px; }
         .hero-system .loop-stage-rail { margin: 0; }
-        .loop-stage { min-height: 38px; padding-inline: 5px; font-size: 0.68rem; }
-        .loop-stage-number { font-size: 0.59rem; }
+        .loop-stage { min-height: 44px; padding-inline: 6px; font-size: 0.71rem; }
+        .loop-stage-number { font-size: 0.61rem; }
         .loop-stage-detail { min-height: 40px; margin-top: 8px; font-size: 0.75rem; line-height: 1.45; }
-        .hero-inspector .loop-stage-detail { min-height: 40px; margin: 0; padding-top: 6px; line-height: 1.38; }
-        .mental-model { padding: 24px 0 44px; }
-        .definition { margin-bottom: 22px; font-size: 0.88rem; line-height: 1.55; }
+        .hero-inspector .loop-stage-detail { min-height: 48px; margin: 0; padding: 8px 8px 0 12px; line-height: 1.42; }
+        .mental-model { padding: 30px 0 46px; }
+        .definition { margin-bottom: 18px; font-size: 0.88rem; line-height: 1.55; text-align: left; }
         .definition-full { display: none; }
         .definition-compact { display: inline; }
         .hero-visual { width: min(100%, 420px); }
-        .stats { margin-top: 24px; }
-        .stat { padding: 14px 11px; }
+        .stats { margin-top: 20px; }
+        .stat { min-height: 76px; padding: 14px 11px; }
         .stat b { font-size: 1.22rem; }
         .stat span { font-size: 0.68rem; }
         .desktop-diagram { display: none; }
         .mobile-diagram { display: block; }
         .supporting-visual { display: none; }
+        .mobile-contract-summary { border-bottom: 1px solid var(--line-strong); }
+        .mobile-contract-group { padding: 16px 0 0; }
+        .mobile-contract-group + .mobile-contract-group { margin-top: 14px; border-top: 1px solid var(--line); }
+        .mobile-contract-group > p { margin-bottom: 9px; border-left: 3px solid var(--blue); padding-left: 9px; }
+        .mobile-contract-grid { gap: 6px; }
+        .mobile-contract-part {
+          grid-template-columns: 28px minmax(0, 1fr);
+          gap: 7px;
+          min-height: 48px;
+          padding: 9px;
+          border: 1px solid var(--line);
+          border-radius: 6px;
+          background: var(--surface);
+        }
+        .mobile-contract-part:nth-child(even) { padding-left: 9px; border-left: 1px solid var(--line); }
+        .mobile-contract-part span {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border: 1px solid #b8ccf8;
+          border-radius: 50%;
+          color: var(--blue);
+          background: #eef4ff;
+        }
+        .mobile-next-action {
+          display: grid;
+          grid-template-columns: 96px minmax(0, 1fr);
+          gap: 10px;
+          margin-top: 16px;
+          border-top: 1px solid #b8ccf8;
+          border-bottom: 0;
+          border-left: 3px solid var(--blue);
+          padding: 13px 12px;
+          background: #eef4ff;
+        }
+        .mobile-next-action span { text-align: left; }
+        .mobile-lifecycle-summary { border-bottom: 1px solid var(--line-strong); }
+        .mobile-lifecycle-list { grid-template-columns: 1fr; }
+        .mobile-lifecycle-list li {
+          grid-template-columns: 34px minmax(0, 1fr);
+          gap: 10px;
+          align-items: center;
+          min-height: 58px;
+          padding: 10px 0;
+        }
+        .mobile-lifecycle-list li:nth-child(even) { padding-left: 0; border-left: 0; }
+        .mobile-lifecycle-list span {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          border: 1px solid #b8ccf8;
+          border-radius: 50%;
+          background: #eef4ff;
+        }
+        .mobile-lifecycle-list strong { font-size: 0.91rem; }
+        .mobile-lifecycle-list small { margin-top: 2px; font-size: 0.73rem; }
+        .mobile-lifecycle-outcomes { gap: 6px; padding-top: 10px; }
+        .mobile-lifecycle-outcomes div { padding: 10px 8px 12px; border-top: 2px solid var(--violet); background: var(--surface); }
+        .mobile-lifecycle-outcomes div:nth-child(2) { border-top-color: #d97706; }
+        .mobile-lifecycle-outcomes div:nth-child(3) { border-top-color: var(--green); }
+        .mobile-lifecycle-outcomes div + div { padding-left: 8px; border-left: 1px solid var(--line); }
+        .mobile-lifecycle-outcomes strong { font-size: 0.76rem; }
+        .mobile-lifecycle-outcomes span { font-size: 0.67rem; }
         .principles { margin-top: 24px; }
         .principles, .link-grid, .pattern-grid, .footer-grid { grid-template-columns: 1fr; }
         .principle + .principle, .card + .card, .pattern + .pattern { padding-left: 0; }
@@ -737,7 +812,7 @@
         .resource-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .resource-toolbar label:first-child { grid-column: 1 / -1; }
       }
-      @media (min-width: 380px) and (max-width: 560px) {
+      @media (min-width: 480px) and (max-width: 560px) {
         .pattern-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .pattern { min-height: 112px; padding-right: 12px; }
         .pattern + .pattern { padding-left: 12px; }
@@ -746,6 +821,9 @@
       }
       @media (max-width: 340px) {
         h1 { font-size: 2.2rem; }
+        .brand .brand-text { display: none; }
+        .project-links .nav-label { display: none; }
+        .project-links .nav-link { width: 44px; padding: 0; }
         .hero { padding-bottom: 8px; }
         .hero-system { margin-top: 16px; }
         .scene-head { min-height: 28px; padding-block: 4px; }
@@ -892,7 +970,7 @@
         <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Menu</span></button>
         <nav class="project-links" aria-label="Project links">
           <a class="nav-link" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><span class="emoji" aria-hidden="true">🤗</span>Dataset</a>
-          <a class="nav-link primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering"><span aria-hidden="true">&nearr;</span>GitHub</a>
+          <a class="nav-link primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering"><span aria-hidden="true">&nearr;</span><span class="nav-label">GitHub</span></a>
         </nav>
       </div>
     </header>
@@ -1755,6 +1833,6 @@
         });
       });
     </script>
-    <script type="module" src="assets/loop-hero-scene.js?v=20"></script>
+    <script type="module" src="assets/loop-hero-scene.js?v=21"></script>
   </body>
 </html>

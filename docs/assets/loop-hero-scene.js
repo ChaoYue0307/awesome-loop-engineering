@@ -885,7 +885,7 @@ if (container && hero) {
 
       const aspect = width / height;
       const viewHeight = compact
-        ? Math.max(3.45, 5.8 / aspect)
+        ? Math.max(3.42, 5.0 / aspect)
         : tablet
           ? 11.2 / aspect
           : 3.15;
@@ -898,8 +898,8 @@ if (container && hero) {
       camera.lookAt(0, compact ? -0.05 : 0, 0);
       camera.updateProjectionMatrix();
 
-      stationScale = compact ? 0.93 : tablet ? 0.92 : 1.04;
-      packetGroup.scale.setScalar(compact ? 1.08 : 1);
+      stationScale = compact ? 1.01 : tablet ? 0.92 : 1.04;
+      packetGroup.scale.setScalar(compact ? 1.12 : 1);
       stationLabels.forEach((label) => { label.visible = width >= 760; });
       numberLabels.forEach((label) => { label.visible = width < 760; });
       microLabels.forEach((label) => { label.visible = width >= 980; });
