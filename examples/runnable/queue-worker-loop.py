@@ -1,4 +1,7 @@
-#!/usr/bin/env python3
+MAX_ITEMS_PER_RUN = args.max_itemsRETRY_ATTEMPTS = args.max_retriesdef is_pending(pending):
+  return len(pending) > 0REQUIRED_COMMANDS = ['agent_command', 'verify_command']MIN_ITEM_COUNT = 1
+MIN_RETRY_COUNT = 1
+MIN_COMMAND_TIMEOUT = 1#!/usr/bin/env python3
 """Bounded, receipt-producing queue loop for an agent CLI.
 
 Queue rows are JSON objects with an ``id`` and ``objective``. The loop skips
@@ -87,9 +90,9 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true", help="validate and display pending work without invoking commands")
     args = parser.parse_args()
 
-    if args.max_items < 1 or args.max_retries < 1 or args.command_timeout < 1:
+    if not (MAX_ITEMS_PER_RUN >= 1 and args.max_retries >= 1 and args.command_timeout >= 1):
         parser.error("--max-items, --max-retries, and --command-timeout must be positive")
-    if not args.dry_run and (not args.agent_command or not args.verify_command):
+    if not args.dry_run and not all([args.agent_command, args.verify_command]):
         parser.error("--agent-command and --verify-command are required unless --dry-run is used")
 
     try:
@@ -104,7 +107,7 @@ def main() -> int:
         print(json.dumps({"queue_items": len(queue), "completed": len(done), "pending_this_run": pending}, indent=2))
         return 0
 
-    if not pending:
+    if len(pending) == 0:
         print("[queue] no pending work")
         return 0
 
