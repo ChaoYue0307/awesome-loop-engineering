@@ -187,7 +187,7 @@
         z-index: 0;
         min-width: 0;
         width: 100%;
-        height: 292px;
+        height: 324px;
         overflow: hidden;
         pointer-events: none;
       }
@@ -195,6 +195,28 @@
       .scene-fallback { display: none; align-items: center; justify-content: center; height: 100%; color: var(--muted); font-size: 0.82rem; }
       .hero-scene[data-scene-state="fallback"] canvas { display: none; }
       .hero-scene[data-scene-state="fallback"] .scene-fallback { display: flex; }
+      .scene-key {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 26px;
+        min-height: 38px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.68rem;
+      }
+      .scene-key-item { display: inline-flex; align-items: center; gap: 7px; }
+      .scene-key-item::before {
+        width: 16px;
+        height: 5px;
+        border-radius: 2px;
+        background: var(--blue);
+        content: "";
+      }
+      .scene-key-item.packet::before { background: var(--cyan); }
+      .scene-key-item.agents::before { background: var(--blue); }
+      .scene-key-item.evidence::before { background: var(--green); }
+      .scene-key-item.state::before { background: var(--violet); }
       .scene-outcomes {
         display: flex;
         align-items: center;
@@ -525,7 +547,7 @@
       .resource-meta { margin-top: 7px; color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.68rem; overflow-wrap: anywhere; }
       .resource-cell-label { display: none; margin-bottom: 5px; color: var(--quiet); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.62rem; font-weight: 650; text-transform: uppercase; }
       .resource-year-value { color: var(--ink); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9rem; font-weight: 700; }
-      .resource-year-value.undated { color: var(--quiet); font-weight: 500; }
+      .resource-year.is-empty { min-height: 1px; }
       .resource-venue { display: block; color: var(--ink); font-size: 0.82rem; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
       .resource-publisher, .resource-date, .resource-identifier { display: block; margin-top: 4px; color: var(--quiet); font-size: 0.72rem; line-height: 1.4; overflow-wrap: anywhere; }
       .resource-type-label { display: block; color: var(--ink); font-size: 0.78rem; font-weight: 700; }
@@ -595,7 +617,7 @@
           width: 100%;
           margin-top: 28px;
         }
-        .hero-scene { height: 268px; }
+        .hero-scene { height: 300px; }
         .hero-inspector { grid-template-columns: 1fr; gap: 12px; padding: 14px 0; }
         .hero-system .loop-stage-rail { grid-template-columns: repeat(6, minmax(0, 1fr)); }
         .hero-inspector .loop-stage-detail { min-height: 42px; }
@@ -606,7 +628,7 @@
         section { padding: 68px 0; }
         .hero { min-height: 0; padding: 40px 0 24px; }
         .hero-system { margin-top: 24px; }
-        .hero-scene { width: 100%; height: 224px; }
+        .hero-scene { width: 100%; height: 270px; }
         .hero-scene canvas { opacity: 1; }
         .hero-system .loop-stage-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .hero-system .loop-stage:nth-child(n) { border-top: 0; border-left: 1px solid var(--line); }
@@ -659,8 +681,11 @@
         .hero-system { margin-top: 18px; }
         .scene-head { justify-content: center; min-height: 32px; padding: 6px 0; }
         .scene-flow { display: none; }
-        .hero-scene { width: 100%; height: 188px; }
+        .hero-scene { width: 100%; height: 244px; }
         .hero-scene canvas { opacity: 1; }
+        .scene-key { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; min-height: 58px; padding: 5px 0; font-size: 0.62rem; }
+        .scene-key-item { justify-content: center; min-width: 0; padding: 3px 4px; }
+        .scene-key-item::before { width: 13px; flex: 0 0 auto; }
         .scene-outcomes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; min-height: 34px; padding: 4px 0; font-size: 0.6rem; line-height: 1.3; }
         .scene-outcome { justify-content: center; gap: 5px; }
         .scene-outcome::before { width: 6px; height: 6px; flex: 0 0 auto; }
@@ -699,6 +724,7 @@
         .resource-item { grid-template-columns: 1fr; gap: 12px; padding: 17px 0; }
         .resource-work, .resource-details { grid-column: auto; }
         .resource-year, .resource-publication, .resource-evidence { padding-top: 10px; border-top: 1px solid var(--line); }
+        .resource-year.is-empty { display: none; }
         .resource-detail-grid { grid-template-columns: 1fr; gap: 14px; }
         .resource-details summary { min-height: 34px; padding-top: 5px; }
         .caption { text-align: left; }
@@ -726,7 +752,8 @@
         .hero { padding-bottom: 8px; }
         .hero-system { margin-top: 16px; }
         .scene-head { min-height: 28px; padding-block: 4px; }
-        .hero-scene { height: 148px; }
+        .hero-scene { height: 218px; }
+        .scene-key { min-height: 52px; font-size: 0.58rem; }
         .scene-outcomes { min-height: 30px; padding-block: 3px; font-size: 0.56rem; }
         .hero-inspector .loop-stage-detail { min-height: 34px; font-size: 0.72rem; }
         .mental-model { padding-top: 8px; }
@@ -880,11 +907,17 @@
           </div>
           <div class="hero-system">
             <div class="scene-head" aria-hidden="true">
-              <strong>One governed pass</strong>
-              <span class="scene-flow"><span>Work</span><i>&rarr;</i><span>Agent</span><i>&rarr;</i><span>Evidence</span><i>&rarr;</i><span>State</span><i>&rarr;</i><span>Decision</span></span>
+              <strong>Agent loop runtime</strong>
+              <span class="scene-flow"><span>Trigger</span><i>&rarr;</i><span>Orchestrator</span><i>&rarr;</i><span>Agent team</span><i>&rarr;</i><span>Evidence gate</span><i>&rarr;</i><span>State</span><i>&rarr;</i><span>Next action</span></span>
             </div>
-            <div class="hero-scene" data-loop-scene aria-hidden="true">
-              <div class="scene-fallback">Work enters, an agent acts, evidence gates progress, state persists, and the system decides what happens next.</div>
+            <div class="hero-scene" data-loop-scene role="img" aria-label="Animated agent loop runtime. A task enters an orchestrator, is delegated to specialist agents with tools and context, passes an evidence gate, writes to durable state, and reaches a bounded next-action decision.">
+              <div class="scene-fallback">A task enters an orchestrator, moves through a specialist agent team and evidence gate, writes to durable state, and reaches a bounded next action.</div>
+            </div>
+            <div class="scene-key" aria-label="Agent runtime visual key">
+              <span class="scene-key-item packet">Work packet</span>
+              <span class="scene-key-item agents">Orchestrator + agent team</span>
+              <span class="scene-key-item evidence">Evidence gate</span>
+              <span class="scene-key-item state">Durable state</span>
             </div>
             <div class="scene-outcomes" aria-label="Possible loop outcomes">
               <span class="scene-outcome retry">Retry with evidence</span>
@@ -1533,7 +1566,7 @@
           var publicationId = identifier(resource);
           var sourceRecord = [
             fullAuthors ? 'Authors: ' + fullAuthors : '',
-            resource.publication_date ? 'Published: ' + resource.publication_date : 'Publication date: not stated by the source',
+            resource.publication_date ? 'Published: ' + resource.publication_date : '',
             'Source: ' + venue + (secondaryPublisher ? ' | ' + secondaryPublisher : ''),
             publicationId ? 'Identifier: ' + publicationId : '',
             resource.primary_category ? 'Primary category: ' + resource.primary_category : '',
@@ -1553,9 +1586,11 @@
           }
           work.appendChild(createText('div', 'resource-meta', meta));
 
-          year.className = 'resource-year';
-          appendCellLabel(year, 'Year');
-          year.appendChild(createText('span', 'resource-year-value' + (resource.publication_year ? '' : ' undated'), resource.publication_year || 'n.d.'));
+          year.className = 'resource-year' + (resource.publication_year ? '' : ' is-empty');
+          if (resource.publication_year) {
+            appendCellLabel(year, 'Year');
+            year.appendChild(createText('span', 'resource-year-value', resource.publication_year));
+          }
 
           publication.className = 'resource-publication';
           appendCellLabel(publication, 'Published at');
@@ -1688,6 +1723,6 @@
         });
       });
     </script>
-    <script type="module" src="assets/loop-hero-scene.js?v=13"></script>
+    <script type="module" src="assets/loop-hero-scene.js?v=19"></script>
   </body>
 </html>

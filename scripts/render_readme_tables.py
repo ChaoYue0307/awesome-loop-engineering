@@ -76,7 +76,7 @@ def repository_artifact_label(url: str) -> str:
 
 
 def publication_cell(row: dict[str, str]) -> str:
-    year = row["publication_year"] or "Undated"
+    year = row["publication_year"]
     resource_type = row["resource_type"]
     details: list[str] = []
 
@@ -104,7 +104,11 @@ def publication_cell(row: dict[str, str]) -> str:
             if author:
                 details.append(author)
 
-    primary = f"**{escape_cell(year)}** · {escape_cell(source)}"
+    primary = (
+        f"**{escape_cell(year)}** · {escape_cell(source)}"
+        if year
+        else f"**{escape_cell(source)}**"
+    )
     if details:
         secondary = " · ".join(escape_cell(detail) for detail in details)
         return f"{primary}<br><sub>{secondary}</sub>"
