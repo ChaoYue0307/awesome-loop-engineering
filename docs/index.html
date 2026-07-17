@@ -442,17 +442,77 @@
       .principle h3, .card h3, footer h4 { display: flex; align-items: flex-start; gap: 8px; }
       .principle h3 .icon, .card h3 .icon, footer h4 .icon { width: 17px; height: 17px; margin-top: 2px; color: var(--blue); }
       .principles { margin-top: 34px; }
-      .pattern-grid { gap: 0; }
-      .pattern {
+      .choice-why {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 34px;
+        margin-bottom: 0;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line);
+        padding: 22px 0;
+      }
+      .choice-why h3 { margin: 0; font-size: 0.96rem; }
+      .choice-why p { max-width: 850px; margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+      .choice-fit {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .choice-fit-column { min-width: 0; padding: 22px 24px 22px 0; }
+      .choice-fit-column + .choice-fit-column { border-left: 1px solid var(--line); padding-left: 24px; }
+      .choice-fit-label { display: flex; align-items: center; gap: 8px; margin: 0; color: var(--ink); font-size: 0.88rem; }
+      .choice-fit-label .icon { width: 17px; height: 17px; color: var(--green); }
+      .choice-fit-column:last-child .choice-fit-label .icon { color: var(--violet); }
+      .choice-fit ul { margin: 12px 0 0; padding-left: 18px; }
+      .choice-fit li { margin-top: 7px; color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+      .choice-fit li::marker { color: var(--blue); }
+      .choice-steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .choice-step { min-width: 0; padding: 20px 20px 20px 0; }
+      .choice-step + .choice-step { border-left: 1px solid var(--line); padding-left: 20px; }
+      .choice-step .number {
         display: block;
-        min-height: 104px;
+        margin-bottom: 8px;
+        color: var(--blue);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.67rem;
+        font-weight: 700;
+      }
+      .choice-step strong { display: block; font-size: 0.9rem; }
+      .choice-step p { margin: 6px 0 0; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
+      .choice-sequence { margin: 16px 0 28px; color: var(--muted); font-size: 0.84rem; line-height: 1.55; }
+      .choice-sequence strong { color: var(--ink); }
+      .pattern-grid { gap: 0; border-top: 1px solid var(--line-strong); }
+      .pattern {
+        display: flex;
+        min-height: 178px;
+        flex-direction: column;
         color: var(--ink);
         text-decoration: none;
         transition: color 140ms ease, border-color 140ms ease;
       }
+      .pattern-grid .pattern:nth-child(n) { border-top: 0; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); padding: 20px 22px; }
+      .pattern-grid .pattern:nth-child(3n+1) { border-left: 0; padding-left: 0; }
+      .pattern-grid .pattern:nth-child(3n) { padding-right: 0; }
       .pattern:hover { color: var(--blue); border-color: var(--blue); text-decoration: none; }
-      .pattern .sym { display: block; color: var(--quiet); font-size: 0.78rem; }
-      .pattern .name { display: block; margin-top: 7px; font-weight: 750; }
+      .pattern .category {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--blue);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.62rem;
+        font-weight: 650;
+        text-transform: uppercase;
+      }
+      .pattern .sym { display: block; color: var(--quiet); font-size: 0.76rem; line-height: 1.4; }
+      .pattern .name { display: block; margin-top: 6px; font-weight: 760; line-height: 1.35; }
+      .pattern .outcome { display: block; margin-top: auto; padding-top: 14px; color: var(--muted); font-size: 0.74rem; line-height: 1.5; }
+      .pattern .outcome strong { color: var(--ink); }
       .filter-row { display: flex; align-items: center; gap: 18px; margin: 0 0 16px; }
       .pattern-filter {
         width: min(100%, 460px);
@@ -464,6 +524,7 @@
         background: var(--surface);
       }
       .pattern-filter::placeholder { color: var(--quiet); }
+      .filter-row > a { margin-left: auto; font-size: 0.8rem; font-weight: 700; }
       .filter-empty { margin: 0 0 18px; color: var(--muted); }
 
       .card { display: block; color: var(--ink); text-decoration: none; }
@@ -704,6 +765,14 @@
         .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
         .stat:last-child { grid-column: 1 / -1; border-left: 0; }
         .principles, .link-grid, .pattern-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .choice-why { grid-template-columns: 180px minmax(0, 1fr); gap: 24px; }
+        .choice-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .choice-step:nth-child(n) { border-left: 1px solid var(--line); padding: 18px; }
+        .choice-step:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+        .choice-step:nth-child(n+3) { border-top: 1px solid var(--line); }
+        .pattern-grid .pattern:nth-child(n) { border-left: 1px solid var(--line); padding: 20px; }
+        .pattern-grid .pattern:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+        .pattern-grid .pattern:nth-child(2n) { padding-right: 0; }
         .future-grid { grid-template-columns: 1fr; }
         .future-track { padding: 20px 0; }
         .future-track + .future-track { border-top: 1px solid var(--line); border-left: 0; padding-left: 0; }
@@ -907,7 +976,19 @@
         .principles, .link-grid, .pattern-grid, .footer-grid { grid-template-columns: 1fr; }
         .principle + .principle, .card + .card, .pattern + .pattern { padding-left: 0; }
         .principle, .card, .pattern { padding-top: 16px; padding-bottom: 16px; }
-        .pattern { min-height: 78px; }
+        .choice-why { grid-template-columns: 1fr; gap: 7px; padding: 18px 0; }
+        .choice-why p { font-size: 0.84rem; line-height: 1.55; }
+        .choice-fit { grid-template-columns: 1fr; margin-bottom: 24px; }
+        .choice-fit-column { padding: 18px 0; }
+        .choice-fit-column + .choice-fit-column { border-top: 1px solid var(--line); border-left: 0; padding-left: 0; }
+        .choice-steps { grid-template-columns: 1fr; }
+        .choice-step:nth-child(n) { border-top: 1px solid var(--line); border-left: 0; padding: 16px 0; }
+        .choice-step:first-child { border-top: 0; }
+        .choice-sequence { margin-bottom: 22px; }
+        .filter-row { align-items: stretch; flex-direction: column; gap: 10px; }
+        .filter-row > a { width: fit-content; margin-left: 0; }
+        .pattern-grid .pattern:nth-child(n) { min-height: 0; border-left: 0; padding: 17px 0; }
+        .pattern .outcome { margin-top: 12px; padding-top: 0; }
         .resource-toolbar { grid-template-columns: 1fr; }
         .resource-toolbar label:first-child { grid-column: auto; }
         .resource-select { padding-inline: 10px; font-size: 0.86rem; }
@@ -935,13 +1016,6 @@
       @media (min-width: 360px) and (max-width: 560px) {
         .resource-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .resource-toolbar label:first-child { grid-column: 1 / -1; }
-      }
-      @media (min-width: 480px) and (max-width: 560px) {
-        .pattern-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .pattern { min-height: 112px; padding-right: 12px; }
-        .pattern + .pattern { padding-left: 12px; }
-        .pattern:nth-child(odd) { padding-left: 0; }
-        .pattern:nth-child(even) { border-left: 1px solid var(--line); }
       }
       @media (max-width: 340px) {
         h1 { font-size: 2.2rem; }
@@ -1016,7 +1090,7 @@
           {
             "@type": "Question",
             "name": "When should you use an agent loop?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Use a loop when work recurs and a deterministic check can decide success. If a task is one-off or done depends only on human judgment, a single run is usually enough." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Use a loop when work recurs, external evidence can verify progress, useful state should persist, actions and budgets can be bounded, and a human owner can handle exceptions. Prefer a supervised run for one-off or mainly subjective work." }
           },
           {
             "@type": "Question",
@@ -1263,35 +1337,65 @@
           <div class="section-head">
             <div>
               <p class="section-label"><i class="icon" data-lucide="blocks" aria-hidden="true"></i><span>03 / Pattern library</span></p>
-              <h2>Start from the problem you have.</h2>
+              <h2>Choose the control policy, not the model.</h2>
             </div>
-            <p class="section-intro">Choose from 20 build, operate, optimize, and govern patterns. Each includes a trigger, evidence gate, durable state, budget, escalation path, worked scenario, and validated contract.</p>
+            <p class="section-intro">The same agent can repair CI, monitor a rollout, or test a system adversarially. The right loop defines the different trigger, permissions, proof, memory, budget, and human owner each job requires.</p>
           </div>
+          <div class="choice-why">
+            <h3>Why selection matters</h3>
+            <p>A generic "keep trying" loop can retry a judgment call, let the acting model approve itself, forget evidence between runs, or take write actions where observation and escalation are safer. A pattern gives a recurring job a reviewable operating policy before you adapt the exact contract.</p>
+          </div>
+          <div class="choice-fit">
+            <div class="choice-fit-column">
+              <h3 class="choice-fit-label"><i class="icon" data-lucide="repeat-2" aria-hidden="true"></i>Use a loop when</h3>
+              <ul>
+                <li>Work returns through a schedule, event, queue, or recurring condition.</li>
+                <li>An external check can prove progress or completion.</li>
+                <li>State, permissions, retries, cost, and human handoff can be bounded.</li>
+              </ul>
+            </div>
+            <div class="choice-fit-column">
+              <h3 class="choice-fit-label"><i class="icon" data-lucide="timer" aria-hidden="true"></i>Use one supervised run when</h3>
+              <ul>
+                <li>The task is genuinely one-off.</li>
+                <li>Completion depends mainly on open-ended human judgment.</li>
+                <li>No safe permission boundary or useful persistent state can be defined.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="choice-steps" aria-label="Four decisions for choosing an agent loop">
+            <div class="choice-step"><span class="number">01</span><strong>Name the recurring job</strong><p>Identify the signal that returns and the outcome that should improve.</p></div>
+            <div class="choice-step"><span class="number">02</span><strong>Define proof</strong><p>Name evidence a machine or reviewer can inspect to decide pass.</p></div>
+            <div class="choice-step"><span class="number">03</span><strong>Bound action</strong><p>Set readable and writable scope, non-goals, retries, time, and cost.</p></div>
+            <div class="choice-step"><span class="number">04</span><strong>Plan the next pass</strong><p>Decide what persists, retries, escalates, or exits after each result.</p></div>
+          </div>
+          <p class="choice-sequence"><strong>Pattern → contract → runtime.</strong> Select the operating model below, adapt its validated contract to your environment, then choose where it runs based on persistence, isolation, and permissions.</p>
           <div class="filter-row">
             <input type="search" id="pattern-filter" class="pattern-filter" placeholder="Filter patterns by keyword..." aria-label="Filter patterns by keyword" autocomplete="off">
+            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">Compare every contract field →</a>
           </div>
           <p id="pattern-filter-empty" class="filter-empty" hidden>No pattern matches that keyword. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">Browse the full matrix</a>.</p>
           <div class="pattern-grid" id="pattern-grid">
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/pr-babysitter.md"><span class="sym">"My PR is stuck"</span><span class="name">PR babysitter</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/ci-repair-loop.md"><span class="sym">"CI keeps failing"</span><span class="name">CI repair loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/docs-drift-collector.md"><span class="sym">"The docs may be stale"</span><span class="name">Docs drift collector</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/deploy-verifier.md"><span class="sym">"A deploy needs monitoring"</span><span class="name">Deploy verifier</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/feedback-clusterer.md"><span class="sym">"Feedback is noisy"</span><span class="name">Feedback clusterer</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/dependency-triage-loop.md"><span class="sym">"Updates pile up"</span><span class="name">Dependency triage loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/evaluation-regression-loop.md"><span class="sym">"Agent evals regressed"</span><span class="name">Evaluation regression loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/security-review-loop.md"><span class="sym">"Sensitive changes need review"</span><span class="name">Security review loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/cost-control-loop.md"><span class="sym">"Agent spend is rising"</span><span class="name">Cost-control loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/bug-hunting-loop.md"><span class="sym">"Recurring bug discovery"</span><span class="name">Bug hunting loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/enterprise-approval-loop.md"><span class="sym">"A change needs sign-off"</span><span class="name">Enterprise approval loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/incident-response-loop.md"><span class="sym">"An incident just paged"</span><span class="name">Incident response loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/data-quality-loop.md"><span class="sym">"A dataset keeps drifting"</span><span class="name">Data-quality loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/release-note-loop.md"><span class="sym">"Release notes are a chore"</span><span class="name">Release-note loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/model-routing-loop.md"><span class="sym">"Model choice is ad hoc"</span><span class="name">Model-routing loop</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/benchmark-optimization-loop.md"><span class="sym">"A stable system should improve"</span><span class="name">Benchmark optimization</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/knowledge-freshness-loop.md"><span class="sym">"The agent's knowledge is stale"</span><span class="name">Knowledge freshness</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/performance-regression-loop.md"><span class="sym">"Performance regressed"</span><span class="name">Performance regression</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/accessibility-regression-loop.md"><span class="sym">"Accessibility checks failed"</span><span class="name">Accessibility regression</span></a>
-            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/adversarial-red-team-loop.md"><span class="sym">"The agent needs adversarial testing"</span><span class="name">Adversarial red team</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/pr-babysitter.md"><span class="category">Build &amp; maintain</span><span class="sym">"My PR is stuck"</span><span class="name">PR babysitter</span><span class="outcome"><strong>Done when:</strong> checks pass, review threads resolve, and merge state is current.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/ci-repair-loop.md"><span class="category">Build &amp; maintain</span><span class="sym">"CI keeps failing"</span><span class="name">CI repair loop</span><span class="outcome"><strong>Done when:</strong> the original failing command passes with a scoped patch.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/docs-drift-collector.md"><span class="category">Build &amp; maintain</span><span class="sym">"The docs may be stale"</span><span class="name">Docs drift collector</span><span class="outcome"><strong>Done when:</strong> verified mismatches are patched and examples still run.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/dependency-triage-loop.md"><span class="category">Build &amp; maintain</span><span class="sym">"Updates pile up"</span><span class="name">Dependency triage loop</span><span class="outcome"><strong>Done when:</strong> safe updates pass tests and risky upgrades have an owner.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/bug-hunting-loop.md"><span class="category">Build &amp; maintain</span><span class="sym">"Bugs need systematic discovery"</span><span class="name">Bug hunting loop</span><span class="outcome"><strong>Done when:</strong> each accepted finding has a reproduction or failing test.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/release-note-loop.md"><span class="category">Build &amp; maintain</span><span class="sym">"Release notes are a chore"</span><span class="name">Release-note loop</span><span class="outcome"><strong>Done when:</strong> every shipped change maps to a source and audience note.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/deploy-verifier.md"><span class="category">Operate &amp; observe</span><span class="sym">"A deploy needs monitoring"</span><span class="name">Deploy verifier</span><span class="outcome"><strong>Done when:</strong> synthetic checks and rollout thresholds remain within policy.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/incident-response-loop.md"><span class="category">Operate &amp; observe</span><span class="sym">"An incident just paged"</span><span class="name">Incident response loop</span><span class="outcome"><strong>Done when:</strong> impact, evidence, timeline, and accountable owner are recorded.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/data-quality-loop.md"><span class="category">Operate &amp; observe</span><span class="sym">"A dataset keeps drifting"</span><span class="name">Data-quality loop</span><span class="outcome"><strong>Done when:</strong> hard quality rules pass before a version is promoted.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/cost-control-loop.md"><span class="category">Operate &amp; observe</span><span class="sym">"Agent spend is rising"</span><span class="name">Cost-control loop</span><span class="outcome"><strong>Done when:</strong> spend falls on comparable work without quality regression.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/model-routing-loop.md"><span class="category">Operate &amp; observe</span><span class="sym">"Model choice is ad hoc"</span><span class="name">Model-routing loop</span><span class="outcome"><strong>Done when:</strong> routing meets quality, latency, privacy, and cost tolerances.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/performance-regression-loop.md"><span class="category">Operate &amp; observe</span><span class="sym">"Performance regressed"</span><span class="name">Performance regression loop</span><span class="outcome"><strong>Done when:</strong> a controlled benchmark confirms recovery and correctness.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/feedback-clusterer.md"><span class="category">Learn &amp; optimize</span><span class="sym">"Feedback is noisy"</span><span class="name">Feedback clusterer</span><span class="outcome"><strong>Done when:</strong> themes cite sources and separate frequency from severity.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/evaluation-regression-loop.md"><span class="category">Learn &amp; optimize</span><span class="sym">"Agent evals regressed"</span><span class="name">Evaluation regression loop</span><span class="outcome"><strong>Done when:</strong> targeted evals return to baseline without scorer changes.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/benchmark-optimization-loop.md"><span class="category">Learn &amp; optimize</span><span class="sym">"A stable system should improve"</span><span class="name">Benchmark optimization loop</span><span class="outcome"><strong>Done when:</strong> repeated measurements improve with protected metrics intact.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/knowledge-freshness-loop.md"><span class="category">Learn &amp; optimize</span><span class="sym">"The agent's knowledge is stale"</span><span class="name">Knowledge freshness loop</span><span class="outcome"><strong>Done when:</strong> the corpus passes provenance, freshness, retrieval, and leakage gates.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/security-review-loop.md"><span class="category">Govern &amp; protect</span><span class="sym">"Sensitive changes need review"</span><span class="name">Security review loop</span><span class="outcome"><strong>Done when:</strong> findings cite evidence and approval boundaries stay intact.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/enterprise-approval-loop.md"><span class="category">Govern &amp; protect</span><span class="sym">"A change needs sign-off"</span><span class="name">Enterprise approval loop</span><span class="outcome"><strong>Done when:</strong> every gate has a recorded human decision and audit trail.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/accessibility-regression-loop.md"><span class="category">Govern &amp; protect</span><span class="sym">"Accessibility checks failed"</span><span class="name">Accessibility regression loop</span><span class="outcome"><strong>Done when:</strong> the exact regression is fixed and human criteria are approved.</span></a>
+            <a class="pattern" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/adversarial-red-team-loop.md"><span class="category">Govern &amp; protect</span><span class="sym">"The agent needs adversarial testing"</span><span class="name">Adversarial red-team loop</span><span class="outcome"><strong>Done when:</strong> findings are reproduced, minimized, reported, and regression-tested.</span></a>
           </div>
         </div>
       </section>
@@ -1316,8 +1420,8 @@
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><span class="runtime-kind">Adaptable template</span><h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>GitHub agentic workflow</h3><p>Use when GitHub events or cron should produce issues, artifacts, or pull requests.</p></a>
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><span class="runtime-kind">Adaptable template</span><h3><i class="icon" data-lucide="terminal" aria-hidden="true"></i>Shell / cron</h3><p>Use when an existing agent CLI only needs OS scheduling, locks, and a progress file.</p></a>
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="play" aria-hidden="true"></i>Test repair</h3><p>Run a failing command, delegate its evidence, and stop only when that same external check passes.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/threshold-monitor-loop.sh"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="activity" aria-hidden="true"></i>Threshold monitor</h3><p>Poll a metric, persist samples, and escalate on a breached boundary without auto-remediation.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/queue-worker-loop.py"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="list-checks" aria-hidden="true"></i>Queue worker</h3><p>Process bounded JSONL work items with external verification and durable receipts.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/threshold-monitor-loop.sh"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="chart-no-axes-combined" aria-hidden="true"></i>Threshold monitor</h3><p>Poll a metric, persist samples, and escalate on a breached boundary without auto-remediation.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/queue-worker-loop.py"><span class="runtime-kind executable">Executable</span><h3><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i>Queue worker</h3><p>Process bounded JSONL work items with external verification and durable receipts.</p></a>
           </div>
         </div>
       </section>
@@ -1535,7 +1639,7 @@
           </details>
           <details>
             <summary>When should you use an agent loop?</summary>
-            <p>Use a loop when work recurs and a deterministic check can decide success. If a task is one-off, or done depends only on human judgment, a single agent run is usually enough.</p>
+            <p>Use a loop when work recurs, external evidence can verify progress, useful state should persist, actions and budgets can be bounded, and a human owner can handle exceptions. Prefer one supervised run when the task is one-off, completion is mainly subjective, or no safe permission boundary can be stated.</p>
           </details>
           <details>
             <summary>What belongs in a loop contract?</summary>

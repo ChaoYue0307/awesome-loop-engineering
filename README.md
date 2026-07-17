@@ -248,32 +248,55 @@ For analysis, the Hugging Face dataset exposes collection, lifecycle, audience, 
 
 ## Choose Your Loop
 
-Start from the problem you have, not the pattern you want. Find the pattern name below, then open its full write-up in the Pattern Library section, or compare every pattern in the [pattern matrix](patterns/MATRIX.md), which also links each one by symptom.
+Choosing a loop means choosing the **operating policy around an agent**, not the model itself. A pull-request loop, deploy loop, and adversarial-testing loop may use the same model, but they need different triggers, permissions, evidence gates, durable state, retry budgets, and human owners. Those controls decide what the agent may do, what counts as success, what the next run can remember, and when automation must stop.
 
-| When you say...                       | Reach for the loop            |
-| ------------------------------------- | ----------------------------- |
-| "My PR is stuck"                      | PR babysitter                 |
-| "CI keeps failing"                    | CI repair loop                |
-| "The docs may be stale"               | Docs drift collector          |
-| "A deploy needs monitoring"           | Deploy verifier               |
-| "Feedback is noisy"                   | Feedback clusterer            |
-| "Dependency updates pile up"          | Dependency triage loop        |
-| "Agent evals regressed"               | Evaluation regression loop    |
-| "Sensitive changes need review"       | Security review loop          |
-| "Agent spend is rising"               | Cost-control loop             |
-| "I need recurring bug discovery"      | Bug hunting loop              |
-| "A change needs sign-off"             | Enterprise approval loop      |
-| "An incident just paged"              | Incident response loop        |
-| "A dataset keeps drifting"            | Data-quality loop             |
-| "Release notes are a chore"           | Release-note loop             |
-| "Model choice is ad hoc"              | Model-routing loop            |
-| "A stable system should improve"      | Benchmark optimization loop   |
-| "The agent's knowledge is stale"      | Knowledge freshness loop      |
-| "Performance regressed"               | Performance regression loop   |
-| "A UI accessibility check failed"     | Accessibility regression loop |
-| "The agent needs adversarial testing" | Adversarial red-team loop     |
+A generic "keep trying" loop collapses those differences. It can retry a judgment call, let the acting model approve its own work, lose evidence between runs, or change a high-risk system when it should only observe and escalate. A named pattern supplies a reviewable starting policy for a recurring job; its contract makes that policy exact for your environment.
 
-Not sure which runtime should run it? Compare [persistence, isolation, permissions, and escalation](meta/RUNTIME_SELECTION.md#choosing-by-concern).
+### First Decide Whether The Work Should Loop
+
+| Use a loop when...                                                     | Prefer one supervised run when...                         |
+| ---------------------------------------------------------------------- | --------------------------------------------------------- |
+| Work returns through a schedule, event, queue, or recurring condition. | The task is genuinely one-off.                            |
+| An external check can prove progress or completion.                    | "Done" depends mainly on open-ended human judgment.       |
+| Saved evidence, checkpoints, or receipts improve the next run.         | No useful state should survive the session.               |
+| Permissions, retries, time, and cost can be bounded in advance.        | A safe permission or budget boundary cannot be stated.    |
+| A named human owns ambiguity, exceptions, and high-impact decisions.   | Every meaningful step already needs live human direction. |
+
+### Choose In Four Decisions
+
+| Decision                      | Ask                                                               | What it fixes                                 |
+| ----------------------------- | ----------------------------------------------------------------- | --------------------------------------------- |
+| **1. Name the recurring job** | What signal keeps returning, and what outcome should improve?     | Objective, trigger, and intake                |
+| **2. Define proof**           | What evidence can a reviewer or machine inspect to decide "pass"? | Verification gate and exit condition          |
+| **3. Bound action**           | What may the agent read or change, and what must it never do?     | Workspace, permissions, non-goals, and budget |
+| **4. Plan the next pass**     | What should persist, retry, escalate, or stop after each result?  | Durable state, handoff, and next action       |
+
+Select the **pattern** for the class of work, adapt its **contract** to your exact controls, then choose the **runtime** based on persistence, isolation, and permissions. Start from the problem and its verified finish below, or compare every field in the [pattern matrix](patterns/MATRIX.md).
+
+| When you say...                       | Start with                    | The loop can finish when...                                                    |
+| ------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------ |
+| "My PR is stuck"                      | PR babysitter                 | Required checks pass, review threads are resolved, and merge state is current. |
+| "CI keeps failing"                    | CI repair loop                | The original failing command passes with a scoped patch.                       |
+| "The docs may be stale"               | Docs drift collector          | Verified code/docs mismatches are patched and examples still run.              |
+| "A deploy needs monitoring"           | Deploy verifier               | Synthetic checks and rollout thresholds remain within policy.                  |
+| "Feedback is noisy"                   | Feedback clusterer            | Themes cite source items and separate frequency from severity.                 |
+| "Dependency updates pile up"          | Dependency triage loop        | Safe updates pass tests and risky upgrades have an owner-backed escalation.    |
+| "Agent evals regressed"               | Evaluation regression loop    | Targeted evals return to the accepted baseline without scorer changes.         |
+| "Sensitive changes need review"       | Security review loop          | Findings cite concrete evidence and approval boundaries stay intact.           |
+| "Agent spend is rising"               | Cost-control loop             | Spend falls on a comparable workload without quality regression.               |
+| "I need recurring bug discovery"      | Bug hunting loop              | Every accepted finding has reproducible steps or a failing test.               |
+| "A change needs sign-off"             | Enterprise approval loop      | Every required gate has a recorded decision and audit trail.                   |
+| "An incident just paged"              | Incident response loop        | Impact, evidence, timeline, and accountable owner are recorded.                |
+| "A dataset keeps drifting"            | Data-quality loop             | Hard quality rules pass before a new version is promoted.                      |
+| "Release notes are a chore"           | Release-note loop             | Every shipped change maps to a merged source and audience-facing note.         |
+| "Model choice is ad hoc"              | Model-routing loop            | Routing meets quality, latency, privacy, and cost tolerances.                  |
+| "A stable system should improve"      | Benchmark optimization loop   | Repeated measurements confirm improvement with protected metrics intact.       |
+| "The agent's knowledge is stale"      | Knowledge freshness loop      | A versioned corpus passes provenance, freshness, retrieval, and leakage gates. |
+| "Performance regressed"               | Performance regression loop   | A controlled benchmark confirms recovery with correctness intact.              |
+| "A UI accessibility check failed"     | Accessibility regression loop | The exact regression is fixed and required human criteria are approved.        |
+| "The agent needs adversarial testing" | Adversarial red-team loop     | Findings are reproduced, minimized, privately reported, and regression-tested. |
+
+After choosing the pattern, compare [runtime persistence, isolation, permissions, and escalation](meta/RUNTIME_SELECTION.md#choosing-by-concern).
 
 ## Canonical Definition
 

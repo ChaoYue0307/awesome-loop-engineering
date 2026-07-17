@@ -1,12 +1,14 @@
 # Loop Pattern Library
 
-Twenty operational patterns turn the Loop Contract into repeatable ways of working. Every pattern names the problem, trigger, intake, permissions, roles, deterministic gate, durable state, budget, escalation path, and a matching schema-valid contract.
+Twenty operational patterns turn the Loop Contract into repeatable ways of working. Choose a pattern because recurring jobs fail in different ways: a PR can wait on checks, a rollout can breach a threshold, and a security review can cross an approval boundary. Each needs its own trigger, permissions, evidence gate, state, budget, and human handoff even when the underlying agent is the same.
+
+Use a loop when the work returns, an external signal can verify progress, useful state should survive between runs, and action can be bounded. Prefer one supervised agent run when the task is one-off, completion is mainly subjective, or a safe permission boundary cannot be stated.
 
 ## Use The Library In Three Steps
 
-1. Start from the symptom in the coverage map below.
-1. Open the pattern to understand the operating model and worked example.
-1. Adapt its linked JSON contract, then choose a [runtime starter](../examples/runnable/README.md).
+1. Start from the recurring symptom and verified outcome in the coverage map below.
+1. Open the pattern to review its trigger, external gate, state, failure boundaries, and worked example.
+1. Adapt its linked JSON contract to your permissions and budgets, then choose a [runtime starter](../examples/runnable/README.md).
 
 The layers have different jobs:
 
