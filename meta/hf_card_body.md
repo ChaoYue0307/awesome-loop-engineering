@@ -23,7 +23,7 @@ Current release: **v{{VERSION}}**
 
 | Surface | Count |
 | --- | ---: |
-| Curated resources | {{RESOURCE_COUNT}} |
+| Source-audited resources | {{RESOURCE_COUNT}} |
 | Operational patterns | {{PATTERN_COUNT}} |
 | Validated loop contracts | {{CONTRACT_COUNT}} |
 | Runnable templates | {{RUNNABLE_COUNT}} |
