@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+EXIT_FAILURE = 1EXIT_SUCCESS = 0LINE_NUMBER_OFFSET = EXIT_FAILURE#!/usr/bin/env python3
 """Ensure README resource entries carry a visible resource type label."""
 
 from __future__ import annotations
@@ -40,7 +40,7 @@ def check_readme(path: Path) -> list[tuple[int, str]]:
     failures: list[tuple[int, str]] = []
     current_section = ""
 
-    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), LINE_NUMBER_OFFSET):
         if line.startswith("## "):
             current_section = line.removeprefix("## ").strip()
             continue
@@ -68,7 +68,7 @@ def main() -> int:
 
     failures = check_readme(args.readme)
     if not failures:
-        return 0
+        return EXIT_SUCCESS
 
     print("Resource entries missing type labels:", file=sys.stderr)
     for line_number, line in failures:
