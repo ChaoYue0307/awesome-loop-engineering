@@ -132,7 +132,10 @@ Loop engineering asks: **what recurring system should discover work, delegate to
 Prompt, context, and harness engineering make one agent run better. Loop Engineering makes agent work repeatable, observable, and governable over time.
 
 <p align="center">
-  <img src="assets/loop-engineering-stack.png" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time" width="100%">
+  <picture>
+    <source media="(max-width: 560px)" srcset="assets/loop-engineering-stack-mobile.png">
+    <img src="assets/loop-engineering-stack.png" alt="Diagram of the engineering stack: Prompt, Context, and Harness Engineering improve one run; Loop Engineering governs recurring agent work over time" width="100%">
+  </picture>
   <br>
   <sub><strong>Figure 1.</strong> Prompt, context, and harness engineering improve one run; Loop Engineering governs recurring work over time.</sub>
 </p>
@@ -152,7 +155,10 @@ Objective
 ```
 
 <p align="center">
-  <img src="assets/loop-lifecycle.svg" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met" width="100%">
+  <picture>
+    <source media="(max-width: 560px)" srcset="assets/loop-lifecycle-mobile.png">
+    <img src="assets/loop-lifecycle.svg" alt="Loop Engineering lifecycle: Intake, Delegate, Act, Verify, Persist, Decide; Decide retries by feeding evidence back, escalates to a human, or exits when the goal is met" width="100%">
+  </picture>
   <br>
   <sub><strong>Figure 2.</strong> Evidence moves through a recurring, stateful, verified loop toward retry, escalation, or exit.</sub>
 </p>
@@ -374,7 +380,10 @@ Direct resources about the new AI/coding-agent meaning of Loop Engineering.
 A useful loop has a contract. If one of these is missing, the loop usually becomes either a manual prompt habit or an unsafe background automation. Prompt, context, and harness choices are ingredients; the loop contract is the operating layer that connects them over time.
 
 <p align="center">
-  <img src="assets/loop-contract-cards.svg" alt="Loop Contract cards: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit" width="100%">
+  <picture>
+    <source media="(max-width: 560px)" srcset="assets/loop-contract-mobile.png">
+    <img src="assets/loop-contract-cards.svg" alt="Loop Contract cards: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit" width="100%">
+  </picture>
   <br>
   <sub><strong>Figure 3.</strong> The Loop Contract makes recurring agent work explicit, reviewable, and bounded.</sub>
 </p>

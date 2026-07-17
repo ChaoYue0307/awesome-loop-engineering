@@ -878,6 +878,7 @@ if (container && hero) {
       const width = Math.max(container.clientWidth, 1);
       const height = Math.max(container.clientHeight, 1);
       const compact = width < 720;
+      const narrow = width < 350;
       const tablet = !compact && width < 900;
       applyLayout(compact);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, compact || lowPower ? 1.3 : 1.65));
@@ -885,7 +886,7 @@ if (container && hero) {
 
       const aspect = width / height;
       const viewHeight = compact
-        ? Math.max(3.42, 5.0 / aspect)
+        ? Math.max(3.42, (narrow ? 5.42 : 5.2) / aspect)
         : tablet
           ? 11.2 / aspect
           : 3.15;
@@ -894,12 +895,12 @@ if (container && hero) {
       camera.right = viewWidth / 2;
       camera.top = viewHeight / 2;
       camera.bottom = -viewHeight / 2;
-      camera.position.set(0, compact ? 2.05 : 2.6, 10);
+      camera.position.set(0, compact ? 2.0 : 2.6, 10);
       camera.lookAt(0, compact ? -0.05 : 0, 0);
       camera.updateProjectionMatrix();
 
-      stationScale = compact ? 1.01 : tablet ? 0.92 : 1.04;
-      packetGroup.scale.setScalar(compact ? 1.12 : 1);
+      stationScale = narrow ? 0.94 : compact ? 0.99 : tablet ? 0.92 : 1.04;
+      packetGroup.scale.setScalar(narrow ? 1.02 : compact ? 1.08 : 1);
       stationLabels.forEach((label) => {
         label.visible = !compact;
         label.position.y = 0.98;
@@ -907,7 +908,7 @@ if (container && hero) {
       });
       numberLabels.forEach((label) => {
         label.visible = compact;
-        label.scale.setScalar(compact ? 0.43 : 0.39);
+        label.scale.setScalar(narrow ? 0.4 : compact ? 0.43 : 0.39);
       });
       microLabels.forEach((label) => { label.visible = width >= 980; });
       render(performance.now());

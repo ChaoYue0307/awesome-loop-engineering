@@ -72,17 +72,13 @@
         outline-offset: 3px;
       }
       .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-      .emoji {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 1.25em;
-        height: 1.25em;
+      .icon {
+        display: block;
+        width: 1em;
+        height: 1em;
         flex: 0 0 auto;
-        font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
-        font-size: 1em;
-        font-style: normal;
-        line-height: 1;
+        color: currentColor;
+        stroke-width: 2;
       }
 
       header.site {
@@ -105,7 +101,7 @@
         white-space: nowrap;
       }
       .brand:hover { color: var(--ink); }
-      .brand .logo { display: block; width: 32px; height: 32px; }
+      .brand .logo { display: block; width: 32px; height: 32px; flex: 0 0 auto; object-fit: contain; }
       .links { display: flex; align-items: center; gap: 18px; margin-left: 8px; }
       .links a { position: relative; color: var(--muted); font-size: 0.84rem; font-weight: 600; text-decoration: none; }
       .links a:hover { color: var(--ink); }
@@ -134,8 +130,10 @@
         background: var(--surface);
         font-size: 0.86rem;
         font-weight: 700;
+        line-height: 1.2;
         text-decoration: none;
       }
+      .nav-link .icon, .button .icon, .menu-btn .icon { width: 17px; height: 17px; }
       .nav-link:hover, .button:hover { border-color: var(--blue); color: var(--blue); text-decoration: none; }
       .nav-link.primary, .button.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
       .nav-link.primary:hover, .button.primary:hover { background: #0f49bd; border-color: #0f49bd; color: #fff; }
@@ -153,6 +151,9 @@
         font-weight: 700;
         cursor: pointer;
       }
+      .menu-icon-close { display: none; }
+      .menu-btn[aria-expanded="true"] .menu-icon-open { display: none; }
+      .menu-btn[aria-expanded="true"] .menu-icon-close { display: block; }
       .mobile-nav-only, .definition-compact, .mobile-diagram { display: none; }
 
       main { overflow: hidden; }
@@ -256,12 +257,12 @@
         font-weight: 600;
         text-transform: uppercase;
       }
-      .section-label .emoji { font-size: 1.06em; }
+      .section-label .icon { width: 15px; height: 15px; margin-top: 1px; }
       h1, h2, h3, p { overflow-wrap: anywhere; }
       h1 { max-width: 900px; margin: 0 auto; font-size: 3.85rem; line-height: 1.04; font-weight: 800; }
       h2 { margin: 0; font-size: 2.45rem; line-height: 1.14; font-weight: 800; }
       h3 { margin: 0; font-size: 1.02rem; line-height: 1.35; }
-      .hero-kicker { justify-content: center; margin-bottom: 14px; }
+      .hero-kicker { width: fit-content; max-width: 100%; justify-content: center; margin: 0 auto 14px; }
       .tagline { margin: 18px auto 0; color: var(--blue); font-size: 1.5rem; font-weight: 700; }
       .lead { max-width: 780px; margin: 14px auto 0; color: var(--muted); font-size: 1.08rem; }
       .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
@@ -338,16 +339,18 @@
       .stat { position: relative; padding: 17px 12px; text-align: left; }
       .stat + .stat { border-left: 1px solid var(--line); }
       .stat b { display: flex; align-items: center; gap: 8px; color: var(--ink); font-size: 1.35rem; line-height: 1.2; }
-      .stat b .emoji { font-size: 0.82em; }
+      .stat b .icon { width: 18px; height: 18px; color: var(--blue); }
       .stat span { color: var(--quiet); font-size: 0.76rem; font-weight: 600; text-transform: uppercase; }
       .definition { max-width: 900px; margin: 0 auto 28px; color: var(--muted); font-size: 0.92rem; text-align: center; }
       .definition strong { color: var(--ink); }
+
+      .mobile-stack { display: none; }
 
       .section-head { display: grid; grid-template-columns: minmax(250px, 0.78fr) minmax(360px, 1.22fr); gap: 64px; align-items: end; margin-bottom: 36px; }
       .section-intro { max-width: 720px; margin: 0; color: var(--muted); }
       .audit-note { margin: -17px 0 28px; border-top: 1px solid var(--line); padding-top: 13px; color: var(--muted); font-size: 0.8rem; }
       .audit-note strong { color: var(--ink); }
-      .diagram { width: 100%; }
+      .diagram { width: 100%; margin: 0; }
       .caption { margin: 13px 0 0; color: var(--quiet); font-size: 0.78rem; text-align: right; }
       .supporting-visual { margin: 0 0 34px; }
 
@@ -436,7 +439,8 @@
       }
       .principle + .principle, .card + .card, .pattern + .pattern { padding-left: 22px; }
       .principle p, .card p { margin: 7px 0 0; color: var(--muted); font-size: 0.9rem; }
-      .principle h3, .card h3, footer h4 { display: flex; align-items: center; gap: 8px; }
+      .principle h3, .card h3, footer h4 { display: flex; align-items: flex-start; gap: 8px; }
+      .principle h3 .icon, .card h3 .icon, footer h4 .icon { width: 17px; height: 17px; margin-top: 2px; color: var(--blue); }
       .principles { margin-top: 34px; }
       .pattern-grid { gap: 0; }
       .pattern {
@@ -498,6 +502,9 @@
       }
       .resource-input::placeholder { color: var(--quiet); }
       .resource-reset, .resource-more {
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
         min-height: 44px;
         border: 1px solid var(--line-strong);
         border-radius: 6px;
@@ -507,6 +514,8 @@
         font-weight: 700;
         cursor: pointer;
       }
+      .resource-reset { display: inline-flex; }
+      .resource-reset .icon { width: 15px; height: 15px; }
       .resource-reset:hover, .resource-more:hover { border-color: var(--blue); color: var(--blue); }
       .resource-collections { display: flex; flex-wrap: wrap; gap: 0; border-bottom: 1px solid var(--line); }
       .resource-collection {
@@ -526,6 +535,7 @@
       }
       .resource-collection:hover { color: var(--ink); }
       .resource-collection[aria-pressed="true"] { border-bottom-color: var(--blue); color: var(--blue); }
+      .resource-collection .icon { width: 15px; height: 15px; }
       .resource-summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 58px; border-bottom: 1px solid var(--line-strong); }
       .resource-count { margin: 0; color: var(--muted); font-size: 0.86rem; }
       .resource-sort { width: auto; min-width: 176px; }
@@ -614,7 +624,7 @@
           overflow-y: auto;
         }
         .links.open a { padding: 9px 0; }
-        .links.open .mobile-nav-only { display: block; }
+        .links.open .mobile-nav-only { display: flex; align-items: center; gap: 8px; }
         .links.open a[aria-current="location"]::after { display: none; }
       }
       @media (max-width: 920px) {
@@ -671,23 +681,25 @@
         .project-links { gap: 6px; }
         .nav-link { min-height: 44px; padding-inline: 12px; }
         .brand { min-width: 0; gap: 8px; }
-        .brand .logo { width: 30px; height: 30px; }
+        .brand .logo { width: 28px; height: 28px; }
         .brand .brand-text { display: block; font-size: 0.78rem; line-height: 1.1; }
         .menu-btn { width: 44px; min-height: 44px; justify-content: center; padding: 0; }
         .menu-label { display: none; }
-        .menu-icon { font-size: 1.05rem; line-height: 1; }
+        .menu-btn .icon { width: 18px; height: 18px; }
         section { padding: 56px 0; }
         h1 { font-size: 2.25rem; line-height: 1.08; }
         h2 { font-size: 1.85rem; line-height: 1.16; }
-        .section-label { margin-bottom: 9px; font-size: 0.68rem; }
+        .section-label { align-items: flex-start; margin-bottom: 9px; font-size: 0.68rem; line-height: 1.4; }
+        .section-label .icon { width: 14px; height: 14px; margin-top: 1px; }
         .section-head { gap: 12px; margin-bottom: 24px; }
         .section-intro { font-size: 0.95rem; }
         .hero { min-height: 0; padding: 32px 0 18px; }
-        .hero-kicker { max-width: 320px; margin: 0 auto 10px; line-height: 1.45; }
+        .hero-kicker { max-width: 100%; align-items: center; margin: 0 auto 10px; line-height: 1.35; text-align: left; }
         .tagline { margin-top: 11px; font-size: 1.18rem; }
         .lead { margin-top: 8px; font-size: 0.95rem; line-height: 1.48; }
         .actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; max-width: 420px; gap: 8px; margin: 16px auto 0; }
         .actions .button { min-width: 0; min-height: 44px; padding-inline: 8px; font-size: 0.82rem; }
+        .actions .button .icon { width: 16px; height: 16px; }
         .hero-system { display: flex; flex-direction: column; margin-top: 20px; }
         .scene-head { order: 1; justify-content: center; min-height: 34px; padding: 6px 0; }
         .scene-flow { display: none; }
@@ -714,6 +726,59 @@
         .definition-full { display: none; }
         .definition-compact { display: inline; }
         .hero-visual { width: min(100%, 420px); }
+        .hero-visual .desktop-stack-visual { display: none; }
+        .mobile-stack {
+          display: block;
+          border: 1px solid var(--line-strong);
+          border-radius: 6px;
+          background: var(--surface);
+          overflow: hidden;
+          text-align: left;
+        }
+        .mobile-stack-head { padding: 15px 15px 13px; border-bottom: 1px solid var(--line); }
+        .mobile-stack-eyebrow {
+          display: block;
+          color: var(--blue);
+          font-family: "IBM Plex Mono", ui-monospace, monospace;
+          font-size: 0.62rem;
+          font-weight: 650;
+          text-transform: uppercase;
+        }
+        .mobile-stack-head strong { display: block; margin-top: 3px; font-size: 1.12rem; line-height: 1.25; }
+        .mobile-stack-list { margin: 0; padding: 0; list-style: none; }
+        .mobile-stack-layer {
+          display: grid;
+          grid-template-columns: 30px minmax(0, 1fr);
+          gap: 10px;
+          min-width: 0;
+          padding: 13px 14px 14px 12px;
+          border-left: 4px solid var(--ink);
+        }
+        .mobile-stack-layer + .mobile-stack-layer { border-top: 1px solid var(--line); }
+        .mobile-stack-layer.loop { border-left-color: var(--blue); background: #eef4ff; }
+        .mobile-stack-layer.harness { border-left-color: var(--cyan); }
+        .mobile-stack-layer.context { border-left-color: var(--green); }
+        .mobile-stack-number {
+          padding-top: 2px;
+          color: var(--quiet);
+          font-family: "IBM Plex Mono", ui-monospace, monospace;
+          font-size: 0.64rem;
+          font-weight: 700;
+        }
+        .mobile-stack-layer.loop .mobile-stack-number, .mobile-stack-layer.loop strong { color: var(--blue); }
+        .mobile-stack-layer.harness strong { color: #087f99; }
+        .mobile-stack-layer.context strong { color: #087b53; }
+        .mobile-stack-layer strong { display: block; font-size: 0.92rem; line-height: 1.3; }
+        .mobile-stack-layer p { margin: 3px 0 0; color: var(--muted); font-size: 0.74rem; line-height: 1.45; }
+        .mobile-stack-note {
+          margin: 0;
+          border-top: 1px solid var(--line-strong);
+          padding: 11px 14px 12px;
+          color: var(--muted);
+          font-size: 0.72rem;
+          line-height: 1.45;
+        }
+        .mobile-stack-note strong { color: var(--blue); }
         .stats { margin-top: 20px; }
         .stat { min-height: 76px; padding: 14px 11px; }
         .stat b { font-size: 1.22rem; }
@@ -798,7 +863,8 @@
         .resource-select { padding-inline: 10px; font-size: 0.86rem; }
         .resource-reset { font-size: 0.86rem; }
         .resource-collections { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; }
-        .resource-collection { min-width: 0; min-height: 40px; padding-inline: 4px; font-size: 0.75rem; }
+        .resource-collection { min-width: 0; min-height: 42px; padding-inline: 4px; font-size: 0.75rem; }
+        .resource-collection .icon { width: 14px; height: 14px; }
         .resource-summary { align-items: stretch; flex-direction: column; gap: 10px; padding: 14px 0; }
         .resource-sort { width: 100%; }
         .resource-item { grid-template-columns: 1fr; gap: 12px; padding: 17px 0; }
@@ -841,6 +907,10 @@
         .hero-inspector .loop-stage-detail { min-height: 34px; font-size: 0.72rem; }
         .mental-model { padding-top: 8px; }
         .actions .button { font-size: 0.78rem; }
+        .mobile-stack-layer { padding-right: 11px; padding-left: 9px; }
+        .mobile-stack-layer p { font-size: 0.71rem; }
+        .resource-collection { gap: 4px; font-size: 0.68rem; }
+        .resource-collection .icon { width: 13px; height: 13px; }
         .menu-btn { padding-inline: 10px; }
         .nav-link { padding-inline: 10px; }
       }
@@ -972,13 +1042,13 @@
           <a href="#maturity">Maturity</a>
           <a href="#resources">Resources</a>
           <a href="#faq">FAQ</a>
-          <a class="mobile-nav-only" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><span class="emoji" aria-hidden="true">🤗</span>Dataset</a>
+          <a class="mobile-nav-only" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><i class="icon" data-lucide="database" aria-hidden="true"></i>Dataset</a>
         </nav>
         <span class="spacer"></span>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><span class="menu-icon" aria-hidden="true">&#9776;</span><span class="menu-label">Menu</span></button>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation"><i class="icon menu-icon-open" data-lucide="menu" aria-hidden="true"></i><i class="icon menu-icon-close" data-lucide="x" aria-hidden="true"></i><span class="menu-label">Menu</span></button>
         <nav class="project-links" aria-label="Project links">
-          <a class="nav-link" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><span class="emoji" aria-hidden="true">🤗</span>Dataset</a>
-          <a class="nav-link primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering"><span aria-hidden="true">&nearr;</span><span class="nav-label">GitHub</span></a>
+          <a class="nav-link" href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><i class="icon" data-lucide="database" aria-hidden="true"></i>Dataset</a>
+          <a class="nav-link primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering" aria-label="Open the GitHub repository"><i class="icon" data-lucide="code-2" aria-hidden="true"></i><span class="nav-label">GitHub</span></a>
         </nav>
       </div>
     </header>
@@ -987,13 +1057,13 @@
       <section class="hero" id="top">
         <div class="wrap">
           <div class="hero-copy">
-            <p class="section-label hero-kicker"><span class="emoji" aria-hidden="true">🔁</span><span>The field guide for recurring AI-agent systems</span></p>
+            <p class="section-label hero-kicker"><i class="icon" data-lucide="repeat-2" aria-hidden="true"></i><span>Field guide for recurring agent systems</span></p>
             <h1>Awesome Loop Engineering</h1>
             <p class="tagline">Design loops, not just prompts.</p>
             <p class="lead">540 source-audited resources, 15 operational patterns, 15 validated contracts, and 6 runnable templates for agent systems that must keep working.</p>
             <div class="actions">
-              <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme"><span class="emoji" aria-hidden="true">📚</span>Explore the list</a>
-              <a class="button" href="#choose"><span class="emoji" aria-hidden="true">🧭</span>Choose a loop</a>
+              <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme"><i class="icon" data-lucide="book-open" aria-hidden="true"></i>Explore the list</a>
+              <a class="button" href="#choose"><i class="icon" data-lucide="compass" aria-hidden="true"></i>Choose a loop</a>
             </div>
           </div>
           <div class="hero-system">
@@ -1034,17 +1104,24 @@
         <div class="wrap">
           <p class="definition"><span class="definition-full"><strong>Loop Engineering</strong> is the practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.</span><span class="definition-compact"><strong>Loop Engineering</strong> designs recurring agent systems that discover work, delegate it, verify results, persist state, and decide what happens next.</span></p>
           <figure class="hero-visual">
-            <picture>
-              <source media="(max-width: 560px)" srcset="assets/loop-engineering-stack-mobile.svg">
-              <img src="assets/loop-engineering-stack.png" width="1666" height="944" fetchpriority="high" alt="The engineering stack: prompt, context, and harness engineering improve one agent run; Loop Engineering governs recurring work over time.">
-            </picture>
+            <img class="desktop-stack-visual" src="assets/loop-engineering-stack.svg?v=7" width="1200" height="680" loading="lazy" alt="The engineering stack: prompt, context, and harness engineering improve one agent run; Loop Engineering governs recurring work over time.">
+            <div class="mobile-stack" role="img" aria-label="Four engineering layers. Prompt, context, and harness engineering improve one agent run. Loop Engineering governs recurring work over time.">
+              <div class="mobile-stack-head"><span class="mobile-stack-eyebrow">Mental model / four layers</span><strong>Loop Engineering Stack</strong></div>
+              <ol class="mobile-stack-list">
+                <li class="mobile-stack-layer loop"><span class="mobile-stack-number">04</span><div><strong>Loop Engineering</strong><p>Governs the recurring contract, verification, state, budget, and next action over time.</p></div></li>
+                <li class="mobile-stack-layer harness"><span class="mobile-stack-number">03</span><div><strong>Harness Engineering</strong><p>Provides tools, permissions, sandboxes, traces, and checks around one run.</p></div></li>
+                <li class="mobile-stack-layer context"><span class="mobile-stack-number">02</span><div><strong>Context Engineering</strong><p>Loads the state, memory, documents, and examples the agent can see.</p></div></li>
+                <li class="mobile-stack-layer prompt"><span class="mobile-stack-number">01</span><div><strong>Prompt Engineering</strong><p>Defines the instruction and interaction for one model call.</p></div></li>
+              </ol>
+              <p class="mobile-stack-note">The first three layers improve <strong>one run</strong>. Loop Engineering governs <strong>work over time</strong>.</p>
+            </div>
           </figure>
           <div class="stats" role="list" aria-label="Repository at a glance">
-            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">📚</span>540</b><span>audited resources</span></div>
-            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">🧩</span>15</b><span>operational patterns</span></div>
-            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">🧾</span>15</b><span>loop contracts</span></div>
-            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">▶️</span>6</b><span>runnable templates</span></div>
-            <div class="stat" role="listitem"><b><span class="emoji" aria-hidden="true">🌍</span>8</b><span>languages</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="library" aria-hidden="true"></i>540</b><span>audited resources</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="blocks" aria-hidden="true"></i>15</b><span>operational patterns</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i>15</b><span>loop contracts</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="play" aria-hidden="true"></i>6</b><span>runnable templates</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="languages" aria-hidden="true"></i>8</b><span>languages</span></div>
           </div>
         </div>
       </section>
@@ -1053,7 +1130,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">🧾</span><span>01 / The loop contract</span></p>
+              <p class="section-label"><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i><span>01 / The loop contract</span></p>
               <h2>Every reliable loop names the same parts.</h2>
             </div>
             <p class="section-intro">A loop contract makes triggers, permissions, verification, state, budgets, and human handoff reviewable. Start with the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json">JSON schema</a> or one of <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md">15 validated examples</a>.</p>
@@ -1092,9 +1169,9 @@
             <p class="mobile-next-action"><strong>Next action</strong><span>Repeat, report, escalate, or stop.</span></p>
           </div>
           <div class="principles">
-            <div class="principle"><h3><span class="emoji" aria-hidden="true">✅</span>Verifiable by design</h3><p>Tests, typechecks, evals, traces, or reviewers decide done. The acting agent never approves itself.</p></div>
-            <div class="principle"><h3><span class="emoji" aria-hidden="true">💾</span>State outside the model</h3><p>Progress files, issues, checkpoints, and traces survive context resets and the next run.</p></div>
-            <div class="principle"><h3><span class="emoji" aria-hidden="true">⏱️</span>Budgeted and bounded</h3><p>Retries, runtime, and concurrency are capped, with a clear path to human judgment.</p></div>
+            <div class="principle"><h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>Verifiable by design</h3><p>Tests, typechecks, evals, traces, or reviewers decide done. The acting agent never approves itself.</p></div>
+            <div class="principle"><h3><i class="icon" data-lucide="database" aria-hidden="true"></i>State outside the model</h3><p>Progress files, issues, checkpoints, and traces survive context resets and the next run.</p></div>
+            <div class="principle"><h3><i class="icon" data-lucide="timer" aria-hidden="true"></i>Budgeted and bounded</h3><p>Retries, runtime, and concurrency are capped, with a clear path to human judgment.</p></div>
           </div>
         </div>
       </section>
@@ -1103,7 +1180,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">🔁</span><span>02 / The lifecycle</span></p>
+              <p class="section-label"><i class="icon" data-lucide="repeat-2" aria-hidden="true"></i><span>02 / The lifecycle</span></p>
               <h2>Evidence moves the loop forward.</h2>
             </div>
             <p class="section-intro">Tests, evals, traces, or reviewers gate the work. Evidence and state persist outside the model, then drive retry, escalation, or exit.</p>
@@ -1134,7 +1211,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">🧩</span><span>03 / Pattern library</span></p>
+              <p class="section-label"><i class="icon" data-lucide="blocks" aria-hidden="true"></i><span>03 / Pattern library</span></p>
               <h2>Start from the problem you have.</h2>
             </div>
             <p class="section-intro">Each pattern includes a trigger, verification gate, durable state, budget, and escalation path. Compare all 15 in the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/MATRIX.md">pattern matrix</a>.</p>
@@ -1167,7 +1244,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">🛠️</span><span>04 / Where loops run</span></p>
+              <p class="section-label"><i class="icon" data-lucide="wrench" aria-hidden="true"></i><span>04 / Where loops run</span></p>
               <h2>Pick the runtime deliberately.</h2>
             </div>
             <p class="section-intro">The same contract can run in a session, on a schedule, in CI, or through a durable worker. The <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/RUNTIME_SELECTION.md">runtime selection guide</a> compares persistence, file access, isolation, and permissions.</p>
@@ -1177,12 +1254,12 @@
             <figcaption class="caption">Keep the contract stable; change the trigger, isolation, and permission wiring.</figcaption>
           </figure>
           <div class="link-grid">
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><h3><span class="emoji" aria-hidden="true">⌨️</span>Claude Code <code>/loop</code></h3><p>Session-scoped recurring work while you are nearby.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><h3><span class="emoji" aria-hidden="true">🕒</span>Desktop scheduled task</h3><p>Local recurring runs with file access and missed-run guardrails.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/codex-automation.md"><h3><span class="emoji" aria-hidden="true">⚙️</span>Codex automation</h3><p>Unattended background work in an isolated worktree.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><h3><span class="emoji" aria-hidden="true">🧪</span>GitHub agentic workflow</h3><p>Scheduled or event-triggered work in GitHub Actions.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><h3><span class="emoji" aria-hidden="true">🖥️</span>Shell / cron</h3><p>A minimal wrapper that delegates to an agent CLI and records receipts.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><h3><span class="emoji" aria-hidden="true">▶️</span>Runnable reference</h3><p>A dependency-light test-repair loop you can run today.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-loop.md"><h3><i class="icon" data-lucide="keyboard" aria-hidden="true"></i>Claude Code <code>/loop</code></h3><p>Session-scoped recurring work while you are nearby.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/claude-desktop-scheduled-task.md"><h3><i class="icon" data-lucide="clock-3" aria-hidden="true"></i>Desktop scheduled task</h3><p>Local recurring runs with file access and missed-run guardrails.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/codex-automation.md"><h3><i class="icon" data-lucide="bot" aria-hidden="true"></i>Codex automation</h3><p>Unattended background work in an isolated worktree.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/github-agentic-workflow.md"><h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>GitHub agentic workflow</h3><p>Scheduled or event-triggered work in GitHub Actions.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/shell-cron-loop.md"><h3><i class="icon" data-lucide="terminal" aria-hidden="true"></i>Shell / cron</h3><p>A minimal wrapper that delegates to an agent CLI and records receipts.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/runnable/test-repair-loop.sh"><h3><i class="icon" data-lucide="play" aria-hidden="true"></i>Runnable reference</h3><p>A dependency-light test-repair loop you can run today.</p></a>
           </div>
         </div>
       </section>
@@ -1191,7 +1268,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">📈</span><span>05 / Maturity model</span></p>
+              <p class="section-label"><i class="icon" data-lucide="chart-no-axes-combined" aria-hidden="true"></i><span>05 / Maturity model</span></p>
               <h2>Climb one level at a time.</h2>
             </div>
             <p class="section-intro">A reliable Level 3 loop with durable state and deterministic checks is more useful than a Level 5 loop with vague goals.</p>
@@ -1216,7 +1293,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">📚</span><span>06 / Resource atlas</span></p>
+              <p class="section-label"><i class="icon" data-lucide="library" aria-hidden="true"></i><span>06 / Resource atlas</span></p>
               <h2>Find evidence, not just links.</h2>
             </div>
             <p class="section-intro">Filter 540 source-audited works by goal, lifecycle, artifact type, and evidence class. Open any result for contribution, novelty, impact, provenance, and source metadata.</p>
@@ -1273,17 +1350,17 @@
                   <option value="risk">Risk and ecosystem maps</option>
                 </select>
               </label>
-              <button class="resource-reset" id="resource-reset" type="button"><span aria-hidden="true">&#8634;</span> Reset</button>
+              <button class="resource-reset" id="resource-reset" type="button"><i class="icon" data-lucide="rotate-ccw" aria-hidden="true"></i>Reset</button>
             </div>
             <div class="resource-collections" role="group" aria-label="Filter by user goal">
-              <button class="resource-collection" type="button" data-collection="" aria-pressed="true"><span class="emoji" aria-hidden="true">✨</span>All</button>
-              <button class="resource-collection" type="button" data-collection="Learn" aria-pressed="false"><span class="emoji" aria-hidden="true">🧭</span>Learn</button>
-              <button class="resource-collection" type="button" data-collection="Design" aria-pressed="false"><span class="emoji" aria-hidden="true">✏️</span>Design</button>
-              <button class="resource-collection" type="button" data-collection="Build" aria-pressed="false"><span class="emoji" aria-hidden="true">🛠️</span>Build</button>
-              <button class="resource-collection" type="button" data-collection="Persist" aria-pressed="false"><span class="emoji" aria-hidden="true">💾</span>Persist</button>
-              <button class="resource-collection" type="button" data-collection="Verify" aria-pressed="false"><span class="emoji" aria-hidden="true">✅</span>Verify</button>
-              <button class="resource-collection" type="button" data-collection="Govern" aria-pressed="false"><span class="emoji" aria-hidden="true">🛡️</span>Govern</button>
-              <button class="resource-collection" type="button" data-collection="Apply" aria-pressed="false"><span class="emoji" aria-hidden="true">📦</span>Apply</button>
+              <button class="resource-collection" type="button" data-collection="" aria-pressed="true"><i class="icon" data-lucide="layout-grid" aria-hidden="true"></i>All</button>
+              <button class="resource-collection" type="button" data-collection="Learn" aria-pressed="false"><i class="icon" data-lucide="compass" aria-hidden="true"></i>Learn</button>
+              <button class="resource-collection" type="button" data-collection="Design" aria-pressed="false"><i class="icon" data-lucide="pencil-ruler" aria-hidden="true"></i>Design</button>
+              <button class="resource-collection" type="button" data-collection="Build" aria-pressed="false"><i class="icon" data-lucide="hammer" aria-hidden="true"></i>Build</button>
+              <button class="resource-collection" type="button" data-collection="Persist" aria-pressed="false"><i class="icon" data-lucide="database" aria-hidden="true"></i>Persist</button>
+              <button class="resource-collection" type="button" data-collection="Verify" aria-pressed="false"><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>Verify</button>
+              <button class="resource-collection" type="button" data-collection="Govern" aria-pressed="false"><i class="icon" data-lucide="shield-check" aria-hidden="true"></i>Govern</button>
+              <button class="resource-collection" type="button" data-collection="Apply" aria-pressed="false"><i class="icon" data-lucide="package-open" aria-hidden="true"></i>Apply</button>
             </div>
             <div class="resource-summary">
               <p class="resource-count" id="resource-count" aria-live="polite">Resource index loads as you approach this section.</p>
@@ -1321,16 +1398,16 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">🤝</span><span>07 / Contribute</span></p>
+              <p class="section-label"><i class="icon" data-lucide="handshake" aria-hidden="true"></i><span>07 / Contribute</span></p>
               <h2>Improve the evidence or share a loop.</h2>
             </div>
             <p class="section-intro">Submit one canonical source, correct an existing record with primary evidence, or document a loop you have run.</p>
           </div>
           <div class="link-grid contribute-grid">
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml"><h3><span class="emoji" aria-hidden="true">➕</span>Suggest a resource</h3><p>Submit one canonical source and a precise annotation in under five minutes.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml"><h3><span class="emoji" aria-hidden="true">✅</span>Correct the map</h3><p>Fix a summary, contribution, date, venue, identifier, or canonical link with primary evidence.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/gallery/README.md"><h3><span class="emoji" aria-hidden="true">🔁</span>Share a loop</h3><p>Publish a real or anonymized case study using the gallery checklist.</p></a>
-            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2"><h3><span class="emoji" aria-hidden="true">💬</span>Join the discussion</h3><p>Compare operating patterns with other loop builders.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml"><h3><i class="icon" data-lucide="plus" aria-hidden="true"></i>Suggest a resource</h3><p>Submit one canonical source and a precise annotation in under five minutes.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml"><h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>Correct the map</h3><p>Fix a summary, contribution, date, venue, identifier, or canonical link with primary evidence.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/gallery/README.md"><h3><i class="icon" data-lucide="repeat-2" aria-hidden="true"></i>Share a loop</h3><p>Publish a real or anonymized case study using the gallery checklist.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2"><h3><i class="icon" data-lucide="messages-square" aria-hidden="true"></i>Join the discussion</h3><p>Compare operating patterns with other loop builders.</p></a>
           </div>
         </div>
       </section>
@@ -1339,7 +1416,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="section-label"><span class="emoji" aria-hidden="true">💬</span><span>08 / FAQ</span></p>
+              <p class="section-label"><i class="icon" data-lucide="message-circle-question-mark" aria-hidden="true"></i><span>08 / FAQ</span></p>
               <h2>Questions that define the boundary.</h2>
             </div>
             <p class="section-intro">Use these tests to decide whether a recurring agent system needs a loop.</p>
@@ -1372,7 +1449,7 @@
       <div class="wrap">
         <div class="footer-grid">
           <div>
-            <h4><span class="emoji" aria-hidden="true">📖</span>Cite this repository</h4>
+            <h4><i class="icon" data-lucide="quote" aria-hidden="true"></i>Cite this repository</h4>
             <div class="cite">
               <button class="copy" type="button" data-copy="cite-bib" aria-label="Copy BibTeX citation"><span aria-live="polite">Copy</span></button>
               <pre id="cite-bib">@misc{chaoyue2026awesome_loop_engineering,
@@ -1385,7 +1462,7 @@
             </div>
           </div>
           <div>
-            <h4><span class="emoji" aria-hidden="true">🧭</span>Explore</h4>
+            <h4><i class="icon" data-lucide="compass" aria-hidden="true"></i>Explore</h4>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/DEFINITION.md">Canonical definition</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/MANIFESTO.md">Manifesto</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TAXONOMY.md">Taxonomy</a>
@@ -1394,7 +1471,7 @@
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Source audit</a>
           </div>
           <div>
-            <h4><span class="emoji" aria-hidden="true">🛠️</span>Project</h4>
+            <h4><i class="icon" data-lucide="wrench" aria-hidden="true"></i>Project</h4>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub repository</a>
             <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face dataset</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md">Contributing</a>
@@ -1404,7 +1481,7 @@
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ROADMAP.md">Roadmap</a>
           </div>
           <div>
-            <h4><span class="emoji" aria-hidden="true">🌍</span>Languages</h4>
+            <h4><i class="icon" data-lucide="globe" aria-hidden="true"></i>Languages</h4>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.zh-CN.md" lang="zh">中文</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.es.md" lang="es">Español</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/README.fr.md" lang="fr">Français</a>
@@ -1418,18 +1495,17 @@
       </div>
     </footer>
 
+    <script src="assets/vendor/lucide/loop-icons.min.js?v=1"></script>
     <script>
       (function () {
         var button = document.querySelector('.menu-btn');
         var links = document.getElementById('primary-nav');
-        var icon = button && button.querySelector('.menu-icon');
         var label = button && button.querySelector('.menu-label');
         if (!button || !links) return;
         function setMenuState(open) {
           links.classList.toggle('open', open);
           button.setAttribute('aria-expanded', open ? 'true' : 'false');
           button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-          if (icon) icon.textContent = open ? '\u00d7' : '\u2630';
           if (label) label.textContent = open ? 'Close' : 'Menu';
         }
         button.addEventListener('click', function () {
@@ -1841,6 +1917,6 @@
         });
       });
     </script>
-    <script type="module" src="assets/loop-hero-scene.js?v=21"></script>
+    <script type="module" src="assets/loop-hero-scene.js?v=22"></script>
   </body>
 </html>
