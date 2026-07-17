@@ -29,7 +29,7 @@ Maintainers will still apply the same scope, duplication, source-quality, and an
 | 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. |
 ```
 
-Use `Undated` when the source does not expose a reliable publication date. Do not infer one from a search-result snippet. Maintainers regenerate the table layout and structured exports after review.
+When a source exposes no reliable publication date, omit the year and keep only the original venue or publishing platform. Do not infer a date from a search-result snippet. Maintainers regenerate the table layout and structured exports after review.
 
 1. Open a PR using the template and explain:
    - why the resource belongs;
@@ -138,7 +138,7 @@ Prefer:
 Avoid:
 
 ```md
-| 📝 **[Cool Agent Article](https://example.com)**<br><sub>Blog</sub> | **Undated** · Example publisher | Interesting article about AI. |
+| 📝 **[Cool Agent Article](https://example.com)**<br><sub>Blog</sub> | **Example publisher** | Interesting article about AI. |
 ```
 
 ## Adding A Loop Pattern

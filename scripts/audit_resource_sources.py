@@ -36,12 +36,15 @@ ATOM_NS = "{http://www.w3.org/2005/Atom}"
 ARXIV_NS = "{http://arxiv.org/schemas/atom}"
 
 PUBLISHER_BY_DOMAIN = {
+    "adk.dev": "Google Agent Development Kit",
     "arxiv.org": "arXiv",
     "github.com": "GitHub",
     "anthropic.com": "Anthropic",
     "claude.com": "Anthropic",
+    "crewai.com": "CrewAI",
     "openai.com": "OpenAI",
     "huggingface.co": "Hugging Face",
+    "langchain.com": "LangChain",
     "microsoft.com": "Microsoft",
     "google.com": "Google",
     "googleblog.com": "Google",
@@ -51,6 +54,7 @@ PUBLISHER_BY_DOMAIN = {
     "ainowinstitute.org": "AI Now Institute",
     "medium.com": "Medium",
     "substack.com": "Substack",
+    "strandsagents.com": "Strands Agents",
     "x.com": "X",
     "youtube.com": "YouTube",
 }
@@ -74,6 +78,54 @@ PUBLICATION_OVERRIDES = {
         "publisher": "Anthropic",
         "publication_note": "Date verified from the primary PDF creation metadata.",
         "metadata_source": "pdf-metadata",
+    },
+    "https://adk.dev/evaluate/": {
+        "authors": "Google Agent Development Kit",
+        "publication_venue": "Google Agent Development Kit",
+        "publisher": "Google",
+        "metadata_source": "primary-page",
+    },
+    "https://adk.dev/sessions/": {
+        "authors": "Google Agent Development Kit",
+        "publication_venue": "Google Agent Development Kit",
+        "publisher": "Google",
+        "metadata_source": "primary-page",
+    },
+    "https://adk.dev/graphs/": {
+        "authors": "Google Agent Development Kit",
+        "publication_venue": "Google Agent Development Kit",
+        "publisher": "Google",
+        "metadata_source": "primary-page",
+    },
+    "https://docs.langchain.com/oss/python/langgraph/persistence": {
+        "authors": "LangChain",
+        "publication_venue": "LangGraph",
+        "publisher": "LangChain",
+        "metadata_source": "primary-page",
+    },
+    "https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints": {
+        "authors": "Microsoft",
+        "publication_venue": "Microsoft Agent Framework",
+        "publisher": "Microsoft",
+        "metadata_source": "primary-page",
+    },
+    "https://docs.crewai.com/en/concepts/flows": {
+        "authors": "CrewAI",
+        "publication_venue": "CrewAI",
+        "publisher": "CrewAI",
+        "metadata_source": "primary-page",
+    },
+    "https://strandsagents.com/docs/user-guide/concepts/agents/state/": {
+        "authors": "Strands Agents",
+        "publication_venue": "Strands Agents",
+        "publisher": "Strands Agents",
+        "metadata_source": "primary-page",
+    },
+    "https://strandsagents.com/docs/user-guide/concepts/multi-agent/graph/": {
+        "authors": "Strands Agents",
+        "publication_venue": "Strands Agents",
+        "publisher": "Strands Agents",
+        "metadata_source": "primary-page",
     },
 }
 

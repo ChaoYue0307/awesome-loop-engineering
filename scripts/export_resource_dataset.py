@@ -212,14 +212,19 @@ STAGE_RULES = [
 ]
 
 OFFICIAL_DOC_DOMAINS = {
+    "adk.dev",
     "learn.chatgpt.com",
     "code.claude.com",
+    "docs.crewai.com",
     "docs.anthropic.com",
     "docs.github.com",
+    "docs.langchain.com",
     "developers.openai.com",
+    "learn.microsoft.com",
     "modelcontextprotocol.io",
     "opentelemetry.io",
     "openai.github.io",
+    "strandsagents.com",
 }
 
 SECTION_IMPACT = {
