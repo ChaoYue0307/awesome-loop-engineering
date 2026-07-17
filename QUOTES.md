@@ -1,6 +1,6 @@
 # Sourced Signals And Quotes
 
-This page records short sourced signals around the emerging Loop Engineering concept. It is not a substitute for the original sources. Use it to understand provenance, then read the linked material directly.
+Trace the emerging Loop Engineering concept through short, sourced signals, then read the linked material for its full context.
 
 ## Addy Osmani
 
@@ -14,7 +14,7 @@ The same article states:
 
 > "Loop engineering sits one floor above the harness."
 
-Why it matters: This anchors the repository's four-layer framing: prompt, context, and harness engineering improve agent runs; Loop Engineering governs repeated agent work over time.
+Why it matters: The statement anchors the four-layer model: prompt, context, and harness engineering improve agent runs; Loop Engineering governs repeated agent work over time.
 
 ## Peter Steinberger
 

@@ -1,10 +1,10 @@
 # Awesome Loop Engineering v0.7.0
 
-Awesome Loop Engineering v0.7.0 turns the implementation kit into a clear path from a recurring problem to a validated contract and a working runtime starter.
+Awesome Loop Engineering v0.7.0 connects a recurring problem to an operational pattern, a validated contract, and a working runtime starter.
 
-The collection now maps 545 sources across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
+Navigate 545 source-audited works across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
 
-## What Is Included
+## What You Can Use
 
 - 545 source-audited resources linked to canonical works
 - 20 operational patterns organized by build, operate, optimize, and govern use cases
@@ -27,7 +27,7 @@ The collection now maps 545 sources across the operating layer that discovers wo
 
 ## Why This Matters
 
-A resource list explains what exists. An implementation kit should also help a reader act.
+Evidence becomes useful when it leads to a reviewable implementation.
 
 The v0.7.0 path is explicit:
 
@@ -50,6 +50,6 @@ The goal remains bounded, reviewable, evidence-driven repetition, not unlimited 
 
 Corrections are especially valuable. If a summary is inaccurate or a stronger canonical source exists, use the annotation-correction form or open a pull request.
 
-## Repository
+## Open The Field Guide
 
 [github.com/ChaoYue0307/awesome-loop-engineering](https://github.com/ChaoYue0307/awesome-loop-engineering)

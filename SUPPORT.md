@@ -1,6 +1,6 @@
 # Support
 
-This repository is maintained as a public field guide and curated resource list for Loop Engineering.
+Get help with the Loop Engineering field guide, resource data, patterns, contracts, and runtime starters through the public channels below.
 
 ## Best Channels
 
@@ -17,9 +17,9 @@ This repository is maintained as a public field guide and curated resource list 
 - reviewing loop pattern contracts for trigger, intake, verification, state, budget, escalation, and exit;
 - fixing broken links or replacing unstable sources.
 
-## What Is Out Of Scope
+## Where Else To Get Help
 
-- product support for third-party agent tools;
-- private consulting on proprietary loops;
-- generic prompt engineering questions with no loop, state, verification, or recurring system angle;
-- unrelated software event loops, growth loops, control theory loops, or generic automation.
+- Ask each tool's maintainer for product support.
+- Use an appropriate professional channel for private consulting on proprietary loops.
+- Take one-off prompt engineering questions to a prompt-focused community.
+- Use domain-specific communities for software event loops, growth loops, control theory, and generic automation.

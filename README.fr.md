@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-12 -->
+<!-- last-synced: 2026-07-18 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -20,15 +20,15 @@
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Miroir Hugging Face</a>
 </p>
 
-> Une liste organisée et orientée implémentation pour **Loop Engineering** : la couche au-dessus du prompt engineering, du context engineering et du harness engineering pour concevoir des systèmes récurrents d'agents IA.
+> Concevez des systèmes récurrents d'agents IA avec des déclencheurs explicites, une vérification externe, un état durable, des budgets bornés et un relais humain.
 
 Le prompt engineering améliore ce que l'on demande au modèle. Le context engineering améliore ce que le modèle peut voir. Le harness engineering améliore les outils, permissions, sandboxes et vérifications autour d'une exécution d'agent. **Loop Engineering se situe au-dessus des trois** : il conçoit des systèmes qui déclenchent des agents, les supervisent, vérifient les résultats, persistent l'état et relancent le travail.
 
 Un loop découvre du travail, le délègue à un ou plusieurs agents, vérifie le résultat, enregistre l'état, décide de l'action suivante et se relance selon une cadence ou jusqu'à atteindre un objectif vérifiable.
 
-Ce dépôt concerne le nouveau sens de Loop Engineering dans le contexte des agents IA et coding agents. Il ne concerne pas les event loops logiciels, la théorie du contrôle, les growth loops, l'automatisation générique ou les feedback loops non liés à l'IA.
+Loop Engineering couvre les systèmes récurrents d'agents IA et de coding agents avec des déclencheurs explicites, une vérification et un état durable. Il n'inclut ni les event loops logiciels, ni la théorie du contrôle, ni les growth loops, ni l'automatisation générique, ni les feedback loops sans rapport avec l'IA.
 
-Au-delà de 545 ressources sélectionnées, ce dépôt fournit 20 patterns de loop, un loop contract validé par schéma pour chaque pattern, 8 points de départ d'exécution (3 exécutables et 5 modèles prêts à adapter), une galerie communautaire et 8 langues.
+Commencez avec 545 ressources auditées, 20 patterns opérationnels, 20 loop contracts validés par schéma et 8 points de départ d'exécution (3 exécutables et 5 modèles prêts à adapter), ainsi qu'une galerie communautaire et 8 langues.
 
 ## Modèle Mental
 

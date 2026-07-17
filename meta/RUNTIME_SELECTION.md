@@ -1,6 +1,6 @@
 # Runtime Selection Guide
 
-A loop is a design; a runtime is where it runs. The same [Loop Contract](../README.md#the-loop-contract) can run as a session-scoped command, a scheduled cloud job, a CI workflow, or a cron wrapper. This guide helps you pick deliberately.
+A loop is a design; a runtime is where it runs. Run the same [Loop Contract](../README.md#the-loop-contract) as a session-scoped command, scheduled cloud job, CI workflow, cron wrapper, or durable service. Choose by persistence, file access, isolation, permissions, verification, and escalation.
 
 Behavior of hosted products changes; treat the vendor-specific rows as a starting point and confirm current limits, triggers, and permissions in each product's official docs before relying on them unattended.
 

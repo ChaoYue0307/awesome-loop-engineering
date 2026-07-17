@@ -2,9 +2,9 @@
 
 Awesome Loop Engineering v0.7.0 把 implementation kit 整理成一条清晰路径：从真实的重复性问题出发，选择 pattern，改造经校验的 contract，再接入可运行的 runtime starter。
 
-当前集合包含 545 条资源，覆盖 prompt、context 与 harness engineering 之上的运行层：负责发现工作、分派任务、验证结果、持久化状态并决定下一步的系统。
+可浏览 545 条经审核资源，理解 prompt、context 与 harness engineering 之上的运行层：如何发现工作、分派任务、验证结果、持久化状态并决定下一步。
 
-## 本次版本包含
+## 可直接使用
 
 - 545 条链接到 canonical source 的审阅资源
 - 20 个按 build、operate、optimize、govern 组织的 operational patterns
@@ -27,7 +27,7 @@ Awesome Loop Engineering v0.7.0 把 implementation kit 整理成一条清晰路�
 
 ## 为什么值得关注
 
-资源列表说明“有什么”；implementation kit 还应回答“现在怎么做”。
+只有当证据能导向可审阅的实现时，它才真正有用。
 
 v0.7.0 的路径是：
 
@@ -48,8 +48,8 @@ v0.7.0 的路径是：
 - [使用 Hugging Face 数据集](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)
 - [贡献资源或提交纠错](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md)
 
-如果仓库对某篇引用工作的概括不够准确，或存在更可靠的 canonical source，请使用 annotation-correction form 或提交 pull request。
+如果某条概括不够准确，或存在更可靠的 canonical source，请使用 annotation-correction form 或提交 pull request。
 
-## 仓库
+## 打开 Field Guide
 
 [github.com/ChaoYue0307/awesome-loop-engineering](https://github.com/ChaoYue0307/awesome-loop-engineering)

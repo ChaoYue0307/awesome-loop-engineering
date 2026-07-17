@@ -1,6 +1,6 @@
 # Curation Standard
 
-This collection is intentionally selective. It covers recurring AI-agent and coding-agent systems with explicit triggers, verification, durable state, budgets, escalation, and exit; it is not a general agent link directory.
+Include only recurring AI-agent and coding-agent systems with explicit triggers, verification, durable state, budgets, escalation, and exit. General agent links belong elsewhere.
 
 ## Acceptance Test
 
@@ -49,7 +49,7 @@ The maintainer owns every released inclusion decision, category, annotation, and
 
 The public dataset keeps those layers separate:
 
-- `annotation`, `key_contribution`, `novelty`, and `impact` are original repository syntheses;
+- `annotation`, `key_contribution`, `novelty`, and `impact` are original editorial syntheses;
 - `source_title`, `source_description`, authorship, date, venue, DOI, and repository statistics come from the source audit and record their metadata provenance;
 - `signal_strength` describes the kind of evidence available, not whether the maintainer agrees with the work;
 - `source_status` records reachability at one point in time and is not a guarantee of future availability.
@@ -63,7 +63,7 @@ Accuracy corrections take priority over expansion. Authors and readers can submi
 When evidence conflicts:
 
 1. prefer the original publishing venue, official documentation, paper record, or repository over secondary coverage;
-1. distinguish a verified fact from the repository's interpretation;
+1. distinguish a verified fact from editorial interpretation;
 1. preserve material caveats, negative results, and stated evaluation limits;
 1. omit a date, venue, author, or metric rather than infer it from an unreliable source;
 1. record the correction in the next release notes when it changes the meaning of an entry.
@@ -74,7 +74,7 @@ When evidence conflicts:
 
 ## Annotation Rules
 
-Each annotation should answer: **why does this matter for Loop Engineering?**
+Each annotation should answer: **why does this matter for Loop Engineering?** Lead with the mechanism, result, use case, or limitation. Avoid self-referential openings such as "this paper explores" or "this page provides."
 
 Good:
 

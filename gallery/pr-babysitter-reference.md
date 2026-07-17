@@ -2,7 +2,7 @@
 
 ## Summary
 
-This is a reference gallery entry for a loop that keeps one pull request moving toward merge readiness. It is based on the repository's [`PR babysitter`](../patterns/pr-babysitter.md) pattern and [`pr-babysitter-loop.json`](../examples/pr-babysitter-loop.json) contract, not a claimed production deployment.
+A reference design for keeping one pull request moving toward merge readiness, built from the [`PR babysitter`](../patterns/pr-babysitter.md) pattern and [`pr-babysitter-loop.json`](../examples/pr-babysitter-loop.json) contract. It illustrates the operating shape; it does not claim a production deployment.
 
 ## Runtime Or Tooling
 

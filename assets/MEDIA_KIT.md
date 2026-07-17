@@ -28,4 +28,4 @@ The original 1200x630 cover presents Loop Engineering as the operating layer abo
 - Preserve the semantic layer order: Prompt, Context, Harness, then Loop.
 - Follow the clear-space, color, and mark rules in the [brand system](BRAND.md).
 
-Unless otherwise noted, these assets use the repository's [CC0-1.0 license](../LICENSE).
+Unless otherwise noted, the original brand assets are released under [CC0-1.0](../LICENSE).

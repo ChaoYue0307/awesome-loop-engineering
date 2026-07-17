@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-12 -->
+<!-- last-synced: 2026-07-18 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -20,15 +20,15 @@
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging-Face-Spiegel</a>
 </p>
 
-> Eine kuratierte, umsetzungsorientierte Liste für **Loop Engineering**: die Ebene oberhalb von Prompt Engineering, Context Engineering und Harness Engineering zum Entwerfen wiederkehrender KI-Agenten-Systeme.
+> Entwirf wiederkehrende KI-Agenten-Systeme mit klaren Auslösern, externer Verifikation, dauerhaftem Zustand, begrenzten Budgets und menschlicher Übergabe.
 
 Prompt Engineering verbessert, was man dem Modell sagt. Context Engineering verbessert, was das Modell sehen kann. Harness Engineering verbessert Werkzeuge, Berechtigungen, Sandboxes und Prüfungen rund um einen einzelnen Agentenlauf. **Loop Engineering liegt über allen drei Ebenen**: Es entwirft Systeme, die Agenten auslösen, überwachen, Ergebnisse prüfen, Zustand speichern und erneut laufen.
 
 Ein Loop entdeckt Arbeit, übergibt sie an einen oder mehrere Agenten, prüft das Ergebnis, speichert Zustand, entscheidet den nächsten Schritt und läuft erneut nach Zeitplan oder bis ein überprüfbares Ziel erreicht ist.
 
-Dieses Repository behandelt die neue Bedeutung von Loop Engineering im Kontext von KI-Agenten und Coding Agents. Es geht nicht um Software-Event-Loops, Regelungstechnik, Growth Loops, generische Automatisierung oder nicht-KI-bezogene Feedback-Loops.
+Loop Engineering umfasst wiederkehrende KI-Agenten- und Coding-Agent-Systeme mit expliziten Auslösern, Verifikation und dauerhaftem Zustand. Software-Event-Loops, Regelungstechnik, Growth Loops, generische Automatisierung und nicht-KI-bezogene Feedback-Loops gehören nicht dazu.
 
-Neben 545 kuratierten Ressourcen bietet dieses Repository 20 Loop-Patterns, einen schemavalidierten Loop-Contract pro Pattern, 8 Runtime-Starter (3 ausführbare Programme und 5 Copy-and-paste-Vorlagen), eine Community-Galerie und 8 Sprachen.
+Starte mit 545 geprüften Ressourcen, 20 operativen Loop-Patterns, 20 schemavalidierten Loop-Contracts und 8 Runtime-Startern (3 ausführbare Programme und 5 anpassbare Vorlagen), ergänzt durch eine Community-Galerie und 8 Sprachen.
 
 ## Mentales Modell
 

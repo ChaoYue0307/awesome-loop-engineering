@@ -1,8 +1,6 @@
 # Loop Gallery
 
-The gallery is for real-world or realistic loop examples contributed by the community.
-
-Use it to show how a loop works in practice, not just what resources describe it. A good gallery entry should be concrete enough that another builder can adapt the pattern without guessing the trigger, state, verification, or escalation rules.
+Share how a loop works in practice through a real, realistic, or safely anonymized case study. Include enough detail for another builder to understand the trigger, state, verification, budget, and escalation rules without guessing.
 
 ## Contribution Format
 

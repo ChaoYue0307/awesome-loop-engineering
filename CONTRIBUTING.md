@@ -2,7 +2,7 @@
 
 Contribute a canonical source, an evidence-backed correction, or a loop you have run.
 
-Scope is intentionally narrow: recurring AI-agent and coding-agent systems with explicit triggers, work intake, verification, durable state, budgets, escalation, and exit.
+Contributions must address recurring AI-agent or coding-agent systems with explicit triggers, work intake, verification, durable state, budgets, escalation, and exit.
 
 Before submitting, read the [curation standard](meta/CURATION.md). It defines scope, evidence tiers, annotation rules, and correction handling.
 
@@ -119,7 +119,9 @@ Use these labels in PR descriptions and issue suggestions when they help reviewe
 
 ## Annotation Style
 
-Keep annotations short, specific, and builder-oriented.
+Write for the person deciding whether to open or use the source. Lead with the concrete contribution, result, mechanism, or limitation; keep annotations short, specific, and builder-oriented.
+
+Avoid repository-centered or self-referential openings such as "this paper explores," "this page provides," or "this list includes." Name what the work does instead. Replace praise such as "excellent," "comprehensive," or "important" with inspectable evidence, reported measurements, or a precise use case.
 
 Use the resource type legend from `README.md`:
 

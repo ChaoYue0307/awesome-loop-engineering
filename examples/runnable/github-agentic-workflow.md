@@ -53,4 +53,4 @@ job: docs-drift-check
 - Default to read-only permissions and request only the minimum scopes the job needs; see [Securing Unattended Loops](../../README.md#securing-unattended-loops).
 - Make the verification gate a real status check, not a model summary.
 - Keep the escalation path a reviewable PR; never let the workflow merge its own changes to a protected branch.
-- This template mirrors the [docs drift pattern](../../patterns/docs-drift-collector.md); start from that contract for the full version.
+- Start from the full [docs drift pattern and contract](../../patterns/docs-drift-collector.md) before adapting this runtime variant.

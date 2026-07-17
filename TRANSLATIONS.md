@@ -1,6 +1,6 @@
 # Translations
 
-The canonical list is [README.md](README.md). Translations should help more readers understand Loop Engineering without drifting from the repository's scope.
+Translate the core Loop Engineering concepts for new audiences while preserving the boundaries and facts in the canonical [English README](README.md).
 
 ## Available
 

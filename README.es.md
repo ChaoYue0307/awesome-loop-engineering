@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-12 -->
+<!-- last-synced: 2026-07-18 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -20,15 +20,15 @@
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Espejo en Hugging Face</a>
 </p>
 
-> Una lista curada y orientada a la implementación para **Loop Engineering**: la capa por encima de prompt, context y harness engineering para diseñar sistemas recurrentes de agentes de IA.
+> Diseña sistemas recurrentes de agentes de IA con disparadores explícitos, verificación externa, estado duradero, presupuestos limitados y traspaso a personas.
 
 Prompt engineering mejora lo que le pides al modelo. Context engineering mejora lo que el modelo puede ver. Harness engineering mejora las herramientas, permisos, sandboxes y verificaciones alrededor de una ejecución de agente. **Loop Engineering está por encima de las tres**: diseña sistemas que activan agentes, los supervisan, verifican resultados, guardan estado y vuelven a ejecutarse.
 
 Un loop descubre trabajo, lo delega a uno o más agentes, verifica el resultado, registra estado, decide la siguiente acción y vuelve a ejecutarse con una cadencia o hasta alcanzar un objetivo verificable.
 
-Este repositorio se centra en el significado nuevo de Loop Engineering para agentes de IA y coding agents. No trata sobre event loops de software, teoría de control, growth loops, automatización genérica o feedback loops no relacionados con IA.
+Loop Engineering abarca sistemas recurrentes de agentes de IA y coding agents con disparadores explícitos, verificación y estado duradero. No incluye event loops de software, teoría de control, growth loops, automatización genérica ni feedback loops no relacionados con IA.
 
-Además de 545 recursos curados, este repositorio incluye 20 patrones de loop, un loop contract validado por esquema para cada patrón, 8 puntos de partida de runtime (3 ejecutables y 5 plantillas listas para adaptar), una galería comunitaria y 8 idiomas.
+Empieza con 545 recursos auditados, 20 patrones operativos, 20 loop contracts validados por esquema y 8 puntos de partida de runtime (3 ejecutables y 5 plantillas listas para adaptar), además de una galería comunitaria y 8 idiomas.
 
 ## Modelo Mental
 

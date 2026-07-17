@@ -163,8 +163,8 @@ COLLECTIONS = {
     "Examples And Schema": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
     "Community Gallery": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
     "Adjacent Awesome Lists": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
-    "Discovery And Distribution": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
-    "Roadmap And Discussion": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+    "Explore And Reuse": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
+    "Shape What Comes Next": ("Apply", "Reuse, adapt, and contribute concrete loop artifacts."),
 }
 
 COLLECTION_IMPACT = {
@@ -228,7 +228,7 @@ OFFICIAL_DOC_DOMAINS = {
 }
 
 SECTION_IMPACT = {
-    "Concept Guides": "Clarifies the scope, vocabulary, and boundaries of Loop Engineering so the list does not drift into generic agent material.",
+    "Concept Guides": "Clarifies the scope, vocabulary, and boundaries of Loop Engineering for recurring, stateful, verified agent systems.",
     "Start Here": "Gives readers the origin story and first-principles framing for the new AI/coding-agent use of Loop Engineering.",
     "Core Loop Primitives": "Turns the concept into concrete loop mechanics: triggers, state, tools, worktrees, permissions, and recurring execution.",
     "Official Runtime Guides": "Anchors implementation choices in primary vendor and framework documentation instead of second-hand summaries.",
@@ -241,11 +241,11 @@ SECTION_IMPACT = {
     "Orchestration And Multi-Agent Delegation": "Maps the runtimes and coordination patterns used to split loop work across specialized agents and durable workflows.",
     "Benchmarks And Evaluation": "Provides measurement targets for long-horizon, tool-using, coding, web, and terminal agents.",
     "Operations Playbooks": "Collects practitioner workflows for running agents as delegated work systems rather than isolated prompts.",
-    "Templates And Patterns": "Provides reusable repository-native artifacts that contributors can adapt into loop specs, resources, and examples.",
+    "Templates And Patterns": "Provides reusable artifacts that builders can adapt into loop specs, resources, and examples.",
     "Examples And Schema": "Makes the loop contract executable and portable through validated JSON examples and runnable reference loops.",
     "Community Gallery": "Gives contributors a format for publishing real or anonymized loop cases with receipts and lessons learned.",
-    "Discovery And Distribution": "Documents how the project itself is packaged, indexed, mirrored, and made discoverable.",
-    "Roadmap And Discussion": "Keeps future work, community feedback, and pattern submissions visible.",
+    "Explore And Reuse": "Makes the evidence browsable, queryable, and reusable across interactive and machine-readable formats.",
+    "Shape What Comes Next": "Connects open questions, planned work, community feedback, and operating case studies.",
     "Pattern Library": "Translates the abstract loop contract into operational patterns with triggers, gates, budgets, and escalation paths.",
     "Critiques, Risks, And Limitations": "Preserves cautionary evidence so adoption stays proportional to task risk, signal quality, and economics.",
     "Adjacent Awesome Lists": "Connects readers to neighboring ecosystems while keeping Loop Engineering's scope distinct.",
@@ -263,11 +263,11 @@ SECTION_NOVELTY = {
     "Orchestration And Multi-Agent Delegation": "Shows how delegation, handoff, and workflow control turn one agent into a coordinated loop.",
     "Benchmarks And Evaluation": "Links loop design to measurable tasks where progress and failure can be compared.",
     "Operations Playbooks": "Translates agent-loop ideas into operator-facing workflows for repeated delegated work.",
-    "Templates And Patterns": "Provides reusable repository-native artifacts rather than leaving the concept as prose.",
+    "Templates And Patterns": "Turns the concept into reusable specifications, checklists, and operating patterns.",
     "Examples And Schema": "Makes loop contracts portable and validation-friendly through concrete examples.",
     "Community Gallery": "Turns loop adoption into shareable cases with enough structure to compare lessons learned.",
-    "Discovery And Distribution": "Makes the project discoverable as both documentation and machine-readable data.",
-    "Roadmap And Discussion": "Keeps community evolution and evidence gathering part of the project surface.",
+    "Explore And Reuse": "Turns the evidence into an interactive atlas and structured data.",
+    "Shape What Comes Next": "Turns open questions and operating lessons into visible next work.",
     "Pattern Library": "Turns common recurring-agent jobs into named patterns with gates, budgets, and escalation paths.",
     "Critiques, Risks, And Limitations": "Keeps adoption grounded in known failure modes, economics, and operational limits.",
     "Adjacent Awesome Lists": "Connects neighboring ecosystems while preserving Loop Engineering as a narrower operating concept.",
@@ -279,7 +279,7 @@ TYPE_SIGNAL = {
     "Tool": ("Working implementation, framework, runtime, or repository; signal comes from usable code and ecosystem adoption.", "high"),
     "Benchmark": ("Evaluation artifact or leaderboard; signal comes from measurable tasks and repeatable scoring.", "high"),
     "Pattern": ("Operational pattern or playbook; signal comes from reusable loop structure and practical transferability.", "medium"),
-    "Template": ("Repository-native template, schema, checklist, or guide; signal comes from reuse inside this project.", "medium"),
+    "Template": ("Reusable template, schema, checklist, or guide; signal comes from concrete adaptation and validation.", "medium"),
     "Blog": ("Practitioner essay or field note; signal comes from concrete experience, framing, examples, or adoption discussion.", "contextual"),
     "Critique": ("Risk or limitation analysis; signal comes from boundary conditions, failure modes, and adoption cautions.", "contextual"),
     "List": ("Adjacent curated collection; signal comes from ecosystem coverage rather than a single technical claim.", "contextual"),
@@ -287,10 +287,11 @@ TYPE_SIGNAL = {
 
 NOVELTY_RULES = [
     (r"\bofficial\b|\bprimary-source\b", "Primary-source operational guidance rather than commentary."),
+    (r"\bfuture directions?\b|\bresearch agenda\b", "Turns open gaps into measurable research, infrastructure, and product directions."),
     (r"\bdurable\b|\breplay\b", "Durable execution and replay are treated as first-class loop infrastructure."),
     (r"\bcheckpoint(?:ing|ed|s)?\b", "Checkpointed state makes long-running agent work recoverable across failures."),
     (r"\bworktree(?:s)?\b", "Workspace isolation is part of the loop design, not an afterthought."),
-    (r"\bdataset\b|\bresources\.csv\b|\bresources\.jsonl\b", "The list is made machine-readable as a tabular dataset rather than only a Markdown page."),
+    (r"\bdataset\b|\bresources\.csv\b|\bresources\.jsonl\b", "Packages the evidence as queryable CSV and JSONL rather than only a rendered page."),
     (r"\bdag(?:s)?\b|\bgraph(?:s)?\b", "Control flow is represented as an inspectable graph rather than an opaque prompt loop."),
     (r"\bschedule(?:d|s)?\b|\bscheduling\b|\bcadence\b", "The trigger or cadence is explicit, making the workflow recurring rather than one-off."),
     (r"\bself-verification\b|\bself-verifying\b", "The agent workflow includes explicit self-checking or gated completion."),
@@ -384,21 +385,21 @@ def key_contribution(annotation: str) -> str:
 
 def novelty(section: str, title: str, annotation: str) -> str:
     if section == "Concept Guides":
-        lens = "Repository-native artifact that makes an otherwise informal practice concrete and reusable."
-        return f"{lens} Resource-specific angle: {key_contribution(annotation)}"
+        lens = "Makes an otherwise informal practice concrete and reusable."
+        return f"{lens} {key_contribution(annotation)}"
 
     text = f"{title} {annotation}".lower()
     for pattern, phrase in NOVELTY_RULES:
         if re.search(pattern, text):
-            return f"{phrase} Resource-specific angle: {key_contribution(annotation)}"
+            return f"{phrase} {key_contribution(annotation)}"
 
     if section in {"Concept Guides", "Templates And Patterns", "Examples And Schema"}:
-        lens = "Repository-native artifact that makes an otherwise informal practice concrete and reusable."
+        lens = "Makes an otherwise informal practice concrete and reusable."
     elif section == "Research Foundations":
         lens = "Connects Loop Engineering to prior agent-loop and feedback-loop research."
     else:
         lens = SECTION_NOVELTY.get(section, "Contributes a distinct loop-engineering angle beyond a generic agent resource.")
-    return f"{lens} Resource-specific angle: {key_contribution(annotation)}"
+    return f"{lens} {key_contribution(annotation)}"
 
 
 def collection_for(section: str) -> tuple[str, str]:
@@ -455,7 +456,7 @@ def evidence_class(section: str, resource_type: str, domain: str, url_kind: str)
 
 def impact(collection: str, title: str) -> str:
     goal = COLLECTION_IMPACT.get(collection, "apply the source to a recurring agent system")
-    return f"Gives readers a concrete source in {title} when they need to {goal}."
+    return f"Use {title} to {goal}."
 
 
 def format_count(value: str) -> str:
@@ -476,7 +477,7 @@ def signal(
     if status in {"broken", "unreachable", "local_missing"}:
         return "The latest source audit could not verify this resource; treat its claims and availability as unverified.", "unverified"
     if url_kind != "external":
-        return "Repository-native artifact maintained and validated by this project's checks.", "medium"
+        return "Local artifact maintained with automated validation checks.", "medium"
     if evidence == "official-documentation":
         return f"Primary official documentation from {domain}; use it for current product or standard behavior.", "high"
     if evidence in {"research-preprint", "research-paper"}:

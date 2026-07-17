@@ -2,7 +2,7 @@
 
 ## Summary
 
-This is a reference gallery entry for a loop that turns failing CI into a small verified patch or an escalation note. It is based on the repository's [`CI repair loop`](../patterns/ci-repair-loop.md) pattern and [`ci-repair-loop.json`](../examples/ci-repair-loop.json) contract, not a claimed production deployment.
+A reference design for turning failing CI into a small verified patch or a useful escalation note, built from the [`CI repair loop`](../patterns/ci-repair-loop.md) pattern and [`ci-repair-loop.json`](../examples/ci-repair-loop.json) contract. It illustrates the operating shape; it does not claim a production deployment.
 
 ## Runtime Or Tooling
 

@@ -1,6 +1,6 @@
 # Loop Engineering Anti-Patterns
 
-Use this page to reject unsafe, vague, or misleading loop designs.
+Reject loop designs that hide their objective, evidence gate, state, budget, permissions, or human exit.
 
 ## Prompt Loop With No Contract
 

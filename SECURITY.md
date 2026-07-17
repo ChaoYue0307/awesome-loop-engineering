@@ -1,6 +1,6 @@
 # Security Policy
 
-This repository is a curated documentation and resource list. It does not ship a production service, package, or runtime. Security concerns can still appear in examples, scripts, links, or contribution material.
+Awesome Loop Engineering ships documentation, data, examples, and scripts rather than a production service or hosted runtime. Security concerns can still appear in executable starters, schemas, links, or contributed material.
 
 ## Please Report
 

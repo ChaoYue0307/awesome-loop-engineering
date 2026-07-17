@@ -1,6 +1,6 @@
 # Loop Engineering Taxonomy
 
-This taxonomy gives contributors a shared vocabulary for classifying AI-agent loops.
+Classify an AI-agent loop by its trigger, work intake, verification method, state model, agent topology, and operating domain.
 
 ## By Trigger
 

@@ -1,6 +1,6 @@
 # Discussion Guide
 
-GitHub Discussions are enabled for this repository. Use them to gather examples, improve definitions, and keep resource curation transparent.
+Use [GitHub Discussions](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions) to share operating examples, challenge definitions, suggest evidence, and improve annotations in public.
 
 Seed thread: [Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2).
 
@@ -42,4 +42,4 @@ Examples: schedules, goals, hooks, worktrees, skills, plugins, subagents, workfl
 
 ## Moderation Standard
 
-Discussions should follow `CODE_OF_CONDUCT.md`, preserve the repository's narrow AI/coding-agent scope, and avoid unsupported claims. Promotional posts should include concrete technical details or they may be closed.
+Follow `CODE_OF_CONDUCT.md`, stay focused on recurring AI-agent and coding-agent systems, and support claims with inspectable evidence. Promotional posts need concrete technical detail or may be closed.

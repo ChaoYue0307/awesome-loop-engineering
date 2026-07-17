@@ -17,7 +17,7 @@
 
 ## Dataset Summary
 
-Each row represents one resource from the canonical English field guide. It pairs a concise editorial assessment with bibliographic metadata, lifecycle and audience facets, evidence classification, audit status, and point-in-time repository statistics when applicable.
+Each row pairs one source with a concise editorial assessment, bibliographic metadata, lifecycle and audience facets, evidence classification, audit status, and point-in-time repository statistics when applicable.
 
 Current release: **v{{VERSION}}**
 
@@ -71,7 +71,7 @@ Do not use `signal_strength`, GitHub stars, forks, or inclusion in this collecti
 
 ## Future Directions
 
-The project maintains a role-based agenda for moving Loop Engineering forward:
+Choose a role to find the highest-value open questions and build targets:
 
 | Audience | Priority categories |
 | --- | --- |
@@ -88,7 +88,7 @@ The primary configuration is `resources`, with one `train` split backed by `data
 | Field group | Fields | What it describes |
 | --- | --- | --- |
 | Identity | `row_id`, `title`, `url`, `canonical_url`, `resource_type`, `domain` | What the resource is and where it lives. |
-| Editorial assessment | `annotation`, `key_contribution`, `novelty`, `impact` | Why the resource matters in this collection. |
+| Editorial assessment | `annotation`, `key_contribution`, `novelty`, `impact` | What the resource contributes to recurring agent systems. |
 | Navigation | `section`, `collection`, `user_goal`, `lifecycle_stages`, `audience` | Where the resource fits and who it serves. |
 | Evidence | `evidence_class`, `signal`, `signal_strength`, `source_status`, `audited_at` | What kind of evidence or provenance is available. |
 | Publication | `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `arxiv_id`, `primary_category` | Bibliographic data exposed by the canonical source. |
@@ -100,7 +100,7 @@ The complete field-by-field schema is documented in [`data/README.md`](https://g
 
 ## Curation And Provenance
 
-The collection prioritizes primary papers, official documentation, project repositories, and implementation-heavy practitioner sources. Every released row must pass the public [curation standard](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md).
+Start with primary papers, official documentation, project repositories, and implementation-heavy practitioner sources. Every released row must pass the public [curation standard](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md).
 
 Annotations are original syntheses, not copied abstracts or claims of author endorsement. Automation may assist discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. The canonical source remains the evidence; the maintainer owns each released inclusion decision and annotation.
 

@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-12 -->
+<!-- last-synced: 2026-07-18 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -20,15 +20,15 @@
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Espelho no Hugging Face</a>
 </p>
 
-> Uma lista curada e orientada à implementação para **Loop Engineering**: a camada acima de prompt, context e harness engineering para projetar sistemas recorrentes de agentes de IA.
+> Projete sistemas recorrentes de agentes de IA com gatilhos explícitos, verificação externa, estado durável, orçamentos limitados e transferência para pessoas.
 
 Prompt engineering melhora o que você pede ao modelo. Context engineering melhora o que o modelo consegue ver. Harness engineering melhora ferramentas, permissões, sandboxes e verificações ao redor de uma execução de agente. **Loop Engineering fica acima das três**: projeta sistemas que acionam agentes, supervisionam, verificam resultados, persistem estado e executam novamente.
 
 Um loop descobre trabalho, delega para um ou mais agentes, verifica o resultado, registra estado, decide a próxima ação e executa novamente em uma cadência ou até atingir um objetivo verificável.
 
-Este repositório trata do novo significado de Loop Engineering no contexto de AI agents e coding agents. Ele não trata de event loops de software, teoria de controle, growth loops, automação genérica ou feedback loops não relacionados a IA.
+Loop Engineering abrange sistemas recorrentes de AI agents e coding agents com gatilhos explícitos, verificação e estado durável. Não inclui event loops de software, teoria de controle, growth loops, automação genérica nem feedback loops sem relação com IA.
 
-Além de 545 recursos curados, este repositório inclui 20 patterns de loop, um loop contract validado por schema para cada pattern, 8 starters de runtime (3 executáveis e 5 templates prontos para adaptação), uma galeria comunitária e 8 idiomas.
+Comece com 545 recursos auditados, 20 patterns operacionais, 20 loop contracts validados por schema e 8 starters de runtime (3 executáveis e 5 templates prontos para adaptação), além de uma galeria comunitária e 8 idiomas.
 
 ## Modelo Mental
 

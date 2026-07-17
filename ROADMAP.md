@@ -1,8 +1,8 @@
 # Roadmap
 
-The roadmap prioritizes stronger evidence, runnable implementations, and real operating results.
+Prioritize stronger evidence, runnable implementations, and measured operating results.
 
-The role-based [Future Directions agenda](FUTURE-DIRECTIONS.md) complements this project roadmap with research questions, infrastructure priorities, application opportunities, measurable outputs, and starter projects.
+Use the role-based [Future Directions agenda](FUTURE-DIRECTIONS.md) to choose research questions, infrastructure priorities, application opportunities, measurable outputs, and starter projects.
 
 ## Near Term
 
@@ -23,7 +23,7 @@ Next pattern-library work should prioritize variants backed by operational evide
 
 - Publish a concise monthly Discussions digest with corrected annotations, new primary sources, and open contributor tasks.
 - Keep several narrowly scoped `good first issue` and `help wanted` tasks available for source audits, translations, runnable examples, and gallery case studies.
-- Ask cited authors to review the repository's characterization of their work; request corrections, not promotion or stars.
+- Ask cited authors to review their annotations; request corrections, not promotion or stars.
 - Track qualified traffic, forks, watchers, and external contributions after each launch channel while GitHub traffic data is still available.
 
 ## Gallery
@@ -42,7 +42,7 @@ The gallery should grow from reference examples into public or anonymized case s
 
 - Keep CI dependency-light and easy for contributors to run locally.
 - Keep all resource annotations tied to recurring agent systems, not generic AI-agent interest.
-- Keep public claims conservative: this repository is an early curated field guide, not a finished standard.
+- Describe Awesome Loop Engineering as an early field guide, not a finished standard.
 - Preserve clean owner-only commit identity for `main`.
 
 ## Open Questions

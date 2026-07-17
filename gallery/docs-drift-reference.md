@@ -2,7 +2,7 @@
 
 ## Summary
 
-This is a reference gallery entry for a loop that finds and patches documentation drift. It is based on the repository's [`Docs drift collector`](../patterns/docs-drift-collector.md) pattern and [`docs-drift-loop.json`](../examples/docs-drift-loop.json) contract, not a claimed production deployment.
+A reference design for finding and patching documentation drift, built from the [`Docs drift collector`](../patterns/docs-drift-collector.md) pattern and [`docs-drift-loop.json`](../examples/docs-drift-loop.json) contract. It illustrates the operating shape; it does not claim a production deployment.
 
 ## Runtime Or Tooling
 

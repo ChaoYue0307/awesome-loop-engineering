@@ -2,7 +2,7 @@
 
 Eight implementation starters connect a loop contract to a runtime. Three are dependency-light executables; five are copy/paste runtime templates with concrete prompts, schedules, permissions, state, and stop conditions.
 
-These are deliberately small. They demonstrate the control loop without hiding permissions, verification, state, or budgets inside a framework.
+Each starter keeps the control loop visible: permissions, verification, state, and budgets remain explicit instead of disappearing inside a framework.
 
 ## Choose A Starter
 

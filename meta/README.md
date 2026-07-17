@@ -1,6 +1,6 @@
 # Maintainer Docs
 
-Operational documents for running this repository. Visitors looking for Loop Engineering content should start at the [main README](../README.md).
+Maintain source quality, releases, discussions, and distribution with the operational guides below. Start with the [main field guide](../README.md) for Loop Engineering concepts and resources.
 
 - [Curation standard](CURATION.md) - How resources are accepted, rejected, and replaced.
 - [Maintenance guide](MAINTENANCE.md) - Weekly and monthly checks, link rot policy, and identity policy.

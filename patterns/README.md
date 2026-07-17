@@ -12,7 +12,7 @@ The layers have different jobs:
 
 | Layer | Question it answers | Artifact |
 | --- | --- | --- |
-| **Pattern** | How should this class of recurring work operate? | Human-readable playbook in this directory |
+| **Pattern** | How should this class of recurring work operate? | Human-readable operating playbook |
 | **Contract** | What exactly may this loop read, change, verify, spend, and escalate? | Schema-valid JSON in [`examples/`](../examples/README.md) |
 | **Runtime starter** | Where and how does the contract execute? | Copy/paste and executable starters in [`examples/runnable/`](../examples/runnable/README.md) |
 

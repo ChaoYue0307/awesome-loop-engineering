@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-17 -->
+<!-- last-synced: 2026-07-18 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -24,15 +24,15 @@
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face 镜像</a>
 </p>
 
-> 面向 **Loop Engineering** 的精选资源列表：它位于 prompt、context 和 harness engineering 之上，关注如何设计可重复运行的 AI-agent 系统。
+> 设计可重复运行的 AI-agent 系统：明确触发条件、外部验证、持久状态、资源预算和人类接管机制。
 
 Prompt engineering 改进你对模型说什么。Context engineering 改进模型能看到什么。Harness engineering 改进单次 agent 运行周围的工具、权限、沙箱和检查。**Loop Engineering 位于三者之上**：人不再逐轮手动提示 agent，而是设计一个循环系统，让它负责提示、监督、验证、更新状态并再次触发 agents。
 
 一个 loop 会发现工作、分派给一个或多个 agents、检查结果、记录状态、决定下一步，并按照节奏或直到满足可验证目标为止持续运行。
 
-本仓库不收录软件事件循环、控制论、增长循环、通用 workflow automation 或非 AI feedback loop。
+Loop Engineering 专指具备明确触发、外部验证和持久状态的可重复 AI-agent 与 coding-agent 系统，不包括软件事件循环、控制论、增长循环、通用 workflow automation 或非 AI feedback loop。
 
-除资源列表外，本仓库还维护 545 条经过审阅的资源记录，并提供 20 个 loop 模式、20 个经 schema 校验的 loop contracts、8 个 runtime starters（3 个可直接执行，5 个可复制改造）、社区 gallery，以及 8 个语言入口。
+可直接从 545 条经审核资源、20 个操作模式、20 个经 schema 校验的 loop contracts 和 8 个 runtime starters（3 个可直接执行，5 个可复制改造）开始，并通过社区 gallery 和 8 种语言入口继续探索。
 
 ## 一句话定位
 

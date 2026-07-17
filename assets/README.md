@@ -1,6 +1,6 @@
 # Assets
 
-This directory contains visual assets used by the repository README, GitHub Pages landing page, and social previews.
+Find the logos, diagrams, editorial cover, social previews, and generated brand assets used across GitHub and the interactive website.
 
 - `awesome-loop-engineering-cover.png` - Original 1200x630 editorial cover, preserved for articles, talks, launch posts, and project features. It visualizes the Prompt, Context, Harness, and Loop stack.
 - `awesome-loop-engineering-logo-master.png` - High-resolution transparent ChatGPT Image source for the primary mark.

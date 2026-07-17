@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-12 -->
+<!-- last-synced: 2026-07-18 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -20,15 +20,15 @@
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Hugging Face ミラー</a>
 </p>
 
-> **Loop Engineering** のための、実装志向のキュレーションリストです。Loop Engineering は prompt、context、harness engineering の上位レイヤーとして、繰り返し実行される AI-agent システムを設計します。
+> 明示的なトリガー、外部検証、永続状態、制限付き予算、人間への引き継ぎを備えた、繰り返し実行される AI-agent システムを設計します。
 
 Prompt engineering はモデルに何を依頼するかを改善します。Context engineering はモデルが何を見られるかを改善します。Harness engineering は 1 回の agent 実行を取り巻くツール、権限、sandbox、検証を改善します。**Loop Engineering はその上位にあります**。agent を起動し、監督し、結果を検証し、状態を保存し、再実行するシステムを設計する実践です。
 
 Loop は作業を発見し、1 つ以上の agents に委任し、結果を確認し、状態を記録し、次の行動を決め、一定の cadence または検証可能な目標に到達するまで再実行されます。
 
-このリポジトリは AI agents / coding agents における新しい意味の Loop Engineering に限定しています。software event loop、制御理論、growth loop、一般的な workflow automation、非 AI の feedback loop は対象外です。
+Loop Engineering は、明示的なトリガー、検証、永続状態を備えた反復型 AI agent / coding agent システムを対象とします。software event loop、制御理論、growth loop、一般的な workflow automation、非 AI の feedback loop は含みません。
 
-545 件の精選リソースに加えて、本リポジトリは 20 個の loop パターン、各パターンに対応する schema 検証済み loop contract、8 個の runtime starter（3 個の実行ファイルと 5 個の適応可能なテンプレート）、コミュニティ gallery、8 言語を提供します。
+545 件の監査済みリソース、20 個の運用パターン、20 個の schema 検証済み loop contract、8 個の runtime starter（3 個の実行ファイルと 5 個の適応可能なテンプレート）から始められます。コミュニティ gallery と 8 言語の導入も利用できます。
 
 ## メンタルモデル
 

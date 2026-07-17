@@ -54,4 +54,4 @@ Escalation:
 
 - Keep the patch scoped to the failure cause; scope creep is the most common way these loops go wrong.
 - Pair the event trigger with a periodic sweep so a missed event does not leave work undone.
-- This template mirrors the [CI repair pattern](../../patterns/ci-repair-loop.md); start from that contract for the full version.
+- Start from the full [CI repair pattern and contract](../../patterns/ci-repair-loop.md) before adapting this runtime variant.

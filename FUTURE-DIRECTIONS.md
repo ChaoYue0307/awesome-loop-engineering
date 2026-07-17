@@ -1,8 +1,8 @@
 # Future Directions
 
-Loop Engineering is still an emerging practice. This agenda turns its largest open gaps into falsifiable research questions, buildable infrastructure, and testable product work. It is a guide to useful next contributions, not a prediction that every direction will succeed.
+Move Loop Engineering forward through falsifiable research, dependable infrastructure, and testable product work. The strongest contributions make recurring agent loops **more measurable, portable, recoverable, economical, or governable**.
 
-Prioritize work that makes at least one recurring agent loop **more measurable, portable, recoverable, economical, or governable**. A credible result should expose the trigger, permissions, external verification gate, durable state, budget, escalation path, and failure evidence.
+A credible result exposes the trigger, permissions, external verification gate, durable state, budget, escalation path, and failure evidence. Negative results matter when they reveal where a loop, verifier, state model, or operating assumption breaks.
 
 ## For Researchers
 

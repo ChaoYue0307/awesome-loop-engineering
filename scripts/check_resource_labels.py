@@ -30,8 +30,8 @@ RESOURCE_SECTIONS = {
     "Examples And Schema",
     "Community Gallery",
     "Pattern Library",
-    "Discovery And Distribution",
-    "Roadmap And Discussion",
+    "Explore And Reuse",
+    "Shape What Comes Next",
     "Critiques, Risks, And Limitations",
     "Adjacent Awesome Lists",
 }
