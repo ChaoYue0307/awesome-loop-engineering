@@ -28,7 +28,7 @@ Loop 는 작업을 발견하고, 하나 이상의 agents 에게 위임하고, �
 
 이 저장소는 AI agents / coding agents 맥락의 새로운 Loop Engineering 의미에만 집중합니다. software event loop, control theory, growth loop, 일반적인 workflow automation, 비 AI feedback loop 는 범위에 포함하지 않습니다.
 
-430개 이상의 엄선된 리소스 목록 외에도 이 저장소는 15개의 loop 패턴, 각 패턴에 대한 스키마 검증 loop contract, 6개의 실행 가능한 loop 템플릿, 커뮤니티 gallery, 8개 언어를 제공합니다.
+540개의 엄선된 리소스 외에도 이 저장소는 15개의 loop 패턴, 각 패턴에 대한 스키마 검증 loop contract, 6개의 실행 가능한 loop 템플릿, 커뮤니티 gallery, 8개 언어를 제공합니다.
 
 ## 멘탈 모델
 

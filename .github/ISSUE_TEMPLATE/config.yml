@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Community pattern discussion
-    url: https://github.com/ChaoYue0307/awesome-loop-engineering/issues/1
+    url: https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2
     about: Share real-world Loop Engineering patterns, examples, and lessons learned.
   - name: Open a pull request
     url: https://github.com/ChaoYue0307/awesome-loop-engineering/compare

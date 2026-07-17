@@ -8,10 +8,10 @@ Status as of 2026-07-17:
 
 | Surface | Status | Evidence / next action |
 | --- | --- | --- |
-| GitHub release | Complete | [`v0.5.0`](https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.5.0) describes 509 resources and links the atlas, dataset, templates, and contribution guide. |
-| Release announcement | Complete | [Discussion #9](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9) gives readers a low-noise way to follow releases, monthly digests, and contributor tasks. |
+| GitHub release | Complete | [`v0.6.0`](https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.6.0) describes 540 resources, the public provenance standard, the focused dataset card, and the cross-surface consistency gates. |
+| Release announcement | Ready | Publish the v0.6.0 summary from [`posts/launch.md`](../posts/launch.md); [Discussion #9](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9) remains the low-noise release and contributor feed. |
 | GitHub Explore topic | Complete | [`github/explore#5209`](https://github.com/github/explore/pull/5209) merged the `loop-engineering` topic page. |
-| Canonical Awesome directory | In review | [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open with a passing lint check. Respond to maintainer feedback; do not open a duplicate. |
+| Canonical Awesome directory | Policy objection | [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open and lint passes, but the owner stated that AI-generated lists are not accepted. Do not treat further visual polish as a path around that policy or misrepresent automated assistance. |
 | Adjacent harness directory | In review | [`ai-boost/awesome-harness-engineering#131`](https://github.com/ai-boost/awesome-harness-engineering/pull/131) transparently proposes the project for the list's Related Awesome Lists section. |
 | Hugging Face dataset | Complete | [`datasets/cy0307/awesome-loop-engineering`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) carries the structured resource sheet and full project mirror. |
 | English and Chinese launch articles | Ready | Publish [`posts/launch.md`](../posts/launch.md) and [`posts/launch.zh-CN.md`](../posts/launch.zh-CN.md) natively on suitable channels. |
@@ -33,15 +33,16 @@ The repository is mirrored to the Hugging Face Hub dataset repo [`datasets/cy030
 
 - The mirror tracks the full GitHub tree (docs, patterns, examples, schema, scripts).
 - The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the canonical English `README.md` by `scripts/export_resource_dataset.py`.
-- The HF copy of `README.md` carries a dataset-card YAML header (`license`, `language`, `size_categories`, `task_categories`, `tags`, `pretty_name`, and `configs`); the canonical header lives in meta/hf_card_header.yaml. This header is **HF-only**: it must never be added to the GitHub `README.md`, because the YAML list items break `awesome-lint`.
-- Sync uses the `hf upload --type dataset` CLI against a staging copy with the header prepended, so the GitHub working tree stays header-free. The token lives in the local Hugging Face cache; no token is committed.
+- The HF copy of `README.md` is a focused dataset card generated from `meta/hf_card_header.yaml` and `meta/hf_card_body.md` by `scripts/build_hf_card.py`. It documents intended uses, provenance, limitations, loading examples, and the current audit snapshot without duplicating the 540-row GitHub README.
+- The YAML header is **HF-only**: it must never be added to the GitHub `README.md`, because the metadata list items break `awesome-lint`.
+- Sync uses `python3 scripts/build_hf_card.py --output <staging>/README.md` followed by `hf upload --type dataset` against a staging copy. The token lives in the local Hugging Face cache; no token is committed.
 
 ## GitHub-Native Promotion
 
 Discoverability levers that live on GitHub itself, in priority order.
 
 - **Topic page (`github/explore`).** The [`loop-engineering` topic](https://github.com/topics/loop-engineering) now has a curated page through merged PR [`github/explore#5209`](https://github.com/github/explore/pull/5209). Keep the topic description ecosystem-wide rather than repository-specific.
-- **sindresorhus/awesome submission.** Track the open canonical directory PR at [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) and respond to maintainer feedback quickly. Use [`AWESOME_SUBMISSION.md`](AWESOME_SUBMISSION.md) for the acceptance criteria.
+- **sindresorhus/awesome submission.** The open PR at [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) has a passing lint check and an explicit owner policy objection to AI-generated lists. Keep the curation process transparent and wait for maintainer clarification; do not present the PR as ordinary pending review. See [`AWESOME_SUBMISSION.md`](AWESOME_SUBMISSION.md).
 - **Editorial submissions to adjacent lists** this repo already cites (harness, context, and agent-paper lists). Submit only where the maintainers explicitly accept related resources. Ready-to-paste entry:
 
   ```md
@@ -66,8 +67,8 @@ Baseline captured on 2026-07-17 for the API window ending 2026-07-15:
 | Unique visitors | 142 |
 | Clones | 204 |
 | Unique cloners | 81 |
-| Stars | 24 |
-| Forks | 3 |
+| Stars | 26 |
+| Forks | 4 |
 | Watchers | 1 |
 
 The repository overview reached 119 unique visitors. The Chinese README was the second-most visited content path with 19 unique visitors. The largest identifiable referrers were Google (17 unique visitors), GitHub (14), Bing (14), and the project site (6); launch and community channels had not yet become material sources.
@@ -89,28 +90,29 @@ Use the canonical [English launch article](../posts/launch.md) or [Chinese launc
 ### Short Post
 
 ```text
-Awesome Loop Engineering v0.5.0 is live.
+🔁 Awesome Loop Engineering v0.6.0 is live: 540 source-audited resources, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset.
 
-509 audited resources for designing recurring AI-agent systems above prompt, context, and harness engineering, plus an interactive Resource Atlas, 15 patterns, 15 validated loop contracts, runnable templates, and a structured Hugging Face dataset.
-
-Explore the atlas:
+🧭 Explore:
 https://chaoyue0307.github.io/awesome-loop-engineering/
+
+#AIAgents #AgentEngineering #LoopEngineering
 ```
 
 ### Longer Post
 
 ```text
-Awesome Loop Engineering v0.5.0 is live.
+Awesome Loop Engineering v0.6.0 is live.
 
 Loop Engineering is the operating layer above prompt, context, and harness engineering: the recurring system that discovers work, delegates it, verifies results, persists state, and decides what happens next.
 
 The release includes:
 
-- 509 audited resources
+- 540 audited resources
 - an interactive Resource Atlas
 - 15 operational patterns and 15 validated loop contracts
 - 6 runnable templates
 - CSV and JSONL exports mirrored to Hugging Face
+- a public provenance standard and point-in-time source audit
 
 Explore, reuse, or correct the map:
 https://github.com/ChaoYue0307/awesome-loop-engineering
@@ -121,11 +123,11 @@ https://github.com/ChaoYue0307/awesome-loop-engineering
 Use a regular submission, not Show HN.
 
 ```text
-Title: Awesome Loop Engineering: 509 resources for recurring AI-agent systems
+Title: Awesome Loop Engineering: 540 resources for recurring AI-agent systems
 
 I have been mapping the layer above prompt, context, and harness engineering: recurring systems that discover work, delegate it, verify results, persist state, and decide whether to retry, escalate, or exit.
 
-The repository now includes 509 audited sources, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset. Corrections to the taxonomy and source annotations are especially welcome.
+The repository now includes 540 audited sources, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset. The curation and source-audit method is public, and corrections to the taxonomy and source annotations are especially welcome.
 
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```

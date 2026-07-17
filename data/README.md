@@ -16,11 +16,43 @@ The main exports preserve the original section and annotation while adding three
 
 `key_contribution`, `novelty`, and `impact` are resource-specific. `signal` states the evidence basis and its limits; GitHub stars and forks are reported as current context, never as proof of reliability. Signal strength is calibrated as `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and repository-native artifacts, `contextual` for practitioner analysis and curated lists, and `unverified` only when the latest source audit cannot validate availability.
 
+## Load And Query
+
+```python
+from datasets import load_dataset
+
+resources = load_dataset(
+    "cy0307/awesome-loop-engineering",
+    "resources",
+    split="train",
+)
+
+verification_papers = resources.filter(
+    lambda row: row["resource_type"] == "Paper"
+    and "verification" in row["lifecycle_stages"].split(";")
+)
+```
+
+For pandas:
+
+```python
+import pandas as pd
+
+resources = pd.read_csv("data/resources.csv")
+current_sources = resources[resources["source_status"].isin(["ok", "local_ok"])]
+```
+
+Use `url` as the durable join key. `row_id` and `source_line` are positional and may change when the README is reordered.
+
+## Reproducibility
+
 Render the README rows first, then regenerate all three discovery files after changing resource entries or refreshing the source audit:
 
 ```sh
 python3 scripts/render_readme_tables.py
 python3 scripts/export_resource_dataset.py
+python3 scripts/check_project_consistency.py
+python3 scripts/build_hf_card.py --check
 ```
 
 The export is deterministic and includes one row for every README resource-table row that follows the repository's curated entry format: marker, resource type, title, link, original publishing platform or venue, annotation, section, and source line.
@@ -32,3 +64,11 @@ python3 scripts/audit_resource_sources.py --timeout 20 --workers 16 --attempts 2
 ```
 
 The audit file is a snapshot. HTTP status, redirects, page titles, publication metadata, and GitHub statistics can change over time. arXiv bibliographic fields come from the primary arXiv API; GitHub dates come from the repository API; other web metadata comes from citation or Open Graph tags when available. A blank publication date means the primary source did not expose one. Rows marked `restricted` returned an access-control or rate-limit status during retrieval; they are tracked separately from broken or unreachable links.
+
+Build the focused Hugging Face dataset card for a staging mirror with:
+
+```sh
+python3 scripts/build_hf_card.py --output /tmp/awesome-loop-engineering-hf/README.md
+```
+
+The card is generated from `meta/hf_card_header.yaml`, `meta/hf_card_body.md`, the current dataset, and `CITATION.cff`. The YAML front matter is intentionally Hugging Face-only and must not be added to the GitHub README.

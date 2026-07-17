@@ -4,11 +4,11 @@ This repository is maintained as a public field guide and curated resource list 
 
 ## Best Channels
 
-- **Resource suggestions**: use the resource suggestion issue template.
-- **Loop patterns**: use the loop pattern suggestion issue template or the pinned community pattern issue.
-- **Corrections**: open a pull request when the fix is clear, or open an issue if it needs discussion.
-- **Translations**: use the translation proposal issue template and follow `TRANSLATIONS.md`.
-- **Security concerns**: follow `SECURITY.md`.
+- **Resource suggestions**: use the [resource suggestion form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml).
+- **Loop patterns**: use the [loop pattern form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=pattern-suggestion.yml) or the [community pattern discussion](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2).
+- **Corrections**: use the [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml) when a summary or source record is inaccurate, or open a pull request when the fix is clear.
+- **Translations**: use the [translation proposal form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=translation.yml) and follow `TRANSLATIONS.md`.
+- **Security concerns**: follow [`SECURITY.md`](SECURITY.md).
 
 ## What Maintainers Can Help With
 

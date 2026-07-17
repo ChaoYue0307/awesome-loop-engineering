@@ -34,10 +34,11 @@ Run the local checks in [MAINTENANCE.md](MAINTENANCE.md#local-verification) befo
 
 ## Canonical Awesome Submission Status
 
-The 30-day age requirement has passed. [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open and its lint check is passing as of 2026-07-17.
+The 30-day age requirement has passed. [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open and its lint check is passing as of 2026-07-17, but the repository owner has stated that AI-generated lists are not accepted.
 
 - Do not open a duplicate submission.
-- Respond to maintainer feedback quickly and keep changes scoped and owner-authored.
+- Treat the owner's statement as a policy objection, not a design or lint problem. Respond only with an accurate account of the editorial process if clarification is requested.
+- Keep changes scoped and owner-authored; do not misrepresent automated assistance.
 - Re-run the full preflight in [AWESOME_SUBMISSION.md](AWESOME_SUBMISSION.md#required-preflight) after any structural README change.
 - If accepted, submit to adjacent directories only where the normal editorial policy permits related lists.
 - Keep public claims conservative: this is an early curated field guide, not a finished standard.

@@ -1,0 +1,52 @@
+name: Annotation or metadata correction
+description: Correct a summary, contribution, novelty, impact, author, date, venue, identifier, or canonical link.
+title: "[Correction]: "
+labels:
+  - documentation
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Current entry
+      description: Link to the resource or the README section containing it.
+      placeholder: https://github.com/ChaoYue0307/awesome-loop-engineering#section
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What is inaccurate or incomplete?
+      description: Quote only the short phrase or field that needs correction.
+      placeholder: The current annotation says...
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed correction
+      description: State the corrected contribution, novelty, impact, metadata, or canonical URL concisely.
+      placeholder: It should say...
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Primary-source evidence
+      description: Link to the official page, paper record, documentation, or repository that supports the correction.
+      placeholder: https://example.com/canonical-source
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any material caveat, conflict, or source-access limitation.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I am asking for an accuracy correction, not promotional placement.
+          required: true
+        - label: I have linked the strongest canonical evidence available.
+          required: true

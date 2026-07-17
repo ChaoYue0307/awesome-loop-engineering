@@ -28,7 +28,7 @@ Ein Loop entdeckt Arbeit, übergibt sie an einen oder mehrere Agenten, prüft da
 
 Dieses Repository behandelt die neue Bedeutung von Loop Engineering im Kontext von KI-Agenten und Coding Agents. Es geht nicht um Software-Event-Loops, Regelungstechnik, Growth Loops, generische Automatisierung oder nicht-KI-bezogene Feedback-Loops.
 
-Neben der Liste mit über 430 kuratierten Ressourcen bietet dieses Repository 15 Loop-Patterns, einen schemavalidierten Loop-Contract pro Pattern, 6 ausführbare Loop-Vorlagen, eine Community-Galerie und 8 Sprachen.
+Neben 540 kuratierten Ressourcen bietet dieses Repository 15 Loop-Patterns, einen schemavalidierten Loop-Contract pro Pattern, 6 ausführbare Loop-Vorlagen, eine Community-Galerie und 8 Sprachen.
 
 ## Mentales Modell
 

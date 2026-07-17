@@ -336,6 +336,8 @@
 
       .section-head { display: grid; grid-template-columns: minmax(250px, 0.78fr) minmax(360px, 1.22fr); gap: 64px; align-items: end; margin-bottom: 36px; }
       .section-intro { max-width: 720px; margin: 0; color: var(--muted); }
+      .audit-note { margin: -17px 0 28px; border-top: 1px solid var(--line); padding-top: 13px; color: var(--muted); font-size: 0.8rem; }
+      .audit-note strong { color: var(--ink); }
       .diagram { width: 100%; }
       .caption { margin: 13px 0 0; color: var(--quiet); font-size: 0.78rem; text-align: right; }
       .supporting-visual { margin: 0 0 34px; }
@@ -417,6 +419,7 @@
       .mobile-lifecycle-outcomes span { display: block; margin-top: 2px; color: var(--muted); font-size: 0.66rem; line-height: 1.35; }
 
       .principles, .link-grid, .pattern-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .contribute-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .principle, .card, .pattern {
         min-width: 0;
         border-top: 1px solid var(--line-strong);
@@ -579,13 +582,6 @@
       .cite pre { min-width: 460px; margin: 0; padding: 16px; color: #344054; font: 0.74rem/1.55 "IBM Plex Mono", ui-monospace, monospace; }
       .copy { position: absolute; top: 8px; right: 8px; border: 1px solid var(--line-strong); border-radius: 4px; padding: 4px 9px; background: var(--surface); color: var(--ink); font-size: 0.72rem; font-weight: 700; cursor: pointer; }
       .legal { margin: 30px 0 0; color: var(--quiet); font-size: 0.8rem; }
-
-      .motion-ready .motion-item {
-        opacity: 0;
-        transform: translateY(14px);
-        transition: opacity 420ms ease, transform 420ms ease;
-      }
-      .motion-ready .motion-item.is-visible { opacity: 1; transform: translateY(0); }
 
       @media (max-width: 1040px) {
         .links { display: none; }
@@ -763,7 +759,7 @@
       }
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
-        .pattern, .motion-ready .motion-item { opacity: 1; transform: none; transition: none; }
+        .pattern { transition: none; }
       }
       @media (forced-colors: active) {
         .hero-scene { display: none; }
@@ -839,11 +835,18 @@
           "https://github.com/ChaoYue0307/awesome-loop-engineering"
         ],
         "identifier": "https://huggingface.co/datasets/cy0307/awesome-loop-engineering",
+        "version": "0.6.0",
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
         "isAccessibleForFree": true,
         "creator": { "@type": "Person", "name": "Chaoyue He" },
         "datePublished": "2026-06-10",
-        "dateModified": "2026-07-16",
+        "dateModified": "2026-07-17",
+        "keywords": ["Loop Engineering", "AI agents", "Coding agents", "Agent reliability", "Agent evaluation"],
+        "includedInDataCatalog": {
+          "@type": "DataCatalog",
+          "name": "Hugging Face Hub",
+          "url": "https://huggingface.co/datasets"
+        },
         "distribution": [
           {
             "@type": "DataDownload",
@@ -1130,6 +1133,7 @@
             </div>
             <p class="section-intro">Search 540 audited works by goal, lifecycle stage, artifact type, and evidence class. Each row combines the curated assessment with verified authorship, year, venue or source platform, and identifiers when the primary source exposes them.</p>
           </div>
+          <p class="audit-note"><strong>Audit snapshot, 2026-07-17:</strong> all 540 rows checked; 493 public sources reachable, 4 access-restricted, 43 repository-native, and 0 broken or unreachable. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Inspect the audit</a> or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">report a correction</a>.</p>
           <div class="resource-explorer" id="resource-explorer">
             <div class="resource-toolbar" role="search" aria-label="Search curated resources">
               <label>
@@ -1194,7 +1198,7 @@
               <button class="resource-collection" type="button" data-collection="Apply" aria-pressed="false"><span class="emoji" aria-hidden="true">📦</span>Apply</button>
             </div>
             <div class="resource-summary">
-              <p class="resource-count" id="resource-count" aria-live="polite">Loading resource index...</p>
+              <p class="resource-count" id="resource-count" aria-live="polite">Resource index loads as you approach this section.</p>
               <label>
                 <span class="sr-only">Sort resources</span>
                 <select class="resource-select resource-sort" id="resource-sort">
@@ -1211,8 +1215,8 @@
               <span>Published at</span>
               <span>Evidence</span>
             </div>
-            <div class="resource-list" id="resource-list" aria-busy="true">
-              <p class="resource-loading">Loading audited resources...</p>
+            <div class="resource-list" id="resource-list" aria-busy="false">
+              <p class="resource-loading">Preparing the audited resource index...</p>
             </div>
             <p class="resource-empty" id="resource-empty" hidden>No resources match the current filters.</p>
             <div class="resource-actions">
@@ -1234,8 +1238,9 @@
             </div>
             <p class="section-intro">Add a vetted source with a specific annotation, or document a loop you actually run. Both paths have a checklist.</p>
           </div>
-          <div class="link-grid">
+          <div class="link-grid contribute-grid">
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml"><h3><span class="emoji" aria-hidden="true">➕</span>Suggest a resource</h3><p>Submit one canonical source and a precise annotation in under five minutes.</p></a>
+            <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml"><h3><span class="emoji" aria-hidden="true">✅</span>Correct the map</h3><p>Fix a summary, contribution, date, venue, identifier, or canonical link with primary evidence.</p></a>
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/gallery/README.md"><h3><span class="emoji" aria-hidden="true">🔁</span>Share a loop</h3><p>Publish a real or anonymized case study using the gallery checklist.</p></a>
             <a class="card" href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2"><h3><span class="emoji" aria-hidden="true">💬</span>Join the discussion</h3><p>Compare operating patterns with other loop builders.</p></a>
           </div>
@@ -1286,7 +1291,8 @@
   author       = {He, Chaoyue},
   title        = {Awesome Loop Engineering},
   year         = {2026},
-  howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}}
+  howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}},
+  note         = {Version 0.6.0}
 }</pre>
             </div>
           </div>
@@ -1296,6 +1302,8 @@
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/MANIFESTO.md">Manifesto</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/TAXONOMY.md">Taxonomy</a>
             <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/ANTI-PATTERNS.md">Anti-patterns</a>
+            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md">Curation + provenance</a>
+            <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Source audit</a>
           </div>
           <div>
             <h4><span class="emoji" aria-hidden="true">🛠️</span>Project</h4>
@@ -1373,20 +1381,6 @@
         sections.forEach(function (section) { observer.observe(section); });
       })();
       (function () {
-        if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var items = Array.prototype.slice.call(document.querySelectorAll('.section-head, .diagram, .principles, .link-grid, .levels'));
-        document.documentElement.classList.add('motion-ready');
-        items.forEach(function (item) { item.classList.add('motion-item'); });
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-        items.forEach(function (item) { observer.observe(item); });
-      })();
-      (function () {
         var input = document.getElementById('pattern-filter');
         var grid = document.getElementById('pattern-grid');
         var empty = document.getElementById('pattern-filter-empty');
@@ -1432,6 +1426,7 @@
         var pageSize = compactResources.matches ? 8 : 24;
         var state = { collection: '', limit: pageSize };
         var resources = [];
+        var loading = false;
 
         function words(value) {
           return String(value || '').replace(/-/g, ' ');
@@ -1639,6 +1634,10 @@
 
         function resetLimitAndRender() {
           state.limit = pageSize;
+          if (!resources.length) {
+            loadResources();
+            return;
+          }
           render();
         }
 
@@ -1681,23 +1680,54 @@
           search.focus();
         });
 
-        fetch('assets/resources.json')
-          .then(function (response) {
-            if (!response.ok) throw new Error('Resource index request failed');
-            return response.json();
-          })
-          .then(function (payload) {
-            resources = (payload.resources || []).map(function (resource, index) {
-              resource._index = index;
-              return resource;
+        function loadResources() {
+          if (loading || resources.length) return;
+          loading = true;
+          explorer.dataset.indexState = 'loading';
+          list.setAttribute('aria-busy', 'true');
+          count.textContent = 'Loading 540 audited resources...';
+          list.replaceChildren(createText('p', 'resource-loading', 'Loading audited resources...'));
+
+          fetch('assets/resources.json')
+            .then(function (response) {
+              if (!response.ok) throw new Error('Resource index request failed');
+              return response.json();
+            })
+            .then(function (payload) {
+              resources = (payload.resources || []).map(function (resource, index) {
+                resource._index = index;
+                return resource;
+              });
+              explorer.dataset.indexState = 'ready';
+              render();
+            })
+            .catch(function () {
+              loading = false;
+              explorer.dataset.indexState = 'error';
+              list.replaceChildren(createText('p', 'resource-loading', 'The resource index could not be loaded. Browse the complete library on GitHub or Hugging Face.'));
+              list.setAttribute('aria-busy', 'false');
+              count.textContent = 'Resource index unavailable';
             });
-            render();
-          })
-          .catch(function () {
-            list.replaceChildren(createText('p', 'resource-loading', 'The resource index could not be loaded. Browse the complete library on GitHub or Hugging Face.'));
-            list.setAttribute('aria-busy', 'false');
-            count.textContent = 'Resource index unavailable';
-          });
+        }
+
+        var resourceSection = document.getElementById('resources');
+        if (window.location.hash === '#resources') {
+          loadResources();
+        } else if ('IntersectionObserver' in window && resourceSection) {
+          var resourceObserver = new IntersectionObserver(function (entries) {
+            if (!entries.some(function (entry) { return entry.isIntersecting; })) return;
+            resourceObserver.disconnect();
+            loadResources();
+          }, { rootMargin: '700px 0px', threshold: 0 });
+          resourceObserver.observe(resourceSection);
+        } else {
+          loadResources();
+        }
+
+        explorer.addEventListener('focusin', loadResources, { once: true });
+        window.addEventListener('hashchange', function () {
+          if (window.location.hash === '#resources') loadResources();
+        });
       })();
       Array.prototype.forEach.call(document.querySelectorAll('.copy'), function (button) {
         var label = button.querySelector('span') || button;
@@ -1723,6 +1753,6 @@
         });
       });
     </script>
-    <script type="module" src="assets/loop-hero-scene.js?v=19"></script>
+    <script type="module" src="assets/loop-hero-scene.js?v=20"></script>
   </body>
 </html>

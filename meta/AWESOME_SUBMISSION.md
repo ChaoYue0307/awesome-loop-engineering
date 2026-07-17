@@ -11,7 +11,9 @@ Use this before submitting `awesome-loop-engineering` to [`sindresorhus/awesome`
 - Cover image: present in `assets/awesome-loop-engineering-cover.png`.
 - Contribution guidelines: `CONTRIBUTING.md`.
 - Code of conduct: `CODE_OF_CONDUCT.md`.
-- Quality workflow: enabled, but the README does not show a CI badge.
+- Quality workflow: enabled and visible from the README.
+
+The upstream PR is open at [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339). Its lint check passes, but the repository owner has stated that AI-generated lists are not accepted. Treat that as a policy objection, not a formatting issue. Do not imply acceptance is pending or obscure how automation assisted the curation workflow.
 
 ## Submission Timing
 
@@ -33,6 +35,8 @@ python3 scripts/check_license.py
 python3 scripts/check_resource_labels.py README.md
 python3 scripts/render_readme_tables.py --check
 python3 scripts/export_resource_dataset.py --check
+python3 scripts/check_project_consistency.py
+python3 scripts/build_hf_card.py --check
 python3 scripts/check_publication_metadata.py
 python3 scripts/check_loop_contract_examples.py
 python3 scripts/check_pages_metadata.py

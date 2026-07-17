@@ -71,6 +71,8 @@ python3 scripts/check_license.py
 python3 scripts/check_resource_labels.py README.md
 python3 scripts/render_readme_tables.py --check
 python3 scripts/export_resource_dataset.py --check
+python3 scripts/check_project_consistency.py
+python3 scripts/build_hf_card.py --check
 python3 scripts/check_publication_metadata.py
 python3 scripts/check_loop_contract_examples.py
 python3 scripts/check_pages_metadata.py

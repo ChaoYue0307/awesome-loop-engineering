@@ -877,14 +877,19 @@ if (container && hero) {
     function resize() {
       const width = Math.max(container.clientWidth, 1);
       const height = Math.max(container.clientHeight, 1);
-      const compact = width < 620;
+      const compact = width < 720;
       const tablet = !compact && width < 900;
       applyLayout(compact);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, compact || lowPower ? 1.3 : 1.65));
       renderer.setSize(width, height, false);
 
-      const viewHeight = compact ? 3.9 : tablet ? 3.45 : 3.15;
-      const viewWidth = viewHeight * (width / height);
+      const aspect = width / height;
+      const viewHeight = compact
+        ? Math.max(3.45, 5.8 / aspect)
+        : tablet
+          ? 11.2 / aspect
+          : 3.15;
+      const viewWidth = viewHeight * aspect;
       camera.left = -viewWidth / 2;
       camera.right = viewWidth / 2;
       camera.top = viewHeight / 2;

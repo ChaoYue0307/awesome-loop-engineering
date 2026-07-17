@@ -54,6 +54,12 @@ jobs:
       - name: Check resource dataset export
         run: python scripts/export_resource_dataset.py --check
 
+      - name: Check project count and release consistency
+        run: python scripts/check_project_consistency.py
+
+      - name: Check Hugging Face dataset card
+        run: python scripts/build_hf_card.py --check
+
       - name: Check publication metadata
         run: python scripts/check_publication_metadata.py
 

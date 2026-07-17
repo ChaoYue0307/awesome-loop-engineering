@@ -18,6 +18,8 @@ If you are suggesting one resource and do not want to prepare a fork, use the [r
 
 Maintainers will still apply the same scope, duplication, source-quality, and annotation checks used for pull requests. Corrections to an existing annotation are equally useful; link the current entry and state exactly what should change.
 
+For an inaccurate summary, contribution, novelty, impact, author, date, venue, identifier, or canonical link, use the dedicated [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml). Include primary-source evidence and omit unavailable metadata rather than guessing.
+
 ## Quick PR Flow
 
 1. Search `README.md` for the resource title, author, project, and URL.
@@ -37,6 +39,8 @@ When a source exposes no reliable publication date, omit the year and keep only 
    - whether it is a primary source, official documentation, paper, tool, benchmark, playbook, critique, or adjacent list;
    - the evidence quality tier and resource type label;
    - any caveat such as vendor bias, paywall, early-stage status, or weak evidence.
+
+If automated tools assisted discovery, extraction, or drafting, say so in the PR. Check every resulting claim against the canonical source; generated text is not evidence.
 
 ## License For Contributions
 

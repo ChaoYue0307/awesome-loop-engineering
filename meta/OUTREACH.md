@@ -32,7 +32,7 @@ The repo is looking for examples with a clear trigger, work intake, agent roles,
 Hi <name>, I included <work title> in Awesome Loop Engineering and summarized its contribution as: "<current annotation>."
 
 Could you check whether that characterization is accurate? If it misses the main contribution, novelty, impact, or best canonical link, a correction is very welcome:
-https://github.com/ChaoYue0307/awesome-loop-engineering
+https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml
 ```
 
 ## Maintainer Request

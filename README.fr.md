@@ -28,7 +28,7 @@ Un loop découvre du travail, le délègue à un ou plusieurs agents, vérifie l
 
 Ce dépôt concerne le nouveau sens de Loop Engineering dans le contexte des agents IA et coding agents. Il ne concerne pas les event loops logiciels, la théorie du contrôle, les growth loops, l'automatisation générique ou les feedback loops non liés à l'IA.
 
-Au-delà de la liste de plus de 430 ressources sélectionnées, ce dépôt fournit 15 patterns de loop, un loop contract validé par schéma pour chaque pattern, 6 modèles de loop exécutables, une galerie communautaire et 8 langues.
+Au-delà de 540 ressources sélectionnées, ce dépôt fournit 15 patterns de loop, un loop contract validé par schéma pour chaque pattern, 6 modèles de loop exécutables, une galerie communautaire et 8 langues.
 
 ## Modèle Mental
 

@@ -43,6 +43,35 @@ Usually reject resources that are mostly:
 
 Prefer the highest-tier source that explains the same idea clearly.
 
+## Editorial Responsibility And Assistance
+
+The maintainer is accountable for every released inclusion decision, category, annotation, and project-level claim. Repository automation may assist with discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. Automated output is never treated as evidence on its own: the canonical source record, primary metadata, and stated limitations control the final entry.
+
+The public dataset keeps those layers separate:
+
+- `annotation`, `key_contribution`, `novelty`, and `impact` are original repository syntheses;
+- `source_title`, `source_description`, authorship, date, venue, DOI, and repository statistics come from the source audit and record their metadata provenance;
+- `signal_strength` describes the kind of evidence available, not whether the maintainer agrees with the work;
+- `source_status` records reachability at one point in time and is not a guarantee of future availability.
+
+No author, company, venue, star count, or citation count can buy or guarantee placement. Vendor inclusion does not imply endorsement, and inclusion of a critique does not imply that every claim in it is accepted.
+
+## Corrections And Disputes
+
+Accuracy corrections take priority over expansion. Authors and readers can submit the [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml) or a pull request with the current entry, the disputed text, the proposed correction, and primary-source evidence.
+
+When evidence conflicts:
+
+1. prefer the original publishing venue, official documentation, paper record, or repository over secondary coverage;
+1. distinguish a verified fact from the repository's interpretation;
+1. preserve material caveats, negative results, and stated evaluation limits;
+1. omit a date, venue, author, or metric rather than infer it from an unreliable source;
+1. record the correction in the next release notes when it changes the meaning of an entry.
+
+## Audit And Versioning
+
+`data/resource_source_audit.csv` is the inspectable point-in-time audit log. `data/resources.csv` and `data/resources.jsonl` are deterministic exports of the canonical English README enriched with that audit. GitHub Releases identify versioned snapshots; downstream users should cite a release or commit when reproducibility matters.
+
 ## Annotation Rules
 
 Each annotation should answer: **why does this matter for Loop Engineering?**

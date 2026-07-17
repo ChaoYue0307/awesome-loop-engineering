@@ -61,4 +61,27 @@
 - Three.js pointer-motion frame: `/private/tmp/awesome-loop-hero-three-motion-final.png`
 - Social preview: `/Users/chaoyue/Library/CloudStorage/Dropbox/Loop Engineering/awesome-loop-engineering/assets/social-preview.png`
 
+## 2026-07-17 Repository Audit
+
+- Desktop: 1440 x 1000, no horizontal overflow, no hero text/scene overlap, and all eight section headings render without requiring scroll-triggered opacity changes.
+- Tablet: 768 x 900. The first pass clipped the intake and decision stations. The responsive camera now fits an 11.2-unit horizontal view between 720 px and 900 px, keeping all six stations, the retry path, and the outcome node inside the canvas.
+- Phone: 390 x 844, no horizontal overflow. The compact loop keeps all six stations, the moving work packet, legend, outcome key, and stage selector visible without crossing the hero copy.
+- Mobile navigation: opens all eight project links, reports `aria-expanded="true"`, closes on Escape, and restores focus to the menu button.
+- Resource Atlas: remains idle above the fold, loads on approach or a direct resource anchor, and reports `540 of 540 resources | showing 8` on mobile.
+- Resource interactions: `SWE-bench` returns 9 matches, the paper filter narrows those to 6, Reset restores all 540, and Show more expands the rendered set from 8 to 16.
+- Scene motion: the canvas frame counter advanced from 640 to 662 over 900 ms. Two canvas crops taken 1.2 seconds apart changed 17.79% of sampled RGB channels.
+- Scene pixels: 79,858 of 362,880 canvas pixels differ from the paper background (22.01%), confirming a nonblank render with useful contrast.
+- Console: no page-origin errors or warnings. The only warnings came from the browser-control extension and are unrelated to the site.
+- Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 540 resources, 15 patterns, 15 contracts, and version 0.6.0.
+
+### Current Evidence
+
+- Desktop before/after: `/tmp/loop-desktop-before-after.png`
+- Tablet framing before/after: `/tmp/loop-tablet-before-after.png`
+- Phone hero: `/tmp/loop-qa-mobile-after-fit.png`
+- Phone Resource Atlas: `/tmp/loop-qa-mobile-resource-cards.png`
+- Canvas frame 1: `/tmp/loop-motion-canvas-1.png`
+- Canvas frame 2: `/tmp/loop-motion-canvas-2.png`
+- Canvas pixel difference: `/tmp/loop-motion-diff.png`
+
 final result: passed

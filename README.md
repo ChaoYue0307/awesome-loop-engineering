@@ -13,6 +13,7 @@
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
+  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
   <img src="https://img.shields.io/badge/resources-540-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-15-38bdf8" alt="patterns">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-64748b" alt="license"></a>
@@ -84,6 +85,7 @@ This repository is about the new AI-agent meaning of Loop Engineering. It is **n
 - [Concept Guides](#concept-guides)
 - [Maintainer Picks](#maintainer-picks)
 - [Repository Highlights](#repository-highlights)
+- [Trust And Provenance](#trust-and-provenance)
 - [Resource Type Legend](#resource-type-legend)
 - [Start Here](#start-here)
 - [Scope Boundary](#scope-boundary)
@@ -282,6 +284,37 @@ Beyond the curated list, this repository also maintains:
 - 🌍 **8 language entry points** for the project overview
 - 🤗 **Structured dataset mirror** on Hugging Face plus the standalone Resource Atlas
 - 💬 **Open discussion channel** for corrections, patterns, and operating lessons
+
+## Trust And Provenance
+
+Use the collection as a source map, not as an endorsement or a substitute for reading the underlying work.
+
+<table>
+  <tr>
+    <th>Dimension</th>
+    <th>How this repository handles it</th>
+  </tr>
+  <tr>
+    <td><strong>Scope</strong></td>
+    <td>Every entry must pass the public <a href="meta/CURATION.md#acceptance-test">curation standard</a>: direct relevance to recurring AI-agent systems, concrete builder value, and inspectable evidence.</td>
+  </tr>
+  <tr>
+    <td><strong>Source integrity</strong></td>
+    <td>The current <a href="data/resource_source_audit.csv">source-audit snapshot</a> covers all 540 rows: 493 public sources were reachable, 4 were access-restricted, 43 are repository-native, and none were broken or unreachable when checked on 2026-07-17.</td>
+  </tr>
+  <tr>
+    <td><strong>Editorial responsibility</strong></td>
+    <td>Annotations are original, maintainer-reviewed syntheses, not copied abstracts or claims of author endorsement. Automation may assist discovery, metadata extraction, deduplication, and draft normalization; the canonical source remains the evidence and the maintainer remains accountable for the released text.</td>
+  </tr>
+  <tr>
+    <td><strong>Corrections</strong></td>
+    <td>Authors and readers can use the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">annotation-correction form</a> or a pull request. Corrections to contribution, novelty, impact, publication metadata, and canonical links are prioritized.</td>
+  </tr>
+  <tr>
+    <td><strong>Licensing</strong></td>
+    <td>Original curation text, metadata, templates, and project documentation are CC0-1.0. Linked works retain their own licenses and terms.</td>
+  </tr>
+</table>
 
 ## Resource Type Legend
 
@@ -1176,7 +1209,7 @@ If this repository is useful in your work, please cite it with:
   title        = {Awesome Loop Engineering},
   year         = {2026},
   howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}},
-  note         = {Curated resources for Loop Engineering}
+  note         = {Curated resources for Loop Engineering, version 0.6.0}
 }
 ```
 

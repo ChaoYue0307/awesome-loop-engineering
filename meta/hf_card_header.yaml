@@ -2,6 +2,14 @@
 license: cc0-1.0
 language:
   - en
+language_creators:
+  - found
+annotations_creators:
+  - other
+multilinguality:
+  - monolingual
+source_datasets:
+  - original
 pretty_name: Awesome Loop Engineering
 size_categories:
   - n<1K
@@ -9,6 +17,8 @@ task_categories:
   - text-classification
   - text-retrieval
 tags:
+  - tabular
+  - datasets
   - loop-engineering
   - ai-agents
   - coding-agents

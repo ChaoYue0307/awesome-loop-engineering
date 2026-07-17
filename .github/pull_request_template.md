@@ -12,7 +12,7 @@ Select all that apply.
 
 ## Resource Summary
 
-List the resources, patterns, or translation files changed.
+List the resources, patterns, or translation files changed. For each resource, include the canonical URL and original publishing venue or platform.
 
 - Title and URL:
 
@@ -76,6 +76,14 @@ Which README section did you update?
 - [ ] Tier C: curated survey or high-quality explainer
 - [ ] Tier D: commentary or news coverage
 
+## Accuracy And Provenance
+
+- Canonical source checked:
+- Original publishing venue or platform:
+- Publication date, authors, and identifier verified from:
+- Material caveats or source-access limits:
+- Automated assistance used for discovery, extraction, or drafting (if any):
+
 ## Checklist
 
 - [ ] I searched the README for duplicates.
@@ -83,10 +91,14 @@ Which README section did you update?
 - [ ] The entry is in the most specific category.
 - [ ] The entry includes the correct resource type label, such as `📄 **Paper**` or `📚 **Docs**`.
 - [ ] The annotation explains why the resource matters for loop design.
+- [ ] The `Published at` cell names the work's original venue or publishing platform, not this repository.
+- [ ] I omitted unavailable publication metadata instead of inferring it from search snippets or secondary coverage.
 - [ ] Adjacent prompt, context, or harness resources explicitly connect to repeated agent runs, state, verification, or escalation.
-- [ ] The entry follows the format: `- 📄 **Paper** [Title](https://example.com) - One sentence annotation.`
+- [ ] The entry follows the table format: `| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · Venue<br><sub>Author</sub> | Specific contribution. |`.
 - [ ] The resource is not about unrelated event loops, growth loops, control theory, or generic automation.
 - [ ] New loop patterns include trigger, discover/intake, delegation, state, verification gates, retry budget, escalation path, and loop instruction or automation artifact.
+- [ ] Any automated assistance was checked against the canonical source; generated text was not treated as evidence.
+- [ ] I ran `python3 scripts/render_readme_tables.py` and `python3 scripts/export_resource_dataset.py` after changing resource rows.
 - [ ] I agree that my contribution to this repository is released under `CC0-1.0`.
 - [ ] I did not copy third-party content into this repository without the right to do so.
 - [ ] Any translation links back to the canonical English README.
