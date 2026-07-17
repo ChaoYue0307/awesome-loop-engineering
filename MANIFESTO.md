@@ -1,24 +1,24 @@
 # Loop Engineering Manifesto
 
-Loop Engineering is the practice of designing recurring AI-agent systems that sit above prompt, context, and harness engineering.
+Loop Engineering is the practice of designing recurring AI-agent systems whose behavior remains reviewable across runs.
 
-Prompt engineering improves what you ask the model. Context engineering improves what the model can see. Harness engineering improves the tools, permissions, sandboxes, and checks around one agent run. Loop Engineering connects those layers over time: it defines when agents run, what work they discover, how work is delegated, how results are verified, what state survives, and when the system repeats, reports, or escalates.
+Prompt engineering shapes the instruction. Context engineering shapes what the model can see. Harness engineering shapes one run's tools, permissions, isolation, and checks. Loop Engineering connects those decisions across runs: when agents start, what work enters, who acts, what evidence gates results, what state survives, and when the system repeats, reports, escalates, or stops.
 
 ## Why It Exists
 
-The leverage point in agent work is moving from writing better one-off prompts to designing better recurring systems. A useful loop can notice work, load the right context, act in an isolated workspace, verify against explicit gates, record receipts, and continue later without relying on a human to remember every intermediate step.
+Recurring agent work shifts the design problem from the next prompt to the operating system around every run. A useful loop finds work, loads bounded context, acts in isolation, verifies against explicit gates, records receipts, and resumes without relying on human memory.
 
-This does not remove engineering judgment. It moves judgment into the loop contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.
+This does not remove engineering judgment. It makes judgment explicit in the loop contract: objective, trigger, intake, workspace, context, delegation, verification, state, budget, escalation, and exit.
 
 ## Core Commitments
 
-- **Design the system, not just the next prompt.** The human should specify the operating contract, not manually steer every turn.
+- **Design the system, not just the next prompt.** Specify the operating contract instead of steering every turn.
 - **Make state external.** Progress files, issue comments, traces, checkpoints, and dashboards should outlive the model context.
-- **Separate maker from checker.** The system that acts should not be the only system that decides whether the work is done.
+- **Separate maker from checker.** The actor must not be the sole judge of completion.
 - **Prefer deterministic gates.** Tests, typechecks, evals, dashboards, trace graders, and reviewer decisions are stronger than "looks good".
 - **Bound autonomy.** Loops need budgets, allowed actions, disallowed actions, stop conditions, and escalation paths.
 - **Keep receipts.** A loop should explain what it saw, what it changed, what it ran, what passed, what failed, and why it stopped.
-- **Stay responsible.** A loop can delegate work, but ownership of quality, safety, and product judgment remains human.
+- **Keep ownership human.** A loop can delegate work; quality, safety, and product judgment remain human responsibilities.
 
 ## What It Is Not
 
@@ -39,4 +39,4 @@ A Loop Engineering artifact is useful when another builder can answer:
 1. When does it escalate?
 1. When is it done?
 
-If those answers are visible, the loop can be reviewed, shared, improved, and trusted.
+Visible answers make the loop reviewable, portable, and improvable.

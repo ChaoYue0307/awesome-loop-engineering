@@ -1,6 +1,6 @@
 # Distribution And Discovery Checklist
 
-Use this checklist after major updates or releases. The goal is accurate discovery, not hype.
+Use this checklist after major updates or releases. Optimize for qualified discovery, accurate claims, and useful follow-through.
 
 ## Current Launch Status
 
@@ -29,7 +29,7 @@ Search engines may still take days or longer to index a new repository. Backlink
 
 ## Hugging Face Dataset Mirror
 
-The repository is mirrored to the Hugging Face Hub dataset repo [`datasets/cy0307/awesome-loop-engineering`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) for discovery within the AI/ML community. The daily maintenance routine syncs it after each GitHub push.
+The Hugging Face dataset [`datasets/cy0307/awesome-loop-engineering`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) exposes the collection to AI/ML users and tabular workflows. Sync it after each GitHub release or data change.
 
 - The mirror tracks the full GitHub tree (docs, patterns, examples, schema, scripts).
 - The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the canonical English `README.md` by `scripts/export_resource_dataset.py`.
@@ -39,14 +39,14 @@ The repository is mirrored to the Hugging Face Hub dataset repo [`datasets/cy030
 
 ## GitHub-Native Promotion
 
-Discoverability levers that live on GitHub itself, in priority order.
+Use GitHub-native discovery in this order.
 
 - **Topic page (`github/explore`).** The [`loop-engineering` topic](https://github.com/topics/loop-engineering) now has a curated page through merged PR [`github/explore#5209`](https://github.com/github/explore/pull/5209). Keep the topic description ecosystem-wide rather than repository-specific.
 - **sindresorhus/awesome submission.** The open PR at [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) has a passing lint check and an explicit owner policy objection to AI-generated lists. Keep the curation process transparent and wait for maintainer clarification; do not present the PR as ordinary pending review. See [`AWESOME_SUBMISSION.md`](AWESOME_SUBMISSION.md).
 - **Editorial submissions to adjacent lists** this repo already cites (harness, context, and agent-paper lists). Submit only where the maintainers explicitly accept related resources. Ready-to-paste entry:
 
   ```md
-  - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Recurring AI/coding-agent systems above prompt, context, and harness engineering: patterns, contracts, runnable loops, and curated resources.
+  - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Source-audited resources, reusable patterns, validated contracts, and runnable templates for recurring AI-agent systems.
   ```
 
 - **Pin the repository** on your profile, and add it to your profile README (profile-level promotion).
@@ -103,11 +103,11 @@ https://chaoyue0307.github.io/awesome-loop-engineering/
 ```text
 Awesome Loop Engineering v0.6.0 is live.
 
-Loop Engineering is the operating layer above prompt, context, and harness engineering: the recurring system that discovers work, delegates it, verifies results, persists state, and decides what happens next.
+Loop Engineering governs what happens across agent runs: how work enters, agents act, evidence decides, state survives, and the system continues.
 
 The release includes:
 
-- 540 audited resources
+- 540 source-audited resources
 - an interactive Resource Atlas
 - 15 operational patterns and 15 validated loop contracts
 - 6 runnable templates
@@ -125,9 +125,9 @@ Use a regular submission, not Show HN.
 ```text
 Title: Awesome Loop Engineering: 540 resources for recurring AI-agent systems
 
-I have been mapping the layer above prompt, context, and harness engineering: recurring systems that discover work, delegate it, verify results, persist state, and decide whether to retry, escalate, or exit.
+I have been mapping recurring AI-agent systems: how work enters, agents act, evidence gates results, state survives, and the system retries, escalates, or exits.
 
-The repository now includes 540 audited sources, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset. The curation and source-audit method is public, and corrections to the taxonomy and source annotations are especially welcome.
+The repository includes 540 source-audited works, 15 operational patterns, validated loop contracts, runnable templates, an interactive Resource Atlas, and a structured Hugging Face dataset. The curation and audit methods are public; corrections to the taxonomy and annotations are especially welcome.
 
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```

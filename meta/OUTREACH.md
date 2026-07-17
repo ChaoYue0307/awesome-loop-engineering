@@ -1,6 +1,6 @@
 # Outreach Kit
 
-Use this when inviting authors, practitioners, or tool builders to improve the repository.
+Use these messages to request sources, operating examples, and accuracy corrections without asking for promotion.
 
 ## Who To Invite
 
@@ -12,9 +12,9 @@ Use this when inviting authors, practitioners, or tool builders to improve the r
 ## Short Message
 
 ```text
-Hi <name>, this repository is collecting high-signal resources and practical patterns for Loop Engineering: designing recurring AI-agent systems above prompt, context, and harness engineering.
+Hi <name>, Awesome Loop Engineering collects source-audited resources and reusable patterns for recurring AI-agent systems.
 
-If you have a source, correction, real-world loop pattern, or cautionary example that should be included, contributions are welcome:
+If you have a canonical source, correction, real-world loop, or cautionary example, you can contribute here:
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```
 
@@ -23,7 +23,7 @@ https://github.com/ChaoYue0307/awesome-loop-engineering
 ```text
 Hi <name>, do you have a public example of an agent loop you can share?
 
-The repo is looking for examples with a clear trigger, work intake, agent roles, verification gates, durable state, retry budget, escalation path, and receipts. An anonymized version is fine if the implementation cannot be public.
+Useful examples name the trigger, intake, agent roles, verification gates, durable state, retry budget, escalation path, and receipts. An anonymized version is welcome when the implementation cannot be public.
 ```
 
 ## Accuracy Request
@@ -31,14 +31,14 @@ The repo is looking for examples with a clear trigger, work intake, agent roles,
 ```text
 Hi <name>, I included <work title> in Awesome Loop Engineering and summarized its contribution as: "<current annotation>."
 
-Could you check whether that characterization is accurate? If it misses the main contribution, novelty, impact, or best canonical link, a correction is very welcome:
+Could you check whether that characterization is accurate? If it misses the main contribution, novelty, impact, or canonical link, please submit a correction:
 https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml
 ```
 
 ## Maintainer Request
 
 ```text
-Hi <name>, Awesome Loop Engineering is a curated map of recurring AI-agent systems above prompt, context, and harness engineering. It includes audited resources, operational patterns, loop contracts, runnable templates, and a structured dataset.
+Hi <name>, Awesome Loop Engineering is a source-audited field guide and implementation kit for recurring AI-agent systems. It includes 540 resources, 15 operational patterns, validated contracts, runnable templates, and a structured dataset.
 
 Would it fit the related-resources policy for <project or newsletter>? I can provide a shorter description or submit through the normal contribution process:
 https://github.com/ChaoYue0307/awesome-loop-engineering

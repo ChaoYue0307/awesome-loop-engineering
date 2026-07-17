@@ -1,14 +1,14 @@
 # Contributing
 
-Thanks for helping improve Awesome Loop Engineering.
+Contribute a canonical source, an evidence-backed correction, or a loop you have run.
 
-This repository is intentionally narrow. It tracks the new AI and coding-agent meaning of **Loop Engineering**: the layer above prompt, context, and harness engineering where teams design systems that discover work, delegate to agents, verify outcomes, persist state, decide next actions, and run again on a cadence or until a goal is met.
+Scope is intentionally narrow: recurring AI-agent and coding-agent systems with explicit triggers, work intake, verification, durable state, budgets, escalation, and exit.
 
-Before submitting, read the [curation standard](meta/CURATION.md). Maintainers use it to decide whether a resource is specific, stable, and useful enough for the list.
+Before submitting, read the [curation standard](meta/CURATION.md). It defines scope, evidence tiers, annotation rules, and correction handling.
 
 ## Fastest Contribution (Under Five Minutes)
 
-If you are suggesting one resource and do not want to prepare a fork, use the [resource suggestion form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml). Include:
+Use the [resource suggestion form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml) to propose one source without preparing a fork. Include:
 
 - the canonical public URL;
 - the most specific README category;
@@ -16,9 +16,9 @@ If you are suggesting one resource and do not want to prepare a fork, use the [r
 - the source type and evidence tier;
 - any caveat, such as vendor bias, a paywall, early-stage status, or weak evidence.
 
-Maintainers will still apply the same scope, duplication, source-quality, and annotation checks used for pull requests. Corrections to an existing annotation are equally useful; link the current entry and state exactly what should change.
+Maintainers apply the same scope, duplication, source-quality, and annotation checks used for pull requests. Corrections are equally valuable: link the current entry and state the exact change.
 
-For an inaccurate summary, contribution, novelty, impact, author, date, venue, identifier, or canonical link, use the dedicated [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml). Include primary-source evidence and omit unavailable metadata rather than guessing.
+For an inaccurate summary, contribution, novelty, impact, authorship, date, venue, identifier, or canonical link, use the [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml). Include primary-source evidence; omit unavailable metadata rather than guessing.
 
 ## Quick PR Flow
 
@@ -85,7 +85,7 @@ Prefer higher tiers when two resources cover the same idea.
 | C | Curated survey or high-quality explainer | Taxonomy, comparison, tutorial |
 | D | Commentary or news coverage | Useful only when it documents origin, adoption, or debate |
 
-If two links say the same thing, prefer the more primary, practical, stable, and implementation-oriented one.
+If two links cover the same idea, prefer the more primary, stable, and implementation-specific source.
 
 ## Quality Labels
 

@@ -1,6 +1,6 @@
 # Roadmap
 
-This roadmap keeps Awesome Loop Engineering focused on useful, verifiable work for an emerging practice.
+The roadmap prioritizes stronger evidence, runnable implementations, and real operating results.
 
 ## Near Term
 
@@ -8,8 +8,8 @@ This roadmap keeps Awesome Loop Engineering focused on useful, verifiable work f
 - Add real or anonymized gallery entries from practitioners running recurring agent loops.
 - Grow the runnable loop directory beyond the test-repair reference loop, including scheduled-trigger variants per runtime.
 - Add more translations for the introduction, mental model, Loop Contract, and contribution guide.
-- Audit contextual sources in small batches and replace weak summaries or secondary links with stronger canonical evidence.
-- Continue replacing weak or unstable links with primary sources, official docs, papers, and implementation-heavy write-ups.
+- Audit contextual sources in small batches; replace weak summaries and secondary links with canonical evidence.
+- Replace unstable links with primary sources, official docs, papers, or implementation-heavy write-ups.
 
 ## Pattern Library
 

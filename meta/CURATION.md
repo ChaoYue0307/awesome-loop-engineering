@@ -1,14 +1,14 @@
 # Curation Standard
 
-This repository is intentionally selective. It should help builders understand and practice Loop Engineering for AI and coding agents as the layer above prompt, context, and harness engineering, not become a general AI-agent link dump.
+This collection is intentionally selective. It covers recurring AI-agent and coding-agent systems with explicit triggers, verification, durable state, budgets, escalation, and exit; it is not a general agent link directory.
 
 ## Acceptance Test
 
 A resource belongs when it passes all three checks:
 
-1. **Scope fit**: It is about AI/coding-agent loops, or a direct foundation for designing repeated agent runs that discover work, delegate to agents, coordinate context and harnesses, verify results, persist state, decide next actions, and escalate.
+1. **Scope fit**: It covers AI/coding-agent loops or a direct foundation for repeated runs that discover work, delegate, verify, persist state, decide next actions, and escalate.
 1. **Builder value**: It helps someone design, run, verify, evaluate, operate, or critique recurring agent systems.
-1. **Stable evidence**: It is public, specific, and stable enough that readers can inspect it later.
+1. **Inspectable evidence**: It is public, specific, and stable enough for readers to verify.
 
 ## Strong Signals
 
@@ -18,7 +18,7 @@ Prefer resources with one or more of these properties:
 - Official docs for an agent runtime, SDK, workflow system, benchmark, or eval framework.
 - Concrete implementation detail: commands, architecture, traces, code, loop instructions, automation configs, hooks, schedules, state files, worktrees, checks, or failure modes.
 - Durable research foundation: ReAct, reflection, self-correction, planning, memory, tool use, evaluation, or state.
-- Practical operational value: CI repair, PR babysitting, deploy verification, docs drift, feedback clustering, cost control, or escalation.
+- Operational value: CI repair, PR babysitting, deploy verification, docs drift, feedback clustering, cost control, or escalation.
 
 ## Weak Signals
 
@@ -45,7 +45,7 @@ Prefer the highest-tier source that explains the same idea clearly.
 
 ## Editorial Responsibility And Assistance
 
-The maintainer is accountable for every released inclusion decision, category, annotation, and project-level claim. Repository automation may assist with discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. Automated output is never treated as evidence on its own: the canonical source record, primary metadata, and stated limitations control the final entry.
+The maintainer owns every released inclusion decision, category, annotation, and project-level claim. Automation may assist discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. Automated output is not evidence; canonical sources, primary metadata, and stated limitations control the final entry.
 
 The public dataset keeps those layers separate:
 

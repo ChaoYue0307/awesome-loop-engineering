@@ -5,7 +5,7 @@
 <h1 align="center">Awesome Loop Engineering</h1>
 
 <p align="center">
-  Curated resources and practical patterns for designing recurring, stateful, verified AI-agent and coding-agent loops.
+  Curated resources and patterns for building recurring, stateful, verified AI-agent and coding-agent loops.
 </p>
 
 <!-- Keep the resources badge count in sync with data/resources.csv, Repository Highlights, and the landing-page stats on every sweep. -->
@@ -45,32 +45,32 @@
   <sub>⭐ <strong>Star</strong> to find it again · 🔀 <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork"><strong>Fork</strong> the contracts and dataset schema</a> · 🔔 <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription"><strong>Watch</strong> Releases and Discussions</a></sub>
 </p>
 
-Awesome Loop Engineering is a curated, implementation-oriented field guide to **Loop Engineering**: the layer above prompt, context, and harness engineering for designing recurring AI-agent systems.
+Awesome Loop Engineering is a source-audited field guide and implementation kit for recurring AI-agent and coding-agent systems.
 
-Prompt engineering improves what you ask the model. Context engineering improves what the model can see. Harness engineering improves the tools, permissions, sandboxes, and checks around one agent run. **Loop Engineering sits above all three**: it is the emerging AI and coding-agent practice of moving from manually prompting agents turn by turn to designing loops that do the prompting, supervision, verification, state updates, and re-triggering for you.
+Prompt engineering shapes the instruction. Context engineering shapes what the model can see. Harness engineering shapes one run's tools, permissions, isolation, and checks. **Loop Engineering governs what happens across runs**: how work enters, agents act, evidence decides, state survives, and the system continues.
 
-A loop discovers work, hands it to one or more agents, checks the result, records state, decides what should happen next, and runs again on a cadence or until a verifiable goal is reached.
+A loop discovers work, delegates it, verifies the result, records state and receipts, then retries, reports, escalates, or exits within a defined budget.
 
-This repository is about the new AI-agent meaning of Loop Engineering. It is **not** about software event loops, control theory, growth loops, generic workflow automation, or non-AI feedback systems.
+Scope is narrow by design: recurring AI-agent systems with explicit triggers, verification, durable state, budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompts are out of scope.
 
 ### Quick Orientation
 
 <table>
   <tr>
-    <td><strong>🔁 What it is</strong></td>
-    <td>The layer that governs how agent work is discovered, delegated, verified, retried, and escalated over time, not just for a single run.</td>
+    <td><strong>📦 What you get</strong></td>
+    <td>540 source-audited resources, 15 operational patterns, 15 validated contracts, 6 runnable templates, and a filterable dataset.</td>
   </tr>
   <tr>
-    <td><strong>⏱️ Why it matters now</strong></td>
-    <td>As coding agents move from one-off prompts to background automation, the design challenge shifts from "what do I ask?" to "how does the system keep working reliably?" This list is focused on that operating layer.</td>
+    <td><strong>⏱️ What problem it solves</strong></td>
+    <td>It makes repeated agent work reviewable: the trigger, permissions, evidence gate, durable state, retry budget, and human exit are explicit.</td>
   </tr>
   <tr>
-    <td><strong>👥 Who this is for</strong></td>
-    <td>Builders of AI agents, coding agents, and orchestration systems; reliability and eval engineers; teams adding recurring agent loops to production infrastructure.</td>
+    <td><strong>👥 Who it serves</strong></td>
+    <td>Agent and platform builders, reliability and evaluation engineers, researchers, and teams operating recurring AI-agent workflows.</td>
   </tr>
   <tr>
-    <td><strong>🧭 Where to start</strong></td>
-    <td>Canonical Definition, The Loop Contract, Start Here, then the Pattern Library.</td>
+    <td><strong>🧭 Fastest path</strong></td>
+    <td>Read the Canonical Definition, inspect the Loop Contract, choose a pattern, then adapt a validated example.</td>
   </tr>
 </table>
 
@@ -115,7 +115,7 @@ This repository is about the new AI-agent meaning of Loop Engineering. It is **n
 
 ## Why This Repo Exists
 
-Loop Engineering is becoming a distinct craft because the leverage point is moving from better single prompts, richer context, and stronger harnesses to recurring systems that decide when and how agents should run. Mature agent workflows now combine goals, state, work isolation, tool permissions, feedback gates, retries, escalation, and receipts. This list exists to make that craft easier to learn, compare, and practice without mixing it with unrelated loop concepts or generic AI-agent hype.
+Reliable recurring agent work needs more than a strong prompt or harness. It needs a reviewable operating contract for triggers, intake, permissions, verification, state, budgets, escalation, and exit. This project maps the evidence and packages reusable contracts so builders can compare approaches and implement loops without sorting through generic agent content.
 
 ## Mental Model
 
@@ -157,11 +157,11 @@ Objective
 
 ## How To Use This List
 
-Start with the first-read resources and the Loop Contract if the term is new. For implementation work, move through core primitives, runtime guides, templates, and patterns. For reliability work, focus on verification gates, securing unattended loops, state persistence, critiques, and limitations. Contributions should prefer primary sources, official docs, papers, and implementation-heavy write-ups.
+New to the term? Read the Canonical Definition, Start Here, and the Loop Contract. Building a loop? Choose a pattern, runtime guide, validated contract, and runnable template. Reviewing reliability? Focus on verification, unattended-loop security, durable state, benchmarks, and critiques.
 
 ## Reading Paths
 
-Use this atlas before browsing the exhaustive topical sections. It adds a task-oriented layer without changing the stable section anchors used by existing links.
+Choose a goal before opening the full catalog. These paths lead from a decision to the most relevant evidence and implementation artifacts.
 
 <table>
   <thead>
@@ -218,7 +218,7 @@ Use this atlas before browsing the exhaustive topical sections. It adds a task-o
   </tbody>
 </table>
 
-The Hugging Face dataset exposes the same collection, lifecycle-stage, audience, evidence, source-status, and repository-stat facets for filtering all resources.
+For analysis, the Hugging Face dataset exposes collection, lifecycle, audience, evidence, source-status, publication, and repository-stat facets for every resource.
 
 ## Choose Your Loop
 
@@ -250,7 +250,7 @@ Not sure which runtime should run it? See the [runtime selection guide](meta/RUN
 
 ## Concept Guides
 
-These repository-native guides define the concept, boundaries, and practical artifacts without relying on vendor-specific terminology.
+These vendor-neutral guides define the concept, boundaries, vocabulary, and reviewable artifacts.
 
 | Resource                                                                         | Published at                                             | Key feature                                                                                                                                                   |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -264,7 +264,7 @@ These repository-native guides define the concept, boundaries, and practical art
 
 ## Maintainer Picks
 
-A compact path through the repository. Each resource is linked in full in the section named in parentheses.
+A five-stop path through the concept, evidence, operating patterns, reliability gates, and reusable artifacts.
 
 - 🧭 Concept: Addy Osmani's Loop Engineering essay frames the practice (Start Here), and the Canonical Definition and Manifesto fix the scope and principles (Concept Guides).
 - 🧱 Foundations: the harness-layer taxonomy decomposes control, agency, and runtime beneath the loop and proposes a HarnessCard so reported agent gains can be separated from harness effects (Agent Workflow Patterns).
@@ -274,20 +274,20 @@ A compact path through the repository. Each resource is linked in full in the se
 
 ## Repository Highlights
 
-Beyond the curated list, this repository also maintains:
+Use the repository as both a source map and a build kit:
 
-- 📚 **540 curated resources** with tabular exports and source-level metadata
+- 📚 **540 source-audited resources** with publication, provenance, contribution, novelty, impact, and signal fields
 - 🧩 **15 operational patterns** with a symptom-first comparison matrix
 - 🧾 **15 validated contracts** backed by the Loop Contract JSON schema
 - ▶️ **6 runnable templates** for session, desktop, CI, automation, and shell runtimes
-- 🖼️ **Community gallery** for real or anonymized loops
+- 🖼️ **Community gallery format** for real or anonymized operating evidence
 - 🌍 **8 language entry points** for the project overview
-- 🤗 **Structured dataset mirror** on Hugging Face plus the standalone Resource Atlas
-- 💬 **Open discussion channel** for corrections, patterns, and operating lessons
+- 🤗 **Structured Hugging Face dataset** plus a searchable Resource Atlas
+- 💬 **Correction and discussion paths** for source accuracy, patterns, and operating lessons
 
 ## Trust And Provenance
 
-Use the collection as a source map, not as an endorsement or a substitute for reading the underlying work.
+Use the collection to find and compare evidence. Inclusion is not endorsement and does not replace the underlying source.
 
 <table>
   <tr>
@@ -332,7 +332,7 @@ Use the collection as a source map, not as an endorsement or a substitute for re
 | ⚠️ **Critique**  | 11   | Risk analysis, limitation, caveat, or skeptical take         |
 <!-- resource-type-summary:end -->
 
-Every curated resource below follows the same row design: a linked work and visible type, its original publishing platform or venue, and the feature that matters for Loop Engineering. Author lists are abbreviated here for scanability. Full authors, dates, venues, DOI, novelty, impact, evidence signal, audit status, and current repository statistics remain available in the [dataset exports](data/README.md) and interactive website.
+Every row shows the work and type, its original publishing platform or venue, and the feature that matters for Loop Engineering. Author lists are shortened for scanning; the [dataset exports](data/README.md) and Resource Atlas retain full authorship, dates, venues, identifiers, contribution, novelty, impact, evidence signal, audit status, and repository statistics.
 
 ## Start Here
 
@@ -1110,7 +1110,7 @@ Neighboring curated lists for the layers around loop engineering.
 
 ## Discovery And Distribution
 
-Prefer this list as a website or as structured data?
+Use the collection as an interactive atlas or structured data.
 
 | Resource                                                                                                                 | Published at                                    | Key feature                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -1143,7 +1143,7 @@ Where this project is going and where to talk about it.
 
 <h2 id="build-from-this">Build From This</h2>
 
-Use the repository as an implementation kit, not only as a reading list.
+Move from evidence to a working loop.
 
 <table>
   <tr>
@@ -1172,9 +1172,9 @@ Use the repository as an implementation kit, not only as a reading list.
 
 ## Contributing
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Contribute a canonical source, an evidence-backed correction, or a loop you have run. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
-This repository uses a strict [curation standard](meta/CURATION.md) to keep the list focused, verifiable, and useful for builders. Maintainers can use the [maintenance guide](meta/MAINTENANCE.md) for link checks, identity checks, and periodic refreshes.
+The [curation standard](meta/CURATION.md) defines scope, evidence tiers, annotation rules, and correction handling. The [maintenance guide](meta/MAINTENANCE.md) covers audits and releases.
 
 For community expectations and support channels, see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [SUPPORT.md](SUPPORT.md), and [SECURITY.md](SECURITY.md).
 

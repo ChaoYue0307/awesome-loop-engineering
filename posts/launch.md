@@ -1,12 +1,12 @@
 # Awesome Loop Engineering v0.6.0
 
-Awesome Loop Engineering v0.6.0 strengthens the project as both a field guide and a verifiable data product for recurring AI-agent systems.
+Awesome Loop Engineering v0.6.0 turns the project into a source-audited field guide, implementation kit, and structured dataset for recurring AI-agent systems.
 
-The collection now maps 540 sources across the operating layer above prompt, context, and harness engineering: the system that discovers work, delegates it, verifies results, persists state, and decides what happens next.
+The collection maps 540 sources across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
 
 ## What Is Included
 
-- 540 audited resources linked to canonical sources
+- 540 source-audited resources linked to canonical works
 - 15 operational patterns and a symptom-first comparison matrix
 - 15 schema-validated loop contracts
 - 6 runnable templates for local, scheduled, CI, and hosted execution
@@ -27,11 +27,11 @@ The collection now maps 540 sources across the operating layer above prompt, con
 
 ## Why This Matters
 
-Prompt engineering improves what you ask the model. Context engineering improves what the model can see. Harness engineering improves the tools, permissions, sandboxes, and checks around one run.
+Prompt engineering shapes the instruction. Context engineering shapes what the model can see. Harness engineering shapes one run's tools, permissions, isolation, and checks.
 
-Loop Engineering asks the next operating question: what recurring system should wake up, find work, load durable context, act safely, verify with explicit gates, record receipts, and then repeat, report, escalate, or stop?
+Loop Engineering asks the operating question across runs: what starts the system, where work enters, who acts, what evidence gates results, what state survives, and when does the system repeat, report, escalate, or stop?
 
-The goal is not unlimited autonomy. The goal is bounded, reviewable, evidence-driven repetition.
+The goal is bounded, reviewable, evidence-driven repetition, not unlimited autonomy.
 
 ## Explore And Reuse
 
@@ -42,7 +42,7 @@ The goal is not unlimited autonomy. The goal is bounded, reviewable, evidence-dr
 - [Review the curation standard](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md)
 - [Contribute a source or correction](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md)
 
-Corrections are especially valuable. If a cited work is summarized inaccurately, or a stronger canonical source exists, use the annotation-correction form or open a pull request.
+Corrections are especially valuable. If a summary is inaccurate or a stronger canonical source exists, use the annotation-correction form or open a pull request.
 
 ## Repository
 

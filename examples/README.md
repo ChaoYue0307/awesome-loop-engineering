@@ -1,6 +1,6 @@
 # Loop Examples
 
-These examples show how to turn the abstract loop contract into concrete operating specs.
+These examples turn the Loop Contract into validated operating specifications.
 
 ## Contract Library
 
@@ -22,11 +22,11 @@ Every loop in the [pattern library](../patterns/README.md) has a matching contra
 - [`release-note-loop.json`](release-note-loop.json)
 - [`model-routing-loop.json`](model-routing-loop.json)
 
-Use them as starting points. Adapt triggers, tools, checks, state artifacts, and escalation rules to your repository and runtime.
+Adapt each contract's triggers, tools, checks, state artifacts, and escalation rules to your repository and runtime.
 
 ## Runnable Loops
 
-The [runnable directory](runnable/README.md) contains working loop scripts, starting with a dependency-light test-repair loop you can drive with Claude Code, Codex CLI, or any agent CLI.
+The [runnable directory](runnable/README.md) contains working scripts, including a dependency-light test-repair loop for Claude Code, Codex CLI, or another agent CLI.
 
 ## PR Babysitter
 

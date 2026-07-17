@@ -5,7 +5,7 @@
 <h1 align="center">Awesome Loop Engineering Dataset</h1>
 
 <p align="center">
-  A source-audited sheet of {{RESOURCE_COUNT}} papers, official docs, tools, benchmarks, patterns, critiques, and implementation guides for recurring AI-agent systems.
+  A source-audited dataset of {{RESOURCE_COUNT}} papers, official docs, tools, benchmarks, patterns, critiques, and implementation guides for recurring AI-agent systems.
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 
 ## Dataset Summary
 
-Each row represents one resource from the canonical English field guide. The export combines the maintainer's short assessment with source-level bibliographic metadata, lifecycle and audience facets, evidence classification, audit status, and current repository statistics when applicable.
+Each row represents one resource from the canonical English field guide. It pairs a concise editorial assessment with bibliographic metadata, lifecycle and audience facets, evidence classification, audit status, and point-in-time repository statistics when applicable.
 
 Current release: **v{{VERSION}}**
 
@@ -61,11 +61,11 @@ Use `url` as the durable join key. `row_id` and `source_line` are positional and
 
 ## Intended Uses
 
-- discover primary sources and implementation references for recurring agent systems;
-- compare resources by lifecycle stage, audience, evidence class, source type, and publication metadata;
-- build literature maps, reading lists, dashboards, or retrieval indexes;
-- audit how a public field guide characterizes contribution, novelty, impact, and evidence;
-- find reusable patterns, contracts, schemas, and runnable examples.
+- Find primary sources and implementation references for recurring agent systems.
+- Compare works by lifecycle, audience, evidence class, source type, and publication metadata.
+- Build literature maps, reading lists, dashboards, or retrieval indexes.
+- Audit contribution, novelty, impact, provenance, and evidence claims.
+- Find reusable patterns, contracts, schemas, and runnable examples.
 
 Do not use `signal_strength`, GitHub stars, forks, or inclusion in this collection as a quality label, endorsement, or automated ranking of scientific validity.
 
@@ -90,7 +90,7 @@ The complete field-by-field schema is documented in [`data/README.md`](https://g
 
 The collection prioritizes primary papers, official documentation, project repositories, and implementation-heavy practitioner sources. Every released row must pass the public [curation standard](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md).
 
-Annotations are original repository syntheses, not copied abstracts and not claims of author endorsement. Automation may assist discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. The canonical source remains the evidence, and the maintainer is accountable for the released inclusion decision and text.
+Annotations are original syntheses, not copied abstracts or claims of author endorsement. Automation may assist discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. The canonical source remains the evidence; the maintainer owns each released inclusion decision and annotation.
 
 The full point-in-time audit is available as [`data/resource_source_audit.csv`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv).
 
@@ -106,7 +106,7 @@ The full point-in-time audit is available as [`data/resource_source_audit.csv`](
 
 ## Versioning And Corrections
 
-GitHub Releases define versioned snapshots. Cite a release or commit when reproducibility matters. Accuracy corrections to summaries, contribution, novelty, impact, author, date, venue, identifier, or canonical URL are accepted through the [correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml).
+GitHub Releases define versioned snapshots; cite a release or commit for reproducibility. Submit corrections to summaries, contribution, novelty, impact, authorship, dates, venues, identifiers, or canonical URLs through the [correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml).
 
 ## Citation
 

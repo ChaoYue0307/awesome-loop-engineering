@@ -1,6 +1,6 @@
 # Canonical Definition
 
-Use this page when you need a short, stable definition of Loop Engineering.
+Use this definition to scope a system, review a design, or cite the concept consistently.
 
 ## Short Definition
 
@@ -12,11 +12,11 @@ Prompt engineering improves what you ask the model, context engineering improves
 
 ## Longer Definition
 
-Loop Engineering sits above prompt, context, and harness engineering. It turns agent work from turn-by-turn human prompting into a reviewable operating contract: what starts the loop, where work comes from, which agents act, what context and tools they receive, how results are verified, what state survives, when retry is allowed, and when a human takes over.
+Loop Engineering connects prompt, context, and harness decisions across runs. It replaces turn-by-turn human steering with a reviewable operating contract: what starts the loop, where work comes from, which agents act, what they can access, how evidence gates results, what state survives, how retries are bounded, and when a human takes over.
 
 ## Minimal Loop Test
 
-A system is probably practicing Loop Engineering when it can answer:
+A system qualifies when it can answer:
 
 1. What triggers the loop?
 1. How does it discover or receive work?
@@ -30,4 +30,4 @@ A system is probably practicing Loop Engineering when it can answer:
 
 ## Citation Note
 
-If you cite this repository, use the BibTeX entry in [`README.md`](README.md#citation) or [`CITATION.bib`](CITATION.bib). If you quote the concept definition, prefer linking to this page so readers can see the scope boundary.
+Use the BibTeX entry in [`README.md`](README.md#citation) or [`CITATION.bib`](CITATION.bib). Link to this page when quoting the definition so readers can inspect the scope boundary.

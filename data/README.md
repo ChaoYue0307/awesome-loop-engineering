@@ -1,6 +1,6 @@
 # Dataset Exports
 
-This directory contains generated tabular exports of the canonical English `README.md` resource list.
+This directory contains deterministic tabular exports of the canonical English resource list.
 
 - `resources.csv` - Tabular export for spreadsheets and ad hoc analysis.
 - `resources.jsonl` - JSON Lines export; this file backs the Hugging Face Dataset Viewer (the dataset card's configs point at it).
@@ -8,13 +8,13 @@ This directory contains generated tabular exports of the canonical English `READ
 - `first_seen.json` - Forward-only sidecar mapping resource URL to the date it was first added; the export left-joins it into the `date_added` column. Empty `date_added` means the entry predates per-entry tracking (started 2026-07-15).
 - `resource_source_audit.csv` - Retrieval-time audit of every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
 
-The main exports preserve the original section and annotation while adding three complementary discovery layers:
+The exports preserve each section and annotation while adding three discovery layers:
 
 - **Task facets**: `collection`, `user_goal`, `lifecycle_stages`, and `audience` answer why a reader needs the source and where it fits in the Loop Contract.
 - **Evidence facets**: `evidence_class`, `signal_strength`, `source_status`, canonical URL, source metadata, GitHub statistics, arXiv ID, and audit timestamp separate source provenance from popularity or editorial judgment.
 - **Publication facets**: `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `publication_note`, `primary_category`, and `metadata_source` provide a paper-like bibliographic row without inventing missing facts.
 
-`key_contribution`, `novelty`, and `impact` are resource-specific. `signal` states the evidence basis and its limits; GitHub stars and forks are reported as current context, never as proof of reliability. Signal strength is calibrated as `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and repository-native artifacts, `contextual` for practitioner analysis and curated lists, and `unverified` only when the latest source audit cannot validate availability.
+`key_contribution`, `novelty`, and `impact` are resource-specific. `signal` states the evidence basis and limits; GitHub stars and forks provide point-in-time context, never proof of reliability. `signal_strength` is `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and repository-native artifacts, `contextual` for practitioner analysis and curated lists, and `unverified` only when the latest audit cannot validate availability.
 
 ## Load And Query
 
