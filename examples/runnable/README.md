@@ -1,6 +1,6 @@
 # Runnable Loop Starters
 
-Eight implementation starters connect a loop contract to a runtime. Three are dependency-light executables; five are copy/paste runtime templates with concrete prompts, schedules, permissions, state, and stop conditions.
+Eight general-purpose starters connect a loop contract to a runtime. Three are dependency-light executables; five are copy/paste runtime templates with concrete prompts, schedules, permissions, state, and stop conditions. A nested worked implementation shows how to specialize these primitives without pretending every use case is a new runtime.
 
 Each starter keeps the control loop visible: permissions, verification, state, and budgets remain explicit instead of disappearing inside a framework.
 
@@ -116,6 +116,49 @@ A timed-out agent or verifier consumes one attempt and leaves a receipt before t
 - **Evidence stops waste.** Repeated failures and threshold breaches stop or escalate instead of consuming an open-ended budget.
 - **Permissions remain visible.** The starters expect a branch, worktree, sandbox, or read-only boundary rather than pretending isolation is automatic.
 
+## Worked Implementation: Scheduled Docs Drift
+
+[`docs-drift/docs-drift-loop.py`](docs-drift/docs-drift-loop.py) specializes the [shell / cron starter](shell-cron-loop.md) for the [docs-drift pattern](../../patterns/docs-drift-collector.md) and [validated contract](../docs-drift-loop.json). The detector, acting agent, and verifier remain separate:
+
+- the detector exits `0` when docs are current, `1` with evidence when drift is confirmed, and any other code on detector failure;
+- report-only mode stores an evidence receipt and exits `2` for human triage;
+- patch mode gives the evidence to an agent, enforces allowed and generated paths plus a file-count budget, then lets an independent command decide success;
+- every outcome is appended to `.loop-state/docs-drift.jsonl`, which is ignored by Git but survives model calls;
+- the script never commits, pushes, merges, changes a verifier, or reverts an unsafe edit behind the operator's back.
+
+Run the detector without invoking an agent or writing state:
+
+```bash
+python3 examples/runnable/docs-drift/docs-drift-loop.py \
+  --discover-command "python3 scripts/check_project_consistency.py" \
+  --dry-run
+```
+
+Produce a scheduled evidence-backed report:
+
+```bash
+python3 examples/runnable/docs-drift/docs-drift-loop.py \
+  --discover-command "python3 scripts/check_project_consistency.py" \
+  --report-only
+```
+
+Patch confirmed drift inside a clean branch or worktree:
+
+```bash
+python3 examples/runnable/docs-drift/docs-drift-loop.py \
+  --discover-command "python3 scripts/check_project_consistency.py" \
+  --agent-command "codex exec" \
+  --verify-command "python3 scripts/check_project_consistency.py" \
+  --allowed-path README.md \
+  --allowed-path docs \
+  --allowed-path meta \
+  --max-attempts 2 \
+  --max-changed-files 8 \
+  --command-timeout 900
+```
+
+Copy [`docs-drift/github-actions.yml`](docs-drift/github-actions.yml) into `.github/workflows/` for a read-only Monday schedule that uploads the JSONL receipt. For cron, run the report-only command from the repository root and send exit code `2` to the docs owner. Add `--generated-path <path>` for files that must be regenerated or reviewed rather than edited directly.
+
 ## Smoke Checks
 
 Run these without an agent account:
@@ -123,6 +166,7 @@ Run these without an agent account:
 ```bash
 bash -n test-repair-loop.sh threshold-monitor-loop.sh
 python3 -m py_compile queue-worker-loop.py
+python3 ../../scripts/check_runnable_examples.py
 printf '%s\n' '{"id":"demo","objective":"Validate the queue"}' > /tmp/loop-queue.jsonl
 python3 queue-worker-loop.py --queue /tmp/loop-queue.jsonl --dry-run
 PROBE_CMD="printf '42\\n'" THRESHOLD=100 MAX_SAMPLES=1 ./threshold-monitor-loop.sh

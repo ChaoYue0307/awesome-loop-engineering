@@ -37,6 +37,11 @@ jobs:
       - name: Install brand asset dependency
         run: python -m pip install "Pillow>=10.4,<13"
 
+      - name: Check runnable loop examples
+        run: |
+          python scripts/check_runnable_examples.py
+          python scripts/check_url_checker.py
+
       - name: Check Markdown formatting
         uses: DavidAnson/markdownlint-cli2-action@v17
         with:

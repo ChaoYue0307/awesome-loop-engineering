@@ -75,6 +75,8 @@ python3 scripts/check_project_consistency.py
 python3 scripts/build_hf_card.py --check
 python3 scripts/check_publication_metadata.py
 python3 scripts/check_loop_contract_examples.py
+python3 scripts/check_runnable_examples.py
+python3 scripts/check_url_checker.py
 python3 scripts/check_pages_metadata.py
 python3 scripts/check_internal_links.py
 python3 scripts/check_commit_identity.py

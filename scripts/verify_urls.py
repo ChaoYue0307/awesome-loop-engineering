@@ -21,6 +21,7 @@ from urllib.parse import urlparse
 
 URL_RE = re.compile(r'https?://[^\s)\]}>"]+')
 CLAUDE_DOC_HOSTS = {"code.claude.com", "docs.anthropic.com"}
+RETRYABLE_HTTP_CODES = {408, 425, 500, 502, 503, 504}
 
 
 class RedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -81,7 +82,10 @@ def check_url(url: str, timeout: float, attempts: int) -> tuple[bool, str]:
                     return True, f"{error.code} restricted"
                 if method == "HEAD":
                     continue
-                return False, f"{error.code} {method}"
+                last_error = f"{error.code} {method}"
+                if error.code in RETRYABLE_HTTP_CODES:
+                    break
+                return False, last_error
             except Exception as error:  # noqa: BLE001 - report URL checker failures plainly.
                 last_error = error.__class__.__name__
                 if method == "HEAD":

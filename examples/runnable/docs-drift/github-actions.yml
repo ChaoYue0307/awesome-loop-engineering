@@ -1,0 +1,31 @@
+name: Scheduled docs drift report
+
+on:
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  detect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Detect confirmed metadata drift
+        run: >-
+          python3 examples/runnable/docs-drift/docs-drift-loop.py
+          --discover-command "python3 scripts/check_project_consistency.py"
+          --report-only
+      - name: Upload the evidence receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-drift-receipt
+          path: .loop-state/docs-drift.jsonl
+          if-no-files-found: ignore

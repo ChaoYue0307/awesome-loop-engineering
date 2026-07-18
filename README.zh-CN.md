@@ -28,7 +28,7 @@
 
 Prompt engineering 改进你对模型说什么。Context engineering 改进模型能看到什么。Harness engineering 改进单次 agent 运行周围的工具、权限、沙箱和检查。**Loop Engineering 位于三者之上**：人不再逐轮手动提示 agent，而是设计一个循环系统，让它负责提示、监督、验证、更新状态并再次触发 agents。
 
-一个 loop 会发现工作、分派给一个或多个 agents、检查结果、记录状态、决定下一步，并按照节奏或直到满足可验证目标为止持续运行。
+一个 loop 会发现工作、分派给一个或多个 agents、检查结果、留下可审查的运行凭证（receipts）、更新状态并决定下一步；它按既定节奏重复运行，或在达到可验证目标后停止。
 
 Loop Engineering 专指具备明确触发、外部验证和持久状态的可重复 AI-agent 与 coding-agent 系统，不包括软件事件循环、控制论、增长循环、通用 workflow automation 或非 AI feedback loop。
 
@@ -56,7 +56,7 @@ Prompt、context 和 harness engineering 让单次 agent 运行更好。Loop Eng
 | Context           | 哪些知识应该长期存在？    | `AGENTS.md`、`CLAUDE.md`、`SKILL.md`、docs               |
 | Delegation        | 哪个 agent 负责什么？ | explorer、implementer、reviewer、judge                   |
 | Verification      | 什么机制判断通过或失败？   | tests、typecheck、lint、evals、trace graders              |
-| State             | 下一轮需要保留什么？     | progress file、checkpoint、trace、issue comment          |
+| State             | 下一轮需要保留什么？     | progress file、checkpoint、trace、运行凭证（receipt）        |
 | Budget            | 何时停止消耗？        | max turns、max retries、token budget、time box           |
 | Escalation        | 何时交给人？         | PR、issue、Slack alert、triage inbox                     |
 | Exit              | loop 如何知道完成？   | acceptance criteria、passing checks、no work found      |

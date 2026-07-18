@@ -19,6 +19,7 @@ These entries are reference examples, not claimed production deployments. They s
 - [PR babysitter reference loop](pr-babysitter-reference.md)
 - [CI repair reference loop](ci-repair-reference.md)
 - [Docs drift reference loop](docs-drift-reference.md)
+- [Agent memory lifecycle reference loop](agent-memory-lifecycle-reference.md) - Community-proposed design with explicit provenance and no deployment claim.
 
 ## Quality Bar
 
