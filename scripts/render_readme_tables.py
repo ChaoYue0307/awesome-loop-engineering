@@ -20,6 +20,7 @@ LEGACY_TABLE_HEADERS = {
 SUMMARY_START = "<!-- resource-type-summary:start -->"
 SUMMARY_END = "<!-- resource-type-summary:end -->"
 PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
+README_RENDER_BUDGET_BYTES = 480 * 1024
 
 TYPE_DESCRIPTIONS = {
     "Paper": "Academic paper, preprint, or technical report",
@@ -179,23 +180,10 @@ def resource_cells(row: dict[str, str]) -> tuple[str, str, str, str]:
 
 
 def markdown_table(headers: tuple[str, ...], data: list[tuple[str, ...]]) -> list[str]:
-    # Remark aligns source offsets as UTF-16 code units, matching JavaScript.
-    def source_length(value: str) -> int:
-        return len(value.encode("utf-16-le")) // 2
-
-    widths = [
-        max(source_length(headers[index]), *(source_length(row[index]) for row in data))
-        for index in range(len(headers))
-    ]
-
     def format_row(row: tuple[str, ...]) -> str:
-        cells = (
-            cell + " " * (width - source_length(cell))
-            for cell, width in zip(row, widths)
-        )
-        return "| " + " | ".join(cells) + " |"
+        return "| " + " | ".join(row) + " |"
 
-    separator = tuple("-" * max(3, width) for width in widths)
+    separator = tuple("---" for _ in headers)
     return [format_row(headers), format_row(separator), *(format_row(row) for row in data)]
 
 
@@ -279,6 +267,15 @@ def main() -> int:
     args = parser.parse_args()
 
     rendered = render_readme()
+    rendered_bytes = len(rendered.encode("utf-8"))
+    if rendered_bytes > README_RENDER_BUDGET_BYTES:
+        print(
+            f"README is {rendered_bytes:,} bytes; keep it below the "
+            f"{README_RENDER_BUDGET_BYTES:,}-byte GitHub render budget",
+            file=sys.stderr,
+        )
+        return 1
+
     current = README.read_text(encoding="utf-8")
     if args.check:
         if rendered != current:
