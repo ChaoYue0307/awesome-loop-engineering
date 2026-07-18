@@ -79,7 +79,7 @@
 - Runtime starters: desktop cards form two equal-height rows of four; mobile cards are 358 px wide within a 390 px document and preserve label, icon, heading, and copy alignment.
 - Future directions: direct-anchor restoration waits for the Resource Atlas reflow, all three audience tracks remain readable, and the agenda CTA is fully visible at desktop and mobile widths.
 - Console: no page-origin errors or warnings during mobile navigation, pattern filtering, and Resource Atlas interactions.
-- Source audit: 555 rows checked; 501 public sources reachable, 6 access-restricted, 48 repository-native, and 0 broken or unreachable as of 2026-07-18 UTC.
+- Source audit: 555 rows checked; 502 public sources reachable, 5 access-restricted, 48 repository-native, and 0 broken or unreachable as of 2026-07-18 UTC.
 - Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 555 resources, 20 patterns, 20 contracts, 8 runtime starters, and version 0.7.0.
 
 final result: passed
