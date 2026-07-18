@@ -190,7 +190,7 @@
         z-index: 0;
         min-width: 0;
         width: 100%;
-        height: 300px;
+        height: 330px;
         overflow: hidden;
         background: #f4f7fc;
         pointer-events: none;
@@ -345,6 +345,42 @@
       .definition strong { color: var(--ink); }
 
       .mobile-stack { display: none; }
+      .desktop-stack-scene {
+        position: relative;
+        width: 100%;
+        height: 442px;
+        border: 1px solid var(--line-strong);
+        border-radius: 6px 6px 0 0;
+        background: #f4f7fc;
+        overflow: hidden;
+      }
+      .desktop-stack-scene canvas,
+      .desktop-stack-scene .desktop-stack-visual {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .desktop-stack-scene canvas { opacity: 0.98; }
+      .desktop-stack-scene .desktop-stack-visual { object-fit: cover; transition: opacity 180ms ease; }
+      .desktop-stack-scene[data-scene-ready="true"] .desktop-stack-visual { opacity: 0; pointer-events: none; }
+      .desktop-stack-scene[data-scene-state="fallback"] canvas { display: none; }
+      .desktop-stack-key {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border: 1px solid var(--line-strong);
+        border-top: 0;
+        border-radius: 0 0 6px 6px;
+        background: var(--surface);
+        color: var(--muted);
+        font-size: 0.73rem;
+        line-height: 1.45;
+        text-align: left;
+      }
+      .desktop-stack-key span { min-width: 0; padding: 11px 14px; }
+      .desktop-stack-key span + span { border-left: 1px solid var(--line); }
+      .desktop-stack-key strong { color: var(--ink); }
 
       .section-head { display: grid; grid-template-columns: minmax(250px, 0.78fr) minmax(360px, 1.22fr); gap: 64px; align-items: end; margin-bottom: 36px; }
       .section-intro { max-width: 720px; margin: 0; color: var(--muted); }
@@ -875,7 +911,7 @@
           width: 100%;
           margin-top: 28px;
         }
-        .hero-scene { height: 300px; }
+        .hero-scene { height: 316px; }
         .hero-inspector { grid-template-columns: 1fr; gap: 12px; padding: 14px 0; }
         .hero-system .loop-stage-rail { grid-template-columns: repeat(6, minmax(0, 1fr)); }
         .hero-inspector .loop-stage-detail { min-height: 42px; }
@@ -886,7 +922,7 @@
         section { padding: 68px 0; }
         .hero { min-height: 0; padding: 40px 0 24px; }
         .hero-system { margin-top: 24px; }
-        .hero-scene { width: 100%; height: 270px; }
+        .hero-scene { width: 100%; height: 286px; }
         .hero-scene canvas { opacity: 1; }
         .hero-system .loop-stage-rail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
         .hero-system .loop-stage:nth-child(n) { border-top: 0; border-left: 1px solid var(--line); }
@@ -990,7 +1026,7 @@
         .hero-system { display: flex; flex-direction: column; margin-top: 8px; }
         .scene-head { order: 1; justify-content: center; min-height: 24px; padding: 2px 0; }
         .scene-flow { display: none; }
-        .hero-scene { order: 2; width: 100%; height: 208px; }
+        .hero-scene { order: 2; width: 100%; height: 224px; }
         .hero-scene canvas { opacity: 1; }
         .scene-key { display: none; }
         .scene-key-item { justify-content: flex-start; min-width: 0; min-height: 34px; padding: 7px 8px; }
@@ -1014,6 +1050,7 @@
         .definition-compact { display: inline; }
         .hero-visual { width: min(100%, 420px); }
         .hero-visual .desktop-stack-visual { display: none; }
+        .desktop-stack-scene, .desktop-stack-key { display: none; }
         .mobile-stack {
           display: block;
           border: 1px solid var(--line-strong);
@@ -1376,17 +1413,17 @@
           </div>
           <div class="hero-system">
             <div class="scene-head" aria-hidden="true">
-              <strong>Agent loop runtime</strong>
-              <span class="scene-flow"><span>Trigger</span><i>&rarr;</i><span>Orchestrator</span><i>&rarr;</i><span>Agent team</span><i>&rarr;</i><span>Evidence gate</span><i>&rarr;</i><span>State</span><i>&rarr;</i><span>Next action</span></span>
+              <strong>Bounded agent loop</strong>
+              <span class="scene-flow"><span>Work</span><i>&rarr;</i><span>Scope</span><i>&rarr;</i><span>Agent + tools</span><i>&rarr;</i><span>Evidence</span><i>&rarr;</i><span>Memory</span><i>&rarr;</i><span>Decision</span></span>
             </div>
-            <div class="hero-scene" data-loop-scene role="img" aria-label="Animated agent loop runtime. A task enters an orchestrator, is delegated to specialist agents with tools and context, passes an evidence gate, writes to durable state, and reaches a bounded next-action decision.">
-              <div class="scene-fallback">A task enters an orchestrator, moves through a specialist agent team and evidence gate, writes to durable state, and reaches a bounded next action.</div>
+            <div class="hero-scene" data-loop-scene role="img" aria-label="Animated bounded agent loop. Work is scoped by an orchestrator, handled by an agent inside a controlled workspace with context and tools, checked by an independent verifier, saved to durable memory, and routed to retry, human handoff, or verified exit.">
+              <div class="scene-fallback">Work is scoped, handled by an agent with context and tools, independently verified, saved to durable memory, and routed to retry, human handoff, or verified exit.</div>
             </div>
             <div class="scene-key" aria-label="Agent runtime visual key">
-              <span class="scene-key-item packet">Work packet</span>
-              <span class="scene-key-item agents">Orchestrator + agent team</span>
-              <span class="scene-key-item evidence">Evidence gate</span>
-              <span class="scene-key-item state">Durable state</span>
+              <span class="scene-key-item packet">Scoped work</span>
+              <span class="scene-key-item agents">Agent workspace + tools</span>
+              <span class="scene-key-item evidence">Independent verifier</span>
+              <span class="scene-key-item state">Durable memory</span>
             </div>
             <div class="scene-outcomes" aria-label="Possible loop outcomes">
               <span class="scene-outcome retry">Retry with evidence</span>
@@ -1412,7 +1449,13 @@
         <div class="wrap">
           <p class="definition"><span class="definition-full"><strong>Loop Engineering</strong> is the practice of designing recurring systems that discover work, delegate it to agents, verify results, persist state, decide next actions, and run again on a cadence, event, or until a verifiable goal is reached.</span><span class="definition-compact"><strong>Loop Engineering</strong> designs recurring agent systems that discover work, delegate it, verify results, persist state, and decide what happens next.</span></p>
           <figure class="hero-visual">
-            <img class="desktop-stack-visual" src="assets/loop-engineering-stack.svg?v=7" width="1200" height="680" loading="lazy" alt="The engineering stack: prompt, context, and harness engineering improve one agent run; Loop Engineering governs recurring work over time.">
+            <div class="desktop-stack-scene" data-stack-scene role="img" aria-label="Interactive engineering stack. A prompt shapes a model call, context feeds the agent, a harness surrounds the run with tools and permissions, and Loop Engineering connects triggers, independent verification, durable state, budgets, and next actions over time.">
+              <img class="desktop-stack-visual" src="assets/loop-engineering-stack.svg?v=7" width="1200" height="680" loading="lazy" alt="">
+            </div>
+            <div class="desktop-stack-key" aria-hidden="true">
+              <span><strong>One agent run:</strong> prompt, context, and harness shape what the agent can understand and do.</span>
+              <span><strong>Work over time:</strong> the outer loop triggers work, verifies evidence, persists state, and chooses the next action.</span>
+            </div>
             <div class="mobile-stack" role="img" aria-label="Four engineering layers. Prompt, context, and harness engineering improve one agent run. Loop Engineering governs recurring work over time.">
               <div class="mobile-stack-head"><span class="mobile-stack-eyebrow">Mental model / four layers</span><strong>Loop Engineering Stack</strong></div>
               <ol class="mobile-stack-list">
@@ -2474,6 +2517,6 @@
         });
       });
     </script>
-    <script type="module" src="assets/loop-hero-scene.js?v=22"></script>
+    <script type="module" src="assets/loop-hero-scene.js?v=26"></script>
   </body>
 </html>

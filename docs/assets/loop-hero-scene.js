@@ -256,20 +256,20 @@ if (container && hero) {
     }
 
     const desktopStagePositions = [
-      new THREE.Vector3(-4.55, 0, 0.06),
-      new THREE.Vector3(-2.72, 0, 0),
-      new THREE.Vector3(-0.7, 0, 0.06),
-      new THREE.Vector3(1.42, 0, 0),
-      new THREE.Vector3(3.2, 0, 0.06),
-      new THREE.Vector3(4.72, 0, 0),
+      new THREE.Vector3(-4.45, -0.34, 0.06),
+      new THREE.Vector3(-2.55, 0.72, 0),
+      new THREE.Vector3(0, 0.02, 0.1),
+      new THREE.Vector3(2.55, 0.72, 0),
+      new THREE.Vector3(4.42, -0.34, 0.06),
+      new THREE.Vector3(2.12, -1.08, 0),
     ];
     const compactStagePositions = [
-      new THREE.Vector3(-1.68, 0.94, 0.04),
-      new THREE.Vector3(0, 0.94, 0),
-      new THREE.Vector3(1.68, 0.94, 0.04),
-      new THREE.Vector3(1.68, -1.02, 0),
-      new THREE.Vector3(0, -1.02, 0.04),
-      new THREE.Vector3(-1.68, -1.02, 0),
+      new THREE.Vector3(-1.72, 0.46, 0.04),
+      new THREE.Vector3(-0.88, 0.96, 0),
+      new THREE.Vector3(0, -0.02, 0.08),
+      new THREE.Vector3(0.9, 0.96, 0),
+      new THREE.Vector3(1.72, 0.46, 0.04),
+      new THREE.Vector3(1.08, -0.82, 0),
     ];
     const stagePositions = desktopStagePositions.map((position) => position.clone());
 
@@ -288,15 +288,15 @@ if (container && hero) {
       const controls = compact
         ? [
           start,
-          new THREE.Vector3(-2.36, -1.04, -0.5),
-          new THREE.Vector3(-2.36, 0.94, -0.5),
+          new THREE.Vector3(0.1, -1.18, -0.5),
+          new THREE.Vector3(-1.82, -0.9, -0.5),
           end,
         ]
         : [
           start,
-          new THREE.Vector3(3.55, 1.12, -0.62),
-          new THREE.Vector3(0, 1.3, -0.72),
-          new THREE.Vector3(-3.5, 1.12, -0.62),
+          new THREE.Vector3(0.4, -1.54, -0.62),
+          new THREE.Vector3(-2.5, -1.4, -0.72),
+          new THREE.Vector3(-4.1, -0.95, -0.62),
           end,
         ];
       return new THREE.CatmullRomCurve3(controls, false, 'centripetal', 0.42);
@@ -385,6 +385,7 @@ if (container && hero) {
       numberLabels.push(number);
 
       const state = {
+        baseScale: index === 2 ? 1.3 : 0.91,
         baseMaterial,
         group,
         haloMaterial,
@@ -414,7 +415,7 @@ if (container && hero) {
       return label;
     }
 
-    const intake = createStation(0, 'WORK QUEUE', colors.work);
+    const intake = createStation(0, 'WORK IN', colors.work);
     const queueCards = [];
     for (let index = 0; index < 3; index += 1) {
       const card = new THREE.Group();
@@ -485,53 +486,85 @@ if (container && hero) {
       ));
       return node;
     });
-    addMicroLabel(delegate.group, 'ROUTES SCOPE + ROLE', colors.orchestrator, new THREE.Vector3(-0.03, -0.68, 0.18), 0.98);
+    addMicroLabel(delegate.group, 'SCOPE + ROUTE', colors.orchestrator, new THREE.Vector3(-0.03, -0.68, 0.18), 0.9);
 
-    const act = createStation(2, 'AGENT TEAM', colors.agent);
-    const workspaceGeometry = new THREE.BoxGeometry(1.08, 0.72, 0.54);
+    const act = createStation(2, 'AGENT + TOOLS', colors.agent);
+    const workspaceGeometry = new THREE.BoxGeometry(1.16, 0.82, 0.62);
     const workspace = new THREE.LineSegments(
       new THREE.EdgesGeometry(workspaceGeometry),
-      new THREE.LineBasicMaterial({ color: colors.agent, transparent: true, opacity: 0.42 }),
+      new THREE.LineBasicMaterial({ color: colors.agent, transparent: true, opacity: 0.56 }),
     );
-    workspace.position.y = 0.06;
+    workspace.position.y = 0.03;
     act.group.add(workspace);
     const workspaceFloor = new THREE.Mesh(
-      new THREE.BoxGeometry(1.02, 0.035, 0.5),
+      new THREE.BoxGeometry(1.1, 0.035, 0.56),
       track(act, standardMaterial(colors.agent, 0.48, { transparent: true, opacity: 0.78, depthWrite: false })),
     );
-    workspaceFloor.position.y = -0.29;
+    workspaceFloor.position.y = -0.365;
     act.group.add(workspaceFloor);
-    const roleNames = ['PLAN', 'BUILD', 'REVIEW'];
-    const roleColors = [colors.work, colors.agent, colors.evidence];
-    const agentPods = roleNames.map((role, index) => {
-      const pod = new THREE.Group();
-      pod.userData.role = role;
-      pod.position.set((index - 1) * 0.34, -0.04 + (index === 1 ? 0.04 : 0), 0.05);
-      const material = track(act, standardMaterial(roleColors[index], 0.4, { emissiveIntensity: 0.18 }));
-      const body = new THREE.Mesh(new THREE.CylinderGeometry(0.105, 0.13, 0.22, 16), material);
-      body.position.y = 0.05;
-      const head = new THREE.Mesh(new THREE.SphereGeometry(0.11, 18, 12), material);
-      head.position.y = 0.25;
-      const visor = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.035, 0.035), basicMaterial(0x172033, 0.86));
-      visor.position.set(0, 0.26, 0.1);
-      const base = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.19, 0.035, 18), basicMaterial(roleColors[index], 0.42));
-      base.position.y = -0.09;
-      pod.add(body, head, visor, base);
-      act.group.add(pod);
-      return pod;
+    const agentCoreGroup = new THREE.Group();
+    agentCoreGroup.position.set(0, -0.02, 0.08);
+    const agentCoreMaterial = track(act, standardMaterial(colors.agent, 0.3, {
+      emissiveIntensity: 0.34,
+      roughness: 0.24,
+    }));
+    const agentBody = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.18, 0.29, 20), agentCoreMaterial);
+    agentBody.position.y = 0.02;
+    const agentHead = new THREE.Mesh(new THREE.SphereGeometry(0.165, 24, 16), agentCoreMaterial);
+    agentHead.position.y = 0.28;
+    const agentVisor = new THREE.Mesh(new THREE.BoxGeometry(0.205, 0.05, 0.045), basicMaterial(0x172033, 0.9));
+    agentVisor.position.set(0, 0.29, 0.14);
+    const agentCore = new THREE.Mesh(
+      new THREE.SphereGeometry(0.055, 16, 10),
+      track(act, standardMaterial(colors.work, 0.08, { emissiveIntensity: 0.78, roughness: 0.18 })),
+    );
+    agentCore.position.set(0, 0.03, 0.17);
+    const agentRing = new THREE.Mesh(
+      new THREE.TorusGeometry(0.24, 0.018, 8, 42),
+      new THREE.MeshBasicMaterial({ color: colors.work, transparent: true, opacity: 0.5, depthWrite: false }),
+    );
+    agentRing.position.set(0, 0.03, 0.02);
+    agentCoreGroup.add(agentBody, agentHead, agentVisor, agentCore, agentRing);
+    act.group.add(agentCoreGroup);
+
+    const roleNames = ['CODE', 'BROWSE', 'SHELL'];
+    const roleColors = [colors.work, colors.evidence, colors.state];
+    const toolPositions = [
+      new THREE.Vector3(-0.43, -0.04, 0.04),
+      new THREE.Vector3(0.43, -0.04, 0.04),
+      new THREE.Vector3(0, -0.3, 0.05),
+    ];
+    const toolPods = toolPositions.map((position, index) => {
+      const material = track(act, standardMaterial(roleColors[index], 0.36, { emissiveIntensity: 0.22 }));
+      const tool = index === 0
+        ? new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.14, 0.14), material)
+        : index === 1
+          ? new THREE.Mesh(new THREE.IcosahedronGeometry(0.095, 1), material)
+          : new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.105, 0.13, 16), material);
+      tool.position.copy(position);
+      tool.userData.basePosition = position.clone();
+      act.group.add(tool);
+      act.group.add(cylinderBetween(
+        new THREE.Vector3(0, 0.03, 0.06),
+        position,
+        0.009,
+        basicMaterial(roleColors[index], 0.55),
+      ));
+      return tool;
     });
-    addMicroLabel(act.group, 'PLAN / BUILD / REVIEW', colors.agent, new THREE.Vector3(-0.04, -0.68, 0.2), 1.02);
+    addMicroLabel(act.group, 'CONTEXT + TOOLS', colors.agent, new THREE.Vector3(-0.05, -0.68, 0.2), 0.92);
     const contextChips = roleColors.map((hex, index) => {
       const chip = new THREE.Mesh(
-        new THREE.BoxGeometry(0.17, 0.11, 0.035),
+        new THREE.BoxGeometry(0.19, 0.12, 0.035),
         track(act, standardMaterial(hex, 0.4, { emissiveIntensity: 0.12 })),
       );
-      chip.position.set((index - 1) * 0.32, 0.56 + (index % 2) * 0.05, 0.02);
+      chip.position.set((index - 1) * 0.29, 0.52 + (index % 2) * 0.035, 0.02);
+      chip.userData.baseY = chip.position.y;
       act.group.add(chip);
       return chip;
     });
 
-    const verify = createStation(3, 'EVIDENCE GATE', colors.evidence);
+    const verify = createStation(3, 'INDEPENDENT GATE', colors.evidence);
     const gateMaterial = track(verify, standardMaterial(colors.evidence, 0.45, { emissiveIntensity: 0.18 }));
     [-0.36, 0.36].forEach((x) => {
       const post = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.75, 0.16), gateMaterial);
@@ -576,7 +609,7 @@ if (container && hero) {
     });
     addMicroLabel(verify.group, 'TESTS / EVALS / TRACES', colors.evidence, new THREE.Vector3(-0.05, -0.68, 0.18), 1.05);
 
-    const persist = createStation(4, 'STATE LEDGER', colors.state);
+    const persist = createStation(4, 'DURABLE MEMORY', colors.state);
     const stateLayers = [0, 1, 2].map((index) => {
       const material = track(persist, standardMaterial(index === 1 ? colors.orchestrator : colors.state, 0.34, {
         emissiveIntensity: 0.12,
@@ -606,7 +639,7 @@ if (container && hero) {
     });
     addMicroLabel(persist.group, 'RECEIPTS + MEMORY', colors.state, new THREE.Vector3(-0.04, -0.68, 0.18), 0.92);
 
-    const decide = createStation(5, 'NEXT ACTION', colors.decision);
+    const decide = createStation(5, 'DECISION', colors.decision);
     const decisionCoreMaterial = track(decide, standardMaterial(colors.decision, 0.35, {
       emissiveIntensity: 0.3,
       roughness: 0.28,
@@ -651,6 +684,80 @@ if (container && hero) {
     packetLine.position.set(-0.03, -0.03, 0.048);
     const packetMarker = new THREE.Mesh(new THREE.BoxGeometry(0.052, 0.052, 0.02), basicMaterial(colors.evidence, 0.9));
     packetMarker.position.set(0.13, -0.035, 0.052);
+    const taskArtifact = new THREE.Group();
+    taskArtifact.add(packetBody, packetHeader, packetLine, packetMarker);
+
+    const assignmentArtifact = new THREE.Group();
+    const assignmentCore = new THREE.Mesh(
+      new THREE.DodecahedronGeometry(0.13, 0),
+      standardMaterial(colors.orchestrator, 0.28, { emissiveIntensity: 0.42, roughness: 0.24 }),
+    );
+    const assignmentRing = new THREE.Mesh(
+      new THREE.TorusGeometry(0.2, 0.025, 8, 36),
+      basicMaterial(colors.orchestrator, 0.82),
+    );
+    assignmentArtifact.add(assignmentCore, assignmentRing);
+
+    const actionArtifact = new THREE.Group();
+    const actionCore = new THREE.Mesh(
+      new THREE.SphereGeometry(0.12, 18, 12),
+      standardMaterial(colors.agent, 0.24, { emissiveIntensity: 0.48, roughness: 0.22 }),
+    );
+    actionArtifact.add(actionCore);
+    [-0.2, 0, 0.2].forEach((x, index) => {
+      const toolSignal = new THREE.Mesh(
+        new THREE.BoxGeometry(0.075, 0.075, 0.075),
+        basicMaterial(roleColors[index], 0.94),
+      );
+      toolSignal.position.set(x, index === 1 ? 0.2 : -0.16, 0);
+      actionArtifact.add(toolSignal);
+    });
+
+    const evidenceArtifact = new THREE.Group();
+    const evidenceBadge = new THREE.Mesh(
+      new THREE.CircleGeometry(0.2, 6),
+      standardMaterial(colors.evidence, 0.28, { emissiveIntensity: 0.44, roughness: 0.24 }),
+    );
+    evidenceArtifact.add(evidenceBadge);
+    evidenceArtifact.add(cylinderBetween(
+      new THREE.Vector3(-0.095, -0.005, 0.04),
+      new THREE.Vector3(-0.025, -0.08, 0.04),
+      0.018,
+      basicMaterial(0xffffff, 0.96),
+      10,
+    ));
+    evidenceArtifact.add(cylinderBetween(
+      new THREE.Vector3(-0.025, -0.08, 0.04),
+      new THREE.Vector3(0.12, 0.1, 0.04),
+      0.018,
+      basicMaterial(0xffffff, 0.96),
+      10,
+    ));
+
+    const stateArtifact = new THREE.Group();
+    [-0.09, 0, 0.09].forEach((y, index) => {
+      const layer = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.17, 0.17, 0.07, 22),
+        standardMaterial(index === 1 ? colors.orchestrator : colors.state, 0.3, {
+          emissiveIntensity: 0.34,
+          roughness: 0.3,
+        }),
+      );
+      layer.position.y = y;
+      stateArtifact.add(layer);
+    });
+
+    const decisionArtifact = new THREE.Group();
+    const decisionSignal = new THREE.Mesh(
+      new THREE.OctahedronGeometry(0.16, 0),
+      standardMaterial(colors.decision, 0.26, { emissiveIntensity: 0.5, roughness: 0.2 }),
+    );
+    const decisionSignalRing = new THREE.Mesh(
+      new THREE.TorusGeometry(0.22, 0.02, 8, 36),
+      basicMaterial(colors.decision, 0.78),
+    );
+    decisionArtifact.add(decisionSignal, decisionSignalRing);
+
     const packetAuraMaterial = new THREE.MeshBasicMaterial({
       color: colors.work,
       transparent: true,
@@ -660,9 +767,21 @@ if (container && hero) {
     });
     const packetAura = new THREE.Mesh(new THREE.SphereGeometry(0.31, 16, 10), packetAuraMaterial);
     const packetGroup = new THREE.Group();
-    packetGroup.add(packetAura, packetBody, packetHeader, packetLine, packetMarker);
+    const packetRepresentations = [
+      taskArtifact,
+      assignmentArtifact,
+      actionArtifact,
+      evidenceArtifact,
+      stateArtifact,
+      decisionArtifact,
+    ];
+    packetRepresentations.forEach((artifact, index) => {
+      artifact.visible = index === 0;
+      packetGroup.add(artifact);
+    });
+    packetGroup.add(packetAura);
     packetGroup.position.copy(mainCurve.getPointAt(0));
-    packetGroup.position.z = 0.42;
+    packetGroup.position.z = 0.24;
     root.add(packetGroup);
 
     const trail = [];
@@ -753,7 +872,10 @@ if (container && hero) {
         }
       }
 
-      targetPacketPosition.z = 0.42;
+      packetRepresentations.forEach((artifact, index) => {
+        artifact.visible = index === visualStage;
+      });
+      targetPacketPosition.z = 0.24;
       packetGroup.position.lerp(targetPacketPosition, reducedMotion.matches ? 1 : 0.18);
       const targetAngle = Math.atan2(targetPacketTangent.y, targetPacketTangent.x);
       packetGroup.rotation.z += (targetAngle - packetGroup.rotation.z) * 0.12;
@@ -770,7 +892,7 @@ if (container && hero) {
         const selected = index === visualStage;
         const packetDistance = state.group.position.distanceTo(packetGroup.position);
         const nearby = Math.max(0, 1 - packetDistance / 1.2);
-        const scale = stationScale * (1 + (selected ? 0.075 : 0) + nearby * 0.025);
+        const scale = stationScale * state.baseScale * (1 + (selected ? 0.075 : 0) + nearby * 0.025);
         state.group.scale.setScalar(scale);
         state.haloMaterial.opacity = selected ? 0.32 : 0.07 + nearby * 0.12;
         state.baseMaterial.emissiveIntensity = selected ? 0.14 : 0.025 + nearby * 0.05;
@@ -791,12 +913,17 @@ if (container && hero) {
         const pulse = reducedMotion.matches ? 1 : 1 + Math.sin(seconds * 2 + index * 1.8) * 0.08;
         node.scale.setScalar(pulse);
       });
-      agentPods.forEach((pod, index) => {
-        const working = reducedMotion.matches ? 0 : Math.sin(seconds * 1.8 + index * 1.6) * 0.025;
-        pod.position.y = -0.04 + (index === 1 ? 0.04 : 0) + working;
+      const agentWorking = reducedMotion.matches ? 0 : Math.sin(seconds * 1.8) * 0.018;
+      agentCoreGroup.position.y = -0.02 + agentWorking;
+      agentRing.rotation.z = -seconds * 0.3;
+      agentCore.scale.setScalar(reducedMotion.matches ? 1 : 1 + Math.sin(seconds * 2.4) * 0.1);
+      toolPods.forEach((tool, index) => {
+        tool.position.copy(tool.userData.basePosition);
+        tool.position.y += reducedMotion.matches ? 0 : Math.sin(seconds * 1.7 + index * 1.7) * 0.018;
+        tool.rotation.y = seconds * (index % 2 ? -0.34 : 0.34);
       });
       contextChips.forEach((chip, index) => {
-        chip.position.y = 0.56 + (index % 2) * 0.05 + (reducedMotion.matches ? 0 : Math.sin(seconds * 1.4 + index) * 0.04);
+        chip.position.y = chip.userData.baseY + (reducedMotion.matches ? 0 : Math.sin(seconds * 1.4 + index) * 0.025);
         chip.rotation.y = seconds * 0.25 + index * 0.5;
       });
       scanner.position.y = reducedMotion.matches ? 0.02 : -0.22 + ((Math.sin(seconds * 1.65) + 1) * 0.22);
@@ -818,6 +945,14 @@ if (container && hero) {
         const pulse = reducedMotion.matches ? 1 : 1 + Math.sin(seconds * 1.8 + index * 1.9) * 0.07;
         node.scale.setScalar(pulse);
       });
+      assignmentCore.rotation.x = seconds * 0.5;
+      assignmentCore.rotation.y = seconds * 0.7;
+      assignmentRing.rotation.z = -seconds * 0.32;
+      actionArtifact.rotation.z = seconds * 0.2;
+      evidenceArtifact.rotation.z = reducedMotion.matches ? 0 : Math.sin(seconds * 1.2) * 0.08;
+      stateArtifact.rotation.y = seconds * 0.28;
+      decisionSignal.rotation.y = seconds * 0.6;
+      decisionSignalRing.rotation.z = -seconds * 0.28;
       retryPulse.position.copy(retryCurve.getPointAt((seconds * 0.12 + 0.2) % 1));
 
       root.rotation.x += (targetRotationX - root.rotation.x) * 0.04;
@@ -888,8 +1023,8 @@ if (container && hero) {
       const viewHeight = compact
         ? Math.max(3.42, (narrow ? 5.42 : 5.2) / aspect)
         : tablet
-          ? 11.2 / aspect
-          : 3.15;
+          ? 11.6 / aspect
+          : 3.48;
       const viewWidth = viewHeight * aspect;
       camera.left = -viewWidth / 2;
       camera.right = viewWidth / 2;
@@ -899,7 +1034,7 @@ if (container && hero) {
       camera.lookAt(0, compact ? -0.05 : 0, 0);
       camera.updateProjectionMatrix();
 
-      stationScale = narrow ? 0.94 : compact ? 0.99 : tablet ? 0.92 : 1.04;
+      stationScale = narrow ? 0.78 : compact ? 0.82 : tablet ? 0.88 : 0.96;
       packetGroup.scale.setScalar(narrow ? 1.02 : compact ? 1.08 : 1);
       stationLabels.forEach((label) => {
         label.visible = !compact;
@@ -997,9 +1132,12 @@ if (container && hero) {
       }
       return {
         activeStage,
-        agentRoles: roleNames.length,
+        boundedAgent: true,
         compactLayout,
+        contextInputs: contextChips.length,
         drawCalls: renderer.info.render.calls,
+        durableMemory: true,
+        externalVerifier: true,
         flowStage,
         frameCount,
         height,
@@ -1012,6 +1150,7 @@ if (container && hero) {
         reducedMotion: reducedMotion.matches,
         sampled,
         semanticStages: stationStates.length,
+        scopedTools: roleNames.length,
         triangles: renderer.info.render.triangles,
         width,
       };
@@ -1034,3 +1173,498 @@ if (container && hero) {
     startAnimation();
   }
 }
+
+const stackContainer = document.querySelector('[data-stack-scene]');
+const desktopStackMedia = window.matchMedia('(min-width: 561px)');
+let stackSceneInitialized = false;
+
+function initStackScene() {
+  if (!stackContainer || stackSceneInitialized || !desktopStackMedia.matches) return;
+  stackSceneInitialized = true;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const lowPower = Number(navigator.hardwareConcurrency || 8) <= 4;
+  const colors = {
+    prompt: 0x172033,
+    context: 0x0c8b66,
+    harness: 0x098fb8,
+    loop: 0x155eef,
+    violet: 0x7055d9,
+    evidence: 0x0c9b68,
+    human: 0xd97706,
+    line: 0x91a0b8,
+  };
+  const paper = new THREE.Color(0xf4f7fc);
+  const white = new THREE.Color(0xffffff);
+  const yAxis = new THREE.Vector3(0, 1, 0);
+  let renderer;
+
+  try {
+    renderer = new THREE.WebGLRenderer({
+      alpha: false,
+      antialias: !lowPower,
+      preserveDrawingBuffer: true,
+      powerPreference: 'high-performance',
+    });
+  } catch (error) {
+    stackContainer.dataset.sceneState = 'fallback';
+    return;
+  }
+
+  renderer.setClearColor(paper, 1);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.02;
+  renderer.domElement.setAttribute('aria-hidden', 'true');
+  renderer.domElement.dataset.stackSceneCanvas = 'true';
+  stackContainer.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(-4, 4, 2.5, -2.5, 0.1, 40);
+  camera.position.set(0, 3.5, 10);
+  camera.lookAt(0, 0, 0);
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xb9c8dc, 1.7));
+  const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+  keyLight.position.set(-4, 6, 8);
+  scene.add(keyLight);
+  const blueLight = new THREE.PointLight(colors.loop, 4.6, 12, 2);
+  blueLight.position.set(-1.4, 2.2, 4.4);
+  scene.add(blueLight);
+  const greenLight = new THREE.PointLight(colors.evidence, 3.8, 10, 2);
+  greenLight.position.set(1.2, -0.2, 4.2);
+  scene.add(greenLight);
+
+  const root = new THREE.Group();
+  scene.add(root);
+  const stack = new THREE.Group();
+  stack.position.x = -1.25;
+  root.add(stack);
+
+  function material(hex, lighten = 0.36, options = {}) {
+    const color = new THREE.Color(hex);
+    const result = new THREE.MeshStandardMaterial({
+      color: color.clone().lerp(white, Math.min(lighten, 0.58)),
+      emissive: color,
+      emissiveIntensity: options.emissiveIntensity ?? 0.08,
+      metalness: options.metalness ?? 0.08,
+      roughness: options.roughness ?? 0.4,
+      transparent: options.transparent ?? false,
+      opacity: options.opacity ?? 1,
+      depthWrite: options.depthWrite ?? true,
+    });
+    result.userData.baseEmissiveIntensity = result.emissiveIntensity;
+    return result;
+  }
+
+  function basic(hex, opacity = 1) {
+    return new THREE.MeshBasicMaterial({
+      color: hex,
+      transparent: opacity < 1,
+      opacity,
+      depthWrite: opacity >= 0.94,
+    });
+  }
+
+  function cylinderBetween(start, end, radius, meshMaterial) {
+    const direction = end.clone().sub(start);
+    const cylinder = new THREE.Mesh(
+      new THREE.CylinderGeometry(radius, radius, direction.length(), 12),
+      meshMaterial,
+    );
+    cylinder.position.copy(start).add(end).multiplyScalar(0.5);
+    cylinder.quaternion.setFromUnitVectors(yAxis, direction.clone().normalize());
+    return cylinder;
+  }
+
+  function makeLayerLabel(title, description, hex) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 768;
+    canvas.height = 160;
+    const context = canvas.getContext('2d');
+    const accent = `#${new THREE.Color(hex).getHexString()}`;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = accent;
+    context.fillRect(20, 29, 42, 5);
+    context.fillStyle = accent;
+    context.font = '700 38px Inter, Arial, sans-serif';
+    context.textAlign = 'left';
+    context.textBaseline = 'middle';
+    context.fillText(title, 20, 67);
+    context.fillStyle = '#4d5b70';
+    context.font = '500 23px Inter, Arial, sans-serif';
+    context.fillText(description, 20, 111);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    texture.minFilter = THREE.LinearFilter;
+    const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: texture,
+      transparent: true,
+      depthTest: false,
+      depthWrite: false,
+    }));
+    sprite.scale.set(3.5, 0.73, 1);
+    sprite.renderOrder = 40;
+    return sprite;
+  }
+
+  function makeMicroLabel(text, hex, width = 1.15) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 512;
+    canvas.height = 96;
+    const context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = `#${new THREE.Color(hex).getHexString()}`;
+    context.font = '700 29px IBM Plex Mono, monospace';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText(text, 256, 48);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: texture,
+      transparent: true,
+      depthTest: false,
+      depthWrite: false,
+    }));
+    sprite.scale.set(width, 0.22, 1);
+    sprite.renderOrder = 42;
+    return sprite;
+  }
+
+  const layerSpecs = [
+    { title: 'Prompt Engineering', description: 'Instruction for one model call', color: colors.prompt, y: -1.32 },
+    { title: 'Context Engineering', description: 'Memory, state, documents, examples', color: colors.context, y: -0.62 },
+    { title: 'Harness Engineering', description: 'Tools, permissions, sandbox, traces', color: colors.harness, y: 0.08 },
+    { title: 'Loop Engineering', description: 'Trigger, verify, persist, decide, repeat', color: colors.loop, y: 0.9 },
+  ];
+  const layerMeshes = [];
+  const layerLabels = [];
+
+  layerSpecs.forEach((spec, index) => {
+    const layerMaterial = material(spec.color, index === 0 ? 0.5 : 0.44, {
+      emissiveIntensity: index === 3 ? 0.16 : 0.06,
+      roughness: 0.48,
+      transparent: index === 3,
+      opacity: index === 3 ? 0.82 : 1,
+    });
+    const slab = new THREE.Mesh(new THREE.BoxGeometry(2.8, 0.14, 1.48), layerMaterial);
+    slab.position.y = spec.y;
+    stack.add(slab);
+    layerMeshes.push(slab);
+
+    const connectorStart = new THREE.Vector3(0.2, spec.y, 0.04);
+    const connectorEnd = new THREE.Vector3(0.58, spec.y, 0.04);
+    root.add(cylinderBetween(connectorStart, connectorEnd, 0.009, basic(spec.color, 0.64)));
+    const connectorDot = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 8), basic(spec.color, 0.9));
+    connectorDot.position.copy(connectorEnd);
+    root.add(connectorDot);
+
+    const label = makeLayerLabel(spec.title, spec.description, spec.color);
+    label.position.set(2.35, spec.y + 0.04, 0.12);
+    root.add(label);
+    layerLabels.push(label);
+  });
+
+  const promptCard = new THREE.Group();
+  const promptBody = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.06, 0.62), material(colors.prompt, 0.64, { roughness: 0.58 }));
+  const promptHeader = new THREE.Mesh(new THREE.BoxGeometry(0.68, 0.012, 0.07), basic(colors.loop, 0.88));
+  promptHeader.position.set(0, 0.042, 0.16);
+  const promptLine = new THREE.Mesh(new THREE.BoxGeometry(0.48, 0.012, 0.055), basic(0x8fa0b7, 0.72));
+  promptLine.position.set(-0.08, 0.043, -0.04);
+  promptCard.add(promptBody, promptHeader, promptLine);
+  promptCard.position.set(0, -1.18, 0.02);
+  stack.add(promptCard);
+
+  const contextCards = [-0.65, 0, 0.65].map((x, index) => {
+    const card = new THREE.Mesh(
+      new THREE.BoxGeometry(0.43, 0.08, 0.36),
+      material([colors.context, colors.loop, colors.violet][index], 0.48, { emissiveIntensity: 0.12 }),
+    );
+    card.position.set(x, -0.48 + (index === 1 ? 0.05 : 0), 0.02);
+    card.userData.baseY = card.position.y;
+    stack.add(card);
+    return card;
+  });
+
+  const harnessFrame = new THREE.LineSegments(
+    new THREE.EdgesGeometry(new THREE.BoxGeometry(1.52, 0.66, 0.92)),
+    new THREE.LineBasicMaterial({ color: colors.harness, transparent: true, opacity: 0.62 }),
+  );
+  harnessFrame.position.y = 0.32;
+  stack.add(harnessFrame);
+
+  const agent = new THREE.Group();
+  const agentMaterial = material(colors.loop, 0.28, { emissiveIntensity: 0.3, roughness: 0.24 });
+  const agentBody = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.2, 0.34, 20), agentMaterial);
+  const agentHead = new THREE.Mesh(new THREE.SphereGeometry(0.18, 24, 16), agentMaterial);
+  agentHead.position.y = 0.31;
+  const agentVisor = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.05, 0.05), basic(colors.prompt, 0.9));
+  agentVisor.position.set(0, 0.32, 0.16);
+  const agentCore = new THREE.Mesh(
+    new THREE.SphereGeometry(0.06, 16, 10),
+    material(colors.context, 0.08, { emissiveIntensity: 0.78, roughness: 0.18 }),
+  );
+  agentCore.position.set(0, 0, 0.2);
+  agent.add(agentBody, agentHead, agentVisor, agentCore);
+  agent.position.set(0, 0.18, 0.08);
+  stack.add(agent);
+
+  const toolNodes = [-0.58, 0.58].map((x, index) => {
+    const node = new THREE.Mesh(
+      index === 0 ? new THREE.BoxGeometry(0.16, 0.16, 0.16) : new THREE.IcosahedronGeometry(0.11, 1),
+      material(index === 0 ? colors.harness : colors.evidence, 0.32, { emissiveIntensity: 0.28 }),
+    );
+    node.position.set(x, 0.25, 0.08);
+    node.userData.baseY = node.position.y;
+    stack.add(node);
+    stack.add(cylinderBetween(
+      new THREE.Vector3(0, 0.18, 0.08),
+      node.position,
+      0.01,
+      basic(index === 0 ? colors.harness : colors.evidence, 0.62),
+    ));
+    return node;
+  });
+
+  const loopRing = new THREE.Mesh(
+    new THREE.TorusGeometry(1.05, 0.035, 10, lowPower ? 54 : 88),
+    new THREE.MeshBasicMaterial({ color: colors.loop, transparent: true, opacity: 0.82, depthWrite: false }),
+  );
+  loopRing.rotation.x = Math.PI / 2;
+  loopRing.position.y = 1.07;
+  stack.add(loopRing);
+
+  const checkpointColors = [colors.loop, colors.evidence, colors.violet, colors.human];
+  const checkpoints = checkpointColors.map((hex, index) => {
+    const angle = index * Math.PI / 2;
+    const checkpoint = new THREE.Mesh(
+      new THREE.SphereGeometry(0.095, 16, 10),
+      material(hex, 0.24, { emissiveIntensity: 0.46, roughness: 0.22 }),
+    );
+    checkpoint.position.set(Math.cos(angle) * 1.05, 1.07, Math.sin(angle) * 1.05);
+    stack.add(checkpoint);
+    return checkpoint;
+  });
+
+  const loopToken = new THREE.Mesh(
+    new THREE.OctahedronGeometry(0.105, 0),
+    material(colors.loop, 0.16, { emissiveIntensity: 0.72, roughness: 0.16 }),
+  );
+  stack.add(loopToken);
+
+  const runPulse = new THREE.Mesh(
+    new THREE.SphereGeometry(0.055, 14, 10),
+    basic(colors.context, 0.92),
+  );
+  stack.add(runPulse);
+
+  const runLabel = makeMicroLabel('ONE AGENT RUN', colors.context, 1.35);
+  runLabel.position.set(0, -1.67, 0.18);
+  stack.add(runLabel);
+  const loopLabel = makeMicroLabel('WORK OVER TIME', colors.loop, 1.35);
+  loopLabel.position.set(0, 1.63, 0.18);
+  stack.add(loopLabel);
+
+  let frameCount = 0;
+  let animationFrame = 0;
+  let visible = true;
+  let targetRotationX = 0;
+  let targetRotationY = 0;
+  const startedAt = performance.now();
+
+  function render(time = 0) {
+    const seconds = Math.max(0, time - startedAt) * 0.001;
+    const loopAngle = reducedMotion.matches ? Math.PI * 0.2 : seconds * 0.5;
+    loopToken.position.set(Math.cos(loopAngle) * 1.05, 1.07, Math.sin(loopAngle) * 1.05);
+    loopToken.rotation.x = seconds * 0.6;
+    loopToken.rotation.y = seconds * 0.8;
+
+    const runPhase = reducedMotion.matches ? 0.55 : (seconds * 0.22) % 1;
+    const runY = runPhase < 0.5
+      ? -1.05 + runPhase * 2.5
+      : 0.2 - (runPhase - 0.5) * 1.3;
+    runPulse.position.set(
+      reducedMotion.matches ? 0.28 : Math.sin(runPhase * Math.PI * 2) * 0.2,
+      runY,
+      0.3,
+    );
+
+    contextCards.forEach((card, index) => {
+      card.position.y = card.userData.baseY + (reducedMotion.matches ? 0 : Math.sin(seconds * 1.25 + index) * 0.025);
+      card.rotation.y = reducedMotion.matches ? 0 : Math.sin(seconds * 0.7 + index) * 0.08;
+    });
+    toolNodes.forEach((node, index) => {
+      node.position.y = node.userData.baseY + (reducedMotion.matches ? 0 : Math.sin(seconds * 1.6 + index * 1.8) * 0.025);
+      node.rotation.y = seconds * (index ? -0.34 : 0.34);
+    });
+    checkpoints.forEach((checkpoint, index) => {
+      const pulse = reducedMotion.matches ? 1 : 1 + Math.sin(seconds * 1.7 + index * 1.4) * 0.08;
+      checkpoint.scale.setScalar(pulse);
+    });
+    agent.position.y = 0.18 + (reducedMotion.matches ? 0 : Math.sin(seconds * 1.5) * 0.018);
+    agentCore.scale.setScalar(reducedMotion.matches ? 1 : 1 + Math.sin(seconds * 2.3) * 0.1);
+    promptCard.rotation.y = reducedMotion.matches ? 0 : Math.sin(seconds * 0.6) * 0.035;
+
+    root.rotation.x += (targetRotationX - root.rotation.x) * 0.045;
+    root.rotation.y += (targetRotationY - root.rotation.y) * 0.045;
+    renderer.render(scene, camera);
+    frameCount += 1;
+    stackContainer.dataset.sceneFrames = String(frameCount);
+    stackContainer.dataset.sceneReady = 'true';
+  }
+
+  function animate(time) {
+    animationFrame = 0;
+    if (!visible || document.hidden || reducedMotion.matches || !desktopStackMedia.matches) return;
+    render(time);
+    animationFrame = window.requestAnimationFrame(animate);
+  }
+
+  function startAnimation() {
+    if (!animationFrame && visible && !document.hidden && !reducedMotion.matches && desktopStackMedia.matches) {
+      animationFrame = window.requestAnimationFrame(animate);
+    }
+  }
+
+  function stopAnimation() {
+    if (!animationFrame) return;
+    window.cancelAnimationFrame(animationFrame);
+    animationFrame = 0;
+  }
+
+  function resize() {
+    const width = Math.max(stackContainer.clientWidth, 1);
+    const height = Math.max(stackContainer.clientHeight, 1);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, lowPower ? 1.25 : 1.55));
+    renderer.setSize(width, height, false);
+    const aspect = width / height;
+    const viewHeight = 4.25;
+    const viewWidth = viewHeight * aspect;
+    camera.left = -viewWidth / 2;
+    camera.right = viewWidth / 2;
+    camera.top = viewHeight / 2;
+    camera.bottom = -viewHeight / 2;
+    camera.updateProjectionMatrix();
+    render(performance.now());
+  }
+
+  function updatePointer(event) {
+    const bounds = stackContainer.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width * 2 - 1;
+    const y = (event.clientY - bounds.top) / bounds.height * 2 - 1;
+    targetRotationY = x * 0.035;
+    targetRotationX = -y * 0.018;
+  }
+
+  function resetPointer() {
+    targetRotationX = 0;
+    targetRotationY = 0;
+  }
+
+  if ('ResizeObserver' in window) {
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(stackContainer);
+  } else {
+    window.addEventListener('resize', resize, { passive: true });
+  }
+
+  if ('IntersectionObserver' in window) {
+    const visibilityObserver = new IntersectionObserver((entries) => {
+      visible = entries[0]?.isIntersecting ?? true;
+      if (visible) startAnimation();
+      else stopAnimation();
+    }, { threshold: 0.02 });
+    visibilityObserver.observe(stackContainer);
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAnimation();
+    else startAnimation();
+  });
+
+  const handleMotionChange = () => {
+    if (reducedMotion.matches) {
+      stopAnimation();
+      resetPointer();
+      render(performance.now());
+    } else {
+      startAnimation();
+    }
+  };
+  if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', handleMotionChange);
+  else reducedMotion.addListener(handleMotionChange);
+
+  stackContainer.addEventListener('pointermove', updatePointer, { passive: true });
+  stackContainer.addEventListener('pointerleave', resetPointer, { passive: true });
+  renderer.domElement.addEventListener('webglcontextlost', (event) => {
+    event.preventDefault();
+    stopAnimation();
+    stackContainer.dataset.sceneState = 'fallback';
+  });
+
+  window.__loopStackDiagnostics = () => {
+    const gl = renderer.getContext();
+    const width = renderer.domElement.width;
+    const height = renderer.domElement.height;
+    const pixels = new Uint8Array(width * height * 4);
+    gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+    let sampled = 0;
+    let painted = 0;
+    let minimumLuminance = 255;
+    let maximumLuminance = 0;
+    for (let index = 0; index < pixels.length; index += 64) {
+      const red = pixels[index];
+      const green = pixels[index + 1];
+      const blue = pixels[index + 2];
+      const distanceFromPaper = Math.abs(red - 244) + Math.abs(green - 247) + Math.abs(blue - 252);
+      const luminance = red * 0.2126 + green * 0.7152 + blue * 0.0722;
+      sampled += 1;
+      if (distanceFromPaper > 24) painted += 1;
+      minimumLuminance = Math.min(minimumLuminance, luminance);
+      maximumLuminance = Math.max(maximumLuminance, luminance);
+    }
+    return {
+      agentCore: true,
+      contextSources: contextCards.length,
+      drawCalls: renderer.info.render.calls,
+      frameCount,
+      harnessTools: toolNodes.length,
+      height,
+      layers: layerMeshes.length,
+      loopCheckpoints: checkpoints.length,
+      luminanceRange: maximumLuminance - minimumLuminance,
+      painted,
+      paintedRatio: sampled ? painted / sampled : 0,
+      reducedMotion: reducedMotion.matches,
+      sampled,
+      triangles: renderer.info.render.triangles,
+      width,
+    };
+  };
+
+  window.__loopStackPause = () => {
+    stopAnimation();
+    render(performance.now());
+    return window.__loopStackDiagnostics();
+  };
+  window.__loopStackResume = () => {
+    startAnimation();
+    return true;
+  };
+
+  resize();
+  startAnimation();
+}
+
+initStackScene();
+function handleDesktopStackChange(event) {
+  if (!stackSceneInitialized) {
+    initStackScene();
+    return;
+  }
+  if (event.matches) window.__loopStackResume?.();
+  else window.__loopStackPause?.();
+}
+if (desktopStackMedia.addEventListener) desktopStackMedia.addEventListener('change', handleDesktopStackChange);
+else desktopStackMedia.addListener(handleDesktopStackChange);

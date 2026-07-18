@@ -22,6 +22,9 @@
 - Social preview: 1280 x 640, exact 579-resource, 20-pattern, 20-contract, and 8-starter counts, with the model-to-operations scope line.
 - Interactive hero, desktop: 1440 x 1000, one ready WebGL canvas, no horizontal overflow, and meaningful agent-system labels.
 - Interactive hero, mobile: 390 x 844, one ready WebGL canvas, no horizontal overflow, and all six stations inside the frame.
+- Agent-loop semantics: the bounded agent workspace is the visual anchor; context and three scoped tools feed the agent, verification remains external, memory remains durable, and decision outcomes branch to retry, human handoff, or verified exit.
+- Engineering-stack scene: desktop adds a second, independent WebGL canvas that separates one-run prompt/context/harness concerns from the outer recurring loop. The original SVG remains the WebGL fallback.
+- Engineering-stack mobile fallback: the desktop canvas is removed from layout at 560 px and below; a four-row semantic stack preserves the same model without shrinking 3D labels.
 - Interactive hero motion: the frame counter advanced by 47 frames during a 450 ms pointer-parallax check.
 - Interactive hero efficiency: the frame counter advanced by zero during a 700 ms offscreen check at the Resources section.
 - Future directions: three role-based tracks remain side by side at 1440 x 1000 and become a rule-separated single column at 390 x 844 without horizontal overflow.
@@ -63,6 +66,9 @@
 - Mobile future directions: `/private/tmp/future-viewport-mobile.png`
 - Three.js pointer-motion frame: `/private/tmp/awesome-loop-hero-three-motion-final.png`
 - Social preview: `/Users/chaoyue/Library/CloudStorage/Dropbox/Loop Engineering/awesome-loop-engineering/assets/social-preview.png`
+- Semantic agent loop, desktop: `/tmp/awesome-loop-agent-desktop.png`
+- Semantic engineering stack, desktop: `/tmp/awesome-loop-stack-desktop.png`
+- Semantic agent loop, mobile: `/tmp/awesome-loop-agent-mobile.png`
 
 ## 2026-07-18 Repository Audit
 
@@ -82,5 +88,8 @@
 - Narrow phone: 320 x 844, document width equals viewport width; the headline stays within 16 px gutters and the Three.js canvas remains fully inside the 288 px content width.
 - Source audit: 579 rows checked; 528 public sources reachable, 3 access-restricted, 48 repository-native, and 0 broken or unreachable as of 2026-07-18 UTC.
 - Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 579 resources, 20 patterns, 20 contracts, 8 runtime starters, and version 0.8.0. The dataset exposes 50 fields, including `loop_layer` and `scope_fit`.
+- Semantic scene pass: the desktop hero crop paints 14.61% of pixels beyond the paper background with a 254.71 luminance range; the desktop stack paints 27.83% with a 249.98 range; the mobile hero paints 20.84% with a 229.45 range.
+- Stage interaction: selecting Verify updates `aria-pressed` across all six controls and replaces the live detail with the independent evidence-gate explanation.
+- Progressive enhancement: desktop loads the agent-loop and engineering-stack canvases; mobile loads only the agent-loop canvas and exposes the four-layer text stack. Both target viewports have zero horizontal overflow and no console messages.
 
 final result: passed
