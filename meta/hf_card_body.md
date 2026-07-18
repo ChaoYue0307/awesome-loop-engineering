@@ -112,7 +112,7 @@ The primary configuration is `resources`, with one `train` split backed by the n
 | Identity | `row_id`, `title`, `url`, `canonical_url`, `resource_type`, `domain` | What the resource is and where it lives. |
 | Editorial assessment | `annotation`, `key_contribution`, `novelty`, `impact` | What the resource contributes to recurring agent systems. |
 | Navigation | `section`, `collection`, `user_goal`, `lifecycle_stages`, `audience` | Where the resource fits and who it serves. |
-| Evidence | `evidence_class`, `signal`, `signal_strength`, `source_status`, `audited_at` | What kind of evidence or provenance is available. |
+| Evidence | `evidence_class`, `evidence_tier`, `signal`, `signal_strength`, `source_status`, `audited_at` | What kind of evidence or provenance is available. |
 | Publication | `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `arxiv_id`, `primary_category` | Bibliographic data exposed by the canonical source. |
 | Source provenance | `source_title`, `source_description`, `metadata_source`, `publication_note` | Where metadata came from and what caveats accompany it. |
 | Repository context | `github_repo`, `github_stars`, `github_forks`, `github_license`, `github_created_at`, `github_updated_at` | Point-in-time adoption and maintenance context for GitHub projects. |

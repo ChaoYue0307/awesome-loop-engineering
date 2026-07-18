@@ -11,8 +11,12 @@ from pathlib import Path
 from export_resource_dataset import README, TYPE_MARKERS, iter_rows
 
 
-TABLE_HEADERS = ("Resource", "Published at", "Key feature")
-LEGACY_TABLE_HEADERS = {TABLE_HEADERS, ("Resource", "Publication / source", "Key feature")}
+TABLE_HEADERS = ("Resource", "Published at", "Contribution", "Evidence")
+LEGACY_TABLE_HEADERS = {
+    TABLE_HEADERS,
+    ("Resource", "Published at", "Key feature"),
+    ("Resource", "Publication / source", "Key feature"),
+}
 SUMMARY_START = "<!-- resource-type-summary:start -->"
 SUMMARY_END = "<!-- resource-type-summary:end -->"
 PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
@@ -32,6 +36,40 @@ TYPE_DESCRIPTIONS = {
 GITHUB_OWNER_LABELS = {
     "cloudflare": "Cloudflare",
     "vercel": "Vercel",
+}
+
+EVIDENCE_LABELS = {
+    "research-paper": "Research paper",
+    "research-preprint": "Research preprint",
+    "official-documentation": "Official documentation",
+    "technical-documentation": "Technical documentation",
+    "source-implementation": "Source implementation",
+    "implementation": "Implementation",
+    "benchmark": "Benchmark or evaluation",
+    "repository-native": "Validated project artifact",
+    "reusable-artifact": "Reusable artifact",
+    "operational-pattern": "Operational pattern",
+    "practitioner-analysis": "Practitioner analysis",
+    "risk-analysis": "Risk analysis",
+    "curated-index": "Curated index",
+    "curated-source": "Curated source",
+}
+
+EVIDENCE_NOTES = {
+    "research-paper": "Published or accepted research record",
+    "research-preprint": "Preprint; inspect methods and evaluation",
+    "official-documentation": "Primary product or standard behavior",
+    "technical-documentation": "Technical reference from the source",
+    "source-implementation": "Inspectable source and runtime behavior",
+    "implementation": "Working implementation or runtime",
+    "benchmark": "Repeatable tasks, scores, or evaluation data",
+    "repository-native": "Maintained with project validation checks",
+    "reusable-artifact": "Adaptable template, schema, or guide",
+    "operational-pattern": "Transferable operating practice",
+    "practitioner-analysis": "Experience-backed implementation context",
+    "risk-analysis": "Failure modes, limits, or adoption cautions",
+    "curated-index": "Ecosystem coverage and discovery",
+    "curated-source": "Curated context for comparison",
 }
 
 
@@ -115,14 +153,26 @@ def publication_cell(row: dict[str, str]) -> str:
     return primary
 
 
-def resource_cells(row: dict[str, str]) -> tuple[str, str, str]:
+def evidence_cell(row: dict[str, str]) -> str:
+    evidence = row["evidence_class"]
+    tier = row["evidence_tier"]
+    label = EVIDENCE_LABELS.get(evidence, evidence.replace("-", " ").title())
+    note = EVIDENCE_NOTES.get(evidence, "Inspect the linked source")
+    if row["source_status"] == "restricted":
+        note = "Access restricted during the latest source audit"
+    elif row["source_status"] not in {"ok", "local_ok"}:
+        note = "Availability was not verified in the latest audit"
+    return f"**Tier {escape_cell(tier)}** · {escape_cell(label)}<br><sub>{escape_cell(note)}</sub>"
+
+
+def resource_cells(row: dict[str, str]) -> tuple[str, str, str, str]:
     title = escape_cell(row["title"])
     url = escape_cell(row["url"])
     annotation = escape_cell(row["annotation"])
     marker = escape_cell(row["marker"])
     resource_type = escape_cell(row["resource_type"])
     resource = f"{marker} **[{title}]({url})**<br><sub>{resource_type}</sub>"
-    return resource, publication_cell(row), annotation
+    return resource, publication_cell(row), annotation, evidence_cell(row)
 
 
 def markdown_table(headers: tuple[str, ...], data: list[tuple[str, ...]]) -> list[str]:
@@ -157,7 +207,8 @@ def is_table_separator(line: str) -> bool:
     if not line.startswith("|"):
         return False
     cells = tuple(cell.strip() for cell in line.strip().strip("|").split("|"))
-    return len(cells) == len(TABLE_HEADERS) and all(
+    valid_lengths = {len(headers) for headers in LEGACY_TABLE_HEADERS}
+    return len(cells) in valid_lengths and all(
         len(cell) >= 3 and not cell.strip("-") for cell in cells
     )
 

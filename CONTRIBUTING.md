@@ -28,10 +28,10 @@ For an inaccurate summary, contribution, novelty, impact, authorship, date, venu
 1. Add one metadata-rich row with a resource type label, verified year/source context, and one specific key feature:
 
 ```md
-| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. |
+| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. | **Tier A** · Research preprint<br><sub>Preprint; inspect methods and evaluation</sub> |
 ```
 
-When a source exposes no reliable publication date, omit the year and keep only the original venue or publishing platform. Do not infer a date from a search-result snippet. Maintainers regenerate the table layout and structured exports after review.
+When a source exposes no reliable publication date, omit the year and keep only the original venue or publishing platform. Do not infer a date from a search-result snippet. Maintainers derive the evidence tier from the audited source class and regenerate the table layout and structured exports after review.
 
 1. Open a PR using the template and explain:
    - why the resource belongs;

@@ -2,11 +2,11 @@
 
 Awesome Loop Engineering v0.7.0 把 implementation kit 整理成一条清晰路径：从真实的重复性问题出发，选择 pattern，改造经校验的 contract，再接入可运行的 runtime starter。
 
-可浏览 545 条经审核资源，理解 prompt、context 与 harness engineering 之上的运行层：如何发现工作、分派任务、验证结果、持久化状态并决定下一步。
+可浏览 555 条经审核资源，理解 prompt、context 与 harness engineering 之上的运行层：如何发现工作、分派任务、验证结果、持久化状态并决定下一步。
 
 ## 可直接使用
 
-- 545 条链接到 canonical source 的审阅资源
+- 555 条链接到 canonical source 的审阅资源
 - 20 个按 build、operate、optimize、govern 组织的 operational patterns
 - 20 个经过 schema 校验的 loop contracts，每个 pattern 对应一个
 - 8 个 runtime starters：3 个轻量级可执行程序与 5 个可复制改造的 runtime 模板

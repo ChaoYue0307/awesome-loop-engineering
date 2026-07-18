@@ -51,6 +51,7 @@ The public dataset keeps those layers separate:
 
 - `annotation`, `key_contribution`, `novelty`, and `impact` are original editorial syntheses;
 - `source_title`, `source_description`, authorship, date, venue, DOI, and repository statistics come from the source audit and record their metadata provenance;
+- `evidence_tier` records whether the row is a primary source, implementation-grounded practitioner source, or curated synthesis;
 - `signal_strength` describes the kind of evidence available, not whether the maintainer agrees with the work;
 - `source_status` records reachability at one point in time and is not a guarantee of future availability.
 

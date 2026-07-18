@@ -1,6 +1,6 @@
 # Dataset Exports
 
-Download deterministic tabular exports of all 545 source-audited resources.
+Download deterministic tabular exports of all 555 source-audited resources.
 
 - `resources.csv` - Tabular export for spreadsheets and ad hoc analysis.
 - `resources.jsonl` - JSON Lines export and source for the Hugging Face Parquet build.
@@ -14,10 +14,10 @@ Download deterministic tabular exports of all 545 source-audited resources.
 The exports preserve each section and annotation while adding three discovery layers:
 
 - **Task facets**: `collection`, `user_goal`, `lifecycle_stages`, and `audience` answer why a reader needs the source and where it fits in the Loop Contract.
-- **Evidence facets**: `evidence_class`, `signal_strength`, `source_status`, canonical URL, source metadata, GitHub statistics, arXiv ID, and audit timestamp separate source provenance from popularity or editorial judgment.
+- **Evidence facets**: `evidence_class`, `evidence_tier`, `signal_strength`, `source_status`, canonical URL, source metadata, GitHub statistics, arXiv ID, and audit timestamp separate source provenance from popularity or editorial judgment.
 - **Publication facets**: `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `publication_note`, `primary_category`, and `metadata_source` provide a paper-like bibliographic row without inventing missing facts.
 
-`key_contribution`, `novelty`, and `impact` are resource-specific. `signal` states the evidence basis and limits; GitHub stars and forks provide point-in-time context, never proof of reliability. `signal_strength` is `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and locally maintained artifacts, `contextual` for practitioner analysis and curated lists, and `unverified` only when the latest audit cannot validate availability.
+`key_contribution`, `novelty`, and `impact` are resource-specific. `evidence_tier` follows the public A-C source hierarchy: A for primary or official artifacts, B for implementation-grounded practice and risk analysis, and C for curated synthesis. `signal` states the evidence basis and limits; GitHub stars and forks provide point-in-time context, never proof of reliability. `signal_strength` is `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and locally maintained artifacts, `contextual` for practitioner analysis and curated lists, and `unverified` only when the latest audit cannot validate availability.
 
 ## Load And Query
 

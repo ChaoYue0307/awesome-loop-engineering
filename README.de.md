@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-17 -->
+<!-- last-synced: 2026-07-18 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -28,7 +28,7 @@ Ein Loop entdeckt Arbeit, übergibt sie an einen oder mehrere Agenten, prüft da
 
 Loop Engineering umfasst wiederkehrende KI-Agenten- und Coding-Agent-Systeme mit expliziten Auslösern, Verifikation und dauerhaftem Zustand. Software-Event-Loops, Regelungstechnik, Growth Loops, generische Automatisierung und nicht-KI-bezogene Feedback-Loops gehören nicht dazu.
 
-Starte mit 545 geprüften Ressourcen, 20 operativen Loop-Patterns, 20 schemavalidierten Loop-Contracts und 8 Runtime-Startern (3 ausführbare Programme und 5 anpassbare Vorlagen), ergänzt durch eine Community-Galerie und 8 Sprachen.
+Starte mit 555 geprüften Ressourcen, 20 operativen Loop-Patterns, 20 schemavalidierten Loop-Contracts und 8 Runtime-Startern (3 ausführbare Programme und 5 anpassbare Vorlagen), ergänzt durch eine Community-Galerie und 8 Sprachen.
 
 ## Mentales Modell
 

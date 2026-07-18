@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -12,6 +13,31 @@ from build_hf_card import project_context, render_card
 
 
 ROOT = Path(__file__).resolve().parents[1]
+REQUIRED_RESOURCE_FIELDS = {
+    "row_id",
+    "title",
+    "url",
+    "canonical_url",
+    "resource_type",
+    "annotation",
+    "key_contribution",
+    "novelty",
+    "impact",
+    "signal",
+    "signal_strength",
+    "collection",
+    "user_goal",
+    "lifecycle_stages",
+    "audience",
+    "evidence_class",
+    "evidence_tier",
+    "source_status",
+    "metadata_source",
+    "audited_at",
+}
+ALLOWED_EVIDENCE_TIERS = {"A", "B", "C", "D"}
+ALLOWED_SIGNAL_STRENGTHS = {"high", "medium", "contextual", "unverified"}
+ALLOWED_SOURCE_STATUSES = {"ok", "local_ok", "restricted", "broken", "unreachable", "local_missing"}
 
 
 def require(path: Path, snippets: list[str], failures: list[str]) -> None:
@@ -19,6 +45,54 @@ def require(path: Path, snippets: list[str], failures: list[str]) -> None:
     for snippet in snippets:
         if snippet not in text:
             failures.append(f"{path.relative_to(ROOT)}: missing {snippet!r}")
+
+
+def validate_resource_rows(rows: list[dict[str, str]], failures: list[str]) -> None:
+    if not rows:
+        failures.append("data/resources.csv: no resource rows")
+        return
+
+    missing_columns = REQUIRED_RESOURCE_FIELDS - set(rows[0])
+    if missing_columns:
+        failures.append(f"data/resources.csv: missing columns {sorted(missing_columns)}")
+
+    seen_urls: set[str] = set()
+    seen_ids: set[str] = set()
+    for index, row in enumerate(rows, 1):
+        row_label = row.get("row_id") or f"row {index}"
+        missing = sorted(field for field in REQUIRED_RESOURCE_FIELDS if not row.get(field, "").strip())
+        if missing:
+            failures.append(f"data/resources.csv: {row_label} missing required values {missing}")
+
+        normalized_url = row.get("url", "").strip().lower().rstrip("/")
+        if normalized_url in seen_urls:
+            failures.append(f"data/resources.csv: duplicate URL at {row_label}: {row.get('url', '')}")
+        seen_urls.add(normalized_url)
+
+        row_id = row.get("row_id", "")
+        if row_id in seen_ids:
+            failures.append(f"data/resources.csv: duplicate row_id {row_id}")
+        seen_ids.add(row_id)
+        expected_id = f"ale-{index:04d}"
+        if row_id != expected_id:
+            failures.append(f"data/resources.csv: expected {expected_id}, found {row_id or '<blank>'}")
+
+        if row.get("evidence_tier") not in ALLOWED_EVIDENCE_TIERS:
+            failures.append(f"data/resources.csv: {row_label} has invalid evidence_tier {row.get('evidence_tier')!r}")
+        if row.get("signal_strength") not in ALLOWED_SIGNAL_STRENGTHS:
+            failures.append(f"data/resources.csv: {row_label} has invalid signal_strength {row.get('signal_strength')!r}")
+        if row.get("source_status") not in ALLOWED_SOURCE_STATUSES:
+            failures.append(f"data/resources.csv: {row_label} has invalid source_status {row.get('source_status')!r}")
+
+        year = row.get("publication_year", "")
+        if year and not re.fullmatch(r"(?:19|20)\d{2}", year):
+            failures.append(f"data/resources.csv: {row_label} has invalid publication_year {year!r}")
+        if row.get("resource_type") == "Paper":
+            for field in ("authors", "publication_year"):
+                if not row.get(field, "").strip():
+                    failures.append(f"data/resources.csv: {row_label} paper is missing {field}")
+        if "arxiv.org" in row.get("url", "") and not row.get("arxiv_id", "").strip():
+            failures.append(f"data/resources.csv: {row_label} arXiv work is missing arxiv_id")
 
 
 def main() -> int:
@@ -55,9 +129,11 @@ def main() -> int:
         require(translation, [count], failures)
 
     with (ROOT / "data" / "resources.csv").open(encoding="utf-8", newline="") as handle:
-        csv_count = sum(1 for _ in csv.DictReader(handle))
+        resource_rows = list(csv.DictReader(handle))
+    csv_count = len(resource_rows)
     if csv_count != int(count):
         failures.append(f"data/resources.csv: expected {count} rows, found {csv_count}")
+    validate_resource_rows(resource_rows, failures)
 
     site_payload = json.loads((ROOT / "docs" / "assets" / "resources.json").read_text(encoding="utf-8"))
     if site_payload.get("count") != int(count) or len(site_payload.get("resources", [])) != int(count):

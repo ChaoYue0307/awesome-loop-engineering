@@ -38,7 +38,7 @@ https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=anno
 ## Maintainer Request
 
 ```text
-Hi <name>, Awesome Loop Engineering is a source-audited field guide and implementation kit for recurring AI-agent systems. It includes 545 resources, 20 operational patterns, 20 validated contracts, 8 runtime starters, and a structured dataset.
+Hi <name>, Awesome Loop Engineering is a source-audited field guide and implementation kit for recurring AI-agent systems. It includes 555 resources, 20 operational patterns, 20 validated contracts, 8 runtime starters, and a structured dataset.
 
 Would it fit the related-resources policy for <project or newsletter>? I can provide a shorter description or submit through the normal contribution process:
 https://github.com/ChaoYue0307/awesome-loop-engineering

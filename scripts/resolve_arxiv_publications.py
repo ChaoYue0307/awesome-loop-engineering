@@ -157,7 +157,13 @@ def json_request(
         try:
             with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
                 return json.loads(response.read().decode("utf-8"))
-        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError):
+        except (
+            urllib.error.URLError,
+            urllib.error.HTTPError,
+            ConnectionError,
+            TimeoutError,
+            json.JSONDecodeError,
+        ):
             if attempt == attempts:
                 return {}
             time.sleep(attempt)

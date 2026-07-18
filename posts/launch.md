@@ -2,11 +2,11 @@
 
 Awesome Loop Engineering v0.7.0 connects a recurring problem to an operational pattern, a validated contract, and a working runtime starter.
 
-Navigate 545 source-audited works across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
+Navigate 555 source-audited works across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
 
 ## What You Can Use
 
-- 545 source-audited resources linked to canonical works
+- 555 source-audited resources linked to canonical works
 - 20 operational patterns organized by build, operate, optimize, and govern use cases
 - 20 schema-validated loop contracts, one for every pattern
 - 8 runtime starters: 3 dependency-light executables and 5 copy/paste runtime templates

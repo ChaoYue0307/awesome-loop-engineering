@@ -41,6 +41,11 @@ ENTRY_RE = re.compile(
 TABLE_ENTRY_RE = re.compile(
     r"^\| (?P<marker>\S+) \*\*\[(?P<title>[^\]]+)\]\((?P<url>[^)]+)\)\*\*"
     r"<br><sub>(?P<resource_type>[^<]+)</sub>\s+\| (?P<metadata>.*?) \| "
+    r"(?P<annotation>.*?) \| (?P<table_evidence>.+) \|$"
+)
+LEGACY_TABLE_ENTRY_RE = re.compile(
+    r"^\| (?P<marker>\S+) \*\*\[(?P<title>[^\]]+)\]\((?P<url>[^)]+)\)\*\*"
+    r"<br><sub>(?P<resource_type>[^<]+)</sub>\s+\| (?P<metadata>.*?) \| "
     r"(?P<annotation>.+) \|$"
 )
 HEADING_RE = re.compile(r"^(?P<level>#{2,3}) (?P<title>.+)$")
@@ -85,6 +90,7 @@ FIELDS = [
     "lifecycle_stages",
     "audience",
     "evidence_class",
+    "evidence_tier",
     "source_status",
     "canonical_url",
     "source_title",
@@ -126,6 +132,7 @@ SITE_FIELDS = [
     "lifecycle_stages",
     "audience",
     "evidence_class",
+    "evidence_tier",
     "signal_strength",
     "source_status",
     "authors",
@@ -285,6 +292,23 @@ TYPE_SIGNAL = {
     "List": ("Adjacent curated collection; signal comes from ecosystem coverage rather than a single technical claim.", "contextual"),
 }
 
+EVIDENCE_TIERS = {
+    "research-paper": "A",
+    "research-preprint": "A",
+    "official-documentation": "A",
+    "technical-documentation": "A",
+    "source-implementation": "A",
+    "implementation": "A",
+    "benchmark": "A",
+    "repository-native": "A",
+    "reusable-artifact": "A",
+    "operational-pattern": "B",
+    "practitioner-analysis": "B",
+    "risk-analysis": "B",
+    "curated-index": "C",
+    "curated-source": "C",
+}
+
 NOVELTY_RULES = [
     (r"\bofficial\b|\bprimary-source\b", "Primary-source operational guidance rather than commentary."),
     (r"\bfuture directions?\b|\bresearch agenda\b", "Turns open gaps into measurable research, infrastructure, and product directions."),
@@ -326,7 +350,7 @@ def parse_entry_line(raw_line: str) -> dict[str, str] | None:
     if match:
         return match.groupdict()
 
-    match = TABLE_ENTRY_RE.match(raw_line)
+    match = TABLE_ENTRY_RE.match(raw_line) or LEGACY_TABLE_ENTRY_RE.match(raw_line)
     if not match:
         return None
 
@@ -467,6 +491,10 @@ def impact(collection: str, title: str) -> str:
     return f"Use {title} to {goal}."
 
 
+def evidence_tier(evidence: str) -> str:
+    return EVIDENCE_TIERS.get(evidence, "C")
+
+
 def format_count(value: str) -> str:
     try:
         return f"{int(value):,}"
@@ -573,6 +601,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "lifecycle_stages": lifecycle_stages(section, clean(entry["title"]), annotation),
                 "audience": audience_for(section, resource_type),
                 "evidence_class": evidence,
+                "evidence_tier": evidence_tier(evidence),
                 "source_status": audit.get("audit_status", "not-audited"),
                 "canonical_url": audit.get("canonical_url", "") or audit.get("final_url", "") or url,
                 "source_title": audit.get("source_title", ""),

@@ -61,6 +61,16 @@ PUBLISHER_BY_DOMAIN = {
 }
 
 PUBLICATION_OVERRIDES = {
+    "https://doi.org/10.1145/3805760.3814895": {
+        "authors": "Simarjot Khanna",
+        "publication_date": "2026-07",
+        "publication_year": "2026",
+        "publication_venue": "Proceedings of the 3rd ACM International Conference on AI-Powered Software (AIware '26)",
+        "publisher": "Association for Computing Machinery",
+        "doi": "10.1145/3805760.3814895",
+        "publication_note": "Published at AIware 2026; metadata verified from the author-supplied camera-ready paper because the DOI landing page restricted automated access.",
+        "metadata_source": "ACM DOI and camera-ready paper",
+    },
     "https://www.preprints.org/manuscript/202603.1756": {
         "authors": "Chaoyue He; Xin Zhou; Di Wang; Hong Xu; Wei Liu; Chunyan Miao",
         "publication_date": "2026-04-23",
@@ -722,6 +732,9 @@ def finalize_publication_metadata(rows: list[dict[str, str]]) -> None:
         override = PUBLICATION_OVERRIDES.get(row["url"], {})
         row.update({key: value for key, value in override.items() if value})
 
+        if row["arxiv_id"] and row["metadata_source"] == "html-meta":
+            row["metadata_source"] = "arxiv-html-meta"
+
         if row["github_repo"]:
             row["publisher"] = "GitHub"
             if row["github_repo"].lower() == PROJECT_GITHUB_REPO:
@@ -770,6 +783,7 @@ def main() -> int:
     if args.apply_publication_overlay_only:
         with AUDIT_CSV.open(encoding="utf-8", newline="") as handle:
             audited = list(csv.DictReader(handle))
+        finalize_publication_metadata(audited)
         apply_arxiv_publication_overlay(audited)
         write_audit(audited)
         resolved = sum(

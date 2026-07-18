@@ -94,8 +94,8 @@ def main() -> int:
             if decision["status"] == "preprint-only":
                 if row["publisher"] != "arXiv":
                     failures.append(f"{row_id}: preprint-only row has publisher {row['publisher']!r}")
-                if row["metadata_source"] != "arxiv-api":
-                    failures.append(f"{row_id}: preprint metadata is not arXiv API-backed")
+                if row["metadata_source"] not in {"arxiv-api", "arxiv-html-meta"}:
+                    failures.append(f"{row_id}: preprint metadata is not backed by a primary arXiv source")
                 expected_evidence = "benchmark" if row["resource_type"] == "Benchmark" else "research-preprint"
                 if row["evidence_class"] != expected_evidence:
                     failures.append(f"{row_id}: preprint-only row has evidence class {row['evidence_class']!r}")
