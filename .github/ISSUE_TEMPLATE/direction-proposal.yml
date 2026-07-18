@@ -1,0 +1,89 @@
+name: Future direction proposal
+description: Propose a measurable research study, infrastructure project, product pilot, or shared standard.
+title: "[Direction]: "
+labels:
+  - enhancement
+body:
+  - type: dropdown
+    id: workstream
+    attributes:
+      label: Workstream
+      description: Choose the closest Future Directions workstream.
+      options:
+        - 1. Factorized system evaluation
+        - 2. Long-horizon reliability and recovery
+        - 3. Verification science and false completion
+        - 4. Control policies, stopping, and abstention
+        - 5. Human oversight and decision quality
+        - 6. Durable state, memory, and provenance
+        - 7. Crash-safe execution and idempotency
+        - 8. Receipts, observability, and causal debugging
+        - 9. Security, permissions, and containment
+        - 10. Contract portability and interoperability
+        - 11. Reliability economics and resource allocation
+        - 12. Multi-agent delegation and coordination
+        - 13. Domain-grade loop use cases
+        - 14. Progressive rollout, handoff, and incident response
+        - 15. Lifecycle governance and maintainable adoption
+    validations:
+      required: true
+  - type: input
+    id: operator
+    attributes:
+      label: Intended operator and recurring task
+      description: Who uses or owns the loop, and what repeated work does it perform?
+      placeholder: Repository maintainer reviewing recurring dependency-update PRs.
+    validations:
+      required: true
+  - type: textarea
+    id: decision
+    attributes:
+      label: Decision and falsifiable claim
+      description: What decision should this work unlock, and what result would support or reject the claim?
+      placeholder: Evidence-aware retry should reduce false completion at the same model and token budget; reject if cost rises without a lower false-completion rate.
+    validations:
+      required: true
+  - type: textarea
+    id: baselines
+    attributes:
+      label: Baselines and budgets
+      description: State the current operation, single-pass, fixed-retry, and any cost-matched baseline plus the accounting boundary.
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Contract, verifier, state, and receipts
+      description: Link or describe the Loop Contract, independent evidence gate, persisted state, and decision receipts.
+    validations:
+      required: true
+  - type: textarea
+    id: failures
+    attributes:
+      label: Failure and abuse cases
+      description: Which interruptions, stale-state cases, verifier failures, permission attacks, or budget limits will be exercised?
+    validations:
+      required: true
+  - type: textarea
+    id: measures
+    attributes:
+      label: Primary and guardrail measures
+      description: Include quality, false completion, recovery, budget, cost, escalation, and human-effort measures as applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Public artifacts and constraints
+      description: What will be published, and what privacy, licensing, reproducibility, or redaction limits apply?
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The project tests a recurring AI-agent system, not a one-off prompt or generic automation.
+          required: true
+        - label: I will report negative results and unsuccessful runs rather than selected demonstrations only.
+          required: true

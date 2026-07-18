@@ -93,15 +93,15 @@ Do not use `signal_strength`, GitHub stars, forks, or inclusion in this collecti
 
 ## Future Directions
 
-Choose a role to find the highest-value open questions and build targets:
+The agenda organizes fifteen measurable workstreams in dependency order:
 
-| Audience | Priority categories |
-| --- | --- |
-| Researchers | Factorized evaluation, verification science, state across runs, stopping policies, and human oversight |
-| Infrastructure and reliability engineers | Durable execution, receipts and replay, least privilege, portability, and reliability economics |
-| Application and product developers | Loop-worthy use cases, domain verification, escalation UX, progressive rollout, and maintainable adoption |
+| Tier | Prove next | First artifacts |
+| --- | --- | --- |
+| Foundation | Verification, state, recovery, receipts, and security remain trustworthy under failure | Challenge sets, fault injection, replay, receipt schemas, and enforced permissions |
+| Scale | Gains survive ablation, long horizons, matched budgets, runtime changes, and cost accounting | Factorized benchmarks, control-policy replays, contract adapters, and economic frontiers |
+| Adoption | Operators can deploy, understand, interrupt, hand off, update, and retire a useful loop | Domain pilots, promotion gates, handoff studies, incident drills, and lifecycle controls |
 
-The complete [Future Directions agenda](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/FUTURE-DIRECTIONS.md) defines measurable outputs, concrete starter projects, shared infrastructure priorities, and a qualification checklist.
+The complete [Future Directions agenda](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/FUTURE-DIRECTIONS.md) provides a shared evaluation protocol, operational metric definitions, starter slices and completion gates for every workstream, 90-day role plans, field milestones, and a proposal template.
 
 ## Dataset Structure
 

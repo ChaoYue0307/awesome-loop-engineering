@@ -642,6 +642,23 @@
       .future-track li::marker { color: var(--blue); }
       .future-output { margin: auto 0 0; border-top: 1px solid var(--line); padding-top: 14px; color: var(--quiet); font-size: 0.76rem; line-height: 1.5; }
       .future-output strong { display: block; margin-bottom: 3px; color: var(--ink); }
+      .future-steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .future-step { min-width: 0; padding: 20px 20px 20px 0; }
+      .future-step + .future-step { border-left: 1px solid var(--line); padding-left: 20px; }
+      .future-step span {
+        display: block;
+        color: var(--blue);
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 0.63rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .future-step strong { display: block; margin-top: 6px; font-size: 0.88rem; }
+      .future-step p { margin: 5px 0 0; color: var(--muted); font-size: 0.76rem; line-height: 1.5; }
       .future-shared {
         display: grid;
         grid-template-columns: 180px minmax(0, 1fr) auto;
@@ -891,6 +908,10 @@
         .future-grid { grid-template-columns: 1fr; }
         .future-track { padding: 20px 0; }
         .future-track + .future-track { border-top: 1px solid var(--line); border-left: 0; padding-left: 0; }
+        .future-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .future-step:nth-child(n) { border-left: 1px solid var(--line); padding: 18px; }
+        .future-step:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+        .future-step:nth-child(n+3) { border-top: 1px solid var(--line); }
         .future-shared { grid-template-columns: 1fr; gap: 10px; align-items: start; }
         .maturity-guide { grid-template-columns: 150px minmax(0, 1fr); gap: 24px; }
         .level { grid-template-columns: 52px minmax(0, 1fr); gap: 16px; }
@@ -1124,6 +1145,9 @@
         .filter-row > a { width: fit-content; margin-left: 0; }
         .pattern-grid .pattern:nth-child(n) { min-height: 0; border-left: 0; padding: 17px 0; }
         .pattern .outcome { margin-top: 12px; padding-top: 0; }
+        .future-steps { grid-template-columns: 1fr; }
+        .future-step:nth-child(n) { border-top: 1px solid var(--line); border-left: 0; padding: 15px 0; }
+        .future-step:first-child { border-top: 0; }
         .resource-toolbar { grid-template-columns: 1fr; }
         .resource-toolbar label:first-child { grid-column: auto; }
         .resource-select { padding-inline: 10px; font-size: 0.86rem; }
@@ -1789,43 +1813,49 @@
           <div class="section-head">
             <div>
               <p class="section-label"><i class="icon" data-lucide="compass" aria-hidden="true"></i><span>07 / Future directions</span></p>
-              <h2>Decide what the field should prove next.</h2>
+              <h2>Turn open problems into evidence.</h2>
             </div>
-            <p class="section-intro">A credible agenda separates claims to test, infrastructure to build, and product loops to validate. Each direction should end in external evidence, reproducible artifacts, or measured operating results.</p>
+            <p class="section-intro">Fifteen workstreams define a decision, minimum artifact, metrics, starter slice, and completion gate. Build the foundations first, then prove scale and adoption.</p>
           </div>
           <div class="future-grid">
             <article class="future-track">
-              <h3><i class="icon" data-lucide="book-open" aria-hidden="true"></i>For researchers</h3>
+              <h3><i class="icon" data-lucide="shield-check" aria-hidden="true"></i>Foundation</h3>
               <ul>
-                <li>Separate model, harness, verifier, and loop effects under matched budgets.</li>
-                <li>Measure false completion, calibration, tamper resistance, and recovery.</li>
-                <li>Study state drift, stopping policies, and human oversight across runs.</li>
+                <li>Challenge verifiers with hard negatives and tampering.</li>
+                <li>Recover state and side effects after injected crashes.</li>
+                <li>Reconstruct every decision from receipts under least privilege.</li>
               </ul>
-              <p class="future-output"><strong>Useful outputs</strong>Benchmarks, ablations, longitudinal datasets, preregistered studies, and negative results.</p>
+              <p class="future-output"><strong>Completion signal</strong>The loop can be interrupted, audited, attacked, recovered, and stopped without losing control of evidence or effects.</p>
             </article>
             <article class="future-track">
-              <h3><i class="icon" data-lucide="wrench" aria-hidden="true"></i>For infrastructure engineers</h3>
+              <h3><i class="icon" data-lucide="chart-no-axes-combined" aria-hidden="true"></i>Scale</h3>
               <ul>
-                <li>Build crash-safe, idempotent, replayable, and observable runtimes.</li>
-                <li>Turn contract permissions into enforceable least-privilege policy.</li>
-                <li>Standardize receipts and preserve semantics across runtime adapters.</li>
+                <li>Separate model, harness, verifier, and loop effects.</li>
+                <li>Test long horizons, stop rules, and runtime portability.</li>
+                <li>Compare quality, recovery, latency, cost, and human effort.</li>
               </ul>
-              <p class="future-output"><strong>Useful outputs</strong>Reference workers, conformance suites, receipt schemas, replay tools, SLOs, and incident reports.</p>
+              <p class="future-output"><strong>Completion signal</strong>Gains survive matched budgets, adverse conditions, multiple runtimes, and full cost accounting.</p>
             </article>
             <article class="future-track">
-              <h3><i class="icon" data-lucide="code-2" aria-hidden="true"></i>For application developers</h3>
+              <h3><i class="icon" data-lucide="badge-check" aria-hidden="true"></i>Adoption</h3>
               <ul>
-                <li>Choose recurring jobs with stable intake and a defensible definition of done.</li>
-                <li>Design domain checkers and evidence-rich human handoffs.</li>
-                <li>Progress from read-only shadowing to bounded autonomy with promotion gates.</li>
+                <li>Baseline one frequent, verifiable, reversible domain job.</li>
+                <li>Shadow first, then promote through measured approval gates.</li>
+                <li>Rehearse handoff, rollback, incident response, and retirement.</li>
               </ul>
-              <p class="future-output"><strong>Useful outputs</strong>Runnable vertical slices, domain evals, escalation UX, rollout studies, and failure write-ups.</p>
+              <p class="future-output"><strong>Completion signal</strong>A named operator can understand, interrupt, update, and retire a useful loop from external evidence.</p>
             </article>
           </div>
+          <div class="future-steps" aria-label="Four steps from question to evidence">
+            <div class="future-step"><span>01 / Scope</span><strong>Choose one recurring task</strong><p>Name the operator, trigger, evidence gate, and consequence of error.</p></div>
+            <div class="future-step"><span>02 / Compare</span><strong>Freeze fair baselines</strong><p>Test current operation, single pass, fixed retry, and a cost-matched candidate.</p></div>
+            <div class="future-step"><span>03 / Stress</span><strong>Exercise failure paths</strong><p>Inject interruption, stale state, verifier conflict, attack, and budget exhaustion.</p></div>
+            <div class="future-step"><span>04 / Publish</span><strong>Release the whole result</strong><p>Share contracts, receipts, costs, unsuccessful runs, and rejection criteria.</p></div>
+          </div>
           <div class="future-shared">
-            <strong>Shared milestones</strong>
-            <p>Portable contracts and receipts, factorized benchmarks, replayable state, failure-injection suites, and public or safely anonymized case studies.</p>
-            <a class="button" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/FUTURE-DIRECTIONS.md"><i class="icon" data-lucide="compass" aria-hidden="true"></i>Open the agenda</a>
+            <strong>Start a 90-day project</strong>
+            <p>Choose the researcher, runtime, application, or security plan, then use the shared protocol and proposal template to make the result comparable.</p>
+            <a class="button" href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/FUTURE-DIRECTIONS.md"><i class="icon" data-lucide="compass" aria-hidden="true"></i>Open 15 workstreams</a>
           </div>
         </div>
       </section>
