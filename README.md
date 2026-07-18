@@ -312,10 +312,7 @@ After choosing the pattern, compare [runtime persistence, isolation, permissions
 ## Concept Guides
 
 These vendor-neutral guides define the concept, boundaries, vocabulary, and reviewable artifacts.
-
-<!-- Compact catalog tables keep the complete README within GitHub's render limit. -->
 <!--lint disable table-pipe-alignment-->
-
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
 | 🧾 **[Canonical Definition](DEFINITION.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project documentation</sub> | Short definition, positioning, minimal loop test, and citation note. | **Tier A** · Validated project artifact<br><sub>Maintained with project validation checks</sub> |
@@ -1378,9 +1375,7 @@ Track upcoming work, inspect release history, propose evidence, or share an oper
 | 🧾 **[Launch article](posts/launch.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project article</sub> | Concise explanation of the concept, implementation kit, and evidence base. | **Tier A** · Validated project artifact<br><sub>Maintained with project validation checks</sub> |
 | 🧾 **[Discussion guide](meta/DISCUSSIONS.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project operations guide</sub> | Suggested discussion categories, starter prompts, and moderation standard. | **Tier A** · Validated project artifact<br><sub>Maintained with project validation checks</sub> |
 | 🔁 **[Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2)**<br><sub>Pattern</sub> | **2026** · GitHub Discussions<br><sub>License: CC0-1.0</sub> | Community discussion for real or anonymized loop examples. | **Tier B** · Operational pattern<br><sub>Transferable operating practice</sub> |
-
 <!--lint enable table-pipe-alignment-->
-
 <h2 id="build-from-this">Build From This</h2>
 
 Move from evidence to a working loop.

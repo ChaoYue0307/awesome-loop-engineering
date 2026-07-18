@@ -180,6 +180,7 @@ def resource_cells(row: dict[str, str]) -> tuple[str, str, str, str]:
 
 
 def markdown_table(headers: tuple[str, ...], data: list[tuple[str, ...]]) -> list[str]:
+    # Aligned padding added over 200 KB and caused GitHub to truncate the README.
     def format_row(row: tuple[str, ...]) -> str:
         return "| " + " | ".join(row) + " |"
 
