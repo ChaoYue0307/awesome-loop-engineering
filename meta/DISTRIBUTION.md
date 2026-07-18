@@ -9,7 +9,7 @@ Status as of 2026-07-18:
 | Surface | Status | Evidence / next action |
 | --- | --- | --- |
 | GitHub release | Complete | [`v0.8.0`](https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.8.0) packages 579 resources, 20 patterns and contracts, 8 runtime starters, and explicit model-to-operations scope facets. |
-| Release announcement | Ready | Publish the v0.8.0 summary from [`posts/launch.md`](../posts/launch.md); [Discussion #9](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9) remains the low-noise release and contributor feed. |
+| Release announcement | Ready | Publish the v0.8.0 summary from [`posts/launch.md`](../posts/launch.md); [Discussion #9](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9) is the low-noise release and contributor feed. |
 | GitHub Explore topic | Complete | [`github/explore#5209`](https://github.com/github/explore/pull/5209) merged the `loop-engineering` topic page. |
 | Canonical Awesome directory | Policy objection | [`sindresorhus/awesome#4339`](https://github.com/sindresorhus/awesome/pull/4339) is open and lint passes, but the owner stated that AI-generated lists are not accepted. Do not treat further visual polish as a path around that policy or misrepresent automated assistance. |
 | Adjacent harness directory | In review | [`ai-boost/awesome-harness-engineering#131`](https://github.com/ai-boost/awesome-harness-engineering/pull/131) transparently proposes the project for the list's Related Awesome Lists section. |
@@ -50,7 +50,7 @@ Use GitHub-native discovery in this order.
   ```
 
 - **Pin the repository** on your profile, and add it to your profile README (profile-level promotion).
-- **About description.** Keep this concise value statement aligned with the README and project site: `🔁 Explore 579 resources from model recurrence to governed agent operations · Build with 20 patterns, 20 contracts, and 8 runtime starters · Atlas + dataset.`
+- **About description.** Keep this concise value statement aligned with the README and project site: `🔁 Build reliable recurring AI-agent systems: 579 resources, 20 operational patterns, 20 loop contracts, 8 runtime starters, an interactive atlas, and a structured dataset.`
 - **Custom social preview** (repo Settings, Social preview) so shared links lead with the same four durable proof points. This is UI-only; it cannot be set through the API.
 - **Releases and Discussions** provide a lower-noise subscription path. Recommend `Watch -> Custom -> Releases and Discussions`; do not ask readers to watch every repository event.
 
@@ -60,19 +60,21 @@ Do not use reciprocal-star requests, broad promotional pull requests, or unrelat
 
 GitHub retains repository traffic details for only 14 days. Record a snapshot weekly, using the same definitions each time.
 
-Baseline captured on 2026-07-17 for the API window ending 2026-07-15:
+Snapshot captured on 2026-07-18 for the API window ending 2026-07-17:
 
 | Metric | Baseline |
 | --- | ---: |
-| Repository views | 333 |
-| Unique visitors | 142 |
-| Clones | 204 |
-| Unique cloners | 81 |
-| Stars | 26 |
-| Forks | 4 |
+| Repository views | 452 |
+| Unique visitors | 146 |
+| Clones | 614 |
+| Unique cloners | 173 |
+| Stars | 31 |
+| Forks | 6 |
 | Watchers | 1 |
 
-The repository overview reached 119 unique visitors. The Chinese README was the second-most visited content path with 19 unique visitors. The largest identifiable referrers were Google (17 unique visitors), GitHub (14), Bing (14), and the project site (6); launch and community channels had not yet become material sources.
+The repository overview reached 118 unique visitors. The Chinese README remained the second-most visited content path with 20 unique visitors. The largest identifiable referrers were Google (19 unique visitors), GitHub (18), Bing (12), and the project site (8); X contributed one identifiable visitor. Clone traffic rose sharply on July 16-17 and may include automated clients, so do not treat clone counts as human adoption without corroborating forks or contributions.
+
+Since the previous snapshot, stars increased from 26 to 31 and forks from 4 to 6 while watchers remained at 1. The next campaign should therefore prioritize qualified external reach and the low-noise release/digest subscription path, not more landing-page decoration.
 
 Working 30-day campaign targets:
 
@@ -91,12 +93,29 @@ Use the [English launch article](../posts/launch.md) or [Chinese launch article]
 ### Short Post
 
 ```text
-🔁 Awesome Loop Engineering v0.8.0 is live: explore 579 resources from model recurrence to agent operations, then build with 20 patterns, 20 contracts, and 8 runtime starters.
+🔁 Awesome Loop Engineering maps how recurring AI agents should act, verify, remember, retry, and stop.
 
-🧭 Explore the layers:
-https://chaoyue0307.github.io/awesome-loop-engineering/x-v08-579.html
+579 resources · 20 patterns · 20 contracts · 8 starters
 
-#AIAgents #AgentEngineering #LoopEngineering
+Explore and build:
+https://github.com/ChaoYue0307/awesome-loop-engineering
+
+#AIAgents #AgentEngineering
+```
+
+Attach [`assets/social-preview.png`](../assets/social-preview.png) directly when the platform permits it. The post is 264 characters before platform-specific URL shortening.
+
+### Chinese Short Post
+
+```text
+🔁 Awesome Loop Engineering 把反复运行的 AI 智能体变成可设计、可验证、可停止的工程系统。
+
+579 个资源 · 20 个运行模式 · 20 份循环契约 · 8 个启动模板
+
+浏览并开始构建：
+https://github.com/ChaoYue0307/awesome-loop-engineering
+
+#AIAgents #智能体工程
 ```
 
 ### Longer Post

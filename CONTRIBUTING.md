@@ -20,6 +20,10 @@ Each suggestion is checked for scope, duplication, source quality, and a useful 
 
 For an inaccurate summary, contribution, novelty, impact, authorship, date, venue, identifier, or source link, use the [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml). Include primary-source evidence; omit unavailable metadata rather than guessing.
 
+To share a public or anonymized loop you have operated, use the [case-study form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=gallery-case-study.yml). It collects the trigger, runtime, verification, state, budget, receipts, and lessons needed for a useful gallery entry; no pull request is required for the first draft.
+
+New contributors can also choose a scoped [`good first issue`](https://github.com/ChaoYue0307/awesome-loop-engineering/labels/good%20first%20issue) or [`help wanted`](https://github.com/ChaoYue0307/awesome-loop-engineering/labels/help%20wanted) task.
+
 ## Quick PR Flow
 
 1. Search `README.md` for the resource title, author, project, and URL.

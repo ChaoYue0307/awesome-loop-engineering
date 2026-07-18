@@ -1,0 +1,89 @@
+name: Loop case study
+description: Share a real or anonymized recurring-agent loop for the community gallery.
+title: "[Case study]: "
+labels:
+  - case-study
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share what actually ran, how it was bounded, and what the evidence showed. Public and anonymized examples are both welcome; never include secrets, customer data, private URLs, or proprietary prompts.
+  - type: input
+    id: use_case
+    attributes:
+      label: Recurring job
+      description: What work returns, and which outcome should improve?
+      placeholder: Review every open pull request and surface only unresolved release blockers.
+    validations:
+      required: true
+  - type: dropdown
+    id: visibility
+    attributes:
+      label: Example type
+      options:
+        - Public implementation with inspectable evidence
+        - Anonymized real-world implementation
+        - Reproducible reference implementation
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Agent and runtime
+      description: Name the agent, scheduler, workflow engine, or runtime used.
+      placeholder: Codex automation in an isolated Git worktree
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Trigger, intake, and permissions
+      description: Explain what authorizes a run, where work comes from, and what the agent may read or change.
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Independent verification
+      description: What tests, checks, evals, dashboards, reviewers, or trace graders decide whether work passes?
+    validations:
+      required: true
+  - type: textarea
+    id: state
+    attributes:
+      label: Durable state and receipts
+      description: What survives between runs, and which evidence can another person inspect?
+      placeholder: Progress JSONL, issue comments, test output, pull requests, traces, or screenshots.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Budget, escalation, and exit
+      description: State the retry, time, or cost limit; when a human takes over; and how the loop stops.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome and lesson
+      description: What changed after running the loop? Include failures, tradeoffs, or negative results when useful.
+    validations:
+      required: true
+  - type: input
+    id: evidence_url
+    attributes:
+      label: Public evidence URL
+      description: Optional link to a repository, pull request, issue, trace, benchmark, article, or anonymized artifact.
+      placeholder: https://github.com/example/project/pull/123
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Safety and publication checklist
+      options:
+        - label: I removed secrets, credentials, customer data, private URLs, and proprietary prompts.
+          required: true
+        - label: I distinguish measured results from expectations or claims.
+          required: true
+        - label: I am comfortable publishing this submission under CC0-1.0.
+          required: true

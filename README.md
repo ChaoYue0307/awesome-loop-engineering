@@ -55,24 +55,28 @@ A loop discovers work, delegates it, verifies the result, records state and rece
 
 Loop Engineering covers recurring AI-agent systems with explicit triggers, external verification, durable state, bounded budgets, and human handoff. It does not include software event loops, control theory, growth loops, generic automation, or one-off prompting.
 
-### Quick Orientation
+### Start In 60 Seconds
 
 <table>
   <tr>
-    <td><strong>📦 Available now</strong></td>
-    <td>579 papers, official docs, tools, benchmarks, and guides; 20 operational patterns; 20 adaptable contracts; 8 runtime starters; and a filterable dataset.</td>
+    <td><strong>🧭 Explore the field</strong></td>
+    <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
+    <td>Filter 579 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
-    <td><strong>⏱️ Why it matters</strong></td>
-    <td>It makes repeated agent work reviewable: the trigger, permissions, evidence gate, durable state, retry budget, and human exit are explicit.</td>
+    <td><strong>▶️ Build one loop</strong></td>
+    <td><a href="examples/README.md#four-worked-paths">Follow a worked path</a></td>
+    <td>Move from a recurring job to its pattern, contract, runtime, and completion signal.</td>
   </tr>
   <tr>
-    <td><strong>👥 Built for</strong></td>
-    <td>Agent and platform builders, reliability and evaluation engineers, researchers, and teams operating recurring AI-agent workflows.</td>
+    <td><strong>📊 Analyze the map</strong></td>
+    <td><a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">Load the dataset</a></td>
+    <td>Query 50 publication, evidence, lifecycle, source, and repository fields in CSV, JSONL, or Parquet.</td>
   </tr>
   <tr>
-    <td><strong>🧭 Fastest path</strong></td>
-    <td>Read the Working Definition, inspect the Loop Contract, choose a pattern, then adapt a schema-checked example.</td>
+    <td><strong>🔔 Follow useful updates</strong></td>
+    <td><a href="https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.8.0">Read the current release</a> · <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9">Follow the digest</a></td>
+    <td>Use <strong>Watch → Custom → Releases and Discussions</strong> for a low-noise update feed.</td>
   </tr>
 </table>
 
@@ -133,6 +137,15 @@ Move from evidence to implementation through four connected layers:
 **Fastest build path:** name the symptom, inspect the pattern's worked example, adapt its linked contract, then select the runtime starter that matches the required persistence, file access, isolation, and permissions.
 
 **See it end to end:** the [four worked paths](examples/README.md#four-worked-paths) cover CI repair, knowledge-base refresh, bounded queue processing, and read-only threshold monitoring, including commands and verifiable completion signals.
+
+**Two-minute dry run:** clone the repository and inspect a bounded queue item without an agent account or extra dependency.
+
+```bash
+git clone https://github.com/ChaoYue0307/awesome-loop-engineering.git
+cd awesome-loop-engineering
+printf '%s\n' '{"id":"demo","objective":"Validate one queue item"}' > /tmp/loop-queue.jsonl
+python3 examples/runnable/queue-worker-loop.py --queue /tmp/loop-queue.jsonl --dry-run
+```
 
 ## The Reliability Gap
 
@@ -1401,6 +1414,10 @@ Move from evidence to a working loop.
     <td><strong>➕ Contribute one source</strong></td>
     <td>Use the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml">resource suggestion form</a> or the <a href="CONTRIBUTING.md#fastest-contribution-under-five-minutes">under-five-minute contribution path</a>.</td>
   </tr>
+  <tr>
+    <td><strong>🔁 Share a real loop</strong></td>
+    <td>Use the <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=gallery-case-study.yml">case-study form</a> to contribute a public or anonymized operating example without preparing a pull request.</td>
+  </tr>
 </table>
 
 [Fork the contracts, runtime starters, and dataset schema](https://github.com/ChaoYue0307/awesome-loop-engineering/fork) for your own loop system.
@@ -1408,6 +1425,8 @@ Move from evidence to a working loop.
 ## Contributing
 
 Contribute an original or official source, an evidence-backed correction, or a loop you have run. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+
+New contributors can start with a [`good first issue`](https://github.com/ChaoYue0307/awesome-loop-engineering/labels/good%20first%20issue), a [`help wanted`](https://github.com/ChaoYue0307/awesome-loop-engineering/labels/help%20wanted) task, or the [case-study form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=gallery-case-study.yml).
 
 The [resource selection guide](meta/CURATION.md) explains what belongs, which evidence to include, how to write useful summaries, and how corrections are handled. The [maintenance guide](meta/MAINTENANCE.md) explains link checks and releases.
 
@@ -1421,7 +1440,7 @@ Fast path for adding a resource:
 - Add one entry using this format:
 
 ```md
-| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. |
+| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's concrete contribution, result, or limitation. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 ```
 
 - Open a pull request and explain the category fit, source type, and why builders should care.
