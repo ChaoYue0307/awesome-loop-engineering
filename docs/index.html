@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Awesome Loop Engineering</title>
-    <meta name="description" content="555 source-audited resources, 20 patterns, 20 validated contracts, and 8 runtime starters for recurring, stateful, verified AI-agent systems.">
+    <meta name="description" content="579 source-audited resources across model, agent, harness, workflow, and operations layers, plus 20 patterns, 20 contracts, and 8 runtime starters.">
     <meta name="robots" content="index,follow">
     <meta name="author" content="Chaoyue He">
     <link rel="canonical" href="https://chaoyue0307.github.io/awesome-loop-engineering/">
@@ -15,16 +15,16 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Awesome Loop Engineering">
-    <meta property="og:description" content="555 source-audited resources, 20 patterns, 20 validated contracts, and 8 runtime starters for recurring, stateful, verified AI-agent systems.">
+    <meta property="og:description" content="579 source-audited resources across the model-to-operations stack, plus 20 patterns, 20 validated contracts, and 8 runtime starters.">
     <meta property="og:url" content="https://chaoyue0307.github.io/awesome-loop-engineering/">
-    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-555-v07.png">
+    <meta property="og:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-579-v08.png">
     <meta property="og:image:width" content="1280">
     <meta property="og:image:height" content="640">
     <meta property="og:image:alt" content="Awesome Loop Engineering: design loops, not just prompts.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Awesome Loop Engineering">
-    <meta name="twitter:description" content="555 source-audited resources, 20 patterns, 20 validated contracts, and 8 runtime starters for recurring, stateful, verified AI-agent systems.">
-    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-555-v07.png">
+    <meta name="twitter:description" content="579 source-audited resources across the model-to-operations stack, plus a practical kit for recurring AI-agent systems.">
+    <meta name="twitter:image" content="https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-579-v08.png">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering releases" href="https://github.com/ChaoYue0307/awesome-loop-engineering/releases.atom">
     <link rel="alternate" type="application/atom+xml" title="Awesome Loop Engineering commits" href="https://github.com/ChaoYue0307/awesome-loop-engineering/commits/main.atom">
     <style>
@@ -350,6 +350,18 @@
       .section-intro { max-width: 720px; margin: 0; color: var(--muted); }
       .audit-note { margin: -17px 0 28px; border-top: 1px solid var(--line); padding-top: 13px; color: var(--muted); font-size: 0.8rem; }
       .audit-note strong { color: var(--ink); }
+      .loop-layer-map {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin: 0 0 28px;
+        border-top: 1px solid var(--line-strong);
+        border-bottom: 1px solid var(--line-strong);
+      }
+      .loop-layer-item { min-width: 0; padding: 18px 20px 18px 0; }
+      .loop-layer-item + .loop-layer-item { border-left: 1px solid var(--line); padding-left: 20px; }
+      .loop-layer-item span { display: block; color: var(--blue); font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.64rem; font-weight: 700; text-transform: uppercase; }
+      .loop-layer-item strong { display: block; margin-top: 6px; color: var(--ink); font-size: 0.92rem; }
+      .loop-layer-item p { margin: 6px 0 0; color: var(--muted); font-size: 0.78rem; line-height: 1.5; }
       .diagram { width: 100%; margin: 0; }
       .caption { margin: 13px 0 0; color: var(--quiet); font-size: 0.78rem; text-align: right; }
       .supporting-visual { margin: 0 0 34px; }
@@ -712,7 +724,7 @@
       .resource-explorer { border-top: 1px solid var(--line-strong); }
       .resource-toolbar {
         display: grid;
-        grid-template-columns: minmax(260px, 1.45fr) repeat(3, minmax(150px, 0.7fr)) auto;
+        grid-template-columns: minmax(240px, 1.4fr) repeat(4, minmax(132px, 0.66fr)) auto;
         gap: 10px;
         padding: 16px 0;
         border-bottom: 1px solid var(--line);
@@ -1133,6 +1145,9 @@
         .principle + .principle, .card + .card, .pattern + .pattern { padding-left: 0; }
         .principle, .card, .pattern { padding-top: 16px; padding-bottom: 16px; }
         .choice-why { grid-template-columns: 1fr; gap: 7px; padding: 18px 0; }
+        .loop-layer-map { grid-template-columns: 1fr; }
+        .loop-layer-item { padding: 16px 0; }
+        .loop-layer-item + .loop-layer-item { border-top: 1px solid var(--line); border-left: 0; padding-left: 0; }
         .choice-why p { font-size: 0.84rem; line-height: 1.55; }
         .choice-fit { grid-template-columns: 1fr; margin-bottom: 24px; }
         .choice-fit-column { padding: 18px 0; }
@@ -1230,7 +1245,7 @@
           "https://huggingface.co/datasets/cy0307/awesome-loop-engineering"
         ],
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-555-v07.png",
+        "image": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/social-preview-579-v08.png",
         "logo": "https://chaoyue0307.github.io/awesome-loop-engineering/assets/awesome-loop-engineering-logo.png",
         "author": { "@type": "Person", "name": "Chaoyue He" }
       }
@@ -1278,14 +1293,14 @@
         "@context": "https://schema.org",
         "@type": "Dataset",
         "name": "Awesome Loop Engineering resources",
-        "description": "555 source-audited resources on recurring AI-agent and coding-agent loops, with contribution, novelty, impact, and evidence fields.",
+        "description": "579 source-audited resources across model, agent, harness, workflow, operations, and evaluation layers, with explicit scope, contribution, novelty, impact, and evidence fields.",
         "url": "https://chaoyue0307.github.io/awesome-loop-engineering/",
         "sameAs": [
           "https://huggingface.co/datasets/cy0307/awesome-loop-engineering",
           "https://github.com/ChaoYue0307/awesome-loop-engineering"
         ],
         "identifier": "https://huggingface.co/datasets/cy0307/awesome-loop-engineering",
-        "version": "0.7.0",
+        "version": "0.8.0",
         "license": "https://creativecommons.org/publicdomain/zero/1.0/",
         "isAccessibleForFree": true,
         "creator": { "@type": "Person", "name": "Chaoyue He" },
@@ -1353,7 +1368,7 @@
             <p class="section-label hero-kicker"><i class="icon" data-lucide="repeat-2" aria-hidden="true"></i><span>Field guide for recurring agent systems</span></p>
             <h1>Awesome Loop Engineering</h1>
             <p class="tagline">Design loops, not just prompts.</p>
-            <p class="lead">555 source-audited resources, 20 operational patterns, 20 validated contracts, and 8 runtime starters for agent systems that must keep working.</p>
+            <p class="lead">579 source-audited resources from model recurrence to production operations, plus 20 patterns, 20 validated contracts, and 8 runtime starters for agent systems that must keep working.</p>
             <div class="actions">
               <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering#readme"><i class="icon" data-lucide="book-open" aria-hidden="true"></i>Explore resources</a>
               <a class="button" href="#choose"><i class="icon" data-lucide="compass" aria-hidden="true"></i>Choose a loop</a>
@@ -1410,7 +1425,7 @@
             </div>
           </figure>
           <div class="stats" role="list" aria-label="Field guide at a glance">
-            <div class="stat" role="listitem"><b><i class="icon" data-lucide="library" aria-hidden="true"></i>555</b><span>audited resources</span></div>
+            <div class="stat" role="listitem"><b><i class="icon" data-lucide="library" aria-hidden="true"></i>579</b><span>audited resources</span></div>
             <div class="stat" role="listitem"><b><i class="icon" data-lucide="blocks" aria-hidden="true"></i>20</b><span>operational patterns</span></div>
             <div class="stat" role="listitem"><b><i class="icon" data-lucide="file-check-2" aria-hidden="true"></i>20</b><span>loop contracts</span></div>
             <div class="stat" role="listitem"><b><i class="icon" data-lucide="play" aria-hidden="true"></i>8</b><span>runtime starters</span></div>
@@ -1710,9 +1725,14 @@
               <p class="section-label"><i class="icon" data-lucide="library" aria-hidden="true"></i><span>06 / Resource atlas</span></p>
               <h2>Find evidence, not just links.</h2>
             </div>
-            <p class="section-intro">Filter 555 source-audited works by goal, lifecycle, artifact type, and evidence class. Open any result for contribution, novelty, impact, provenance, and source metadata.</p>
+            <p class="section-intro">Filter 579 source-audited works by goal, loop layer, lifecycle, artifact type, and evidence class. Open any result for contribution, novelty, impact, scope, provenance, and source metadata.</p>
           </div>
-          <p class="audit-note"><strong>Audit snapshot, 2026-07-18 UTC:</strong> all 555 rows checked; 502 public sources reachable, 5 access-restricted, 48 repository-native, and 0 broken or unreachable. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Inspect the audit</a> or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">report a correction</a>.</p>
+          <p class="audit-note"><strong>Audit snapshot, 2026-07-18 UTC:</strong> all 579 rows checked; 528 public sources reachable, 3 access-restricted, 48 repository-native, and 0 broken or unreachable. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv">Inspect the audit</a> or <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">report a correction</a>.</p>
+          <div class="loop-layer-map" aria-label="Where different loop concepts live">
+            <div class="loop-layer-item"><span>Inner loop</span><strong>Model recurrence</strong><p>A learned block refines hidden or latent state inside one inference. Included as an adjacent foundation.</p></div>
+            <div class="loop-layer-item"><span>Task loop</span><strong>Agent execution</strong><p>The model reasons, calls tools, observes results, and updates working state while solving one task.</p></div>
+            <div class="loop-layer-item"><span>Outer loop</span><strong>Operational governance</strong><p>Triggers, evidence gates, durable state, budgets, handoff, and exit govern repeated work.</p></div>
+          </div>
           <div class="resource-explorer" id="resource-explorer">
             <div class="resource-toolbar" role="search" aria-label="Search resources">
               <label>
@@ -1738,6 +1758,7 @@
                 <span class="sr-only">Lifecycle stage</span>
                 <select class="resource-select" id="resource-stage">
                   <option value="">All lifecycle stages</option>
+                  <option value="act">Model / agent action</option>
                   <option value="objective">Objective</option>
                   <option value="trigger">Trigger</option>
                   <option value="intake">Intake</option>
@@ -1750,6 +1771,19 @@
                   <option value="escalation">Escalation</option>
                   <option value="exit">Exit</option>
                   <option value="whole-loop">Whole loop</option>
+                </select>
+              </label>
+              <label>
+                <span class="sr-only">Loop layer</span>
+                <select class="resource-select" id="resource-layer">
+                  <option value="">All loop layers</option>
+                  <option value="model">Model</option>
+                  <option value="agent">Agent</option>
+                  <option value="harness">Harness</option>
+                  <option value="workflow">Workflow</option>
+                  <option value="operations">Operations</option>
+                  <option value="evaluation">Evaluation</option>
+                  <option value="cross-layer">Cross-layer</option>
                 </select>
               </label>
               <label>
@@ -1777,7 +1811,7 @@
               <button class="resource-collection" type="button" data-collection="Apply" aria-pressed="false"><i class="icon" data-lucide="package-open" aria-hidden="true"></i>Apply</button>
             </div>
             <div class="resource-summary">
-              <p class="resource-count" id="resource-count" aria-live="polite">Preparing 555 resources...</p>
+              <p class="resource-count" id="resource-count" aria-live="polite">Preparing 579 resources...</p>
               <label>
                 <span class="sr-only">Sort resources</span>
                 <select class="resource-select resource-sort" id="resource-sort">
@@ -1927,7 +1961,7 @@
   title        = {Awesome Loop Engineering},
   year         = {2026},
   howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}},
-  note         = {Version 0.7.0}
+  note         = {Version 0.8.0}
 }</pre>
             </div>
           </div>
@@ -2042,6 +2076,7 @@
         var search = document.getElementById('resource-search');
         var type = document.getElementById('resource-type');
         var stage = document.getElementById('resource-stage');
+        var layer = document.getElementById('resource-layer');
         var evidence = document.getElementById('resource-evidence');
         var sort = document.getElementById('resource-sort');
         var reset = document.getElementById('resource-reset');
@@ -2066,6 +2101,11 @@
 
         function words(value) {
           return String(value || '').replace(/-/g, ' ');
+        }
+
+        function loopLayerLabel(value) {
+          if (!value) return '';
+          return value === 'cross-layer' ? 'cross-layer' : words(value) + ' layer';
         }
 
         function evidenceLabel(value) {
@@ -2153,6 +2193,8 @@
             resource.user_goal,
             resource.lifecycle_stages,
             resource.audience,
+            resource.loop_layer,
+            resource.scope_fit,
             resource.evidence_class,
             resource.evidence_tier,
             resource.authors,
@@ -2170,6 +2212,7 @@
           return (!query || haystack.indexOf(query) !== -1) &&
             (!type.value || resource.resource_type === type.value) &&
             (!stage.value || stages(resource.lifecycle_stages).indexOf(stage.value) !== -1) &&
+            (!layer.value || resource.loop_layer === layer.value) &&
             (!evidence.value || evidenceSet.indexOf(resource.evidence_class) !== -1) &&
             (!state.collection || resource.collection === state.collection);
         }
@@ -2206,6 +2249,8 @@
             resource.resource_type,
             resource.collection,
             resource.section,
+            loopLayerLabel(resource.loop_layer),
+            resource.scope_fit ? words(resource.scope_fit) + ' scope' : '',
             stages(resource.lifecycle_stages).map(words).join(' / ')
           ].filter(Boolean).join(' | ');
           var signalClass = 'resource-signal ' + String(resource.signal_strength || 'unverified').toLowerCase();
@@ -2265,6 +2310,8 @@
           detailGrid.appendChild(detailSection('Impact', [resource.impact]));
           detailGrid.appendChild(detailSection('Use it for', [
             resource.user_goal ? 'Goal: ' + resource.user_goal : '',
+            resource.loop_layer ? 'Loop layer: ' + words(resource.loop_layer) : '',
+            resource.scope_fit ? 'Scope fit: ' + words(resource.scope_fit) : '',
             resource.lifecycle_stages ? 'Loop stages: ' + stages(resource.lifecycle_stages).map(words).join(', ') : '',
             resource.audience ? 'Audience: ' + String(resource.audience).split(';').map(words).join(', ') : ''
           ]));
@@ -2311,7 +2358,7 @@
         else compactResources.addListener(updatePageSize);
 
         search.addEventListener('input', resetLimitAndRender);
-        [type, stage, evidence, sort].forEach(function (control) {
+        [type, stage, layer, evidence, sort].forEach(function (control) {
           control.addEventListener('change', resetLimitAndRender);
         });
         collectionButtons.forEach(function (button) {
@@ -2331,6 +2378,7 @@
           search.value = '';
           type.value = '';
           stage.value = '';
+          layer.value = '';
           evidence.value = '';
           sort.value = 'curated';
           state.collection = '';
@@ -2346,7 +2394,7 @@
           loading = true;
           explorer.dataset.indexState = 'loading';
           list.setAttribute('aria-busy', 'true');
-          count.textContent = 'Loading 555 audited resources...';
+          count.textContent = 'Loading 579 audited resources...';
           list.replaceChildren(createText('p', 'resource-loading', 'Loading audited resources...'));
 
           fetch('assets/resources.json')

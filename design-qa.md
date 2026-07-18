@@ -19,7 +19,7 @@
 - Contract and lifecycle: purpose-built mobile summaries replace desktop-wide figures at 560 px and below.
 - Runtime map: desktop figure plus eight labeled starters in a balanced 4 x 2 grid; mobile uses the explanatory copy and one-column starter sequence instead of shrinking the wide figure.
 - Maturity model: desktop figure plus semantic levels 00-06; mobile keeps the readable level rows and hides the wide supporting figure.
-- Social preview: 1280 x 640, exact 555-resource, 20-pattern, 20-contract, and 8-starter counts.
+- Social preview: 1280 x 640, exact 579-resource, 20-pattern, 20-contract, and 8-starter counts, with the model-to-operations scope line.
 - Interactive hero, desktop: 1440 x 1000, one ready WebGL canvas, no horizontal overflow, and meaningful agent-system labels.
 - Interactive hero, mobile: 390 x 844, one ready WebGL canvas, no horizontal overflow, and all six stations inside the frame.
 - Interactive hero motion: the frame counter advanced by 47 frames during a 450 ms pointer-parallax check.
@@ -71,15 +71,16 @@
 - Phone: 390 x 844, no horizontal overflow. The compact loop keeps all six stations, the moving work packet, legend, outcome key, and stage selector visible without crossing the hero copy.
 - Mobile navigation: opens all nine project links, reports `aria-expanded="true"`, closes on Escape, and restores focus to the menu button.
 - Pattern filter: `accessibility` returns exactly one of the 20 patterns.
-- Resource Atlas: remains idle above the fold, loads on approach or a direct resource anchor, and reports `555 of 555 resources | showing 8` on mobile.
-- Resource interactions: `SWE-bench` returns 9 matches, the paper filter narrows those to 6, Reset restores all 555, and Show more expands the rendered set from 8 to 16.
+- Resource Atlas: remains idle above the fold, loads on approach or a direct resource anchor, and reports `579 of 579 resources | showing 8` on a fresh mobile load.
+- Resource interactions: the Model loop-layer filter returns 24 of 579 resources (23 papers plus Awesome Loop Models), paginates eight at a time on mobile, and renders LoopWM with its 2026 arXiv record and adjacent-scope label.
 - Resource row schema: desktop exposes Work, Year, Published at, and Evidence; mobile stacks the same labels. A `ReasoningBank` query returns one row with its ICLR venue, arXiv identifier, Tier A evidence, task fit, and source record without horizontal overflow.
 - Scene motion: the canvas frame counter advanced from 640 to 662 over 900 ms. Two canvas crops taken 1.2 seconds apart changed 17.79% of sampled RGB channels.
-- Scene pixels: the sampled desktop crop has 15.71% active pixels with RGB standard deviations of 35.83, 29.77, and 23.01; mobile has 27.84% active pixels with deviations of 41.27, 30.61, and 19.52. Both renders are nonblank and well contrasted.
+- Scene pixels: the current desktop canvas has 7,062 colors with RGB standard deviations of 35.93, 29.76, and 22.29; mobile has 5,755 colors with deviations of 40.73, 30.54, and 19.70. Both renders are nonblank and well contrasted.
 - Runtime starters: desktop cards form two equal-height rows of four; mobile cards are 358 px wide within a 390 px document and preserve label, icon, heading, and copy alignment.
 - Future directions: direct-anchor restoration waits for the Resource Atlas reflow, all three audience tracks remain readable, and the agenda CTA is fully visible at desktop and mobile widths.
 - Console: no page-origin errors or warnings during mobile navigation, pattern filtering, and Resource Atlas interactions.
-- Source audit: 555 rows checked; 502 public sources reachable, 5 access-restricted, 48 repository-native, and 0 broken or unreachable as of 2026-07-18 UTC.
-- Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 555 resources, 20 patterns, 20 contracts, 8 runtime starters, and version 0.7.0.
+- Narrow phone: 320 x 844, document width equals viewport width; the headline stays within 16 px gutters and the Three.js canvas remains fully inside the 288 px content width.
+- Source audit: 579 rows checked; 528 public sources reachable, 3 access-restricted, 48 repository-native, and 0 broken or unreachable as of 2026-07-18 UTC.
+- Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 579 resources, 20 patterns, 20 contracts, 8 runtime starters, and version 0.8.0. The dataset exposes 50 fields, including `loop_layer` and `scope_fit`.
 
 final result: passed

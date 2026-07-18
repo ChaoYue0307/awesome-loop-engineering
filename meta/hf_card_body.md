@@ -67,6 +67,10 @@ papers = resources.filter(lambda row: row["resource_type"] == "Paper")
 verification = resources.filter(
     lambda row: "verification" in row["lifecycle_stages"].split(";")
 )
+model_recurrence = resources.filter(
+    lambda row: row["loop_layer"] == "model"
+    and row["scope_fit"] == "adjacent"
+)
 ```
 
 For pandas:
@@ -85,6 +89,7 @@ Use `url` as the durable join key. `row_id` and `source_line` are positional and
 
 - Find primary sources and implementation references for recurring agent systems.
 - Compare works by lifecycle, audience, evidence class, source type, and publication metadata.
+- Separate model, agent, harness, workflow, operations, evaluation, and cross-layer resources without treating adjacent model recurrence as a complete operational loop.
 - Build literature maps, reading lists, dashboards, or retrieval indexes.
 - Audit contribution, novelty, impact, provenance, and evidence claims.
 - Find reusable patterns, contracts, schemas, executable examples, and copy/paste runtime templates.
@@ -111,6 +116,7 @@ The primary configuration is `resources`, with one `train` split backed by the n
 | --- | --- | --- |
 | Identity | `row_id`, `title`, `url`, `canonical_url`, `resource_type`, `domain` | What the resource is and where it lives. |
 | Editorial assessment | `annotation`, `key_contribution`, `novelty`, `impact` | What the resource contributes to recurring agent systems. |
+| Scope | `loop_layer`, `scope_fit` | Where recurrence lives and whether the source is direct, enabling, or adjacent to operational Loop Engineering. |
 | Navigation | `section`, `collection`, `user_goal`, `lifecycle_stages`, `audience` | Where the resource fits and who it serves. |
 | Evidence | `evidence_class`, `evidence_tier`, `signal`, `signal_strength`, `source_status`, `audited_at` | What kind of evidence or provenance is available. |
 | Publication | `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `arxiv_id`, `primary_category` | Bibliographic data exposed by the canonical source. |

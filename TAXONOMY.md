@@ -1,6 +1,17 @@
 # Loop Engineering Taxonomy
 
-Classify an AI-agent loop by its trigger, work intake, verification method, state model, agent topology, and operating domain.
+Classify recurrence first by where it lives, then classify an operational AI-agent loop by its trigger, work intake, verification method, state model, agent topology, and operating domain.
+
+## By Loop Layer
+
+- **Model layer**: a learned layer, block, module, or latent-state update repeats within one inference. This is an adjacent foundation for Loop Engineering, not a complete operational loop.
+- **Agent layer**: a model alternates reasoning, tool calls, observations, and updates while solving one task.
+- **Harness layer**: tools, context, permissions, sandboxes, evaluators, and checkpoints control one or more agent runs.
+- **Workflow layer**: triggers, intake, delegation, verification, durable state, budgets, and next-action policy govern repeated work.
+- **Operations layer**: telemetry, approvals, incident response, cost controls, rollback, and human ownership govern deployed loops.
+- **Evaluation layer**: benchmarks, graders, trace analysis, and challenge sets measure behavior across the other layers.
+
+Dataset rows pair this facet with `scope_fit`: `direct` for operational loop resources, `enabling` for components and evidence, and `adjacent` for model architectures or neighboring ecosystem maps.
 
 ## By Trigger
 

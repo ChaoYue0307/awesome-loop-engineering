@@ -171,7 +171,10 @@ def resource_cells(row: dict[str, str]) -> tuple[str, str, str, str]:
     annotation = escape_cell(row["annotation"])
     marker = escape_cell(row["marker"])
     resource_type = escape_cell(row["resource_type"])
-    resource = f"{marker} **[{title}]({url})**<br><sub>{resource_type}</sub>"
+    subtype = resource_type
+    if row.get("section") == "Model-Level Recurrence":
+        subtype = f"{resource_type} · Model layer · Adjacent foundation"
+    resource = f"{marker} **[{title}]({url})**<br><sub>{escape_cell(subtype)}</sub>"
     return resource, publication_cell(row), annotation, evidence_cell(row)
 
 

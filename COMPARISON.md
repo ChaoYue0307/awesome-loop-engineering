@@ -2,6 +2,14 @@
 
 Loop Engineering is easiest to understand by separating it from nearby practices.
 
+## Model-Level Recurrence vs Loop Engineering
+
+**Model-level recurrence** repeats a learned layer, block, module, or latent-state update inside one model inference. It can provide adaptive depth, latent reasoning, parameter sharing, or iterative world-state refinement.
+
+**Loop Engineering** governs repeated agent work outside the model: what triggers a run, which work enters, what tools and permissions apply, what external evidence gates progress, what state survives, and when the system retries, escalates, or stops.
+
+A looped Transformer, recurrent-depth language model, or LoopWM can be the model inside an agent loop. It does not replace the Loop Contract because hidden-state iteration alone does not provide durable receipts, independent verification, permission boundaries, or accountable human handoff.
+
 ## Prompt Engineering vs Loop Engineering
 
 **Prompt Engineering** asks: what should I say to the model now?

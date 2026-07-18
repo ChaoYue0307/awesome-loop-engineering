@@ -1,41 +1,39 @@
-# Awesome Loop Engineering v0.7.0
+# Awesome Loop Engineering v0.8.0
 
-Awesome Loop Engineering v0.7.0 connects a recurring problem to an operational pattern, a validated contract, and a working runtime starter.
+Awesome Loop Engineering v0.8.0 maps recurrence from a model's inner computation to an agent's tools and the outer operating loop that verifies, remembers, retries, escalates, and stops.
 
-Navigate 555 source-audited works across the operating layer that discovers work, delegates it, verifies results, persists state, and decides what happens next.
+Navigate 579 source-audited works without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
 
 ## What You Can Use
 
-- 555 source-audited resources linked to canonical works
+- 579 source-audited resources linked to canonical works
+- 23 selected model-recurrence papers, from Universal Transformers and Huginn to LoopCoder and LoopWM, labeled as adjacent foundations rather than complete agent loops
 - 20 operational patterns organized by build, operate, optimize, and govern use cases
 - 20 schema-validated loop contracts, one for every pattern
 - 8 runtime starters: 3 dependency-light executables and 5 copy/paste runtime templates
-- an interactive Resource Atlas for filtering by goal, lifecycle stage, artifact type, and evidence class
-- CSV and JSONL exports mirrored as a Hugging Face dataset
+- an interactive Resource Atlas for filtering by goal, loop layer, lifecycle stage, artifact type, and evidence class
+- 50-field CSV, JSONL, and Parquet exports mirrored as a Hugging Face dataset
 - 8 language entry points
 
-## What Changed Since v0.6.0
+## What Changed Since v0.7.0
 
-- Added five distinct operational patterns: benchmark optimization, accessibility regression, knowledge freshness, performance regression, and authorized adversarial red teaming.
-- Added a schema-valid contract and worked scenario for every new pattern.
-- Reorganized the pattern library into four operating domains with a symptom, verified outcome, and guidance for choosing between similar loops.
-- Rebuilt the contract catalog around the questions implementers actually need: when to use a loop, what triggers it, which deterministic gate decides done, and what receipt survives.
-- Added four end-to-end worked paths for CI repair, knowledge refresh, queue processing, and read-only threshold monitoring.
-- Added two executable starters: a JSONL queue worker with idempotent state and a read-only threshold monitor with bounded polling and evidence-backed escalation.
-- Clarified that the starter library contains three executables and five copy/paste runtime templates, avoiding an unsupported claim that every artifact is a standalone program.
-- Updated the website, social preview, translations, release metadata, and Hugging Face dataset to the same counts.
+- Added a bounded Model-Level Recurrence section with 23 high-signal papers and the deeper Awesome Loop Models catalog.
+- Added `loop_layer` and `scope_fit` to every dataset row so model recurrence remains discoverable without being misclassified as operational Loop Engineering.
+- Added a model-to-operations map and loop-layer filter to the Resource Atlas.
+- Added a cross-layer research protocol for comparing internal recurrent depth with external evidence-aware retries under matched compute and cost.
+- Rechecked all 579 canonical sources and refreshed every arXiv publication decision so official conference or journal records take precedence when verified.
+- Updated the website, social preview, translations, release metadata, and Hugging Face dataset to the same counts and terminology.
 
 ## Why This Matters
 
-Evidence becomes useful when it leads to a reviewable implementation.
+"Loop" is overloaded. A learned block can recur inside one inference, an agent can alternate reasoning and tools inside one task, and an operating system can rerun verified work across time. Each layer matters, but each carries different state, stopping rules, evidence, and risks.
 
-The v0.7.0 path is explicit:
+The v0.8.0 map keeps those layers connected and comparable:
 
-1. Name the recurring problem.
-1. Choose an operational pattern.
-1. Adapt its validated contract.
-1. Select a runtime starter.
-1. Let external evidence, durable state, a hard budget, and human escalation govern the loop.
+1. Study model recurrence when the question is adaptive depth or latent computation.
+1. Study agent and harness resources when the question is reasoning, tools, context, or verification within a task.
+1. Use an operational pattern and Loop Contract when work must recur across events, sessions, or time.
+1. Let external evidence, durable state, a hard budget, and human escalation govern real-world repetition.
 
 The goal remains bounded, reviewable, evidence-driven repetition, not unlimited autonomy.
 

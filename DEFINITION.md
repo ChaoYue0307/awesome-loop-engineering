@@ -10,6 +10,8 @@ Use this definition to scope a system, review a design, or cite the concept cons
 
 Prompt engineering improves what you ask the model, context engineering improves what the model can see, harness engineering improves the environment around one agent run, and Loop Engineering governs repeated agent work over time.
 
+Model-level recurrence is a complementary architecture choice: shared learned computation may repeat inside one inference, while Loop Engineering governs how that model participates in recurring work across runs.
+
 ## Longer Definition
 
 Loop Engineering connects prompt, context, and harness decisions across runs. It replaces turn-by-turn human steering with a reviewable operating contract: what starts the loop, where work comes from, which agents act, what they can access, how evidence gates results, what state survives, how retries are bounded, and when a human takes over.

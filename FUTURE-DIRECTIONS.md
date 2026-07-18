@@ -60,6 +60,23 @@ Every study or operating report should include:
 - raw per-run outcomes plus the script that produces aggregate tables;
 - privacy, licensing, and redaction decisions for data that cannot be public.
 
+## Cross-Layer Study: Model Recurrence And Operational Loops
+
+Model recurrence and operational recurrence spend compute at different boundaries. A looped model repeats learned computation inside one inference; an operational loop repeats model calls, tool actions, verification, and state transitions around a real task. Treating both simply as "more test-time compute" hides different costs, stopping rules, evidence, and failure modes.
+
+Use a matched cross-layer study to decide where an additional unit of compute belongs:
+
+| Question | Compare | Hold fixed | Report |
+| --- | --- | --- | --- |
+| **Where does another pass help?** | More recurrent depth inside one call vs another evidence-aware agent pass | Task set, model family where possible, tool access, verifier, and total compute or cost | Verified completion, false completion, latency, cost, and gain by task difficulty |
+| **Who should stop the iteration?** | Fixed depth, learned halting, confidence-based stopping, external verification, and human escalation | Acceptance policy and maximum budget | Calibration, premature stops, wasted passes, budget breaches, and escalation quality |
+| **What state should survive?** | Hidden-state refinement, visible reasoning state, and durable external checkpoints | Initial context and task history | Resume fidelity, contamination, replayability, and diagnostic value after failure |
+| **Can inner and outer loops cooperate?** | Standard model, looped model, operational loop, and looped model inside an operational loop | Harness, permissions, task intake, and evidence gate | Interaction effects, marginal value per pass, correlated failures, and the simplest Pareto-efficient configuration |
+
+**Starter experiment:** choose 50 reasoning or coding tasks with deterministic checks. Compare a single standard inference, matched-cost internal recurrence, fixed external retry, and evidence-aware external retry. Then run the combined system only if each component shows independent value. Publish per-task compute, every stopping decision, verifier results, and failure traces.
+
+**Completion gate:** the study identifies when internal recurrence replaces, complements, or fails to improve external iteration without crediting hidden-state depth for operational guarantees it does not provide. A useful result may show that one layer is unnecessary for a given workload.
+
 ## Priority Map
 
 The tiers describe dependency order, not prestige. Establish trustworthy state transitions before optimizing complex delegation.

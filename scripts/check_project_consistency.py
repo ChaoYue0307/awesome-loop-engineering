@@ -29,6 +29,8 @@ REQUIRED_RESOURCE_FIELDS = {
     "user_goal",
     "lifecycle_stages",
     "audience",
+    "loop_layer",
+    "scope_fit",
     "evidence_class",
     "evidence_tier",
     "source_status",
@@ -38,6 +40,8 @@ REQUIRED_RESOURCE_FIELDS = {
 ALLOWED_EVIDENCE_TIERS = {"A", "B", "C", "D"}
 ALLOWED_SIGNAL_STRENGTHS = {"high", "medium", "contextual", "unverified"}
 ALLOWED_SOURCE_STATUSES = {"ok", "local_ok", "restricted", "broken", "unreachable", "local_missing"}
+ALLOWED_LOOP_LAYERS = {"model", "agent", "harness", "workflow", "operations", "evaluation", "cross-layer"}
+ALLOWED_SCOPE_FITS = {"direct", "enabling", "adjacent"}
 
 
 def require(path: Path, snippets: list[str], failures: list[str]) -> None:
@@ -83,6 +87,10 @@ def validate_resource_rows(rows: list[dict[str, str]], failures: list[str]) -> N
             failures.append(f"data/resources.csv: {row_label} has invalid signal_strength {row.get('signal_strength')!r}")
         if row.get("source_status") not in ALLOWED_SOURCE_STATUSES:
             failures.append(f"data/resources.csv: {row_label} has invalid source_status {row.get('source_status')!r}")
+        if row.get("loop_layer") not in ALLOWED_LOOP_LAYERS:
+            failures.append(f"data/resources.csv: {row_label} has invalid loop_layer {row.get('loop_layer')!r}")
+        if row.get("scope_fit") not in ALLOWED_SCOPE_FITS:
+            failures.append(f"data/resources.csv: {row_label} has invalid scope_fit {row.get('scope_fit')!r}")
 
         year = row.get("publication_year", "")
         if year and not re.fullmatch(r"(?:19|20)\d{2}", year):

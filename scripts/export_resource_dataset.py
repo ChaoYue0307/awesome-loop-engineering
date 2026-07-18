@@ -63,6 +63,18 @@ TYPE_MARKERS = {
     "Critique": "⚠️",
 }
 
+
+def base_resource_type(value: str) -> str:
+    cleaned = clean(value)
+    return next(
+        (
+            resource_type
+            for resource_type in TYPE_MARKERS
+            if cleaned == resource_type or cleaned.startswith(f"{resource_type} ·")
+        ),
+        cleaned,
+    )
+
 FIELDS = [
     "row_id",
     "section",
@@ -89,6 +101,8 @@ FIELDS = [
     "user_goal",
     "lifecycle_stages",
     "audience",
+    "loop_layer",
+    "scope_fit",
     "evidence_class",
     "evidence_tier",
     "source_status",
@@ -131,6 +145,8 @@ SITE_FIELDS = [
     "section_slug",
     "lifecycle_stages",
     "audience",
+    "loop_layer",
+    "scope_fit",
     "evidence_class",
     "evidence_tier",
     "signal_strength",
@@ -154,6 +170,7 @@ COLLECTIONS = {
     "Concept Guides": ("Learn", "Understand the field and its boundaries."),
     "Start Here": ("Learn", "Understand the field and its boundaries."),
     "Research Foundations": ("Learn", "Understand the field and its boundaries."),
+    "Model-Level Recurrence": ("Learn", "Understand how recurrent model computation can power, but not replace, a governed agent loop."),
     "Pattern Library": ("Design", "Specify a loop contract and operating pattern."),
     "Core Loop Primitives": ("Design", "Specify a loop contract and operating pattern."),
     "Agent Workflow Patterns": ("Design", "Specify a loop contract and operating pattern."),
@@ -189,6 +206,7 @@ SECTION_STAGE_DEFAULTS = {
     "Start Here": ["whole-loop"],
     "Pattern Library": ["whole-loop"],
     "Research Foundations": ["whole-loop"],
+    "Model-Level Recurrence": ["act"],
     "Official Runtime Guides": ["workspace", "context", "delegation", "state"],
     "Agent Workflow Patterns": ["delegation", "verification"],
     "Coding-Agent Loop Systems": ["workspace", "delegation", "verification", "state"],
@@ -240,6 +258,7 @@ SECTION_IMPACT = {
     "Core Loop Primitives": "Turns the concept into concrete loop mechanics: triggers, state, tools, worktrees, permissions, and recurring execution.",
     "Official Runtime Guides": "Anchors implementation choices in primary vendor and framework documentation instead of second-hand summaries.",
     "Research Foundations": "Connects Loop Engineering to prior work on agent loops, planning, reflection, feedback, and long-horizon autonomy.",
+    "Model-Level Recurrence": "Explains the inner recurrent computation that can improve an agent's model while remaining distinct from the outer operating loop.",
     "Agent Workflow Patterns": "Shows reusable architecture patterns that compose agents, evaluators, workers, and durable workflow control.",
     "Coding-Agent Loop Systems": "Grounds the practice in real coding-agent systems, bare loops, orchestration tools, and long-running software tasks.",
     "Verification And Feedback Gates": "Identifies the feedback signals that make recurring agent work measurable, retryable, and safe to stop.",
@@ -278,7 +297,51 @@ SECTION_NOVELTY = {
     "Pattern Library": "Turns common recurring-agent jobs into named patterns with gates, budgets, and escalation paths.",
     "Critiques, Risks, And Limitations": "Keeps adoption grounded in known failure modes, economics, and operational limits.",
     "Adjacent Awesome Lists": "Connects neighboring ecosystems while preserving Loop Engineering as a narrower operating concept.",
+    "Model-Level Recurrence": "Separates shared-block latent iteration inside one model inference from repeated, externally governed agent work.",
 }
+
+SECTION_LOOP_LAYERS = {
+    "Concept Guides": "cross-layer",
+    "Start Here": "cross-layer",
+    "Pattern Library": "workflow",
+    "Core Loop Primitives": "workflow",
+    "Official Runtime Guides": "harness",
+    "Research Foundations": "cross-layer",
+    "Model-Level Recurrence": "model",
+    "Agent Workflow Patterns": "workflow",
+    "Coding-Agent Loop Systems": "agent",
+    "Verification And Feedback Gates": "harness",
+    "Securing Unattended Loops": "operations",
+    "State, Memory, And Context Persistence": "harness",
+    "Orchestration And Multi-Agent Delegation": "workflow",
+    "Benchmarks And Evaluation": "evaluation",
+    "Operations Playbooks": "operations",
+    "Templates And Patterns": "workflow",
+    "Examples And Schema": "workflow",
+    "Community Gallery": "operations",
+    "Critiques, Risks, And Limitations": "cross-layer",
+    "Adjacent Awesome Lists": "cross-layer",
+    "Explore And Reuse": "cross-layer",
+    "Shape What Comes Next": "cross-layer",
+}
+
+TITLE_LOOP_LAYERS = {
+    "Awesome Loop Models": "model",
+}
+
+DIRECT_SCOPE_SECTIONS = {
+    "Concept Guides",
+    "Start Here",
+    "Pattern Library",
+    "Core Loop Primitives",
+    "Coding-Agent Loop Systems",
+    "Operations Playbooks",
+    "Templates And Patterns",
+    "Examples And Schema",
+    "Community Gallery",
+}
+
+ADJACENT_SCOPE_SECTIONS = {"Model-Level Recurrence", "Adjacent Awesome Lists"}
 
 TYPE_SIGNAL = {
     "Paper": ("Research paper or preprint; strongest signal when the entry contributes a method, benchmark, measurement, or formal framing.", "high"),
@@ -412,6 +475,10 @@ def novelty(section: str, title: str, annotation: str) -> str:
         lens = "Makes an otherwise informal practice concrete and reusable."
         return f"{lens} {key_contribution(annotation)}"
 
+    if section == "Model-Level Recurrence":
+        lens = "Reuses learned computation inside one model inference rather than repeating a full agent run."
+        return f"{lens} {key_contribution(annotation)}"
+
     text = f"{title} {annotation}".lower()
     for pattern, phrase in NOVELTY_RULES:
         if re.search(pattern, text):
@@ -433,6 +500,8 @@ def collection_for(section: str) -> tuple[str, str]:
 def lifecycle_stages(section: str, title: str, annotation: str) -> str:
     text = f"{title} {annotation}".lower()
     stages = [stage for stage, pattern in STAGE_RULES if re.search(pattern, text)]
+    if section == "Model-Level Recurrence" and "act" not in stages:
+        stages.insert(0, "act")
     if not stages:
         stages = SECTION_STAGE_DEFAULTS.get(section, ["whole-loop"])
     return ";".join(dict.fromkeys(stages))
@@ -446,6 +515,8 @@ def audience_for(section: str, resource_type: str) -> str:
         audiences.append("builder")
     if resource_type in {"Paper", "Benchmark"}:
         audiences.extend(["researcher", "evaluator"])
+    if section == "Model-Level Recurrence":
+        audiences.extend(["model-builder", "agent-builder"])
     if section in {"Securing Unattended Loops", "Operations Playbooks", "Critiques, Risks, And Limitations"}:
         audiences.extend(["operator", "security"])
     if section in {"Verification And Feedback Gates", "Benchmarks And Evaluation"}:
@@ -486,7 +557,21 @@ def evidence_class(
     }.get(resource_type, "curated-source")
 
 
-def impact(collection: str, title: str) -> str:
+def loop_layer(section: str, title: str) -> str:
+    return TITLE_LOOP_LAYERS.get(title, SECTION_LOOP_LAYERS.get(section, "cross-layer"))
+
+
+def scope_fit(section: str) -> str:
+    if section in ADJACENT_SCOPE_SECTIONS:
+        return "adjacent"
+    if section in DIRECT_SCOPE_SECTIONS:
+        return "direct"
+    return "enabling"
+
+
+def impact(collection: str, section: str, title: str) -> str:
+    if section == "Model-Level Recurrence":
+        return f"Use {title} to assess inner latent computation as a model capability inside a separately governed agent loop."
     goal = COLLECTION_IMPACT.get(collection, "apply the source to a recurring agent system")
     return f"Use {title} to {goal}."
 
@@ -551,8 +636,9 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
     for line_number, raw_line in enumerate(readme_path.read_text(encoding="utf-8").splitlines(), 1):
         heading = HEADING_RE.match(raw_line)
         if heading:
-            section = clean(heading.group("title"))
-            section_slug = slugify(section)
+            if heading.group("level") == "##":
+                section = clean(heading.group("title"))
+                section_slug = slugify(section)
             continue
 
         entry = parse_entry_line(raw_line)
@@ -565,7 +651,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
 
         url_kind, domain = classify_url(url)
         annotation = clean(entry["annotation"])
-        resource_type = clean(entry["resource_type"])
+        resource_type = base_resource_type(entry["resource_type"])
         row_number = len(rows) + 1
         row_id = f"ale-{row_number:04d}"
         collection, user_goal = collection_for(section)
@@ -588,7 +674,7 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "description": annotation,
                 "key_contribution": key_contribution(annotation),
                 "novelty": novelty(section, clean(entry["title"]), annotation),
-                "impact": impact(collection, clean(entry["title"])),
+                "impact": impact(collection, section, clean(entry["title"])),
                 "signal": signal_text,
                 "signal_strength": signal_strength,
                 "source_readme": "README.md",
@@ -600,6 +686,8 @@ def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:
                 "user_goal": user_goal,
                 "lifecycle_stages": lifecycle_stages(section, clean(entry["title"]), annotation),
                 "audience": audience_for(section, resource_type),
+                "loop_layer": loop_layer(section, clean(entry["title"])),
+                "scope_fit": scope_fit(section),
                 "evidence_class": evidence,
                 "evidence_tier": evidence_tier(evidence),
                 "source_status": audit.get("audit_status", "not-audited"),
