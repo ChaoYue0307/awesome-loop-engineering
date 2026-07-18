@@ -1,24 +1,24 @@
 # Contributing
 
-Contribute a canonical source, an evidence-backed correction, or a loop you have run.
+Contribute an original or official source, an evidence-backed correction, or a loop you have run.
 
 Contributions must address recurring AI-agent or coding-agent systems with explicit triggers, work intake, verification, durable state, budgets, escalation, and exit.
 
-Before submitting, read the [curation standard](meta/CURATION.md). It defines scope, evidence tiers, annotation rules, and correction handling.
+Before submitting, read the [resource selection guide](meta/CURATION.md). It explains the scope, evidence labels, summary style, and correction process.
 
 ## Fastest Contribution (Under Five Minutes)
 
 Use the [resource suggestion form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=resource-suggestion.yml) to propose one source without preparing a fork. Include:
 
-- the canonical public URL;
+- the original or official public URL;
 - the most specific README category;
 - one sentence on the contribution, novelty, or practical value for recurring agent systems;
 - the source type and evidence tier;
 - any caveat, such as vendor bias, a paywall, early-stage status, or weak evidence.
 
-Maintainers apply the same scope, duplication, source-quality, and annotation checks used for pull requests. Corrections are equally valuable: link the current entry and state the exact change.
+Each suggestion is checked for scope, duplication, source quality, and a useful summary. Corrections are equally valuable: link the current entry and state the exact change.
 
-For an inaccurate summary, contribution, novelty, impact, authorship, date, venue, identifier, or canonical link, use the [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml). Include primary-source evidence; omit unavailable metadata rather than guessing.
+For an inaccurate summary, contribution, novelty, impact, authorship, date, venue, identifier, or source link, use the [annotation-correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml). Include primary-source evidence; omit unavailable metadata rather than guessing.
 
 ## Quick PR Flow
 
@@ -28,10 +28,10 @@ For an inaccurate summary, contribution, novelty, impact, authorship, date, venu
 1. Add one metadata-rich row with a resource type label, verified year/source context, and one specific key feature:
 
 ```md
-| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. | **Tier A** · Research preprint<br><sub>Preprint; inspect methods and evaluation</sub> |
+| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 ```
 
-When a source exposes no reliable publication date, omit the year and keep only the original venue or publishing platform. Do not infer a date from a search-result snippet. Maintainers derive the evidence tier from the audited source class and regenerate the table layout and structured exports after review.
+When a source exposes no reliable publication date, omit the year and keep only the original venue or publishing platform. Do not infer a date from a search-result snippet. The evidence label is derived from the source type, and the table layout and structured exports are regenerated after review.
 
 1. Open a PR using the template and explain:
    - why the resource belongs;
@@ -40,11 +40,11 @@ When a source exposes no reliable publication date, omit the year and keep only 
    - the evidence quality tier and resource type label;
    - any caveat such as vendor bias, paywall, early-stage status, or weak evidence.
 
-If automated tools assisted discovery, extraction, or drafting, say so in the PR. Check every resulting claim against the canonical source; generated text is not evidence.
+If automated tools assisted discovery, extraction, or drafting, say so in the PR. Check every resulting claim against the original or official source; generated text is not evidence.
 
 ## License For Contributions
 
-By contributing to this repository, you agree that your contribution to this repository's curation text, annotations, templates, patterns, metadata, and documentation is released under [CC0-1.0](LICENSE).
+By contributing to this repository, you agree that your original summaries, templates, patterns, metadata, and documentation are released under [CC0-1.0](LICENSE).
 
 Do not copy third-party articles, papers, images, documentation, code, or other content into this repository unless you have the right to do so. Prefer stable links and short original annotations. External resources keep their own licenses and terms.
 
@@ -82,7 +82,7 @@ Prefer higher tiers when two resources cover the same idea.
 | --- | --- | --- |
 | A | Primary source or official docs | Tool docs, paper, project README, author write-up |
 | B | Practitioner write-up with implementation detail | Field notes, playbooks, postmortems |
-| C | Curated survey or high-quality explainer | Taxonomy, comparison, tutorial |
+| C | Synthesis or high-quality explainer | Taxonomy, comparison, tutorial |
 | D | Commentary or news coverage | Useful only when it documents origin, adoption, or debate |
 
 If two links cover the same idea, prefer the more primary, stable, and implementation-specific source.
@@ -171,7 +171,7 @@ See [TRANSLATIONS.md](TRANSLATIONS.md).
 
 Translation PRs should:
 
-- link back to the canonical English README;
+- link back to the full English guide;
 - preserve the narrow AI/coding-agent scope;
 - keep resource URLs unchanged;
 - update language navigation if a new language file is added;
@@ -190,4 +190,4 @@ If you do not want to open a PR, use the resource suggestion issue template. Ple
 
 ## Review Standard
 
-Maintainers may ask for stronger relevance, a more precise category, a better annotation, or removal of promotional language. The goal is to keep the list useful for people designing real agent loops, not to collect every AI-agent link on the internet.
+A review may ask for stronger relevance, a more precise category, a better summary, or removal of promotional language. The goal is to keep the list useful for people designing real agent loops, not to collect every AI-agent link on the internet.

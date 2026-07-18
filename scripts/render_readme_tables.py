@@ -30,7 +30,7 @@ TYPE_DESCRIPTIONS = {
     "Benchmark": "Benchmark, eval suite, leaderboard, or evaluation dataset",
     "Pattern": "Operational playbook or reusable workflow",
     "Template": "Template, checklist, schema, guide, or contribution artifact",
-    "List": "Adjacent awesome list, ecosystem map, or curated collection",
+    "List": "Adjacent directory, ecosystem map, or reading list",
     "Critique": "Risk analysis, limitation, caveat, or skeptical take",
 }
 
@@ -47,13 +47,13 @@ EVIDENCE_LABELS = {
     "source-implementation": "Source implementation",
     "implementation": "Implementation",
     "benchmark": "Benchmark or evaluation",
-    "repository-native": "Validated project artifact",
+    "repository-native": "Project artifact",
     "reusable-artifact": "Reusable artifact",
     "operational-pattern": "Operational pattern",
     "practitioner-analysis": "Practitioner analysis",
     "risk-analysis": "Risk analysis",
-    "curated-index": "Curated index",
-    "curated-source": "Curated source",
+    "curated-index": "Discovery index",
+    "curated-source": "Background source",
 }
 
 EVIDENCE_NOTES = {
@@ -64,13 +64,13 @@ EVIDENCE_NOTES = {
     "source-implementation": "Inspectable source and runtime behavior",
     "implementation": "Working implementation or runtime",
     "benchmark": "Repeatable tasks, scores, or evaluation data",
-    "repository-native": "Maintained with project validation checks",
+    "repository-native": "Schema, example, guide, or repository documentation",
     "reusable-artifact": "Adaptable template, schema, or guide",
     "operational-pattern": "Transferable operating practice",
     "practitioner-analysis": "Experience-backed implementation context",
     "risk-analysis": "Failure modes, limits, or adoption cautions",
-    "curated-index": "Ecosystem coverage and discovery",
-    "curated-source": "Curated context for comparison",
+    "curated-index": "Broader ecosystem coverage for finding related work",
+    "curated-source": "Background context for comparison",
 }
 
 
@@ -156,14 +156,13 @@ def publication_cell(row: dict[str, str]) -> str:
 
 def evidence_cell(row: dict[str, str]) -> str:
     evidence = row["evidence_class"]
-    tier = row["evidence_tier"]
     label = EVIDENCE_LABELS.get(evidence, evidence.replace("-", " ").title())
     note = EVIDENCE_NOTES.get(evidence, "Inspect the linked source")
     if row["source_status"] == "restricted":
-        note = "Access restricted during the latest source audit"
+        note = "The linked source required access at the latest check"
     elif row["source_status"] not in {"ok", "local_ok"}:
-        note = "Availability was not verified in the latest audit"
-    return f"**Tier {escape_cell(tier)}** · {escape_cell(label)}<br><sub>{escape_cell(note)}</sub>"
+        note = "The linked source was unavailable at the latest check"
+    return f"**{escape_cell(label)}**<br><sub>{escape_cell(note)}</sub>"
 
 
 def resource_cells(row: dict[str, str]) -> tuple[str, str, str, str]:

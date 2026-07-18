@@ -71,7 +71,7 @@ Prompt、context、harness engineering は 1 回の実行を良くします。Lo
 
 ## はじめに読むもの
 
-完全なリソース一覧は英語の canonical README にあります: [README.md](README.md)。
+すべてのリソースは英語の完全版ガイドで確認できます: [README.md](README.md)。
 
 おすすめの入口:
 

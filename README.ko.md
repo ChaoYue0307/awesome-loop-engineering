@@ -71,7 +71,7 @@ Prompt, context, harness engineering 은 한 번의 실행을 더 좋게 만듭�
 
 ## 시작하기
 
-전체 리소스 목록은 영어 canonical README 에 있습니다: [README.md](README.md).
+전체 리소스는 영어 전체 가이드에서 볼 수 있습니다: [README.md](README.md).
 
 추천 시작 자료:
 

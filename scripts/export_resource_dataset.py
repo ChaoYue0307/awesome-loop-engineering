@@ -352,7 +352,7 @@ TYPE_SIGNAL = {
     "Template": ("Reusable template, schema, checklist, or guide; signal comes from concrete adaptation and validation.", "medium"),
     "Blog": ("Practitioner essay or field note; signal comes from concrete experience, framing, examples, or adoption discussion.", "contextual"),
     "Critique": ("Risk or limitation analysis; signal comes from boundary conditions, failure modes, and adoption cautions.", "contextual"),
-    "List": ("Adjacent curated collection; signal comes from ecosystem coverage rather than a single technical claim.", "contextual"),
+    "List": ("Adjacent directory or reading list; signal comes from ecosystem coverage rather than a single technical claim.", "contextual"),
 }
 
 EVIDENCE_TIERS = {
@@ -596,9 +596,9 @@ def signal(
 ) -> tuple[str, str]:
     status = audit.get("audit_status", "")
     if status in {"broken", "unreachable", "local_missing"}:
-        return "The latest source audit could not verify this resource; treat its claims and availability as unverified.", "unverified"
+        return "The linked source was unavailable at the latest check; treat its claims and availability as unverified.", "unverified"
     if url_kind != "external":
-        return "Local artifact maintained with automated validation checks.", "medium"
+        return "Repository file; inspect the linked schema, example, guide, or implementation.", "medium"
     if evidence == "official-documentation":
         return f"Primary official documentation from {domain}; use it for current product or standard behavior.", "high"
     if evidence in {"research-preprint", "research-paper"}:
@@ -625,7 +625,7 @@ def signal(
         return f"Inspectable GitHub source{detail}; popularity is context, not proof of reliability.", "medium"
     if evidence in {"practitioner-analysis", "risk-analysis", "curated-index"}:
         return f"Contextual source from {domain}; useful for practice signals or boundary conditions, not independent validation.", "contextual"
-    return TYPE_SIGNAL.get(resource_type, (f"Curated source from {domain}; verify fit against the linked artifact.", "contextual"))
+    return TYPE_SIGNAL.get(resource_type, (f"Background source from {domain}; verify fit against the linked artifact.", "contextual"))
 
 
 def iter_rows(readme_path: Path = README) -> list[dict[str, str]]:

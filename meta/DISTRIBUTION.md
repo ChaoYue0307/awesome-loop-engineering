@@ -32,8 +32,8 @@ Search engines may still take days or longer to index a new repository. Backlink
 The Hugging Face dataset [`datasets/cy0307/awesome-loop-engineering`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering) exposes the collection to AI/ML users and tabular workflows. Sync it after each GitHub release or data change.
 
 - The mirror tracks the full GitHub tree (docs, patterns, examples, schema, scripts).
-- The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the canonical English `README.md` by `scripts/export_resource_dataset.py`.
-- The HF copy of `README.md` is a focused dataset card generated from `meta/hf_card_header.yaml` and `meta/hf_card_body.md` by `scripts/build_hf_card.py`. It documents intended uses, provenance, limitations, loading examples, and the current audit snapshot without duplicating the 579-row GitHub README.
+- The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the full English `README.md` by `scripts/export_resource_dataset.py`.
+- The HF copy of `README.md` is a focused dataset card generated from `meta/hf_card_header.yaml` and `meta/hf_card_body.md` by `scripts/build_hf_card.py`. It documents intended uses, evidence fields, limitations, loading examples, and the latest link status without duplicating the 579-row GitHub README.
 - The YAML header is **HF-only**: it must never be added to the GitHub `README.md`, because the metadata list items break `awesome-lint`.
 - Sync uses `python3 scripts/build_hf_card.py --output <staging>/README.md` followed by `hf upload --type dataset` against a staging copy. The token lives in the local Hugging Face cache; no token is committed.
 
@@ -46,11 +46,11 @@ Use GitHub-native discovery in this order.
 - **Editorial submissions to adjacent lists** this repo already cites (harness, context, and agent-paper lists). Submit only where the maintainers explicitly accept related resources. Ready-to-paste entry:
 
   ```md
-  - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Source-audited resources, reusable patterns, validated contracts, and runtime starters for recurring AI-agent systems.
+  - [Awesome Loop Engineering](https://github.com/ChaoYue0307/awesome-loop-engineering#readme) - Practical resources, reusable patterns, adaptable contracts, and runtime starters for recurring AI-agent systems.
   ```
 
 - **Pin the repository** on your profile, and add it to your profile README (profile-level promotion).
-- **About description.** Keep this concise proof-point copy aligned with the README and project site: `🔁 579 source-audited resources across model, agent, harness, workflow, operations, and evaluation layers · 20 patterns · 20 contracts · 8 runtime starters.`
+- **About description.** Keep this concise value statement aligned with the README and project site: `🔁 Explore 579 resources from model recurrence to governed agent operations · Build with 20 patterns, 20 contracts, and 8 runtime starters · Atlas + dataset.`
 - **Custom social preview** (repo Settings, Social preview) so shared links lead with the same four durable proof points. This is UI-only; it cannot be set through the API.
 - **Releases and Discussions** provide a lower-noise subscription path. Recommend `Watch -> Custom -> Releases and Discussions`; do not ask readers to watch every repository event.
 
@@ -86,12 +86,12 @@ Treat these as measurement targets, not promises. Log the publication date and c
 
 ## Launch Copy
 
-Use the canonical [English launch article](../posts/launch.md) or [Chinese launch article](../posts/launch.zh-CN.md) for long-form distribution.
+Use the [English launch article](../posts/launch.md) or [Chinese launch article](../posts/launch.zh-CN.md) for long-form distribution.
 
 ### Short Post
 
 ```text
-🔁 Awesome Loop Engineering v0.8.0 is live: 579 source-audited resources across the model-to-operations stack, plus 20 patterns, 20 contracts, and 8 runtime starters.
+🔁 Awesome Loop Engineering v0.8.0 is live: explore 579 resources from model recurrence to agent operations, then build with 20 patterns, 20 contracts, and 8 runtime starters.
 
 🧭 Explore the layers:
 https://chaoyue0307.github.io/awesome-loop-engineering/x-v08-579.html
@@ -108,13 +108,13 @@ Awesome Loop Engineering v0.8.0 is live.
 
 The release includes:
 
-- 579 source-audited resources
+- 579 papers, docs, tools, benchmarks, and guides
 - 23 selected model-recurrence papers labeled as adjacent foundations
 - an interactive Resource Atlas
-- 20 operational patterns and 20 validated loop contracts
+- 20 operational patterns and 20 adaptable loop contracts
 - 8 runtime starters: 3 executables and 5 copy/paste templates
 - 50-field CSV, JSONL, and Parquet exports mirrored to Hugging Face
-- a public provenance standard and point-in-time source audit
+- source and evidence fields, with point-in-time link-check results
 
 Explore, reuse, or correct the map:
 https://github.com/ChaoYue0307/awesome-loop-engineering
@@ -129,7 +129,7 @@ Title: Awesome Loop Engineering: 579 resources from looped models to agent opera
 
 I have been mapping recurring AI-agent systems: how work enters, agents act, evidence gates results, state survives, and the system retries, escalates, or exits.
 
-The repository includes 579 source-audited works across model, agent, harness, workflow, operations, and evaluation layers; 20 operational patterns; 20 validated contracts; 8 runtime starters; an interactive Resource Atlas; and a structured Hugging Face dataset. Model-level recurrence is explicitly labeled as an adjacent foundation rather than a complete operational loop. The curation and audit methods are public; corrections to the taxonomy and annotations are especially welcome.
+The repository connects 579 papers, docs, tools, benchmarks, and guides across model, agent, harness, workflow, operations, and evaluation layers with 20 operational patterns, 20 adaptable contracts, 8 runtime starters, an interactive Resource Atlas, and a structured Hugging Face dataset. Model-level recurrence is labeled as an adjacent foundation rather than a complete operational loop. Corrections to source links, taxonomy, and summaries are especially welcome.
 
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```
@@ -147,11 +147,11 @@ Do not ask anyone to upvote the submission.
 
 ## Where To Share
 
-- X/Twitter thread with the cover image and canonical definition.
+- X/Twitter thread with the cover image and working definition.
 - LinkedIn post focused on the prompt/context/harness/loop stack.
 - Hacker News or Reddit only if framed as a useful field guide, not a launch announcement.
 - Relevant GitHub issues or discussions where Loop Engineering, coding agents, or agent workflows are already being discussed.
-- Authors and maintainers cited in the repo, asking for corrections or stronger canonical links.
+- Authors and maintainers cited in the repo, asking for corrections or better original source links.
 - The repository's own Discussions, using [`DISCUSSIONS.md`](DISCUSSIONS.md) for starter prompts and scope guidance.
 
 ## Outreach Targets
@@ -184,5 +184,5 @@ Candidate places:
 
 - Do not claim that Loop Engineering is a finished standard.
 - Do not imply cited authors endorse this repository unless they explicitly do.
-- Prefer "early field guide" or "curated map" over "definitive source".
+- Describe what readers can explore, compare, or build instead of claiming authority or completeness.
 - Keep all claims linked to public, inspectable sources.

@@ -12,9 +12,9 @@ Use these messages to request sources, operating examples, and accuracy correcti
 ## Short Message
 
 ```text
-Hi <name>, Awesome Loop Engineering collects source-audited resources and reusable patterns for recurring AI-agent systems.
+Hi <name>, Awesome Loop Engineering connects 579 papers, docs, tools, benchmarks, and guides with reusable patterns for recurring AI-agent systems.
 
-If you have a canonical source, correction, real-world loop, or cautionary example, you can contribute here:
+If you have an original or official source, a correction, a real-world loop, or a cautionary example, you can contribute here:
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```
 
@@ -31,14 +31,14 @@ Useful examples name the trigger, intake, agent roles, verification gates, durab
 ```text
 Hi <name>, I included <work title> in Awesome Loop Engineering and summarized its contribution as: "<current annotation>."
 
-Could you check whether that characterization is accurate? If it misses the main contribution, novelty, impact, or canonical link, please submit a correction:
+Could you check whether that characterization is accurate? If it misses the main contribution, novelty, impact, or source link, please submit a correction:
 https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml
 ```
 
 ## Maintainer Request
 
 ```text
-Hi <name>, Awesome Loop Engineering is a source-audited field guide and implementation kit for recurring AI-agent systems. It includes 579 resources across model-to-operations layers, 20 operational patterns, 20 validated contracts, 8 runtime starters, and a structured dataset.
+Hi <name>, Awesome Loop Engineering helps researchers and builders move from 579 papers, docs, tools, benchmarks, and guides to 20 operational patterns, 20 adaptable contracts, 8 runtime starters, and a structured dataset.
 
 Would it fit the related-resources policy for <project or newsletter>? I can provide a shorter description or submit through the normal contribution process:
 https://github.com/ChaoYue0307/awesome-loop-engineering
@@ -48,5 +48,5 @@ https://github.com/ChaoYue0307/awesome-loop-engineering
 
 - Do not ask people to endorse claims they have not made.
 - Do not ask for private customer data, proprietary prompts, secrets, or internal dashboards.
-- Do not imply the repository is a standard. It is an early curated field guide for an emerging practice.
+- Do not imply the repository is a standard; describe the concrete resources and tools readers can use.
 - Do not ask for stars, reposts, or endorsements in an accuracy request.

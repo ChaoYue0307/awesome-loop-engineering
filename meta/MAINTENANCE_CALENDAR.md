@@ -30,7 +30,7 @@ Run the local checks in [MAINTENANCE.md](MAINTENANCE.md#local-verification) befo
 
 - Taxonomy review: confirm [TAXONOMY.md](../TAXONOMY.md) still covers how loops are being built in practice.
 - Roadmap review: update [ROADMAP.md](../ROADMAP.md) with shipped work and the next pattern, gallery, and runtime priorities.
-- Translation drift review: confirm each translated README still matches the canonical English overview and bump the `last-synced` markers; see [TRANSLATIONS.md](../TRANSLATIONS.md).
+- Translation drift review: confirm each translated README still matches the full English overview and bump the `last-synced` markers; see [TRANSLATIONS.md](../TRANSLATIONS.md).
 
 ## Canonical Awesome Submission Status
 
@@ -41,7 +41,7 @@ The 30-day age requirement has passed. [`sindresorhus/awesome#4339`](https://git
 - Keep changes scoped and owner-authored; do not misrepresent automated assistance.
 - Re-run the full preflight in [AWESOME_SUBMISSION.md](AWESOME_SUBMISSION.md#required-preflight) after any structural README change.
 - If accepted, submit to adjacent directories only where the normal editorial policy permits related lists.
-- Keep public claims conservative: this is an early curated field guide, not a finished standard.
+- Keep public claims concrete: describe what readers can explore, compare, or build without presenting the project as a finished standard.
 
 ## See Also
 

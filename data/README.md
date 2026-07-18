@@ -1,13 +1,13 @@
 # Dataset Exports
 
-Download deterministic tabular exports of all 579 source-audited resources.
+Download all 579 resources as deterministic tabular exports.
 
 - `resources.csv` - Tabular export for spreadsheets and ad hoc analysis.
 - `resources.jsonl` - JSON Lines export and source for the Hugging Face Parquet build.
 - `resources.parquet` - Native Parquet shard generated in the Hugging Face release snapshot; it powers the Dataset Viewer without relying on server-side conversion.
 - `../docs/assets/resources.json` - Slim generated payload used by the website's searchable Resource Atlas.
 - `first_seen.json` - Forward-only sidecar mapping resource URL to the date it was first added; the export left-joins it into the `date_added` column. Empty `date_added` means the entry predates per-entry tracking (started 2026-07-15).
-- `resource_source_audit.csv` - Retrieval-time audit of every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
+- `resource_source_audit.csv` - Point-in-time source check for every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
 - `arxiv_publication_overrides.csv` - Human-verified conference, journal, and workshop records backed by official proceedings, DOI registries, OpenReview, or current author-supplied acceptance notes.
 - `arxiv_publication_audit.csv` - Complete decision table for every arXiv-linked resource: published, accepted, or preprint-only.
 
@@ -15,10 +15,10 @@ The exports preserve each section and annotation while adding four discovery lay
 
 - **Scope facets**: `loop_layer` identifies where recurrence lives (`model`, `agent`, `harness`, `workflow`, `operations`, `evaluation`, or `cross-layer`); `scope_fit` distinguishes resources that are `direct`, `enabling`, or `adjacent` to operational Loop Engineering.
 - **Task facets**: `collection`, `user_goal`, `lifecycle_stages`, and `audience` answer why a reader needs the source and where it fits in the Loop Contract.
-- **Evidence facets**: `evidence_class`, `evidence_tier`, `signal_strength`, `source_status`, canonical URL, source metadata, GitHub statistics, arXiv ID, and audit timestamp separate source provenance from popularity or editorial judgment.
+- **Evidence facets**: `evidence_class`, `evidence_tier`, `signal_strength`, `source_status`, original URL, source metadata, GitHub statistics, arXiv ID, and check timestamp separate source type from popularity or a recommendation.
 - **Publication facets**: `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `publication_note`, `primary_category`, and `metadata_source` provide a paper-like bibliographic row without inventing missing facts.
 
-`key_contribution`, `novelty`, and `impact` are resource-specific. Model-level recurrence is retained as an adjacent foundation because it repeats learned blocks or latent-state updates inside one inference; it does not by itself supply work intake, external verification, durable state, budgets, or human handoff. `evidence_tier` follows the public A-C source hierarchy: A for primary or official artifacts, B for implementation-grounded practice and risk analysis, and C for curated synthesis. `signal` states the evidence basis and limits; GitHub stars and forks provide point-in-time context, never proof of reliability. `signal_strength` is `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and locally maintained artifacts, `contextual` for practitioner analysis and curated lists, and `unverified` only when the latest audit cannot validate availability.
+`key_contribution`, `novelty`, and `impact` are resource-specific. Model-level recurrence is retained as an adjacent foundation because it repeats learned blocks or latent-state updates inside one inference; it does not by itself supply work intake, external verification, durable state, budgets, or human handoff. `evidence_tier` follows the public A-C source hierarchy: A for primary or official artifacts, B for implementation-grounded practice and risk analysis, and C for synthesis and discovery indexes. `signal` states the evidence basis and limits; GitHub stars and forks provide point-in-time context, never proof of reliability. `signal_strength` is `high` for primary official documentation and benchmarks, `medium` for inspectable implementations, papers, patterns, and locally maintained artifacts, `contextual` for practitioner analysis and discovery indexes, and `unverified` only when the latest source check cannot validate availability.
 
 ## Load And Query
 
@@ -54,7 +54,7 @@ Use `url` as the durable join key. `row_id` and `source_line` are positional and
 
 ## Reproducibility
 
-Render the README rows first, then regenerate all three discovery files after changing resource entries or refreshing the source audit:
+Render the README rows first, then regenerate all three discovery files after changing resource entries or refreshing the source check:
 
 ```sh
 python3 scripts/render_readme_tables.py
@@ -66,15 +66,15 @@ python3 scripts/build_hf_card.py --check
 
 Every README resource-table row becomes one deterministic export row with its marker, resource type, title, link, original publishing platform or venue, annotation, section, and source line.
 
-Run a network-backed source audit when refreshing the Hugging Face dataset:
+Run a network-backed source check when refreshing the Hugging Face dataset:
 
 ```sh
 python3 scripts/audit_resource_sources.py --timeout 20 --workers 16 --attempts 2 --github-cli
 ```
 
-The audit file is a snapshot. HTTP status, redirects, page titles, publication metadata, and GitHub statistics can change over time. arXiv bibliographic fields come from the primary arXiv API, while verified conference or journal records take precedence for venue, publisher, DOI, and canonical URL. The arXiv ID and original preprint link remain available for provenance and access. GitHub dates come from the repository API; other web metadata comes from citation or Open Graph tags when available. A blank publication date means the primary source did not expose one. Rows marked `restricted` returned an access-control or rate-limit status during retrieval; they are tracked separately from broken or unreachable links.
+The source-check file is a snapshot. HTTP status, redirects, page titles, publication metadata, and GitHub statistics can change over time. arXiv bibliographic fields come from the primary arXiv API, while verified conference or journal records take precedence for venue, publisher, DOI, and original URL. The arXiv ID and original preprint link remain available for access and traceability. GitHub dates come from the repository API; other web metadata comes from citation or Open Graph tags when available. A blank publication date means the primary source did not expose one. Rows marked `restricted` returned an access-control or rate-limit status during retrieval; they are tracked separately from broken or unreachable links.
 
-Refresh publication decisions before applying them to a current source audit:
+Refresh publication decisions before applying them to the current source check:
 
 ```sh
 python3 scripts/resolve_arxiv_publications.py --refresh --cache-dir /tmp/ale-publication-cache

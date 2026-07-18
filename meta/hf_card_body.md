@@ -5,36 +5,36 @@
 <h1 align="center">Awesome Loop Engineering Dataset</h1>
 
 <p align="center">
-  A source-audited dataset of {{RESOURCE_COUNT}} papers, official docs, tools, benchmarks, patterns, critiques, and implementation guides for recurring AI-agent systems.
+  A structured dataset of {{RESOURCE_COUNT}} papers, official docs, tools, benchmarks, patterns, critiques, and implementation guides for recurring AI-agent systems.
 </p>
 
 <p align="center">
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Resource Atlas</a> ·
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub field guide</a> ·
-  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md">Curation standard</a> ·
+  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md">Resource selection</a> ·
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">Report a correction</a>
 </p>
 
 ## Dataset Summary
 
-Each row pairs one source with a concise editorial assessment, bibliographic metadata, lifecycle and audience facets, evidence classification, audit status, and point-in-time repository statistics when applicable.
+Each row connects an original source to its contribution, novelty, impact, publication details, lifecycle stages, audience, evidence type, link status, and repository context when applicable.
 
 Current release: **v{{VERSION}}**
 
 | Surface | Count |
 | --- | ---: |
-| Source-audited resources | {{RESOURCE_COUNT}} |
+| Resources | {{RESOURCE_COUNT}} |
 | Operational patterns | {{PATTERN_COUNT}} |
-| Validated loop contracts | {{CONTRACT_COUNT}} |
+| Adaptable loop contracts | {{CONTRACT_COUNT}} |
 | Runtime starters | {{RUNNABLE_COUNT}} |
 
-The source audit dated **{{AUDIT_DATE}}** reports these row statuses: **{{REACHABLE_COUNT}} reachable public**, **{{RESTRICTED_COUNT}} access restricted**, **{{LOCAL_COUNT}} repository-native**, and **{{BROKEN_COUNT}} broken or unreachable**.
+At the **{{AUDIT_DATE}}** source check, **{{REACHABLE_COUNT}} public links opened successfully**, **{{RESTRICTED_COUNT}} required access**, **{{LOCAL_COUNT}} pointed to repository files**, and **{{BROKEN_COUNT}} were broken or unreachable**.
 
 ## What A Loop Contract Is
 
 A **Loop Contract** is a reviewable operating specification for one recurring agent job. It fixes what authorizes a run, which work and actions are allowed, what context and roles the run uses, which external evidence proves progress, what state survives, how much the loop may spend, and when a human takes over or the loop exits.
 
-Recurring agents need this policy because schedules, events, queues, and goals remove live supervision. Without explicit boundaries, missing decisions become hidden defaults: the loop can select the wrong work, widen its own scope, approve itself, forget failed attempts, or retry without a stopping rule. Start with the [JSON schema](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json) and adapt one of the [{{CONTRACT_COUNT}} validated examples](https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples).
+Recurring agents need this policy because schedules, events, queues, and goals remove live supervision. Without explicit boundaries, missing decisions become hidden defaults: the loop can select the wrong work, widen its own scope, approve itself, forget failed attempts, or retry without a stopping rule. Start with the [JSON schema](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/schemas/loop-contract.schema.json) and adapt one of the [{{CONTRACT_COUNT}} schema-checked examples](https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples).
 
 ## Loop Maturity Model
 
@@ -91,7 +91,7 @@ Use `url` as the durable join key. `row_id` and `source_line` are positional and
 - Compare works by lifecycle, audience, evidence class, source type, and publication metadata.
 - Separate model, agent, harness, workflow, operations, evaluation, and cross-layer resources without treating adjacent model recurrence as a complete operational loop.
 - Build literature maps, reading lists, dashboards, or retrieval indexes.
-- Audit contribution, novelty, impact, provenance, and evidence claims.
+- Inspect contribution, novelty, impact, source, and evidence fields before following a claim.
 - Find reusable patterns, contracts, schemas, executable examples, and copy/paste runtime templates.
 
 Do not use `signal_strength`, GitHub stars, forks, or inclusion in this collection as a quality label, endorsement, or automated ranking of scientific validity.
@@ -115,38 +115,38 @@ The primary configuration is `resources`, with one `train` split backed by the n
 | Field group | Fields | What it describes |
 | --- | --- | --- |
 | Identity | `row_id`, `title`, `url`, `canonical_url`, `resource_type`, `domain` | What the resource is and where it lives. |
-| Editorial assessment | `annotation`, `key_contribution`, `novelty`, `impact` | What the resource contributes to recurring agent systems. |
+| Resource analysis | `annotation`, `key_contribution`, `novelty`, `impact` | What the resource contributes to recurring agent systems. |
 | Scope | `loop_layer`, `scope_fit` | Where recurrence lives and whether the source is direct, enabling, or adjacent to operational Loop Engineering. |
 | Navigation | `section`, `collection`, `user_goal`, `lifecycle_stages`, `audience` | Where the resource fits and who it serves. |
 | Evidence | `evidence_class`, `evidence_tier`, `signal`, `signal_strength`, `source_status`, `audited_at` | What kind of evidence or provenance is available. |
-| Publication | `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `arxiv_id`, `primary_category` | Bibliographic data exposed by the canonical source. |
-| Source provenance | `source_title`, `source_description`, `metadata_source`, `publication_note` | Where metadata came from and what caveats accompany it. |
+| Publication | `authors`, `publication_date`, `publication_year`, `publication_venue`, `publisher`, `doi`, `arxiv_id`, `primary_category` | Bibliographic data exposed by the original or official source. |
+| Source details | `source_title`, `source_description`, `metadata_source`, `publication_note` | Where metadata came from and what caveats accompany it. |
 | Repository context | `github_repo`, `github_stars`, `github_forks`, `github_license`, `github_created_at`, `github_updated_at` | Point-in-time adoption and maintenance context for GitHub projects. |
-| Export trace | `source_readme`, `source_line`, `source_url`, `date_added` | How the row maps back to the canonical field guide. |
+| Export trace | `source_readme`, `source_line`, `source_url`, `date_added` | How the row maps back to the full field guide. |
 
 The complete field-by-field schema is documented in [`data/README.md`](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/data/README.md).
 
-## Curation And Provenance
+## How To Read The Evidence
 
-Start with primary papers, official documentation, project repositories, and implementation-heavy practitioner sources. Every released row must pass the public [curation standard](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md).
+Open the linked work before relying on a summary. Evidence labels distinguish published research, official documentation, inspectable implementations, practitioner analysis, risk analysis, and discovery indexes; they describe the kind of source, not its scientific quality.
 
-Annotations are original syntheses, not copied abstracts or claims of author endorsement. Automation may assist discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. The canonical source remains the evidence; the maintainer owns each released inclusion decision and annotation.
+Summaries explain each work's contribution in original language rather than copying abstracts. They do not imply author endorsement. Follow the source link to inspect methods, results, limitations, licenses, and current documentation.
 
-The full point-in-time audit is available as [`data/resource_source_audit.csv`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv).
+The latest link-check results are available as [`data/resource_source_audit.csv`](https://huggingface.co/datasets/cy0307/awesome-loop-engineering/blob/main/data/resource_source_audit.csv).
 
 ## Limitations
 
-- The collection is maintained by one person and reflects editorial judgment despite a public acceptance standard.
+- Coverage is selective rather than exhaustive, and one person currently reviews changes.
 - Coverage is skewed toward English-language, publicly available material.
-- A successful URL check proves reachability at audit time, not correctness, permanence, or independent validation.
-- Access-restricted rows could not be fully retrieved during the latest audit and should be checked manually.
+- A successful URL check proves that a link opened at check time, not that its claims are correct, permanent, or independently validated.
+- Access-restricted rows could not be fully retrieved during the latest check and should be opened manually.
 - Publication dates and authors remain blank when the primary source does not expose reliable metadata.
 - Resource statistics are snapshots and will drift after the recorded `audited_at` timestamp.
-- Linked third-party works retain their own licenses and terms; CC0-1.0 covers only original repository curation, metadata, templates, and documentation.
+- Linked third-party works retain their own licenses and terms; CC0-1.0 covers only original repository descriptions, metadata, templates, and documentation.
 
 ## Versioning And Corrections
 
-GitHub Releases define versioned snapshots; cite a release or commit for reproducibility. Submit corrections to summaries, contribution, novelty, impact, authorship, dates, venues, identifiers, or canonical URLs through the [correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml).
+GitHub Releases define versioned snapshots; cite a release or commit for reproducibility. Submit corrections to summaries, contribution, novelty, impact, authorship, dates, venues, identifiers, or source URLs through the [correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml).
 
 ## Citation
 

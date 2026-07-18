@@ -8,7 +8,7 @@ Use the role-based [Future Directions agenda](FUTURE-DIRECTIONS.md) to choose re
 
 - Collect more direct Loop Engineering sources as the term stabilizes.
 - Add real or anonymized gallery entries from practitioners running recurring agent loops.
-- Turn more validated contracts into runtime-specific executables with crash recovery, timeouts, replayable receipts, and failure-injection tests.
+- Turn more schema-checked contracts into runtime-specific executables with crash recovery, timeouts, replayable receipts, and failure-injection tests.
 - Add more translations for the introduction, mental model, Loop Contract, and contribution guide.
 - Audit contextual sources in small batches; replace weak summaries and secondary links with canonical evidence.
 - Replace unstable links with primary sources, official docs, papers, or implementation-heavy write-ups.

@@ -1,6 +1,6 @@
 # Translations
 
-Translate the core Loop Engineering concepts for new audiences while preserving the boundaries and facts in the canonical [English README](README.md).
+Translate the core Loop Engineering concepts for new audiences while preserving the boundaries and facts in the full [English guide](README.md).
 
 ## Available
 
@@ -44,7 +44,7 @@ Maintainers and contributors are welcome for:
 
 ## Translation PR Checklist
 
-- [ ] The translation links back to the canonical English README.
+- [ ] The translation links back to the full English guide.
 - [ ] The language switcher has been updated in `README.md`.
 - [ ] The `<!-- last-synced: YYYY-MM-DD -->` marker is present and current.
 - [ ] The translation preserves the scope boundary.

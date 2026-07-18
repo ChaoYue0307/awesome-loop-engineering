@@ -28,7 +28,7 @@ Ein Loop entdeckt Arbeit, übergibt sie an einen oder mehrere Agenten, prüft da
 
 Loop Engineering umfasst wiederkehrende KI-Agenten- und Coding-Agent-Systeme mit expliziten Auslösern, Verifikation und dauerhaftem Zustand. Software-Event-Loops, Regelungstechnik, Growth Loops, generische Automatisierung und nicht-KI-bezogene Feedback-Loops gehören nicht dazu.
 
-Starte mit 579 geprüften Ressourcen, 20 operativen Loop-Patterns, 20 schemavalidierten Loop-Contracts und 8 Runtime-Startern (3 ausführbare Programme und 5 anpassbare Vorlagen), ergänzt durch eine Community-Galerie und 8 Sprachen.
+Starte mit 579 Ressourcen, 20 operativen Loop-Patterns, 20 schemavalidierten Loop-Contracts und 8 Runtime-Startern (3 ausführbare Programme und 5 anpassbare Vorlagen), ergänzt durch eine Community-Galerie und 8 Sprachen.
 
 ## Mentales Modell
 
@@ -71,7 +71,7 @@ Ein nützlicher Loop macht normalerweise diese Bestandteile sichtbar:
 
 ## Erste Lektüre
 
-Die vollständige Ressourcenliste bleibt im kanonischen englischen README: [README.md](README.md).
+Alle Ressourcen findest du im vollständigen englischen Leitfaden: [README.md](README.md).
 
 Empfohlene Einstiege:
 

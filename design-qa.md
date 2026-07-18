@@ -38,7 +38,7 @@
 8. Compared the published static hero and the Three.js-enhanced hero at the same 1280 x 720 viewport. The enhancement keeps the existing identity, copy, actions, spacing, and section transition while adding a restrained evidence orbit, control-plane stack, verification gate, and six lifecycle nodes behind the content.
 9. Moved the control-plane stack and verification gate outward after the first 3D pass so they frame the copy rather than crossing its reading path. Rechecked desktop and mobile rendering after the adjustment.
 10. Verified progressive enhancement behavior: the semantic hero remains complete without WebGL, forced-colors and print hide the scene, reduced-motion renders a static frame, and the animation stops when the hero leaves the viewport.
-11. Expanded the implementation kit to 20 patterns, 20 validated contracts, and eight runtime starters. The runtime section now labels all five adaptable templates and all three executables, with use-case copy and an even desktop grid.
+11. Expanded the implementation kit to 20 patterns, 20 schema-checked contracts, and eight runtime starters. The runtime section now labels all five adaptable templates and all three executables, with use-case copy and an even desktop grid.
 12. Rechecked the expanded pattern and runtime sections at 1440 x 1000 and 390 x 844. Anchor offsets clear the sticky header, the page width stays equal to the viewport, and headings, icons, labels, and descriptions remain aligned.
 13. Added the role-based future-directions section and rechecked it at both target viewports. Resource Atlas expansion initially displaced direct links to later sections; post-load hash restoration now leaves `#future` 84 px below the desktop viewport top and 74 px below it on mobile.
 

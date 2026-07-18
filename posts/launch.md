@@ -2,14 +2,14 @@
 
 Awesome Loop Engineering v0.8.0 maps recurrence from a model's inner computation to an agent's tools and the outer operating loop that verifies, remembers, retries, escalates, and stops.
 
-Navigate 579 source-audited works without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
+Explore 579 resources without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
 
 ## What You Can Use
 
-- 579 source-audited resources linked to canonical works
+- 579 papers, official docs, tools, benchmarks, and guides linked to the original work
 - 23 selected model-recurrence papers, from Universal Transformers and Huginn to LoopCoder and LoopWM, labeled as adjacent foundations rather than complete agent loops
 - 20 operational patterns organized by build, operate, optimize, and govern use cases
-- 20 schema-validated loop contracts, one for every pattern
+- 20 schema-checked loop contracts, one for every pattern
 - 8 runtime starters: 3 dependency-light executables and 5 copy/paste runtime templates
 - an interactive Resource Atlas for filtering by goal, loop layer, lifecycle stage, artifact type, and evidence class
 - 50-field CSV, JSONL, and Parquet exports mirrored as a Hugging Face dataset
@@ -21,7 +21,7 @@ Navigate 579 source-audited works without collapsing looped models, agent execut
 - Added `loop_layer` and `scope_fit` to every dataset row so model recurrence remains discoverable without being misclassified as operational Loop Engineering.
 - Added a model-to-operations map and loop-layer filter to the Resource Atlas.
 - Added a cross-layer research protocol for comparing internal recurrent depth with external evidence-aware retries under matched compute and cost.
-- Rechecked all 579 canonical sources and refreshed every arXiv publication decision so official conference or journal records take precedence when verified.
+- Checked all 579 source links and refreshed every arXiv publication record so verified conference or journal publications take precedence over preprints.
 - Updated the website, social preview, translations, release metadata, and Hugging Face dataset to the same counts and terminology.
 
 ## Why This Matters
@@ -41,12 +41,12 @@ The goal remains bounded, reviewable, evidence-driven repetition, not unlimited 
 
 - [Explore the Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/#resources)
 - [Choose an operational pattern](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/patterns/README.md)
-- [Adapt a validated contract](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md)
+- [Adapt a schema-checked contract](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/examples/README.md)
 - [Run a starter](https://github.com/ChaoYue0307/awesome-loop-engineering/tree/main/examples/runnable)
 - [Use the Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)
 - [Contribute a source or correction](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md)
 
-Corrections are especially valuable. If a summary is inaccurate or a stronger canonical source exists, use the annotation-correction form or open a pull request.
+Corrections are especially valuable. If a summary is inaccurate or a better original or official source exists, use the annotation-correction form or open a pull request.
 
 ## Open The Field Guide
 

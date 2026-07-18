@@ -1,4 +1,4 @@
-# Curation Standard
+# Resource Selection Guide
 
 Include only recurring AI-agent and coding-agent systems with explicit triggers, verification, durable state, budgets, escalation, and exit. General agent links belong elsewhere.
 
@@ -38,23 +38,23 @@ Usually reject resources that are mostly:
 | --- | --- | --- |
 | A | Primary or official source | Paper, official docs, project README, author write-up |
 | B | Practitioner source with implementation detail | Field note, runbook, postmortem, architecture note |
-| C | Curated survey or high-quality explainer | Taxonomy, comparison, tutorial |
+| C | Synthesis or high-quality explainer | Taxonomy, comparison, tutorial |
 | D | Commentary or news coverage | Useful only for origin, adoption, quotes, or debate |
 
 Prefer the highest-tier source that explains the same idea clearly.
 
-## Editorial Responsibility And Assistance
+## How Summaries And Metadata Are Built
 
-The maintainer owns every released inclusion decision, category, annotation, and project-level claim. Automation may assist discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. Automated output is not evidence; canonical sources, primary metadata, and stated limitations control the final entry.
+Every released entry links to evidence that readers can inspect and exposes its category, summary, and source details for correction. Automation may assist discovery, URL resolution, duplicate detection, bibliographic extraction, repository statistics, and draft normalization. Automated output is not evidence; original or official sources, primary metadata, and stated limitations control the final entry.
 
 The public dataset keeps those layers separate:
 
-- `annotation`, `key_contribution`, `novelty`, and `impact` are original editorial syntheses;
-- `source_title`, `source_description`, authorship, date, venue, DOI, and repository statistics come from the source audit and record their metadata provenance;
-- `evidence_tier` records whether the row is a primary source, implementation-grounded practitioner source, or curated synthesis;
+- `annotation`, `key_contribution`, `novelty`, and `impact` are original summaries;
+- `source_title`, `source_description`, authorship, date, venue, DOI, and repository statistics come from the source check and record where the metadata came from;
+- `evidence_tier` records whether the row is a primary source, implementation-grounded practitioner source, or synthesis and discovery index;
 - `loop_layer` records whether recurrence lives inside the model, agent, harness, workflow, operations, evaluation, or spans layers;
 - `scope_fit` records whether a resource directly describes operational Loop Engineering, enables it, or is an explicitly adjacent foundation;
-- `signal_strength` describes the kind of evidence available, not whether the maintainer agrees with the work;
+- `signal_strength` describes the kind of evidence available, not whether the work is recommended or scientifically valid;
 - `source_status` records reachability at one point in time and is not a guarantee of future availability.
 
 No author, company, venue, star count, or citation count can buy or guarantee placement. Vendor inclusion does not imply endorsement, and inclusion of a critique does not imply that every claim in it is accepted.
@@ -71,9 +71,9 @@ When evidence conflicts:
 1. omit a date, venue, author, or metric rather than infer it from an unreliable source;
 1. record the correction in the next release notes when it changes the meaning of an entry.
 
-## Audit And Versioning
+## Source Checks And Versioning
 
-`data/resource_source_audit.csv` is the inspectable point-in-time audit log. `data/resources.csv` and `data/resources.jsonl` are deterministic exports of the canonical English README enriched with that audit. GitHub Releases identify versioned snapshots; downstream users should cite a release or commit when reproducibility matters.
+`data/resource_source_audit.csv` records a point-in-time source check. `data/resources.csv` and `data/resources.jsonl` are deterministic exports of the full English guide enriched with those results. GitHub Releases identify versioned snapshots; downstream users should cite a release or commit when reproducibility matters.
 
 ## Annotation Rules
 
@@ -124,4 +124,4 @@ Pattern entries should be concrete enough to adapt to a real agent runtime. A go
 
 ## License Scope
 
-Only original repository curation text, annotations, templates, pattern documents, and metadata are released under `CC0-1.0`. Linked third-party resources keep their own licenses and terms.
+Only original repository summaries, templates, pattern documents, and metadata are released under `CC0-1.0`. Linked third-party resources keep their own licenses and terms.

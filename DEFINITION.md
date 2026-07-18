@@ -1,4 +1,4 @@
-# Canonical Definition
+# Working Definition
 
 Use this definition to scope a system, review a design, or cite the concept consistently.
 

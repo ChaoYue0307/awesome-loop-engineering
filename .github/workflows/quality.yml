@@ -56,6 +56,9 @@ jobs:
       - name: Check resource type labels
         run: python scripts/check_resource_labels.py README.md
 
+      - name: Check reader-facing copy
+        run: python scripts/check_reader_facing_copy.py
+
       - name: Check README resource tables
         run: python scripts/render_readme_tables.py --check
 

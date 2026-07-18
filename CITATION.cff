@@ -9,7 +9,7 @@ authors:
     given-names: "Chaoyue"
 repository-code: "https://github.com/ChaoYue0307/awesome-loop-engineering"
 url: "https://chaoyue0307.github.io/awesome-loop-engineering/"
-abstract: "Source-audited resources and reusable patterns for recurring, stateful, verified AI-agent systems."
+abstract: "Practical resources and reusable patterns for recurring, stateful, verified AI-agent systems."
 keywords:
   - loop-engineering
   - ai-agents

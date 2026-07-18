@@ -113,25 +113,25 @@ def main() -> int:
         ROOT / "README.md",
         [
             f"resources-{count}-",
-            f"**{count} source-audited resources**",
-            f"covers all {count} rows",
+            f"**{count} resources**",
+            f"At the latest <a href=\"data/resource_source_audit.csv\">source check</a>",
         ],
         failures,
     )
     require(
         ROOT / "docs" / "index.html",
         [
-            f'content="{count} source-audited resources',
-            f">{count}</b><span>audited resources</span>",
-            f"Filter {count} source-audited works",
+            f'content="Explore {count} resources',
+            f">{count}</b><span>resources</span>",
+            f"Filter {count} resources",
             f'"version": "{version}"',
         ],
         failures,
     )
     require(ROOT / "meta" / "social-preview.html", [f">{count}</b>"], failures)
-    require(ROOT / "posts" / "launch.md", [f"# Awesome Loop Engineering v{version}", f"{count} source-audited resources"], failures)
-    require(ROOT / "posts" / "launch.zh-CN.md", [f"# Awesome Loop Engineering v{version}", f"{count} 条"], failures)
-    require(ROOT / "meta" / "DISTRIBUTION.md", [f"v{version}", f"{count} source-audited resources"], failures)
+    require(ROOT / "posts" / "launch.md", [f"# Awesome Loop Engineering v{version}", f"{count} resources"], failures)
+    require(ROOT / "posts" / "launch.zh-CN.md", [f"# Awesome Loop Engineering v{version}", f"{count} 篇论文"], failures)
+    require(ROOT / "meta" / "DISTRIBUTION.md", [f"v{version}", f"{count} resources"], failures)
 
     for translation in sorted(ROOT.glob("README.*.md")):
         require(translation, [count], failures)

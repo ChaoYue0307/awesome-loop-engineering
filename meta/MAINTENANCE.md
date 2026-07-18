@@ -7,7 +7,7 @@ Keep Awesome Loop Engineering accurate, stable, and trustworthy with the checks 
 - Review the latest Quality workflow result.
 - Run the link checker if the scheduled workflow reports failures.
 - Triage new issues and PRs.
-- Reject resources that do not pass the curation standard.
+- Reject resources that do not pass the resource selection guide.
 - Prefer replacing unstable links with primary or official sources.
 
 ## Monthly Checks
@@ -23,7 +23,7 @@ Keep Awesome Loop Engineering accurate, stable, and trustworthy with the checks 
 When a link fails:
 
 1. Check whether the original source moved.
-1. Prefer an official canonical URL over mirrors.
+1. Prefer an original or official URL over mirrors.
 1. If the source is gone, replace it with a stronger equivalent resource.
 1. If no equivalent exists, remove the entry rather than linking to an unreliable archive.
 1. Keep the annotation focused on what the replacement contributes to Loop Engineering.
@@ -69,6 +69,7 @@ npx --yes markdownlint-cli2 "**/*.md"
 python3 -m py_compile scripts/*.py
 python3 scripts/check_license.py
 python3 scripts/check_resource_labels.py README.md
+python3 scripts/check_reader_facing_copy.py
 python3 scripts/render_readme_tables.py --check
 python3 scripts/export_resource_dataset.py --check
 python3 scripts/check_project_consistency.py

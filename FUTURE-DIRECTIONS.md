@@ -152,7 +152,7 @@ The tiers describe dependency order, not prestige. Establish trustworthy state t
 - **Decision unlocked:** whether an operator can reconstruct why the loop acted, retried, escalated, or exited.
 - **Build:** a receipt envelope for trigger, objective version, input identity, action, tool result, verifier result, state transition, budget delta, next action, and redaction policy, mapped where practical to [OpenTelemetry GenAI semantic conventions](https://github.com/open-telemetry/semantic-conventions-genai).
 - **Measure:** receipt coverage, missing causal links, replay agreement, trace overhead, redaction failures, and time to diagnose seeded incidents.
-- **Starter slice:** instrument one validated contract end to end and build a replay view that derives the decision timeline from receipts rather than model narration.
+- **Starter slice:** instrument one schema-checked contract end to end and build a replay view that derives the decision timeline from receipts rather than model narration.
 - **Completion gate:** an independent reviewer can identify the cause of a seeded failure and reproduce the control decision without access to the original chat session.
 
 ### 9. Security, Permissions, And Containment

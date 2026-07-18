@@ -28,7 +28,7 @@ Um loop descobre trabalho, delega para um ou mais agentes, verifica o resultado,
 
 Loop Engineering abrange sistemas recorrentes de AI agents e coding agents com gatilhos explícitos, verificação e estado durável. Não inclui event loops de software, teoria de controle, growth loops, automação genérica nem feedback loops sem relação com IA.
 
-Comece com 579 recursos auditados, 20 patterns operacionais, 20 loop contracts validados por schema e 8 starters de runtime (3 executáveis e 5 templates prontos para adaptação), além de uma galeria comunitária e 8 idiomas.
+Comece com 579 recursos, 20 patterns operacionais, 20 loop contracts validados por schema e 8 starters de runtime (3 executáveis e 5 templates prontos para adaptação), além de uma galeria comunitária e 8 idiomas.
 
 ## Modelo Mental
 
@@ -71,7 +71,7 @@ Um loop útil normalmente precisa deixar estes elementos visíveis:
 
 ## Primeiras Leituras
 
-A lista completa de recursos fica no README canônico em inglês: [README.md](README.md).
+Explore todos os recursos no guia completo em inglês: [README.md](README.md).
 
 Leituras recomendadas:
 

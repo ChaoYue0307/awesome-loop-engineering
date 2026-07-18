@@ -1,4 +1,4 @@
-# Validated Loop Contracts
+# Schema-Checked Loop Contracts
 
 Twenty JSON examples turn the operational patterns into reviewable machine-readable contracts. Every file validates against [`schemas/loop-contract.schema.json`](../schemas/loop-contract.schema.json) in CI.
 

@@ -78,7 +78,7 @@ Which README section did you update?
 
 ## Accuracy And Provenance
 
-- Canonical source checked:
+- Original or official source checked:
 - Original publishing venue or platform:
 - Publication date, authors, and identifier verified from:
 - Material caveats or source-access limits:
@@ -97,7 +97,7 @@ Which README section did you update?
 - [ ] The entry follows the table format: `| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · Venue<br><sub>Author</sub> | Specific contribution. |`.
 - [ ] The resource is not about unrelated event loops, growth loops, control theory, or generic automation.
 - [ ] New loop patterns include trigger, discover/intake, delegation, state, verification gates, retry budget, escalation path, and loop instruction or automation artifact.
-- [ ] Any automated assistance was checked against the canonical source; generated text was not treated as evidence.
+- [ ] Any automated assistance was checked against the original or official source; generated text was not treated as evidence.
 - [ ] I ran `python3 scripts/render_readme_tables.py` and `python3 scripts/export_resource_dataset.py` after changing resource rows.
 - [ ] I agree that my contribution to this repository is released under `CC0-1.0`.
 - [ ] I did not copy third-party content into this repository without the right to do so.
