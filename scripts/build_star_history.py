@@ -303,6 +303,46 @@ def fmt(value: float) -> str:
     return f"{value:.2f}".rstrip("0").rstrip(".")
 
 
+def compact_number(value: int) -> str:
+    """Keep large axis labels short without hiding the underlying exact count."""
+    if abs(value) < 1_000:
+        return f"{value:,}"
+    for divisor, suffix in ((1_000_000_000, "b"), (1_000_000, "m"), (1_000, "k")):
+        if abs(value) >= divisor:
+            scaled = value / divisor
+            precision = 1 if abs(scaled) < 10 and not scaled.is_integer() else 0
+            formatted = f"{scaled:.{precision}f}"
+            if precision:
+                formatted = formatted.rstrip("0").rstrip(".")
+            return formatted + suffix
+    return f"{value:,}"
+
+
+def estimated_text_width(value: str, font_size: float, bold: bool = False) -> float:
+    """Estimate rounded UI-font width conservatively for responsive SVG labels."""
+    width_in_em = 0.0
+    for character in value:
+        if character.isspace():
+            width_in_em += 0.32
+        elif character in "ilI1.,:'|":
+            width_in_em += 0.3
+        elif character in "mwMW@%&":
+            width_in_em += 0.86
+        elif character.isupper():
+            width_in_em += 0.66
+        else:
+            width_in_em += 0.56
+    weight_factor = 1.04 if bold else 1.0
+    return width_in_em * font_size * weight_factor
+
+
+def fit_font_size(value: str, preferred: float, max_width: float, minimum: float) -> float:
+    estimated = estimated_text_width(value, preferred, bold=True)
+    if estimated <= max_width:
+        return preferred
+    return max(minimum, preferred * max_width / estimated)
+
+
 def star_path(cx: float, cy: float, outer: float, inner: float) -> str:
     points: list[str] = []
     for index in range(10):
@@ -332,19 +372,19 @@ def chart_svg(repository: str, payload: dict[str, object], theme_name: str, comp
     history_days = (latest.date() - first.date()).days + 1
 
     if compact:
-        width, height = 720, 680
-        frame_x, frame_y, frame_width, frame_height = 16, 16, 688, 648
-        header_x = 48
-        eyebrow_y, title_y = 62, 108
-        subtitle_y, subtitle_gap = 143, 27
-        eyebrow_size, title_size, subtitle_size = 17, 40, 20
-        meta_y = 211
-        plot_left, plot_right, plot_top, plot_bottom = 74, 670, 252, 535
-        y_label_x, x_label_y = 58, 570
-        axis_font, line_width = 17, 5
+        width, height = 640, 640
+        frame_x, frame_y, frame_width, frame_height = 16, 16, 608, 608
+        header_x = 44
+        eyebrow_y, title_y = 60, 104
+        subtitle_y, subtitle_gap = 139, 26
+        eyebrow_size, title_size, subtitle_size = 18, 40, 20
+        meta_y = 204
+        plot_left, plot_right, plot_top, plot_bottom = 72, 594, 238, 493
+        y_label_x, x_label_y = 56, 526
+        axis_font, line_width = 20, 5
         callout_width, callout_height, callout_font = 142, 40, 18
-        footer_line_y, footer_text_y, footer_range_y = 603, 630, 653
-        footer_left, footer_right, footer_font = 48, 672, 16
+        footer_line_y, footer_text_y, footer_range_y = 556, 583, 608
+        footer_left, footer_right, footer_font = 44, 594, 18
         x_tick_count = 3
     else:
         width, height = 1200, 560
@@ -361,6 +401,30 @@ def chart_svg(repository: str, payload: dict[str, object], theme_name: str, comp
         footer_line_y, footer_text_y, footer_range_y = 500, 525, 525
         footer_left, footer_right, footer_font = 78, 1122, 13
         x_tick_count = 5
+
+    title_text = f"{total:,} stars and counting"
+    title_max_width = (plot_right - header_x) if compact else 760
+    title_size = fit_font_size(
+        title_text,
+        title_size,
+        title_max_width,
+        28 if compact else 24,
+    )
+    callout_text = f"{total:,} stars"
+    callout_padding = 30 if compact else 26
+    callout_width = max(
+        callout_width,
+        min(
+            plot_right - plot_left - 56,
+            estimated_text_width(callout_text, callout_font, bold=True) + callout_padding,
+        ),
+    )
+    callout_font = fit_font_size(
+        callout_text,
+        callout_font,
+        callout_width - callout_padding,
+        13 if compact else 11,
+    )
 
     plot_width = plot_right - plot_left
     plot_height = plot_bottom - plot_top
@@ -421,7 +485,7 @@ def chart_svg(repository: str, payload: dict[str, object], theme_name: str, comp
         f'  <rect x="{frame_x}" y="{frame_y}" width="{frame_width}" height="{frame_height}" rx="8" fill="{theme.background}" stroke="{theme.border}" stroke-width="2"/>',
         f'  <path d="{star_path(header_x + 7, eyebrow_y - 5, 8 if compact else 7, 3.5 if compact else 3)}" fill="{theme.point}" stroke="{theme.text}" stroke-width="1"/>',
         f'  <text x="{header_x + (24 if compact else 21)}" y="{eyebrow_y}" fill="{theme.brand}" font-size="{eyebrow_size}" font-weight="800">STAR HISTORY</text>',
-        f'  <text x="{header_x}" y="{title_y}" fill="{theme.text}" font-size="{title_size}" font-weight="760">{total} stars and counting</text>',
+        f'  <text x="{header_x}" y="{title_y}" fill="{theme.text}" font-size="{fmt(title_size)}" font-weight="760">{title_text}</text>',
     ]
 
     if compact:
@@ -429,7 +493,7 @@ def chart_svg(repository: str, payload: dict[str, object], theme_name: str, comp
             [
                 f'  <text x="{header_x}" y="{subtitle_y}" fill="{theme.muted}" font-size="{subtitle_size}">Every star helps more builders discover</text>',
                 f'  <text x="{header_x}" y="{subtitle_y + subtitle_gap}" fill="{theme.muted}" font-size="{subtitle_size}">loop engineering.</text>',
-                f'  <text x="{header_x}" y="{meta_y}" fill="{theme.brand}" font-size="{eyebrow_size}" font-weight="700">{history_days} days of growth</text>',
+                f'  <text x="{header_x}" y="{meta_y}" fill="{theme.brand}" font-size="{eyebrow_size}" font-weight="700">{compact_number(history_days)} days of growth</text>',
                 f'  <text x="{footer_right}" y="{meta_y}" fill="{theme.muted}" font-size="{eyebrow_size}" text-anchor="end">Updated {escape(date_label(latest))}</text>',
             ]
         )
@@ -437,7 +501,7 @@ def chart_svg(repository: str, payload: dict[str, object], theme_name: str, comp
         rows.extend(
             [
                 f'  <text x="{header_x}" y="{subtitle_y}" fill="{theme.muted}" font-size="{subtitle_size}">Every star helps more builders discover loop engineering.</text>',
-                f'  <text x="{footer_right}" y="{meta_y}" fill="{theme.text}" font-size="28" font-weight="760" text-anchor="end">{history_days}</text>',
+                f'  <text x="{footer_right}" y="{meta_y}" fill="{theme.text}" font-size="28" font-weight="760" text-anchor="end">{history_days:,}</text>',
                 f'  <text x="{footer_right}" y="{meta_y + 25}" fill="{theme.muted}" font-size="12" font-weight="750" text-anchor="end">DAYS OF GROWTH</text>',
             ]
         )
@@ -447,7 +511,7 @@ def chart_svg(repository: str, payload: dict[str, object], theme_name: str, comp
         rows.extend(
             [
                 f'  <line x1="{plot_left}" y1="{fmt(y)}" x2="{plot_right}" y2="{fmt(y)}" stroke="{theme.grid}" stroke-width="1" stroke-dasharray="3 9" stroke-linecap="round"/>',
-                f'  <text x="{y_label_x}" y="{fmt(y + axis_font * 0.38)}" fill="{theme.muted}" font-size="{axis_font}" text-anchor="end">{tick}</text>',
+                f'  <text x="{y_label_x}" y="{fmt(y + axis_font * 0.38)}" fill="{theme.muted}" font-size="{axis_font}" text-anchor="end">{compact_number(tick)}</text>',
             ]
         )
 
@@ -481,7 +545,7 @@ def chart_svg(repository: str, payload: dict[str, object], theme_name: str, comp
         [
             f'  <path d="M {fmt(callout_x + callout_width)} {fmt(callout_y + callout_height / 2)} L {fmt(release_x - (13 if compact else 11))} {fmt(endpoint_y)}" fill="none" stroke="{theme.line}" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>',
             f'  <rect x="{fmt(callout_x)}" y="{fmt(callout_y)}" width="{callout_width}" height="{callout_height}" rx="8" fill="{theme.badge}" stroke="{theme.line}"/>',
-            f'  <text x="{fmt(callout_x + callout_width / 2)}" y="{fmt(callout_y + callout_height * 0.68)}" fill="{theme.text}" font-size="{callout_font}" font-weight="700" text-anchor="middle">{total} stars</text>',
+            f'  <text x="{fmt(callout_x + callout_width / 2)}" y="{fmt(callout_y + callout_height * 0.68)}" fill="{theme.text}" font-size="{fmt(callout_font)}" font-weight="700" text-anchor="middle">{callout_text}</text>',
             f'  <line x1="{footer_left}" y1="{footer_line_y}" x2="{footer_right}" y2="{footer_line_y}" stroke="{theme.border}"/>',
             f'  <path d="{star_path(footer_left + 7, footer_text_y - 5, 6 if compact else 5, 2.7 if compact else 2.2)}" fill="{theme.point}" stroke="{theme.text}" stroke-width="0.8"/>',
             f'  <text x="{footer_left + 22}" y="{footer_text_y}" fill="{theme.muted}" font-size="{footer_font}">{escape(repository)}</text>',

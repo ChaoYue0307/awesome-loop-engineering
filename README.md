@@ -1499,10 +1499,10 @@ Cite the field guide with:
 <p align="center">
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">
     <picture>
-      <source media="(prefers-color-scheme: dark) and (max-width: 560px)" srcset="assets/star-history-mobile-dark.svg">
-      <source media="(max-width: 560px)" srcset="assets/star-history-mobile.svg">
-      <source media="(prefers-color-scheme: dark)" srcset="assets/star-history-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/star-history.svg">
+      <source media="(prefers-color-scheme: dark) and (max-width: 768px)" srcset="assets/star-history-mobile-dark.svg" width="640" height="640">
+      <source media="(max-width: 768px)" srcset="assets/star-history-mobile.svg" width="640" height="640">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/star-history-dark.svg" width="1200" height="560">
+      <source media="(prefers-color-scheme: light)" srcset="assets/star-history.svg" width="1200" height="560">
       <img src="assets/star-history.svg" alt="GitHub star growth for Awesome Loop Engineering" width="900">
     </picture>
   </a>

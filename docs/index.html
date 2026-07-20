@@ -1000,12 +1000,17 @@
         .loop-stage:nth-child(4) { border-left: 0; }
         .loop-stage:nth-child(n+4) { border-top: 1px solid var(--line); }
       }
+      @media (min-width: 561px) and (max-width: 768px) {
+        .star-history-chart { max-width: 680px; margin-inline: auto; }
+      }
+      @media (max-width: 600px) {
+        .project-links .nav-link:first-child { display: none; }
+        .project-links { gap: 6px; }
+      }
       @media (max-width: 560px) {
         html { scroll-padding-top: 74px; }
         .nav { min-height: 64px; gap: 8px; }
         .links.open { top: 64px; max-height: calc(100vh - 64px); }
-        .project-links .nav-link:first-child { display: none; }
-        .project-links { gap: 6px; }
         .nav-link { min-height: 44px; padding-inline: 12px; }
         .brand { min-width: 0; gap: 8px; }
         .brand .logo { width: 28px; height: 28px; }
@@ -2022,7 +2027,7 @@
           </div>
           <a class="star-history-chart" href="https://github.com/ChaoYue0307/awesome-loop-engineering" aria-label="Open Awesome Loop Engineering on GitHub">
             <picture>
-              <source media="(max-width: 560px)" srcset="assets/star-history-mobile.svg">
+              <source media="(max-width: 768px)" srcset="assets/star-history-mobile.svg" width="640" height="640">
               <img src="assets/star-history.svg" alt="GitHub star growth for Awesome Loop Engineering" width="1200" height="560" loading="lazy">
             </picture>
           </a>
