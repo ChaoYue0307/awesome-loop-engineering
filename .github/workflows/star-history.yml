@@ -27,10 +27,10 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Build charts from GitHub stargazers
+      - name: Build charts from the current GitHub star count
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python scripts/build_star_history.py
+        run: python scripts/build_star_history.py --snapshot
 
       - name: Commit an updated history
         run: |

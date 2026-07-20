@@ -10,7 +10,7 @@ Download all 601 resources as deterministic tabular exports.
 - `resource_source_audit.csv` - Point-in-time source check for every row, including URL status, source title metadata, arXiv IDs, and GitHub repository stats where available.
 - `arxiv_publication_overrides.csv` - Human-verified conference, journal, and workshop records backed by official proceedings, DOI registries, OpenReview, or current author-supplied acceptance notes.
 - `arxiv_publication_audit.csv` - Complete decision table for every arXiv-linked resource: published, accepted, or preprint-only.
-- `star-history.json` - Timestamp-only GitHub stargazer history used to build the light, dark, desktop, and mobile growth charts without publishing account details.
+- `star-history.json` - Timestamp-only GitHub star history plus later repository-count snapshots, used to build the light, dark, desktop, and mobile growth charts without publishing account details.
 
 The exports preserve each section and annotation while adding four discovery layers:
 
@@ -99,8 +99,9 @@ Refresh the star-growth chart with the authenticated GitHub CLI, or regenerate i
 
 ```sh
 python3 scripts/build_star_history.py --gh-cli
+python3 scripts/build_star_history.py --snapshot --gh-cli
 python3 scripts/build_star_history.py --from-data
 python3 scripts/build_star_history.py --check
 ```
 
-The daily Star History workflow uses the repository token to read timestamped stargazer data and commits only when the history changes.
+The daily Star History workflow reads the public repository star count and commits only when that count changes. Exact timestamps captured by the repository owner remain the chart's historical foundation; later points use count snapshots so automation does not require a personal access token.

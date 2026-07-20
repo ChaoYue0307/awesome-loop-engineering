@@ -1503,7 +1503,7 @@ Cite the field guide with:
       <source media="(max-width: 560px)" srcset="assets/star-history-mobile.svg">
       <source media="(prefers-color-scheme: dark)" srcset="assets/star-history-dark.svg">
       <source media="(prefers-color-scheme: light)" srcset="assets/star-history.svg">
-      <img src="assets/star-history.svg" alt="Cumulative GitHub star growth for Awesome Loop Engineering" width="900">
+      <img src="assets/star-history.svg" alt="GitHub star growth for Awesome Loop Engineering" width="900">
     </picture>
   </a>
 </p>
