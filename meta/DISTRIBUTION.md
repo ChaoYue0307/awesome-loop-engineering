@@ -60,21 +60,21 @@ Do not use reciprocal-star requests, broad promotional pull requests, or unrelat
 
 GitHub retains repository traffic details for only 14 days. Record a snapshot weekly, using the same definitions each time.
 
-Snapshot captured on 2026-07-18 for the API window ending 2026-07-17:
+Snapshot captured on 2026-07-20 for the API window ending 2026-07-19:
 
 | Metric | Baseline |
 | --- | ---: |
-| Repository views | 452 |
-| Unique visitors | 146 |
-| Clones | 614 |
-| Unique cloners | 173 |
-| Stars | 31 |
-| Forks | 6 |
+| Repository views | 637 |
+| Unique visitors | 157 |
+| Clones | 720 |
+| Unique cloners | 199 |
+| Stars | 35 |
+| Forks | 7 |
 | Watchers | 1 |
 
-The repository overview reached 118 unique visitors. The Chinese README remained the second-most visited content path with 20 unique visitors. The largest identifiable referrers were Google (19 unique visitors), GitHub (18), Bing (12), and the project site (8); X contributed one identifiable visitor. Clone traffic rose sharply on July 16-17 and may include automated clients, so do not treat clone counts as human adoption without corroborating forks or contributions.
+The repository overview reached 126 unique visitors. The Chinese README remained the second-most visited content path with 20 unique visitors. The largest identifiable referrers were GitHub and Google (22 unique visitors each), Bing (11), and the project site (8); X contributed two identifiable visitors. Clone traffic remains unusually high and may include automated clients, so do not treat clone counts as human adoption without corroborating forks or contributions.
 
-Since the previous snapshot, stars increased from 26 to 31 and forks from 4 to 6 while watchers remained at 1. The next campaign should therefore prioritize qualified external reach and the low-noise release/digest subscription path, not more landing-page decoration.
+Since the previous snapshot, stars increased from 31 to 35 and forks from 6 to 7 while watchers remained at 1. Qualified discovery is improving, but release and discussion subscriptions remain the clearest gap; the next campaign should keep prioritizing useful external reach and the low-noise release/digest path.
 
 Working 30-day campaign targets:
 

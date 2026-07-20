@@ -35,15 +35,24 @@ def load_rows() -> list[dict[str, str]]:
 def project_context() -> dict[str, str]:
     rows = load_rows()
     statuses = Counter(row.get("source_status", "") for row in rows)
+    resource_types = Counter(row.get("resource_type", "") for row in rows)
+    loop_layers = Counter(row.get("loop_layer", "") for row in rows)
     audit_dates = sorted({row.get("audited_at", "")[:10] for row in rows if row.get("audited_at")})
     version_match = re.search(r"^version:\s*([^\s]+)\s*$", CITATION.read_text(encoding="utf-8"), re.MULTILINE)
 
     patterns = [path for path in (ROOT / "patterns").glob("*.md") if path.name not in {"README.md", "MATRIX.md"}]
     contracts = list((ROOT / "examples").glob("*-loop.json"))
     runnable = [path for path in (ROOT / "examples" / "runnable").iterdir() if path.is_file() and path.name != "README.md"]
+    executable = [path for path in runnable if path.suffix != ".md"]
+    runtime_templates = [path for path in runnable if path.suffix == ".md"]
+    language_count = 1 + len(list(ROOT.glob("README.*.md")))
 
     return {
         "RESOURCE_COUNT": str(len(rows)),
+        "PAPER_COUNT": str(resource_types["Paper"]),
+        "MODEL_COUNT": str(loop_layers["model"]),
+        "MODEL_PAPER_COUNT": str(sum(row.get("loop_layer") == "model" and row.get("resource_type") == "Paper" for row in rows)),
+        "FIELD_COUNT": str(len(rows[0]) if rows else 0),
         "REACHABLE_COUNT": str(statuses["ok"]),
         "RESTRICTED_COUNT": str(statuses["restricted"]),
         "LOCAL_COUNT": str(statuses["local_ok"]),
@@ -52,6 +61,9 @@ def project_context() -> dict[str, str]:
         "PATTERN_COUNT": str(len(patterns)),
         "CONTRACT_COUNT": str(len(contracts)),
         "RUNNABLE_COUNT": str(len(runnable)),
+        "EXECUTABLE_COUNT": str(len(executable)),
+        "RUNTIME_TEMPLATE_COUNT": str(len(runtime_templates)),
+        "LANGUAGE_COUNT": str(language_count),
         "VERSION": version_match.group(1) if version_match else "unversioned",
     }
 

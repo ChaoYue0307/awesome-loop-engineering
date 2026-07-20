@@ -24,9 +24,13 @@ Current release: **v{{VERSION}}**
 | Surface | Count |
 | --- | ---: |
 | Resources | {{RESOURCE_COUNT}} |
+| Research papers | {{PAPER_COUNT}} |
+| Model-layer resources | {{MODEL_COUNT}} |
 | Operational patterns | {{PATTERN_COUNT}} |
 | Adaptable loop contracts | {{CONTRACT_COUNT}} |
 | Runtime starters | {{RUNNABLE_COUNT}} |
+| Dataset fields | {{FIELD_COUNT}} |
+| Language entry points | {{LANGUAGE_COUNT}} |
 
 At the **{{AUDIT_DATE}}** source check, **{{REACHABLE_COUNT}} public links opened successfully**, **{{RESTRICTED_COUNT}} required access**, **{{LOCAL_COUNT}} pointed to repository files**, and **{{BROKEN_COUNT}} were broken or unreachable**.
 

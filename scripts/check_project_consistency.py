@@ -107,6 +107,11 @@ def main() -> int:
     context = project_context()
     count = context["RESOURCE_COUNT"]
     version = context["VERSION"]
+    source_summary = (
+        f"{context['REACHABLE_COUNT']} public links opened successfully, "
+        f"{context['RESTRICTED_COUNT']} required access, "
+        f"{context['LOCAL_COUNT']} pointed to files in this repository"
+    )
     failures: list[str] = []
 
     require(
@@ -114,7 +119,9 @@ def main() -> int:
         [
             f"resources-{count}-",
             f"**{count} resources**",
-            f"At the latest <a href=\"data/resource_source_audit.csv\">source check</a>",
+            source_summary,
+            f"**{context['RUNNABLE_COUNT']} runtime starters**: {context['EXECUTABLE_COUNT']} dependency-light executables plus {context['RUNTIME_TEMPLATE_COUNT']} copy/paste runtime templates",
+            f"**{context['LANGUAGE_COUNT']} language entry points**",
         ],
         failures,
     )
@@ -124,14 +131,34 @@ def main() -> int:
             f'content="Explore {count} resources',
             f">{count}</b><span>resources</span>",
             f"Filter {count} resources",
+            f"{context['REACHABLE_COUNT']} public links opened successfully, {context['RESTRICTED_COUNT']} required access",
             f'"version": "{version}"',
         ],
         failures,
     )
     require(ROOT / "meta" / "social-preview.html", [f">{count}</b>"], failures)
-    require(ROOT / "posts" / "launch.md", [f"# Awesome Loop Engineering v{version}", f"{count} resources"], failures)
+    require(
+        ROOT / "posts" / "launch.md",
+        [
+            f"# Awesome Loop Engineering v{version}",
+            f"{count} resources",
+            f"{context['MODEL_COUNT']} model-layer resources",
+            f"{context['FIELD_COUNT']}-field CSV",
+            f"{context['LANGUAGE_COUNT']} language entry points",
+        ],
+        failures,
+    )
     require(ROOT / "posts" / "launch.zh-CN.md", [f"# Awesome Loop Engineering v{version}", f"{count} 篇论文"], failures)
     require(ROOT / "meta" / "DISTRIBUTION.md", [f"v{version}", f"{count} resources"], failures)
+    require(
+        ROOT / "design-qa.md",
+        [
+            f"returns {context['MODEL_COUNT']} of {count} resources ({context['MODEL_PAPER_COUNT']} papers plus Awesome Loop Models)",
+            f"{context['REACHABLE_COUNT']} public sources reachable, {context['RESTRICTED_COUNT']} access-restricted, {context['LOCAL_COUNT']} repository-native",
+        ],
+        failures,
+    )
+    require(ROOT / "data" / "README.md", [f"Download all {count} resources"], failures)
 
     for translation in sorted(ROOT.glob("README.*.md")):
         require(translation, [count], failures)
@@ -142,6 +169,25 @@ def main() -> int:
     if csv_count != int(count):
         failures.append(f"data/resources.csv: expected {count} rows, found {csv_count}")
     validate_resource_rows(resource_rows, failures)
+
+    with (ROOT / "data" / "resource_source_audit.csv").open(encoding="utf-8", newline="") as handle:
+        audit_rows = list(csv.DictReader(handle))
+    if len(audit_rows) != int(count):
+        failures.append(f"data/resource_source_audit.csv: expected {count} rows, found {len(audit_rows)}")
+    audit_statuses: dict[str, int] = {}
+    for row in audit_rows:
+        status = row.get("audit_status", "")
+        audit_statuses[status] = audit_statuses.get(status, 0) + 1
+    expected_statuses = {
+        "ok": int(context["REACHABLE_COUNT"]),
+        "restricted": int(context["RESTRICTED_COUNT"]),
+        "local_ok": int(context["LOCAL_COUNT"]),
+    }
+    if audit_statuses != expected_statuses:
+        failures.append(
+            "data/resource_source_audit.csv: status counts do not match the generated resource exports "
+            f"({audit_statuses!r} != {expected_statuses!r})"
+        )
 
     site_payload = json.loads((ROOT / "docs" / "assets" / "resources.json").read_text(encoding="utf-8"))
     if site_payload.get("count") != int(count) or len(site_payload.get("resources", [])) != int(count):
@@ -157,8 +203,9 @@ def main() -> int:
         return 1
 
     print(
-        f"Validated {count} resources, {context['PATTERN_COUNT']} patterns, "
-        f"{context['CONTRACT_COUNT']} contracts, and release v{version}."
+        f"Validated {count} resources, {context['MODEL_COUNT']} model-layer resources, "
+        f"{context['PATTERN_COUNT']} patterns, {context['CONTRACT_COUNT']} contracts, "
+        f"{context['RUNNABLE_COUNT']} runtime starters, and release v{version}."
     )
     return 0
 
