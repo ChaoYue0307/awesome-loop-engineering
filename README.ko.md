@@ -3,7 +3,7 @@
 <!-- last-synced: 2026-07-20 -->
 
 <p align="center">
-  <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%"></a>
 </p>
 
 <p align="center">
