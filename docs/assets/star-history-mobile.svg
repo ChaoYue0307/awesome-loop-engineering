@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="680" viewBox="0 0 720 680" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub star growth for ChaoYue0307/awesome-loop-engineering</title>
+  <desc id="desc">Cumulative star history from Jun 9, 2026 to Jul 20, 2026, ending at 36 stars.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; letter-spacing: 0; }
+  </style>
+  <rect x="16" y="16" width="688" height="648" rx="8" fill="#F7F9FC" stroke="#D7E0EC" stroke-width="2"/>
+  <text x="48" y="58" fill="#155EEF" font-size="17" font-weight="700">COMMUNITY MOMENTUM</text>
+  <text x="48" y="104" fill="#121722" font-size="42" font-weight="750">Star Growth</text>
+  <text x="48" y="138" fill="#5B667A" font-size="21">Cumulative GitHub stars since the first save.</text>
+  <text x="330" y="194" fill="#121722" font-size="42" font-weight="750" text-anchor="end">42</text>
+  <text x="330" y="220" fill="#5B667A" font-size="15" font-weight="650" text-anchor="end">DAYS OF GROWTH</text>
+  <line x1="360" y1="166" x2="360" y2="226" stroke="#D7E0EC"/>
+  <text x="672" y="194" fill="#121722" font-size="42" font-weight="750" text-anchor="end">36</text>
+  <text x="672" y="220" fill="#5B667A" font-size="15" font-weight="650" text-anchor="end">GITHUB STARS</text>
+  <line x1="72" y1="550" x2="672" y2="550" stroke="#DCE4EF" stroke-width="1"/>
+  <text x="58" y="556.84" fill="#5B667A" font-size="18" text-anchor="end">0</text>
+  <line x1="72" y1="477" x2="672" y2="477" stroke="#DCE4EF" stroke-width="1"/>
+  <text x="58" y="483.84" fill="#5B667A" font-size="18" text-anchor="end">10</text>
+  <line x1="72" y1="404" x2="672" y2="404" stroke="#DCE4EF" stroke-width="1"/>
+  <text x="58" y="410.84" fill="#5B667A" font-size="18" text-anchor="end">20</text>
+  <line x1="72" y1="331" x2="672" y2="331" stroke="#DCE4EF" stroke-width="1"/>
+  <text x="58" y="337.84" fill="#5B667A" font-size="18" text-anchor="end">30</text>
+  <line x1="72" y1="258" x2="672" y2="258" stroke="#DCE4EF" stroke-width="1"/>
+  <text x="58" y="264.84" fill="#5B667A" font-size="18" text-anchor="end">40</text>
+  <text x="72" y="584" fill="#5B667A" font-size="18" text-anchor="start">Jun 9</text>
+  <text x="372" y="584" fill="#5B667A" font-size="18" text-anchor="middle">Jun 29</text>
+  <text x="672" y="584" fill="#5B667A" font-size="18" text-anchor="end">Jul 20</text>
+  <path d="M 72 550 H 81.71 V 542.7 H 81.82 V 535.4 H 81.84 V 528.1 H 87.4 V 520.8 H 87.72 V 513.5 H 90.39 V 506.2 H 190.91 V 498.9 H 191.76 V 491.6 H 237.32 V 484.3 H 241.63 V 477 H 243.75 V 469.7 H 277.23 V 462.4 H 295.99 V 455.1 H 335.18 V 447.8 H 361.3 V 440.5 H 387.67 V 433.2 H 388.23 V 425.9 H 419.45 V 418.6 H 477.21 V 411.3 H 503.76 V 404 H 508.58 V 396.7 H 519.21 V 389.4 H 591.69 V 382.1 H 610.81 V 374.8 H 615.36 V 367.5 H 616.1 V 360.2 H 619.02 V 352.9 H 621.63 V 345.6 H 630.69 V 338.3 H 631.57 V 331 H 631.83 V 323.7 H 641.7 V 316.4 H 651.07 V 309.1 H 657.99 V 301.8 H 662.54 V 294.5 H 667.98 V 287.2 H 672 V 550 H 72 Z" fill="#DCE8FF" opacity="0.72"/>
+  <path d="M 72 550 H 81.71 V 542.7 H 81.82 V 535.4 H 81.84 V 528.1 H 87.4 V 520.8 H 87.72 V 513.5 H 90.39 V 506.2 H 190.91 V 498.9 H 191.76 V 491.6 H 237.32 V 484.3 H 241.63 V 477 H 243.75 V 469.7 H 277.23 V 462.4 H 295.99 V 455.1 H 335.18 V 447.8 H 361.3 V 440.5 H 387.67 V 433.2 H 388.23 V 425.9 H 419.45 V 418.6 H 477.21 V 411.3 H 503.76 V 404 H 508.58 V 396.7 H 519.21 V 389.4 H 591.69 V 382.1 H 610.81 V 374.8 H 615.36 V 367.5 H 616.1 V 360.2 H 619.02 V 352.9 H 621.63 V 345.6 H 630.69 V 338.3 H 631.57 V 331 H 631.83 V 323.7 H 641.7 V 316.4 H 651.07 V 309.1 H 657.99 V 301.8 H 662.54 V 294.5 H 667.98 V 287.2 H 672" fill="none" stroke="#155EEF" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="87.72" cy="513.5" r="5" fill="#FFFFFF" stroke="#155EEF" stroke-width="1.5"/>
+  <circle cx="241.63" cy="477" r="5" fill="#FFFFFF" stroke="#155EEF" stroke-width="1.5"/>
+  <circle cx="361.3" cy="440.5" r="5" fill="#FFFFFF" stroke="#155EEF" stroke-width="1.5"/>
+  <circle cx="503.76" cy="404" r="5" fill="#FFFFFF" stroke="#155EEF" stroke-width="1.5"/>
+  <circle cx="615.36" cy="367.5" r="5" fill="#FFFFFF" stroke="#155EEF" stroke-width="1.5"/>
+  <circle cx="631.57" cy="331" r="5" fill="#FFFFFF" stroke="#155EEF" stroke-width="1.5"/>
+  <circle cx="662.54" cy="294.5" r="5" fill="#FFFFFF" stroke="#155EEF" stroke-width="1.5"/>
+  <circle cx="667.98" cy="287.2" r="8" fill="#0C9B68" stroke="#155EEF" stroke-width="2"/>
+  <rect x="451.98" y="299.2" width="116" height="38" rx="8" fill="#FFFFFF" stroke="#0C9B68"/>
+  <text x="509.98" y="325.04" fill="#121722" font-size="18" font-weight="700" text-anchor="middle">36 stars</text>
+  <line x1="48" y1="616" x2="672" y2="616" stroke="#D7E0EC"/>
+  <circle cx="56" cy="640" r="5" fill="#155EEF"/>
+  <text x="70" y="647" fill="#5B667A" font-size="17">Cumulative stars</text>
+  <text x="672" y="647" fill="#5B667A" font-size="17" text-anchor="end">Jun 9, 2026 to Jul 20, 2026</text>
+</svg>

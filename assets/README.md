@@ -18,6 +18,7 @@ Find the logos, diagrams, editorial cover, social previews, and generated brand 
 - `loop-lifecycle-mobile.png` - Mobile rendering of the lifecycle with a readable vertical decision path.
 - `loop-runtime-map.png` - ChatGPT Image-generated runtime map from a nearby session through desktop, CI/cloud, and durable-worker execution.
 - `loop-maturity-model.png` - ChatGPT Image-generated seven-level maturity path from manual prompting to production-supervised loops.
+- `star-history.svg`, `star-history-dark.svg`, and the mobile variants - Responsive light and dark charts of cumulative GitHub star growth, refreshed from the repository's timestamped stargazer history.
 - `social-preview.png` - Canonical 1280x640 sharing card for `og:image`, social posts, and GitHub's social preview. After regenerating it, re-upload under repo Settings -> Social preview and publish a newly named Pages copy referenced by `docs/index.html` and the versioned X share page.
 
 Please keep assets lightweight and directly useful for repository presentation. Avoid adding screenshots or large generated files unless they improve the README or documentation experience.

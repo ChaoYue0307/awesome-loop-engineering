@@ -74,6 +74,9 @@ jobs:
       - name: Check generated brand assets
         run: python scripts/build_brand_assets.py --check
 
+      - name: Check generated star-history assets
+        run: python scripts/build_star_history.py --check
+
       - name: Check arXiv publication decisions
         run: python scripts/resolve_arxiv_publications.py --check
 

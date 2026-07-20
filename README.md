@@ -122,6 +122,7 @@ Loop Engineering covers recurring AI-agent systems with explicit triggers, exter
 - [Brand And Media Kit](#brand-and-media-kit)
 - [Shape What Comes Next](#shape-what-comes-next)
 - [Citation](#citation)
+- [Star History](#star-history)
 
 ## Implementation Kit
 
@@ -1492,3 +1493,21 @@ Cite the field guide with:
 **Reusable blurb** (for blog posts, talks, internal docs, or community posts):
 
 > Loop Engineering is the practice of designing recurring AI-agent and coding-agent systems that discover work, delegate to agents, verify results, persist state, and retry or escalate on a cadence or until a goal is reached. *Awesome Loop Engineering* connects 601 papers, docs, tools, benchmarks, and guides with 20 operating patterns, 20 adaptable contracts, and 8 runtime starters: [github.com/ChaoYue0307/awesome-loop-engineering](https://github.com/ChaoYue0307/awesome-loop-engineering)
+
+## Star History
+
+<p align="center">
+  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">
+    <picture>
+      <source media="(prefers-color-scheme: dark) and (max-width: 560px)" srcset="assets/star-history-mobile-dark.svg">
+      <source media="(max-width: 560px)" srcset="assets/star-history-mobile.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="assets/star-history-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/star-history.svg">
+      <img src="assets/star-history.svg" alt="Cumulative GitHub star growth for Awesome Loop Engineering" width="900">
+    </picture>
+  </a>
+</p>
+
+<p align="center">
+  <sub>Every star helps more researchers and builders discover the field guide. <a href="https://github.com/ChaoYue0307/awesome-loop-engineering"><strong>Star the repository</strong></a> to follow its growth.</sub>
+</p>

@@ -717,6 +717,24 @@
       }
       .future-shared strong { font-size: 0.92rem; }
       .future-shared p { margin: 0; color: var(--muted); font-size: 0.84rem; line-height: 1.55; }
+      .star-history-chart {
+        display: block;
+        width: 100%;
+        color: inherit;
+        line-height: 0;
+        text-decoration: none;
+      }
+      .star-history-chart img { display: block; width: 100%; height: auto; }
+      .growth-note {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        border-bottom: 1px solid var(--line-strong);
+        padding: 20px 0;
+      }
+      .growth-note p { max-width: 760px; margin: 0; color: var(--muted); font-size: 0.88rem; }
+      .growth-note .button { flex: 0 0 auto; }
       code {
         border: 1px solid var(--line);
         border-radius: 4px;
@@ -961,6 +979,7 @@
         .future-step:nth-child(2n+1) { border-left: 0; padding-left: 0; }
         .future-step:nth-child(n+3) { border-top: 1px solid var(--line); }
         .future-shared { grid-template-columns: 1fr; gap: 10px; align-items: start; }
+        .growth-note { align-items: flex-start; flex-direction: column; gap: 14px; }
         .maturity-guide { grid-template-columns: 150px minmax(0, 1fr); gap: 24px; }
         .level { grid-template-columns: 52px minmax(0, 1fr); gap: 16px; }
         .level .number { grid-row: 1 / 3; }
@@ -1200,6 +1219,7 @@
         .future-steps { grid-template-columns: 1fr; }
         .future-step:nth-child(n) { border-top: 1px solid var(--line); border-left: 0; padding: 15px 0; }
         .future-step:first-child { border-top: 0; }
+        .growth-note .button { width: 100%; }
         .resource-toolbar { grid-template-columns: 1fr; }
         .resource-toolbar label:first-child { grid-column: auto; }
         .resource-select { padding-inline: 10px; font-size: 0.86rem; }
@@ -1276,7 +1296,7 @@
         "description": "A practical field guide and implementation kit for recurring, stateful, verified AI-agent systems.",
         "keywords": ["Loop Engineering", "AI agents", "Coding agents", "Agent workflows", "Agentic loops"],
         "datePublished": "2026-06-10",
-        "dateModified": "2026-07-20",
+        "dateModified": "2026-07-21",
         "sameAs": [
           "https://github.com/ChaoYue0307/awesome-loop-engineering",
           "https://huggingface.co/datasets/cy0307/awesome-loop-engineering"
@@ -1988,6 +2008,28 @@
             <summary>Which runtimes can run agent loops?</summary>
             <p>The same loop can run as a Claude Code loop or scheduled task, a Codex automation, a GitHub agentic workflow, a shell or cron wrapper, or a durable-execution runtime.</p>
           </details>
+        </div>
+      </section>
+
+      <section id="growth">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="section-label"><i class="icon" data-lucide="chart-no-axes-combined" aria-hidden="true"></i><span>10 / Community momentum</span></p>
+              <h2>Watch the community grow.</h2>
+            </div>
+            <p class="section-intro">The curve follows cumulative GitHub stars from the first save, showing how researchers and builders are discovering the field guide over time.</p>
+          </div>
+          <a class="star-history-chart" href="https://github.com/ChaoYue0307/awesome-loop-engineering" aria-label="Open Awesome Loop Engineering on GitHub">
+            <picture>
+              <source media="(max-width: 560px)" srcset="assets/star-history-mobile.svg">
+              <img src="assets/star-history.svg" alt="Cumulative GitHub star growth for Awesome Loop Engineering" width="1200" height="560" loading="lazy">
+            </picture>
+          </a>
+          <div class="growth-note">
+            <p>Star the repository to keep the field guide nearby and help more researchers, engineers, and developers find its resources and implementation kit.</p>
+            <a class="button primary" href="https://github.com/ChaoYue0307/awesome-loop-engineering"><i class="icon" data-lucide="sparkles" aria-hidden="true"></i>Star on GitHub</a>
+          </div>
         </div>
       </section>
     </main>
