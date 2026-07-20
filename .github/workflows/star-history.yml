@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: star-history-main
@@ -33,6 +34,7 @@ jobs:
         run: python scripts/build_star_history.py --snapshot
 
       - name: Commit an updated history
+        id: commit-history
         run: |
           CHART_FILES=(
             assets/star-history.svg
@@ -46,6 +48,7 @@ jobs:
             data/star-history.json
           )
           if git diff --quiet -- "${CHART_FILES[@]}"; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "Star history is already current."
             exit 0
           fi
@@ -54,3 +57,10 @@ jobs:
           git add "${CHART_FILES[@]}"
           git commit -m "Refresh star history"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Publish the refreshed chart to GitHub Pages
+        if: steps.commit-history.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds"
