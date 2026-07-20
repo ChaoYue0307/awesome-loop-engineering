@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If this repository is useful in your work, please cite it as below."
 title: "Awesome Loop Engineering"
 type: software
-version: 0.8.0
-date-released: 2026-07-18
+version: 0.9.0
+date-released: 2026-07-20
 authors:
   - family-names: "He"
     given-names: "Chaoyue"

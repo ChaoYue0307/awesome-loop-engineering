@@ -14,11 +14,11 @@ The original 1200x630 cover presents Loop Engineering as the operating layer abo
 
 ### One Sentence
 
-Awesome Loop Engineering is a field guide and implementation kit for recurring AI-agent systems, connecting 579 resources to 20 operational patterns, 20 loop contracts, 8 runtime starters, an interactive atlas, and a structured dataset.
+Awesome Loop Engineering is a field guide and implementation kit for recurring AI-agent systems, connecting 601 resources to 20 operational patterns, 20 loop contracts, 8 runtime starters, an interactive atlas, and a structured dataset.
 
 ### Short Paragraph
 
-Awesome Loop Engineering maps how recurring AI agents discover work, act with scoped tools, pass independent verification, preserve state, and decide whether to retry, hand off, or stop. Readers can explore 579 papers, official docs, tools, benchmarks, and guides, then build from 20 patterns, 20 schema-checked contracts, and 8 runtime starters.
+Awesome Loop Engineering maps how recurring AI agents discover work, act with scoped tools, pass independent verification, preserve state, and decide whether to retry, hand off, or stop. Readers can explore 601 papers, official docs, tools, benchmarks, and guides, then build from 20 patterns, 20 schema-checked contracts, and 8 runtime starters.
 
 ### What Distinguishes It
 
@@ -33,7 +33,7 @@ Awesome Loop Engineering maps how recurring AI agents discover work, act with sc
 | --- | --- | --- |
 | GitHub repository | <https://github.com/ChaoYue0307/awesome-loop-engineering> | Stars, forks, issues, pull requests, and source browsing |
 | Interactive field guide | <https://chaoyue0307.github.io/awesome-loop-engineering/> | Visual explanation and Resource Atlas |
-| Current release | <https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.8.0> | Versioned summary and low-noise release subscription |
+| Current release | <https://github.com/ChaoYue0307/awesome-loop-engineering/releases/tag/v0.9.0> | Versioned summary and low-noise release subscription |
 | Hugging Face dataset | <https://huggingface.co/datasets/cy0307/awesome-loop-engineering> | Tabular exploration and programmatic loading |
 | Update digest | <https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/9> | New resources, corrections, artifacts, and contributor tasks |
 

@@ -1,6 +1,6 @@
 # Awesome Loop Engineering
 
-<!-- last-synced: 2026-07-18 -->
+<!-- last-synced: 2026-07-20 -->
 
 <p align="center">
   <img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering cover" width="100%">
@@ -28,7 +28,7 @@ Um loop descobre trabalho, delega para um ou mais agentes, verifica o resultado,
 
 Loop Engineering abrange sistemas recorrentes de AI agents e coding agents com gatilhos explícitos, verificação e estado durável. Não inclui event loops de software, teoria de controle, growth loops, automação genérica nem feedback loops sem relação com IA.
 
-Comece com 579 recursos, 20 patterns operacionais, 20 loop contracts validados por schema e 8 starters de runtime (3 executáveis e 5 templates prontos para adaptação), além de uma galeria comunitária e 8 idiomas.
+Comece com 601 recursos, 20 patterns operacionais, 20 loop contracts validados por schema e 8 starters de runtime (3 executáveis e 5 templates prontos para adaptação), além de uma galeria comunitária e 8 idiomas.
 
 ## Modelo Mental
 

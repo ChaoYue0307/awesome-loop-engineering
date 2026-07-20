@@ -1,13 +1,13 @@
-# Awesome Loop Engineering v0.8.0
+# Awesome Loop Engineering v0.9.0
 
-Awesome Loop Engineering v0.8.0 maps recurrence from a model's inner computation to an agent's tools and the outer operating loop that verifies, remembers, retries, escalates, and stops.
+Awesome Loop Engineering v0.9.0 maps recurrence from a model's inner computation to an agent's tools and the outer operating loop that verifies, remembers, retries, escalates, and stops.
 
-Explore 579 resources without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
+Explore 601 resources without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
 
 ## What You Can Use
 
-- 579 papers, official docs, tools, benchmarks, and guides linked to the original work
-- 23 selected model-recurrence papers, from Universal Transformers and Huginn to LoopCoder and LoopWM, labeled as adjacent foundations rather than complete agent loops
+- 601 papers, official docs, tools, benchmarks, and guides linked to the original work
+- 29 model-layer resources, from Universal Transformers and Huginn to Loopie, LoopCoder, and LoopWM, labeled as adjacent foundations rather than complete agent loops
 - 20 operational patterns organized by build, operate, optimize, and govern use cases
 - 20 schema-checked loop contracts, one for every pattern
 - 8 runtime starters: 3 dependency-light executables and 5 copy/paste runtime templates
@@ -15,20 +15,21 @@ Explore 579 resources without collapsing looped models, agent execution, harness
 - 50-field CSV, JSONL, and Parquet exports mirrored as a Hugging Face dataset
 - 8 language entry points
 
-## What Changed Since v0.7.0
+## What Changed In v0.9.0
 
-- Added a bounded Model-Level Recurrence section with 23 high-signal papers and the deeper Awesome Loop Models catalog.
+- Added Loopie and 21 more works across model recurrence, agent workflows, verification, security, memory, orchestration, evaluation, and operations.
+- Expanded Model-Level Recurrence to 29 resources, including sparse MoE recurrence, fixed-point halting, and mechanistic evidence, with the deeper Awesome Loop Models catalog for further discovery.
 - Added `loop_layer` and `scope_fit` to every dataset row so model recurrence remains discoverable without being misclassified as operational Loop Engineering.
 - Added a model-to-operations map and loop-layer filter to the Resource Atlas.
 - Added a cross-layer research protocol for comparing internal recurrent depth with external evidence-aware retries under matched compute and cost.
-- Checked all 579 source links and refreshed every arXiv publication record so verified conference or journal publications take precedence over preprints.
+- Checked all 601 source links and refreshed every arXiv publication record so verified conference or journal publications take precedence over preprints.
 - Updated the website, social preview, translations, release metadata, and Hugging Face dataset to the same counts and terminology.
 
 ## Why This Matters
 
 "Loop" is overloaded. A learned block can recur inside one inference, an agent can alternate reasoning and tools inside one task, and an operating system can rerun verified work across time. Each layer matters, but each carries different state, stopping rules, evidence, and risks.
 
-The v0.8.0 map keeps those layers connected and comparable:
+The v0.9.0 map keeps those layers connected and comparable:
 
 1. Study model recurrence when the question is adaptive depth or latent computation.
 1. Study agent and harness resources when the question is reasoning, tools, context, or verification within a task.
