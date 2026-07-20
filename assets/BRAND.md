@@ -37,7 +37,5 @@ browser tabs. The high-resolution transparent source is
 The diagrams and runtime scene use the same semantic color roles: cobalt for governance, cyan for
 work packets, green for evidence, violet for state or retry, and amber for human escalation.
 
-The original editorial cover remains a separate illustration and is preserved in the
-[media kit](MEDIA_KIT.md). It is shown in the lower README media section rather than used as the
-header. The social preview uses the mark as part of a composed 1280x640 sharing card and should
-not be substituted for the editorial cover.
+The layered cover, circular mark, and social preview serve different compositions and should not
+be substituted for one another.

@@ -8,6 +8,10 @@
   A practical field guide and implementation kit for recurring, stateful, verified AI-agent systems.
 </p>
 
+<p align="center">
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering: the Prompt, Context, Harness, and Loop layers" width="100%"></a>
+</p>
+
 <!-- Keep proof-point badges in sync with the About description, social preview, What You Can Use, and landing-page stats. -->
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
@@ -119,7 +123,6 @@ Loop Engineering covers recurring AI-agent systems with explicit triggers, exter
 - [Future Directions](#future-directions)
 - [Adjacent Awesome Lists](#adjacent-awesome-lists)
 - [Explore And Reuse](#explore-and-reuse)
-- [Brand And Media Kit](#brand-and-media-kit)
 - [Shape What Comes Next](#shape-what-comes-next)
 - [Citation](#citation)
 - [Star History](#star-history)
@@ -1387,18 +1390,6 @@ Load the resources directly from Hugging Face:
 from datasets import load_dataset
 resources = load_dataset("cy0307/awesome-loop-engineering", "resources", split="train")
 ```
-
-## Brand And Media Kit
-
-Use the original editorial cover for articles, talks, launch posts, and project features.
-
-<p align="center">
-  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering editorial cover showing the Loop, Harness, Context, and Prompt layers" width="720"></a>
-  <br>
-  <sub><strong>Editorial cover.</strong> The original four-layer concept artwork, preserved as an alternate project visual.</sub>
-</p>
-
-[Media kit](assets/MEDIA_KIT.md) · [Cover PNG](assets/awesome-loop-engineering-cover.png) · [Brand system](assets/BRAND.md) · [Social preview](assets/social-preview.png)
 
 ## Shape What Comes Next
 

@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+  <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering: the Prompt, Context, Harness, and Loop layers" width="100%"></a>
+</p>
+
+<p align="center">
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/">Resource Atlas</a> ·
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering">GitHub field guide</a> ·
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/meta/CURATION.md">Resource selection</a> ·
