@@ -12,7 +12,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="assets/awesome-loop-engineering-cover.png" alt="Awesome Loop Engineering: the Prompt, Context, Harness, and Loop layers" width="100%"></a>
 </p>
 
-<!-- Keep proof-point badges in sync with the About description, social preview, What You Can Use, and landing-page stats. -->
+<!-- Keep proof-point badges in sync with the About description, Implementation Kit, social preview, and landing-page stats. -->
 <p align="center">
   <a href="https://github.com/sindresorhus/awesome"><img src="https://awesome.re/badge.svg" alt="Awesome"></a>
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
@@ -51,13 +51,11 @@
   <sub>⭐ <strong>Star</strong> to find it again · 🔀 <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork"><strong>Fork</strong> the contracts and dataset schema</a> · 🔔 <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/subscription"><strong>Watch</strong> Releases and Discussions</a></sub>
 </p>
 
-Build recurring AI-agent and coding-agent systems that can find work, act within clear boundaries, verify outcomes, preserve state, and decide what happens next.
+**Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-Prompt engineering shapes the instruction. Context engineering shapes what the model can see. Harness engineering shapes one run's tools, permissions, isolation, and checks. **Loop Engineering governs what happens across runs**: how work enters, agents act, evidence decides, state survives, and the system continues.
+This field guide connects **602 papers, docs, tools, benchmarks, and guides** to **20 operational patterns, 20 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
-A loop discovers work, delegates it, verifies the result, records state and receipts, then retries, reports, escalates, or exits within a defined budget.
-
-Loop Engineering covers recurring AI-agent systems with explicit triggers, external verification, durable state, bounded budgets, and human handoff. It does not include software event loops, control theory, growth loops, generic automation, or one-off prompting.
+**The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 
 ### Start In 60 Seconds
 
@@ -87,15 +85,11 @@ Loop Engineering covers recurring AI-agent systems with explicit triggers, exter
 ## Contents
 
 - [Implementation Kit](#implementation-kit)
-- [The Reliability Gap](#the-reliability-gap)
 - [Mental Model](#mental-model)
-- [Find Your Path](#find-your-path)
 - [Reading Paths](#reading-paths)
 - [Choose Your Loop](#choose-your-loop)
 - [Working Definition](#working-definition)
 - [Concept Guides](#concept-guides)
-- [Recommended Path](#recommended-path)
-- [What You Can Use](#what-you-can-use)
 - [How To Judge Each Source](#how-to-judge-each-source)
 - [Resource Type Legend](#resource-type-legend)
 - [Start Here](#start-here)
@@ -124,6 +118,7 @@ Loop Engineering covers recurring AI-agent systems with explicit triggers, exter
 - [Adjacent Awesome Lists](#adjacent-awesome-lists)
 - [Explore And Reuse](#explore-and-reuse)
 - [Shape What Comes Next](#shape-what-comes-next)
+- [Build From This](#build-from-this)
 - [Citation](#citation)
 - [Star History](#star-history)
 
@@ -136,11 +131,13 @@ Move from evidence to implementation through four connected layers:
 | 📚 **602 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
 | 🧩 **20 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
 | 🧾 **20 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
-| ▶️ **8 runtime starters** | Three dependency-light executables plus five copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
+| ▶️ **8 runtime starters** | 3 dependency-light executables plus 5 copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
 <!--lint enable table-pipe-alignment-->
-**Fastest build path:** name the symptom, inspect the pattern's worked example, adapt its linked contract, then select the runtime starter that matches the required persistence, file access, isolation, and permissions.
+**Fastest build path:** name the recurring symptom, inspect its pattern, adapt the linked contract, then choose a runtime for the required persistence, isolation, and permissions.
 
-**See it end to end:** the [four worked paths](examples/README.md#four-worked-paths) cover CI repair, knowledge-base refresh, bounded queue processing, and read-only threshold monitoring, including commands and verifiable completion signals.
+Browse the <a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">interactive Resource Atlas</a>, query the <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering">structured dataset</a>, or use one of <a href="TRANSLATIONS.md">8 language entry points</a>.
+
+**See it end to end:** the <a href="examples/README.md#four-worked-paths">four worked paths</a> cover CI repair, knowledge-base refresh, bounded queue processing, and read-only threshold monitoring, including commands and verifiable completion signals.
 
 **Two-minute dry run:** clone the repository and inspect a bounded queue item without an agent account or extra dependency.
 
@@ -150,10 +147,6 @@ cd awesome-loop-engineering
 printf '%s\n' '{"id":"demo","objective":"Validate one queue item"}' > /tmp/loop-queue.jsonl
 python3 examples/runnable/queue-worker-loop.py --queue /tmp/loop-queue.jsonl --dry-run
 ```
-
-## The Reliability Gap
-
-Reliable recurring agent work needs more than a strong prompt or harness. It needs a reviewable operating contract for triggers, intake, permissions, verification, state, budgets, escalation, and exit. The resources map the evidence; the patterns, contracts, and starters turn that evidence into systems you can inspect and adapt.
 
 ## Mental Model
 
@@ -199,13 +192,9 @@ Objective
   <sub><strong>Figure 2.</strong> Evidence moves through a recurring, stateful, verified loop toward retry, escalation, or exit.</sub>
 </p>
 
-## Find Your Path
-
-Learning the field? Read the Working Definition, Start Here, and the Loop Contract. Building a loop? Choose a pattern, runtime guide, adaptable contract, and runnable starter. Reviewing reliability? Focus on verification, unattended-loop security, durable state, benchmarks, and critiques.
-
 ## Reading Paths
 
-Choose a goal before opening the full catalog. These paths lead from a decision to the most relevant evidence and implementation artifacts.
+Choose a goal before opening the full catalog. Learn the field through the definition and research foundations; build through a pattern, contract, and runtime; or review reliability through verification, state, security, benchmarks, and critiques.
 
 <table>
   <thead>
@@ -269,6 +258,8 @@ Choose a goal before opening the full catalog. These paths lead from a decision 
 </table>
 
 For analysis, the Hugging Face dataset exposes collection, lifecycle, audience, evidence, source-status, publication, and repository-stat facets for every resource.
+
+**Fastest conceptual path:** read the <a href="#working-definition">Working Definition</a>, inspect the <a href="#the-loop-contract">Loop Contract</a>, choose a symptom in the <a href="#pattern-library">Pattern Library</a>, and follow a <a href="#examples-and-schema">worked implementation</a>.
 
 ## Choose Your Loop
 
@@ -339,29 +330,6 @@ These vendor-neutral guides define the concept, boundaries, vocabulary, and revi
 | 🧾 **[Comparison Guide](COMPARISON.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project documentation</sub> | Distinguishes Loop Engineering from prompt engineering, context engineering, harness engineering, workflow automation, agent workflows, and evaluation loops. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🧾 **[Sourced Signals And Quotes](QUOTES.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project documentation</sub> | Short sourced signals from linked public materials that anchor the emerging concept. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🧾 **[Outreach Kit](meta/OUTREACH.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project operations guide</sub> | Conservative messages for inviting corrections, sources, and real-world loop patterns. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
-
-## Recommended Path
-
-A five-stop path through the concept, evidence, operating patterns, reliability gates, and reusable artifacts.
-
-- 🧭 Concept: Addy Osmani's Loop Engineering essay frames the practice (Start Here), while the Working Definition and Manifesto explain the scope and principles (Concept Guides).
-- 🧱 Foundations: the harness-layer taxonomy decomposes control, agency, and runtime beneath the loop and proposes a HarnessCard so reported agent gains can be separated from harness effects (Agent Workflow Patterns).
-- 🛠️ Practice: the Codex long-horizon runbook (Official Runtime Guides) and Claude's scheduled-task docs (Core Loop Primitives) cover the core mechanics, then the PR babysitter and CI repair patterns turn the contract into operating models (Pattern Library).
-- ✅ Reliability: "Give It Backpressure" (Verification And Feedback Gates) and "Building Effective Agents" (Agent Workflow Patterns) make verification the learning signal, with the Anti-Patterns guide listing failure modes to avoid (Concept Guides).
-- 📦 Reusable artifacts: the loop contract schema and schema-checked examples make the contract concrete (Examples And Schema), and the Loop Gallery is the format for sharing real or anonymized loops (Community Gallery).
-
-## What You Can Use
-
-Explore the field, choose an operating pattern, and build from reusable artifacts:
-
-- 📚 **602 resources** with publication, contribution, novelty, impact, evidence, and signal fields
-- 🧩 **20 operational patterns** with a symptom-first comparison matrix and worked use cases
-- 🧾 **20 adaptable contracts** checked against the Loop Contract JSON schema
-- ▶️ **8 runtime starters**: 3 dependency-light executables plus 5 copy/paste runtime templates
-- 🖼️ **Community gallery format** for real or anonymized operating evidence
-- 🌍 **8 language entry points** to the core concepts
-- 🤗 **Structured Hugging Face dataset** plus a searchable Resource Atlas
-- 💬 **Correction and discussion paths** for source accuracy, patterns, and operating lessons
 
 ## How To Judge Each Source
 
@@ -1404,7 +1372,8 @@ Track upcoming work, inspect release history, propose evidence, or share an oper
 | 🧾 **[Discussion guide](meta/DISCUSSIONS.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project operations guide</sub> | Suggested discussion categories, starter prompts, and moderation standard. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🔁 **[Show your Loop Engineering patterns](https://github.com/ChaoYue0307/awesome-loop-engineering/discussions/2)**<br><sub>Pattern</sub> | **2026** · GitHub Discussions<br><sub>License: CC0-1.0</sub> | Community discussion for real or anonymized loop examples. | **Operational pattern**<br><sub>Transferable operating practice</sub> |
 <!--lint enable table-pipe-alignment-->
-<h2 id="build-from-this">Build From This</h2>
+
+## Build From This
 
 Move from evidence to a working loop.
 
@@ -1481,10 +1450,6 @@ Cite the field guide with:
   note         = {Field guide and implementation kit for Loop Engineering, version 0.9.0}
 }
 ```
-
-**Reusable blurb** (for blog posts, talks, internal docs, or community posts):
-
-> Loop Engineering is the practice of designing recurring AI-agent and coding-agent systems that discover work, delegate to agents, verify results, persist state, and retry or escalate on a cadence or until a goal is reached. *Awesome Loop Engineering* connects 602 papers, docs, tools, benchmarks, and guides with 20 operating patterns, 20 adaptable contracts, and 8 runtime starters: [github.com/ChaoYue0307/awesome-loop-engineering](https://github.com/ChaoYue0307/awesome-loop-engineering)
 
 ## Star History
 

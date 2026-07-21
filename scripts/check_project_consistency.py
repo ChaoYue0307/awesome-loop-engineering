@@ -120,8 +120,9 @@ def main() -> int:
             f"resources-{count}-",
             f"**{count} resources**",
             source_summary,
-            f"**{context['RUNNABLE_COUNT']} runtime starters**: {context['EXECUTABLE_COUNT']} dependency-light executables plus {context['RUNTIME_TEMPLATE_COUNT']} copy/paste runtime templates",
-            f"**{context['LANGUAGE_COUNT']} language entry points**",
+            f"**{context['RUNNABLE_COUNT']} runtime starters**",
+            f"{context['EXECUTABLE_COUNT']} dependency-light executables plus {context['RUNTIME_TEMPLATE_COUNT']} copy/paste runtime templates",
+            f"{context['LANGUAGE_COUNT']} language entry points",
         ],
         failures,
     )

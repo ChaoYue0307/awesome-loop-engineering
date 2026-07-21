@@ -13,7 +13,6 @@ from export_resource_dataset import TYPE_MARKERS, parse_entry_line
 RESOURCE_SECTIONS = {
     "Working Definition",
     "Concept Guides",
-    "Recommended Path",
     "Start Here",
     "Core Loop Primitives",
     "Official Runtime Guides",
