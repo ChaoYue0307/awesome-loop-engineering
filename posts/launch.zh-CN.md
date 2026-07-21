@@ -2,11 +2,11 @@
 
 Awesome Loop Engineering v0.9.0 建立了一张从模型内部递归、Agent 执行、Harness 到外层运行系统的完整地图。
 
-可浏览 601 篇论文、官方文档、工具、benchmark 与实践指南，同时保持清晰边界：模型内的循环提供自适应计算，但不等于具备外部验证、持久状态、预算、人类交接与退出规则的运行级 Loop。
+可浏览 602 篇论文、官方文档、工具、benchmark 与实践指南，同时保持清晰边界：模型内的循环提供自适应计算，但不等于具备外部验证、持久状态、预算、人类交接与退出规则的运行级 Loop。
 
 ## 可直接使用
 
-- 601 篇论文、官方文档、工具、benchmark 与实践指南，并直接链接原始来源
+- 602 篇论文、官方文档、工具、benchmark 与实践指南，并直接链接原始来源
 - 29 个模型层资源，覆盖 Universal Transformers、Huginn、Loopie、LoopCoder、LoopWM 等方向
 - 20 个按 build、operate、optimize、govern 组织的 operational patterns
 - 20 个经过 schema 校验的 loop contracts，每个 pattern 对应一个
@@ -22,7 +22,7 @@ Awesome Loop Engineering v0.9.0 建立了一张从模型内部递归、Agent 执
 - 为每条数据新增 `loop_layer` 与 `scope_fit`，避免将模型递归误标为完整的运行级 Loop Engineering。
 - 在 Resource Atlas 中新增模型到运维的层级图与 Loop 层级筛选器。
 - 新增跨层评测方案，用匹配算力和成本的实验比较模型内部递归与外部证据驱动重试。
-- 检查全部 601 个来源链接，并刷新所有 arXiv 论文的会议或期刊发表状态。
+- 检查全部 602 个来源链接，并刷新所有 arXiv 论文的会议或期刊发表状态。
 - 同步更新网站、social preview、翻译、release metadata 与 Hugging Face Dataset。
 
 ## 为什么值得关注

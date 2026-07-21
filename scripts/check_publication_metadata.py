@@ -60,7 +60,7 @@ def main() -> int:
             failures.append(f"{row_id}: publisher/source platform is missing")
         if row["publisher"].strip().lower() == "awesome loop engineering":
             failures.append(f"{row_id}: project name is exposed as a publisher")
-        if row["url_kind"] != "external" and (
+        if row["url_kind"] != "external" and row["evidence_class"] == "repository-native" and (
             row["publication_venue"] != "GitHub" or row["publisher"] != "GitHub"
         ):
             failures.append(f"{row_id}: repository-native artifact must use GitHub as its publishing platform")

@@ -2,11 +2,11 @@
 
 Awesome Loop Engineering v0.9.0 maps recurrence from a model's inner computation to an agent's tools and the outer operating loop that verifies, remembers, retries, escalates, and stops.
 
-Explore 601 resources without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
+Explore 602 resources without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
 
 ## What You Can Use
 
-- 601 papers, official docs, tools, benchmarks, and guides linked to the original work
+- 602 papers, official docs, tools, benchmarks, and guides linked to the original work
 - 29 model-layer resources, from Universal Transformers and Huginn to Loopie, LoopCoder, and LoopWM, labeled as adjacent foundations rather than complete agent loops
 - 20 operational patterns organized by build, operate, optimize, and govern use cases
 - 20 schema-checked loop contracts, one for every pattern
@@ -22,7 +22,7 @@ Explore 601 resources without collapsing looped models, agent execution, harness
 - Added `loop_layer` and `scope_fit` to every dataset row so model recurrence remains discoverable without being misclassified as operational Loop Engineering.
 - Added a model-to-operations map and loop-layer filter to the Resource Atlas.
 - Added a cross-layer research protocol for comparing internal recurrent depth with external evidence-aware retries under matched compute and cost.
-- Checked all 601 source links and refreshed every arXiv publication record so verified conference or journal publications take precedence over preprints.
+- Checked all 602 source links and refreshed every arXiv publication record so verified conference or journal publications take precedence over preprints.
 - Updated the website, social preview, translations, release metadata, and Hugging Face dataset to the same counts and terminology.
 
 ## Why This Matters

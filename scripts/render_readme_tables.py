@@ -122,7 +122,10 @@ def publication_cell(row: dict[str, str]) -> str:
     github_repo = row["github_repo"]
     if row["url_kind"] != "external":
         source = row["publication_venue"] or row["publisher"] or "GitHub"
-        details.append(repository_artifact_label(row["url"]))
+        if resource_type == "Paper" and row["authors"]:
+            details.append(author_summary(row["authors"]))
+        else:
+            details.append(repository_artifact_label(row["url"]))
     elif github_repo.lower() == PROJECT_GITHUB_REPO:
         source = row["publication_venue"] or row["publisher"] or "GitHub"
         license_id = row["github_license"]

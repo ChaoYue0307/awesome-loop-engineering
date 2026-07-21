@@ -18,7 +18,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
-  <img src="https://img.shields.io/badge/resources-601-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-602-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-20-38bdf8" alt="patterns">
   <img src="https://img.shields.io/badge/contracts-20-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
@@ -65,7 +65,7 @@ Loop Engineering covers recurring AI-agent systems with explicit triggers, exter
   <tr>
     <td><strong>🧭 Explore the field</strong></td>
     <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
-    <td>Filter 601 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
+    <td>Filter 602 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
     <td><strong>▶️ Build one loop</strong></td>
@@ -133,7 +133,7 @@ Move from evidence to implementation through four connected layers:
 <!--lint disable table-pipe-alignment-->
 | Start with | What it gives you | Use it to | Example |
 | --- | --- | --- | --- |
-| 📚 **601 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
+| 📚 **602 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
 | 🧩 **20 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
 | 🧾 **20 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
 | ▶️ **8 runtime starters** | Three dependency-light executables plus five copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
@@ -354,7 +354,7 @@ A five-stop path through the concept, evidence, operating patterns, reliability 
 
 Explore the field, choose an operating pattern, and build from reusable artifacts:
 
-- 📚 **601 resources** with publication, contribution, novelty, impact, evidence, and signal fields
+- 📚 **602 resources** with publication, contribution, novelty, impact, evidence, and signal fields
 - 🧩 **20 operational patterns** with a symptom-first comparison matrix and worked use cases
 - 🧾 **20 adaptable contracts** checked against the Loop Contract JSON schema
 - ▶️ **8 runtime starters**: 3 dependency-light executables plus 5 copy/paste runtime templates
@@ -378,7 +378,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
   </tr>
   <tr>
     <td><strong>Link availability</strong></td>
-    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-07-20 UTC, 548 public links opened successfully, 5 required access, 48 pointed to files in this repository, and none were broken or unreachable.</td>
+    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-07-21 UTC, 548 public links opened successfully, 5 required access, 49 pointed to files in this repository, and none were broken or unreachable.</td>
   </tr>
   <tr>
     <td><strong>Evidence label</strong></td>
@@ -403,7 +403,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
 <!-- resource-type-summary:start -->
 | Type | Rows | Includes |
 | --- | --- | --- |
-| 📄 **Paper** | 220 | Academic paper, preprint, or technical report |
+| 📄 **Paper** | 221 | Academic paper, preprint, or technical report |
 | 📝 **Blog** | 78 | Essay, field note, article, or practitioner write-up |
 | 📚 **Docs** | 72 | Official product, API, SDK, or platform documentation |
 | 🧰 **Tool** | 105 | Repository, framework, SDK, runtime, or implementation |
@@ -812,6 +812,7 @@ Use these resources to design the higher-level loop around agents: recurring con
 | 📝 **[Agentic Design Patterns](https://addyosmani.com/agents/04-agentic-design-patterns/)**<br><sub>Blog</sub> | **addyosmani.com**<br><sub>Addy Osmani</sub> | Practical overview of ReAct, reflection, tool use, planning, and how to combine them in real-world agents. | **Practitioner analysis**<br><sub>Experience-backed implementation context</sub> |
 | 🔁 **[12 Factor Agents](https://github.com/humanlayer/12-factor-agents)**<br><sub>Pattern</sub> | **2025** · GitHub<br><sub>humanlayer/12-factor-agents</sub> | Operating principles for production agents, including explicit prompts, state ownership, and pause-resume behavior. | **Operational pattern**<br><sub>Transferable operating practice</sub> |
 | 🔁 **[Durable Execution for Agentic Workflows](https://arizenai.com/durable-execution/)**<br><sub>Pattern</sub> | **2026** · Arizen | Explains checkpointing, event-sourced journals, replay, and recovery for long-running agent workflows. | **Operational pattern**<br><sub>Transferable operating practice</sub> |
+| 📄 **[Loop Engineering Meets Graph Engineering](gallery/loop-graph-reference.md)**<br><sub>Paper</sub> | **2026** · Stanford manuscript<br><sub>Lingjiao Chen et al.</sub> | Proposes Loop-Graph, a long-horizon agent framework that couples iterative refinement loops with graph-structured persistent memory; the supplied manuscript screenshot reports evaluation on 9,842 real-world tasks, success gains up to 38.6 percentage points, correctness gains up to 27.4 percentage points, fewer redundant tool calls, and lower latency versus strong prompting and RAG baselines. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 | 📄 **[Code as Agent Harness](https://arxiv.org/abs/2605.18747)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Xuying Ning et al.</sub> | Organizes agent infrastructure into harness interface, feedback-driven control, and multi-agent scaling for executable, verifiable, stateful systems; maps the harness layer that loops build on. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 | 📄 **[Agentic Agile-V: From Vibe Coding to Verified Engineering](https://arxiv.org/abs/2605.20456)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Christopher Koch</sub> | Proposes a task-level SCOPE-V loop (Specify, Constrain, Orchestrate, Prove, Evolve, Verify) with human approval gates, arguing agentic coding needs process control and independent verification, not better prompts. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 | 📄 **[Agentic Software Engineering: Foundational Pillars and a Research Roadmap](https://arxiv.org/abs/2509.06216)**<br><sub>Paper</sub> | **2025** · arXiv<br><sub>Ahmed E. Hassan et al.</sub> | Splits agentic SE into an Agent Command Environment for human orchestration and an Agent Execution Environment for agent task execution, a research roadmap for the layers recurring loops run inside. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
@@ -1378,7 +1379,7 @@ Browse interactively, query structured exports, or reuse the publishing componen
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)**<br><sub>Template</sub> | **chaoyue0307.github.io** | Filter 601 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact**<br><sub>Adaptable template, schema, or guide</sub> |
+| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)**<br><sub>Template</sub> | **chaoyue0307.github.io** | Filter 602 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact**<br><sub>Adaptable template, schema, or guide</sub> |
 | 🧭 **[Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)**<br><sub>List</sub> | **Hugging Face** | Query the full collection as generated CSV and JSONL tables with publication, evidence, and lifecycle fields. | **Discovery index**<br><sub>Broader ecosystem coverage for finding related work</sub> |
 | 🧾 **[Dataset export guide](data/README.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project documentation</sub> | Load, query, regenerate, and audit the CSV, JSONL, and Resource Atlas data. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🧾 **[Runtime selection guide](meta/RUNTIME_SELECTION.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project operations guide</sub> | Compare session, scheduled, CI, cron, and durable runtimes by persistence, isolation, permissions, and state. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
@@ -1483,7 +1484,7 @@ Cite the field guide with:
 
 **Reusable blurb** (for blog posts, talks, internal docs, or community posts):
 
-> Loop Engineering is the practice of designing recurring AI-agent and coding-agent systems that discover work, delegate to agents, verify results, persist state, and retry or escalate on a cadence or until a goal is reached. *Awesome Loop Engineering* connects 601 papers, docs, tools, benchmarks, and guides with 20 operating patterns, 20 adaptable contracts, and 8 runtime starters: [github.com/ChaoYue0307/awesome-loop-engineering](https://github.com/ChaoYue0307/awesome-loop-engineering)
+> Loop Engineering is the practice of designing recurring AI-agent and coding-agent systems that discover work, delegate to agents, verify results, persist state, and retry or escalate on a cadence or until a goal is reached. *Awesome Loop Engineering* connects 602 papers, docs, tools, benchmarks, and guides with 20 operating patterns, 20 adaptable contracts, and 8 runtime starters: [github.com/ChaoYue0307/awesome-loop-engineering](https://github.com/ChaoYue0307/awesome-loop-engineering)
 
 ## Star History
 

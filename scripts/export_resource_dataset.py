@@ -439,6 +439,8 @@ def publication_source(
     audit: dict[str, str],
 ) -> tuple[str, str]:
     """Return the original publishing surface without using this project as a venue."""
+    if audit.get("publication_venue") and audit.get("publisher"):
+        return audit["publication_venue"], audit["publisher"]
     if url_kind != "external":
         return "GitHub", "GitHub"
 
@@ -533,6 +535,8 @@ def evidence_class(
     url_kind: str,
     audit: dict[str, str],
 ) -> str:
+    if url_kind != "external" and resource_type == "Paper" and audit.get("publication_venue"):
+        return "research-preprint"
     if url_kind != "external":
         return "repository-native"
     if resource_type == "Benchmark":
@@ -597,14 +601,14 @@ def signal(
     status = audit.get("audit_status", "")
     if status in {"broken", "unreachable", "local_missing"}:
         return "The linked source was unavailable at the latest check; treat its claims and availability as unverified.", "unverified"
-    if url_kind != "external":
-        return "Repository file; inspect the linked schema, example, guide, or implementation.", "medium"
     if evidence == "official-documentation":
         return f"Primary official documentation from {domain}; use it for current product or standard behavior.", "high"
     if evidence in {"research-preprint", "research-paper"}:
         arxiv_id = audit.get("arxiv_id", "")
         identifier = f" arXiv:{arxiv_id}" if arxiv_id else ""
         return f"Research source{identifier}; inspect its method and evaluation before treating results as production evidence.", "medium"
+    if url_kind != "external":
+        return "Repository file; inspect the linked schema, example, guide, or implementation.", "medium"
     if evidence == "benchmark":
         return "Benchmark or leaderboard source with repeatable tasks or scores; compare systems only after checking setup and scope.", "high"
     if domain == "github.com":
