@@ -50,6 +50,8 @@ The layers have different jobs:
 | Agent evaluations regressed | [Evaluation regression loop](evaluation-regression-loop.md) | Targeted evals return to the accepted baseline without scorer changes |
 | A system should improve against a metric | [Benchmark optimization loop](benchmark-optimization-loop.md) | Repeated measurements confirm an improvement with protected metrics intact |
 | An agent's knowledge is stale | [Knowledge freshness loop](knowledge-freshness-loop.md) | A versioned corpus passes provenance, freshness, retrieval, and leakage gates |
+| Recurring runs repeat old mistakes | [Agent memory lifecycle loop](agent-memory-lifecycle-loop.md) | Governed records pass provenance, scope, contradiction, and recall gates |
+| Parallel agents collide on one repo | [Fleet coordination loop](fleet-coordination-loop.md) | Isolated workers land serially through a verified merge queue |
 
 ### Govern And Protect
 

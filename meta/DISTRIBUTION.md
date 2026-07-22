@@ -129,7 +129,7 @@ Awesome Loop Engineering v0.9.0 is live.
 
 The release includes:
 
-- 669 papers, docs, tools, benchmarks, and guides
+- 671 papers, docs, tools, benchmarks, and guides
 - 29 model-layer resources, including Loopie, labeled as adjacent foundations
 - an interactive Resource Atlas
 - 22 operational patterns and 22 adaptable loop contracts
@@ -150,7 +150,7 @@ Title: Awesome Loop Engineering: 671 resources from looped models to agent opera
 
 I have been mapping recurring AI-agent systems: how work enters, agents act, evidence gates results, state survives, and the system retries, escalates, or exits.
 
-The repository connects 669 papers, docs, tools, benchmarks, and guides across model, agent, harness, workflow, operations, and evaluation layers with 22 operational patterns, 22 adaptable contracts, 8 runtime starters, an interactive Resource Atlas, and a structured Hugging Face dataset. Model-level recurrence is labeled as an adjacent foundation rather than a complete operational loop. Corrections to source links, taxonomy, and summaries are especially welcome.
+The repository connects 671 papers, docs, tools, benchmarks, and guides across model, agent, harness, workflow, operations, and evaluation layers with 22 operational patterns, 22 adaptable contracts, 8 runtime starters, an interactive Resource Atlas, and a structured Hugging Face dataset. Model-level recurrence is labeled as an adjacent foundation rather than a complete operational loop. Corrections to source links, taxonomy, and summaries are especially welcome.
 
 https://github.com/ChaoYue0307/awesome-loop-engineering
 ```

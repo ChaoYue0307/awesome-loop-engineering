@@ -53,7 +53,7 @@
 
 **Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-This field guide connects **669 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
+This field guide connects **671 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
 **The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 

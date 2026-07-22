@@ -48,6 +48,8 @@ Without these boundaries, a recurring agent can select the wrong work, expand it
 | [Evaluation regression](../patterns/evaluation-regression-loop.md) · [`JSON`](evaluation-regression-loop.json) | Agent evals fall below baseline | Nightly + score drop | Targeted tasks recover without scorer changes | Run IDs, traces, hypotheses, rerun scores |
 | [Benchmark optimization](../patterns/benchmark-optimization-loop.md) · [`JSON`](benchmark-optimization-loop.json) | A stable system should improve | Bounded experiment window | Repeated gain with correctness and protected metrics intact | Hypothesis, diff, raw scores, cost, decision |
 | [Knowledge freshness](../patterns/knowledge-freshness-loop.md) · [`JSON`](knowledge-freshness-loop.json) | An agent retrieval corpus is stale | Daily refresh + source change | Provenance, freshness, retrieval, and leakage gates pass | Manifest diff, checksums, evals, promotion pointer |
+| [Agent memory lifecycle](../patterns/agent-memory-lifecycle-loop.md) · [`JSON`](agent-memory-lifecycle-loop.json) | Recurring runs repeat old mistakes | Weekly consolidation + session end | Provenance, scope, contradiction, and recall gates pass | Typed records, audit log, consolidation receipts |
+| [Fleet coordination](../patterns/fleet-coordination-loop.md) · [`JSON`](fleet-coordination-loop.json) | Parallel agents collide on one repo | Continuous while backlog non-empty | Landing gate passes after final rebase; branch stays green | Claim ledger, merge queue, landing receipts |
 
 ### Govern And Protect
 

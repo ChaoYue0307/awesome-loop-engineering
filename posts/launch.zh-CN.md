@@ -1,4 +1,4 @@
-# Awesome Loop Engineering v0.9.0
+# Awesome Loop Engineering v0.10.0
 
 Awesome Loop Engineering v0.9.0 建立了一张从模型内部递归、Agent 执行、Harness 到外层运行系统的完整地图。
 
