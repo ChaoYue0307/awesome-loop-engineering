@@ -1,0 +1,102 @@
+{
+  "name": "Fleet coordination loop",
+  "objective": "Land many parallel agent-authored changes on one codebase without collisions, duplicate work, or unverified merges.",
+  "trigger": {
+    "type": "event",
+    "cadence_or_event": "Continuous while the task backlog is non-empty, within a wall-clock window."
+  },
+  "intake": {
+    "sources": [
+      "task backlog with priorities and dependencies",
+      "claim ledger",
+      "repository protected-branch and required-check configuration",
+      "fleet policy for concurrency and budgets"
+    ],
+    "selection_rule": "Dispatch only unclaimed ready tasks whose dependencies have landed, up to the concurrency cap."
+  },
+  "workspace": {
+    "isolation": "One worktree, branch, or container per worker; no shared mutable checkout.",
+    "allowed_actions": [
+      "claim a task through the ledger",
+      "implement the task in the owned workspace",
+      "submit a candidate branch",
+      "run the landing gate",
+      "land serially through the merge queue"
+    ],
+    "disallowed_actions": [
+      "push directly to the integration branch",
+      "work an unclaimed task",
+      "edit files claimed by another live task",
+      "land a candidate that has not passed the gate after final rebase"
+    ]
+  },
+  "context": {
+    "required_files": [
+      "task backlog",
+      "claim ledger",
+      "landing-gate definition",
+      "merge-queue state"
+    ],
+    "runtime_sources": [
+      "live claim ledger",
+      "merge-queue state",
+      "landing-gate results"
+    ]
+  },
+  "agents": [
+    {
+      "role": "dispatcher",
+      "responsibility": "Claim and assign tasks, reconcile stale claims, and enforce the concurrency cap."
+    },
+    {
+      "role": "worker",
+      "responsibility": "Implement one bounded task in an isolated workspace and submit a candidate change."
+    },
+    {
+      "role": "verifier",
+      "responsibility": "Run the landing gate on every candidate independently of the worker that produced it."
+    },
+    {
+      "role": "integrator",
+      "responsibility": "Serialize landings through the merge queue, rebasing and re-verifying on conflict."
+    }
+  ],
+  "verification": {
+    "gates": [
+      "full landing gate passes after the candidate's final rebase",
+      "diff stays inside the claimed task scope",
+      "no two live claims cover the same task or protected files",
+      "integration branch stays green; a red landing halts the queue",
+      "every landing has a receipt linking task, worker, gate results, and commit"
+    ],
+    "receipts": [
+      "landing receipt linking task, worker, gate results, and commit",
+      "fleet telemetry snapshot per wave"
+    ]
+  },
+  "state": {
+    "artifacts": [
+      "claim ledger",
+      "merge-queue state and landing receipts",
+      "fleet telemetry"
+    ],
+    "update_rule": "Claims and landings mutate only through the ledger and merge queue; unfinished tasks return to the backlog with their evidence attached."
+  },
+  "budget": {
+    "max_retries": 2,
+    "max_runtime_minutes": 480
+  },
+  "escalation": {
+    "conditions": [
+      "a task fails its gate repeatedly",
+      "two tasks genuinely require the same files",
+      "gate infrastructure breaks",
+      "landing order forces a product decision"
+    ],
+    "destination": "Escalation queue with the candidate branch, gate evidence, and claim history."
+  },
+  "exit": {
+    "success": "Backlog empty with all landings receipted and the integration branch green.",
+    "stop_without_success": "Budget spent or the branch cannot be kept green; remaining tasks return to the backlog with evidence."
+  }
+}

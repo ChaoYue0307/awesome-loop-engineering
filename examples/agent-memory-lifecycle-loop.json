@@ -1,0 +1,103 @@
+{
+  "name": "Agent memory lifecycle loop",
+  "objective": "Carry governed operational memory between recurring agent runs: explicitly written, scoped on recall, audited, consolidated, and deletable.",
+  "trigger": {
+    "type": "scheduled",
+    "cadence_or_event": "Weekly consolidation pass, plus a session-end candidate-write hook after each run."
+  },
+  "intake": {
+    "sources": [
+      "candidate records from recent runs",
+      "live memory store with provenance",
+      "retention and privacy policy",
+      "audit log",
+      "recall-scope definitions"
+    ],
+    "selection_rule": "Process only candidate records written since the last pass and live records due for audit, expiry, or review."
+  },
+  "workspace": {
+    "isolation": "Staging area for candidate records; the live store changes only through gated promotion.",
+    "allowed_actions": [
+      "distill run artifacts into candidate records",
+      "deduplicate and merge with provenance",
+      "audit for staleness, contradiction, and scope creep",
+      "apply logged expiries and redactions",
+      "run recall-scope test queries"
+    ],
+    "disallowed_actions": [
+      "store raw transcripts or credentials",
+      "delete audited records silently",
+      "write to the live store without promotion",
+      "broaden a record's recall scope without review"
+    ]
+  },
+  "context": {
+    "required_files": [
+      "memory store manifest",
+      "retention and privacy policy",
+      "recall-scope map",
+      "audit log"
+    ],
+    "runtime_sources": [
+      "session-end run artifacts",
+      "quarantine queue",
+      "recall test results"
+    ]
+  },
+  "agents": [
+    {
+      "role": "recorder",
+      "responsibility": "Distill each finished run into explicit candidate records instead of raw transcripts."
+    },
+    {
+      "role": "auditor",
+      "responsibility": "Flag stale, contradictory, sensitive, or unattributed records and quarantine failures."
+    },
+    {
+      "role": "consolidator",
+      "responsibility": "Merge duplicates, promote repeated lessons to principle-level records, and retire superseded ones."
+    },
+    {
+      "role": "recall gate",
+      "responsibility": "Scope what each future run may read by task and access class, and verify scopes with test recalls."
+    }
+  ],
+  "verification": {
+    "gates": [
+      "every record carries provenance, scope, and an expiry or review date",
+      "no raw transcript, credential, or policy-barred content in the live store",
+      "contradictory records cannot coexist unresolved",
+      "recall tests retrieve intended records and nothing out of scope",
+      "deletions and redactions are logged and reversible for the review window"
+    ],
+    "receipts": [
+      "consolidation receipt linking merged, promoted, and retired records",
+      "audit log entries for every write, merge, prune, and redaction"
+    ]
+  },
+  "state": {
+    "artifacts": [
+      "memory store with typed records",
+      "audit log of writes, merges, prunes, and redactions",
+      "consolidation receipts"
+    ],
+    "update_rule": "Only promoted records enter the live store; quarantined and expired records never recall; every mutation appends to the audit log."
+  },
+  "budget": {
+    "max_retries": 1,
+    "max_runtime_minutes": 60
+  },
+  "escalation": {
+    "conditions": [
+      "sensitive or ambiguous records",
+      "contradiction between operator instruction and remembered preference",
+      "retention-policy questions",
+      "records whose provenance does not trace to a legitimate run"
+    ],
+    "destination": "Review queue with the quarantined records and their provenance evidence."
+  },
+  "exit": {
+    "success": "All candidates processed, audits clean, recall-scope tests pass, and the receipt is written.",
+    "stop_without_success": "Churn cap reached or policy failures found; the live store keeps its last audited state."
+  }
+}

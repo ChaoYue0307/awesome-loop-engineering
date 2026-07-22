@@ -181,5 +181,7 @@
   "https://www.starfleetmath.com/": "2026-07-22",
   "https://www.ayush.digital/blog/the-memory-heist": "2026-07-22",
   "https://mindgard.ai/blog/cursor-0day-when-full-disclosure-becomes-the-only-protection-left": "2026-07-22",
-  "https://lucumr.pocoo.org/2026/7/13/the-tower-keeps-rising/": "2026-07-22"
+  "https://lucumr.pocoo.org/2026/7/13/the-tower-keeps-rising/": "2026-07-22",
+  "patterns/agent-memory-lifecycle-loop.md": "2026-07-22",
+  "patterns/fleet-coordination-loop.md": "2026-07-22"
 }

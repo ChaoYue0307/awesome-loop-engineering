@@ -41,7 +41,7 @@
 8. Compared the published static hero and the Three.js-enhanced hero at the same 1280 x 720 viewport. The enhancement keeps the existing identity, copy, actions, spacing, and section transition while adding a restrained evidence orbit, control-plane stack, verification gate, and six lifecycle nodes behind the content.
 9. Moved the control-plane stack and verification gate outward after the first 3D pass so they frame the copy rather than crossing its reading path. Rechecked desktop and mobile rendering after the adjustment.
 10. Verified progressive enhancement behavior: the semantic hero remains complete without WebGL, forced-colors and print hide the scene, reduced-motion renders a static frame, and the animation stops when the hero leaves the viewport.
-11. Expanded the implementation kit to 20 patterns, 20 schema-checked contracts, and eight runtime starters. The runtime section now labels all five adaptable templates and all three executables, with use-case copy and an even desktop grid.
+11. Expanded the implementation kit to 22 patterns, 22 schema-checked contracts, and eight runtime starters. The runtime section now labels all five adaptable templates and all three executables, with use-case copy and an even desktop grid.
 12. Rechecked the expanded pattern and runtime sections at 1440 x 1000 and 390 x 844. Anchor offsets clear the sticky header, the page width stays equal to the viewport, and headings, icons, labels, and descriptions remain aligned.
 13. Added the role-based future-directions section and rechecked it at both target viewports. Resource Atlas expansion initially displaced direct links to later sections; post-load hash restoration now leaves `#future` 84 px below the desktop viewport top and 74 px below it on mobile.
 
@@ -76,9 +76,9 @@
 - Tablet: 768 x 900. The first pass clipped the intake and decision stations. The responsive camera now fits an 11.2-unit horizontal view between 720 px and 900 px, keeping all six stations, the retry path, and the outcome node inside the canvas.
 - Phone: 390 x 844, no horizontal overflow. The compact loop keeps all six stations, the moving work packet, legend, outcome key, and stage selector visible without crossing the hero copy.
 - Mobile navigation: opens all nine project links, reports `aria-expanded="true"`, closes on Escape, and restores focus to the menu button.
-- Pattern filter: `accessibility` returns exactly one of the 20 patterns.
-- Resource Atlas: remains idle above the fold, loads on approach or a direct resource anchor, and reports `669 of 669 resources | showing 8` on a fresh mobile load.
-- Resource interactions: the Model loop-layer filter returns 29 of 669 resources (28 papers plus Awesome Loop Models), paginates eight at a time on mobile, and renders Loopie and LoopWM with their 2026 arXiv records and adjacent-scope labels.
+- Pattern filter: `accessibility` returns exactly one of the 22 patterns.
+- Resource Atlas: remains idle above the fold, loads on approach or a direct resource anchor, and reports `669 of 671 resources | showing 8` on a fresh mobile load.
+- Resource interactions: the Model loop-layer filter returns 29 of 671 resources (28 papers plus Awesome Loop Models), paginates eight at a time on mobile, and renders Loopie and LoopWM with their 2026 arXiv records and adjacent-scope labels.
 - Resource row schema: desktop exposes Work, Year, Published at, and Evidence; mobile stacks the same labels. A `ReasoningBank` query returns one row with its ICLR venue, arXiv identifier, Tier A evidence, task fit, and source record without horizontal overflow.
 - Scene motion: the canvas frame counter advanced from 640 to 662 over 900 ms. Two canvas crops taken 1.2 seconds apart changed 17.79% of sampled RGB channels.
 - Scene pixels: the current desktop canvas has 7,062 colors with RGB standard deviations of 35.93, 29.76, and 22.29; mobile has 5,755 colors with deviations of 40.73, 30.54, and 19.70. Both renders are nonblank and well contrasted.
@@ -86,8 +86,8 @@
 - Future directions: direct-anchor restoration waits for the Resource Atlas reflow, all three audience tracks remain readable, and the agenda CTA is fully visible at desktop and mobile widths.
 - Console: no page-origin errors or warnings during mobile navigation, pattern filtering, and Resource Atlas interactions.
 - Narrow phone: 320 x 844, document width equals viewport width; the headline stays within 16 px gutters and the Three.js canvas remains fully inside the 288 px content width.
-- Source audit: 669 rows checked; 619 public sources reachable, 1 access-restricted, 49 repository-native, and 0 broken or unreachable as of 2026-07-22 UTC.
-- Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 669 resources, 20 patterns, 20 contracts, 8 runtime starters, and version 0.9.0. The dataset exposes 50 fields, including `loop_layer` and `scope_fit`.
+- Source audit: 669 rows checked; 618 public sources reachable, 2 access-restricted, 51 repository-native, and 0 broken or unreachable as of 2026-07-22 UTC.
+- Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 671 resources, 22 patterns, 22 contracts, 8 runtime starters, and version 0.9.0. The dataset exposes 50 fields, including `loop_layer` and `scope_fit`.
 - Semantic scene pass: the desktop hero crop paints 14.61% of pixels beyond the paper background with a 254.71 luminance range; the desktop stack paints 27.83% with a 249.98 range; the mobile hero paints 20.84% with a 229.45 range.
 - Stage interaction: selecting Verify updates `aria-pressed` across all six controls and replaces the live detail with the independent evidence-gate explanation.
 - Progressive enhancement: desktop loads the agent-loop and engineering-stack canvases; mobile loads only the agent-loop canvas and exposes the four-layer text stack. Both target viewports have zero horizontal overflow and no console messages.

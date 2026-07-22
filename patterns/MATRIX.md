@@ -1,6 +1,6 @@
 # Pattern Matrix
 
-A side-by-side comparison of all 20 loops in the [pattern library](README.md). Use it to pick a pattern, compare trade-offs, or check that your own loop names the same parts.
+A side-by-side comparison of all 22 loops in the [pattern library](README.md). Use it to pick a pattern, compare trade-offs, or check that your own loop names the same parts.
 
 ## How To Read This Matrix
 
@@ -37,6 +37,8 @@ Every pattern links to its full write-up and a schema-valid contract in [`exampl
 | [Incident response loop](incident-response-loop.md) | An incident just paged | Event: alert; refresh 2-5 min | Alert, dashboards, traces, changes | Incident timeline, hypotheses | Severity backed by impact evidence | 2 retries / incident life | Outage, data loss, or mitigation needed | Custom durable runtime, shell/cron |
 | [Data-quality loop](data-quality-loop.md) | A dataset keeps drifting | Event: refresh; or nightly | New version, schema, prior baseline | Profile metrics, accepted exceptions | Hard rules pass before promotion | 2 retries / 90 min | Schema change or regulated fields | Custom durable runtime, shell/cron |
 | [Knowledge freshness loop](knowledge-freshness-loop.md) | An agent knowledge index is stale | Daily refresh + source change | Approved sources, manifest, retrieval evals | Versioned index, provenance, tombstones | Freshness, retrieval, leakage, atomic promotion | 2 retries / 120 min | Source conflict, access change, sensitive data | Custom durable runtime, scheduled task |
+| [Agent memory lifecycle loop](agent-memory-lifecycle-loop.md) | Recurring runs cold-start or repeat mistakes | Weekly consolidation + session end | Candidate records, live store, retention policy | Typed records, audit log, receipts | Provenance, scope, contradiction, recall tests | 1 retry / 60 min | Sensitive records, contradictions, injection artifacts | Scheduled task, session hook |
+| [Fleet coordination loop](fleet-coordination-loop.md) | Parallel agents collide or duplicate work | Continuous while backlog non-empty | Task backlog, claim ledger, fleet policy | Claim ledger, merge queue, telemetry | Landing gate after rebase, scoped diff, green branch | 2 retries / 480 min | Repeated gate failures, entangled tasks, product decisions | Merge queue, worktrees, CI |
 | [Release-note loop](release-note-loop.md) | Release notes are a chore | Event: release branch or tag | Merged PRs, issues, commits | Processed IDs, draft changelog | Every entry links to a source | 2 retries / 60 min | Security advisories or wording calls | gh-aw, Codex automations |
 | [Model-routing loop](model-routing-loop.md) | Model choice is ad hoc | Schedule + model/price change | Per-task telemetry, eval results | Task-class metrics, routing log | Replays hold quality within tolerance | 2 retries / 120 min | Privacy tier or quality-cost tradeoffs | Custom durable runtime |
 

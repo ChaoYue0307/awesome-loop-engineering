@@ -18,7 +18,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
-  <img src="https://img.shields.io/badge/resources-669-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-671-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-20-38bdf8" alt="patterns">
   <img src="https://img.shields.io/badge/contracts-20-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
@@ -53,7 +53,7 @@
 
 **Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-This field guide connects **669 papers, docs, tools, benchmarks, and guides** to **20 operational patterns, 20 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
+This field guide connects **669 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
 **The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 
@@ -63,7 +63,7 @@ This field guide connects **669 papers, docs, tools, benchmarks, and guides** to
   <tr>
     <td><strong>🧭 Explore the field</strong></td>
     <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
-    <td>Filter 669 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
+    <td>Filter 671 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
     <td><strong>▶️ Build one loop</strong></td>
@@ -128,9 +128,9 @@ Move from evidence to implementation through four connected layers:
 <!--lint disable table-pipe-alignment-->
 | Start with | What it gives you | Use it to | Example |
 | --- | --- | --- | --- |
-| 📚 **669 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
-| 🧩 **20 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
-| 🧾 **20 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
+| 📚 **671 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
+| 🧩 **22 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
+| 🧾 **22 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
 | ▶️ **8 runtime starters** | 3 dependency-light executables plus 5 copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
 <!--lint enable table-pipe-alignment-->
 **Fastest build path:** name the recurring symptom, inspect its pattern, adapt the linked contract, then choose a runtime for the required persistence, isolation, and permissions.
@@ -288,28 +288,30 @@ A generic "keep trying" loop collapses those differences. It can retry a judgmen
 
 Select the **pattern** for the class of work, adapt its **contract** to your exact controls, then choose the **runtime** based on persistence, isolation, and permissions. Start from the problem and its verified finish below, or compare every field in the [pattern matrix](patterns/MATRIX.md).
 
-| When you say...                       | Start with                    | The loop can finish when...                                                    |
-| ------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------ |
-| "My PR is stuck"                      | PR babysitter                 | Required checks pass, review threads are resolved, and merge state is current. |
-| "CI keeps failing"                    | CI repair loop                | The original failing command passes with a scoped patch.                       |
-| "The docs may be stale"               | Docs drift collector          | Verified code/docs mismatches are patched and examples still run.              |
-| "A deploy needs monitoring"           | Deploy verifier               | Synthetic checks and rollout thresholds remain within policy.                  |
-| "Feedback is noisy"                   | Feedback clusterer            | Themes cite source items and separate frequency from severity.                 |
-| "Dependency updates pile up"          | Dependency triage loop        | Safe updates pass tests and risky upgrades have an owner-backed escalation.    |
-| "Agent evals regressed"               | Evaluation regression loop    | Targeted evals return to the accepted baseline without scorer changes.         |
-| "Sensitive changes need review"       | Security review loop          | Findings cite concrete evidence and approval boundaries stay intact.           |
-| "Agent spend is rising"               | Cost-control loop             | Spend falls on a comparable workload without quality regression.               |
-| "I need recurring bug discovery"      | Bug hunting loop              | Every accepted finding has reproducible steps or a failing test.               |
-| "A change needs sign-off"             | Enterprise approval loop      | Every required gate has a recorded decision and audit trail.                   |
-| "An incident just paged"              | Incident response loop        | Impact, evidence, timeline, and accountable owner are recorded.                |
-| "A dataset keeps drifting"            | Data-quality loop             | Hard quality rules pass before a new version is promoted.                      |
-| "Release notes are a chore"           | Release-note loop             | Every shipped change maps to a merged source and audience-facing note.         |
-| "Model choice is ad hoc"              | Model-routing loop            | Routing meets quality, latency, privacy, and cost tolerances.                  |
-| "A stable system should improve"      | Benchmark optimization loop   | Repeated measurements confirm improvement with protected metrics intact.       |
-| "The agent's knowledge is stale"      | Knowledge freshness loop      | A versioned corpus passes provenance, freshness, retrieval, and leakage gates. |
-| "Performance regressed"               | Performance regression loop   | A controlled benchmark confirms recovery with correctness intact.              |
-| "A UI accessibility check failed"     | Accessibility regression loop | The exact regression is fixed and required human criteria are approved.        |
-| "The agent needs adversarial testing" | Adversarial red-team loop     | Findings are reproduced, minimized, privately reported, and regression-tested. |
+| When you say...                          | Start with                    | The loop can finish when...                                                    |
+| ---------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------ |
+| "My PR is stuck"                         | PR babysitter                 | Required checks pass, review threads are resolved, and merge state is current. |
+| "CI keeps failing"                       | CI repair loop                | The original failing command passes with a scoped patch.                       |
+| "The docs may be stale"                  | Docs drift collector          | Verified code/docs mismatches are patched and examples still run.              |
+| "A deploy needs monitoring"              | Deploy verifier               | Synthetic checks and rollout thresholds remain within policy.                  |
+| "Feedback is noisy"                      | Feedback clusterer            | Themes cite source items and separate frequency from severity.                 |
+| "Dependency updates pile up"             | Dependency triage loop        | Safe updates pass tests and risky upgrades have an owner-backed escalation.    |
+| "Agent evals regressed"                  | Evaluation regression loop    | Targeted evals return to the accepted baseline without scorer changes.         |
+| "Sensitive changes need review"          | Security review loop          | Findings cite concrete evidence and approval boundaries stay intact.           |
+| "Agent spend is rising"                  | Cost-control loop             | Spend falls on a comparable workload without quality regression.               |
+| "I need recurring bug discovery"         | Bug hunting loop              | Every accepted finding has reproducible steps or a failing test.               |
+| "A change needs sign-off"                | Enterprise approval loop      | Every required gate has a recorded decision and audit trail.                   |
+| "An incident just paged"                 | Incident response loop        | Impact, evidence, timeline, and accountable owner are recorded.                |
+| "A dataset keeps drifting"               | Data-quality loop             | Hard quality rules pass before a new version is promoted.                      |
+| "Release notes are a chore"              | Release-note loop             | Every shipped change maps to a merged source and audience-facing note.         |
+| "Model choice is ad hoc"                 | Model-routing loop            | Routing meets quality, latency, privacy, and cost tolerances.                  |
+| "A stable system should improve"         | Benchmark optimization loop   | Repeated measurements confirm improvement with protected metrics intact.       |
+| "The agent's knowledge is stale"         | Knowledge freshness loop      | A versioned corpus passes provenance, freshness, retrieval, and leakage gates. |
+| "Runs repeat mistakes they already made" | Agent memory lifecycle loop   | Governed memory records pass provenance, scope, and recall gates between runs. |
+| "Parallel agents collide on one repo"    | Fleet coordination loop       | Isolated workers land serially through a verified merge queue.                 |
+| "Performance regressed"                  | Performance regression loop   | A controlled benchmark confirms recovery with correctness intact.              |
+| "A UI accessibility check failed"        | Accessibility regression loop | The exact regression is fixed and required human criteria are approved.        |
+| "The agent needs adversarial testing"    | Adversarial red-team loop     | Findings are reproduced, minimized, privately reported, and regression-tested. |
 
 After choosing the pattern, compare [runtime persistence, isolation, permissions, and escalation](meta/RUNTIME_SELECTION.md#choosing-by-concern).
 
@@ -346,7 +348,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
   </tr>
   <tr>
     <td><strong>Link availability</strong></td>
-    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-07-21 UTC, 619 public links opened successfully, 1 required access, 49 pointed to files in this repository, and none were broken or unreachable.</td>
+    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-07-21 UTC, 618 public links opened successfully, 2 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
   </tr>
   <tr>
     <td><strong>Evidence label</strong></td>
@@ -376,7 +378,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
 | 📚 **Docs** | 74 | Official product, API, SDK, or platform documentation |
 | 🧰 **Tool** | 117 | Repository, framework, SDK, runtime, or implementation |
 | 🧪 **Benchmark** | 45 | Benchmark, eval suite, leaderboard, or evaluation dataset |
-| 🔁 **Pattern** | 35 | Operational playbook or reusable workflow |
+| 🔁 **Pattern** | 37 | Operational playbook or reusable workflow |
 | 🧾 **Template** | 25 | Template, checklist, schema, guide, or contribution artifact |
 | 🧭 **List** | 16 | Adjacent directory, ecosystem map, or reading list |
 | ⚠️ **Critique** | 12 | Risk analysis, limitation, caveat, or skeptical take |
@@ -481,7 +483,7 @@ Suppose a team wants an agent to keep one pull request moving without asking a p
 | **Cap and hand off**   | Stop after three retries or 60 minutes. Escalate architectural decisions, repeated failures, reviewer disagreement, or any force-push requirement to the human owner.            |
 | **Exit**               | Succeed when the PR is merge-ready or waiting only on human review; stop without success when blocked, out of budget, or facing a judgment call.                                 |
 
-Open the full [`pr-babysitter-loop.json`](examples/pr-babysitter-loop.json), render it with `python3 scripts/preview_loop_contract.py`, or browse the 20 schema-checked contracts below.
+Open the full [`pr-babysitter-loop.json`](examples/pr-babysitter-loop.json), render it with `python3 scripts/preview_loop_contract.py`, or browse the 22 schema-checked contracts below.
 
 ## Loop Design Checklist
 
@@ -551,6 +553,8 @@ Practical loop patterns translate the abstract contract into runnable operating 
 | 🔁 **[Incident response loop](patterns/incident-response-loop.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Pattern library</sub> | Triages an alert into an owned, evidence-backed incident with a postmortem seed. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🔁 **[Data-quality loop](patterns/data-quality-loop.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Pattern library</sub> | Validates each dataset refresh against quality rules and quarantines bad versions. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🔁 **[Knowledge freshness loop](patterns/knowledge-freshness-loop.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Pattern library</sub> | Rebuilds a versioned retrieval corpus and promotes it only after provenance, freshness, quality, and leakage gates pass. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
+| 🔁 **[Agent memory lifecycle loop](patterns/agent-memory-lifecycle-loop.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Pattern library</sub> | Carries governed memory between recurring runs: explicit writes, scoped recall, audits, consolidation, and logged, reversible deletion. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
+| 🔁 **[Fleet coordination loop](patterns/fleet-coordination-loop.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Pattern library</sub> | Lands many parallel agent changes on one codebase through claim ledgers, isolated workspaces, and a verified serial merge queue. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🔁 **[Release-note loop](patterns/release-note-loop.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Pattern library</sub> | Drafts release notes from merged commits, issues, and PRs with linked evidence. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🔁 **[Model-routing loop](patterns/model-routing-loop.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Pattern library</sub> | Routes tasks across models on measured quality, latency, privacy, and cost. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 
@@ -989,7 +993,7 @@ Turn harness and observability mechanisms into exit gates, durable receipts, and
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
 | 📄 **[GLEAN: Guideline-Grounded Evidence Accumulation for High-Stakes Agent Verification](https://arxiv.org/abs/2603.02798)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Yichi Zhang et al.</sub> | Compiles expert guidelines into step-wise trajectory checks, calibrates accumulated evidence into correctness probabilities, and triggers additional verification when uncertainty remains high. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
-| 📄 **[Zombie Agents: Detecting Semantic Livelock in Long-Horizon Autonomous Software](https://doi.org/10.1145/3805760.3814895)**<br><sub>Paper</sub> | **2026** · Proceedings of the 3rd ACM International Conference on AI-Powered Software (AIware '26)<br><sub>Simarjot Khanna</sub> | Defines semantic livelock as continued agent activity without progress and proposes an independent embedding-based convergence monitor that detected the pattern in 25% of the analyzed long-duration SWE-agent failures. | **Research paper**<br><sub>Published or accepted research record</sub> |
+| 📄 **[Zombie Agents: Detecting Semantic Livelock in Long-Horizon Autonomous Software](https://doi.org/10.1145/3805760.3814895)**<br><sub>Paper</sub> | **2026** · Proceedings of the 3rd ACM International Conference on AI-Powered Software (AIware '26)<br><sub>Simarjot Khanna</sub> | Defines semantic livelock as continued agent activity without progress and proposes an independent embedding-based convergence monitor that detected the pattern in 25% of the analyzed long-duration SWE-agent failures. | **Research paper**<br><sub>The linked source required access at the latest check</sub> |
 | 📄 **[Who Grades the Grader? Co-Evolving Evaluation Metrics and Skills for Self-Improving LLM Agents](https://arxiv.org/abs/2607.12790)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Xing Zhang et al.</sub> | Every self-improvement loop rests on an evaluation metric that can itself drift or be gamed; the Double Ratchet framework co-evolves metrics alongside agent skills with anchor discipline and independent audits, retaining 88-110% of ground-truth lift across code generation, SQL, and report-writing loops. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 | 📄 **[AgentLTL: A Trace-Verification Framework for Measuring, Enforcing, and Training Procedural Compliance in Tool-Using LLM Agents](https://arxiv.org/abs/2607.02599)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Laïla Elkoussy & Julien Perez</sub> | First-Order Linear Temporal Logic specification language for verifying that tool-using agents follow procedural rules across the whole trace, not just reach correct answers; supports real-time in-loop tool-call gating and dense-reward training, with compliance gains that generalize to unseen procedural variations. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 | 📄 **[Doomed from the Start: Early Abort of LLM Agent Episodes via a Recall-Controlled Probe Cascade](https://arxiv.org/abs/2607.06503)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Kai Ruan et al.</sub> | Trains lightweight linear probes on hidden states from an episode's earliest interactions to predict eventual failure, then aborts doomed runs through a calibrated cascade with user-specified recall guarantees, cutting generated tokens by roughly 54-60% at a 90% recall target on TextCraft and WebShop across three models, a when-to-stop gate that stops wasted runs instead of letting them burn to timeout. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
@@ -1316,7 +1320,7 @@ Concrete examples make the loop contract easier to adapt to real repositories.
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🔁 **[Loop contract catalog](examples/README.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Example library</sub> | Connects all 20 patterns to schema-valid contracts, deterministic gates, durable receipts, and four worked implementation paths. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
+| 🔁 **[Loop contract catalog](examples/README.md)**<br><sub>Pattern</sub> | **2026** · GitHub<br><sub>Example library</sub> | Connects all 22 patterns to schema-valid contracts, deterministic gates, durable receipts, and four worked implementation paths. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🧾 **[Loop contract library](examples/README.md#contract-catalog)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Example library</sub> | Adaptable contracts for build, operate, optimize, and govern loops, checked against the shared schema with explicit permissions, budgets, and handoffs. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🧾 **[Runnable test-repair loop](examples/runnable/test-repair-loop.sh)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Runnable example</sub> | Repeats a failing deterministic check with durable progress, duplicate-failure detection, and a hard retry budget. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🧾 **[Runnable loop guide](examples/runnable/README.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Runnable example</sub> | Compares 8 starters by trigger, state, gate, and runtime, including executable test-repair, threshold-monitor, and queue-worker loops. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
@@ -1414,7 +1418,7 @@ Browse interactively, query structured exports, or reuse the publishing componen
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)**<br><sub>Template</sub> | **chaoyue0307.github.io** | Filter 669 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact**<br><sub>Adaptable template, schema, or guide</sub> |
+| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)**<br><sub>Template</sub> | **chaoyue0307.github.io** | Filter 671 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact**<br><sub>Adaptable template, schema, or guide</sub> |
 | 🧭 **[Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)**<br><sub>List</sub> | **Hugging Face** | Query the full collection as generated CSV and JSONL tables with publication, evidence, and lifecycle fields. | **Discovery index**<br><sub>Broader ecosystem coverage for finding related work</sub> |
 | 🧾 **[Dataset export guide](data/README.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project documentation</sub> | Load, query, regenerate, and audit the CSV, JSONL, and Resource Atlas data. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
 | 🧾 **[Runtime selection guide](meta/RUNTIME_SELECTION.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project operations guide</sub> | Compare session, scheduled, CI, cron, and durable runtimes by persistence, isolation, permissions, and state. | **Project artifact**<br><sub>Schema, example, guide, or repository documentation</sub> |
