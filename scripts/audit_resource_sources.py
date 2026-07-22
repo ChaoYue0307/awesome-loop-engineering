@@ -68,6 +68,13 @@ PUBLISHER_BY_DOMAIN = {
 }
 
 PUBLICATION_OVERRIDES = {
+    "gallery/loop-graph-reference.md": {
+        "authors": "Lingjiao Chen; Matei Zaharia; Jack Clark; Christopher Re; Chelsea Finn; Ion Stoica",
+        "publication_date": "2026",
+        "publication_year": "2026",
+        "publication_note": "Author list transcribed from the manuscript screenshot supplied with the gallery reference; kept in code so audit regeneration preserves it.",
+        "metadata_source": "repository",
+    },
     "https://openreview.net/forum?id=HyzdRiR9Y7": {
         "authors": "Mostafa Dehghani; Stephan Gouws; Oriol Vinyals; Jakob Uszkoreit; Łukasz Kaiser",
         "publication_date": "2019",
