@@ -19,8 +19,8 @@
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
   <img src="https://img.shields.io/badge/resources-680-a78bfa" alt="resources">
-  <img src="https://img.shields.io/badge/patterns-20-38bdf8" alt="patterns">
-  <img src="https://img.shields.io/badge/contracts-20-7055d9" alt="schema-checked contracts">
+  <img src="https://img.shields.io/badge/patterns-22-38bdf8" alt="patterns">
+  <img src="https://img.shields.io/badge/contracts-22-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC0--1.0-64748b" alt="license"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-22c55e" alt="PRs welcome"></a>

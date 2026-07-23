@@ -118,6 +118,9 @@ def main() -> int:
         ROOT / "README.md",
         [
             f"resources-{count}-",
+            f"patterns-{context['PATTERN_COUNT']}-",
+            f"contracts-{context['CONTRACT_COUNT']}-",
+            f"starters-{context['RUNNABLE_COUNT']}-",
             f"**{count} resources**",
             source_summary,
             f"**{context['RUNNABLE_COUNT']} runtime starters**",
