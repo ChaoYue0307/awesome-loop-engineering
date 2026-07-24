@@ -141,6 +141,16 @@ def main() -> int:
         failures,
     )
     require(ROOT / "meta" / "social-preview.html", [f">{count}</b>"], failures)
+    distribution_text = (ROOT / "meta" / "DISTRIBUTION.md").read_text(encoding="utf-8")
+    share_match = re.search(r"awesome-loop-engineering/(x-v\d+-\d+\.html)", distribution_text)
+    if share_match is None:
+        failures.append("meta/DISTRIBUTION.md: missing current x share-page link")
+    else:
+        require(
+            ROOT / "docs" / share_match.group(1),
+            [f"{count} resources", f"{count} papers"],
+            failures,
+        )
     require(
         ROOT / "posts" / "launch.md",
         [
