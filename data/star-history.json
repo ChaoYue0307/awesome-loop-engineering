@@ -1,10 +1,10 @@
 {
   "repository": "ChaoYue0307/awesome-loop-engineering",
   "source": "GitHub stargazer timestamps followed by repository star-count snapshots",
-  "total_stars": 39,
+  "total_stars": 41,
   "first_starred_at": "2026-06-09T16:18:52Z",
   "latest_starred_at": "2026-07-20T17:14:18Z",
-  "latest_observed_at": "2026-07-23T05:40:15Z",
+  "latest_observed_at": "2026-07-25T05:30:23Z",
   "starred_at": [
     "2026-06-09T16:18:52Z",
     "2026-06-09T16:30:12Z",
@@ -51,6 +51,10 @@
     {
       "observed_at": "2026-07-23T05:40:15Z",
       "stars": 39
+    },
+    {
+      "observed_at": "2026-07-25T05:30:23Z",
+      "stars": 41
     }
   ]
 }
