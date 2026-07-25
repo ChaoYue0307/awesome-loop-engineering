@@ -14,11 +14,11 @@ The original 1200x630 cover presents Loop Engineering as the operating layer abo
 
 ### One Sentence
 
-Awesome Loop Engineering is a field guide and implementation kit for recurring AI-agent systems, connecting 711 resources to 22 operational patterns, 22 loop contracts, 8 runtime starters, an interactive atlas, and a structured dataset.
+Awesome Loop Engineering is a field guide and implementation kit for recurring AI-agent systems, connecting 730 resources to 22 operational patterns, 22 loop contracts, 8 runtime starters, an interactive atlas, and a structured dataset.
 
 ### Short Paragraph
 
-Awesome Loop Engineering maps how recurring AI agents discover work, act with scoped tools, pass independent verification, preserve state, and decide whether to retry, hand off, or stop. Readers can explore 711 papers, official docs, tools, benchmarks, and guides, then build from 22 patterns, 22 schema-checked contracts, and 8 runtime starters.
+Awesome Loop Engineering maps how recurring AI agents discover work, act with scoped tools, pass independent verification, preserve state, and decide whether to retry, hand off, or stop. Readers can explore 730 papers, official docs, tools, benchmarks, and guides, then build from 22 patterns, 22 schema-checked contracts, and 8 runtime starters.
 
 ### What Distinguishes It
 

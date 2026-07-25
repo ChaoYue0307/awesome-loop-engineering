@@ -19,9 +19,17 @@
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml">Report a correction</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering"><img src="https://img.shields.io/github/stars/ChaoYue0307/awesome-loop-engineering?style=social" alt="Star Awesome Loop Engineering on GitHub"></a>
+  &nbsp;
+  <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/fork"><img src="https://img.shields.io/github/forks/ChaoYue0307/awesome-loop-engineering?style=social" alt="Fork Awesome Loop Engineering on GitHub"></a>
+</p>
+
 ## Dataset Summary
 
 Each row connects an original source to its contribution, novelty, impact, publication details, lifecycle stages, audience, evidence type, link status, and repository context when applicable.
+
+This dataset is generated from the [GitHub field guide](https://github.com/ChaoYue0307/awesome-loop-engineering), which grows near-daily with source-verified additions. If it is useful to you, [starring the repo](https://github.com/ChaoYue0307/awesome-loop-engineering) is the easiest way to follow new resources and helps other builders find the collection.
 
 Current release: **v{{VERSION}}**
 
@@ -155,6 +163,15 @@ The latest link-check results are available as [`data/resource_source_audit.csv`
 ## Versioning And Corrections
 
 GitHub Releases define versioned snapshots; cite a release or commit for reproducibility. Submit corrections to summaries, contribution, novelty, impact, authorship, dates, venues, identifiers, or source URLs through the [correction form](https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=annotation-correction.yml).
+
+## Follow And Support
+
+Everything here starts life in the GitHub repository — the dataset, the atlas, the patterns, and the contracts are all generated from it.
+
+- ⭐ [Star the repo](https://github.com/ChaoYue0307/awesome-loop-engineering) to follow near-daily verified additions and help others discover the collection.
+- 🍴 [Fork it](https://github.com/ChaoYue0307/awesome-loop-engineering/fork) to adapt the {{PATTERN_COUNT}} patterns, {{CONTRACT_COUNT}} loop contracts, and {{RUNNABLE_COUNT}} runtime starters to your own stack.
+- 🧭 [Suggest a resource or open a PR](https://github.com/ChaoYue0307/awesome-loop-engineering/blob/main/CONTRIBUTING.md) — every submission is source-verified before it lands.
+- 🤗 Liking this dataset on Hugging Face also helps other practitioners find it.
 
 ## Citation
 
