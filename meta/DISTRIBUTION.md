@@ -33,9 +33,10 @@ The Hugging Face dataset [`datasets/cy0307/awesome-loop-engineering`](https://hu
 
 - The mirror tracks the full GitHub tree (docs, patterns, examples, schema, scripts).
 - The dataset mirror includes generated resource sheets at `data/resources.csv` and `data/resources.jsonl`, refreshed from the full English `README.md` by `scripts/export_resource_dataset.py`.
-- The HF copy of `README.md` is a focused dataset card generated from `meta/hf_card_header.yaml` and `meta/hf_card_body.md` by `scripts/build_hf_card.py`. It documents intended uses, evidence fields, limitations, loading examples, and the latest link status without duplicating the 669-row GitHub README.
+- The HF copy of `README.md` is a focused dataset card generated from `meta/hf_card_header.yaml` and `meta/hf_card_body.md` by `scripts/build_hf_card.py`. It documents intended uses, evidence fields, limitations, loading examples, and the latest link status without duplicating the 730-row GitHub README.
 - The YAML header is **HF-only**: it must never be added to the GitHub `README.md`, because the metadata list items break `awesome-lint`.
 - Sync uses `python3 scripts/build_hf_card.py --output <staging>/README.md` followed by `hf upload --type dataset` against a staging copy. The token lives in the local Hugging Face cache; no token is committed.
+- **Always pass `--exclude "README.md"` to the full-tree upload.** The GitHub `README.md` carries no YAML header, so uploading it to the dataset repository overwrites the card and removes the `configs` block. The dataset is then briefly configured with no explicit data file while `data/resources.csv`, `data/resources.jsonl`, and `data/resources.parquet` all sit in `data/`, which queues a dataset-viewer job that cannot resolve a split and leaves the viewer stuck on "should be available soon" even after the card is restored. Upload the generated card and `data/resources.parquet` in the same pass so the repository never holds a card and a shard that disagree.
 
 ## GitHub-Native Promotion
 
