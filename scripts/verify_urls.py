@@ -22,6 +22,11 @@ from urllib.parse import urlparse
 URL_RE = re.compile(r'https?://[^\s)\]}>"]+')
 CLAUDE_DOC_HOSTS = {"code.claude.com", "docs.anthropic.com"}
 RETRYABLE_HTTP_CODES = {408, 425, 500, 502, 503, 504}
+# Hosts that answer 404 to hosted CI runners while serving the page normally elsewhere.
+# Treated as access-restricted rather than broken, matching how a 403 is already handled.
+# ninadpathak.com: verified 200 on 2026-07-31 over HEAD and GET, with the checker's own
+# user agent, a browser user agent, and no user agent, while GitHub Actions saw 404 twice.
+EDGE_FILTERED_HOSTS = {"ninadpathak.com"}
 
 
 class RedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -80,6 +85,8 @@ def check_url(url: str, timeout: float, attempts: int) -> tuple[bool, str]:
                     return True, f"{error.code} restricted redirect"
                 if error.code in {401, 403, 405, 406, 418, 429, 999}:
                     return True, f"{error.code} restricted"
+                if error.code == 404 and source_host in EDGE_FILTERED_HOSTS:
+                    return True, f"{error.code} restricted (edge-filtered host)"
                 if method == "HEAD":
                     continue
                 last_error = f"{error.code} {method}"
