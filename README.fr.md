@@ -28,7 +28,7 @@ Un loop découvre du travail, le délègue à un ou plusieurs agents, vérifie l
 
 Loop Engineering couvre les systèmes récurrents d'agents IA et de coding agents avec des déclencheurs explicites, une vérification et un état durable. Il n'inclut ni les event loops logiciels, ni la théorie du contrôle, ni les growth loops, ni l'automatisation générique, ni les feedback loops sans rapport avec l'IA.
 
-Commencez avec 797 ressources, 22 patterns opérationnels, 22 loop contracts validés par schéma et 8 points de départ d'exécution (3 exécutables et 5 modèles prêts à adapter), ainsi qu'une galerie communautaire et 8 langues.
+Commencez avec 863 ressources, 22 patterns opérationnels, 22 loop contracts validés par schéma et 8 points de départ d'exécution (3 exécutables et 5 modèles prêts à adapter), ainsi qu'une galerie communautaire et 8 langues.
 
 ## Modèle Mental
 

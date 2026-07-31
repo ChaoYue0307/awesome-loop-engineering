@@ -2,12 +2,12 @@
 
 Awesome Loop Engineering v0.9.0 maps recurrence from a model's inner computation to an agent's tools and the outer operating loop that verifies, remembers, retries, escalates, and stops.
 
-Explore 797 resources without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
+Explore 863 resources without collapsing looped models, agent execution, harnesses, workflows, and production operations into one idea.
 
 ## What You Can Use
 
-- 797 papers, official docs, tools, benchmarks, and guides linked to the original work
-- 29 model-layer resources, from Universal Transformers and Huginn to Loopie, LoopCoder, and LoopWM, labeled as adjacent foundations rather than complete agent loops
+- 863 papers, official docs, tools, benchmarks, and guides linked to the original work
+- 30 model-layer resources, from Universal Transformers and Huginn to Loopie, LoopCoder, and LoopWM, labeled as adjacent foundations rather than complete agent loops
 - 22 operational patterns organized by build, operate, optimize, and govern use cases
 - 22 schema-checked loop contracts, one for every pattern
 - 8 runtime starters: 3 dependency-light executables and 5 copy/paste runtime templates

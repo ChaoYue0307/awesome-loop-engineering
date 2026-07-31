@@ -19,6 +19,8 @@ LEGACY_TABLE_HEADERS = {
 }
 SUMMARY_START = "<!-- resource-type-summary:start -->"
 SUMMARY_END = "<!-- resource-type-summary:end -->"
+EVIDENCE_START = "<!-- evidence-label-legend:start -->"
+EVIDENCE_END = "<!-- evidence-label-legend:end -->"
 PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
 README_RENDER_BUDGET_BYTES = 480 * 1024
 
@@ -158,13 +160,17 @@ def publication_cell(row: dict[str, str]) -> str:
 
 
 def evidence_cell(row: dict[str, str]) -> str:
+    # The per-class note is constant for every row of a class, so it is defined once in the
+    # evidence-label legend rather than repeated on each row; repeating it cost roughly 40 KB
+    # against the GitHub render budget. Only per-row exceptions still carry an inline note.
     evidence = row["evidence_class"]
     label = EVIDENCE_LABELS.get(evidence, evidence.replace("-", " ").title())
-    note = EVIDENCE_NOTES.get(evidence, "Inspect the linked source")
     if row["source_status"] == "restricted":
         note = "The linked source required access at the latest check"
     elif row["source_status"] not in {"ok", "local_ok"}:
         note = "The linked source was unavailable at the latest check"
+    else:
+        return f"**{escape_cell(label)}**"
     return f"**{escape_cell(label)}**<br><sub>{escape_cell(note)}</sub>"
 
 
@@ -230,6 +236,32 @@ def replace_summary(lines: list[str], rows: list[dict[str, str]]) -> list[str]:
     return lines[:start] + summary_lines(rows) + lines[end + 1 :]
 
 
+def evidence_legend_lines(rows: list[dict[str, str]]) -> list[str]:
+    """Define each evidence label once, since rows no longer repeat the per-class note."""
+    counts = Counter(row["evidence_class"] for row in rows)
+    data = []
+    for evidence, label in EVIDENCE_LABELS.items():
+        if not counts[evidence]:
+            continue
+        data.append(
+            (
+                f"**{escape_cell(label)}**",
+                str(counts[evidence]),
+                escape_cell(EVIDENCE_NOTES.get(evidence, "Inspect the linked source")),
+            )
+        )
+    return [EVIDENCE_START, *markdown_table(("Evidence label", "Rows", "What it means"), data), EVIDENCE_END]
+
+
+def replace_evidence_legend(lines: list[str], rows: list[dict[str, str]]) -> list[str]:
+    try:
+        start = lines.index(EVIDENCE_START)
+        end = lines.index(EVIDENCE_END, start + 1)
+    except ValueError as error:
+        raise RuntimeError("README evidence-label legend markers are missing") from error
+    return lines[:start] + evidence_legend_lines(rows) + lines[end + 1 :]
+
+
 def render_readme(readme_path: Path = README) -> str:
     rows = iter_rows(readme_path)
     rows_by_line = {int(row["source_line"]): row for row in rows}
@@ -261,6 +293,7 @@ def render_readme(readme_path: Path = README) -> str:
         index += 1
 
     output = replace_summary(output, rows)
+    output = replace_evidence_legend(output, rows)
     return "\n".join(output) + "\n"
 
 
