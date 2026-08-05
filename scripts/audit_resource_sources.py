@@ -289,6 +289,10 @@ FIELDS = [
 ]
 
 RESTRICTED_HTTP = {401, 403, 405, 406, 418, 429, 999}
+# Hosts that answer 404 to automated clients while serving the page normally in a browser.
+# Recorded as access-restricted rather than broken, matching how scripts/verify_urls.py already
+# classifies them, so the same source does not flap between broken and ok on every audit.
+EDGE_FILTERED_HOSTS = {"ninadpathak.com"}
 
 
 def clean(value: str | None) -> str:
@@ -541,7 +545,9 @@ def fetch_url(url: str, timeout: float, attempts: int) -> dict[str, str]:
                 if error.code == 404 and parsed_url.netloc.lower() == "code.claude.com" and attempt < attempts:
                     last_error = "HTTPError:404"
                     break
-                if error.code in RESTRICTED_HTTP:
+                if error.code in RESTRICTED_HTTP or (
+                    error.code == 404 and parsed_url.netloc.lower() in EDGE_FILTERED_HOSTS
+                ):
                     return {
                         "audit_status": "restricted",
                         "http_status": str(error.code),
