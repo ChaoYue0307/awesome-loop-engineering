@@ -68,6 +68,15 @@ PUBLISHER_BY_DOMAIN = {
 }
 
 PUBLICATION_OVERRIDES = {
+    "https://ainowinstitute.org/publications/friendly-fire-exploit-brief": {
+        "authors": "Boyan Milanov",
+        "publication_date": "2026-07-08",
+        "publication_year": "2026",
+        "publication_venue": "AI Now Institute",
+        "publisher": "AI Now Institute",
+        "publication_note": "Author and date read from the publication's own article:published_time and author meta tags; kept in code because automatic resolution falls back to the domain for this host.",
+        "metadata_source": "publisher-meta",
+    },
     "gallery/loop-graph-reference.md": {
         "authors": "Lingjiao Chen; Matei Zaharia; Jack Clark; Christopher Re; Chelsea Finn; Ion Stoica",
         "publication_date": "2026",
