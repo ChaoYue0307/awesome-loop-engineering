@@ -12,7 +12,7 @@ Use these messages to request sources, operating examples, and accuracy correcti
 ## Short Message
 
 ```text
-Hi <name>, Awesome Loop Engineering connects 937 papers, docs, tools, benchmarks, and guides with reusable patterns for recurring AI-agent systems.
+Hi <name>, Awesome Loop Engineering connects 956 papers, docs, tools, benchmarks, and guides with reusable patterns for recurring AI-agent systems.
 
 If you have an original or official source, a correction, a real-world loop, or a cautionary example, you can contribute here:
 https://github.com/ChaoYue0307/awesome-loop-engineering
@@ -38,7 +38,7 @@ https://github.com/ChaoYue0307/awesome-loop-engineering/issues/new?template=anno
 ## Maintainer Request
 
 ```text
-Hi <name>, Awesome Loop Engineering helps researchers and builders move from 937 papers, docs, tools, benchmarks, and guides to 22 operational patterns, 22 adaptable contracts, 8 runtime starters, and a structured dataset.
+Hi <name>, Awesome Loop Engineering helps researchers and builders move from 956 papers, docs, tools, benchmarks, and guides to 22 operational patterns, 22 adaptable contracts, 8 runtime starters, and a structured dataset.
 
 Would it fit the related-resources policy for <project or newsletter>? I can provide a shorter description or submit through the normal contribution process:
 https://github.com/ChaoYue0307/awesome-loop-engineering

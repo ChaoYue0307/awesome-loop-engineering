@@ -28,7 +28,7 @@ Loop 는 작업을 발견하고, 하나 이상의 agents 에게 위임하고, �
 
 Loop Engineering 은 명시적 트리거, 검증, 지속 상태를 갖춘 반복 AI agent / coding agent 시스템을 다룹니다. software event loop, control theory, growth loop, 일반적인 workflow automation, 비 AI feedback loop 는 포함하지 않습니다.
 
-937개의 감사된 리소스, 22개의 운영 loop 패턴, 22개의 스키마 검증 loop contract, 8개의 runtime starter(실행 파일 3개와 적용 가능한 템플릿 5개)로 바로 시작할 수 있습니다. 커뮤니티 gallery 와 8개 언어 안내도 제공합니다.
+956개의 감사된 리소스, 22개의 운영 loop 패턴, 22개의 스키마 검증 loop contract, 8개의 runtime starter(실행 파일 3개와 적용 가능한 템플릿 5개)로 바로 시작할 수 있습니다. 커뮤니티 gallery 와 8개 언어 안내도 제공합니다.
 
 ## 멘탈 모델
 
