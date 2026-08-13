@@ -67,7 +67,10 @@ def main() -> None:
                     stale.append(path)
                     continue
                 current = Image.open(path).convert("RGBA")
-                if current.size != output.size or ImageChops.difference(current, output).getbbox():
+                # getbbox() defaults to alpha_only=True on RGBA, so it would compare only the
+                # alpha channel and report a fully recoloured mark as current. Compare colour.
+                difference = ImageChops.difference(current, output)
+                if current.size != output.size or difference.getbbox(alpha_only=False):
                     stale.append(path)
                 continue
             path.write_bytes(payload)

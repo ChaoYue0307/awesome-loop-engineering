@@ -405,7 +405,6 @@
   "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/": "2026-08-05",
   "https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/": "2026-08-05",
   "https://gruhn.me/blog/2026-08-03/": "2026-08-05",
-  "https://github.com/0xwilliamortiz/ratchet": "2026-08-05",
   "https://github.com/disler/super-simple-software-factory": "2026-08-05",
   "https://github.com/DannyMac180/sol-advisor": "2026-08-05",
   "https://arxiv.org/abs/2604.27202": "2026-08-05",
@@ -470,5 +469,18 @@
   "https://arxiv.org/abs/2604.20006": "2026-08-10",
   "https://arxiv.org/abs/2605.25535": "2026-08-10",
   "https://www.diagrid.io/blog/checkpoints-are-not-durable-execution-why-langgraph-crewai-google-adk-and-others-fall-short-for-production-agent-workflows": "2026-08-10",
-  "https://zenity.io/blog/current-events/ai-agent-database-deletion-pocketos": "2026-08-10"
+  "https://zenity.io/blog/current-events/ai-agent-database-deletion-pocketos": "2026-08-10",
+  "https://arxiv.org/abs/2601.08815": "2026-08-13",
+  "https://arxiv.org/abs/2605.05846": "2026-08-13",
+  "https://arxiv.org/abs/2608.11772": "2026-08-13",
+  "https://arxiv.org/abs/2607.03702": "2026-08-13",
+  "https://arxiv.org/abs/2606.04990": "2026-08-13",
+  "https://arxiv.org/abs/2605.06812": "2026-08-13",
+  "https://arxiv.org/abs/2606.01581": "2026-08-13",
+  "https://arxiv.org/abs/2604.12162": "2026-08-13",
+  "https://arxiv.org/abs/2607.00151": "2026-08-13",
+  "https://arxiv.org/abs/2512.05470": "2026-08-13",
+  "https://devblogs.microsoft.com/dotnet/durable-workflows-in-microsoft-agent-framework/": "2026-08-13",
+  "https://docs.langchain.com/oss/python/deepagents/context-engineering": "2026-08-13",
+  "https://cloud.google.com/blog/topics/developers-practitioners/a-methodical-approach-to-agent-evaluation": "2026-08-13"
 }
