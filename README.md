@@ -18,7 +18,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
-  <img src="https://img.shields.io/badge/resources-972-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-974-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-22-38bdf8" alt="patterns">
   <img src="https://img.shields.io/badge/contracts-22-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
@@ -53,7 +53,7 @@
 
 **Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-This field guide connects **972 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
+This field guide connects **974 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
 **The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 
@@ -63,7 +63,7 @@ This field guide connects **972 papers, docs, tools, benchmarks, and guides** to
   <tr>
     <td><strong>🧭 Explore the field</strong></td>
     <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
-    <td>Filter 972 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
+    <td>Filter 974 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
     <td><strong>▶️ Build one loop</strong></td>
@@ -128,7 +128,7 @@ Move from evidence to implementation through four connected layers:
 <!--lint disable table-pipe-alignment-->
 | Start with | What it gives you | Use it to | Example |
 | --- | --- | --- | --- |
-| 📚 **972 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
+| 📚 **974 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
 | 🧩 **22 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
 | 🧾 **22 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
 | ▶️ **8 runtime starters** | 3 dependency-light executables plus 5 copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
@@ -348,7 +348,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
   </tr>
   <tr>
     <td><strong>Link availability</strong></td>
-    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-08-17 UTC, 910 public links opened successfully, 11 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
+    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-08-20 UTC, 913 public links opened successfully, 10 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
   </tr>
   <tr>
     <td><strong>Evidence label</strong></td>
@@ -373,11 +373,11 @@ Open the original work before relying on a summary. Use the contribution, novelt
 <!-- resource-type-summary:start -->
 | Type | Rows | Includes |
 | --- | --- | --- |
-| 📄 **Paper** | 447 | Academic paper, preprint, or technical report |
+| 📄 **Paper** | 448 | Academic paper, preprint, or technical report |
 | 📝 **Blog** | 128 | Essay, field note, article, or practitioner write-up |
 | 📚 **Docs** | 86 | Official product, API, SDK, or platform documentation |
 | 🧰 **Tool** | 146 | Repository, framework, SDK, runtime, or implementation |
-| 🧪 **Benchmark** | 74 | Benchmark, eval suite, leaderboard, or evaluation dataset |
+| 🧪 **Benchmark** | 75 | Benchmark, eval suite, leaderboard, or evaluation dataset |
 | 🔁 **Pattern** | 37 | Operational playbook or reusable workflow |
 | 🧾 **Template** | 25 | Template, checklist, schema, guide, or contribution artifact |
 | 🧭 **List** | 17 | Adjacent directory, ecosystem map, or reading list |
@@ -392,12 +392,12 @@ Evidence labels describe the kind of source behind an entry, not its scientific 
 | Evidence label | Rows | What it means |
 | --- | --- | --- |
 | **Research paper** | 60 | Published or accepted research record |
-| **Research preprint** | 391 | Preprint; inspect methods and evaluation |
+| **Research preprint** | 392 | Preprint; inspect methods and evaluation |
 | **Official documentation** | 75 | Primary product or standard behavior |
 | **Technical documentation** | 11 | Technical reference from the source |
 | **Source implementation** | 130 | Inspectable source and runtime behavior |
 | **Implementation** | 12 | Working implementation or runtime |
-| **Benchmark or evaluation** | 74 | Repeatable tasks, scores, or evaluation data |
+| **Benchmark or evaluation** | 75 | Repeatable tasks, scores, or evaluation data |
 | **Project artifact** | 50 | Schema, example, guide, or repository documentation |
 | **Reusable artifact** | 2 | Adaptable template, schema, or guide |
 | **Operational pattern** | 11 | Transferable operating practice |
@@ -634,8 +634,8 @@ End-to-end operating guides and release notes from the runtime vendors themselve
 | 📚 **[Agents - OpenAI Agents SDK](https://openai.github.io/openai-agents-python/agents/)**<br><sub>Docs</sub> | **openai.github.io** | SDK primitives for agents, tools, handoffs, guardrails, and runner-managed loops. | **Official documentation** |
 | 📚 **[Running agents](https://developers.openai.com/api/docs/guides/agents/running-agents)**<br><sub>Docs</sub> | **OpenAI Developers** | OpenAI guide to turns, state, approvals, sessions, and continuation in the SDK runtime loop. | **Official documentation** |
 | 📚 **[Integrations and observability](https://developers.openai.com/api/docs/guides/agents/integrations-observability)**<br><sub>Docs</sub> | **OpenAI Developers** | OpenAI guide to MCP wiring and traces as the basis for debugging and evaluation loops. | **Official documentation** |
-| 📚 **[Sandbox Agents](https://developers.openai.com/api/docs/guides/agents/sandboxes)**<br><sub>Docs</sub> | **OpenAI Developers** | Splits the harness control plane from the sandbox execution plane for long-running file and command work. | **Official documentation** |
-| 📚 **[Guardrails and human review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals)**<br><sub>Docs</sub> | **OpenAI Developers** | Approval and validation boundaries for sensitive agent actions. | **Official documentation** |
+| 📚 **[Sandbox Agents](https://developers.openai.com/api/docs/guides/agents/sandboxes)**<br><sub>Docs</sub> | **OpenAI** | Splits the harness control plane from the sandbox execution plane for long-running file and command work. | **Official documentation** |
+| 📚 **[Guardrails and human review](https://developers.openai.com/api/docs/guides/agents/guardrails-approvals)**<br><sub>Docs</sub> | **OpenAI** | Approval and validation boundaries for sensitive agent actions. | **Official documentation** |
 | 📝 **[ChatGPT Work and the Codex Desktop App](https://openai.com/index/chatgpt-for-your-most-ambitious-work/)**<br><sub>Blog</sub> | **OpenAI** | OpenAI's July 9, 2026 launch of ChatGPT Work, a GPT-5.6-powered agent that stays with a project for hours by breaking a goal into smaller steps and completing them independently across apps and files, alongside Codex merging into the ChatGPT desktop app with in-sidebar PR review and cross-repository projects, extending the long-horizon coding-agent loop pattern to general knowledge work. | **Practitioner analysis**<br><sub>The linked source required access at the latest check</sub> |
 
 <!-- Anthropic and Claude Code -->
@@ -677,7 +677,7 @@ End-to-end operating guides and release notes from the runtime vendors themselve
 <!-- Other runtimes -->
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 📚 **[Jules](https://jules.google/docs)**<br><sub>Docs</sub> | **jules.google** | Google's asynchronous coding agent that plans, executes tasks in isolated cloud VMs, and returns reviewable diffs. | **Official documentation** |
+| 📚 **[Jules](https://jules.google/docs)**<br><sub>Docs</sub> | **Jules** | Google's asynchronous coding agent that plans, executes tasks in isolated cloud VMs, and returns reviewable diffs. | **Official documentation** |
 | 📚 **[Devin Docs](https://docs.devin.ai/get-started/devin-intro)**<br><sub>Docs</sub> | **Devin Docs** | Documentation for a long-running autonomous software engineer with sessions, playbooks, knowledge, and review boundaries. | **Official documentation** |
 | 📝 **[Amp: Agents, Anywhere](https://ampcode.com/news/agents-anywhere)**<br><sub>Blog</sub> | **2026** · ampcode.com<br><sub>Amp</sub> | Amp launches remote agent creation on any machine with shell access plus a headless runner mode that lets multiple agents run concurrently without a terminal UI. | **Practitioner analysis** |
 | 📝 **[Amp: Right on Schedule](https://ampcode.com/news/schedule)**<br><sub>Blog</sub> | **2026** · ampcode.com<br><sub>Amp</sub> | Amp adds scheduled agent runs, letting recurring work fire on a cadence with results reported back, moving the platform from on-demand sessions toward standing loops. | **Practitioner analysis** |
@@ -770,6 +770,7 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 | 📄 **[DemoEvolve: Overcoming Sparse Feedback in Agentic Harness Evolution With Demonstrations](https://arxiv.org/abs/2605.24539)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Lirong Che et al.</sub> | Treats harness evolution as sample-efficient adaptation: change the executable structure around a frozen model instead of its weights. Argues reward-only search breaks down in long-horizon stochastic settings where failures cannot be attributed to a mechanism, and bootstraps from human trajectories. | **Research preprint** |
 | 📄 **[From Failed Trajectories to Reliable LLM Agents: Diagnosing and Repairing Harness Flaws](https://arxiv.org/abs/2606.06324)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Mengzhuo Chen et al.</sub> | Argues outcome-driven harness repair produces broad, poorly scoped edits because it never localizes the fault. Compiles execution traces and harness artifacts into an intermediate representation so a repair can be tied to the mechanism, such as tool interface or lifecycle, that caused the failure. | **Research preprint** |
 | 📄 **[AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design](https://arxiv.org/abs/2608.13560)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Yaxin Luo et al.</sub> | Meta-harness optimizer that guides a code agent to recursively rewrite its own harness from rollout feedback, against the observation that existing harness paradigms stay static instead of accumulating reusable experience. Instantiated on paper-to-poster generation with the accompanying PosterBench. | **Research preprint** |
+| 📄 **[Engineering Reliable Coding Agents: Evaluating and Operating the System Around the Model](https://arxiv.org/abs/2608.13867)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>Stephanie Jarmak</sub> | Monograph on the gap between evaluating coding agents as models and deploying them as systems, synthesizing 164 scholarly works, 100 practitioner records, 29 benchmark records, and 17 system case records. Treats evaluation and operation as a dependency chain where a gain at one layer often fails to reach end-to-end outcomes. | **Research preprint** |
 
 ## Model-Level Recurrence
 
@@ -1252,7 +1253,7 @@ For durable loop state and cross-run context, use the resources below. For conte
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
 | 📚 **[Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)**<br><sub>Docs</sub> | **Anthropic** | Anthropic guide to context as managed runtime state rather than a prompt dump. | **Technical documentation** |
-| 📝 **[Agent Harnesses: the Infrastructure Layer Your LLM Agent Actually Needs](https://ninadpathak.com/blog/agent-harnesses/)**<br><sub>Blog</sub> | **ninadpathak.com** | Covers execution loops, state, checkpointing, observers, and replayability. | **Practitioner analysis**<br><sub>The linked source required access at the latest check</sub> |
+| 📝 **[Agent Harnesses: the Infrastructure Layer Your LLM Agent Actually Needs](https://ninadpathak.com/blog/agent-harnesses/)**<br><sub>Blog</sub> | **ninadpathak.com** | Covers execution loops, state, checkpointing, observers, and replayability. | **Practitioner analysis** |
 | 📝 **[The Agent Loop Is the New OS](https://www.harness.io/blog/agent-loop-new-os)**<br><sub>Blog</sub> | **2026** · Harness.io | Frames the agent loop as an OS-like boundary with context as RAM and tools as I/O. | **Practitioner analysis** |
 | 📝 **[Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html)**<br><sub>Blog</sub> | **martinfowler.com** | Martin Fowler article on feedforward, feedback, and outer harnesses for coding agents. | **Practitioner analysis** |
 | 📝 **[Context Engineering](https://simonwillison.net/2025/Jun/27/context-engineering/)**<br><sub>Blog</sub> | **2025** · Simon Willison’s Weblog<br><sub>Simon Willison</sub> | Simon Willison's framing of context engineering, useful for distinguishing context state from loop orchestration. | **Practitioner analysis** |
@@ -1545,6 +1546,7 @@ How to measure loops rather than single runs: long-horizon, multi-session, relia
 | 🧪 **[AlphaEval: Evaluating Agents in Production](https://arxiv.org/abs/2604.12162)**<br><sub>Benchmark</sub> | **2026** · arXiv<br><sub>Pengrui Lu et al.</sub> | 94 tasks sourced from seven companies running agents in their core business, built against the ways production diverges from benchmarks: implicit requirements, heterogeneous multi-modal inputs with facts split across sources, undeclared domain expertise, long-horizon deliverables, and expert standards that shift over time. | **Benchmark or evaluation** |
 | 📝 **[A Methodical Approach to Agent Evaluation](https://cloud.google.com/blog/topics/developers-practitioners/a-methodical-approach-to-agent-evaluation)**<br><sub>Blog</sub> | **Google Cloud Blog** | Splits evaluation into final quality, trajectory, and trust, on the point that an agent can reach a correct answer through a flawed process, a silent failure that outcome-only scoring never surfaces. Pairs human, LLM-judge, code-based, and adversarial methods, then wires the suite into CI as a release gate. | **Practitioner analysis** |
 | 🧪 **[LoopsBench: From Harness Engineering to Loop Engineering in Coding Agent Evaluation](https://arxiv.org/abs/2608.00267)**<br><sub>Benchmark</sub> | **2026** · arXiv<br><sub>Han Li et al.</sub> | Benchmarks sustained execution rather than end state: 112 tasks across 8 languages and 9 domains, each a dependency DAG over separately testable units with source-evidenced prerequisite edges. The runtime releases tests along the ready frontier and keeps completed nodes as standing regression obligations. | **Benchmark or evaluation** |
+| 🧪 **[Do Codex Skills Save Tokens? Six Controlled GPT-5.6-sol Runs](https://github.com/Phelan164/codex-howto/blob/main/resources/articles/do-codex-skills-save-tokens.md)**<br><sub>Benchmark</sub> | **GitHub**<br><sub>Phelan164/codex-howto</sub> | Asks whether a repository workflow skill earns its context cost, and finds the answer reverses by task size: the no-skill control was cheapest on a small specified backend fix, while a lean engineering-loop skill spent 54% fewer reported tokens on a larger build. Two task classes and six runs, with the measurements published. | **Benchmark or evaluation** |
 
 ## Operations Playbooks
 
@@ -1739,7 +1741,7 @@ Browse interactively, query structured exports, or reuse the publishing componen
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)**<br><sub>Template</sub> | **chaoyue0307.github.io** | Filter 972 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
+| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)**<br><sub>Template</sub> | **chaoyue0307.github.io** | Filter 974 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
 | 🧭 **[Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)**<br><sub>List</sub> | **Hugging Face** | Query the full collection as generated CSV and JSONL tables with publication, evidence, and lifecycle fields. | **Discovery index** |
 | 🧾 **[Dataset export guide](data/README.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project documentation</sub> | Load, query, regenerate, and audit the CSV, JSONL, and Resource Atlas data. | **Project artifact** |
 | 🧾 **[Runtime selection guide](meta/RUNTIME_SELECTION.md)**<br><sub>Template</sub> | **2026** · GitHub<br><sub>Project operations guide</sub> | Compare session, scheduled, CI, cron, and durable runtimes by persistence, isolation, permissions, and state. | **Project artifact** |
