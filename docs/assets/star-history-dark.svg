@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
   <title id="title">GitHub star growth for ChaoYue0307/awesome-loop-engineering</title>
-  <desc id="desc">GitHub star history from Jun 9, 2026 to Aug 18, 2026, ending at 51 stars.</desc>
+  <desc id="desc">GitHub star history from Jun 9, 2026 to Aug 20, 2026, ending at 53 stars.</desc>
   <style>
     text { font-family: ui-rounded, 'SF Pro Rounded', 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; letter-spacing: 0; }
   </style>
@@ -15,9 +15,9 @@
   <rect x="24" y="24" width="1152" height="512" rx="8" fill="#111827" stroke="#344158" stroke-width="2"/>
   <path d="M 85 60 L 86.76 64.57 L 91.66 64.84 L 87.85 67.93 L 89.11 72.66 L 85 70 L 80.89 72.66 L 82.15 67.93 L 78.34 64.84 L 83.24 64.57 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1"/>
   <text x="99" y="72" fill="#73A7FF" font-size="14" font-weight="800">STAR HISTORY</text>
-  <text x="78" y="113" fill="#F8FAFC" font-size="34" font-weight="760">51 stars and counting</text>
+  <text x="78" y="113" fill="#F8FAFC" font-size="34" font-weight="760">53 stars and counting</text>
   <text x="78" y="143" fill="#AAB6CA" font-size="16">Every star helps more builders discover loop engineering.</text>
-  <text x="1122" y="91" fill="#F8FAFC" font-size="28" font-weight="760" text-anchor="end">71</text>
+  <text x="1122" y="91" fill="#F8FAFC" font-size="28" font-weight="760" text-anchor="end">73</text>
   <text x="1122" y="116" fill="#AAB6CA" font-size="12" font-weight="750" text-anchor="end">DAYS OF GROWTH</text>
   <line x1="102" y1="442" x2="1122" y2="442" stroke="#354158" stroke-width="1" stroke-dasharray="3 9" stroke-linecap="round"/>
   <text x="82" y="446.94" fill="#AAB6CA" font-size="13" text-anchor="end">0</text>
@@ -28,26 +28,26 @@
   <line x1="102" y1="184" x2="1122" y2="184" stroke="#354158" stroke-width="1" stroke-dasharray="3 9" stroke-linecap="round"/>
   <text x="82" y="188.94" fill="#AAB6CA" font-size="13" text-anchor="end">60</text>
   <text x="102" y="474" fill="#AAB6CA" font-size="13" text-anchor="start">Jun 9</text>
-  <text x="357" y="474" fill="#AAB6CA" font-size="13" text-anchor="middle">Jun 26</text>
-  <text x="612" y="474" fill="#AAB6CA" font-size="13" text-anchor="middle">Jul 14</text>
-  <text x="867" y="474" fill="#AAB6CA" font-size="13" text-anchor="middle">Aug 1</text>
-  <text x="1122" y="474" fill="#AAB6CA" font-size="13" text-anchor="end">Aug 18</text>
+  <text x="357" y="474" fill="#AAB6CA" font-size="13" text-anchor="middle">Jun 27</text>
+  <text x="612" y="474" fill="#AAB6CA" font-size="13" text-anchor="middle">Jul 15</text>
+  <text x="867" y="474" fill="#AAB6CA" font-size="13" text-anchor="middle">Aug 2</text>
+  <text x="1122" y="474" fill="#AAB6CA" font-size="13" text-anchor="end">Aug 20</text>
   <g clip-path="url(#plot-clip)">
-    <path d="M 102 442 L 111.77 437.7 L 111.88 433.4 L 111.9 429.1 L 117.48 424.8 L 117.81 420.5 L 120.5 416.2 L 221.58 411.9 L 222.43 407.6 L 268.25 403.3 L 272.59 399 L 274.72 394.7 L 308.38 390.4 L 327.25 386.1 L 366.66 381.8 L 392.93 377.5 L 419.45 373.2 L 420.01 368.9 L 451.41 364.6 L 509.49 360.3 L 536.19 356 L 541.04 351.7 L 551.73 347.4 L 624.61 343.1 L 643.85 338.8 L 648.42 334.5 L 649.17 330.2 L 652.11 325.9 L 654.73 321.6 L 663.84 317.3 L 664.72 313 L 664.98 308.7 L 674.91 304.4 L 684.33 300.1 L 691.29 295.8 L 695.87 291.5 L 701.33 287.2 L 723.09 282.9 L 737.51 274.3 L 766.14 265.7 L 795.23 261.4 L 837.93 257.1 L 881.19 244.2 L 937.52 239.9 L 951.8 235.6 L 994.71 227 L 1109.45 222.7 L 1122 222.7 V 442 H 102 Z" fill="#572F38" opacity="0.6"/>
-    <path d="M 102 442 L 111.77 437.7 L 111.88 433.4 L 111.9 429.1 L 117.48 424.8 L 117.81 420.5 L 120.5 416.2 L 221.58 411.9 L 222.43 407.6 L 268.25 403.3 L 272.59 399 L 274.72 394.7 L 308.38 390.4 L 327.25 386.1 L 366.66 381.8 L 392.93 377.5 L 419.45 373.2 L 420.01 368.9 L 451.41 364.6 L 509.49 360.3 L 536.19 356 L 541.04 351.7 L 551.73 347.4 L 624.61 343.1 L 643.85 338.8 L 648.42 334.5 L 649.17 330.2 L 652.11 325.9 L 654.73 321.6 L 663.84 317.3 L 664.72 313 L 664.98 308.7 L 674.91 304.4 L 684.33 300.1 L 691.29 295.8 L 695.87 291.5 L 701.33 287.2 L 723.09 282.9 L 737.51 274.3 L 766.14 265.7 L 795.23 261.4 L 837.93 257.1 L 881.19 244.2 L 937.52 239.9 L 951.8 235.6 L 994.71 227 L 1109.45 222.7 L 1122 222.7" fill="none" stroke="#FF8582" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" opacity="0.13" transform="translate(0 2)"/>
-    <path d="M 102 442 L 111.77 437.7 L 111.88 433.4 L 111.9 429.1 L 117.48 424.8 L 117.81 420.5 L 120.5 416.2 L 221.58 411.9 L 222.43 407.6 L 268.25 403.3 L 272.59 399 L 274.72 394.7 L 308.38 390.4 L 327.25 386.1 L 366.66 381.8 L 392.93 377.5 L 419.45 373.2 L 420.01 368.9 L 451.41 364.6 L 509.49 360.3 L 536.19 356 L 541.04 351.7 L 551.73 347.4 L 624.61 343.1 L 643.85 338.8 L 648.42 334.5 L 649.17 330.2 L 652.11 325.9 L 654.73 321.6 L 663.84 317.3 L 664.72 313 L 664.98 308.7 L 674.91 304.4 L 684.33 300.1 L 691.29 295.8 L 695.87 291.5 L 701.33 287.2 L 723.09 282.9 L 737.51 274.3 L 766.14 265.7 L 795.23 261.4 L 837.93 257.1 L 881.19 244.2 L 937.52 239.9 L 951.8 235.6 L 994.71 227 L 1109.45 222.7 L 1122 222.7" fill="none" stroke="#FF8582" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough-line)"/>
+    <path d="M 102 442 L 111.5 437.7 L 111.61 433.4 L 111.63 429.1 L 117.06 424.8 L 117.38 420.5 L 119.99 416.2 L 218.3 411.9 L 219.13 407.6 L 263.69 403.3 L 267.92 399 L 269.99 394.7 L 302.73 390.4 L 321.08 386.1 L 359.41 381.8 L 384.95 377.5 L 410.75 373.2 L 411.3 368.9 L 441.83 364.6 L 498.33 360.3 L 524.3 356 L 529.01 351.7 L 539.4 347.4 L 610.3 343.1 L 629 338.8 L 633.45 334.5 L 634.17 330.2 L 637.03 325.9 L 639.58 321.6 L 648.45 317.3 L 649.3 313 L 649.56 308.7 L 659.22 304.4 L 668.38 300.1 L 675.14 295.8 L 679.6 291.5 L 684.91 287.2 L 706.08 282.9 L 720.1 274.3 L 747.95 265.7 L 776.23 261.4 L 817.77 257.1 L 859.85 244.2 L 914.63 239.9 L 928.52 235.6 L 970.25 227 L 1081.85 222.7 L 1109.79 214.1 L 1122 214.1 V 442 H 102 Z" fill="#572F38" opacity="0.6"/>
+    <path d="M 102 442 L 111.5 437.7 L 111.61 433.4 L 111.63 429.1 L 117.06 424.8 L 117.38 420.5 L 119.99 416.2 L 218.3 411.9 L 219.13 407.6 L 263.69 403.3 L 267.92 399 L 269.99 394.7 L 302.73 390.4 L 321.08 386.1 L 359.41 381.8 L 384.95 377.5 L 410.75 373.2 L 411.3 368.9 L 441.83 364.6 L 498.33 360.3 L 524.3 356 L 529.01 351.7 L 539.4 347.4 L 610.3 343.1 L 629 338.8 L 633.45 334.5 L 634.17 330.2 L 637.03 325.9 L 639.58 321.6 L 648.45 317.3 L 649.3 313 L 649.56 308.7 L 659.22 304.4 L 668.38 300.1 L 675.14 295.8 L 679.6 291.5 L 684.91 287.2 L 706.08 282.9 L 720.1 274.3 L 747.95 265.7 L 776.23 261.4 L 817.77 257.1 L 859.85 244.2 L 914.63 239.9 L 928.52 235.6 L 970.25 227 L 1081.85 222.7 L 1109.79 214.1 L 1122 214.1" fill="none" stroke="#FF8582" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" opacity="0.13" transform="translate(0 2)"/>
+    <path d="M 102 442 L 111.5 437.7 L 111.61 433.4 L 111.63 429.1 L 117.06 424.8 L 117.38 420.5 L 119.99 416.2 L 218.3 411.9 L 219.13 407.6 L 263.69 403.3 L 267.92 399 L 269.99 394.7 L 302.73 390.4 L 321.08 386.1 L 359.41 381.8 L 384.95 377.5 L 410.75 373.2 L 411.3 368.9 L 441.83 364.6 L 498.33 360.3 L 524.3 356 L 529.01 351.7 L 539.4 347.4 L 610.3 343.1 L 629 338.8 L 633.45 334.5 L 634.17 330.2 L 637.03 325.9 L 639.58 321.6 L 648.45 317.3 L 649.3 313 L 649.56 308.7 L 659.22 304.4 L 668.38 300.1 L 675.14 295.8 L 679.6 291.5 L 684.91 287.2 L 706.08 282.9 L 720.1 274.3 L 747.95 265.7 L 776.23 261.4 L 817.77 257.1 L 859.85 244.2 L 914.63 239.9 L 928.52 235.6 L 970.25 227 L 1081.85 222.7 L 1109.79 214.1 L 1122 214.1" fill="none" stroke="#FF8582" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" filter="url(#rough-line)"/>
   </g>
-  <path d="M 111.77 431.7 L 113.39 435.47 L 117.47 435.85 L 114.39 438.55 L 115.29 442.55 L 111.77 440.46 L 108.24 442.55 L 109.14 438.55 L 106.06 435.85 L 110.14 435.47 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
-  <path d="M 272.59 393 L 274.21 396.77 L 278.3 397.15 L 275.21 399.85 L 276.12 403.85 L 272.59 401.76 L 269.06 403.85 L 269.96 399.85 L 266.88 397.15 L 270.97 396.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
-  <path d="M 536.19 350 L 537.82 353.77 L 541.9 354.15 L 538.82 356.85 L 539.72 360.85 L 536.19 358.76 L 532.67 360.85 L 533.57 356.85 L 530.49 354.15 L 534.57 353.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
-  <path d="M 664.72 307 L 666.34 310.77 L 670.43 311.15 L 667.34 313.85 L 668.25 317.85 L 664.72 315.76 L 661.19 317.85 L 662.09 313.85 L 659.01 311.15 L 663.1 310.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
-  <path d="M 994.71 221 L 996.33 224.77 L 1000.41 225.15 L 997.33 227.85 L 998.23 231.85 L 994.71 229.76 L 991.18 231.85 L 992.08 227.85 L 989 225.15 L 993.08 224.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
-  <path d="M 1109.45 212.7 L 1112.15 218.98 L 1118.96 219.61 L 1113.82 224.12 L 1115.33 230.79 L 1109.45 227.3 L 1103.57 230.79 L 1105.07 224.12 L 1099.94 219.61 L 1106.74 218.98 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="M 1085.45 253.7 L 1098.45 222.7" fill="none" stroke="#FF8582" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
-  <rect x="967.45" y="236.7" width="118" height="34" rx="8" fill="#172033" stroke="#FF8582"/>
-  <text x="1026.45" y="259.82" fill="#F8FAFC" font-size="14" font-weight="700" text-anchor="middle">51 stars</text>
+  <path d="M 111.5 431.7 L 113.12 435.47 L 117.2 435.85 L 114.12 438.55 L 115.02 442.55 L 111.5 440.46 L 107.97 442.55 L 108.87 438.55 L 105.79 435.85 L 109.88 435.47 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M 267.92 393 L 269.54 396.77 L 273.62 397.15 L 270.54 399.85 L 271.44 403.85 L 267.92 401.76 L 264.39 403.85 L 265.29 399.85 L 262.21 397.15 L 266.29 396.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M 524.3 350 L 525.92 353.77 L 530.01 354.15 L 526.92 356.85 L 527.83 360.85 L 524.3 358.76 L 520.77 360.85 L 521.67 356.85 L 518.59 354.15 L 522.68 353.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M 649.3 307 L 650.92 310.77 L 655.01 311.15 L 651.93 313.85 L 652.83 317.85 L 649.3 315.76 L 645.78 317.85 L 646.68 313.85 L 643.6 311.15 L 647.68 310.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M 970.25 221 L 971.87 224.77 L 975.96 225.15 L 972.87 227.85 L 973.78 231.85 L 970.25 229.76 L 966.72 231.85 L 967.62 227.85 L 964.54 225.15 L 968.63 224.77 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1" stroke-linejoin="round"/>
+  <path d="M 1109.79 204.1 L 1112.5 210.38 L 1119.3 211.01 L 1114.17 215.52 L 1115.67 222.19 L 1109.79 218.7 L 1103.92 222.19 L 1105.42 215.52 L 1100.28 211.01 L 1107.09 210.38 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M 1085.79 245.1 L 1098.79 214.1" fill="none" stroke="#FF8582" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
+  <rect x="967.79" y="228.1" width="118" height="34" rx="8" fill="#172033" stroke="#FF8582"/>
+  <text x="1026.79" y="251.22" fill="#F8FAFC" font-size="14" font-weight="700" text-anchor="middle">53 stars</text>
   <line x1="78" y1="500" x2="1122" y2="500" stroke="#344158"/>
   <path d="M 85 515 L 86.29 518.22 L 89.76 518.45 L 87.09 520.68 L 87.94 524.05 L 85 522.2 L 82.06 524.05 L 82.91 520.68 L 80.24 518.45 L 83.71 518.22 Z" fill="#FFD166" stroke="#F8FAFC" stroke-width="0.8"/>
   <text x="100" y="525" fill="#AAB6CA" font-size="13">ChaoYue0307/awesome-loop-engineering</text>
-  <text x="1122" y="525" fill="#AAB6CA" font-size="13" text-anchor="end">Jun 9, 2026 to Aug 18, 2026</text>
+  <text x="1122" y="525" fill="#AAB6CA" font-size="13" text-anchor="end">Jun 9, 2026 to Aug 20, 2026</text>
 </svg>
