@@ -86,7 +86,7 @@
 - Future directions: direct-anchor restoration waits for the Resource Atlas reflow, all three audience tracks remain readable, and the agenda CTA is fully visible at desktop and mobile widths.
 - Console: no page-origin errors or warnings during mobile navigation, pattern filtering, and Resource Atlas interactions.
 - Narrow phone: 320 x 844, document width equals viewport width; the headline stays within 16 px gutters and the Three.js canvas remains fully inside the 288 px content width.
-- Source audit: 974 rows checked; 913 public sources reachable, 10 access-restricted, 51 repository-native, and 0 broken or unreachable as of 2026-08-20 UTC.
+- Source audit: 974 rows checked; 912 public sources reachable, 11 access-restricted, 51 repository-native, and 0 broken or unreachable as of 2026-08-24 UTC.
 - Data and copy: the website, README, translations, social preview source, release copy, and Hugging Face card all report 974 resources, 22 patterns, 22 contracts, 8 runtime starters, and version 0.9.0. The dataset exposes 50 fields, including `loop_layer` and `scope_fit`.
 - Semantic scene pass: the desktop hero crop paints 14.61% of pixels beyond the paper background with a 254.71 luminance range; the desktop stack paints 27.83% with a 249.98 range; the mobile hero paints 20.84% with a 229.45 range.
 - Stage interaction: selecting Verify updates `aria-pressed` across all six controls and replaces the live detail with the independent evidence-gate explanation.

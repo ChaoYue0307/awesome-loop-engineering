@@ -159,19 +159,36 @@ def publication_cell(row: dict[str, str]) -> str:
     return primary
 
 
+SOURCE_STATUS_MARKS = {"restricted": "\u2021", "unavailable": "\u2020"}
+SOURCE_STATUS_FOOTNOTES = {
+    "restricted": "The linked source required access at the latest check",
+    "unavailable": "The linked source was unavailable at the latest check",
+}
+
+
+def status_key(row: dict[str, str]) -> str | None:
+    """Bucket a row's source status into the footnote it needs, or None when it needs none."""
+    status = row["source_status"]
+    if status == "restricted":
+        return "restricted"
+    if status not in {"ok", "local_ok"}:
+        return "unavailable"
+    return None
+
+
 def evidence_cell(row: dict[str, str]) -> str:
     # The per-class note is constant for every row of a class, so it is defined once in the
     # evidence-label legend rather than repeated on each row; repeating it cost roughly 40 KB
     # against the GitHub render budget. Only per-row exceptions still carry an inline note.
     evidence = row["evidence_class"]
     label = EVIDENCE_LABELS.get(evidence, evidence.replace("-", " ").title())
-    if row["source_status"] == "restricted":
-        note = "The linked source required access at the latest check"
-    elif row["source_status"] not in {"ok", "local_ok"}:
-        note = "The linked source was unavailable at the latest check"
-    else:
+    # The status note is constant for every row that carries it, so it is defined once as a
+    # legend footnote rather than repeated inline, the same way the per-class note already is.
+    # Repeating it inline cost about 750 bytes against the GitHub render budget.
+    mark = SOURCE_STATUS_MARKS.get(status_key(row))
+    if mark is None:
         return f"**{escape_cell(label)}**"
-    return f"**{escape_cell(label)}**<br><sub>{escape_cell(note)}</sub>"
+    return f"**{escape_cell(label)}** {mark}"
 
 
 def resource_cells(row: dict[str, str]) -> tuple[str, str, str, str]:
@@ -250,7 +267,17 @@ def evidence_legend_lines(rows: list[dict[str, str]]) -> list[str]:
                 escape_cell(EVIDENCE_NOTES.get(evidence, "Inspect the linked source")),
             )
         )
-    return [EVIDENCE_START, *markdown_table(("Evidence label", "Rows", "What it means"), data), EVIDENCE_END]
+    lines = [EVIDENCE_START, *markdown_table(("Evidence label", "Rows", "What it means"), data)]
+    present = {key for key in (status_key(row) for row in rows) if key is not None}
+    for key, mark in SOURCE_STATUS_MARKS.items():
+        if key in present:
+            lines.append("")
+            break
+    for key, mark in SOURCE_STATUS_MARKS.items():
+        if key in present:
+            lines.append(f"{mark} {SOURCE_STATUS_FOOTNOTES[key]}.")
+    lines.append(EVIDENCE_END)
+    return lines
 
 
 def replace_evidence_legend(lines: list[str], rows: list[dict[str, str]]) -> list[str]:
