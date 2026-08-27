@@ -88,7 +88,7 @@ Good:
 Weak:
 
 ```md
-| 📝 **[Cool Agent Article](https://example.com)**<br><sub>Blog</sub> | **Example publisher** | Interesting article about agents. |
+| 📝 **[Cool Agent Article](https://example.com)** | **Example publisher** | Interesting article about agents. |
 ```
 
 ## Resource Type Labels

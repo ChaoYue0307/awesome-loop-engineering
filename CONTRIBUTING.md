@@ -32,7 +32,7 @@ New contributors can also choose a scoped [`good first issue`](https://github.co
 1. Add one metadata-rich row with a resource type label, verified year/source context, and one specific key feature:
 
 ```md
-| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
+| 📄 **[Title](https://example.com)** | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's contribution to Loop Engineering. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 ```
 
 When a source exposes no reliable publication date, omit the year and keep only the original venue or publishing platform. Do not infer a date from a search-result snippet. The evidence label is derived from the source type, and the table layout and structured exports are regenerated after review.
@@ -148,7 +148,7 @@ Prefer:
 Avoid:
 
 ```md
-| 📝 **[Cool Agent Article](https://example.com)**<br><sub>Blog</sub> | **Example publisher** | Interesting article about AI. |
+| 📝 **[Cool Agent Article](https://example.com)** | **Example publisher** | Interesting article about AI. |
 ```
 
 ## Adding A Loop Pattern

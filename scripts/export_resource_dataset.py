@@ -39,8 +39,10 @@ ENTRY_RE = re.compile(
     r"\[(?P<title>[^\]]+)\]\((?P<url>[^)]+)\) - (?P<annotation>.+)$"
 )
 TABLE_ENTRY_RE = re.compile(
+    # The type label is no longer written per row; it is recovered from the marker below.
+    # The optional <sub> now carries only a scope note, which markers cannot express.
     r"^\| (?P<marker>\S+) \*\*\[(?P<title>[^\]]+)\]\((?P<url>[^)]+)\)\*\*"
-    r"<br><sub>(?P<resource_type>[^<]+)</sub>\s+\| (?P<metadata>.*?) \| "
+    r"(?:<br><sub>(?P<scope>[^<]+)</sub>)?\s+\| (?P<metadata>.*?) \| "
     r"(?P<annotation>.*?) \| (?P<table_evidence>.+) \|$"
 )
 LEGACY_TABLE_ENTRY_RE = re.compile(
@@ -62,6 +64,8 @@ TYPE_MARKERS = {
     "List": "🧭",
     "Critique": "⚠️",
 }
+
+MARKER_TYPES = {marker: resource_type for resource_type, marker in TYPE_MARKERS.items()}
 
 
 def base_resource_type(value: str) -> str:
@@ -418,6 +422,17 @@ def parse_entry_line(raw_line: str) -> dict[str, str] | None:
         return None
 
     entry = match.groupdict()
+    scope = entry.pop("scope", None)
+    if entry.get("resource_type") is None:
+        # Current table form omits the redundant type label, so recover it from the marker and
+        # re-attach any scope note. base_resource_type() still strips the suffix downstream.
+        base = MARKER_TYPES.get(entry["marker"], "")
+        if scope and (scope == base or scope.startswith(f"{base} \u00b7 ")):
+            # Legacy row whose <sub> still carries the type label; keep it as written rather
+            # than prefixing the marker's type again and producing "Tool \u00b7 Tool".
+            entry["resource_type"] = scope
+        else:
+            entry["resource_type"] = f"{base} \u00b7 {scope}" if scope else base
     for field in ("title", "url", "annotation"):
         entry[field] = entry[field].replace(r"\|", "|")
     return entry

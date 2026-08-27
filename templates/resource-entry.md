@@ -3,7 +3,7 @@
 Use this when adding one resource to `README.md`.
 
 ```md
-| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's concrete contribution, result, or limitation. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
+| 📄 **[Title](https://example.com)** | **2026** · arXiv<br><sub>First Author et al.</sub> | One sentence explaining the resource's concrete contribution, result, or limitation. | **Research preprint**<br><sub>Preprint; inspect methods and evaluation</sub> |
 ```
 
 Match the evidence cell to the source. Published research, official documentation, implementation guides, reusable artifacts, benchmarks, critiques, and discovery indexes use different labels; follow the nearest row in the target section rather than copying `Research preprint` mechanically.

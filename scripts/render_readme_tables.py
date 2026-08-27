@@ -197,10 +197,13 @@ def resource_cells(row: dict[str, str]) -> tuple[str, str, str, str]:
     annotation = escape_cell(row["annotation"])
     marker = escape_cell(row["marker"])
     resource_type = escape_cell(row["resource_type"])
-    subtype = resource_type
+    # The type label is a constant function of the marker (the mapping is 1:1) and is defined
+    # once in the Resource Type Legend, so it is not repeated on every row; repeating it cost
+    # roughly 19 KB against the GitHub render budget. Model-layer rows keep their scope note,
+    # which is the only part of the old subtype that was not derivable from the marker.
+    resource = f"{marker} **[{title}]({url})**"
     if row.get("section") == "Model-Level Recurrence":
-        subtype = f"{resource_type} · Model layer · Adjacent foundation"
-    resource = f"{marker} **[{title}]({url})**<br><sub>{escape_cell(subtype)}</sub>"
+        resource += f"<br><sub>{escape_cell('Model layer · Adjacent foundation')}</sub>"
     return resource, publication_cell(row), annotation, evidence_cell(row)
 
 

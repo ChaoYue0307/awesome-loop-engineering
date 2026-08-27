@@ -94,7 +94,7 @@ Which README section did you update?
 - [ ] The `Published at` cell names the work's original venue or publishing platform, not this repository.
 - [ ] I omitted unavailable publication metadata instead of inferring it from search snippets or secondary coverage.
 - [ ] Adjacent prompt, context, or harness resources explicitly connect to repeated agent runs, state, verification, or escalation.
-- [ ] The entry follows the table format: `| 📄 **[Title](https://example.com)**<br><sub>Paper</sub> | **2026** · Venue<br><sub>Author</sub> | Specific contribution. |`.
+- [ ] The entry follows the table format: `| 📄 **[Title](https://example.com)** | **2026** · Venue<br><sub>Author</sub> | Specific contribution. |`.
 - [ ] The resource is not about unrelated event loops, growth loops, control theory, or generic automation.
 - [ ] New loop patterns include trigger, discover/intake, delegation, state, verification gates, retry budget, escalation path, and loop instruction or automation artifact.
 - [ ] Any automated assistance was checked against the original or official source; generated text was not treated as evidence.
