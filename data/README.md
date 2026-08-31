@@ -1,6 +1,6 @@
 # Dataset Exports
 
-Download all 981 resources as deterministic tabular exports.
+Download all 989 resources as deterministic tabular exports.
 
 - `resources.csv` - Tabular export for spreadsheets and ad hoc analysis.
 - `resources.jsonl` - JSON Lines export and source for the Hugging Face Parquet build.
