@@ -163,6 +163,9 @@ def json_request(
             ConnectionError,
             TimeoutError,
             json.JSONDecodeError,
+            # A TLS failure while reading the response body is not wrapped in URLError, so it
+            # escaped this retry loop and aborted the whole run partway through. Retry instead.
+            ssl.SSLError,
         ):
             if attempt == attempts:
                 return {}

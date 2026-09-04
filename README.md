@@ -18,7 +18,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
-  <img src="https://img.shields.io/badge/resources-989-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-995-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-22-38bdf8" alt="patterns">
   <img src="https://img.shields.io/badge/contracts-22-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
@@ -53,7 +53,7 @@
 
 **Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-This field guide connects **989 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
+This field guide connects **995 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
 **The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 
@@ -63,7 +63,7 @@ This field guide connects **989 papers, docs, tools, benchmarks, and guides** to
   <tr>
     <td><strong>🧭 Explore the field</strong></td>
     <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
-    <td>Filter 989 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
+    <td>Filter 995 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
     <td><strong>▶️ Build one loop</strong></td>
@@ -128,7 +128,7 @@ Move from evidence to implementation through four connected layers:
 <!--lint disable table-pipe-alignment-->
 | Start with | What it gives you | Use it to | Example |
 | --- | --- | --- | --- |
-| 📚 **989 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
+| 📚 **995 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
 | 🧩 **22 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
 | 🧾 **22 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
 | ▶️ **8 runtime starters** | 3 dependency-light executables plus 5 copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
@@ -348,7 +348,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
   </tr>
   <tr>
     <td><strong>Link availability</strong></td>
-    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-01 UTC, 927 public links opened successfully, 11 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
+    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-04 UTC, 931 public links opened successfully, 13 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
   </tr>
   <tr>
     <td><strong>Evidence label</strong></td>
@@ -373,14 +373,14 @@ Open the original work before relying on a summary. Use the contribution, novelt
 <!-- resource-type-summary:start -->
 | Type | Rows | Includes |
 | --- | --- | --- |
-| 📄 **Paper** | 456 | Academic paper, preprint, or technical report |
+| 📄 **Paper** | 460 | Academic paper, preprint, or technical report |
 | 📝 **Blog** | 130 | Essay, field note, article, or practitioner write-up |
-| 📚 **Docs** | 86 | Official product, API, SDK, or platform documentation |
+| 📚 **Docs** | 87 | Official product, API, SDK, or platform documentation |
 | 🧰 **Tool** | 149 | Repository, framework, SDK, runtime, or implementation |
 | 🧪 **Benchmark** | 76 | Benchmark, eval suite, leaderboard, or evaluation dataset |
 | 🔁 **Pattern** | 37 | Operational playbook or reusable workflow |
 | 🧾 **Template** | 25 | Template, checklist, schema, guide, or contribution artifact |
-| 🧭 **List** | 18 | Adjacent directory, ecosystem map, or reading list |
+| 🧭 **List** | 19 | Adjacent directory, ecosystem map, or reading list |
 | ⚠️ **Critique** | 12 | Risk analysis, limitation, caveat, or skeptical take |
 <!-- resource-type-summary:end -->
 
@@ -391,9 +391,9 @@ Evidence labels describe the kind of source behind an entry, not its scientific 
 <!-- evidence-label-legend:start -->
 | Evidence label | Rows | What it means |
 | --- | --- | --- |
-| **Research paper** | 60 | Published or accepted research record |
-| **Research preprint** | 400 | Preprint; inspect methods and evaluation |
-| **Official documentation** | 75 | Primary product or standard behavior |
+| **Research paper** | 61 | Published or accepted research record |
+| **Research preprint** | 403 | Preprint; inspect methods and evaluation |
+| **Official documentation** | 76 | Primary product or standard behavior |
 | **Technical documentation** | 11 | Technical reference from the source |
 | **Source implementation** | 133 | Inspectable source and runtime behavior |
 | **Implementation** | 12 | Working implementation or runtime |
@@ -403,7 +403,7 @@ Evidence labels describe the kind of source behind an entry, not its scientific 
 | **Operational pattern** | 11 | Transferable operating practice |
 | **Practitioner analysis** | 130 | Experience-backed implementation context |
 | **Risk analysis** | 11 | Failure modes, limits, or adoption cautions |
-| **Discovery index** | 18 | Broader ecosystem coverage for finding related work |
+| **Discovery index** | 19 | Broader ecosystem coverage for finding related work |
 
 ‡ The linked source required access at the latest check.
 <!-- evidence-label-legend:end -->
@@ -699,6 +699,7 @@ End-to-end operating guides and release notes from the runtime vendors themselve
 | 📚 **[GitHub Copilot in Visual Studio Code, July 2026 Releases](https://github.blog/changelog/2026-07-30-github-copilot-in-visual-studio-code-july-2026-releases/)** | **2026** · The GitHub Blog | The Agents window (public preview) gets the observability and isolation primitives that parallel agent operation needs. Sessions can now be started in a Git worktree, and notably for Copilot, Claude, or Codex sessions, not just Copilot's own, giving each concurrent agent its own checkout instead of contending over one working tree. | **Official documentation** |
 | 📚 **[Durable Workflows in Microsoft Agent Framework](https://devblogs.microsoft.com/dotnet/durable-workflows-in-microsoft-agent-framework/)** | **2026** · .NET Blog | Adds durability to an agent workflow through hosting configuration rather than a rewrite: each executor becomes a durable activity with automatic retry, progress is checkpointed after every step, and a resumed run reads completed executors from the checkpoint store instead of re-running them. | **Official documentation** |
 | 📚 **[Context Engineering in Deep Agents](https://docs.langchain.com/oss/python/deepagents/context-engineering)** | **Docs by LangChain** | Documents the thresholds a production harness actually needs. Tool payloads over 20,000 tokens are written to the filesystem and replaced by a reference, summarization and offloading fire at 85% of the context window, subagents return only results, and a composite backend routes /memories to durable cross-thread storage. | **Official documentation** |
+| 📚 **[The Next Evolution of the Agents SDK](https://openai.com/index/the-next-evolution-of-the-agents-sdk/)** | **OpenAI** | Adds a model-native harness and native sandbox execution, separating harness from compute so credentials stay out of the environment where model-written code runs. Agent state is externalized with snapshotting and rehydration, so losing a container does not lose the run: state is restored in a fresh one and continues from the last checkpoint. | **Official documentation** ‡ |
 
 ## Research Foundations
 
@@ -1255,6 +1256,7 @@ A loop that runs while nobody watches needs stronger boundaries than an interact
 | 📄 **[LoopTrap: Termination Poisoning Attacks on LLM Agents](https://arxiv.org/abs/2605.05846)** | **2026** · arXiv<br><sub>Huiyu Xu et al.</sub> | Attacks the stop condition itself: injected context distorts the agent's own judgement that a task is finished, so it never exits. Ten attack strategies across eight agents and 60 tasks, and the finding that agents have distinct behavioural signatures determining which strategies land. An argument for termination that is not self-assessed. | **Research preprint** |
 | 📄 **[Towards Security-Auditable LLM Agents: A Unified Graph Representation](https://arxiv.org/abs/2605.06812)** | **2026** · arXiv<br><sub>Chaofan Li et al.</sub> | Argues static SBOMs and runtime logs leave a semantic gap between low-level events and execution intent, so post-hoc auditing misses cognitive-state evolution, capability bindings, memory contamination, and risk propagation between agents. Proposes Agent-BOM, a hierarchical attributed graph over the whole system. | **Research preprint** |
 | 📝 **[9 AI Coding Agent Incidents That Deleted Production Data](https://adversa.ai/blog/ai-coding-agent-incidents/)** | **2026** · Adversa AI | Nine data-destroying incidents from June 2025 to July 2026, each traced to a primary record such as a GitHub issue with logs, a vendor acknowledgement, or Financial Times reporting. The recurring mechanism is not hallucination but the gap between intended action and shell execution: unquoted spaces, tilde expansion after the permission check, flag misuse. | **Practitioner analysis** |
+| 📄 **[The Verifier Tax: Horizon Dependent Safety Success Tradeoffs in Tool Using LLM Agents](https://arxiv.org/abs/2603.19328)** | **2026** · CAIS '26: ACM Conference on AI and Agentic Systems 2026<br><sub>Tanmay Sah et al.</sub> | Measures what runtime safety enforcement costs the task. Across tau-bench Airline and Retail, policy mediation intercepts up to 94% of non-compliant actions yet strictly safe goal attainment stays under 5% in most settings. Separates overall, safe, and unsafe success instead of reporting a single rate. | **Research paper** |
 
 ## State, Memory, And Context Persistence
 
@@ -1267,7 +1269,7 @@ For durable loop state and cross-run context, use the resources below. For conte
 | 📝 **[The Agent Loop Is the New OS](https://www.harness.io/blog/agent-loop-new-os)** | **2026** · Harness.io | Frames the agent loop as an OS-like boundary with context as RAM and tools as I/O. | **Practitioner analysis** |
 | 📝 **[Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html)** | **martinfowler.com** | Martin Fowler article on feedforward, feedback, and outer harnesses for coding agents. | **Practitioner analysis** |
 | 📝 **[Context Engineering](https://simonwillison.net/2025/Jun/27/context-engineering/)** | **2025** · Simon Willison’s Weblog<br><sub>Simon Willison</sub> | Simon Willison's framing of context engineering, useful for distinguishing context state from loop orchestration. | **Practitioner analysis** |
-| 📝 **[Agentic Coding in 2026](https://sourcegraph.com/blog/agentic-coding)** | **Sourcegraph** | Sourcegraph on supplying deterministic, large-codebase context and code intelligence so recurring agent runs reuse durable repository state instead of rediscovering it each time. | **Practitioner analysis** |
+| 📝 **[Agentic Coding in 2026](https://sourcegraph.com/blog/agentic-coding)** | **sourcegraph.com** | Sourcegraph on supplying deterministic, large-codebase context and code intelligence so recurring agent runs reuse durable repository state instead of rediscovering it each time. | **Practitioner analysis** ‡ |
 | 📝 **[Agentic AI State Management with ScyllaDB and LangGraph](https://www.scylladb.com/2026/04/08/agentic-ai-state-management-with-scylladb-and-langgraph/)** | **2026** · ScyllaDB<br><sub>Cynthia Dunlop</sub> | Durable agent state with checkpointers, write-ahead logs, and time-travel branching. | **Practitioner analysis** |
 | 🧰 **[Mem0](https://github.com/mem0ai/mem0)** | **GitHub**<br><sub>mem0ai/mem0</sub> | Open-source memory layer for retaining user, session, and agent state across repeated agent sessions. | **Source implementation** |
 | 🧰 **[Letta](https://github.com/letta-ai/letta)** | **GitHub**<br><sub>letta-ai/letta</sub> | Stateful agent framework from the MemGPT line with persistent, self-editing memory across runs. | **Source implementation** |
@@ -1365,6 +1367,9 @@ For durable loop state and cross-run context, use the resources below. For conte
 | 📄 **[Context Compaction Theory](https://arxiv.org/abs/2608.01326)** | **2026** · arXiv<br><sub>Hayder Tirmazi et al.</sub> | First formal analysis of a process every long-running agent already runs. Models compaction as two games, one selecting a subset of accumulated state to retain and one generating a replacement, and studies the compounding case that matters in practice: later compactions operate on states that already contain earlier summaries. | **Research preprint** |
 | 📄 **[Beyond Compaction: Structured Context Eviction for Long-Horizon Agents](https://arxiv.org/abs/2606.11213)** | **2026** · arXiv<br><sub>Andrew Semenov & Svyatoslav Dorofeev</sub> | Annotates the trajectory as typed, dependency-linked episodes, then evicts in priority order using a deterministic policy that calls no model. Preserves user turns and the context under active reasoning while shedding action episodes whose effects are already persisted in the environment, holding active context near a stable ceiling. | **Research preprint** |
 | 📄 **[Parallel Context Compaction for Long-Horizon LLM Agent Serving](https://arxiv.org/abs/2605.23296)** | **2026** · arXiv<br><sub>Musa Cim et al.</sub> | Prices summarization-based compaction as an operational cost rather than a design detail: the blocking call stalls agent inference for tens of seconds, prompt instructions barely control summary volume, and retained information fluctuates run to run. Proposes running compaction alongside the agent loop instead of in it. | **Research preprint** |
+| 📄 **[Agent Memory: Characterization and System Implications of Stateful Long-Horizon Workloads](https://arxiv.org/abs/2606.06448)** | **2026** · arXiv<br><sub>Yasmine Omri et al.</sub> | A systems characterization of agent memory rather than another memory design. Classifies ten representative systems on four axes and profiles them with a phase-aware harness that attributes cost separately to construction, retrieval, and generation, which is where memory overhead usually hides. | **Research preprint** |
+| 📄 **[When Memory Becomes Authority: Benchmarking Authority Collapse at the Memory Consolidation Boundary](https://arxiv.org/abs/2608.01679)** | **2026** · arXiv<br><sub>Qiuyang Zhan et al.</sub> | Names authority collapse: consolidation keeps a claim but drops the source constraints governing its use, so stored memory later implies more authority than its origin permitted and an offhand remark can return as a standing instruction. The benchmark holds claim and task fixed and varies only source authority. | **Research preprint** |
+| 📄 **[Graph-based Agent Memory: Taxonomy, Techniques, and Applications](https://arxiv.org/abs/2602.05665)** | **2026** · arXiv<br><sub>Chang Yang et al.</sub> | Survey of agent memory through graph structure, taxonomized on three axes: short-term against long-term, knowledge against experience, and non-structural against structural. Argues graphs fit the job because they carry the relational dependencies and hierarchy that flat retrieval flattens away. | **Research preprint** |
 
 ## Orchestration And Multi-Agent Delegation
 
@@ -1751,6 +1756,7 @@ Related directories and reading lists for the layers around loop engineering.
 | 🧭 **[harness-engineering (Ryan Lopopolo)](https://github.com/lopopolo/harness-engineering)** | **GitHub**<br><sub>lopopolo/harness-engineering</sub> | Ryan Lopopolo's anthology, field guide, and agent context bundle for harness engineering, collecting primary sources on the layer directly beneath loop engineering. | **Discovery index** |
 | 🧭 **[A Coding-Agent Reading List: Behind the Loops](https://insights.ml4trading.io/p/a-coding-agent-reading-list-behind)** | **insights.ml4trading.io** | Stefan Jansen's curated reading path of 60+ resources on coding-agent loops, organized to separate practitioner discourse, control-theory foundations, agent primitives, harness papers, adoption studies, and safety work by evidence type. | **Discovery index** |
 | 🧭 **[awesome-agent-harness](https://github.com/Picrew/awesome-agent-harness)** | **GitHub**<br><sub>Picrew/awesome-agent-harness</sub> | Companion index scoped to the harness layer itself, collecting projects, tools, benchmarks, and practical guides rather than the operational loop built around them. | **Discovery index** |
+| 🧭 **[Awesome-Memory-for-Agents](https://github.com/TsinghuaC3I/Awesome-Memory-for-Agents)** | **GitHub**<br><sub>TsinghuaC3I/Awesome-Memory-for-Agents</sub> | Paper collection scoped to memory for language agents, useful as a companion index when the memory layer specifically is the part being designed. | **Discovery index** |
 
 ## Explore And Reuse
 
@@ -1758,7 +1764,7 @@ Browse interactively, query structured exports, or reuse the publishing componen
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 989 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
+| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 995 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
 | 🧭 **[Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)** | **Hugging Face** | Query the full collection as generated CSV and JSONL tables with publication, evidence, and lifecycle fields. | **Discovery index** |
 | 🧾 **[Dataset export guide](data/README.md)** | **2026** · GitHub<br><sub>Project documentation</sub> | Load, query, regenerate, and audit the CSV, JSONL, and Resource Atlas data. | **Project artifact** |
 | 🧾 **[Runtime selection guide](meta/RUNTIME_SELECTION.md)** | **2026** · GitHub<br><sub>Project operations guide</sub> | Compare session, scheduled, CI, cron, and durable runtimes by persistence, isolation, permissions, and state. | **Project artifact** |
