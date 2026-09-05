@@ -32,7 +32,7 @@ Prompt engineering 改进你对模型说什么。Context engineering 改进模�
 
 Loop Engineering 专指具备明确触发、外部验证和持久状态的可重复 AI-agent 与 coding-agent 系统，不包括软件事件循环、控制论、增长循环、通用 workflow automation 或非 AI feedback loop。
 
-可直接从 995 篇论文、官方文档、工具、benchmark 与实践指南，22 个操作模式、22 个经 schema 校验的 loop contracts 和 8 个 runtime starters（3 个可直接执行，5 个可复制改造）开始，并通过社区 gallery 和 8 种语言入口继续探索。
+可直接从 1001 篇论文、官方文档、工具、benchmark 与实践指南，22 个操作模式、22 个经 schema 校验的 loop contracts 和 8 个 runtime starters（3 个可直接执行，5 个可复制改造）开始，并通过社区 gallery 和 8 种语言入口继续探索。
 
 ## 一句话定位
 

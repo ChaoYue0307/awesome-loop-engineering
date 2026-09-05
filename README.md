@@ -18,7 +18,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
-  <img src="https://img.shields.io/badge/resources-995-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-1001-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-22-38bdf8" alt="patterns">
   <img src="https://img.shields.io/badge/contracts-22-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
@@ -53,7 +53,7 @@
 
 **Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-This field guide connects **995 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
+This field guide connects **1001 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
 **The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 
@@ -63,7 +63,7 @@ This field guide connects **995 papers, docs, tools, benchmarks, and guides** to
   <tr>
     <td><strong>🧭 Explore the field</strong></td>
     <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
-    <td>Filter 995 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
+    <td>Filter 1001 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
     <td><strong>▶️ Build one loop</strong></td>
@@ -128,7 +128,7 @@ Move from evidence to implementation through four connected layers:
 <!--lint disable table-pipe-alignment-->
 | Start with | What it gives you | Use it to | Example |
 | --- | --- | --- | --- |
-| 📚 **995 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
+| 📚 **1001 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
 | 🧩 **22 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
 | 🧾 **22 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
 | ▶️ **8 runtime starters** | 3 dependency-light executables plus 5 copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
@@ -348,7 +348,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
   </tr>
   <tr>
     <td><strong>Link availability</strong></td>
-    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-04 UTC, 931 public links opened successfully, 13 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
+    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-05 UTC, 937 public links opened successfully, 13 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
   </tr>
   <tr>
     <td><strong>Evidence label</strong></td>
@@ -373,7 +373,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
 <!-- resource-type-summary:start -->
 | Type | Rows | Includes |
 | --- | --- | --- |
-| 📄 **Paper** | 460 | Academic paper, preprint, or technical report |
+| 📄 **Paper** | 466 | Academic paper, preprint, or technical report |
 | 📝 **Blog** | 130 | Essay, field note, article, or practitioner write-up |
 | 📚 **Docs** | 87 | Official product, API, SDK, or platform documentation |
 | 🧰 **Tool** | 149 | Repository, framework, SDK, runtime, or implementation |
@@ -392,7 +392,7 @@ Evidence labels describe the kind of source behind an entry, not its scientific 
 | Evidence label | Rows | What it means |
 | --- | --- | --- |
 | **Research paper** | 61 | Published or accepted research record |
-| **Research preprint** | 403 | Preprint; inspect methods and evaluation |
+| **Research preprint** | 409 | Preprint; inspect methods and evaluation |
 | **Official documentation** | 76 | Primary product or standard behavior |
 | **Technical documentation** | 11 | Technical reference from the source |
 | **Source implementation** | 133 | Inspectable source and runtime behavior |
@@ -619,6 +619,7 @@ Feature-level building blocks you assemble a loop from: schedulers, goals, workt
 | 📄 **[Agent Contracts: A Formal Framework for Resource-Bounded Autonomous AI Systems](https://arxiv.org/abs/2601.08815)** | **2026** · arXiv<br><sub>Qing Ye & Jing Tan</sub> | Extends the 1980 Contract Net metaphor from task allocation to resource-bounded execution, noting that modern agent protocols standardize connectivity but none bound how much an agent may consume or how long it may run. Contracts carry explicit lifecycle states and conservation laws that keep a delegated budget inside its parent's. | **Research preprint** |
 | 📄 **[Agent Reinforcement Learning via Pivotal-Aware Self-Feedback Retry](https://arxiv.org/abs/2607.03702)** | **2026** · arXiv<br><sub>Weiyang Guo et al.</sub> | Retry policy between two bad options: a full retry pays the whole interaction cost again, while retrieving past experience dilutes the signal. Identifies the pivotal erroneous turn and restarts only from that state, reusing the correct prefix and concentrating the learning signal near the error boundary. | **Research preprint** |
 | 📝 **[Your Agent Needs a Computer, Not a Container](https://blog.cloudflare.com/cloudflare-computer/)** | **2026** · Cloudflare Blog | Argues there is nowhere near enough compute for every user's agent to hold its own container, then splits the difference: one SQLite-backed virtual filesystem inside a Durable Object, reachable from both a cheap isolate and a full Linux container, so work moves between them over the same files. Targets containers for under 10% of agent work. | **Practitioner analysis** |
+| 📄 **[Thinking Costs Tokens: When More Structure is Worth the Price](https://arxiv.org/abs/2608.27506)** | **2026** · arXiv<br><sub>Thomas Nolasque et al.</sub> | Asks whether a token budget exists below which planning and verification cost more than they return. Compares a single call against a verified search architecture across 14 budget tiers from 250 to 42,000 tokens over 28,000 completed cells, so the structure-versus-budget tradeoff is measured rather than assumed. | **Research preprint** |
 
 ## Official Runtime Guides
 
@@ -890,6 +891,7 @@ Use these resources to design the higher-level loop around agents: recurring con
 | 📄 **[RecHarness: A Bandit-Routed Agentic Harness for Self-Evolving Recommender Systems](https://arxiv.org/abs/2607.29241)** | **2026** · arXiv<br><sub>Haoran Ling et al.</sub> | Identifies a concrete instability in self-improving loops: when the LLM both picks the direction of a modification and generates the concrete hypothesis, search becomes unstable under limited experiment budgets. | **Research preprint** |
 | 📄 **[DREvo: Distilling Recalibrated Historical Experience for Harness Self-Evolution](https://arxiv.org/abs/2607.26722)** | **2026** · arXiv<br><sub>Hanghui Guo et al.</sub> | Attacks the instability of harness self-evolution by anchoring evidence at function level, recalibrating which historical insights still apply given current state, and distilling role-conditioned search intent. Answers the practical question of when a past lesson should still steer the loop rather than mislead it. | **Research preprint** |
 | 📄 **[SkillMentor: LLM Agent Self-Evolution via Learning Blind-Spot Diagnosis](https://arxiv.org/abs/2607.27360)** | **2026** · arXiv<br><sub>Xiaoyi Bao et al.</sub> | Treats blind-spot discovery as a learnable capability rather than assuming failures are already surfaced: an RL-trained Mentor policy generates diagnostic probe tasks, clusters recurring failure patterns, and converts them into reusable corrective skills without touching the executor or needing human labels. | **Research preprint** |
+| 📄 **[A Decoupled Human-in-the-Loop System for Controlled Autonomy in Agentic Workflows](https://arxiv.org/abs/2604.23049)** | **2026** · arXiv<br><sub>Edward Cheng & Jeshua Cheng</sub> | Treats human oversight as an independent component of the agent operating environment rather than logic embedded in each workflow, on the observation that inlined approval code cannot be reused or kept consistent across a multi-agent estate. Separates interaction management from the application. | **Research preprint** |
 
 ## Coding-Agent Loop Systems
 
@@ -1138,6 +1140,7 @@ Turn harness and observability mechanisms into exit gates, durable receipts, and
 | 📄 **[GameGen-Verifier: Parallel Keypoint-Based Verification for LLM-Generated Games via Runtime State Injection](https://arxiv.org/abs/2605.07442)** | **2026** · arXiv<br><sub>Chaobo Jia et al.</sub> | Correctness here is defined over long-horizon interaction, so a generated game can look right while breaking state updates, interaction rules, or phase transitions. Argues agent-as-verifier collapses into open-ended play, leaving verdicts reachability-bound, slow, and dependent on the verifier's own skill. | **Research preprint** |
 | 📄 **[Verified Tool Calls Improve LLM Agent Reliability Under Non-Atomic Failures](https://arxiv.org/abs/2608.02645)** | **2026** · arXiv<br><sub>Isham Kalappurackal Mansoor et al.</sub> | Agent frameworks usually treat a tool call as atomic with a binary result, while real systems time out after dispatch, update state partially, and make effects visible late. Wraps calls with postcondition verification, verify-before-retry, and idempotency keys so a retry cannot duplicate an action that already landed. | **Research preprint** |
 | 📄 **[Don't Blindly Trust It: How Unreliable Feedback Breaks Tool-Using LLM Agents](https://arxiv.org/abs/2606.21409)** | **2026** · arXiv<br><sub>Chubin Zhang et al.</sub> | Fixes the loop, prompt, action space, and decoding, then varies only whether the returned observation is faithful, misleading, or absent. Persistent misleading feedback inverts the value of the tool: on HotpotQA one model scores 44.8 F1 with clean retrieval, 22.3 with no feedback at all, and 4.7 under shuffled retrieval. | **Research preprint** |
+| 📄 **[Human-on-the-Loop Orchestration for AI-Assisted Legal Discovery](https://arxiv.org/abs/2606.19812)** | **2026** · arXiv<br><sub>Anushree Sinha et al.</sub> | Names trajectory collapse: an early misclassification propagates silently and invalidates an entire privilege review, which in e-discovery can amount to malpractice. Answers with verification layered across planning, reasoning, execution, and uncertainty, plus mandatory escalation that suspends autonomous action. | **Research preprint** |
 
 ## Securing Unattended Loops
 
@@ -1607,6 +1610,8 @@ Running loops in production: cost control, incident handling, and promoting vali
 | 📄 **[Agent System Operations: Categorization, Challenges, and Future Directions](https://arxiv.org/abs/2606.01581)** | **2026** · arXiv<br><sub>Zexin Wang et al.</sub> | Survey opening the operations and maintenance question for agent systems, on the observation that they hit anomalies as often as conventional systems while research into running them is sparse. Builds a framework for the field rather than proposing another architecture. | **Research preprint** |
 | 🧰 **[SandBase Harness](https://github.com/sandbaseai/sandbase-harness)** | **GitHub**<br><sub>sandbaseai/sandbase-harness</sub> | Local-first agent runtime that persists sessions and resumable event streams in SQLite, runs tools in selectable local, Docker, Kubernetes, or self-hosted sandboxes, and wraps them in credential vaults, permission policies, approvals, and audit. Ships an MCP bridge and a console for inspecting and replaying a run. Apache-2.0. | **Source implementation** |
 | 📄 **[Real-Time Detection and Repair of LLM Agent Failures](https://arxiv.org/abs/2608.02464)** | **2026** · arXiv<br><sub>Sunny Dubey</sub> | Asks how much mid-episode failure is detectable from step telemetry alone, given that judging every step with a second model costs more than the agent itself. A one-class detector trained only on healthy runs, costing microseconds per step, catches 71% of failures at a 5% false-alarm budget across 2,823 episodes. | **Research preprint** |
+| 📄 **[Agentic AI and Human-in-the-Loop Interventions: Field Experimental Evidence from Alibaba's Customer Service Operations](https://arxiv.org/abs/2605.14830)** | **2026** · arXiv<br><sub>Yiwei Wang et al.</sub> | Randomized field experiment on Taobao where supervising workers kept the chats the agent could not take. Deployment cut average chat duration with little effect on retrials, but substantially lowered ratings on the chats the agent did handle, which is the kind of production evidence a benchmark cannot supply. | **Research preprint** |
+| 📄 **[How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks](https://arxiv.org/abs/2604.22750)** | **2026** · arXiv<br><sub>Longju Bai et al.</sub> | Systematic study of where tokens actually go in agentic coding: tasks consume roughly 1000x the tokens of code chat, and input rather than output dominates the bill. Also tests whether models can predict their own cost before running, which is what a budget gate would need to work. | **Research preprint** |
 
 ## Templates And Patterns
 
@@ -1661,7 +1666,7 @@ Skeptical takes and measured failure modes, because a loop that cannot fail safe
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
 | ⚠️ **[Most Developers Do Not Need Agent Loops Yet](https://alphasignalai.substack.com/p/most-developers-do-not-need-agent)** | **Substack**<br><sub>AlphaSignal AI</sub> | Useful caution against adopting loops before the task, signal, and economics justify them. | **Risk analysis** |
-| ⚠️ **[Engineering Agentic Systems for Reliability](https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/)** | **Sans Serif Systems**<br><sub>Shailesh Rawat</sub> | Cautions that agentic systems fail at boundaries when permissions, verification, traceability, and escalation are weak. | **Risk analysis** |
+| ⚠️ **[Engineering Agentic Systems for Reliability](https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/)** | **pruningmypothos.com** | Cautions that agentic systems fail at boundaries when permissions, verification, traceability, and escalation are weak. | **Risk analysis** |
 | ⚠️ **[Self-Correcting Agents: Reflexion, CRITIC, and ReAct Loops Compared](https://callsphere.ai/blog/self-correcting-agents-reflexion-critic-react-loops-compared-2026)** | **callsphere.ai** | Compares self-correction patterns and their cost/failure tradeoffs. | **Risk analysis** ‡ |
 | ⚠️ **[How to Build an AI Agent Harness: A 2026 Complete Guide](https://atlan.com/know/how-to-build-ai-agent-harness/)** | **atlan.com** | Broad guide with useful warnings on data readiness, permissions, context management, and evaluation. | **Risk analysis** |
 | ⚠️ **[Harness Engineering vs Prompt Engineering vs Context Engineering Explained](https://medium.com/@visrow/harness-engineering-vs-prompt-engineering-vs-context-engineering-explained-0423b692c87d)** | **Medium** | Adjacent framing that helps avoid confusing loop engineering with the surrounding harness discipline. | **Risk analysis** ‡ |
@@ -1721,6 +1726,7 @@ Skeptical takes and measured failure modes, because a loop that cannot fail safe
 | 📄 **[Rethinking Inference-Time Scaling in Local Computer-Use Agents: Failure Modes and Compute Tradeoffs](https://arxiv.org/abs/2607.28573)** | **2026** · arXiv<br><sub>Woongkyu Lee & Jungwook Choi</sub> | Tests whether spending more inference compute rescues small locally-hosted computer-use agents on OSWorld, and finds it mostly changes the failure mode rather than fixing it: contextual scaling stabilizes trajectories, but temporal scaling extends wrong paths instead of correcting them. A useful corrective to 'just let it loop longer'. | **Research preprint** |
 | 📄 **[Safeguards Based on Copyable Context Cannot Provide Reliable Safety for LLMs](https://arxiv.org/abs/2607.27951)** | **2026** · arXiv<br><sub>Pingyu Wu et al.</sub> | Submitted 2026-07-30. An impossibility argument aimed squarely at the standard loop-safety design: if the evidence a safeguard uses (system prompt, conversation history, stated role) is copyable, an attacker can imitate it. | **Research preprint** |
 | 📄 **[Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories](https://arxiv.org/abs/2607.27250)** | **2026** · arXiv<br><sub>Prakhar Khatri</sub> | Submitted 2026-07-28. Controlled ablation of AGENTS.md / CLAUDE.md context files across two frontier agents, 17 real repository tasks, and 288 evaluated runs. Finding: context strategy does not measurably move correctness on either agent, and failures are dominated by implementation difficulty rather than missing repo knowledge. | **Research preprint** |
+| 📄 **[AI Agents Push Humans Out of the Loop](https://arxiv.org/abs/2608.23642)** | **2026** · arXiv<br><sub>Margaret Mitchell et al.</sub> | Position paper against treating human oversight as a free mitigation. Argues current agent designs both impede oversight and erode the cognitive capacity it depends on through extended use, so keeping a human in the loop degrades over time unless the system is built around what an overseer actually needs. | **Research preprint** |
 
 ## Future Directions
 
@@ -1764,7 +1770,7 @@ Browse interactively, query structured exports, or reuse the publishing componen
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 995 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
+| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 1001 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
 | 🧭 **[Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)** | **Hugging Face** | Query the full collection as generated CSV and JSONL tables with publication, evidence, and lifecycle fields. | **Discovery index** |
 | 🧾 **[Dataset export guide](data/README.md)** | **2026** · GitHub<br><sub>Project documentation</sub> | Load, query, regenerate, and audit the CSV, JSONL, and Resource Atlas data. | **Project artifact** |
 | 🧾 **[Runtime selection guide](meta/RUNTIME_SELECTION.md)** | **2026** · GitHub<br><sub>Project operations guide</sub> | Compare session, scheduled, CI, cron, and durable runtimes by persistence, isolation, permissions, and state. | **Project artifact** |
