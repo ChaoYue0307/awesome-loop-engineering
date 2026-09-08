@@ -18,7 +18,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
-  <img src="https://img.shields.io/badge/resources-1001-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-1007-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-22-38bdf8" alt="patterns">
   <img src="https://img.shields.io/badge/contracts-22-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
@@ -53,7 +53,7 @@
 
 **Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-This field guide connects **1001 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
+This field guide connects **1007 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
 **The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 
@@ -63,7 +63,7 @@ This field guide connects **1001 papers, docs, tools, benchmarks, and guides** t
   <tr>
     <td><strong>🧭 Explore the field</strong></td>
     <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
-    <td>Filter 1001 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
+    <td>Filter 1007 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
     <td><strong>▶️ Build one loop</strong></td>
@@ -128,7 +128,7 @@ Move from evidence to implementation through four connected layers:
 <!--lint disable table-pipe-alignment-->
 | Start with | What it gives you | Use it to | Example |
 | --- | --- | --- | --- |
-| 📚 **1001 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
+| 📚 **1007 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
 | 🧩 **22 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
 | 🧾 **22 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
 | ▶️ **8 runtime starters** | 3 dependency-light executables plus 5 copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
@@ -348,7 +348,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
   </tr>
   <tr>
     <td><strong>Link availability</strong></td>
-    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-05 UTC, 937 public links opened successfully, 13 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
+    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-09 UTC, 943 public links opened successfully, 13 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
   </tr>
   <tr>
     <td><strong>Evidence label</strong></td>
@@ -373,8 +373,8 @@ Open the original work before relying on a summary. Use the contribution, novelt
 <!-- resource-type-summary:start -->
 | Type | Rows | Includes |
 | --- | --- | --- |
-| 📄 **Paper** | 466 | Academic paper, preprint, or technical report |
-| 📝 **Blog** | 130 | Essay, field note, article, or practitioner write-up |
+| 📄 **Paper** | 471 | Academic paper, preprint, or technical report |
+| 📝 **Blog** | 131 | Essay, field note, article, or practitioner write-up |
 | 📚 **Docs** | 87 | Official product, API, SDK, or platform documentation |
 | 🧰 **Tool** | 149 | Repository, framework, SDK, runtime, or implementation |
 | 🧪 **Benchmark** | 76 | Benchmark, eval suite, leaderboard, or evaluation dataset |
@@ -392,7 +392,7 @@ Evidence labels describe the kind of source behind an entry, not its scientific 
 | Evidence label | Rows | What it means |
 | --- | --- | --- |
 | **Research paper** | 61 | Published or accepted research record |
-| **Research preprint** | 409 | Preprint; inspect methods and evaluation |
+| **Research preprint** | 414 | Preprint; inspect methods and evaluation |
 | **Official documentation** | 76 | Primary product or standard behavior |
 | **Technical documentation** | 11 | Technical reference from the source |
 | **Source implementation** | 133 | Inspectable source and runtime behavior |
@@ -401,7 +401,7 @@ Evidence labels describe the kind of source behind an entry, not its scientific 
 | **Project artifact** | 50 | Schema, example, guide, or repository documentation |
 | **Reusable artifact** | 2 | Adaptable template, schema, or guide |
 | **Operational pattern** | 11 | Transferable operating practice |
-| **Practitioner analysis** | 130 | Experience-backed implementation context |
+| **Practitioner analysis** | 131 | Experience-backed implementation context |
 | **Risk analysis** | 11 | Failure modes, limits, or adoption cautions |
 | **Discovery index** | 19 | Broader ecosystem coverage for finding related work |
 
@@ -777,6 +777,7 @@ Loop Engineering is new as a practice name, but it builds on years of agent-loop
 | 📄 **[AutoDesign: Meta-Harness Optimization for Long-Horizon Agentic Design](https://arxiv.org/abs/2608.13560)** | **2026** · arXiv<br><sub>Yaxin Luo et al.</sub> | Meta-harness optimizer that guides a code agent to recursively rewrite its own harness from rollout feedback, against the observation that existing harness paradigms stay static instead of accumulating reusable experience. Instantiated on paper-to-poster generation with the accompanying PosterBench. | **Research preprint** |
 | 📄 **[Engineering Reliable Coding Agents: Evaluating and Operating the System Around the Model](https://arxiv.org/abs/2608.13867)** | **2026** · arXiv<br><sub>Stephanie Jarmak</sub> | Monograph on the gap between evaluating coding agents as models and deploying them as systems, synthesizing 164 scholarly works, 100 practitioner records, 29 benchmark records, and 17 system case records. Treats evaluation and operation as a dependency chain where a gain at one layer often fails to reach end-to-end outcomes. | **Research preprint** |
 | 📄 **[Stop Comparing LLM Agents Without Disclosing the Harness](https://arxiv.org/abs/2605.23950)** | **2026** · arXiv<br><sub>Yunbei Zhang et al.</sub> | Formalizes the Binding Constraint Thesis: for long-horizon tasks across models of comparable frontier capability, performance variance is governed more by harness configuration than by model choice, so evaluation protocols systematically misattribute harness-level gains to model improvements. Treats the harness as a closed-loop controller. | **Research preprint** |
+| 📄 **[HarnessEvolve: Learning from Reference Trajectories for Reliable Agent Self-Evolution](https://arxiv.org/abs/2609.00829)** | **2026** · arXiv<br><sub>Wen Jiang et al.</sub> | Names three failure modes in self-evolving harnesses: credit assignment failure, where terminal success or failure leaves the responsible step ambiguous; shortcut learning, where the agent memorizes task-specific patterns instead of capability; and catastrophic forgetting from unguarded updates. Gates each accepted change. | **Research preprint** |
 
 ## Model-Level Recurrence
 
@@ -995,6 +996,7 @@ End-to-end systems and field reports of coding agents running in loops, from sin
 | 🧰 **[LongHorizon-Harness](https://github.com/AMAP-ML/LongHorizon-Harness)** | **GitHub**<br><sub>AMAP-ML/LongHorizon-Harness</sub> | Runnable implementation of the Manage-Execute-Audit loop, driving agents across desktop apps and the CLI over long sessions with fresh-context execution, durable verified state, independent auditing, and recoverable progress. Integrates with Claude Code, Codex, and OpenClaw. MIT. | **Source implementation** |
 | 🧰 **[DeepCode](https://github.com/HKUDS/DeepCode)** | **GitHub**<br><sub>HKUDS/DeepCode</sub> | Multi-agent coding system built around verification-driven repair: a failed check becomes the input to the next attempt, and the run continues until evidence supports completion or the task is judged blocked. Sessions persist tool calls, permission decisions, and verification records for exact replay, and parallel agents work in isolated Git worktrees. MIT. | **Source implementation** |
 | 🧰 **[OpenHarness](https://github.com/HKUDS/OpenHarness)** | **GitHub**<br><sub>HKUDS/OpenHarness</sub> | Deliberately small, readable harness for seeing how one works from the inside: 43 tools, on-demand skill loading, auto-compaction that carries task state across long sessions, and three permission modes from prompt-before-write through plan-only. PreToolUse and PostToolUse hooks expose the lifecycle. MIT. | **Source implementation** |
+| 📝 **[Agent Harness Engineering](https://addyosmani.com/blog/agent-harness-engineering/)** | **2026** · AddyOsmani.com<br><sub>Addy Osmani</sub> | Defines the harness as everything that is not the model, then catalogues the mechanisms: compaction and tool offloading against context rot, planner/generator/evaluator splits because separate agents beat self-evaluation, hooks that block destructive commands, and a ratchet principle where every mistake becomes a rule. | **Practitioner analysis** |
 
 ## Verification And Feedback Gates
 
@@ -1141,6 +1143,7 @@ Turn harness and observability mechanisms into exit gates, durable receipts, and
 | 📄 **[Verified Tool Calls Improve LLM Agent Reliability Under Non-Atomic Failures](https://arxiv.org/abs/2608.02645)** | **2026** · arXiv<br><sub>Isham Kalappurackal Mansoor et al.</sub> | Agent frameworks usually treat a tool call as atomic with a binary result, while real systems time out after dispatch, update state partially, and make effects visible late. Wraps calls with postcondition verification, verify-before-retry, and idempotency keys so a retry cannot duplicate an action that already landed. | **Research preprint** |
 | 📄 **[Don't Blindly Trust It: How Unreliable Feedback Breaks Tool-Using LLM Agents](https://arxiv.org/abs/2606.21409)** | **2026** · arXiv<br><sub>Chubin Zhang et al.</sub> | Fixes the loop, prompt, action space, and decoding, then varies only whether the returned observation is faithful, misleading, or absent. Persistent misleading feedback inverts the value of the tool: on HotpotQA one model scores 44.8 F1 with clean retrieval, 22.3 with no feedback at all, and 4.7 under shuffled retrieval. | **Research preprint** |
 | 📄 **[Human-on-the-Loop Orchestration for AI-Assisted Legal Discovery](https://arxiv.org/abs/2606.19812)** | **2026** · arXiv<br><sub>Anushree Sinha et al.</sub> | Names trajectory collapse: an early misclassification propagates silently and invalidates an entire privilege review, which in e-discovery can amount to malpractice. Answers with verification layered across planning, reasoning, execution, and uncertainty, plus mandatory escalation that suspends autonomous action. | **Research preprint** |
+| 📄 **[Affordance Agent Harness: Verification-Gated Skill Orchestration](https://arxiv.org/abs/2605.00663)** | **2026** · arXiv<br><sub>Haojian Huang et al.</sub> | Closed-loop skill orchestration for grounding, against fixed pipelines that ignore per-instance difficulty and cannot recover from an intermediate error. The loop has to decide whether the evidence it has gathered is reliable enough to commit, under bounded inference cost and without labels. | **Research preprint** |
 
 ## Securing Unattended Loops
 
@@ -1260,6 +1263,8 @@ A loop that runs while nobody watches needs stronger boundaries than an interact
 | 📄 **[Towards Security-Auditable LLM Agents: A Unified Graph Representation](https://arxiv.org/abs/2605.06812)** | **2026** · arXiv<br><sub>Chaofan Li et al.</sub> | Argues static SBOMs and runtime logs leave a semantic gap between low-level events and execution intent, so post-hoc auditing misses cognitive-state evolution, capability bindings, memory contamination, and risk propagation between agents. Proposes Agent-BOM, a hierarchical attributed graph over the whole system. | **Research preprint** |
 | 📝 **[9 AI Coding Agent Incidents That Deleted Production Data](https://adversa.ai/blog/ai-coding-agent-incidents/)** | **2026** · Adversa AI | Nine data-destroying incidents from June 2025 to July 2026, each traced to a primary record such as a GitHub issue with logs, a vendor acknowledgement, or Financial Times reporting. The recurring mechanism is not hallucination but the gap between intended action and shell execution: unquoted spaces, tilde expansion after the permission check, flag misuse. | **Practitioner analysis** |
 | 📄 **[The Verifier Tax: Horizon Dependent Safety Success Tradeoffs in Tool Using LLM Agents](https://arxiv.org/abs/2603.19328)** | **2026** · CAIS '26: ACM Conference on AI and Agentic Systems 2026<br><sub>Tanmay Sah et al.</sub> | Measures what runtime safety enforcement costs the task. Across tau-bench Airline and Retail, policy mediation intercepts up to 94% of non-compliant actions yet strictly safe goal attainment stays under 5% in most settings. Separates overall, safe, and unsafe success instead of reporting a single rate. | **Research paper** |
+| 📄 **[Governance Decay: How Context Compaction Silently Erases Safety Constraints in Long-Horizon LLM Agents](https://arxiv.org/abs/2606.22528)** | **2026** · arXiv<br><sub>Shiyang Chen</sub> | Shows the context-management layer is itself a safety surface: in-context governance constraints an agent reliably obeys while they are visible can be silently dropped by compaction, and the same agent then performs prohibited tool actions later in the session. Grades tool calls deterministically across 1,323 episodes. | **Research preprint** |
+| 📄 **[Auditing Agent Harness Safety](https://arxiv.org/abs/2605.14271)** | **2026** · arXiv<br><sub>Chengzhi Liu et al.</sub> | A harness can return a correct, benign answer over a trajectory that reached unauthorized resources or leaked context to the wrong agent, and output-level scoring cannot see it. Audits the whole trajectory for boundary compliance and information-flow constraints rather than grading the terminal state. | **Research preprint** |
 
 ## State, Memory, And Context Persistence
 
@@ -1612,6 +1617,7 @@ Running loops in production: cost control, incident handling, and promoting vali
 | 📄 **[Real-Time Detection and Repair of LLM Agent Failures](https://arxiv.org/abs/2608.02464)** | **2026** · arXiv<br><sub>Sunny Dubey</sub> | Asks how much mid-episode failure is detectable from step telemetry alone, given that judging every step with a second model costs more than the agent itself. A one-class detector trained only on healthy runs, costing microseconds per step, catches 71% of failures at a 5% false-alarm budget across 2,823 episodes. | **Research preprint** |
 | 📄 **[Agentic AI and Human-in-the-Loop Interventions: Field Experimental Evidence from Alibaba's Customer Service Operations](https://arxiv.org/abs/2605.14830)** | **2026** · arXiv<br><sub>Yiwei Wang et al.</sub> | Randomized field experiment on Taobao where supervising workers kept the chats the agent could not take. Deployment cut average chat duration with little effect on retrials, but substantially lowered ratings on the chats the agent did handle, which is the kind of production evidence a benchmark cannot supply. | **Research preprint** |
 | 📄 **[How Do AI Agents Spend Your Money? Analyzing and Predicting Token Consumption in Agentic Coding Tasks](https://arxiv.org/abs/2604.22750)** | **2026** · arXiv<br><sub>Longju Bai et al.</sub> | Systematic study of where tokens actually go in agentic coding: tasks consume roughly 1000x the tokens of code chat, and input rather than output dominates the bill. Also tests whether models can predict their own cost before running, which is what a budget gate would need to work. | **Research preprint** |
+| 📄 **[Towards Agentic Cloud Engineering: Graph and Loop Engineering with a Zero-Trust Agent Harness](https://arxiv.org/abs/2609.00050)** | **2026** · arXiv<br><sub>Sagar Srinivas Sakhinana & Venkataramana Runkana</sub> | Separates three concerns for cloud work: graph engineering for long-horizon workflow progression, loop engineering for bounded diagnosis and repair, and harness engineering that constrains external actions through authorization. Turns natural-language tasks into validated repositories and verified deployments. | **Research preprint** |
 
 ## Templates And Patterns
 
@@ -1666,7 +1672,7 @@ Skeptical takes and measured failure modes, because a loop that cannot fail safe
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
 | ⚠️ **[Most Developers Do Not Need Agent Loops Yet](https://alphasignalai.substack.com/p/most-developers-do-not-need-agent)** | **Substack**<br><sub>AlphaSignal AI</sub> | Useful caution against adopting loops before the task, signal, and economics justify them. | **Risk analysis** |
-| ⚠️ **[Engineering Agentic Systems for Reliability](https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/)** | **pruningmypothos.com** | Cautions that agentic systems fail at boundaries when permissions, verification, traceability, and escalation are weak. | **Risk analysis** |
+| ⚠️ **[Engineering Agentic Systems for Reliability](https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/)** | **Pruning My Pothos**<br><sub>Shailesh Rawat</sub> | Cautions that agentic systems fail at boundaries when permissions, verification, traceability, and escalation are weak. | **Risk analysis** |
 | ⚠️ **[Self-Correcting Agents: Reflexion, CRITIC, and ReAct Loops Compared](https://callsphere.ai/blog/self-correcting-agents-reflexion-critic-react-loops-compared-2026)** | **callsphere.ai** | Compares self-correction patterns and their cost/failure tradeoffs. | **Risk analysis** ‡ |
 | ⚠️ **[How to Build an AI Agent Harness: A 2026 Complete Guide](https://atlan.com/know/how-to-build-ai-agent-harness/)** | **atlan.com** | Broad guide with useful warnings on data readiness, permissions, context management, and evaluation. | **Risk analysis** |
 | ⚠️ **[Harness Engineering vs Prompt Engineering vs Context Engineering Explained](https://medium.com/@visrow/harness-engineering-vs-prompt-engineering-vs-context-engineering-explained-0423b692c87d)** | **Medium** | Adjacent framing that helps avoid confusing loop engineering with the surrounding harness discipline. | **Risk analysis** ‡ |
@@ -1770,7 +1776,7 @@ Browse interactively, query structured exports, or reuse the publishing componen
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 1001 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
+| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 1007 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
 | 🧭 **[Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)** | **Hugging Face** | Query the full collection as generated CSV and JSONL tables with publication, evidence, and lifecycle fields. | **Discovery index** |
 | 🧾 **[Dataset export guide](data/README.md)** | **2026** · GitHub<br><sub>Project documentation</sub> | Load, query, regenerate, and audit the CSV, JSONL, and Resource Atlas data. | **Project artifact** |
 | 🧾 **[Runtime selection guide](meta/RUNTIME_SELECTION.md)** | **2026** · GitHub<br><sub>Project operations guide</sub> | Compare session, scheduled, CI, cron, and durable runtimes by persistence, isolation, permissions, and state. | **Project artifact** |
