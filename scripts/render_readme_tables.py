@@ -22,7 +22,11 @@ SUMMARY_END = "<!-- resource-type-summary:end -->"
 EVIDENCE_START = "<!-- evidence-label-legend:start -->"
 EVIDENCE_END = "<!-- evidence-label-legend:end -->"
 PROJECT_GITHUB_REPO = "chaoyue0307/awesome-loop-engineering"
-README_RENDER_BUDGET_BYTES = 480 * 1024
+# GitHub truncates a README beyond 500 KiB (512,000 bytes) when displaying it: "any content
+# beyond 500 KiB will be truncated" (docs.github.com, About READMEs). The rendered output is
+# byte-identical to README.md and CI runs --check on every push, so the committed file can never
+# exceed this budget; the remaining 12,288 bytes are margin, not headroom to grow into.
+README_RENDER_BUDGET_BYTES = 488 * 1024
 
 TYPE_DESCRIPTIONS = {
     "Paper": "Academic paper, preprint, or technical report",
