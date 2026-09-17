@@ -68,6 +68,42 @@ PUBLISHER_BY_DOMAIN = {
 }
 
 PUBLICATION_OVERRIDES = {
+    "https://openreview.net/forum?id=din0lGfZFd": {
+        "authors": "Nikunj Saunshi; Nishanth Dikkala; Zhiyuan Li; Sanjiv Kumar; Sashank J. Reddi",
+        "publication_date": "2025",
+        "publication_year": "2025",
+        "publication_venue": "International Conference on Learning Representations (ICLR)",
+        "publisher": "OpenReview",
+        "publication_note": "Published at ICLR 2025; title and venue matched against the official OpenReview record. Moved from iclr.cc/virtual, which stopped accepting connections in September 2026.",
+        "metadata_source": "OpenReview",
+    },
+    "https://openreview.net/forum?id=RzYXb5YWBs": {
+        "authors": "Ahmadreza Jeddi; Marco Ciccone; Babak Taati",
+        "publication_date": "2026",
+        "publication_year": "2026",
+        "publication_venue": "International Conference on Learning Representations (ICLR)",
+        "publisher": "OpenReview",
+        "publication_note": "Published at ICLR 2026; title and venue matched against the official OpenReview record. Moved from iclr.cc/virtual, which stopped accepting connections in September 2026.",
+        "metadata_source": "OpenReview",
+    },
+    "https://openreview.net/forum?id=9Pba4rcQbE": {
+        "authors": "Xiaojing Zhang; Haifeng Wu; Gang He; Jiyang Shen; Bochen Lyu; Zhanxing Zhu",
+        "publication_date": "2026",
+        "publication_year": "2026",
+        "publication_venue": "International Conference on Learning Representations (ICLR)",
+        "publisher": "OpenReview",
+        "publication_note": "Published at ICLR 2026; title and venue matched against the official OpenReview record. Moved from iclr.cc/virtual, which stopped accepting connections in September 2026.",
+        "metadata_source": "OpenReview",
+    },
+    "https://openreview.net/forum?id=kdZbxizwGK": {
+        "authors": "Yunao Zheng; Xiaojie Wang; Lei Ren; Chen Wei",
+        "publication_date": "2026",
+        "publication_year": "2026",
+        "publication_venue": "International Conference on Learning Representations (ICLR)",
+        "publisher": "OpenReview",
+        "publication_note": "Published at ICLR 2026; title and venue matched against the official OpenReview record. Moved from iclr.cc/virtual, which stopped accepting connections in September 2026.",
+        "metadata_source": "OpenReview",
+    },
     "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents": {
         "authors": "Mikaela Grace; Jeremy Hadfield; Rodrigo Olivares; Jiri De Jonghe",
         "publication_date": "2026-01-09",

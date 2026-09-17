@@ -18,7 +18,7 @@
   <a href="https://chaoyue0307.github.io/awesome-loop-engineering/"><img src="https://img.shields.io/badge/project-site-38bdf8" alt="project site"></a>
   <a href="https://huggingface.co/datasets/cy0307/awesome-loop-engineering"><img src="https://img.shields.io/badge/HF-dataset-ffcc4d" alt="Hugging Face dataset"></a>
   <a href="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml"><img src="https://github.com/ChaoYue0307/awesome-loop-engineering/actions/workflows/quality.yml/badge.svg" alt="Quality checks"></a>
-  <img src="https://img.shields.io/badge/resources-1007-a78bfa" alt="resources">
+  <img src="https://img.shields.io/badge/resources-1013-a78bfa" alt="resources">
   <img src="https://img.shields.io/badge/patterns-22-38bdf8" alt="patterns">
   <img src="https://img.shields.io/badge/contracts-22-7055d9" alt="schema-checked contracts">
   <img src="https://img.shields.io/badge/starters-8-0c9b68" alt="runtime starters">
@@ -53,7 +53,7 @@
 
 **Loop Engineering is the operating layer for recurring AI-agent work.** It defines how work enters, what an agent may do, which external evidence proves completion, what state survives, and whether the system retries, reports, escalates, or exits.
 
-This field guide connects **1007 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
+This field guide connects **1013 papers, docs, tools, benchmarks, and guides** to **22 operational patterns, 22 schema-checked contracts, and 8 runtime starters**, so a recurring job can move from evidence to a reviewable implementation.
 
 **The reliability gap:** prompts, context, and harnesses can improve one run; recurring work also needs explicit triggers, verification, durable state, bounded budgets, and human handoff. Software event loops, control theory, growth loops, generic automation, and one-off prompting are outside this map.
 
@@ -63,7 +63,7 @@ This field guide connects **1007 papers, docs, tools, benchmarks, and guides** t
   <tr>
     <td><strong>🧭 Explore the field</strong></td>
     <td><a href="https://chaoyue0307.github.io/awesome-loop-engineering/#resources">Open the Resource Atlas</a></td>
-    <td>Filter 1007 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
+    <td>Filter 1013 sources by goal, loop layer, lifecycle stage, artifact type, and evidence.</td>
   </tr>
   <tr>
     <td><strong>▶️ Build one loop</strong></td>
@@ -128,7 +128,7 @@ Move from evidence to implementation through four connected layers:
 <!--lint disable table-pipe-alignment-->
 | Start with | What it gives you | Use it to | Example |
 | --- | --- | --- | --- |
-| 📚 **1007 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
+| 📚 **1013 resources** | Papers, official docs, tools, benchmarks, and critiques with publication and evidence fields | Understand the design space and open the original work behind a claim | Compare verification methods in the Resource Atlas |
 | 🧩 **22 operational patterns** | Symptom-first playbooks with roles, gates, state, budgets, escalation, and worked scenarios | Choose how a recurring job should operate | "CI keeps failing" becomes a CI repair loop |
 | 🧾 **22 schema-checked contracts** | One schema-valid JSON specification for every pattern | Make permissions, evidence, limits, and human handoff reviewable | Adapt the CI repair contract to your repository |
 | ▶️ **8 runtime starters** | 3 dependency-light executables plus 5 copy/paste runtime templates | Wire a contract to a session, schedule, CI event, or durable worker | Start with test repair, threshold monitoring, or queue processing |
@@ -348,7 +348,7 @@ Open the original work before relying on a summary. Use the contribution, novelt
   </tr>
   <tr>
     <td><strong>Link availability</strong></td>
-    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-09 UTC, 943 public links opened successfully, 13 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
+    <td>At the latest <a href="data/resource_source_audit.csv">source check</a> on 2026-09-17 UTC, 951 public links opened successfully, 11 required access, 51 pointed to files in this repository, and none were broken or unreachable.</td>
   </tr>
   <tr>
     <td><strong>Evidence label</strong></td>
@@ -373,11 +373,11 @@ Open the original work before relying on a summary. Use the contribution, novelt
 <!-- resource-type-summary:start -->
 | Type | Rows | Includes |
 | --- | --- | --- |
-| 📄 **Paper** | 471 | Academic paper, preprint, or technical report |
+| 📄 **Paper** | 475 | Academic paper, preprint, or technical report |
 | 📝 **Blog** | 131 | Essay, field note, article, or practitioner write-up |
 | 📚 **Docs** | 87 | Official product, API, SDK, or platform documentation |
-| 🧰 **Tool** | 149 | Repository, framework, SDK, runtime, or implementation |
-| 🧪 **Benchmark** | 76 | Benchmark, eval suite, leaderboard, or evaluation dataset |
+| 🧰 **Tool** | 150 | Repository, framework, SDK, runtime, or implementation |
+| 🧪 **Benchmark** | 77 | Benchmark, eval suite, leaderboard, or evaluation dataset |
 | 🔁 **Pattern** | 37 | Operational playbook or reusable workflow |
 | 🧾 **Template** | 25 | Template, checklist, schema, guide, or contribution artifact |
 | 🧭 **List** | 19 | Adjacent directory, ecosystem map, or reading list |
@@ -392,12 +392,12 @@ Evidence labels describe the kind of source behind an entry, not its scientific 
 | Evidence label | Rows | What it means |
 | --- | --- | --- |
 | **Research paper** | 61 | Published or accepted research record |
-| **Research preprint** | 414 | Preprint; inspect methods and evaluation |
+| **Research preprint** | 418 | Preprint; inspect methods and evaluation |
 | **Official documentation** | 76 | Primary product or standard behavior |
 | **Technical documentation** | 11 | Technical reference from the source |
-| **Source implementation** | 133 | Inspectable source and runtime behavior |
+| **Source implementation** | 134 | Inspectable source and runtime behavior |
 | **Implementation** | 12 | Working implementation or runtime |
-| **Benchmark or evaluation** | 76 | Repeatable tasks, scores, or evaluation data |
+| **Benchmark or evaluation** | 77 | Repeatable tasks, scores, or evaluation data |
 | **Project artifact** | 50 | Schema, example, guide, or repository documentation |
 | **Reusable artifact** | 2 | Adaptable template, schema, or guide |
 | **Operational pattern** | 11 | Transferable operating practice |
@@ -590,7 +590,7 @@ Feature-level building blocks you assemble a loop from: schedulers, goals, workt
 | 📚 **[Follow a goal - ChatGPT Learn](https://learn.chatgpt.com/use-cases/follow-goals)** | **ChatGPT Learn** | Official guidance for durable objectives with stopping conditions, validation commands, checkpoints, and progress logs. | **Official documentation** |
 | 📚 **[Git worktrees - ChatGPT Learn](https://learn.chatgpt.com/docs/environments/git-worktrees)** | **ChatGPT Learn** | Official worktree model for isolated parallel tasks and handoffs between local and background workspaces. | **Official documentation** |
 | 📚 **[Prompting - ChatGPT Learn](https://learn.chatgpt.com/docs/prompting)** | **ChatGPT Learn** | Explains the Codex loop, threads, context, and goal-oriented prompting. | **Official documentation** |
-| 📚 **[Customization overview - ChatGPT Learn](https://learn.chatgpt.com/docs/customization/overview)** | **ChatGPT Learn** | Maps `AGENTS.md`, memories, skills, MCP, and subagents into a coherent customization stack. | **Official documentation** |
+| 📚 **[Customization overview - ChatGPT Learn](https://learn.chatgpt.com/docs/customization/overview)** | **learn.chatgpt.com** | Maps `AGENTS.md`, memories, skills, MCP, and subagents into a coherent customization stack. | **Official documentation** |
 | 📚 **[Build skills - ChatGPT Learn](https://learn.chatgpt.com/docs/build-skills)** | **ChatGPT Learn** | Official skill format for reusable workflows, scripts, MCP dependencies, invocation policy, and plugin packaging. | **Official documentation** |
 | 📚 **[Plugins - ChatGPT Learn](https://learn.chatgpt.com/docs/plugins)** | **ChatGPT Learn** | Bundles skills, app integrations, and MCP servers into reusable loop capabilities. | **Official documentation** |
 | 🧰 **[dotskills](https://github.com/vincentkoc/dotskills)** | **GitHub**<br><sub>vincentkoc/dotskills</sub> | A `.skills` registry of curated Codex and OpenClaw skills, framed as an "ADE Loop" (Agent Development Environment to registry to Skills Gym) where reusable skills are developed, shared, and evaluated across runs. | **Source implementation** |
@@ -801,7 +801,7 @@ Every entry below is tagged `Model layer · Adjacent foundation` in the README a
 | 📄 **[Looped Transformers as Programmable Computers](https://proceedings.mlr.press/v202/giannou23a.html)**<br><sub>Model layer · Adjacent foundation</sub> | **2023** · International Conference on Machine Learning<br><sub>Angeliki Giannou et al.</sub> | Constructs a constant-depth looped Transformer that advances an in-state program counter and executes reusable instructions, showing how iterative algorithms and in-context gradient descent can be represented through repeated shared computation. | **Research paper** |
 | 📄 **[Looped Transformers are Better at Learning Learning Algorithms](https://openreview.net/forum?id=HHbRxoDTxE)**<br><sub>Model layer · Adjacent foundation</sub> | **2024** · International Conference on Learning Representations (ICLR)<br><sub>Liu Yang et al.</sub> | Trains input-injected looped Transformers for in-context data fitting and shows that iterative shared computation can match standard Transformers on tested function classes with substantially fewer parameters. | **Research paper** |
 | 📄 **[On Expressive Power of Looped Transformers: Theoretical Analysis and Enhancement via Timestep Encoding](https://proceedings.mlr.press/v267/xu25x.html)**<br><sub>Model layer · Adjacent foundation</sub> | **2025** · International Conference on Machine Learning<br><sub>Kevin Xu & Issei Sato</sub> | Derives approximation rates for looped Transformers, identifies a loop-specific expressivity limit, and uses timestep-conditioned scaling to improve function approximation as recurrence increases. | **Research paper** |
-| 📄 **[Reasoning with Latent Thoughts: On the Power of Looped Transformers](https://iclr.cc/virtual/2025/poster/28971)**<br><sub>Model layer · Adjacent foundation</sub> | **2025** · International Conference on Learning Representations (ICLR)<br><sub>Nikunj Saunshi et al.</sub> | Connects effective recurrent depth to reasoning, proves that looped models can simulate multi-step chain-of-thought in latent space under the paper's construction, and studies the trade-off between reasoning and memorization. | **Research paper** |
+| 📄 **[Reasoning with Latent Thoughts: On the Power of Looped Transformers](https://openreview.net/forum?id=din0lGfZFd)**<br><sub>Model layer · Adjacent foundation</sub> | **2025** · International Conference on Learning Representations (ICLR)<br><sub>Nikunj Saunshi et al.</sub> | Connects effective recurrent depth to reasoning, proves that looped models can simulate multi-step chain-of-thought in latent space under the paper's construction, and studies the trade-off between reasoning and memorization. | **Research paper** |
 
 ### Latent Reasoning And Adaptive Compute
 
@@ -810,9 +810,9 @@ Every entry below is tagged `Model layer · Adjacent foundation` in the README a
 | 📄 **[Scaling up Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach](https://arxiv.org/abs/2502.05171)**<br><sub>Model layer · Adjacent foundation</sub> | **2025** · Advances in Neural Information Processing Systems 38 (NeurIPS 2025)<br><sub>Jonas Geiping et al.</sub> | Presents Huginn, a 3.5B recurrent-depth language model trained on 800B tokens whose shared core can be unrolled further at inference, with gains concentrated on reasoning tasks and support for adaptive compute and KV-cache sharing. | **Research paper** |
 | 📄 **[Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation](https://arxiv.org/abs/2507.10524)**<br><sub>Model layer · Adjacent foundation</sub> | **2025** · Advances in Neural Information Processing Systems 38 (NeurIPS 2025)<br><sub>Sangmin Bae et al.</sub> | Combines shared recursive layers with token-level routers so difficult tokens receive more depth while attention and KV caching are restricted to active tokens. | **Research paper** |
 | 📄 **[Scaling Latent Reasoning via Looped Language Models](https://arxiv.org/abs/2510.25741)**<br><sub>Model layer · Adjacent foundation</sub> | **2025** · arXiv<br><sub>Rui-Jie Zhu et al.</sub> | Introduces the Ouro family of pretrained LoopLMs, combining latent iteration, learned depth allocation, and large-scale pretraining to study recurrent depth as a scaling axis distinct from parameter count and generated reasoning tokens. | **Research preprint** |
-| 📄 **[LoopFormer: Elastic-Depth Looped Transformers for Latent Reasoning via Shortcut Modulation](https://iclr.cc/virtual/2026/poster/10009450)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · International Conference on Learning Representations (ICLR)<br><sub>Ahmadreza Jeddi et al.</sub> | Trains variable-length latent trajectories with time and step-size conditioning plus shortcut consistency, allowing one model to trade compute for quality across inference budgets without retraining. | **Research paper** |
-| 📄 **[MoDr: Mixture-of-Depth-Recurrent Transformers for Test-Time Reasoning](https://iclr.cc/virtual/2026/poster/10011117)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · International Conference on Learning Representations (ICLR)<br><sub>Xiaojing Zhang et al.</sub> | Replaces a single recurrent reasoning path with dynamically routed LoRA branches, adding solution-space exploration and load-balanced routing to the Huginn-style depth-recurrent backbone. | **Research paper** |
-| 📄 **[ChainGPT: Dual-Reasoning Model with Recurrent Depth and Multi-Rank State Updates](https://iclr.cc/virtual/2026/poster/10007767)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · International Conference on Learning Representations (ICLR)<br><sub>Yunao Zheng et al.</sub> | Combines within-layer multi-substep state updates, state-guided sparse attention, across-layer recurrence, and adaptive stopping to increase latent reasoning depth without extending visible chain-of-thought. | **Research paper** |
+| 📄 **[LoopFormer: Elastic-Depth Looped Transformers for Latent Reasoning via Shortcut Modulation](https://openreview.net/forum?id=RzYXb5YWBs)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · International Conference on Learning Representations (ICLR)<br><sub>Ahmadreza Jeddi et al.</sub> | Trains variable-length latent trajectories with time and step-size conditioning plus shortcut consistency, allowing one model to trade compute for quality across inference budgets without retraining. | **Research paper** |
+| 📄 **[MoDr: Mixture-of-Depth-Recurrent Transformers for Test-Time Reasoning](https://openreview.net/forum?id=9Pba4rcQbE)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · International Conference on Learning Representations (ICLR)<br><sub>Xiaojing Zhang et al.</sub> | Replaces a single recurrent reasoning path with dynamically routed LoRA branches, adding solution-space exploration and load-balanced routing to the Huginn-style depth-recurrent backbone. | **Research paper** |
+| 📄 **[ChainGPT: Dual-Reasoning Model with Recurrent Depth and Multi-Rank State Updates](https://openreview.net/forum?id=kdZbxizwGK)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · International Conference on Learning Representations (ICLR)<br><sub>Yunao Zheng et al.</sub> | Combines within-layer multi-substep state updates, state-guided sparse attention, across-layer recurrence, and adaptive stopping to increase latent reasoning depth without extending visible chain-of-thought. | **Research paper** |
 | 📄 **[Think-at-Hard: Selective Latent Iterations to Improve Reasoning Language Models](https://openreview.net/forum?id=eQaJSRZiGn)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · International Conference on Machine Learning (ICML)<br><sub>Tianyu Fu et al.</sub> | Learns when a token needs extra latent refinement, using a neural decider, depth-aware LoRA, and cross-iteration attention to avoid always paying for or being degraded by additional loops. | **Research paper** |
 | 📄 **[Fixed-Point Reasoners: Stable and Adaptive Deep Looped Transformers](https://arxiv.org/abs/2606.18206)**<br><sub>Model layer · Adjacent foundation</sub> | **2026** · Proceedings of the 43rd International Conference on Machine Learning (ICML), PMLR 306<br><sub>Sajad Movahedi et al.</sub> | Stabilizes very deep recurrence with pre-normalization and residual scaling, then uses latent-state convergence as the halting signal so the model allocates more iterations to harder Sudoku, maze, state-tracking, and ARC-AGI instances without a separate stopping head. | **Research paper** |
 
@@ -997,6 +997,8 @@ End-to-end systems and field reports of coding agents running in loops, from sin
 | 🧰 **[DeepCode](https://github.com/HKUDS/DeepCode)** | **GitHub**<br><sub>HKUDS/DeepCode</sub> | Multi-agent coding system built around verification-driven repair: a failed check becomes the input to the next attempt, and the run continues until evidence supports completion or the task is judged blocked. Sessions persist tool calls, permission decisions, and verification records for exact replay, and parallel agents work in isolated Git worktrees. MIT. | **Source implementation** |
 | 🧰 **[OpenHarness](https://github.com/HKUDS/OpenHarness)** | **GitHub**<br><sub>HKUDS/OpenHarness</sub> | Deliberately small, readable harness for seeing how one works from the inside: 43 tools, on-demand skill loading, auto-compaction that carries task state across long sessions, and three permission modes from prompt-before-write through plan-only. PreToolUse and PostToolUse hooks expose the lifecycle. MIT. | **Source implementation** |
 | 📝 **[Agent Harness Engineering](https://addyosmani.com/blog/agent-harness-engineering/)** | **2026** · AddyOsmani.com<br><sub>Addy Osmani</sub> | Defines the harness as everything that is not the model, then catalogues the mechanisms: compaction and tool offloading against context rot, planner/generator/evaluator splits because separate agents beat self-evaluation, hooks that block destructive commands, and a ratchet principle where every mistake becomes a rule. | **Practitioner analysis** |
+| 🧰 **[YYLO](https://github.com/yylo-dev/yylo)** | **GitHub**<br><sub>yylo-dev/yylo</sub> | Command-line orchestrator that runs each coding-agent task in its own Git worktree bound to a recorded target, then gates completion on validation. Review depth scales with assessed risk, and the review cycle ends on an explicit REVIEW_FINDINGS_EXHAUSTED stop rather than looping indefinitely. MIT. | **Source implementation** |
+| 📄 **[Harness-of-Harness: Multi-Day Autonomous Software Development with Continual Improvement](https://arxiv.org/abs/2609.01481)** | **2026** · arXiv<br><sub>Haoyang Yan et al.</sub> | Runs existing coding-agent harnesses inside iterative planning, coding, and testing loops for multi-day development without human intervention. Sustains improvement by balancing repair against capability growth and scoping work into small verifiable increments, with implementation-time tests kept separate. | **Research preprint** |
 
 ## Verification And Feedback Gates
 
@@ -1144,6 +1146,7 @@ Turn harness and observability mechanisms into exit gates, durable receipts, and
 | 📄 **[Don't Blindly Trust It: How Unreliable Feedback Breaks Tool-Using LLM Agents](https://arxiv.org/abs/2606.21409)** | **2026** · arXiv<br><sub>Chubin Zhang et al.</sub> | Fixes the loop, prompt, action space, and decoding, then varies only whether the returned observation is faithful, misleading, or absent. Persistent misleading feedback inverts the value of the tool: on HotpotQA one model scores 44.8 F1 with clean retrieval, 22.3 with no feedback at all, and 4.7 under shuffled retrieval. | **Research preprint** |
 | 📄 **[Human-on-the-Loop Orchestration for AI-Assisted Legal Discovery](https://arxiv.org/abs/2606.19812)** | **2026** · arXiv<br><sub>Anushree Sinha et al.</sub> | Names trajectory collapse: an early misclassification propagates silently and invalidates an entire privilege review, which in e-discovery can amount to malpractice. Answers with verification layered across planning, reasoning, execution, and uncertainty, plus mandatory escalation that suspends autonomous action. | **Research preprint** |
 | 📄 **[Affordance Agent Harness: Verification-Gated Skill Orchestration](https://arxiv.org/abs/2605.00663)** | **2026** · arXiv<br><sub>Haojian Huang et al.</sub> | Closed-loop skill orchestration for grounding, against fixed pipelines that ignore per-instance difficulty and cannot recover from an intermediate error. The loop has to decide whether the evidence it has gathered is reliable enough to commit, under bounded inference cost and without labels. | **Research preprint** |
+| 📄 **[The Reach of a Verification Tool Decides Its Value: A Controlled Study of Verification Surface, Artifact Quality, and Cost in AI Coding Agents](https://arxiv.org/abs/2608.28795)** | **2026** · arXiv<br><sub>Achint Mehta</sub> | Holds everything fixed except the agent's verification surface, the tools it can use to check its own work, and builds 1,116 web applications across six models and eight tool configurations graded condition-blind against a frozen rubric. Tests whether a wider surface actually buys matching quality. | **Research preprint** |
 
 ## Securing Unattended Loops
 
@@ -1265,6 +1268,7 @@ A loop that runs while nobody watches needs stronger boundaries than an interact
 | 📄 **[The Verifier Tax: Horizon Dependent Safety Success Tradeoffs in Tool Using LLM Agents](https://arxiv.org/abs/2603.19328)** | **2026** · CAIS '26: ACM Conference on AI and Agentic Systems 2026<br><sub>Tanmay Sah et al.</sub> | Measures what runtime safety enforcement costs the task. Across tau-bench Airline and Retail, policy mediation intercepts up to 94% of non-compliant actions yet strictly safe goal attainment stays under 5% in most settings. Separates overall, safe, and unsafe success instead of reporting a single rate. | **Research paper** |
 | 📄 **[Governance Decay: How Context Compaction Silently Erases Safety Constraints in Long-Horizon LLM Agents](https://arxiv.org/abs/2606.22528)** | **2026** · arXiv<br><sub>Shiyang Chen</sub> | Shows the context-management layer is itself a safety surface: in-context governance constraints an agent reliably obeys while they are visible can be silently dropped by compaction, and the same agent then performs prohibited tool actions later in the session. Grades tool calls deterministically across 1,323 episodes. | **Research preprint** |
 | 📄 **[Auditing Agent Harness Safety](https://arxiv.org/abs/2605.14271)** | **2026** · arXiv<br><sub>Chengzhi Liu et al.</sub> | A harness can return a correct, benign answer over a trajectory that reached unauthorized resources or leaked context to the wrong agent, and output-level scoring cannot see it. Audits the whole trajectory for boundary compliance and information-flow constraints rather than grading the terminal state. | **Research preprint** |
+| 📄 **[A Blind Trust, the Bloody Thrust: When Attacker-Controlled Hook Updates Steer AI Agent Harnesses towards Malicious Behaviors](https://arxiv.org/abs/2609.03884)** | **2026** · arXiv<br><sub>Pengxun Li et al.</sub> | Lifecycle hooks bind shell commands to session start, tool calls, and file edits, run with host privileges, and can fire at moments the model never observes. Shows a benign versioned plugin can be trojanized through a hook-configuration update alone, because harnesses trust that update path without inspection. | **Research preprint** |
 
 ## State, Memory, And Context Persistence
 
@@ -1574,6 +1578,7 @@ How to measure loops rather than single runs: long-horizon, multi-session, relia
 | 🧪 **[LoopsBench: From Harness Engineering to Loop Engineering in Coding Agent Evaluation](https://arxiv.org/abs/2608.00267)** | **2026** · arXiv<br><sub>Han Li et al.</sub> | Benchmarks sustained execution rather than end state: 112 tasks across 8 languages and 9 domains, each a dependency DAG over separately testable units with source-evidenced prerequisite edges. The runtime releases tests along the ready frontier and keeps completed nodes as standing regression obligations. | **Benchmark or evaluation** |
 | 🧪 **[Do Codex Skills Save Tokens? Six Controlled GPT-5.6-sol Runs](https://github.com/Phelan164/codex-howto/blob/main/resources/articles/do-codex-skills-save-tokens.md)** | **GitHub**<br><sub>Phelan164/codex-howto</sub> | Asks whether a repository workflow skill earns its context cost, and finds the answer reverses by task size: the no-skill control was cheapest on a small specified backend fix, while a lean engineering-loop skill spent 54% fewer reported tokens on a larger build. Two task classes and six runs, with the measurements published. | **Benchmark or evaluation** |
 | 🧪 **[PhoneHarness: Harnessing Phone-Use Agents through Mixed GUI, CLI, and Tool Actions](https://arxiv.org/abs/2606.14832)** | **2026** · arXiv<br><sub>Chenxin Li et al.</sub> | Scores whether the intended side effect actually occurred rather than whether the final screen looks right, which is how most mobile-agent work grades a run. Mixes GUI, device-side commands, and structured tools, so choosing which surface to act through becomes part of the task. | **Benchmark or evaluation** |
+| 🧪 **[LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering](https://arxiv.org/abs/2608.28281)** | **2026** · arXiv<br><sub>Yi Wang et al.</sub> | Benchmarks the loop rather than the agent inside it. A loop can trust a stale progress note, skip needed verification, spend budget in the wrong direction, or stop before the task is safe to submit, and one end-to-end outcome cannot show whether the loop's guidance or the agent's ability decided the result. | **Benchmark or evaluation** |
 
 ## Operations Playbooks
 
@@ -1585,7 +1590,7 @@ Running loops in production: cost control, incident handling, and promoting vali
 | 📝 **[The agent loop: ReAct, plan-and-execute, reflection](https://www.kunwar.page/chapter/067-the-agent-loop-react-plan-and-execute-reflection)** | **kunwar.page** | Practical walkthrough of the base loop and common variants. | **Practitioner analysis** |
 | 📝 **[How to Build an Agent](https://ampcode.com/how-to-build-an-agent)** | **ampcode.com** | Thorsten Ball's demystification of the inner agent loop: a model, a loop, and enough tokens. | **Practitioner analysis** |
 | 📝 **[Agentic Coding Recommendations](https://lucumr.pocoo.org/2025/6/12/agentic-coding/)** | **2025** · Armin Ronacher's Thoughts and Writings | Armin Ronacher's field notes on which practices hold up when agents do most of the work. | **Practitioner analysis** |
-| 📝 **[Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101)** | **devin.ai** | Practical delegation guidance from the Devin team on scoping tasks agents can actually finish. | **Practitioner analysis** ‡ |
+| 📝 **[Coding Agents 101: The Art of Actually Getting Things Done](https://devin.ai/agents101)** | **Devin** | Practical delegation guidance from the Devin team on scoping tasks agents can actually finish. | **Practitioner analysis** |
 | 📝 **[How Anthropic teams use Claude Code](https://claude.com/blog/how-anthropic-teams-use-claude-code)** | **Claude** | Cross-team field report of real recurring agent workflows in engineering, security, and data science. | **Practitioner analysis** |
 | 📝 **[How Boris Uses Claude Code](https://howborisusesclaudecode.com/)** | **How Boris Uses Claude Code**<br><sub>@CarolinaCherry</sub> | Unofficial but concrete compilation of Boris Cherny's autonomous setups: parallel worktrees, auto mode, `/loop`, `/schedule`, dynamic workflows, and `/goal` completion conditions. | **Practitioner analysis** |
 | 📝 **[Agent of the Day: Copilot Agent PR Analysis](https://github.github.com/gh-aw/blog/2026-05-26-agent-of-the-day/)** | **2026** · GitHub Agentic Workflows | Official walkthrough of a daily scheduled agentic workflow that ingests PR data, analyzes it, and publishes findings to a Discussion, a concrete recurring loop with trigger, intake, analysis, and output. | **Practitioner analysis** |
@@ -1673,7 +1678,7 @@ Skeptical takes and measured failure modes, because a loop that cannot fail safe
 | --- | --- | --- | --- |
 | ⚠️ **[Most Developers Do Not Need Agent Loops Yet](https://alphasignalai.substack.com/p/most-developers-do-not-need-agent)** | **Substack**<br><sub>AlphaSignal AI</sub> | Useful caution against adopting loops before the task, signal, and economics justify them. | **Risk analysis** |
 | ⚠️ **[Engineering Agentic Systems for Reliability](https://pruningmypothos.com/systems/engineering-agentic-systems-for-reliability/)** | **Pruning My Pothos**<br><sub>Shailesh Rawat</sub> | Cautions that agentic systems fail at boundaries when permissions, verification, traceability, and escalation are weak. | **Risk analysis** |
-| ⚠️ **[Self-Correcting Agents: Reflexion, CRITIC, and ReAct Loops Compared](https://callsphere.ai/blog/self-correcting-agents-reflexion-critic-react-loops-compared-2026)** | **callsphere.ai** | Compares self-correction patterns and their cost/failure tradeoffs. | **Risk analysis** ‡ |
+| ⚠️ **[Self-Correcting Agents: Reflexion, CRITIC, and ReAct Loops Compared](https://callsphere.ai/blog/self-correcting-agents-reflexion-critic-react-loops-compared-2026)** | **2026** · CallSphere<br><sub>CallSphere</sub> | Compares self-correction patterns and their cost/failure tradeoffs. | **Risk analysis** |
 | ⚠️ **[How to Build an AI Agent Harness: A 2026 Complete Guide](https://atlan.com/know/how-to-build-ai-agent-harness/)** | **atlan.com** | Broad guide with useful warnings on data readiness, permissions, context management, and evaluation. | **Risk analysis** |
 | ⚠️ **[Harness Engineering vs Prompt Engineering vs Context Engineering Explained](https://medium.com/@visrow/harness-engineering-vs-prompt-engineering-vs-context-engineering-explained-0423b692c87d)** | **Medium** | Adjacent framing that helps avoid confusing loop engineering with the surrounding harness discipline. | **Risk analysis** ‡ |
 | 📄 **[Position: Coding Benchmarks Are Misaligned with Agentic Software Engineering](https://arxiv.org/abs/2606.17799)** | **2026** · arXiv<br><sub>Maria I. Gorinova et al.</sub> | Argues benchmark scores conflate the model with the harness and penalize valid alternatives, so headline numbers hide which loop and harness choices actually move performance. | **Research preprint** |
@@ -1733,6 +1738,7 @@ Skeptical takes and measured failure modes, because a loop that cannot fail safe
 | 📄 **[Safeguards Based on Copyable Context Cannot Provide Reliable Safety for LLMs](https://arxiv.org/abs/2607.27951)** | **2026** · arXiv<br><sub>Pingyu Wu et al.</sub> | Submitted 2026-07-30. An impossibility argument aimed squarely at the standard loop-safety design: if the evidence a safeguard uses (system prompt, conversation history, stated role) is copyable, an attacker can imitate it. | **Research preprint** |
 | 📄 **[Do Context Files Help Coding Agents? A Two-Agent Ablation Study on Real Repositories](https://arxiv.org/abs/2607.27250)** | **2026** · arXiv<br><sub>Prakhar Khatri</sub> | Submitted 2026-07-28. Controlled ablation of AGENTS.md / CLAUDE.md context files across two frontier agents, 17 real repository tasks, and 288 evaluated runs. Finding: context strategy does not measurably move correctness on either agent, and failures are dominated by implementation difficulty rather than missing repo knowledge. | **Research preprint** |
 | 📄 **[AI Agents Push Humans Out of the Loop](https://arxiv.org/abs/2608.23642)** | **2026** · arXiv<br><sub>Margaret Mitchell et al.</sub> | Position paper against treating human oversight as a free mitigation. Argues current agent designs both impede oversight and erode the cognitive capacity it depends on through extended use, so keeping a human in the loop degrades over time unless the system is built around what an overseer actually needs. | **Research preprint** |
+| 📄 **[The Missing Boundary: How Autonomous Agents Lose Control](https://arxiv.org/abs/2609.11024)** | **2026** · arXiv<br><sub>Zonghao Ying et al.</sub> | Asks when an agent crosses the boundary of authorized execution while pursuing a legitimate task, rather than under attack or conflicting goals. Varies goal pressure, control degradation, and the availability of an executable unsafe action independently, locating loss of control inside ordinary execution. | **Research preprint** |
 
 ## Future Directions
 
@@ -1776,7 +1782,7 @@ Browse interactively, query structured exports, or reuse the publishing componen
 
 | Resource | Published at | Contribution | Evidence |
 | --- | --- | --- | --- |
-| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 1007 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
+| 🧾 **[Resource Atlas](https://chaoyue0307.github.io/awesome-loop-engineering/)** | **chaoyue0307.github.io** | Filter 1013 resources by goal, loop layer, lifecycle stage, artifact type, evidence class, and search query. | **Reusable artifact** |
 | 🧭 **[Hugging Face dataset](https://huggingface.co/datasets/cy0307/awesome-loop-engineering)** | **Hugging Face** | Query the full collection as generated CSV and JSONL tables with publication, evidence, and lifecycle fields. | **Discovery index** |
 | 🧾 **[Dataset export guide](data/README.md)** | **2026** · GitHub<br><sub>Project documentation</sub> | Load, query, regenerate, and audit the CSV, JSONL, and Resource Atlas data. | **Project artifact** |
 | 🧾 **[Runtime selection guide](meta/RUNTIME_SELECTION.md)** | **2026** · GitHub<br><sub>Project operations guide</sub> | Compare session, scheduled, CI, cron, and durable runtimes by persistence, isolation, permissions, and state. | **Project artifact** |
