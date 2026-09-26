@@ -42,12 +42,10 @@
   "https://adk.dev/sessions/": "2026-07-17",
   "https://docs.langchain.com/oss/python/langgraph/persistence": "2026-07-17",
   "https://learn.microsoft.com/en-us/agent-framework/workflows/checkpoints": "2026-07-17",
-  "https://strandsagents.com/docs/user-guide/concepts/agents/state/": "2026-07-17",
   "https://arxiv.org/abs/2607.13591": "2026-07-17",
   "https://arxiv.org/abs/2607.14390": "2026-07-17",
   "https://adk.dev/graphs/": "2026-07-17",
   "https://docs.crewai.com/en/concepts/flows": "2026-07-17",
-  "https://strandsagents.com/docs/user-guide/concepts/multi-agent/graph/": "2026-07-17",
   "https://arxiv.org/abs/2607.13396": "2026-07-17",
   "https://arxiv.org/abs/2607.14642": "2026-07-17",
   "https://arxiv.org/abs/2607.15205": "2026-07-17",
@@ -538,5 +536,10 @@
   "https://arxiv.org/abs/2609.17817": "2026-09-21",
   "https://arxiv.org/abs/2609.18304": "2026-09-21",
   "https://arxiv.org/abs/2609.16305": "2026-09-21",
-  "https://arxiv.org/abs/2609.19759": "2026-09-21"
+  "https://arxiv.org/abs/2609.19759": "2026-09-21",
+  "https://arxiv.org/abs/2609.29095": "2026-09-27",
+  "https://arxiv.org/abs/2609.26048": "2026-09-27",
+  "https://arxiv.org/abs/2609.25686": "2026-09-27",
+  "https://strandsagents.com/docs/user-guide/sdk/agents/state/": "2026-07-17",
+  "https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/": "2026-07-17"
 }
