@@ -71,6 +71,18 @@ When evidence conflicts:
 1. omit a date, venue, author, or metric rather than infer it from an unreliable source;
 1. record the correction in the next release notes when it changes the meaning of an entry.
 
+## Fixed Size And Replacement
+
+The English README is held near a fixed size rather than growing with the field. GitHub stops rendering a README after 500 KiB, and `scripts/render_readme_tables.py` enforces a lower budget with a margin below that limit. When the budget is reached, a new resource enters only by replacing an existing one, so the list stays a selection rather than an archive.
+
+A row is retired when a stronger source in the same section already covers its ground. `scripts/rank_swap_candidates.py` proposes candidates: external resources marked contextual whose nearest same-section neighbour, by title and annotation similarity, carries stronger evidence. The script never edits anything, because similarity also picks up shared wording between unrelated resources. Each proposal is checked by hand, and a row is retired only when it is:
+
+1. a summary or restatement of a primary source that is already listed;
+1. one of several entries on the same event or release, where the primary record, an independent analysis, and any entry with a distinct angle are kept;
+1. superseded by a later version, update, or fuller treatment from the same source.
+
+Structural sections and deliberately curated sections are not candidates: the model-layer foundation, adjacent lists, start-here reading, concept guides, patterns, templates, examples, and the gallery. Retiring a row is a curation decision about duplication, not a judgment that the source is wrong; the commit that retires it names the entry that covers it.
+
 ## Source Checks And Versioning
 
 `data/resource_source_audit.csv` records a point-in-time source check. `data/resources.csv` and `data/resources.jsonl` are deterministic exports of the full English guide enriched with those results. GitHub Releases identify versioned snapshots; downstream users should cite a release or commit when reproducibility matters.

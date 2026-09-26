@@ -211,8 +211,6 @@
   "https://code.claude.com/docs/en/claude-security": "2026-07-24",
   "https://github.blog/changelog/2026-07-23-agent-automation-controls-in-github-issues-in-public-preview": "2026-07-24",
   "https://github.blog/changelog/2026-07-23-copilot-cloud-agent-for-linear-is-now-generally-available": "2026-07-24",
-  "https://simonwillison.net/2026/Jul/22/openai-cyberattack/": "2026-07-24",
-  "https://martinalderson.com/posts/huggingface-openai-exploit/": "2026-07-24",
   "https://github.com/block/buzz": "2026-07-24",
   "https://github.com/Kritt-ai/open-kritt": "2026-07-24",
   "https://github.com/risa-labs-inc/BossConsole": "2026-07-24",
@@ -236,7 +234,6 @@
   "https://github.com/plasma-ai/fractal": "2026-07-25",
   "https://github.com/finna/Finn-loop": "2026-07-25",
   "https://github.com/earendil-works/pi-review-loop": "2026-07-25",
-  "https://adversa.ai/blog/openai-ai-agent-sandbox-escape-hugging-face-breach/": "2026-07-28",
   "https://arxiv.org/abs/2607.21832": "2026-07-28",
   "https://arxiv.org/abs/2607.21735": "2026-07-28",
   "https://huggingface.co/blog/security-incident-july-2026": "2026-07-28",
@@ -541,5 +538,9 @@
   "https://arxiv.org/abs/2609.26048": "2026-09-27",
   "https://arxiv.org/abs/2609.25686": "2026-09-27",
   "https://strandsagents.com/docs/user-guide/sdk/agents/state/": "2026-07-17",
-  "https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/": "2026-07-17"
+  "https://strandsagents.com/docs/user-guide/sdk/multi-agent/graph/": "2026-07-17",
+  "https://arxiv.org/abs/2609.16073": "2026-09-27",
+  "https://arxiv.org/abs/2609.29144": "2026-09-27",
+  "https://arxiv.org/abs/2609.26760": "2026-09-27",
+  "https://arxiv.org/abs/2609.24663": "2026-09-27"
 }
