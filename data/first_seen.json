@@ -55,7 +55,6 @@
   "https://arxiv.org/abs/2607.14004": "2026-07-17",
   "https://arxiv.org/abs/2607.14713": "2026-07-17",
   "https://arxiv.org/abs/2605.27276": "2026-07-18",
-  "https://github.com/microsoft/Webwright": "2026-07-18",
   "https://arxiv.org/abs/2603.02798": "2026-07-18",
   "https://doi.org/10.1145/3805760.3814895": "2026-07-18",
   "https://aclanthology.org/2026.acl-long.431/": "2026-07-18",
@@ -542,5 +541,11 @@
   "https://arxiv.org/abs/2609.16073": "2026-09-27",
   "https://arxiv.org/abs/2609.29144": "2026-09-27",
   "https://arxiv.org/abs/2609.26760": "2026-09-27",
-  "https://arxiv.org/abs/2609.24663": "2026-09-27"
+  "https://arxiv.org/abs/2609.24663": "2026-09-27",
+  "https://arxiv.org/abs/2610.22987": "2026-10-23",
+  "https://arxiv.org/abs/2610.29869": "2026-10-23",
+  "https://arxiv.org/abs/2610.04433": "2026-10-23",
+  "https://arxiv.org/abs/2610.15093": "2026-10-23",
+  "https://arxiv.org/abs/2610.28667": "2026-10-23",
+  "https://github.com/microsoft/CUAWright": "2026-07-18"
 }

@@ -9,6 +9,7 @@ import csv
 import html
 import json
 import re
+import shutil
 import ssl
 import subprocess
 import sys
@@ -855,6 +856,16 @@ def enrich_github(rows: list[dict[str, str]], timeout: float, use_gh_cli: bool) 
     stats = {repo: github_stats(repo, timeout=timeout, use_gh_cli=use_gh_cli) for repo in repos}
     for row in rows:
         row.update(stats.get(row["github_repo"], {}))
+    # Unauthenticated GitHub API calls are limited to 60 an hour, and a failed call returns empty
+    # stats rather than raising. Two audits in September 2026 wrote blank stars and licenses for
+    # every listed repository this way without any sign of it, so report the gap loudly.
+    missing = [repo for repo, values in stats.items() if not values]
+    if repos and missing:
+        print(
+            f"warning: GitHub stats missing for {len(missing)} of {len(repos)} repositories"
+            + ("" if use_gh_cli else "; run with --github-cli, as unauthenticated calls are rate limited"),
+            file=sys.stderr,
+        )
 
 
 def fetch_arxiv_batch(arxiv_ids: list[str], timeout: float, attempts: int) -> dict[str, dict[str, str]]:
@@ -1023,7 +1034,11 @@ def main() -> int:
     parser.add_argument("--timeout", type=float, default=10.0)
     parser.add_argument("--workers", type=int, default=12)
     parser.add_argument("--attempts", type=int, default=2)
-    parser.add_argument("--github-cli", action="store_true", help="use authenticated gh api calls for GitHub repo stats")
+    parser.add_argument(
+        "--github-cli",
+        action="store_true",
+        help="use authenticated gh api calls for GitHub repo stats (used automatically when gh is installed)",
+    )
     parser.add_argument("--fail-on-broken", action="store_true")
     parser.add_argument(
         "--apply-publication-overlay-only",
@@ -1052,7 +1067,7 @@ def main() -> int:
         audited = [check.result() for check in futures.as_completed(checks)]
 
     audited.sort(key=lambda row: row["row_id"])
-    enrich_github(audited, timeout=args.timeout, use_gh_cli=args.github_cli)
+    enrich_github(audited, timeout=args.timeout, use_gh_cli=args.github_cli or shutil.which("gh") is not None)
     enrich_arxiv(audited, timeout=max(args.timeout, 20.0), attempts=args.attempts)
     finalize_publication_metadata(audited)
     apply_arxiv_publication_overlay(audited)

@@ -134,17 +134,14 @@ def publication_cell(row: dict[str, str]) -> str:
             details.append(repository_artifact_label(row["url"]))
     elif github_repo.lower() == PROJECT_GITHUB_REPO:
         source = row["publication_venue"] or row["publisher"] or "GitHub"
-        license_id = row["github_license"]
-        if license_id and license_id != "NOASSERTION":
-            details.append(f"License: {license_id}")
     elif github_repo:
         source = row["publisher"] or "GitHub"
         owner, separator, repository = github_repo.partition("/")
         owner = GITHUB_OWNER_LABELS.get(owner, owner)
+        # Licenses stay in the dataset and Resource Atlas with the other repository statistics.
+        # Rendering them here cost about 2.3 KB against the GitHub render budget, and they
+        # appeared or vanished between audits depending on GitHub API rate limits.
         details.append(f"{owner}{separator}{repository}")
-        license_id = row["github_license"]
-        if license_id and license_id != "NOASSERTION":
-            details.append(f"License: {license_id}")
     else:
         source = row["publication_venue"] or row["publisher"] or row["domain"] or "Source not stated"
         if resource_type in {"Paper", "Benchmark", "Blog", "Critique"}:
