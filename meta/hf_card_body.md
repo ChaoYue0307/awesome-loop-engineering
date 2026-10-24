@@ -175,12 +175,15 @@ Everything here starts life in the GitHub repository — the dataset, the atlas,
 
 ## Citation
 
+Every release is archived on Zenodo under [DOI 10.5281/zenodo.23617324](https://doi.org/10.5281/zenodo.23617324), which always resolves to the latest version.
+
 ```bibtex
 @misc{chaoyue2026awesome_loop_engineering,
   author       = {He, Chaoyue},
   title        = {Awesome Loop Engineering},
   year         = {2026},
+  doi          = {10.5281/zenodo.23617324},
   howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}},
-  note         = {Version {{VERSION}}}
+  note         = {Field guide and implementation kit for Loop Engineering, version {{VERSION}}}
 }
 ```

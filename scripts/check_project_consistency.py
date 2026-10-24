@@ -207,8 +207,23 @@ def main() -> int:
     if site_payload.get("count") != int(count) or len(site_payload.get("resources", [])) != int(count):
         failures.append("docs/assets/resources.json: count or resources array is stale")
 
-    _, card_failures = render_card()
+    card, card_failures = render_card()
     failures.extend(card_failures)
+
+    # CITATION.bib is the one citation entry. It must carry the Zenodo concept DOI and release
+    # version from CITATION.cff, and every surface that prints it must print it verbatim.
+    doi_match = re.search(r'^doi:\s*"?([^"\s]+)"?\s*$', (ROOT / "CITATION.cff").read_text(encoding="utf-8"), re.MULTILINE)
+    if doi_match is None:
+        failures.append("CITATION.cff: missing doi")
+    else:
+        require(ROOT / "CITATION.bib", [f"doi          = {{{doi_match.group(1)}}}"], failures)
+    require(ROOT / "CITATION.bib", [f"version {version}}}"], failures)
+    bibtex = (ROOT / "CITATION.bib").read_text(encoding="utf-8").strip()
+    for surface in (ROOT / "README.md", ROOT / "docs" / "index.html"):
+        if bibtex not in surface.read_text(encoding="utf-8"):
+            failures.append(f"{surface.relative_to(ROOT)}: BibTeX entry differs from CITATION.bib")
+    if bibtex not in card:
+        failures.append("meta/hf_card_body.md: BibTeX entry differs from CITATION.bib")
 
     if failures:
         print("Project consistency check failed:", file=sys.stderr)

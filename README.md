@@ -1883,13 +1883,16 @@ Good submissions should answer three questions:
 
 ## Citation
 
-Cite the field guide with:
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23617324.svg)](https://doi.org/10.5281/zenodo.23617324)
+
+Every release is archived on Zenodo, and this DOI always resolves to the latest one. Cite the field guide with:
 
 ```bibtex
 @misc{chaoyue2026awesome_loop_engineering,
   author       = {He, Chaoyue},
   title        = {Awesome Loop Engineering},
   year         = {2026},
+  doi          = {10.5281/zenodo.23617324},
   howpublished = {\url{https://github.com/ChaoYue0307/awesome-loop-engineering}},
   note         = {Field guide and implementation kit for Loop Engineering, version 0.11.0}
 }
