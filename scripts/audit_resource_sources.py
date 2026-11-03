@@ -328,15 +328,6 @@ PUBLICATION_OVERRIDES = {
         "publication_note": "Version 2; the primary source states that this preprint is not peer-reviewed.",
         "metadata_source": "primary-page",
     },
-    "https://resources.anthropic.com/hubfs/Building%20Effective%20AI%20Agents-%20Architecture%20Patterns%20and%20Implementation%20Frameworks.pdf": {
-        "authors": "Anthropic",
-        "publication_date": "2025-12-03",
-        "publication_year": "2025",
-        "publication_venue": "Anthropic eBook",
-        "publisher": "Anthropic",
-        "publication_note": "Date verified from the primary PDF creation metadata.",
-        "metadata_source": "pdf-metadata",
-    },
     "https://adk.dev/evaluate/": {
         "authors": "Google Agent Development Kit",
         "publication_venue": "Google Agent Development Kit",
